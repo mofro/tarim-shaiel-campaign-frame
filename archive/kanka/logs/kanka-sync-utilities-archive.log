@@ -1,0 +1,348 @@
+2026-01-25 22:03:04,918 [INFO] [DRY RUN] Would sync: samarkand.md → location
+2026-01-25 22:03:04,919 [INFO] [DRY RUN] Would sync: kucha.md → location
+2026-01-25 22:03:04,919 [INFO] [DRY RUN] Would sync: yarkand.md → location
+2026-01-25 22:03:04,919 [INFO] [DRY RUN] Would sync: tashkent.md → location
+2026-01-25 22:03:04,920 [INFO] [DRY RUN] Would sync: shorchuk.md → location
+2026-01-25 22:03:04,920 [INFO] [DRY RUN] Would sync: niya-outer-fields.md → location
+2026-01-25 22:03:04,920 [INFO] [DRY RUN] Would sync: balkh.md → location
+2026-01-25 22:03:04,920 [INFO] [DRY RUN] Would sync: miran.md → location
+2026-01-25 22:03:04,921 [INFO] [DRY RUN] Would sync: maralbashi.md → location
+2026-01-25 22:03:04,921 [INFO] [DRY RUN] Would sync: merv.md → location
+2026-01-25 22:03:04,921 [INFO] [DRY RUN] Would sync: zzkashkar.md → location
+2026-01-25 22:03:04,922 [INFO] [DRY RUN] Would sync: alak-mor.md → location
+2026-01-25 22:03:04,922 [INFO] [DRY RUN] Would sync: black-timber-post.md → location
+2026-01-25 22:03:04,922 [INFO] [DRY RUN] Would sync: wind-cut-narrows.md → location
+2026-01-25 22:03:04,922 [INFO] [DRY RUN] Would sync: isyk-zhel.md → location
+2026-01-25 22:03:04,923 [INFO] [DRY RUN] Would sync: khotan.md → location
+2026-01-25 22:03:04,923 [INFO] [DRY RUN] Would sync: dun-kharan.md → location
+2026-01-25 22:03:04,923 [INFO] [DRY RUN] Would sync: stone-ledger-gate.md → location
+2026-01-25 22:03:04,924 [INFO] [DRY RUN] Would sync: kashkar.md → location
+2026-01-25 22:03:04,924 [INFO] [DRY RUN] Would sync: dunhuang.md → location
+2026-01-25 22:03:04,924 [INFO] [DRY RUN] Would sync: chang-an.md → location
+2026-01-25 22:03:04,924 [INFO] [DRY RUN] Would sync: salt-reed-oasis.md → location
+2026-01-25 22:03:04,925 [INFO] [DRY RUN] Would sync: caravan-crypt.md → location
+2026-01-25 22:03:04,925 [INFO] [DRY RUN] Would sync: miran-temple-district.md → location
+2026-01-25 22:03:04,925 [INFO] [DRY RUN] Would sync: buried-lens.md → location
+2026-01-25 22:03:04,925 [INFO] [DRY RUN] Would sync: jade-gate.md → location
+2026-01-25 22:03:04,925 [INFO] [DRY RUN] Would sync: cherchen.md → location
+2026-01-25 22:03:04,926 [INFO] [DRY RUN] Would sync: balkh-kamen.md → location
+2026-01-25 22:03:04,926 [INFO] [DRY RUN] Would sync: endere.md → location
+2026-01-25 22:03:04,926 [INFO] [DRY RUN] Would sync: anvil-sunder-switchbacks.md → location
+2026-01-25 22:03:04,926 [INFO] [DRY RUN] Would sync: tarim-shaiel.md → location
+2026-01-25 22:03:04,927 [INFO] [DRY RUN] Would sync: turfan.md → location
+2026-01-25 22:03:04,927 [INFO] [DRY RUN] Would sync: aksu.md → location
+2026-01-25 22:03:04,927 [INFO] [DRY RUN] Would sync: charklik.md → location
+2026-01-25 22:03:04,927 [INFO] [DRY RUN] Would sync: yumen-waystation.md → location
+2026-01-25 22:03:04,927 [INFO] [DRY RUN] Would sync: niya.md → location
+2026-01-25 22:03:04,928 [INFO] [DRY RUN] Would sync: bukhara.md → location
+2026-01-25 22:03:04,928 [ERROR] Failed to sync /Users/mo/Documents/Games/HeroHeaven/World/Regions/_TEMPLATE_region.md: while constructing a mapping
+  in "<unicode string>", line 9, column 10
+found unhashable key
+  in "<unicode string>", line 9, column 11
+2026-01-25 22:03:04,928 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:03:04,928 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:03:04,928 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:03:04,929 [INFO] [DRY RUN] Would sync: CHARM_SYSTEM_ANALYSIS.md → note
+2026-01-25 22:03:04,929 [INFO] [DRY RUN] Would sync: TOOL_EVOLUTION_FRAMEWORK.md → note
+2026-01-25 22:03:04,930 [INFO] [DRY RUN] Would sync: CHARACTER_CREATION_SEQUENCE.md → note
+2026-01-25 22:03:04,930 [INFO] [DRY RUN] Would sync: DECISION_LOG.md → note
+2026-01-25 22:03:04,930 [INFO] [DRY RUN] Would sync: SPELL_RESKIN_TRACKER.md → note
+2026-01-25 22:03:04,930 [INFO] [DRY RUN] Would sync: SPELLS_VS_CHARMS_ANALYSIS.md → note
+2026-01-25 22:03:04,930 [INFO] [DRY RUN] Would sync: CELESTIAL_DICE_MECHANICS.md → note
+2026-01-25 22:03:04,931 [INFO] [DRY RUN] Would sync: COMPLETE_CHARM_REFERENCE.md → note
+2026-01-25 22:03:04,931 [INFO] [DRY RUN] Would sync: CHARM_TEMPLATE.md → note
+2026-01-25 22:03:04,932 [INFO] [DRY RUN] Would sync: CHARM_SYSTEM_ANALYSIS.md → note
+2026-01-25 22:03:04,932 [INFO] [DRY RUN] Would sync: README.md → note
+2026-01-25 22:03:04,932 [INFO] [DRY RUN] Would sync: INDEX.md → note
+2026-01-25 22:03:04,932 [INFO] [DRY RUN] Would sync: CHARM_ACCESSIBILITY_MATRIX.md → note
+2026-01-25 22:03:04,933 [INFO] [DRY RUN] Would sync: charm_template.md → note
+2026-01-25 22:03:04,933 [INFO] [DRY RUN] Would sync: example_oxbody_charm.md → note
+2026-01-25 22:03:04,933 [INFO] [DRY RUN] Would sync: example_grace_domain.md → note
+2026-01-25 22:03:04,934 [INFO] [DRY RUN] Would sync: example_bridge_diplomatic_resonance.md → note
+2026-01-25 22:03:04,934 [INFO] [DRY RUN] Would sync: exalted_charm_template.md → note
+2026-01-25 22:03:04,934 [INFO] [DRY RUN] Would sync: environment_template.md → note
+2026-01-25 22:03:04,935 [INFO] [DRY RUN] Would sync: character_template.md → note
+2026-01-25 22:03:04,935 [INFO] [DRY RUN] Would sync: session_template.md → note
+2026-01-25 22:03:04,935 [INFO] [DRY RUN] Would sync: domain_template.md → note
+2026-01-25 22:03:04,935 [INFO] [DRY RUN] Would sync: hero_heaven_charm_template.md → note
+2026-01-25 22:03:04,936 [INFO] [DRY RUN] Would sync: adversary_template.md → note
+2026-01-25 22:03:04,936 [INFO] 
+==================================================
+2026-01-25 22:03:04,936 [INFO] Sync complete: 61 synced, 1 failed, 0 skipped
+2026-01-25 22:03:04,936 [INFO] ==================================================
+
+2026-01-25 22:12:19,107 [INFO] [DRY RUN] Would sync: turfan.md → location (private=False)
+2026-01-25 22:12:19,109 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:12:19,109 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:12:19,109 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:12:19,114 [INFO] 
+==================================================
+2026-01-25 22:12:19,114 [INFO] Sync complete:
+2026-01-25 22:12:19,114 [INFO]   1 files synced
+2026-01-25 22:12:19,114 [INFO]   60 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 22:12:19,114 [INFO]   1 files failed
+2026-01-25 22:12:19,114 [INFO]   0 files skipped (excluded)
+2026-01-25 22:12:19,114 [INFO] ==================================================
+
+2026-01-25 22:13:34,137 [INFO] ✓ Created: turfan.md (ID: 1970042)
+2026-01-25 22:13:34,143 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:13:34,143 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:13:34,143 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:13:34,149 [INFO] 
+==================================================
+2026-01-25 22:13:34,149 [INFO] Sync complete:
+2026-01-25 22:13:34,149 [INFO]   1 files synced
+2026-01-25 22:13:34,149 [INFO]   60 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 22:13:34,149 [INFO]   1 files failed
+2026-01-25 22:13:34,149 [INFO]   0 files skipped (excluded)
+2026-01-25 22:13:34,149 [INFO] ==================================================
+
+2026-01-25 22:39:38,611 [INFO] [DRY RUN] Would sync: turfan.md → location (private=False)
+2026-01-25 22:39:38,613 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:39:38,613 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:39:38,613 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:39:38,620 [INFO] 
+==================================================
+2026-01-25 22:39:38,620 [INFO] Sync complete:
+2026-01-25 22:39:38,620 [INFO]   1 files synced
+2026-01-25 22:39:38,620 [INFO]   60 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 22:39:38,620 [INFO]   1 files failed
+2026-01-25 22:39:38,620 [INFO]   0 files skipped (excluded)
+2026-01-25 22:39:38,620 [INFO] ==================================================
+
+2026-01-25 22:40:23,995 [INFO] ✓ Created: turfan.md (ID: 1970045)
+2026-01-25 22:40:24,004 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:40:24,004 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:40:24,004 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:40:24,015 [INFO] 
+==================================================
+2026-01-25 22:40:24,015 [INFO] Sync complete:
+2026-01-25 22:40:24,015 [INFO]   1 files synced
+2026-01-25 22:40:24,015 [INFO]   60 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 22:40:24,015 [INFO]   1 files failed
+2026-01-25 22:40:24,015 [INFO]   0 files skipped (excluded)
+2026-01-25 22:40:24,015 [INFO] ==================================================
+
+2026-01-25 22:42:48,905 [INFO] [DRY RUN] Would sync: turfan.md → location (private=False)
+2026-01-25 22:42:48,908 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:42:48,908 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:42:48,908 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:42:48,964 [INFO] 
+==================================================
+2026-01-25 22:42:48,964 [INFO] Sync complete:
+2026-01-25 22:42:48,964 [INFO]   1 files synced
+2026-01-25 22:42:48,964 [INFO]   60 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 22:42:48,964 [INFO]   1 files failed
+2026-01-25 22:42:48,964 [INFO]   0 files skipped (excluded)
+2026-01-25 22:42:48,964 [INFO] ==================================================
+
+2026-01-25 22:43:04,038 [INFO] ✓ Updated: turfan.md (ID: 1970045)
+2026-01-25 22:43:04,052 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:43:04,052 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:43:04,052 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:43:04,121 [INFO] 
+==================================================
+2026-01-25 22:43:04,121 [INFO] Sync complete:
+2026-01-25 22:43:04,121 [INFO]   1 files synced
+2026-01-25 22:43:04,121 [INFO]   60 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 22:43:04,121 [INFO]   1 files failed
+2026-01-25 22:43:04,121 [INFO]   0 files skipped (excluded)
+2026-01-25 22:43:04,121 [INFO] ==================================================
+
+2026-01-25 22:44:12,690 [INFO] ✓ Updated: turfan.md (ID: 1970045)
+2026-01-25 22:44:12,704 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:44:12,704 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:44:12,704 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:44:12,773 [INFO] 
+==================================================
+2026-01-25 22:44:12,773 [INFO] Sync complete:
+2026-01-25 22:44:12,773 [INFO]   1 files synced
+2026-01-25 22:44:12,773 [INFO]   60 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 22:44:12,773 [INFO]   1 files failed
+2026-01-25 22:44:12,773 [INFO]   0 files skipped (excluded)
+2026-01-25 22:44:12,773 [INFO] ==================================================
+
+2026-01-25 22:59:21,705 [INFO] [DRY RUN] Would sync: samarkand.md → location (private=False)
+2026-01-25 22:59:21,707 [INFO] [DRY RUN] Would sync: kucha.md → location (private=False)
+2026-01-25 22:59:21,708 [INFO] [DRY RUN] Would sync: yarkand.md → location (private=False)
+2026-01-25 22:59:21,710 [INFO] [DRY RUN] Would sync: tashkent.md → location (private=False)
+2026-01-25 22:59:21,711 [INFO] [DRY RUN] Would sync: shorchuk.md → location (private=False)
+2026-01-25 22:59:21,711 [INFO] [DRY RUN] Would sync: niya-outer-fields.md → location (private=False)
+2026-01-25 22:59:21,713 [INFO] [DRY RUN] Would sync: balkh.md → location (private=False)
+2026-01-25 22:59:21,714 [INFO] [DRY RUN] Would sync: miran.md → location (private=False)
+2026-01-25 22:59:21,716 [INFO] [DRY RUN] Would sync: maralbashi.md → location (private=False)
+2026-01-25 22:59:21,717 [INFO] [DRY RUN] Would sync: merv.md → location (private=False)
+2026-01-25 22:59:21,718 [INFO] [DRY RUN] Would sync: zzkashkar.md → location (private=False)
+2026-01-25 22:59:21,719 [INFO] [DRY RUN] Would sync: alak-mor.md → location (private=False)
+2026-01-25 22:59:21,720 [INFO] [DRY RUN] Would sync: black-timber-post.md → location (private=False)
+2026-01-25 22:59:21,720 [INFO] [DRY RUN] Would sync: wind-cut-narrows.md → location (private=False)
+2026-01-25 22:59:21,721 [INFO] [DRY RUN] Would sync: isyk-zhel.md → location (private=False)
+2026-01-25 22:59:21,723 [INFO] [DRY RUN] Would sync: khotan.md → location (private=False)
+2026-01-25 22:59:21,724 [INFO] [DRY RUN] Would sync: dun-kharan.md → location (private=False)
+2026-01-25 22:59:21,724 [INFO] [DRY RUN] Would sync: stone-ledger-gate.md → location (private=False)
+2026-01-25 22:59:21,726 [INFO] [DRY RUN] Would sync: kashkar.md → location (private=False)
+2026-01-25 22:59:21,727 [INFO] [DRY RUN] Would sync: dunhuang.md → location (private=False)
+2026-01-25 22:59:21,729 [INFO] [DRY RUN] Would sync: chang-an.md → location (private=False)
+2026-01-25 22:59:21,730 [INFO] [DRY RUN] Would sync: salt-reed-oasis.md → location (private=False)
+2026-01-25 22:59:21,731 [INFO] [DRY RUN] Would sync: caravan-crypt.md → location (private=False)
+2026-01-25 22:59:21,731 [INFO] [DRY RUN] Would sync: miran-temple-district.md → location (private=False)
+2026-01-25 22:59:21,732 [INFO] [DRY RUN] Would sync: buried-lens.md → location (private=False)
+2026-01-25 22:59:21,733 [INFO] [DRY RUN] Would sync: jade-gate.md → location (private=False)
+2026-01-25 22:59:21,735 [INFO] [DRY RUN] Would sync: cherchen.md → location (private=False)
+2026-01-25 22:59:21,736 [INFO] [DRY RUN] Would sync: balkh-kamen.md → location (private=False)
+2026-01-25 22:59:21,737 [INFO] [DRY RUN] Would sync: endere.md → location (private=False)
+2026-01-25 22:59:21,737 [INFO] [DRY RUN] Would sync: anvil-sunder-switchbacks.md → location (private=False)
+2026-01-25 22:59:21,738 [INFO] [DRY RUN] Would sync: tarim-shaiel.md → location (private=False)
+2026-01-25 22:59:21,740 [INFO] [DRY RUN] Would sync: turfan.md → location (private=False)
+2026-01-25 22:59:21,741 [INFO] [DRY RUN] Would sync: aksu.md → location (private=False)
+2026-01-25 22:59:21,742 [INFO] [DRY RUN] Would sync: charklik.md → location (private=False)
+2026-01-25 22:59:21,742 [INFO] [DRY RUN] Would sync: yumen-waystation.md → location (private=False)
+2026-01-25 22:59:21,744 [INFO] [DRY RUN] Would sync: niya.md → location (private=False)
+2026-01-25 22:59:21,745 [INFO] [DRY RUN] Would sync: bukhara.md → location (private=False)
+2026-01-25 22:59:21,745 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 22:59:21,745 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 22:59:21,745 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 22:59:21,798 [INFO] 
+==================================================
+2026-01-25 22:59:21,798 [INFO] Sync complete:
+2026-01-25 22:59:21,798 [INFO]   37 files synced
+2026-01-25 22:59:21,798 [INFO]   24 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 22:59:21,798 [INFO]   1 files failed
+2026-01-25 22:59:21,798 [INFO]   0 files skipped (excluded)
+2026-01-25 22:59:21,798 [INFO] ==================================================
+
+2026-01-25 22:59:34,670 [INFO] ✓ Created: samarkand.md (ID: 1970053)
+2026-01-25 22:59:35,898 [INFO] ✓ Created: kucha.md (ID: 1970054)
+2026-01-25 22:59:37,017 [INFO] ✓ Created: yarkand.md (ID: 1970055)
+2026-01-25 22:59:38,153 [INFO] ✓ Created: tashkent.md (ID: 1970056)
+2026-01-25 22:59:39,278 [INFO] ✓ Created: shorchuk.md (ID: 1970057)
+2026-01-25 22:59:40,402 [INFO] ✓ Created: niya-outer-fields.md (ID: 1970058)
+2026-01-25 22:59:41,475 [INFO] ✓ Created: balkh.md (ID: 1970059)
+2026-01-25 22:59:42,573 [INFO] ✓ Created: miran.md (ID: 1970060)
+2026-01-25 22:59:43,719 [INFO] ✓ Created: maralbashi.md (ID: 1970061)
+2026-01-25 22:59:44,795 [INFO] ✓ Created: merv.md (ID: 1970062)
+2026-01-25 22:59:45,880 [INFO] ✓ Created: zzkashkar.md (ID: 1970063)
+2026-01-25 22:59:46,977 [INFO] ✓ Created: alak-mor.md (ID: 1970064)
+2026-01-25 22:59:48,080 [INFO] ✓ Created: black-timber-post.md (ID: 1970065)
+2026-01-25 22:59:49,208 [INFO] ✓ Created: wind-cut-narrows.md (ID: 1970066)
+2026-01-25 22:59:50,333 [INFO] ✓ Created: isyk-zhel.md (ID: 1970067)
+2026-01-25 22:59:51,464 [INFO] ✓ Created: khotan.md (ID: 1970068)
+2026-01-25 22:59:52,547 [INFO] ✓ Created: dun-kharan.md (ID: 1970069)
+2026-01-25 22:59:53,713 [INFO] ✓ Created: stone-ledger-gate.md (ID: 1970070)
+2026-01-25 22:59:54,942 [INFO] ✓ Created: kashkar.md (ID: 1970071)
+2026-01-25 22:59:56,171 [INFO] ✓ Created: dunhuang.md (ID: 1970072)
+2026-01-25 22:59:57,253 [INFO] ✓ Created: chang-an.md (ID: 1970073)
+2026-01-25 22:59:58,423 [INFO] ✓ Created: salt-reed-oasis.md (ID: 1970074)
+2026-01-25 22:59:59,550 [INFO] ✓ Created: caravan-crypt.md (ID: 1970075)
+2026-01-25 23:00:00,572 [INFO] ✓ Created: miran-temple-district.md (ID: 1970076)
+2026-01-25 23:00:01,628 [INFO] ✓ Created: buried-lens.md (ID: 1970077)
+2026-01-25 23:00:02,707 [INFO] ✓ Created: jade-gate.md (ID: 1970078)
+2026-01-25 23:00:03,808 [INFO] ✓ Created: cherchen.md (ID: 1970079)
+2026-01-25 23:00:04,875 [INFO] ✓ Created: balkh-kamen.md (ID: 1970080)
+2026-01-25 23:00:06,000 [INFO] ✓ Created: endere.md (ID: 1970081)
+2026-01-25 23:00:07,093 [INFO] ✓ Created: anvil-sunder-switchbacks.md (ID: 1970082)
+2026-01-25 23:00:07,813 [ERROR] Failed to create location: 429 Client Error: Too Many Requests for url: https://api.kanka.io/1.0/campaigns/371326/locations
+2026-01-25 23:00:07,813 [ERROR] Response: ["Your account limit of 30 requests per minute has been reached. Subscribe to Kanka to unlock higher limits"]
+2026-01-25 23:00:08,521 [ERROR] Failed to update location 1970045: 429 Client Error: Too Many Requests for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970045
+2026-01-25 23:00:09,227 [ERROR] Failed to create location: 429 Client Error: Too Many Requests for url: https://api.kanka.io/1.0/campaigns/371326/locations
+2026-01-25 23:00:09,227 [ERROR] Response: ["Your account limit of 30 requests per minute has been reached. Subscribe to Kanka to unlock higher limits"]
+2026-01-25 23:00:09,922 [ERROR] Failed to create location: 429 Client Error: Too Many Requests for url: https://api.kanka.io/1.0/campaigns/371326/locations
+2026-01-25 23:00:09,922 [ERROR] Response: ["Your account limit of 30 requests per minute has been reached. Subscribe to Kanka to unlock higher limits"]
+2026-01-25 23:00:10,614 [ERROR] Failed to create location: 429 Client Error: Too Many Requests for url: https://api.kanka.io/1.0/campaigns/371326/locations
+2026-01-25 23:00:10,615 [ERROR] Response: ["Your account limit of 30 requests per minute has been reached. Subscribe to Kanka to unlock higher limits"]
+2026-01-25 23:00:11,328 [ERROR] Failed to create location: 429 Client Error: Too Many Requests for url: https://api.kanka.io/1.0/campaigns/371326/locations
+2026-01-25 23:00:11,329 [ERROR] Response: ["Your account limit of 30 requests per minute has been reached. Subscribe to Kanka to unlock higher limits"]
+2026-01-25 23:00:12,041 [ERROR] Failed to create location: 429 Client Error: Too Many Requests for url: https://api.kanka.io/1.0/campaigns/371326/locations
+2026-01-25 23:00:12,042 [ERROR] Response: ["Your account limit of 30 requests per minute has been reached. Subscribe to Kanka to unlock higher limits"]
+2026-01-25 23:00:12,047 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-25 23:00:12,047 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-25 23:00:12,047 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-25 23:00:12,128 [INFO] 
+==================================================
+2026-01-25 23:00:12,128 [INFO] Sync complete:
+2026-01-25 23:00:12,128 [INFO]   30 files synced
+2026-01-25 23:00:12,128 [INFO]   24 files not Kanka-ready (missing kanka_type or is_private)
+2026-01-25 23:00:12,128 [INFO]   8 files failed
+2026-01-25 23:00:12,128 [INFO]   0 files skipped (excluded)
+2026-01-25 23:00:12,128 [INFO] ==================================================
+
+2026-01-26 22:13:00,920 [INFO] [DRY RUN] samarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,922 [INFO] [DRY RUN] kucha.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,922 [INFO] [DRY RUN] yarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,923 [INFO] [DRY RUN] tashkent.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,924 [INFO] [DRY RUN] shorchuk.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,924 [INFO] [DRY RUN] niya-outer-fields.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,925 [INFO] [DRY RUN] balkh.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,926 [INFO] [DRY RUN] miran.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,926 [INFO] [DRY RUN] maralbashi.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,927 [INFO] [DRY RUN] merv.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,928 [INFO] [DRY RUN] zzkashkar.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,928 [INFO] [DRY RUN] alak-mor.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,929 [INFO] [DRY RUN] black-timber-post.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,929 [INFO] [DRY RUN] wind-cut-narrows.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,930 [INFO] [DRY RUN] isyk-zhel.md → location (private=False, 2 attrs, 1 GM posts)
+2026-01-26 22:13:00,931 [INFO] [DRY RUN] khotan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,931 [INFO] [DRY RUN] dun-kharan.md → location (private=False, 0 attrs, 0 GM posts)
+2026-01-26 22:13:00,933 [INFO] [DRY RUN] stone-ledger-gate.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,934 [INFO] [DRY RUN] kashkar.md → location (private=False, 5 attrs, 3 GM posts)
+2026-01-26 22:13:00,934 [INFO] [DRY RUN] dunhuang.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,935 [INFO] [DRY RUN] chang-an.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,936 [INFO] [DRY RUN] salt-reed-oasis.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,936 [INFO] [DRY RUN] caravan-crypt.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,937 [INFO] [DRY RUN] miran-temple-district.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,937 [INFO] [DRY RUN] buried-lens.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,937 [INFO] [DRY RUN] jade-gate.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,938 [INFO] [DRY RUN] cherchen.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,938 [INFO] [DRY RUN] balkh-kamen.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,939 [INFO] [DRY RUN] endere.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,939 [INFO] [DRY RUN] anvil-sunder-switchbacks.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,940 [INFO] [DRY RUN] tarim-shaiel.md → location (private=False, 2 attrs, 2 GM posts)
+2026-01-26 22:13:00,941 [INFO] [DRY RUN] turfan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,942 [INFO] [DRY RUN] aksu.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,942 [INFO] [DRY RUN] charklik.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,943 [INFO] [DRY RUN] yumen-waystation.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-26 22:13:00,943 [INFO] [DRY RUN] niya.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,944 [INFO] [DRY RUN] bukhara.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-26 22:13:00,944 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-26 22:13:00,944 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-26 22:13:00,944 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-26 22:13:00,945 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,945 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,945 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,945 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,946 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,946 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,946 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,946 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,947 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,947 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,947 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,947 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,948 [WARNING] Skipping charm_template.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,948 [WARNING] Skipping example_oxbody_charm.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,948 [WARNING] Skipping example_grace_domain.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,949 [WARNING] Skipping example_bridge_diplomatic_resonance.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,949 [WARNING] Skipping exalted_charm_template.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,949 [WARNING] Skipping environment_template.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,950 [WARNING] Skipping character_template.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,950 [WARNING] Skipping session_template.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,950 [WARNING] Skipping domain_template.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,950 [WARNING] Skipping hero_heaven_charm_template.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,951 [WARNING] Skipping adversary_template.md: Missing required field 'kanka_type'
+2026-01-26 22:13:00,951 [INFO] 
+============================================================
+2026-01-26 22:13:00,951 [INFO] Sync complete:
+2026-01-26 22:13:00,951 [INFO]   ✓ 37 files synced
+2026-01-26 22:13:00,951 [INFO]   ✗ 23 files failed
+2026-01-26 22:13:00,951 [INFO]   ⊘ 0 files skipped
+2026-01-26 22:13:00,951 [INFO] ============================================================
+
+2026-01-27 21:33:28,217 [INFO] [DRY RUN] balkh-kamen.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 21:34:06,215 [INFO] ✓ Updated: balkh-kamen.md
+2026-01-27 21:34:10,025 [ERROR] Failed to create map marker on map 125882: 422 Client Error: Unprocessable Entity for url: https://api.kanka.io/1.0/campaigns/371326/maps/125882/map_markers
+2026-01-27 21:36:47,012 [INFO] [DRY RUN] balkh-kamen.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 21:36:48,086 [INFO] [DRY RUN] balkh-kamen.md marker → map 125882 (marker_id=None, name='Balkh-Kamen', lat=2276.737, lng=2347.573, private=False)
+2026-01-27 21:37:06,575 [INFO] ✓ Updated: balkh-kamen.md
+2026-01-27 21:37:10,572 [INFO]   └─ Marker created: balkh-kamen.md (marker_id=419303)
+2026-01-27 21:41:14,910 [INFO] ✓ Updated: balkh-kamen.md
+2026-01-27 21:41:18,954 [INFO]   └─ Marker updated: balkh-kamen.md (marker_id=419303)

@@ -1,0 +1,434 @@
+---
+title: "Player Archetype Synthesis — Methods, Doubts & Expansion"
+project: TTRPG_Hero_Heaven
+type: narrative_development
+status: SPECULATIVE_DRAFT
+classification: DM_WORKING_DOCUMENT
+created: 2026-02-13
+last_updated: 2026-02-13
+related_documents:
+  - CORE_CAMPAIGN_NARRATIVE.md
+  - HERO_IDENTITY.md
+  - STORY_ARC_SYNTHESIS.md
+  - sessions/00_session0/gm_secrets/Party_Composition_Design_Notes.md
+  - sessions/00_session0/gm_secrets/Session_0_Awakening_Design_Notes.md
+---
+
+# Player Archetype Synthesis
+
+⚠️ **WORKING DOCUMENT — NOT YET CANON**
+This document synthesizes the established six archetypes with proposed expansions. Items marked [ESTABLISHED] are canonical (documented in CORE_CAMPAIGN_NARRATIVE.md). Items marked [PROPOSED] are under development and require Mo's approval before integration.
+
+---
+
+## PART 1: THE ARCHETYPE FRAMEWORK
+
+### The Design Principle [ESTABLISHED]
+
+Every hero archetype represents a **method** — a way of changing the world. Each method was genuinely heroic, genuinely necessary for liberating the enslaved peoples and defeating the Empire. Each method also carried unintended consequences the hero didn't see.
+
+The archetype's **doubt** is not generic guilt. It is specific to their method, their tool, their way of being in the world. The hero doesn't question whether they're a good person. They question whether their *approach* — the thing that makes them *them* — was the right one.
+
+### The Three-Layer Test
+
+Every archetype must satisfy three requirements:
+
+**1. The Method Must Have Been Necessary.**
+The liberation could not have succeeded without this archetype's contribution. They weren't passengers. Their specific approach was essential to victory. If you remove them from the legendary past, the Empire doesn't fall.
+
+**2. The Doubt Must Be Specific to the Method.**
+The hero doesn't fear they did something wrong in general. They fear that their *specific way of doing things* caused harm that another approach might have avoided. The Breaker doesn't fear destruction abstractly — they fear that *their particular gift for breaking systems* freed the Wizard alongside the Orcs.
+
+**3. The Tool Must Mirror the Doubt.**
+Each hero's tool (weapon, artifact, capability) embodies their method AND their uncertainty. The tool Resists (won't perform as expected), Hungers (demands to be used in familiar ways), and Knows (carries fragments of the consequences). The hero's relationship with their tool IS their relationship with their own identity.
+
+### The Narrative Function Test [PROPOSED]
+
+Beyond the three-layer test, each archetype should serve a distinct **narrative function** in the campaign:
+
+- **What story moments does this archetype uniquely create?**
+- **What party dynamics does this archetype enable that wouldn't exist otherwise?**
+- **What aspect of the campaign's themes does this archetype carry?**
+
+If two archetypes create substantially similar story moments, one of them is redundant — or they need to be differentiated more sharply.
+
+---
+
+## PART 2: THE ESTABLISHED SIX
+
+### The Warrior [ESTABLISHED]
+
+**Method:** Crushes opposition, provides protection through overwhelming force, ends threats with decisive action.
+
+**Legendary Role:** Defeated the Empire's armies. The military backbone of the liberation. Without the Warrior's force, the Empire's physical power could not have been broken.
+
+**Fear:** *"Did my overwhelming force scatter the Wizard rather than destroy him? Did my focus on crushing enemies prevent me from seeing the real threat?"*
+
+**Deeper Question:** *"Is my strength my greatest asset, or is it a blindness?"*
+
+**Tool:** Weapon of force — currently crude, heavy, bound. Resists by feeling weakened. Hungers for old patterns of decisive action. Knows every battle fought and the one enemy that escaped.
+
+**Narrative Function:** Physical anchor. Protection instinct. The force-vs-understanding axis. Creates moments where the obvious solution (hit it harder) must be weighed against subtler approaches.
+
+**Unique Party Dynamic:** The one the party looks to when danger is physical. The one who must learn that not every problem is a nail.
+
+**Campaign Theme Carried:** Strength vs. wisdom. Protection vs. control.
+
+---
+
+### The Seeker [ESTABLISHED]
+
+**Method:** Uncovers knowledge, questions assumptions, digs into forbidden truths, reveals hidden things.
+
+**Legendary Role:** Found the truths that made liberation possible — the Wizard's binding spells, the Empire's weaknesses, the paths to victory that no one else could see. Without the Seeker's discoveries, the heroes would have been fighting blind.
+
+**Fear:** *"What if the truths I found became weapons in the Wizard's hands? What if my refusal to accept easy answers opened doors that should have stayed closed?"*
+
+**Deeper Question:** *"Who is answering when I look? Am I finding truth, or am I being shown what someone else wants me to see?"*
+
+**Tool:** Tool of clarity — tome, compass, astrolabe. Resists by showing different truths than expected. Hungers to go deeper, reveal bigger secrets. Knows what it revealed and whether that knowledge was weaponized.
+
+**Narrative Function:** Investigative spine. The one who drives discovery, uncovers the Wizard's survival, forces "can we trust what we know?" The campaign cannot progress without someone whose method is finding things out.
+
+**Unique Party Dynamic:** The one who asks "but why?" when everyone else is ready to act. The one whose curiosity creates both opportunities and dangers.
+
+**Campaign Theme Carried:** Knowledge vs. deception. The cost of knowing.
+
+---
+
+### The Breaker [ESTABLISHED]
+
+**Method:** Shatters systems, breaks chains, destroys oppressive structures.
+
+**Legendary Role:** Broke the Empire's binding spells on the Orcs. Shattered the institutional structures that maintained subjugation. Without the Breaker, the enslaved peoples would still be enslaved.
+
+**Fear:** *"Did breaking the Empire also break the containment holding the Wizard? Every system I shattered may have been oppressive, but was something in that oppression also a restraint?"*
+
+**Deeper Question:** *"Is my gift for breaking the gift of liberation, or am I fundamentally destructive?"*
+
+**Tool:** Hammer — crude, heavy, powerful. Resists by growing heavier when aimed at certain targets. Hungers for destruction. Knows every structure that fell and the chaos that followed.
+
+**Narrative Function:** Moral fulcrum. Consequence-bearer. Forces the party to confront whether liberation was worth the cost. Creates moments where destruction is available but its consequences are uncertain.
+
+**Unique Party Dynamic:** The most dangerous member of the party — not because they're evil, but because their instinct is to *break things*, and some things shouldn't be broken. Natural foil to any archetype that builds or preserves.
+
+**Campaign Theme Carried:** Liberation vs. destruction. Unintended consequences. Freedom's cost.
+
+---
+
+### The Visionary [ESTABLISHED]
+
+**Method:** Sees the true path forward, provides guidance, illuminates the future.
+
+**Legendary Role:** Saw the path to liberation — the sequence of events, the strategic vision, the future worth fighting for. Without the Visionary's guidance, the heroes would have been reactive rather than strategic.
+
+**Fear:** *"Was I seeing truth, or seeing what I wanted to see? Was someone else guiding my sight?"*
+
+**Deeper Question:** *"Can I trust my own sight? What if my clarity about the future has been compromised from the start?"*
+
+**Tool:** Crystal/mirror/oracle device — showing flashes but unreliably. Resists by showing contradictory visions. Hungers to pull the hero further along paths that may not be their own. Knows every path shown and whether those paths were genuine.
+
+**Narrative Function:** Direction and paranoia. The one who *should* know where to go — but can't trust their own guidance. Creates tension about whether the party is on the right path or being led into a trap.
+
+**Unique Party Dynamic:** The party looks to them for direction. The weight of that expectation — and the Visionary's inability to be certain — creates constant low-level tension.
+
+**Campaign Theme Carried:** Foresight vs. manipulation. Trust in guidance. The burden of leadership through vision.
+
+---
+
+### The Bridge (Diplomat) [ESTABLISHED]
+
+**Method:** Unites disparate peoples, negotiates compromise, builds alliances, brings opposing forces together.
+
+**Legendary Role:** United the diverse peoples of the resistance — Orcs, Dwarves, Elves, Humans — into a coalition capable of defeating the Empire. Without the Bridge, the liberation would have been fragmented, uncoordinated, and likely defeated piecemeal.
+
+**Fear:** *"Did my pragmatism — my willingness to work within existing systems — inadvertently strengthen them? Did I build a network that became the Wizard's network?"*
+
+**Deeper Question:** *"Is my gift for unity genuine wisdom, or is it unconscious control?"*
+
+**Tool:** Diplomatic seal/token — implying authority the hero doesn't remember having. Resists by failing to persuade certain people. Hungers to gather, build consensus, influence. Knows every alliance brokered and whether any became the Wizard's tools.
+
+**Narrative Function:** Political complexity. Alliance-building. The one who navigates the Silk Road's competing factions and cultural tensions. Creates moments where compromise is necessary but its costs are hidden.
+
+**Unique Party Dynamic:** The social engine. The one who talks when others fight. But also the one whose influence might be manipulation they can't see.
+
+**Campaign Theme Carried:** Unity vs. control. Compromise vs. complicity. Trust across difference.
+
+**Note:** CORE_CAMPAIGN_NARRATIVE.md contains both "Bridge" and "Diplomat" as separate entries. Their methods and doubts are substantially similar — Bridge emphasizes unity/alliance while Diplomat emphasizes negotiation/systems. For player choice, these could be presented as two expressions of the same archetype (one more inspirational, one more pragmatic) or as genuinely distinct archetypes if the table wants both.
+
+---
+
+### The Sacrificer [ESTABLISHED]
+
+**Method:** Gives of themselves, channels will toward others' needs, accepts sacrifice as the price of justice.
+
+**Legendary Role:** Paid the personal costs that made victory possible. When the price of liberation was suffering, the Sacrificer absorbed it. Their willingness to give everything — and the companion who fell beside them — became the rallying cry that won the war.
+
+**Fear:** *"Was the defining sacrifice genuine, or was it orchestrated? Is the ghost of my fallen companion trying to help me, or is it being used against me?"*
+
+**Deeper Question:** *"Is my willingness to sacrifice my greatest strength, or is it a vulnerability that others exploit?"*
+
+**Tool:** Ritual implement — dormant, warm to the touch, waiting. Resists by preventing the old patterns of self-sacrifice. Hungers to channel that giving energy again. Knows the history of what was sacrificed and whether it served the intended purpose.
+
+**Narrative Function:** Emotional heart. Cost and consequence made personal. The one who asks "what is this worth?" when others focus on tactics. Creates moments where the party must decide what they're willing to lose.
+
+**Unique Party Dynamic:** The conscience. The one who makes sacrifice visible and personal. But also the one whose compulsive giving can become a burden on others.
+
+**Campaign Theme Carried:** Cost vs. value. Sacrifice vs. self-destruction. Receiving as strength.
+
+**Note:** CORE_CAMPAIGN_NARRATIVE.md also contains "The Martyr" as a variant. The Martyr emphasizes the defining sacrifice and the fallen companion; the Sacrificer emphasizes the ongoing pattern of giving. These could be the same archetype (the Martyr label is the legendary past, the Sacrificer is the present-day pattern) or distinct if a table wants both.
+
+---
+
+## PART 3: PROPOSED EXPANSION ARCHETYPES
+
+### Design Methodology
+
+The existing six archetypes cover methods of: **Destroying, Fighting, Discovering, Seeing, Uniting, and Giving.** These are all *active* methods — they DO things to the world.
+
+The proposed expansions explore methods that are more *responsive* or *structural*:
+- **Preserving** (maintaining what exists)
+- **Mending** (repairing what's broken)
+- **Witnessing** (observing and recording)
+- **Creating** (building new things)
+- **Subverting** (working from within)
+
+Each proposed archetype below includes the three-layer test and the narrative function test.
+
+---
+
+### The Sentinel (Watcher/Witness) [PROPOSED]
+
+**Method:** Stood watch. Bore witness. Observed, recorded, ensured accountability. Not foresight (Visionary) but present-tense *observation* — seeing what IS, not what will be.
+
+**Legendary Role:** The moral conscience of the liberation. The record-keeper who ensured the heroes remained accountable. The one who watched every decision, every consequence, every compromise — and documented truthfully. Without the Sentinel, the heroes would have lost track of their own principles amid the chaos of war.
+
+**Fear:** *"I watched everything. I saw the Wizard retreat rather than fall. I recorded the gaps — the things that didn't add up, the loose threads. I KNEW something was incomplete. And I stayed silent because the record showed victory, and questioning victory felt like treason."*
+
+**Deeper Question:** *"Is witnessing enough? At what point does the observer have a duty to intervene? When does faithful recording become complicity through silence?"*
+
+**Tool:** A recording device — journal, memory stone, inscribed tablet. Resists by refusing to record certain things (or recording things the Sentinel didn't intend). Hungers to observe, to watch, to document. Knows everything that was witnessed — including the things the Sentinel chose not to report.
+
+**Narrative Function:** Fills a gap nothing else covers — the duty to speak versus the discipline of observation. The Sentinel's doubt ("I knew and said nothing") is the most direct connection to the heroes' collective failure. Every other archetype failed because they didn't SEE the Wizard's survival. The Sentinel failed because they DID see — or saw the signs — and stayed silent.
+
+**Unique Party Dynamic:** The one who notices things others miss. Not through investigation (Seeker) or foresight (Visionary) but through *paying attention to what's right in front of everyone*. The one who says "I saw that" when others are looking away. But also the one who might stay silent too long.
+
+**Campaign Theme Carried:** Observation vs. action. The duty to speak. Complicity through silence.
+
+**Foil Relationships:**
+- **Visionary** sees the future; **Sentinel** sees the present. Different failure modes of perception.
+- **Seeker** actively hunts for hidden truths; **Sentinel** passively absorbs visible ones. Different methods of knowing.
+- **Bridge** shapes events through influence; **Sentinel** records events without shaping them. Different relationships with power.
+
+**Awakening Sketch:** Wakes with perfect clarity about surroundings — sees everything, understands context immediately. But cannot ACT. Paralyzed by observation, caught in the pattern of watching rather than doing. Must break the habit of witnessing and DO something. Perhaps: observes a crime or injustice in progress and must choose between documenting it and stopping it.
+
+**Three-Layer Test:**
+1. ✅ Method was necessary — the liberation needed accountability and record-keeping to maintain legitimacy.
+2. ✅ Doubt is specific — the fear isn't about action taken, but about silence kept. Unique among all archetypes.
+3. ✅ Tool mirrors doubt — the recording device that knows what was witnessed, including what was suppressed.
+
+**Assessment:** Strong addition. Fills a genuine gap. The doubt is devastating and directly connects to the heroes' collective failure. Most distinctive among the proposed five.
+
+---
+
+### The Keeper (Guardian/Preserver) [PROPOSED]
+
+**Method:** Preserved what others wanted to destroy. Protected institutions, knowledge, culture, sacred sites — not through fighting (Warrior) but through *maintaining*. The one who kept the libraries intact, hid the sacred texts, ensured cultural continuity through the chaos.
+
+**Legendary Role:** While the Breaker destroyed the Empire's oppressive structures, the Keeper preserved what was worth keeping — the knowledge systems, the cultural heritage, the sacred traditions that predated the Empire and would outlast it. Without the Keeper, liberation would have been a bonfire that consumed the good along with the bad.
+
+**Fear:** *"What I preserved — was it worth preserving? Did I protect the old systems because they were valuable, or because I was afraid of change? Did my preservation of imperial infrastructure give the Wizard shelter? Are the things I saved the things that should have burned?"*
+
+**Deeper Question:** *"Is preservation wisdom or cowardice? When do you stop protecting the past and let the future happen?"*
+
+**Tool:** A key, a seal, a protective ward — something that locks/unlocks, shields/reveals. Resists by locking things the Keeper wants open (or unlocking things that should stay sealed). Hungers to protect, to shield, to maintain. Knows everything that was preserved — and whether any of it sheltered the Wizard.
+
+**Narrative Function:** The natural foil to the Breaker. One destroys; the other preserves. Together they embody the central tension of the liberation: what do you tear down, and what do you protect? Creates moments where the party must decide whether an old institution is worth saving or needs to be dismantled.
+
+**Unique Party Dynamic:** The conservative voice. Not politically conservative — *conserving*. The one who says "wait, before we destroy this, are we sure it doesn't serve a purpose?" The one who values continuity, tradition, and institutional memory. In tension with the Breaker but not in opposition — they're two sides of the same coin.
+
+**Campaign Theme Carried:** Preservation vs. stagnation. The value of the past. What's worth keeping.
+
+**Foil Relationships:**
+- **Breaker** destroys; **Keeper** preserves. Direct structural opposition.
+- **Seeker** uncovers hidden knowledge; **Keeper** protects existing knowledge. Different relationships with truth.
+- **Sacrificer** gives things away; **Keeper** holds things close. Different relationships with value.
+
+**Awakening Sketch:** Wakes surrounded by something fragile — a crumbling archive, a caravan of refugees carrying cultural artifacts, a sacred site being dismantled for building materials. Must choose between saving what remains and letting it go. The tool (key/ward) is protecting something the Keeper might not want protected.
+
+**Silk Road Resonance:** The Dunhuang cave temples. The preservation of texts through centuries of upheaval. The caravanserais as cultural preservation sites. The Dwarven vaults. The Elven sacred sites that predate the Empire. Very strong thematic fit with established world-building.
+
+**Three-Layer Test:**
+1. ✅ Method was necessary — someone had to preserve cultural heritage during the chaos of liberation.
+2. ✅ Doubt is specific — the fear that preservation sheltered the enemy. The inverse of the Breaker's doubt.
+3. ✅ Tool mirrors doubt — the key/ward that protects things, including things that maybe shouldn't be protected.
+
+**Assessment:** Strong addition. The Breaker/Keeper foil is the most narratively productive pairing among the proposed archetypes. The Silk Road setting gives this archetype rich material.
+
+---
+
+### The Trickster (Deceiver/Subverter) [PROPOSED]
+
+**Method:** Worked from within. Used deception, misdirection, infiltration. The spy, the saboteur, the one who wore the enemy's face and unmade them from the inside.
+
+**Legendary Role:** Infiltrated the Empire's networks. Sabotaged from within. Turned the enemy's own systems against them. Without the Trickster's subversion, the Empire's intelligence apparatus would have detected and crushed the liberation before it succeeded. The Trickster made the heroes invisible until it was too late.
+
+**Fear:** *"I lied so well that I'm not sure I remember which face is real. I infiltrated the Empire's networks so deeply that I became part of them. The Wizard was a master of deception — did he learn it from watching me? Did I teach him how to hide?"*
+
+**Deeper Question:** *"Can you use deception for good without losing yourself? When you spend years wearing masks, do you forget what's underneath?"*
+
+**Tool:** A mask, a cloak, a mirror that shows different faces. Resists by refusing to show the true face (or by showing faces the Trickster doesn't recognize). Hungers for deception, disguise, the thrill of becoming someone else. Knows every identity worn — and whether any of them were more real than the "original."
+
+**Narrative Function:** The most morally complex archetype. Creates immediate party tension: can you trust the one whose method was deception? Creates moments where lying is the best tactical option but corrodes trust. Forces the party to confront whether the ends justify the means.
+
+**Unique Party Dynamic:** The one no one fully trusts — including themselves. The one who can solve problems no one else can (infiltration, misdirection, social engineering) but at a cost to party cohesion. The Bridge builds trust; the Trickster exploits it. They're not enemies, but they'll never be comfortable with each other.
+
+**Campaign Theme Carried:** Truth vs. deception. Identity vs. performance. The cost of wearing masks.
+
+**Foil Relationships:**
+- **Bridge** builds trust through honesty; **Trickster** achieves goals through deception. Both are social operators with opposite methods.
+- **Sentinel** observes truth; **Trickster** creates falsehood. Different relationships with what's real.
+- **Seeker** uncovers hidden truths; **Trickster** creates hidden lies. Complementary but tension-generating.
+
+**Awakening Sketch:** Wakes not knowing who they are — genuinely. Not just expulsion amnesia but a deeper identity crisis. Multiple potential selves compete. Finds themselves in a situation where they could be anyone — and must choose which face to wear. Perhaps: wakes in a crowd, realizes people are reacting to them as though they're someone specific, and must decide whether to play the role or break it.
+
+**Silk Road Resonance:** The great trade networks were also intelligence networks. Spies, informants, competing merchant factions, the flow of information alongside goods. The Dwarven trade-strongholds' selective access policies. The post-imperial political landscape of suspicion and competing narratives.
+
+**Three-Layer Test:**
+1. ✅ Method was necessary — the Empire's intelligence apparatus required subversion from within.
+2. ✅ Doubt is specific — the fear of losing the true self to the masks. Unique existential crisis.
+3. ✅ Tool mirrors doubt — the mask/cloak that shows different faces, including ones the hero doesn't recognize.
+
+**Assessment:** The most narratively dangerous and the most interesting. Requires a player who can handle moral complexity without derailing the table. Creates immediate, productive tension with nearly every other archetype. But could destabilize a party that hasn't built enough trust. Best introduced after Session 0, once the core party has bonded.
+
+**⚠️ Design Caution:** The Trickster risks becoming "the party member no one trusts" in a way that's unfun rather than dramatically productive. Requires careful GM management and a player who understands the difference between "my character lies" and "I withhold information from other players." The deception should create dramatic irony (the audience knows what the Trickster is doing) rather than player frustration (no one knows what the Trickster is doing).
+
+---
+
+### The Crafter (Builder/Maker) [PROPOSED]
+
+**Method:** Built the tools, infrastructure, weapons, and systems that made liberation possible. Not destruction (Breaker) but *creation*. The one whose hands shaped the physical means of victory.
+
+**Legendary Role:** Forged the weapons that armed the resistance. Built the infrastructure that sustained a guerrilla campaign across thousands of miles. Engineered the siege equipment that broke the Empire's fortifications. Without the Crafter, the heroes would have had conviction without capability.
+
+**Fear:** *"The weapons I forged — who else used them after the war? The systems I built — did the Wizard repurpose them? Every tool I created was meant for liberation, but tools don't care about intent. Did I arm the enemy by arming the resistance?"*
+
+**Deeper Question:** *"Can a maker control what their creations become? Is the builder responsible for what's built with their foundations?"*
+
+**Tool:** A crafting implement — hammer (different from the Breaker's: for shaping, not smashing), chisel, forge-tongs, a set of plans. Resists by refusing to create certain things (or creating things the Crafter didn't intend). Hungers to build, improve, perfect. Knows everything that was built — and what those creations became after the war.
+
+**Narrative Function:** The practical problem-solver. Creates moments where the party needs something MADE — a bridge, a device, a solution that requires engineering rather than force or magic. Also creates moments where the party discovers that something the Crafter built (in the legendary past) is now being used against them.
+
+**Unique Party Dynamic:** The one who says "I can build that." The practical counterpoint to the Seeker's theoretical knowledge and the Visionary's strategic sight. But also the one whose creations have unintended lives of their own.
+
+**Campaign Theme Carried:** Creation vs. consequence. The responsibility of makers. Tools that outlive intent.
+
+**Foil Relationships:**
+- **Breaker** destroys; **Crafter** builds. But both deal with the physical world and the consequences of their actions on it. Not direct opposition (the Keeper is the Breaker's true opposite) but complementary approaches.
+- **Seeker** discovers knowledge; **Crafter** applies it. Theory vs. practice.
+
+**Awakening Sketch:** Wakes surrounded by broken things. The instinct to fix, to build, to improve is immediate. Perhaps: trapped in a broken vehicle/structure with others, and must improvise a solution from available materials. The tool wants to help but keeps suggesting designs the Crafter doesn't recognize — blueprints for things they've never built but their hands remember building.
+
+**Silk Road Resonance:** The Dwarven trade-strongholds and their engineering. Irrigation systems. Caravanserai architecture. The physical infrastructure of the trade routes themselves. Bridge-building across mountain passes.
+
+**Three-Layer Test:**
+1. ✅ Method was necessary — the resistance needed weapons, infrastructure, and engineering.
+2. ✅ Doubt is specific — the fear that creations were repurposed by the enemy. Different from the Breaker's fear (destruction's consequences vs. creation's consequences).
+3. ✅ Tool mirrors doubt — the crafting implement that remembers what it built and what those things became.
+
+**Assessment:** Solid and thematic. Functionally useful in a party (the practical problem-solver is always welcome). The doubt is clean. But overlaps with the Breaker in dealing with physical-world consequences. Best differentiated by emphasizing the Crafter's creative optimism against the Breaker's destructive guilt — one builds and fears misuse, the other destroys and fears excess.
+
+**⚠️ Design Caution:** The Crafter's tool must be clearly distinct from the Breaker's hammer. Different purpose (shaping vs. smashing), different feel, different voice. The Breaker's hammer hungers to destroy; the Crafter's implement hungers to create. They should feel like opposite expressions of the same physical capability.
+
+---
+
+### The Healer (Mender/Restorer) [PROPOSED]
+
+**Method:** Repaired what was broken. Not just bodies — relationships, communities, land scarred by war. The one who went into the aftermath and put things back together.
+
+**Legendary Role:** Tended the wounded during the liberation. Restored communities shattered by war. Healed the land where magic had scarred it. Without the Healer, the liberation would have been a victory standing on corpses — the survivors would have had freedom but not the capacity to use it.
+
+**Fear:** *"Did I heal the symptoms while the disease grew? Every community I restored, every wound I closed — was I giving people a false sense of recovery while the real threat went unaddressed? Did my healing make people complacent? Did comfort become the enemy of vigilance?"*
+
+**Deeper Question:** *"Is healing sometimes a way of avoiding the harder truth that some things shouldn't be repaired — they should be rebuilt differently?"*
+
+**Tool:** A mending implement — needle and thread, a salve-pot, a staff that channels restorative energy. Resists by refusing to heal certain wounds (or by healing things that were better left broken). Hungers to mend, restore, make whole. Knows everything that was healed — and whether that healing masked a deeper problem.
+
+**Narrative Function:** The caretaker. Creates moments where the party must decide whether to heal a wound or let it stay open as a reminder. Also creates moments where the Healer discovers that their restorative work (in the legendary past) made communities vulnerable by making them comfortable.
+
+**Unique Party Dynamic:** The one everyone turns to when they're hurt — physically, emotionally, spiritually. But also the one whose instinct to fix things can prevent necessary confrontation with painful truths.
+
+**Campaign Theme Carried:** Recovery vs. complacency. The cost of comfort. Healing as avoidance.
+
+**Foil Relationships:**
+- **Sacrificer** gives of themselves; **Healer** gives to others. Both are givers but with different costs — the Sacrificer's cost is personal depletion; the Healer's cost is systemic complacency.
+- **Breaker** destroys what's broken; **Healer** repairs what's broken. Different responses to damage.
+
+**Awakening Sketch:** Wakes to someone in need. The instinct to help is overwhelming. But helping has a cost they can't see yet. Perhaps: finds an injured traveler, heals them, and discovers the traveler is fleeing something that healing alone won't solve — the wound is a symptom of a larger problem that requires confrontation, not restoration.
+
+**Three-Layer Test:**
+1. ✅ Method was necessary — the liberation produced massive casualties and damaged communities that needed restoration.
+2. ✅ Doubt is specific — the fear that healing created complacency. Different from the Sacrificer's fear (exploitation of willingness).
+3. ✅ Tool mirrors doubt — the mending implement that healed things that maybe needed to stay broken.
+
+**Assessment:** The most conventional fantasy archetype among the proposed five. Functional and thematic but overlaps most with the Sacrificer — both are "givers," both deal with the cost of caring for others. Include if the table specifically wants a healer archetype AND doesn't have a Sacrificer, or if the Sacrificer/Healer distinction (personal cost vs. systemic cost) is sharp enough to justify both.
+
+**⚠️ Design Caution:** Risk of being "the cleric." Must be framed as a narrative archetype, not a mechanical role. The Healer's crisis is about the *consequences* of healing, not about the *act* of healing. If the player treats this as "I heal the party," the archetype fails. It must be "I healed the world, and the world went to sleep because it felt safe."
+
+---
+
+## PART 4: ARCHETYPE RELATIONSHIPS — THE WEB OF FOILS
+
+### How Archetypes Create Tension
+
+The richest campaign moments come from archetypes that are *foils* — not enemies, but mirrors that reflect different aspects of the same dilemma. Every archetype pairing should create at least one productive tension.
+
+### Primary Foil Pairs
+
+**Breaker ↔ Keeper** [STRONGEST FOIL]
+One destroys systems; the other preserves them. The liberation's central tension: what do you tear down, and what do you protect? Both fear they made the wrong call. Their arguments about what to do with a discovered Imperial ruin will be the campaign's most productive debates.
+
+**Seeker ↔ Trickster**
+One uncovers hidden truths; the other creates hidden lies. Both deal in information — one to reveal it, the other to manipulate it. They need each other and can't fully trust each other.
+
+**Warrior ↔ Sacrificer**
+Both protect others, but through opposite methods. The Warrior uses strength; the Sacrificer uses self-depletion. The Warrior's fear (strength as blindness) mirrors the Sacrificer's fear (giving as vulnerability). Together they create moments about what protection actually costs.
+
+**Visionary ↔ Sentinel**
+One sees the future; the other sees the present. Both are *perceivers*, but the Visionary is proactive (guiding the path forward) while the Sentinel is responsive (recording what happens). The Visionary fears their sight was manipulated; the Sentinel fears their silence was complicity. Together they raise the question: what good is seeing if you don't act on it?
+
+**Bridge ↔ Trickster**
+Both are social operators, but the Bridge builds trust through honest influence while the Trickster achieves goals through deception. They're the party's two relationship-builders, and they will fundamentally disagree about how to handle nearly every social situation.
+
+### Secondary Tensions
+
+- **Crafter ↔ Breaker:** Both act on the physical world. One builds; the other destroys. But the Breaker's hammer and the Crafter's tools are different expressions of the same human impulse to shape reality.
+- **Healer ↔ Seeker:** The Healer restores comfort; the Seeker disrupts it with uncomfortable truths. The Healer fears complacency; the Seeker creates the very discomfort that prevents it.
+- **Keeper ↔ Visionary:** The Keeper protects the past; the Visionary guides toward the future. Their tension is about which direction the party should face.
+
+---
+
+## PART 5: RECOMMENDATIONS FOR PLAYER CHOICE
+
+### Presentation to Players
+
+Players should NOT see the full doubt/fear framework before choosing an archetype. They should see:
+
+- **The Method** (what this hero did to help liberate the world)
+- **The Core Question** (what this hero now doubts about themselves — framed as a question, not as a spoiler)
+- **The Tool** (what physical object connects them to their legendary past)
+- **The Tone** (what kind of story this archetype tends to create)
+
+The specific fears, the Wizard connection, and the cosmological architecture remain GM knowledge.
+
+### Suggested Player-Facing Descriptions
+
+*(To be developed — short, evocative, spoiler-free descriptions for each archetype that help players choose without revealing the dual-truth system.)*
+
+### Minimum Viable Party Reminder
+
+Three core archetypes tell the full story: **Warrior** (force), **Seeker** (knowledge), **Breaker** (consequence). Everything else enriches. The graduated awakening model supports 3-8 players without structural change.
+
+---
+
+*Document Status: Speculative draft. Captures February 2026 archetype expansion thinking. Not yet canon. Requires Mo's review and approval before integration into CORE_CAMPAIGN_NARRATIVE.md or player-facing materials.*

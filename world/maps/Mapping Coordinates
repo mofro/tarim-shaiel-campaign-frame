@@ -1,0 +1,24 @@
+Mapping Coordinates
+
+Map Dimensions:
+6457px Wide
+2682px High
+
+
+Katmandu 27°46'18"N 85°19'13"E, 
+X = 3280.56 px  
+Y = 2483.03 px
+
+Ulaanbaatar 47°55'36"N 106°54'54"E
+X = 5209.03 px  
+Y = 194.58 px
+
+Tehran 35°43'41"N 51°20'07"E
+X = 242.42 px  
+Y = 1648.96 px
+
+
+
+Point A (Katmandu): lat 27°46'18"N, lng 85°19'13"E, pixelX 3280.56, pixelY 2483.03
+Point B (Ulaanbaatar): lat 47°55'36"N, lng 106°54'54"E, pixelX 5209.03, pixelY 194.58
+Point C (Tehran): lat 35°43'41"N, lng 51°20'07"E, pixelX 242.42, pixelY 1648.96

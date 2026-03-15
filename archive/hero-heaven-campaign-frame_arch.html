@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Heaven — Campaign Frame</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1208;
+      --parchment:  #f5edd8;
+      --parchment2: #ede0c4;
+      --gold:       #b8922c;
+      --gold-light: #d4a843;
+      --crimson:    #7a1f1f;
+      --steel:      #3c4a5a;
+      --rule:       rgba(184,146,44,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #1a1208;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--parchment);
+      box-shadow: 0 0 80px rgba(0,0,0,0.7);
+      position: relative;
+    }
+
+    .page-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .content { position: relative; z-index: 1; }
+
+    /* COVER */
+    .cover {
+      background: linear-gradient(170deg, #0d0a04 0%, #1a1208 40%, #2a1f0e 100%);
+      padding: 80px 60px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse at 50% 30%, rgba(184,146,44,0.12) 0%, transparent 70%);
+    }
+    .cover-ornament { color: var(--gold); font-size: 2rem; letter-spacing: 0.5em; opacity: 0.6; margin-bottom: 24px; }
+    .cover-eyebrow { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); opacity: 0.8; margin-bottom: 16px; }
+    .cover-title { font-family: 'Cinzel', serif; font-size: clamp(2.8rem, 7vw, 4.5rem); font-weight: 700; color: var(--gold-light); line-height: 1.1; text-shadow: 0 2px 20px rgba(184,146,44,0.4), 0 0 60px rgba(184,146,44,0.15); margin-bottom: 40px; letter-spacing: 0.04em; }
+    .cover-rule { width: 200px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 40px; }
+    .cover-tagline { font-style: italic; font-size: 1.2rem; color: #a09070; max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+    .cover-meta { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .cover-meta-item { text-align: center; }
+    .cover-meta-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.7; display: block; margin-bottom: 4px; }
+    .cover-meta-value { font-size: 0.9rem; color: #c0a87a; }
+
+    /* SECTIONS */
+    .section { padding: 48px 60px; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; }
+    .section-alt { background: var(--parchment2); }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .section-number { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold); opacity: 0.7; white-space: nowrap; }
+    .section-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; color: var(--crimson); letter-spacing: 0.04em; }
+    .section-rule { flex: 1; height: 1px; background: var(--rule); }
+
+    /* TYPOGRAPHY */
+    p { margin-bottom: 1em; }
+    p:last-child { margin-bottom: 0; }
+    h3 { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; color: var(--steel); letter-spacing: 0.08em; margin: 28px 0 8px; text-transform: uppercase; }
+    h3:first-child { margin-top: 0; }
+    em { font-style: italic; }
+    strong { font-weight: 600; }
+
+    .lead { font-size: 1.12rem; font-style: italic; color: #3a2a10; border-left: 3px solid var(--gold); padding-left: 16px; margin-bottom: 20px; }
+
+    /* CALLOUT */
+    .callout { background: rgba(26,18,8,0.06); border: 1px solid var(--rule); border-left: 4px solid var(--gold); padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+    .callout-title { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .callout p { margin-bottom: 0; font-size: 0.95rem; }
+
+    /* CARDS */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 16px; }
+    .card { background: var(--parchment); border: 1px solid var(--rule); border-top: 3px solid var(--gold); padding: 16px 18px; border-radius: 0 0 4px 4px; }
+    .section-alt .card { background: var(--parchment2); }
+    .card-title { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--crimson); margin-bottom: 8px; }
+    .card p { font-size: 0.9rem; margin-bottom: 0; }
+
+    /* ARCHETYPE GRID */
+    .archetype-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-top: 16px; }
+    .archetype-card { border: 1px solid var(--rule); padding: 20px; background: var(--parchment); position: relative; }
+    .section-alt .archetype-card { background: var(--parchment2); }
+    .archetype-name { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .archetype-role { font-size: 0.8rem; font-style: italic; color: var(--gold); margin-bottom: 10px; }
+    .archetype-body { font-size: 0.88rem; margin-bottom: 10px; }
+    .archetype-question { font-style: italic; font-size: 0.85rem; color: var(--crimson); border-top: 1px solid var(--rule); padding-top: 10px; }
+    .archetype-vestige { font-size: 0.8rem; color: #6a5030; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(184,146,44,0.2); }
+    .archetype-vestige span { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); opacity: 0.8; margin-right: 6px; }
+
+    /* FACTION LIST */
+    .faction-list { margin-top: 12px; }
+    .faction { border-bottom: 1px solid var(--rule); padding: 16px 0; display: grid; grid-template-columns: 200px 1fr; gap: 20px; }
+    .faction:last-child { border-bottom: none; }
+    .faction-name { font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+    .faction-stance { display: inline-block; font-size: 0.68rem; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-top: 4px; }
+    .stance-ally    { background: rgba(60,74,90,0.12); color: var(--steel); }
+    .stance-neutral { background: rgba(184,146,44,0.12); color: #7a6020; }
+    .stance-complex { background: rgba(26,18,8,0.08); color: #5a4a30; }
+    .faction-desc { font-size: 0.9rem; }
+    .faction-desc p { margin-bottom: 6px; }
+
+    /* NPC BLOCKS */
+    .npc-list { margin-top: 12px; }
+    .npc { padding: 20px; border: 1px solid var(--rule); margin-bottom: 12px; background: rgba(255,255,255,0.15); }
+    .npc:last-child { margin-bottom: 0; }
+    .npc-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .npc-name { font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+    .npc-role { font-size: 0.82rem; font-style: italic; color: var(--gold); }
+    .npc-body { font-size: 0.9rem; }
+
+    /* SAFETY */
+    .safety-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+    .safety-item { padding: 12px 16px; border: 1px solid var(--rule); background: rgba(255,255,255,0.1); }
+    .safety-item strong { display: block; font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.08em; color: var(--steel); margin-bottom: 4px; }
+    .safety-item span { font-size: 0.85rem; }
+
+    .content-warning-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .cw-pill { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border: 1px solid var(--crimson); color: var(--crimson); border-radius: 2px; background: rgba(122,31,31,0.05); }
+
+    /* PLACEHOLDER */
+    .placeholder-block { border: 2px dashed var(--rule); padding: 32px; text-align: center; color: #8a7a5a; font-style: italic; margin-top: 20px; }
+    .placeholder-block strong { display: block; font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.6; margin-bottom: 8px; font-style: normal; }
+
+    /* FOOTER */
+    .doc-footer { background: #1a1208; padding: 32px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .doc-footer span { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #6a5a3a; }
+
+    @media (max-width: 640px) {
+      .cover { padding: 48px 24px 40px; }
+      .section { padding: 36px 24px; }
+      .faction { grid-template-columns: 1fr; gap: 4px; }
+      .cover-meta { gap: 24px; }
+      .doc-footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+<div class="content">
+
+<!-- ═══════════════════════════════════════
+     COVER
+════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-ornament">✦ ✦ ✦</div>
+  <div class="cover-eyebrow">A Daggerheart Campaign Frame</div>
+  <h1 class="cover-title">Tarim Shaiel</h1>
+  <div class="cover-rule"></div>
+  <p class="cover-tagline">
+    <em>A thousand years is a long time to be gone. Long enough for empires to fall, for names to become myths, and for the work left behind to grow very, very large.</em><br><br>
+    You have returned to a world that did not wait for you. It does not know what to make of you. And neither, quite yet, do you.
+  </p>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Players</span>
+      <span class="cover-meta-value">3 – 5</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Length</span>
+      <span class="cover-meta-value">Long Campaign (30+ Sessions)</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Tone</span>
+      <span class="cover-meta-value">Dark Fantasy · Morally Grey</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">System</span>
+      <span class="cover-meta-value">Daggerheart</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     01 — CAMPAIGN OVERVIEW
+════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Campaign Overview</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="lead">
+    Heroes of another age have woken in this one. A thousand years have passed. The world they shaped has moved so far beyond them that even the shape of the land has changed — and something in that changed world is deeply, quietly wrong.
+  </p>
+
+  <p>
+    You are those heroes. You do not yet know why you are here, or where you were before. You carry fragments of a life that ended — or paused — a millennium ago: memories that surface without warning, feelings of competence whose origins you cannot place, and objects you cannot explain but cannot bring yourself to put down.
+  </p>
+  <p>
+    The empire you once knew is history. Its successors are themselves crumbling. The peoples whose lives intersected with your legend have had a thousand years to live, to struggle, to build something new — and to come to terms with the consequences of things you may or may not remember doing. Your names mean something to this world. What exactly they mean depends entirely on who you ask.
+  </p>
+  <p>
+    <strong>Hero Heaven</strong> is a campaign about what it means to be a legend in a world that has moved on without you. About discovering who you were through the consequences you left behind. About morally tangled choices in an age where even the idea of "good" has been revised several times in your absence. And about whatever is wrong with this world — subtly, persistently, increasingly impossible to ignore — that seems to require exactly the kind of people you are.
+  </p>
+
+  <div class="callout">
+    <div class="callout-title">The Central Mystery</div>
+    <p>The heroes do not know why they have returned, or what — if anything — is expected of them. The question of <em>why now</em> is the engine of the first arc. Do not answer it too quickly. Let the world provide clues before it provides answers.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     02 — TONE & THEMES
+════════════════════════════════════════ -->
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Tone &amp; Themes</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p><strong>Tone:</strong> Dark fantasy with a morally grey lens. This is not a campaign about who the villain is. It is a campaign about what it cost to have been heroic — and whether a past you barely remember still defines you. There is genuine hope here, but it must be earned from grief, doubt, and hard consequence.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Strangers in Their Own Legend</div>
+      <p>The heroes are myths made flesh — but myths retold for a thousand years. Some versions flatter. Some condemn. Some are simply wrong in ways that hurt. They must navigate a world whose relationship to them is already decided, and whose version of events is not always theirs.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">The Long Shadow of Consequence</div>
+      <p>Every great thing done in the heroes' age cast a shadow. Those shadows have had a thousand years to grow. Communities thrived and suffered because of what these heroes did. Their descendants are alive. They have opinions, and they are not obligated to be grateful.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Identity Under Pressure</div>
+      <p>Each hero's defining method — their way of changing the world — is also their defining doubt. The Warrior wonders if force was wisdom. The Seeker wonders what their truths armed. Being heroic was simpler when the heroes knew who they were.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">The Weight of Old Things</div>
+      <p>Each hero carries something from before. These objects are not decorative. They are the most honest things about their carriers — and they do not always behave. What an object knows, and when it chooses to show it, is part of every hero's ongoing story.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">A World Still Healing</div>
+      <p>Liberation is not the same as peace, and peace is not the same as justice. The world the heroes return to is a thousand years into that complicated truth — still working it out, still raw in places, still asking questions about the age that ended before it was ready.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">The Unknown Summons</div>
+      <p>Something called the heroes back. Something about this moment required people of exactly their nature. What that something is — and whether it is benevolent — will be discovered through play, not assumed at the start.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 — THE WORLD
+════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">The World</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="lead">A post-imperial world, a thousand years into the slow and complicated work of becoming something other than what it was.</p>
+
+  <h3>What Came Before</h3>
+  <p>
+    The heroes' age was defined by an empire — vast, powerful, built on subjugation. That empire is gone. Its end was neither clean nor swift, and what came after was messier than anyone hoped. The thousand years between then and now are not a gap in history; they are a full history, with eras and wars and recoveries and reversals of their own. The heroes step into the middle of that living story, not the beginning of a new one.
+  </p>
+
+  <h3>The World Now</h3>
+  <p>
+    Eight regions, each with their own cultures, power structures, and hard-won identities. The peoples who were once enslaved by the empire have had a thousand years to build something new — their cultures are rich, their institutions are real, their opinions about their own history are not monolithic. The empire's successors are still sorting out legitimacy. Merchant networks thread everything together with the practical indifference of trade. Dwarven archivists have kept records. Elves of different kinds have watched.
+  </p>
+  <p>
+    Magic flows through the world along channels called <strong>Warrens</strong>, contained in nodes called <strong>Holds</strong>. Most people do not know these terms or think about what they describe. What they notice is subtler: certain roads feel wrong at night; certain places draw people who are looking for something; certain goods carry a weight the merchants don't discuss. Magic has become quietly unreliable in some regions. Most people have rationalised this. A few haven't.
+  </p>
+
+  <h3>The Heroes in This World</h3>
+  <p>
+    The heroes' names mean different things in different places. To scholars: subjects of careful study and contested historical interpretation. To certain communities: ancestors, patron figures, cautionary tales. To most ordinary people: vague myth — the kind you invoke to lay blame or ask for luck, rarely examined. No one expected the myths to walk back in.
+  </p>
+
+  <div class="callout">
+    <div class="callout-title">On the Gap</div>
+    <p>A thousand years is long enough that everyone the heroes knew is many generations gone. Buildings they remember may be ruins. Languages have drifted. Borders are unrecognisable. Assume the world has changed in ways both smaller and larger than expected — and let the heroes discover which is which through play.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     04 — CAMPAIGN PILLARS
+════════════════════════════════════════ -->
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Campaign Pillars</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p>These are the three things the campaign is built around. Every session should touch at least one. The best sessions touch all three.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Remember &amp; Reckon</div>
+      <p>Fragment by fragment, the heroes piece together who they were — through their own bodies and objects, through the living memory of people who carry their consequences, through ruins and records and things that should not still be standing. The truth of the past is distributed across the world. It is not flattering. It is not simple. It is theirs to claim or refuse.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Move Through a Living World</div>
+      <p>The world has opinions about the heroes — and the heroes have to navigate those opinions while building new ones of their own. Factions have interests. Communities have histories. The choices made about who to trust, what to own, and where to stand are as consequential as any battle.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Answer the Summons</div>
+      <p>Something is wrong. Something called the heroes back into this age — or allowed them to return, or required it. The shape of that wrongness becomes clearer as the campaign progresses. Whether the heroes have the right answer for it is one of the campaign's central questions.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     05 — INCITING SITUATION
+════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">The Inciting Situation</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="lead">The heroes arrive. The world does not know what to do with them. Neither do they.</p>
+
+  <h3>The Awakening</h3>
+  <p>
+    The campaign begins with the heroes present in the world — not with an explanation of how or why. They wake, or they simply <em>are</em>. They have each other and the objects they carry. They have fragments: sensations, competencies, half-formed memories of a life lived in a different age. They do not have a map, a patron, or a clear purpose. These things must be found.
+  </p>
+  <p>
+    The specific circumstances of the awakening — where it happens, who witnesses it, what the immediate world looks like — are established during Session Zero. What matters is that the heroes are present, that they are ancient, and that they are immediately faced with the texture of a world that has moved on without them.
+  </p>
+
+  <h3>The First Questions</h3>
+  <p>
+    <em>Where are we? When is this?</em> — straightforward, and quickly answerable. <em>Why are we here? What happened?</em> — answerable eventually, but not right away. <em>What are we carrying, and what does it mean?</em> — perhaps the most important question, and the slowest to resolve.
+  </p>
+  <p>
+    The world, meanwhile, has its own questions about the heroes — especially anyone who recognises them for what they are.
+  </p>
+
+  <div class="callout">
+    <div class="callout-title">GM Note: First Arc Shape</div>
+    <p>Resist the urge to explain too much too early. The heroes' confusion is genuine and productive. The first arc is about orientation: learning where and when they are, beginning to understand what they were, and finding the first threads of what they need to do. The <em>why</em> of their return is mid-campaign material.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     06 — ARCHETYPES
+════════════════════════════════════════ -->
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2 class="section-title">Player Archetypes</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p>Archetypes are <em>thematic roles</em>, not mechanical classes. They describe a hero's essential method — the way they change the world, the thing that makes them distinctly themselves. A player chooses the archetype that resonates with how they see their hero's nature, then builds outward from there.</p>
+  <p>Each archetype carries a question — not an answer. Something the hero has always approached from their own angle, and now cannot stop turning over. These questions are the campaign's emotional engine. No two heroes should share an archetype; different methods in friction create the campaign's best moments.</p>
+
+  <div class="archetype-grid">
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Warrior</div>
+      <div class="archetype-role">The Blade · The Protector</div>
+      <div class="archetype-body">You fought directly. Whatever stood between justice and the people who needed it, you removed it — through overwhelming force, decisive action, and an absolute clarity about who needed to be stopped. You remember battles. You remember victories. You remember that not everything fell when it should have.</div>
+      <div class="archetype-question"><em>"Was force the right answer — or did it prevent me from seeing what I should have seen?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A weapon. Old, heavy with history, unmistakably yours.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Seeker</div>
+      <div class="archetype-role">The Truth-Teller · The Scholar</div>
+      <div class="archetype-body">You uncovered truths others wouldn't look for. You asked dangerous questions and lived with the dangerous answers. Your discoveries made things possible that would not have been possible otherwise — and opened doors that may not have been meant to open.</div>
+      <div class="archetype-question"><em>"Did the truths I found serve the people I found them for — or did they find other uses?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A tool of clarity — tome, lens, astrolabe. It still answers, sometimes unbidden.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Breaker</div>
+      <div class="archetype-role">The Liberation Agent</div>
+      <div class="archetype-body">You shattered constraints — literal or figurative. Where others saw structures too large to challenge, you found the fracture point. Chains broke. Systems collapsed. People were freed. The chaos that followed was not something you chose, but it was something you set in motion, and you know it.</div>
+      <div class="archetype-question"><em>"Is breaking things my greatest gift — or the only thing I know how to do?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A hammer, crude and heavy. It remembers every impact.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Visionary</div>
+      <div class="archetype-role">The Chosen One · The Prophet</div>
+      <div class="archetype-body">You saw the path when others couldn't. Whether through foresight, destiny, or something you've never been able to fully explain, you had a sense of what needed to happen — and you guided people toward it. The world largely followed your vision. You are no longer sure the vision was entirely yours.</div>
+      <div class="archetype-question"><em>"Was I seeing truth — or seeing what I was meant to see?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> An oracle device — crystal, mirror, something that shows. It does not always show what you ask.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Bridge</div>
+      <div class="archetype-role">The Mediator · The Alliance-Builder</div>
+      <div class="archetype-body">You united people who had no reason to work together. You stood between worlds, brokered the impossible, and built coalitions that held long enough to matter. The foundation you forged supported everything that followed. You look at what that foundation supported and wonder what else it was holding up.</div>
+      <div class="archetype-question"><em>"Is the unity I built genuine — or did I find ways to make people stop fighting long enough to serve a purpose?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A diplomatic token or seal. It implies authority you can't quite remember having.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Diplomat</div>
+      <div class="archetype-role">The Negotiator · The System-Worker</div>
+      <div class="archetype-body">You worked within existing structures to reshape them. You negotiated with powers others refused to engage with, and found the pressure points that made institutions bend without breaking. You believed in sustainable change over radical rupture. The structures you left in place have had a thousand years to become something else.</div>
+      <div class="archetype-question"><em>"Was my willingness to work within systems wisdom — or did I leave standing what should have been torn down?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A compact or formal agreement — old, still sealed, and you don't remember what it says.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Sacrificer</div>
+      <div class="archetype-role">The Idealist · The Cost-Bearer</div>
+      <div class="archetype-body">You gave of yourself without reservation. You held to an ideal through every cost it demanded, and it demanded a great deal. The cause was real. The sacrifice was real. Whether the giving was always as freely chosen as you believed — that is a question you are only beginning to sit with.</div>
+      <div class="archetype-question"><em>"Is my willingness to give my greatest strength — or a vulnerability that others have always known how to use?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A ritual implement, warm to the touch. It waits for something.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Martyr</div>
+      <div class="archetype-role">The Icon · The One Who Paid</div>
+      <div class="archetype-body">You defined the cause through what you were willing to lose. A defining moment of sacrifice — yours, or someone beside you — became the rallying point that changed everything. Your suffering had meaning. Whether that meaning was what you intended, and whether it was worth the cost to everyone who bore it, is the question your return forces you to face.</div>
+      <div class="archetype-question"><em>"Was the sacrifice that defined us genuine — or was it arranged, and does the difference matter now?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> Something that belonged to the person who fell. You don't know why you have it. You cannot put it down.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Sentinel</div>
+      <div class="archetype-role">The Watcher · The Witness</div>
+      <div class="archetype-body">You observed. You bore faithful witness to the victories, the costs, and the things that didn't quite add up. Your record was honest. Your discipline was real. The loose threads you noted and did not pull on are the things you think about now, in the small hours, when you can't look away from what you remember seeing.</div>
+      <div class="archetype-question"><em>"At what point does the faithful observer become the one who could have spoken — and chose not to?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A recording device — journal, memory stone, inscribed tablet. It knows what you witnessed. All of it.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Keeper</div>
+      <div class="archetype-role">The Guardian · The Preserver</div>
+      <div class="archetype-body">You preserved what others would have discarded or destroyed — knowledge, heritage, the things worth saving in an age when everything was on fire. While others found the fracture points, you found the things that should survive the fracturing. Whether all of them deserved to is a question the world has had a thousand years to answer without you.</div>
+      <div class="archetype-question"><em>"Was I protecting what was worth keeping — or holding alive what should have been allowed to end?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A key, a seal, a warding object. It still locks and unlocks things — sometimes without being asked.</div>
+    </div>
+
+    <div class="archetype-card">
+      <div class="archetype-name">The Trickster</div>
+      <div class="archetype-role">The Infiltrator · The Subverter</div>
+      <div class="archetype-body">You worked from within. Wore faces that weren't yours. Unmade structures through misdirection and patience. You were necessary in ways that couldn't be acknowledged and effective in ways that couldn't be shown. The question of which face is truly yours has grown more complicated with a great deal of time to let it.</div>
+      <div class="archetype-question"><em>"Can you wear enough masks without losing what was underneath — and do I still know what that was?"</em></div>
+      <div class="archetype-vestige"><span>Vestige</span> A mask, a cloak, a mirror that shows different faces. You are not always sure which one it's showing.</div>
+    </div>
+
+  </div>
+
+  <div class="callout" style="margin-top:28px;">
+    <div class="callout-title">The Vestiges</div>
+    <p>Every hero carries something from before — an object that feels inseparable from who they are, and that does not entirely behave like an ordinary object. These are Vestiges. Work with each player to name and describe theirs: what does it look like, what does it feel like to hold, what does it seem to want? Their full nature and significance will become clear through play — but the object itself should feel real and personal from the first session.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     07 — FACTIONS
+════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">07</span>
+    <h2 class="section-title">Key Factions</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p>The world the heroes return to is shaped by a thousand years of communities making their own way. Each faction below has its own history, its own concerns, and its own relationship — sometimes unexpected — to the heroes' return. None of them are simply "good" or "evil." All of them have been alive in the heroes' absence and did not sit still.</p>
+
+  <div class="faction-list">
+
+    <div class="faction">
+      <div>
+        <div class="faction-name">The Freed Peoples</div>
+        <div><span class="faction-stance stance-complex">Complex</span></div>
+      </div>
+      <div class="faction-desc">
+        <p>The communities whose ancestors were liberated in the heroes' age — primarily the Orc peoples, who have built rich, sophisticated cultures across a thousand years of self-determination. They are master traders, mediators, the social fabric of much of the known world. They have not been waiting for the heroes to return. They have been living.</p>
+        <p>Their relationship to the heroes' legend is genuinely mixed. The chaos that followed their liberation — before stability emerged — is not forgotten, nor is what the liberation made possible. Different communities, different families, different individuals hold all of this differently. The heroes should expect to be surprised by which version they encounter where.</p>
+        <p><em>What they need:</em> To be encountered as a living culture, not as a legacy of someone else's story.</p>
+      </div>
+    </div>
+
+    <div class="faction">
+      <div>
+        <div class="faction-name">The High Elves</div>
+        <div><span class="faction-stance stance-neutral">Wary / Withdrawn</span></div>
+      </div>
+      <div class="faction-desc">
+        <p>A people in deliberate retreat — not diminishing, withdrawing. The distinction matters to them enormously. Their withdrawal from the mortal world is a considered response to something they understand and are reluctant to discuss with those who don't. They possess cosmological literacy that almost no one else in the world has, and they regard this knowledge with great caution.</p>
+        <p>Some of them were alive in the heroes' age. Their opinion of the heroes is complicated, and carefully withheld until they have reason to share it.</p>
+        <p><em>What they need:</em> To be approached with genuine comprehension of what is at stake — not merely a request for help, and not a demand for answers they are not certain are safe to give.</p>
+      </div>
+    </div>
+
+    <div class="faction">
+      <div>
+        <div class="faction-name">The Mortal Elves</div>
+        <div><span class="faction-stance stance-ally">Potential Allies</span></div>
+      </div>
+      <div class="faction-desc">
+        <p>Long-lived, but mortal. A handful of elders in the oldest communities carry something the heroes will find nowhere else: childhood memories of the age the heroes came from. Fragmented, reinterpreted through a thousand years of subsequent living, but real. They remember a world that felt different from this one. They cannot say exactly how. They can say that what they feel now — a low, persistent wrongness — is something they have not felt before.</p>
+        <p>They do not sentimentalise the heroes. They are more useful for it.</p>
+      </div>
+    </div>
+
+    <div class="faction">
+      <div>
+        <div class="faction-name">The Dwarven Archivists</div>
+        <div><span class="faction-stance stance-neutral">Cautious</span></div>
+      </div>
+      <div class="faction-desc">
+        <p>Keepers of the Chronicle of Ages — a thousand years of meticulous record-keeping, maintained in mountain archives by people who believe that accurate history is a form of justice. The Archivists have records of the heroes' age that no other living institution possesses. They also have records of the thousand years since — including patterns that their own scholars have found disturbing but cannot explain within existing frameworks.</p>
+        <p>They will share what they know, selectively, with those who demonstrate they can handle it responsibly.</p>
+      </div>
+    </div>
+
+    <div class="faction">
+      <div>
+        <div class="faction-name">The Empire's Successors</div>
+        <div><span class="faction-stance stance-neutral">Fragmented</span></div>
+      </div>
+      <div class="faction-desc">
+        <p>Multiple successor states emerged from the empire's collapse, each with its own claim to legitimacy. A thousand years on, some have built genuine societies. Others have quietly reconstructed the structures that preceded them, with different names and softer justifications. The heroes' legend is political currency in these spaces — claimed, denied, weaponised depending on who is speaking. The heroes should be careful about which versions of their own story they are being used to validate.</p>
+      </div>
+    </div>
+
+    <div class="faction">
+      <div>
+        <div class="faction-name">The Merchant Networks</div>
+        <div><span class="faction-stance stance-neutral">Pragmatic</span></div>
+      </div>
+      <div class="faction-desc">
+        <p>Trade continued through empire and liberation and a thousand years of political reorganisation, because trade always continues. The networks that thread the world's regions together are vast, diverse, and practically indifferent to historical mythology. They possess the widest information networks and the least ideological investment in any particular version of events — which makes them useful in direct proportion to how useful the heroes can be to them.</p>
+        <p>Some of them have noticed the same wrongness that the Mortal Elf elders feel. They have not named it. They have started routing around it.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     08 — KEY NPCS
+════════════════════════════════════════ -->
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-number">08</span>
+    <h2 class="section-title">Key NPCs</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p>These are starting-point characters — templates to be named and developed at your table. Let the players' engagement shape how they grow.</p>
+
+  <div class="npc-list">
+
+    <div class="npc">
+      <div class="npc-header">
+        <span class="npc-name">The Elder</span>
+        <span class="npc-role">Mortal Elf · Living Memory · Reluctant Witness</span>
+      </div>
+      <div class="npc-body">
+        <p>One of the oldest living beings the heroes are likely to meet — born in the generation immediately following the heroes' age, old enough to carry a child's memory of what came before and what came after. Now a community elder, keeper of oral traditions their people have been revising and arguing about for generations. They have no romantic attachment to the heroes' legend. They do have an acute awareness that something is wrong in the world, and they have been waiting — without knowing what they were waiting for — for something to change.</p>
+        <p>They are not a guide. They are a witness who may, eventually, choose to speak. The difference should be felt at the table.</p>
+      </div>
+    </div>
+
+    <div class="npc">
+      <div class="npc-header">
+        <span class="npc-name">The Archivist</span>
+        <span class="npc-role">Dwarven Scholar · Pattern-Finder · Pragmatic Ally</span>
+      </div>
+      <div class="npc-body">
+        <p>A mid-ranking keeper of the Chronicle of Ages, responsible for one of the more obscure sections: records of magical anomalies, Warren disturbances, and unexplained events stretching back seven centuries. They have been trying to get the senior Archivists to take their pattern-findings seriously for years. When the heroes arrive, the Archivist recognises immediately that the anomalies and the heroes are connected — though not how, or why, or what it means.</p>
+        <p>They are useful in direct proportion to how useful the heroes are to them. The relationship is professional until it is something more.</p>
+      </div>
+    </div>
+
+    <div class="npc">
+      <div class="npc-header">
+        <span class="npc-name">The One Who Found You</span>
+        <span class="npc-role">First Contact · Circumstances TBD at Session Zero</span>
+      </div>
+      <div class="npc-body">
+        <p>Someone is present at the heroes' awakening. Who this person is, and why they are there, is established during Session Zero — tailored to the specific table, the awakening location, and what kind of opening will resonate. They may be a traveller, a local, a figure of some authority, or someone with no obvious reason to be where they are. They do not need to know who the heroes are. What matters is that they are the heroes' first window into the present age — and that their reaction to the heroes is a preview of how the world will respond.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     09 — SESSION ZERO
+════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">09</span>
+    <h2 class="section-title">Session Zero</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="lead">Session Zero is GM-led and personalised to each table. Full guidance is provided in a separate document.</p>
+
+  <div class="placeholder-block">
+    <strong>Placeholder — Content Pending</strong>
+    Session Zero questions, character creation guidance, and awakening structure are developed separately from this Campaign Frame and provided to players before play begins. This section will be completed with your GM prior to Session One.
+  </div>
+
+  <p style="margin-top:24px;">In broad strokes, Session Zero will give you time to establish who your hero is — not just mechanically, but as a person. Time to understand your Vestige enough to feel what it means to hold it. Time to establish the texture of your relationships with the other heroes. And time to be placed into the first moment of the campaign in a way that is specific to you.</p>
+</div>
+
+<!-- ═══════════════════════════════════════
+     10 — SAFETY & CONTENT
+════════════════════════════════════════ -->
+<div class="section section-alt">
+  <div class="section-header">
+    <span class="section-number">10</span>
+    <h2 class="section-title">Safety &amp; Content</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p>Hero Heaven engages with morally complex themes. These tools ensure the table remains a place where difficult material creates meaning, not distress.</p>
+
+  <h3>Recommended Safety Tools</h3>
+  <div class="safety-grid">
+    <div class="safety-item">
+      <strong>Lines &amp; Veils</strong>
+      <span>Establish at Session Zero what content should never appear (lines) and what should happen off-screen (veils).</span>
+    </div>
+    <div class="safety-item">
+      <strong>X-Card</strong>
+      <span>Any player can tap the X-Card (or type "X") at any time to skip, rewind, or edit a scene — no explanation needed.</span>
+    </div>
+    <div class="safety-item">
+      <strong>Open Door</strong>
+      <span>Any player may step away from the table at any time without comment or consequence.</span>
+    </div>
+    <div class="safety-item">
+      <strong>Check-Ins</strong>
+      <span>Brief check-in at session start and end to maintain ongoing consent and surface anything that needs adjustment.</span>
+    </div>
+  </div>
+
+  <h3 style="margin-top:24px;">Content Advisories</h3>
+  <p>This campaign includes the following themes by default. Discuss at Session Zero and adjust to fit your table:</p>
+
+  <div class="content-warning-list">
+    <span class="cw-pill">Grief &amp; Loss</span>
+    <span class="cw-pill">Moral Ambiguity</span>
+    <span class="cw-pill">Consequences of Violence</span>
+    <span class="cw-pill">Liberation &amp; Its Aftermath</span>
+    <span class="cw-pill">Identity Crisis</span>
+    <span class="cw-pill">Cosmic / Existential Dread</span>
+    <span class="cw-pill">Self-Doubt</span>
+    <span class="cw-pill">Complicity &amp; Silence</span>
+    <span class="cw-pill">Generational Consequence</span>
+  </div>
+
+  <div class="callout" style="margin-top:24px;">
+    <div class="callout-title">A Note for the GM</div>
+    <p>The campaign's most powerful moments are not battles — they are recognitions. The moment a hero understands what their methods actually cost. The moment they meet someone who inherited those costs. Handle these moments with patience. They should feel earned, not imposed, and the heroes should have genuine agency in how they respond to what they discover.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<div class="doc-footer">
+  <span>Hero Heaven · Campaign Frame · Daggerheart</span>
+  <span>Player-Facing Draft — Session Zero Content Pending</span>
+  <span>March 2026</span>
+</div>
+
+</div>
+</div>
+</body>
+</html>

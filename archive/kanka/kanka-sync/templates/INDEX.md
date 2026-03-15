@@ -1,0 +1,234 @@
+---
+title: Kanka Sync Templates
+type: templates-index
+category: kanka-sync
+tags:
+  - templates
+  - snippets
+  - workflow
+parent: "[[../INDEX|Kanka Sync Documentation]]"
+---
+
+# Kanka Sync Templates
+
+**Pre-made templates and snippets for efficient content creation.**
+
+---
+
+## Template Organization
+
+Templates are organized in the main utilities templates directory:
+
+- **Campaign-Specific Templates:** `/utilities/templates/tarim-shaiel-templates/`
+  - Full entity templates (locations, characters, etc.)
+  - Section snippets for building custom templates
+
+- **Kanka Integration Templates:** `/utilities/templates/kanka-templates/`
+  - Kanka frontmatter snippets
+  - Sync-specific utilities
+
+---
+
+## Template Types
+
+### **Full Entity Templates**
+Complete markdown templates with all sections pre-structured.
+
+- [[location-template|Location Template]] - Cities, towns, dungeons, etc.
+- Character Template *(coming soon)*
+- Quest Template *(coming soon)*
+- Organization Template *(coming soon)*
+
+### **Frontmatter Snippets**
+Quick snippets to add Kanka sync fields to existing files.
+
+- [[kanka-snippets|Kanka Frontmatter Snippets]] - All entity types
+
+### **Section Snippets**
+Modular section snippets for building custom templates.
+
+- [[section-snippets|Location Section Snippets]] - Geography, Economy, GM sections, etc.
+
+---
+
+## Quick Start
+
+### **Creating a New Location**
+
+**Option 1: Use Full Template**
+1. Copy `utilities/templates/tarim-shaiel-templates/location-template.md`
+2. Rename to your location (e.g., `samarkand.md`)
+3. Fill in sections
+4. Sync when ready
+
+**Option 2: Start from Scratch**
+1. Create blank markdown file
+2. Add [[kanka-snippets|Kanka frontmatter snippet]]
+3. Add [[section-snippets|section snippets]] as needed
+4. Write content
+5. Sync when ready
+
+---
+
+## Making Existing Files Kanka-Ready
+
+### **Option 1: Manual Snippet**
+1. Open existing file
+2. Copy [[kanka-snippets|location snippet]]
+3. Paste into frontmatter
+4. Sync
+
+### **Option 2: Bulk Prepare**
+```bash
+python kanka-bulk-prepare.py --prepare "World/Locations" --type location --private false
+```
+
+---
+
+## Template Customization
+
+### **Your Own Templates**
+
+**Create custom templates:**
+1. Start with a base template from `tarim-shaiel-templates/`
+2. Add/remove sections as needed
+3. Save in your Templates folder
+4. Use via Obsidian Templates plugin
+
+**Example: Minimal Location Template**
+```yaml
+---
+name: 
+kanka_type: location
+is_private: false
+kanka_id: null
+---
+
+# {{title}}
+
+Quick description.
+
+## Geography
+Physical details.
+
+## Narrative Significance
+Why it matters (GM section).
+```
+
+### **Obsidian Integration**
+
+**Using Templater Plugin:**
+```javascript
+<%*
+// Auto-fill template with filename
+const fileName = tp.file.title;
+tR += `---\nname: ${fileName}\nkanka_type: location\nis_private: false\nkanka_id: null\n---\n`;
+%>
+```
+
+**Using Core Templates:**
+1. Settings → Core Plugins → Templates
+2. Set template folder to `/utilities/templates/`
+3. Hotkey: Insert template
+
+---
+
+## Section Reference
+
+### **Public Sections (Players See)**
+
+All these go in main entity entry:
+- Geography
+- Economy  
+- Key Features
+- Factions
+- Resources
+- Cultural Notes
+- Historical Basis
+- Waypoint Status
+
+### **GM Sections (Admin Only)**
+
+These become separate posts:
+- Narrative Significance
+- Key Narrative Elements
+- Hidden Secrets
+- Plot Hooks
+- DM Notes
+- World-Building Context
+
+See [[../reference/routing-rules|Routing Rules]] for complete routing logic.
+
+---
+
+## Location Type Reference
+
+**Common Types:**
+- `city` - Major urban center
+- `town` - Mid-sized settlement
+- `village` - Small rural community
+- `route-node` - Waypoint/crossroads
+- `sacred-site` - Religious/spiritual location
+- `dungeon` - Adventure site
+- `fortress` - Military installation
+- `ruins` - Abandoned/destroyed site
+- `wilderness` - Natural area
+- `region` - Large geographic area
+
+---
+
+## Best Practices
+
+### **When to Use Templates**
+
+**Use full templates for:**
+- ✅ New locations from scratch
+- ✅ Consistency across similar entities
+- ✅ Teaching new contributors the structure
+
+**Use snippets for:**
+- ✅ Quick additions to existing files
+- ✅ Partial content (only need 2-3 sections)
+- ✅ Custom entity structures
+
+### **Template Workflow**
+
+1. **Draft Phase:** Use minimal template, focus on content
+2. **Polish Phase:** Add optional sections as needed
+3. **Sync Phase:** Add Kanka frontmatter, sync to campaign
+
+### **Section Selection**
+
+**Essential for most locations:**
+- Name + description (always)
+- Geography (usually)
+- At least one GM section (narrative significance, secrets, or hooks)
+
+**Add as needed:**
+- Economy (if relevant to trade/resources)
+- Factions (if political entities present)
+- Cultural Notes (if distinct culture)
+- Historical Basis (if real-world inspiration)
+
+---
+
+## Template Paths
+
+**For reference:**
+- Campaign Templates: `/utilities/templates/tarim-shaiel-templates/`
+- Kanka Templates: `/utilities/templates/kanka-templates/`
+- Template Documentation: `/utilities/kanka-sync/templates/` (this directory)
+
+---
+
+## Related Documentation
+
+- [[../guides/daily-workflow|Daily Workflow]] - Regular usage patterns
+- [[../guides/quickstart|Quickstart Guide]] - Initial setup
+- [[../reference/routing-rules|Routing Rules]] - Section routing
+- [[../reference/field-mappings|Field Mappings]] - Frontmatter reference
+- [[../INDEX|Documentation Index]] - All docs
+
+---
+
+[[../INDEX|← Back to Documentation Index]]

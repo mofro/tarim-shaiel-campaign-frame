@@ -1,0 +1,86 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "region_tarim_basin",
+      "properties": {
+        "kind": "region",
+        "label": "Tarim Basin Oases",
+        "title": "Tarim Basin Oases",
+        "description": "Mixed/Cosmopolitan trading hub - heart of the Silk Road",
+        "stroke": "#1f77b4",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#1f77b4",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [74.5, 36.5],
+            [82.0, 36.5],
+            [82.0, 43.5],
+            [74.5, 43.5],
+            [74.5, 36.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "region_eastern_gateway",
+      "properties": {
+        "kind": "region",
+        "label": "Eastern Gateway",
+        "title": "Eastern Gateway",
+        "description": "Elven/Human sacred sites and imperial fortifications",
+        "stroke": "#2ca02c",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#2ca02c",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [92.0, 38.5],
+            [97.0, 38.5],
+            [97.0, 42.0],
+            [92.0, 42.0],
+            [92.0, 38.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "region_central_asia",
+      "properties": {
+        "kind": "region",
+        "label": "Central Asian Hubs",
+        "title": "Central Asian Hubs",
+        "description": "Human (Empire-era) names with emerging Orcish influence - thriving trade centers",
+        "stroke": "#ff7f0e",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#ff7f0e",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [64.0, 37.5],
+            [71.0, 37.5],
+            [71.0, 41.5],
+            [64.0, 41.5],
+            [64.0, 37.5]
+          ]
+        ]
+      }
+    }
+  ]
+}

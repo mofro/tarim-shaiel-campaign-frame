@@ -1,0 +1,52 @@
+# Kanka Sync Configuration
+# Copy this to your vault root and customize
+
+kanka:
+  # Get your token from: https://kanka.io/en/settings/api
+  api_token: "YOUR_KANKA_TOKEN_HERE"
+  
+  # Find in URL: https://kanka.io/w/{CAMPAIGN_ID}/dashboard
+  campaign_id: 0  # Replace with your campaign ID
+  
+  # API base URL (don't change unless Kanka updates)
+  base_url: "https://api.kanka.io/1.0"
+
+sync:
+  # Absolute path to your Obsidian vault
+  vault_path: "/Users/mo/Documents/Games/HeroHeaven"
+  
+  # Directories to include in sync (relative to vault_path)
+  include_paths:
+    - "World/Locations"
+    - "World/Regions"
+    - "Characters/Archetypes"
+    - "Characters/NPCs"
+    - "Narrative/Awakening-Scenarios"
+    - "Mechanics"
+  
+  # Directories to exclude from sync
+  exclude_paths:
+    - ".obsidian"
+    - "Transcripts"
+    - "Templates"
+    - ".git"
+  
+  # Path prefix → Kanka entity type mapping
+  # Available types: character, location, organization, item, journal,
+  #                  quest, note, event, race, family, ability, creature
+  entity_mapping:
+    "World/Locations": "location"
+    "World/Regions": "location"
+    "Characters/Archetypes": "character"
+    "Characters/NPCs": "character"
+    "Mechanics": "note"
+    "Narrative": "journal"
+    "Session-Notes": "journal"
+    "Quests": "quest"
+
+logging:
+  # Logging level: DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+  
+  # Log file location (relative to where script is run)
+  file: "kanka-sync.log"

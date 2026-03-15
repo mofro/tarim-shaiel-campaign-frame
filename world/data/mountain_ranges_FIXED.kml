@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Mountain Ranges</name>
+    <description>Mountain range icons for fantasy mapping</description>
+    
+    <!-- Styles for different mountain types -->
+    <Style id="mountain-peak">
+      <IconStyle>
+        <color>ff8B4513</color>
+        <scale>1.0</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/shapes/mountains.png</href></Icon>
+      </IconStyle>
+    </Style>
+    
+    <Style id="high-peak">
+      <IconStyle>
+        <color>ffFFFFFF</color>
+        <scale>1.2</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/shapes/mountains.png</href></Icon>
+      </IconStyle>
+    </Style>
+    
+    <Style id="sacred-peak">
+      <IconStyle>
+        <color>ffFFD700</color>
+        <scale>1.1</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/shapes/mountains.png</href></Icon>
+      </IconStyle>
+    </Style>
+
+    <Folder>
+      <name>Tian Shan Range</name>
+      <Placemark>
+        <name>Tian Shan Range 1</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>69.0,42.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 2</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>69.74285714285715,42.01428571428571,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 3</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>70.48571428571428,42.02857142857143,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 4</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>71.22857142857143,42.042857142857144,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 5</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>71.97142857142858,42.05714285714286,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 6</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>72.71428571428571,42.07142857142857,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 7</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>73.45714285714286,42.08571428571429,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 8</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>74.2,42.1,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 9</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>74.94285714285715,42.114285714285714,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 10</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>75.68571428571428,42.128571428571426,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 11</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>76.42857142857143,42.142857142857146,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 12</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>77.17142857142858,42.15714285714286,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 13</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>77.91428571428571,42.17142857142857,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 14</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>78.65714285714286,42.18571428571428,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 15</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>79.4,42.2,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 16</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>80.14285714285714,42.214285714285715,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 17</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>80.88571428571429,42.22857142857143,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 18</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>81.62857142857143,42.24285714285714,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 19</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>82.37142857142857,42.25714285714286,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 20</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>83.11428571428571,42.27142857142857,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 21</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>83.85714285714286,42.285714285714285,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 22</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>84.6,42.3,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 23</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>85.34285714285714,42.31428571428572,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 24</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>86.08571428571429,42.32857142857143,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 25</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>86.82857142857142,42.34285714285714,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 26</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>87.57142857142857,42.357142857142854,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 27</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>88.31428571428572,42.371428571428574,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 28</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>89.05714285714285,42.385714285714286,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 29</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>89.8,42.4,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 30</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>90.54285714285714,42.41428571428571,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 31</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>91.28571428571428,42.42857142857143,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 32</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>92.02857142857142,42.44285714285714,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 33</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>92.77142857142857,42.457142857142856,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 34</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>93.5142857142857,42.47142857142857,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 35</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>94.25714285714285,42.48571428571429,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tian Shan Range 36</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>95.0,42.5,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>Kunlun Range</name>
+      <Placemark>
+        <name>Kunlun Range 1</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>75.0,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 2</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>75.68571428571428,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 3</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>76.37142857142857,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 4</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>77.05714285714285,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 5</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>77.74285714285715,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 6</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>78.42857142857143,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 7</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>79.11428571428571,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 8</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>79.8,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 9</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>80.48571428571428,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 10</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>81.17142857142858,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 11</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>81.85714285714286,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 12</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>82.54285714285714,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 13</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>83.22857142857143,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 14</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>83.91428571428571,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 15</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>84.6,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 16</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>85.28571428571428,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 17</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>85.97142857142858,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 18</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>86.65714285714286,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 19</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>87.34285714285714,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 20</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>88.02857142857142,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 21</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>88.71428571428571,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 22</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>89.4,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 23</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>90.08571428571429,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 24</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>90.77142857142857,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 25</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>91.45714285714286,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 26</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>92.14285714285714,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 27</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>92.82857142857142,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 28</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>93.51428571428572,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 29</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>94.2,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 30</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>94.88571428571429,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 31</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>95.57142857142857,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 32</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>96.25714285714285,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 33</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>96.94285714285715,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 34</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>97.62857142857143,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 35</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>98.31428571428572,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kunlun Range 36</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>99.0,36.0,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>Pamir Range</name>
+      <Placemark>
+        <name>Pamir Range 1</name>
+        <styleUrl>#high-peak</styleUrl>
+        <Point>
+          <coordinates>71.0,37.5,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pamir Range 2</name>
+        <styleUrl>#high-peak</styleUrl>
+        <Point>
+          <coordinates>71.66666666666667,37.75,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pamir Range 3</name>
+        <styleUrl>#high-peak</styleUrl>
+        <Point>
+          <coordinates>72.33333333333333,38.0,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pamir Range 4</name>
+        <styleUrl>#high-peak</styleUrl>
+        <Point>
+          <coordinates>73.0,38.25,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pamir Range 5</name>
+        <styleUrl>#high-peak</styleUrl>
+        <Point>
+          <coordinates>73.66666666666667,38.5,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pamir Range 6</name>
+        <styleUrl>#high-peak</styleUrl>
+        <Point>
+          <coordinates>74.33333333333333,38.75,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pamir Range 7</name>
+        <styleUrl>#high-peak</styleUrl>
+        <Point>
+          <coordinates>75.0,39.0,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>Turkestan Range</name>
+      <Placemark>
+        <name>Turkestan Range 1</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>68.5,39.5,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Turkestan Range 2</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>69.21428571428571,39.57142857142857,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Turkestan Range 3</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>69.92857142857143,39.642857142857146,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Turkestan Range 4</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>70.64285714285714,39.714285714285715,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Turkestan Range 5</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>71.35714285714286,39.785714285714285,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Turkestan Range 6</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>72.07142857142857,39.857142857142854,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Turkestan Range 7</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>72.78571428571429,39.92857142857143,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Turkestan Range 8</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>73.5,40.0,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>Zarafshan Range</name>
+      <Placemark>
+        <name>Zarafshan Range 1</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>68.5,39.2,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zarafshan Range 2</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>69.2,39.260000000000005,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zarafshan Range 3</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>69.9,39.32,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zarafshan Range 4</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>70.6,39.38,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zarafshan Range 5</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>71.3,39.44,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Zarafshan Range 6</name>
+        <styleUrl>#mountain-peak</styleUrl>
+        <Point>
+          <coordinates>72.0,39.5,0</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

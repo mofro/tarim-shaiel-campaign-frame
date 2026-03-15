@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Tarim-Shaiel - Silk Road Geography</name>
+    <description>Fantasy world based on historical Silk Road routes and locations</description>
+    
+    <Style id="trade-hub">
+      <IconStyle>
+        <color>ff0000ff</color>
+        <scale>1.2</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/shapes/shaded_dot.png</href></Icon>
+      </IconStyle>
+    </Style>
+    
+    <Style id="sacred-site">
+      <IconStyle>
+        <color>ff00ffff</color>
+        <scale>1.0</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/shapes/star.png</href></Icon>
+      </IconStyle>
+    </Style>
+    
+    <Style id="mountain-kingdom">
+      <IconStyle>
+        <color>ff00ff00</color>
+        <scale>1.0</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/shapes/triangle.png</href></Icon>
+      </IconStyle>
+    </Style>
+    
+    <Style id="route">
+      <LineStyle>
+        <color>ff0000ff</color>
+        <width>3</width>
+      </LineStyle>
+    </Style>
+
+    <Placemark>
+      <name>Northern Route (Tianshan Corridor)</name>
+      <description>
+        Length: 1500 km
+        Follows southern foothills of Tian Shan Mountains; northern rim of Taklamakan Desert
+        Season: Spring/Summer preferred
+      </description>
+      <styleUrl>#route</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          94.67,40.15,0
+          94.64,40.46,0
+          89.19,42.95,0
+          86.53,41.85,0
+          83.86,41.97,0
+          82.95,41.73,0
+          80.26,41.17,0
+          77.57,39.74,0
+          75.99,39.65,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+
+    <Placemark>
+      <name>Southern Route (Kunlun Corridor)</name>
+      <description>
+        Length: 1200 km
+        Follows northern base of Kunlun Mountains; southern rim of Taklamakan Desert
+        Season: Year-round but isolated
+      </description>
+      <styleUrl>#route</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          94.67,40.15,0
+          94.64,40.46,0
+          88.07,40.52,0
+          88.15,39.0,0
+          85.55,38.14,0
+          88.74,36.21,0
+          81.18,37.07,0
+          79.92,37.12,0
+          77.27,38.43,0
+          75.99,39.65,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+
+    <Placemark>
+      <name>Samarkand</name>
+      <description><![CDATA[
+Historical Name: Samarkand
+Basis: Sogdania - Zoroastrian→Islamic; Mongol; Timurid revival
+Goods: Textiles, luxury goods, paper mill (8th c)
+Cultural Notes: Ancient 'Stone Fort'; magnificent architecture; major intellectual center
+Religious Tradition: Zoroastrian→Islamic
+]]></description>
+      <styleUrl>#trade-hub</styleUrl>
+      <Point>
+        <coordinates>66.97,39.65,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Bukhara</name>
+      <description><![CDATA[
+Historical Name: Bukhara
+Basis: Sogdania - Zoroastrian→Islamic; Mongol destruction & revival
+Goods: Trade hub, scholarship center
+Cultural Notes: 5th-largest city; center of trade & religion; 140+ architectural monuments
+Religious Tradition: Zoroastrian→Islamic; scholarly hub
+]]></description>
+      <styleUrl>#trade-hub</styleUrl>
+      <Point>
+        <coordinates>64.43,39.77,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Kashgar</name>
+      <description><![CDATA[
+Historical Name: Kashgar
+Basis: Tarim Basin - Buddhist→Islamic; Chinese control (intermittent)
+Goods: Abundant crops, fruits, wool, carpets, jade
+Cultural Notes: Continuously inhabited 2K+ years; westernmost Chinese city; multiethnic
+Religious Tradition: Buddhist→Islam; Nestorian Christians; cosmopolitan
+]]></description>
+      <styleUrl>#trade-hub</styleUrl>
+      <Point>
+        <coordinates>75.99,39.65,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Tashkent</name>
+      <description><![CDATA[
+Historical Name: Tashkent
+Basis: Fergana Valley region - Turkic origin; Mongol conquest
+Goods: Trade hub, agriculture center
+Cultural Notes: 'Stone City'; largest city in Central Asia
+Religious Tradition: Islamic (12th-13th c)
+]]></description>
+      <styleUrl>#trade-hub</styleUrl>
+      <Point>
+        <coordinates>69.24,41.31,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Balkh</name>
+      <description><![CDATA[
+Historical Name: Balkh
+Basis: Bactria (Afghanistan) - destroyed by Genghis Khan (1220s)
+Goods: General trade hub
+Cultural Notes: 'Mother of Cities' before destruction; major oasis hub
+Religious Tradition: Zoroastrian→Islamic; Buddhist influence
+]]></description>
+      <styleUrl>#trade-hub</styleUrl>
+      <Point>
+        <coordinates>66.9,36.76,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Merv</name>
+      <description><![CDATA[
+Historical Name: Merv
+Basis: Margiana (Turkmenistan) - destroyed by Genghis Khan's son
+Goods: Trade hub, oasis
+Cultural Notes: Later rebuilt as Mary; now village-sized; 'ruined Silk Road city'
+Religious Tradition: Islamic
+]]></description>
+      <styleUrl>#ruined-city</styleUrl>
+      <Point>
+        <coordinates>61.83,37.66,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Dunhuang</name>
+      <description><![CDATA[
+Historical Name: Dunhuang
+Basis: Gansu Corridor - Gateway to China
+Goods: Gateway to China, artistic/religious hub
+Cultural Notes: Mogao Caves: largest Buddhist art treasure house
+Religious Tradition: Buddhist (major artistic center); Mogao Caves (366-1400 CE)
+]]></description>
+      <styleUrl>#sacred-site</styleUrl>
+      <Point>
+        <coordinates>94.67,40.15,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Khotan</name>
+      <description><![CDATA[
+Historical Name: Khotan
+Basis: Tarim Basin - Buddhist state; Islamic conversion
+Goods: Jade (major), carpets, oasis goods
+Cultural Notes: Jade production center
+Religious Tradition: Buddhist→Islamic
+]]></description>
+      <styleUrl>#mountain-kingdom</styleUrl>
+      <Point>
+        <coordinates>79.92,37.12,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Kucha</name>
+      <description><![CDATA[
+Historical Name: Kucha
+Basis: Tarim Basin - Buddhist state
+Goods: Buddhist textiles, oasis trade
+Cultural Notes: Kizil Caves nearby; major Buddhist center
+Religious Tradition: Buddhist (major monasteries)→Islamic
+]]></description>
+      <styleUrl>#sacred-site</styleUrl>
+      <Point>
+        <coordinates>82.95,41.73,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Niya</name>
+      <description><![CDATA[
+Historical Name: Niya
+Basis: Tarim Basin - Ancient oasis settlement
+Goods: Local oasis goods
+Cultural Notes: Ancient ruins; archaeological interest
+Religious Tradition: Buddhist
+]]></description>
+      <styleUrl>#desert-crossing</styleUrl>
+      <Point>
+        <coordinates>81.18,37.07,0</coordinates>
+      </Point>
+    </Placemark>
+
+    <Placemark>
+      <name>Chang'an (Xi'an)</name>
+      <description><![CDATA[
+Historical Name: Chang'an (Xi'an)
+Basis: Central China - Han/Tang dynasty capitals
+Goods: Silk (currency), jade incoming, horses
+Cultural Notes: Eastern terminus; 12m walls built 1370; major trade destination
+Religious Tradition: Chinese; Buddhism; Christianity (7th c)
+]]></description>
+      <styleUrl>#river-valley</styleUrl>
+      <Point>
+        <coordinates>109.26,34.34,0</coordinates>
+      </Point>
+    </Placemark>
+
+  </Document>
+</kml>

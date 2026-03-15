@@ -1,0 +1,185 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "region_tarim_basin",
+      "properties": {
+        "name": "Tarim Basin Oases",
+        "title": "Tarim Basin Oases",
+        "description": "Mixed/Cosmopolitan trading hub - heart of the Silk Road",
+        "stroke": "#1f77b4",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#1f77b4",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [74.5, 36.5],
+            [82.0, 36.5],
+            [82.0, 43.5],
+            [74.5, 43.5],
+            [74.5, 36.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "region_eastern_gateway",
+      "properties": {
+        "name": "Eastern Gateway",
+        "title": "Eastern Gateway",
+        "description": "Elven/Human sacred sites and imperial fortifications",
+        "stroke": "#2ca02c",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#2ca02c",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [92.0, 38.5],
+            [97.0, 38.5],
+            [97.0, 42.0],
+            [92.0, 42.0],
+            [92.0, 38.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "region_central_asia",
+      "properties": {
+        "name": "Central Asian Hubs",
+        "title": "Central Asian Hubs",
+        "description": "Human (Empire-era) names with emerging Orcish influence - thriving trade centers",
+        "stroke": "#ff7f0e",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#ff7f0e",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [64.0, 37.5],
+            [71.0, 37.5],
+            [71.0, 41.5],
+            [64.0, 41.5],
+            [64.0, 37.5]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_samarkand",
+      "properties": {
+        "name": "Samarkand",
+        "title": "Samarkand",
+        "description": "A major hub on the Silk Road, known for its bazaars and monumental architecture.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [66.97, 39.65]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kashgar",
+      "properties": {
+        "name": "Kashgar",
+        "title": "Kashgar",
+        "description": "Westernmost major Chinese city; crossroads of cultures and trade.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.99, 39.65]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_turfan",
+      "properties": {
+        "name": "Turfan",
+        "title": "Turfan",
+        "description": "An oasis in a depression, protected from harsh desert winds. Known for cultivation of grapes and wine production.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [89.19, 42.95]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_khotan",
+      "properties": {
+        "name": "Khotan",
+        "title": "Khotan",
+        "description": "The jade capital of the Silk Road. A mountain kingdom that converted from Buddhism to Islam.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [79.92, 37.12]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_dunhuang",
+      "properties": {
+        "name": "Dunhuang",
+        "title": "Dunhuang",
+        "description": "Gateway to China; home to the Mogao Caves with thousands of Buddhist artworks spanning centuries.",
+        "marker-color": "#9467bd",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [94.67, 40.15]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_northern_silk_road",
+      "properties": {
+        "name": "Northern Silk Road Route",
+        "title": "Northern Silk Road Route",
+        "description": "Primary trade route connecting major Silk Road hubs",
+        "stroke": "#ff7f0e",
+        "stroke-width": 3,
+        "stroke-opacity": 0.7
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [66.97, 39.65],
+          [75.99, 39.65],
+          [89.19, 42.95],
+          [79.92, 37.12],
+          [94.67, 40.15]
+        ]
+      }
+    }
+  ]
+}

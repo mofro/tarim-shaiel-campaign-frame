@@ -1,0 +1,611 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "route_seg_kashgar_aksu",
+      "properties": {
+        "kind": "route",
+        "label": "Kashgar → Aksu",
+        "title": "Kashgar → Aksu",
+        "description": "Northern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [75.99, 39.4666],
+
+
+          
+          [76.27086639404298, 39.59156835762902],
+          [76.24340057373048, 39.723725493671445],
+          [76.30918711423874, 39.775064272420764],
+          [76.42858028411867, 39.80413891935398],
+          [76.53933338820936, 39.81063662913775],
+          [76.70667372643948, 39.857159667296706],
+          [76.93763405084611, 39.83760889752116],
+          [77.34164312481882, 39.82126632859805],
+          [77.61778056621553, 39.82260741430485],
+          [77.7889457345009, 39.8672047107752],
+          [78.05857747793198, 39.92198698498903],
+          [78.42204228043558, 39.94607270619769],
+          [78.90676304697992, 40.214143845560095],
+          [79.14553195238115, 40.37443079416119],
+          [79.35833573341371, 40.51112373930756],
+          [79.81359779834749, 40.58863486097871],
+          [80.26, 41.17]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_aksu_shorchuk",
+      "properties": {
+        "kind": "route",
+        "label": "Aksu → Shorchuk",
+        "title": "Aksu → Shorchuk",
+        "description": "Northern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 16,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.26, 41.17],
+          [80.50722777843477, 41.35192113650797],
+          [80.86497008800508, 41.42970623356312],
+          [81.07783019542696, 41.39108288485146],
+          [81.41230434179307, 41.4016261186564],
+          [81.71133846044542, 41.41398608321369],
+          [82.07693159580232, 41.525095839817354]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_aksu_black-timber-post",
+      "properties": {
+        "kind": "route",
+        "label": "Aksu → Black-Timber Post",
+        "title": "Aksu → Black-Timber Post",
+        "description": "Northern corridor river spur",
+        "stroke": "#1f77b4",
+        "stroke-width": 16,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.26, 41.17],
+          [82.3, 41.05]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_shorchuk_kucha",
+      "properties": {
+        "kind": "route",
+        "label": "Shorchuk → Kucha",
+        "title": "Shorchuk → Kucha",
+        "description": "Northern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 16,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [82.07693159580232, 41.525095839817354],
+          [82.95, 41.73]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_kucha_karashahr",
+      "properties": {
+        "kind": "route",
+        "label": "Kucha → Karashahr",
+        "title": "Kucha → Karashahr",
+        "description": "Northern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [82.95, 41.73],
+          [83.75, 41.78],
+          [84.6, 41.82],
+          [85.55, 41.84],
+          [86.53, 41.85]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_karashahr_turfan",
+      "properties": {
+        "kind": "route",
+        "label": "Karashahr → Turfan",
+        "title": "Karashahr → Turfan",
+        "description": "Northern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [86.53, 41.85],
+          [87.25, 42.2],
+          [88.05, 42.55],
+          [88.65, 42.75],
+          [89.19, 42.95]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_turfan_dunhuang",
+      "properties": {
+        "kind": "route",
+        "label": "Turfan → Dunhuang",
+        "title": "Turfan → Dunhuang",
+        "description": "Northern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [89.19, 42.95],
+          [90.8, 42.45],
+          [92.35, 41.75],
+          [93.55, 41.05],
+          [94.67, 40.15]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_dunhuang_jade-gate",
+      "properties": {
+        "kind": "route",
+        "label": "Dunhuang → Jade Gate",
+        "title": "Dunhuang → Jade Gate",
+        "description": "Gansu corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [94.67, 40.15],
+          [94.66, 40.24],
+          [94.65, 40.33],
+          [94.5855, 40.339]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_jade-gate_zhangye",
+      "properties": {
+        "kind": "route",
+        "label": "Jade Gate → Zhangye (Corridor)",
+        "title": "Jade Gate → Zhangye (Corridor)",
+        "description": "Eastern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [94.5855, 40.339],
+          [96.8, 40.1],
+          [98.8, 39.7],
+          [100.45, 38.93]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_zhangye_lanzhou",
+      "properties": {
+        "kind": "route",
+        "label": "Zhangye → Lanzhou (Corridor)",
+        "title": "Zhangye → Lanzhou (Corridor)",
+        "description": "Eastern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [100.45, 38.93],
+          [101.9, 38.1],
+          [102.9, 37.3],
+          [103.82, 36.06]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_lanzhou_chang-an",
+      "properties": {
+        "kind": "route",
+        "label": "Lanzhou → Chang'an (Corridor)",
+        "title": "Lanzhou → Chang'an (Corridor)",
+        "description": "Eastern corridor segment",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [103.82, 36.06],
+          [105.2, 35.5],
+          [106.8, 35.1],
+          [109.26, 34.34]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_jade-gate_wind-cut-narrows",
+      "properties": {
+        "kind": "route",
+        "label": "Jade Gate → Wind-Cut Narrows",
+        "title": "Jade Gate → Wind-Cut Narrows",
+        "description": "Local connector",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [94.5855, 40.339],
+          [94.55, 40.33]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_wind-cut-narrows_yumen-waystation",
+      "properties": {
+        "kind": "route",
+        "label": "Wind-Cut Narrows → Yumen Waystation",
+        "title": "Wind-Cut Narrows → Yumen Waystation",
+        "description": "Local connector",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [94.55, 40.33],
+          [94.65, 40.38],
+          [94.78, 40.42]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_kucha_black-timber-post",
+      "properties": {
+        "kind": "route",
+        "label": "Kucha → Black-Timber Post",
+        "title": "Kucha → Black-Timber Post",
+        "description": "Local connector",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [82.95, 41.73],
+          [82.6, 41.4],
+          [82.3, 41.1]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_kashgar_stone-ledger-gate",
+      "properties": {
+        "kind": "route",
+        "label": "Kashgar → Stone Ledger Gate",
+        "title": "Kashgar → Stone Ledger Gate",
+        "description": "Pass approach",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [75.99, 39.4666],
+          [75.65, 39.95],
+          [74.87956784432755, 40.50249308507127]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_kashgar_anvil-sunder-switchbacks",
+      "properties": {
+        "kind": "route",
+        "label": "Kashgar → Anvil-Sunder Switchbacks",
+        "title": "Kashgar → Anvil-Sunder Switchbacks",
+        "description": "Pass approach",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [75.99, 39.4666],
+          [75.55, 39.75],
+          [74.9039, 39.9026]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_karashahr_salt-reed-oasis",
+      "properties": {
+        "kind": "route",
+        "label": "Karashahr → Salt-Reed Oasis",
+        "title": "Karashahr → Salt-Reed Oasis",
+        "description": "Water stop connector",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [86.53, 41.85],
+          [87.1, 40.9],
+          [87.55, 40.2],
+          [87.9862, 39.554]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_miran_miran-temple-district",
+      "properties": {
+        "kind": "route",
+        "label": "Miran → Miran Temple District",
+        "title": "Miran → Miran Temple District",
+        "description": "Local connector",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [88.07, 40.52],
+          [88.11, 40.5],
+          [88.15, 40.47]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_niya_niya-outer-fields",
+      "properties": {
+        "kind": "route",
+        "label": "Niya → Niya Outer Fields",
+        "title": "Niya → Niya Outer Fields",
+        "description": "Local connector",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [81.18, 37.07],
+          [81.12, 37.09],
+          [81.05, 37.12]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_karashahr_buried-lens",
+      "properties": {
+        "kind": "route",
+        "label": "Karashahr → Buried Lens",
+        "title": "Karashahr → Buried Lens",
+        "description": "Side route",
+        "stroke": "#1f77b4",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45,
+        "stroke-dasharray": "4 6"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [86.53, 41.85],
+          [86.35, 41.65],
+          [86.2, 41.4]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_yarkand_khotan",
+      "properties": {
+        "kind": "route",
+        "label": "Yarkand → Khotan",
+        "title": "Yarkand → Khotan",
+        "description": "Southern corridor segment",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6,
+        "stroke-dasharray": "5 5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [77.27, 38.43],
+          [79.92, 37.12]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_khotan_niya",
+      "properties": {
+        "kind": "route",
+        "label": "Khotan → Niya",
+        "title": "Khotan → Niya",
+        "description": "Southern corridor segment",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6,
+        "stroke-dasharray": "5 5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [79.92, 37.12],
+          [81.18, 37.07]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_niya_cherchen",
+      "properties": {
+        "kind": "route",
+        "label": "Niya → Cherchen",
+        "title": "Niya → Cherchen",
+        "description": "Southern corridor segment",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6,
+        "stroke-dasharray": "5 5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [81.18, 37.07],
+          [85.55, 38.14]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_cherchen_endere",
+      "properties": {
+        "kind": "route",
+        "label": "Cherchen → Endere",
+        "title": "Cherchen → Endere",
+        "description": "Southern corridor segment",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6,
+        "stroke-dasharray": "5 5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.55, 38.14],
+          [88.74, 36.21]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_endere_miran",
+      "properties": {
+        "kind": "route",
+        "label": "Endere → Miran",
+        "title": "Endere → Miran",
+        "description": "Southern corridor segment",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6,
+        "stroke-dasharray": "5 5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [88.74, 36.21],
+          [88.07, 40.52]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_miran_charklik",
+      "properties": {
+        "kind": "route",
+        "label": "Miran → Charklik",
+        "title": "Miran → Charklik",
+        "description": "Southern corridor segment",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6,
+        "stroke-dasharray": "5 5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [88.07, 40.52],
+          [88.15, 39.0]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_charklik_dunhuang",
+      "properties": {
+        "kind": "route",
+        "label": "Charklik → Dunhuang",
+        "title": "Charklik → Dunhuang",
+        "description": "Southern corridor segment",
+        "stroke": "#ff7f0e",
+        "stroke-width": 15,
+        "stroke-opacity": 0.6,
+        "stroke-dasharray": "5 5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [88.15, 39.0],
+          [94.67, 40.15]
+        ]
+      }
+    }
+  ]
+}

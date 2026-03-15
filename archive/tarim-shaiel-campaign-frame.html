@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarim Shaiel — Campaign Frame</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1208;
+      --parchment:  #f5edd8;
+      --parchment2: #ede0c4;
+      --gold:       #b8922c;
+      --gold-light: #d4a843;
+      --crimson:    #7a1f1f;
+      --steel:      #3c4a5a;
+      --rule:       rgba(184,146,44,0.4);
+      --shadow:     rgba(26,18,8,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #1a1208;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.72;
+      color: var(--ink);
+    }
+
+    /* ── Page wrapper ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--parchment);
+      box-shadow: 0 0 80px rgba(0,0,0,0.75);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Parchment texture overlay */
+    .page-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+    }
+
+    /* ── Cover hero ── */
+    .cover {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .cover-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images5.alphacoders.com/798/thumb-1920-798802.jpg');
+      background-size: cover;
+      background-position: center 4%;
+      z-index: 0;
+    }
+
+    .cover-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26,18,8,0.08) 0%,
+        rgba(26,18,8,0.55) 55%,
+        rgba(26,18,8,0.92) 100%
+      );
+      z-index: 1;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem 3rem 3rem;
+      color: var(--parchment);
+    }
+
+    .cover-title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+      color: #f5e6c0;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+      margin-bottom: 0.15rem;
+    }
+
+    .cover-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.4rem;
+    }
+
+    .cover-concept {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #e8d8b8;
+      max-width: 520px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    }
+
+    /* ── Banner / page header ── */
+    .banner {
+      background: var(--steel);
+      color: var(--parchment);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 3rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .banner-rule {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 3rem;
+    }
+
+    /* ── Main content ── */
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 2.8rem 3rem;
+    }
+
+    /* ── At a glance table ── */
+    .at-a-glance {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2.4rem;
+      font-size: 0.95rem;
+    }
+
+    .at-a-glance td {
+      padding: 0.45rem 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .at-a-glance td:first-child {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--steel);
+      width: 42%;
+    }
+
+    .at-a-glance tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── Section headers ── */
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--crimson);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .chapter-intro {
+      font-style: italic;
+      color: var(--steel);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── Two-column layout ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.4rem;
+    }
+
+    /* ── Body text ── */
+    p {
+      margin-bottom: 1em;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Principles ── */
+    .principle {
+      margin-bottom: 1.4rem;
+    }
+
+    .principle-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--steel);
+      margin-bottom: 0.3rem;
+    }
+
+    .principle p {
+      margin-bottom: 0;
+      font-size: 0.97rem;
+    }
+
+    /* ── Theme items ── */
+    .theme {
+      margin-bottom: 1.3rem;
+    }
+
+    .theme-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--crimson);
+      margin-bottom: 0.25rem;
+    }
+
+    .theme p {
+      margin-bottom: 0;
+      font-size: 0.97rem;
+    }
+
+    /* ── Call-out / note box ── */
+    .callout {
+      background: var(--parchment2);
+      border-left: 3px solid var(--gold);
+      border-radius: 2px;
+      padding: 0.9rem 1.1rem;
+      margin: 1.1rem 0;
+      font-size: 0.97rem;
+    }
+
+    .callout strong {
+      color: var(--steel);
+    }
+
+    /* ── Touchstones ── */
+    .touchstones {
+      font-style: italic;
+      color: var(--steel);
+      font-size: 0.95rem;
+    }
+
+    .touchstones-body {
+      margin-top: 0.6rem;
+      font-style: normal;
+      font-size: 0.95rem;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 2rem 0;
+    }
+
+    /* ── Section block ── */
+    .section {
+      margin-bottom: 2.8rem;
+    }
+
+    /* ── Tone tags ── */
+    .tone-tags {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      color: var(--steel);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Session zero questions ── */
+    .session-questions h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--steel);
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .session-questions ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .session-questions li {
+      font-size: 0.95rem;
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      border-bottom: 1px solid rgba(184,146,44,0.2);
+      position: relative;
+    }
+
+    .session-questions li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    /* ── Content advisories ── */
+    .advisories {
+      font-size: 0.9rem;
+      color: var(--steel);
+      line-height: 1.9;
+    }
+
+    /* ── Credits ── */
+    .credits {
+      background: var(--steel);
+      color: var(--parchment);
+      padding: 1.6rem 3rem;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .credits a {
+      color: var(--gold-light);
+    }
+
+    .dpcr-notice {
+      border-top: 1px solid rgba(245,237,216,0.2);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      font-size: 0.78rem;
+      opacity: 0.75;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .cover-title { font-size: 2.2rem; }
+      .cover-content, .content { padding: 1.8rem 1.4rem; }
+      .banner { padding: 0.5rem 1.4rem; }
+      .banner-rule { margin: 0 1.4rem; }
+      .two-col { grid-template-columns: 1fr; gap: 0; }
+      .credits { padding: 1.6rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- ── COVER ── -->
+  <div class="cover">
+    <div class="cover-image"></div>
+    <div class="cover-gradient"></div>
+    <div class="cover-content">
+      <div class="cover-title">Tarim Shaiel</div>
+      <div class="cover-subtitle">A Daggerheart Campaign</div>
+      <div class="cover-concept"><em>What do you do when the world is very certain who you are — and you're not?</em></div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <span>Player-Facing Document</span>
+    <span>Campaign Frame · v2.0</span>
+  </div>
+  <div class="banner-rule"></div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="content">
+
+    <!-- At a Glance -->
+    <table class="at-a-glance">
+      <tr><td>Players</td><td>3 – 5</td></tr>
+      <tr><td>Campaign Length</td><td>Long Campaign · 30+ Sessions</td></tr>
+      <tr><td>Complexity</td><td>●●●●○</td></tr>
+      <tr><td>Tone</td><td>Dark Fantasy · Morally Grey</td></tr>
+      <tr><td>System</td><td>Daggerheart</td></tr>
+    </table>
+
+    <!-- The Pitch -->
+    <div class="section">
+      <div class="section-title">The Pitch</div>
+      <div class="chapter-intro">Read this to your players when pitching the campaign.</div>
+      <p>Tarim Shaiel is a dark fantasy campaign set in a world that carries the weight of its past like a wound that never quite closed. It is a world with opinions: about consequence, about history, about the people who shaped it and the debts that haven't been settled. Your characters are people that world has decided something about.</p>
+      <p>Whether those decisions are right, whether they fit, and what you choose to become in their shadow: that is the campaign. Expect doubt. Expect hard choices with no clean answers. Expect consequences that persist, people who have every right to be complicated about you, and moments of recognition that land harder than any fight.</p>
+      <p>This is not a campaign about heroism. It is a campaign about what heroism actually costs. And who pays.</p>
+    </div>
+
+    <!-- Tone & Feel -->
+    <div class="section">
+      <div class="section-title">Tone &amp; Feel</div>
+      <div class="tone-tags">Dark Fantasy · Morally Grey · Weighty · Intimate · Consequential</div>
+    </div>
+
+    <!-- Themes -->
+    <div class="section">
+      <div class="section-title">Themes</div>
+      <div class="chapter-intro">These themes form the spine of the campaign.</div>
+      <div class="two-col">
+        <div>
+          <div class="theme">
+            <div class="theme-title">The weight of a name.</div>
+            <p>Your characters carry significance they didn't choose and can't fully account for. The name means something to the world. Whether it means the same thing to you is the question.</p>
+          </div>
+          <div class="theme">
+            <div class="theme-title">Choosing despite doubt.</div>
+            <p>This is not a campaign about certainty. It is a campaign about making choices anyway: under pressure, with incomplete information, knowing the cost may not be clear until later.</p>
+          </div>
+          <div class="theme">
+            <div class="theme-title">The long shadow of consequence.</div>
+            <p>Every action here casts a shadow. The campaign asks players to sit with outcomes, to let them mean something rather than immediately move past them.</p>
+          </div>
+        </div>
+        <div>
+          <div class="theme">
+            <div class="theme-title">A world still healing.</div>
+            <p>Liberation is not the same as peace, and peace is not the same as justice. The world the characters move through is still working that out. Some of it is raw. Some of it has calcified into myth. None of it is finished.</p>
+          </div>
+          <div class="theme">
+            <div class="theme-title">What it costs to matter.</div>
+            <p>The characters are significant. That significance was not free. Someone paid. Some of them are still paying. The campaign, over time, asks its characters to look at that directly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Touchstones -->
+    <div class="section">
+      <div class="section-title">Touchstones</div>
+      <div class="touchstones"><em>Gardens of the Moon</em> (Erikson) · <em>[Add 2–3 more — fiction, film, or other RPGs that set the right tonal expectation for your table]</em></div>
+      <div class="touchstones-body">The throughlines to look for: moral complexity without nihilism, consequence that compounds, characters who are genuinely changed by what they do, worlds with a deep and lived-in history that wasn't built for the protagonists.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Overview -->
+    <div class="section">
+      <div class="section-title">Overview</div>
+      <div class="chapter-intro">Player-facing. Sets the world without revealing the premise.</div>
+      <div class="two-col">
+        <div>
+          <p>The world is old and complicated in the way that only centuries of unresolved consequence can make a place. What was once an empire is now history, fallen not cleanly, but in pieces, leaving fractures that became regions, became cultures, became arguments that haven't been settled in a very long time.</p>
+          <p>The world players enter is rich with those arguments. Eight distinct regions, each shaped by its own reckoning with the past. The peoples here are not waiting for anything. They have been building, trading, recovering, and arguing on their own terms, in their own time, with their own sense of who owes what to whom. They have long memories, and they hold them differently: some calcified into grievance, some softened into myth, some interrogated rigorously and still unresolved.</p>
+          <p>Magic moves through the world along channels most people don't have names for. What they have instead are habits: roads avoided at certain hours, markets where certain goods carry a weight the merchants don't discuss, places that feel wrong in ways that resist explanation. Something has been quietly unreliable for long enough that most people have learned to rationalize it. A few haven't. Some of them are watching.</p>
+        </div>
+        <div>
+          <p>The characters move through this world carrying a weight: of being significant to people they've never met, of factions with agendas, of histories that name them without asking. The world has already decided something about who they are. Some of those decisions are flattering. Some condemn. Some are simply wrong in ways that matter. None of them asked first.</p>
+          <p>Tarim Shaiel is about what the characters do inside that pressure. About the doubt, the gap between what the world says and what the characters can actually verify about themselves. About hard choices made without the certainty that would make them easier. About whether it is possible to choose who you are when something larger has already tried to do it for you.</p>
+          <p>The campaign is long. The world is alive and opinionated. The best moments will not be victories. They will be recognitions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Heritage & Classes -->
+    <div class="section">
+      <div class="section-title">Heritage &amp; Classes</div>
+      <div class="chapter-intro">All ancestries and classes from the Daggerheart Core Rulebook are available. The world is populated and diverse; no door is closed on the basis of what your character is.</div>
+      <p><em>What matters more than ancestry or class is <strong>approach.</strong></em></p>
+      <p>The characters of Tarim Shaiel are defined less by what they can do and more by <em>how</em> they meet the world. When building your character, sit with this question before you touch a character sheet:</p>
+      <div class="callout">
+        <strong>What is your character's essential method: the way they change things, the thing that makes them distinctly themselves?</strong>
+      </div>
+      <p>Are they someone who meets obstacles with force and decisive action? Who uncovers truths others wouldn't look for? Who breaks structures rather than reforming them, or mediates where others refuse to, or gives of themselves without reservation? Are they a careful observer, a keeper of what others would destroy, or someone who operates through misdirection and patience?</p>
+      <p>That method is your character's spine. In this campaign, it is also their defining doubt. The question they will not be able to stop turning over. Come to Session Zero with a sense of it.</p>
+      <p><em>A character creation guide with expanded guidance on approaches will be provided at Session Zero.</em></p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Player Principles + GM Principles side by side -->
+    <div class="two-col">
+      <div>
+        <div class="section-title">Player Principles</div>
+        <div class="chapter-intro" style="margin-bottom:1.4rem;">Follow these principles to stay in the right relationship with the campaign's themes. They are not rules. They are the mindset that makes the campaign work.</div>
+
+        <div class="principle">
+          <div class="principle-title">Sit with the doubt.</div>
+          <p>Your character's uncertainty is not a problem to solve in session one. It is the experience. Let it stay unresolved for as long as it needs to. Reaching for certainty too early forecloses the campaign's best questions.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">The world's verdict is not the last word.</div>
+          <p>What factions, strangers, and histories say about your character is information: sometimes useful, sometimes wrong, sometimes both at once. You don't have to accept it. You don't have to reject it either. What you do with it is character.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Your choices are your own.</div>
+          <p>Whatever your character carries, whatever weight attaches to their name, their decisions <em>now</em> belong to them. The past is context. The present is character. Play from there.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Let consequences land.</div>
+          <p>This campaign rewards players who let outcomes mean something, who don't immediately move to fix or escape what happened, but instead live in what it costs. The sessions here are built around that space. Use it.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Look directly at the hard things.</div>
+          <p>When a scene makes you want to look away from something your character did, or enabled, or benefited from: look at it instead. That discomfort is the campaign working as intended. The best moments in Tarim Shaiel come from characters who don't flinch.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">GM Principles</div>
+        <div class="chapter-intro" style="margin-bottom:1.4rem;">Use these principles to run a campaign that earns its themes.</div>
+
+        <div class="principle">
+          <div class="principle-title">Make the world opinionated.</div>
+          <p>Every faction, every NPC, every community has already formed a view of the characters before they arrive. Some of those views contradict each other. Let that conflict be present and unresolved. The world is not neutral about these people.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Distribute the truth.</div>
+          <p>No single source has the complete picture. Spread fragments across the world: in records, in oral traditions, in reactions, in things that haven't been said yet. Let the characters piece it together slowly. The full picture, when it forms, should feel <em>earned</em>.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Earn the Revelations.</div>
+          <p>Answers will come. Pace them so they land. What a character discovers through action and consequence will mean more than what they're told. Give the doubt enough time to do its work, and the clarity, when it arrives, will feel like it belongs.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Consequence over spectacle.</div>
+          <p>The campaign's best moments are not always battles. They are often recognitions: when a character understands what their methods actually cost, when they meet someone who inherited that cost, when something they did in a previous session arrives changed. Build toward these with patience. Let them land without commentary.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Let the truths arrive slowly.</div>
+          <p>What the characters are, what they do, and what that means: this surfaces through play, not exposition. The world carries its history; the characters move through it. Your job is to place the fragments well, not deliver them efficiently.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Protect the question.</div>
+          <p>The campaign's spine is: <em>What do you do when the world is very certain who you are — and you're not?</em> Every arc, every faction move, every NPC encounter should, in some way, put pressure on that question. If a session isn't touching it, ask yourself how it could.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Session Zero -->
+    <div class="section">
+      <div class="section-title">Session Zero</div>
+      <div class="chapter-intro">Deliver these questions before character creation, not after. They invite the right character orientation without revealing the campaign's premise.</div>
+      <div class="two-col session-questions">
+        <div>
+          <h4>On your character</h4>
+          <ul>
+            <li>What is your character's essential method: the way they change things, the thing that makes them distinctly themselves?</li>
+            <li>What does your character most doubt about themselves?</li>
+            <li>What does your character carry that feels inseparable from who they are — an object, a habit, a way of moving through the world?</li>
+            <li>What is your character's relationship to being told who they are? Do they push back? Accept it? Look for the gap between the verdict and the truth?</li>
+          </ul>
+        </div>
+        <div>
+          <h4>On the campaign</h4>
+          <ul>
+            <li>What kinds of moral complexity are you most interested in exploring?</li>
+            <li>Is there anything you want to be sure is handled off-screen, or not at all?</li>
+            <li>What does a successful session feel like for you as a player?</li>
+          </ul>
+          <div class="divider" style="margin:1.2rem 0;"></div>
+          <h4>Content Advisories</h4>
+          <div class="advisories">Grief &amp; Loss · Moral Ambiguity · Consequences of Violence · Liberation &amp; Its Aftermath · Identity Crisis · Cosmic/Existential Dread · Self-Doubt · Complicity &amp; Silence · Generational Consequence</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- ── FOOTER / CREDITS ── -->
+  <div class="credits">
+    <div>Tarim Shaiel · Campaign Frame v2.0 · Daggerheart · March 2026</div>
+    <div class="dpcr-notice">
+      This product includes material from the Daggerheart System Reference Document 1.0, © Critical Role, LLC, under the terms of the Darrington Press Community Gaming License. More at <a href="https://www.daggerheart.com">daggerheart.com</a>.
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+Weapon	Trait	Range	Damage	Type	Burden	Feature	Ordinal Type	Tier
+Jian (Straight Sword)	Agility	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Dao (Saber)	Agility	Melee	d10+3 phy	Physical	Two-Handed	—	Primary	Tier 1
+Shamshir	Agility	Melee	d8 phy	Physical	One-Handed	Reliable: +1 to attack rolls	Primary	Tier 1
+Kilij	Strength	Melee	d10+3 phy	Physical	Two-Handed	—	Primary	Tier 1
+Talwar	Agility	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Khanda	Strength	Melee	d10+3 phy	Physical	Two-Handed	—	Primary	Tier 1
+Scimitar (Saif)	Agility	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Pulwar	Agility	Melee	d8 phy	Physical	One-Handed	Reliable: +1 to attack rolls	Primary	Tier 1
+Butterfly Swords (Hu Die Dao)	Finesse	Melee	d8+1 phy	Physical	One-Handed	Paired: +2 to primary weapon damage to targets within Melee range	Secondary	Tier 1
+Hook Swords (Gou)	Finesse	Melee	d6+1 phy	Physical	One-Handed	Hooked: On a successful attack, can pull the target into Melee range	Primary	Tier 1
+Pesh-kabz	Finesse	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Khanjar	Finesse	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Katar	Strength	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Jambiya	Finesse	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Dagger-Axe (Ge)	Strength	Very Close	d10+2 phy	Physical	Two-Handed	Cumbersome: -1 to Finesse	Primary	Tier 1
+Glaive (Guan Dao)	Strength	Very Close	d10+2 phy	Physical	Two-Handed	Cumbersome: -1 to Finesse	Primary	Tier 1
+Qiang (Spear)	Finesse	Very Close	d8+3 phy	Physical	Two-Handed	—	Primary	Tier 1
+Bardiche	Strength	Very Close	d10+2 phy	Physical	Two-Handed	Cumbersome: -1 to Finesse	Primary	Tier 1
+Lance (Cavalry)	Strength	Very Close	d8+3 phy	Physical	Two-Handed	Mounted: Advantage on attack rolls while mounted	Primary	Tier 1
+Short Axes (Fu)	Strength	Melee	d8+1 phy	Physical	One-Handed	Paired: +2 to primary weapon damage to targets within Melee range	Secondary	Tier 1
+Tabar (Battle Axe)	Strength	Melee	d10+3 phy	Physical	Two-Handed	—	Primary	Tier 1
+Gurz (Mace)	Strength	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Shishpar	Strength	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Chain Whip (Jiujiebian)	Finesse	Close	d8+1 phy	Physical	One-Handed	Hooked: On a successful attack, can pull the target into Melee range or disarm them	Primary	Tier 1
+Meteor Hammer	Strength	Close	d8+1 phy	Physical	Two-Handed	—	Primary	Tier 1
+Rope Dart	Finesse	Close	d8 phy	Physical	One-Handed	Returning: When this weapon is thrown within its range, it appears in your hand immediately after the attack	Primary	Tier 1
+Urumi	Finesse	Close	d8 phy	Physical	One-Handed	Dangerous: On an attack roll with Fear, mark a Stress as the blade rebounds	Primary	Tier 1
+Composite Recurve Bow	Agility	Far	d6+3 phy	Physical	Two-Handed	—	Primary	Tier 1
+Chinese Military Bow	Agility	Far	d6+3 phy	Physical	Two-Handed	—	Primary	Tier 1
+Longbow (Central Asian)	Agility	Very Far	d8+3 phy	Physical	Two-Handed	Cumbersome: -1 to Finesse	Primary	Tier 1
+Chakram	Finesse	Close	d8 phy	Physical	One-Handed	Returning: When this weapon is thrown within its range, it appears in your hand immediately after the attack	Primary	Tier 1
+Francisca-style Throwing Axe	Strength	Very Close	d6+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Chinese Crossbow (Nu)	Finesse	Far	d6+1 phy	Physical	One-Handed	—	Primary	Tier 1
+Repeating Crossbow	Finesse	Far	d6 phy	Physical	One-Handed	Quick: When you make an attack, you can mark a Stress to target another creature within range	Primary	Tier 1
+Hand Cannon	Finesse	Close	d6+1 phy	Physical	One-Handed	Reloading: After attacking, roll a d6; on 1, mark a Stress to reload	Primary	Tier 1
+Fire Lance	Strength	Very Close	d8+1 phy+mag	Magical	Two-Handed	Burning: When you roll a 6 on a damage die, the target marks a Stress	Primary	Tier 1
+Thunder Crash Bomb	Strength	Close	2d6 phy	Physical	One-Handed	Area: All creatures within Very Close of the impact point take damage	Primary	Tier 1
+Tiger Fork	Strength	Very Close	d8+3 phy	Physical	Two-Handed	Hooked: On a successful attack, can Restrain the target until they escape	Primary	Tier 1
+Deer Horn Knives	Finesse	Melee	d8+1 phy	Physical	One-Handed	Paired: +2 to primary weapon damage; Hooked: Can disarm on a critical attack	Secondary	Tier 1
+Bagh Nakh (Tiger Claws)	Finesse	Melee	d6+1 phy	Physical	One-Handed	Concealed: Advantage on the first attack if hidden	Primary	Tier 1
+Zaghnal (War Hammer)	Strength	Melee	d8+1 phy	Physical	One-Handed	—	Primary	Tier 1

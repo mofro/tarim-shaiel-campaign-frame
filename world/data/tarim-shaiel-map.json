@@ -1,0 +1,489 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "region_tarim_basin",
+      "properties": {
+        "name": "Tarim Basin Oases",
+        "title": "Tarim Basin Oases",
+        "description": "Mixed/Cosmopolitan trading hub - heart of the Silk Road",
+        "stroke": "#1f77b4",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#1f77b4",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[74.5, 36.5], [82.0, 36.5], [82.0, 43.5], [74.5, 43.5], [74.5, 36.5]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "region_eastern_gateway",
+      "properties": {
+        "name": "Eastern Gateway",
+        "title": "Eastern Gateway",
+        "description": "Elven/Human sacred sites and imperial fortifications",
+        "stroke": "#2ca02c",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#2ca02c",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[92.0, 38.5], [97.0, 38.5], [97.0, 42.0], [92.0, 42.0], [92.0, 38.5]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "region_central_asia",
+      "properties": {
+        "name": "Central Asian Hubs",
+        "title": "Central Asian Hubs",
+        "description": "Human (Empire-era) names with emerging Orcish influence - thriving trade centers",
+        "stroke": "#ff7f0e",
+        "stroke-width": 2,
+        "stroke-opacity": 0.7,
+        "fill": "#ff7f0e",
+        "fill-opacity": 0.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[64.0, 37.5], [71.0, 37.5], [71.0, 41.5], [64.0, 41.5], [64.0, 37.5]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_chang-an",
+      "properties": {
+        "name": "Chang'an (Xi'an)",
+        "fantasy_name": "Chang'an",
+        "type": "city",
+        "title": "Chang'an",
+        "description": "The eastern terminus of the Silk Road. An imperial capital with legendary walls.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [109.26, 34.34]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_jade-gate",
+      "properties": {
+        "name": "Jade Gate",
+        "fantasy_name": "Jade Gate",
+        "type": "route-node",
+        "title": "Jade Gate",
+        "description": "The western gateway to imperial China. A heavily fortified checkpoint.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [94.5855, 40.339]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_dunhuang",
+      "properties": {
+        "name": "Dunhuang",
+        "fantasy_name": "Dunhuang",
+        "type": "sacred-site",
+        "title": "Dunhuang",
+        "description": "Gateway to China; home to the Mogao Caves with Buddhist artworks.",
+        "marker-color": "#9467bd",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [94.67, 40.15]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kashgar",
+      "properties": {
+        "name": "Kashgar",
+        "fantasy_name": "Kashgar",
+        "type": "city",
+        "title": "Kashgar",
+        "description": "Westernmost major Chinese city; crossroads of cultures and trade.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.99, 39.65]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yarkand",
+      "properties": {
+        "name": "Yarkand",
+        "fantasy_name": "Yarkand",
+        "type": "route-node",
+        "title": "Yarkand",
+        "description": "Convergence point where northern and southern routes merge.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.27, 38.43]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_maralbashi",
+      "properties": {
+        "name": "Maralbashi",
+        "fantasy_name": "Maralbashi",
+        "type": "route-node",
+        "title": "Maralbashi",
+        "description": "Gateway to western mountain passes. Guides and supplies for mountain crossing.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.57, 39.74]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_khotan",
+      "properties": {
+        "name": "Khotan",
+        "fantasy_name": "Khotan",
+        "type": "city",
+        "title": "Khotan",
+        "description": "The jade capital of the Silk Road.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [79.92, 37.12]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_niya",
+      "properties": {
+        "name": "Niya",
+        "fantasy_name": "Niya",
+        "type": "route-node",
+        "title": "Niya",
+        "description": "Ancient oasis ruins on the southern route. Archaeological treasures await.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [81.18, 37.07]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_endere",
+      "properties": {
+        "name": "Endere",
+        "fantasy_name": "Endere",
+        "type": "route-node",
+        "title": "Endere",
+        "description": "Isolated waypoint on the southern route through harsh desert.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [88.74, 36.21]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_cherchen",
+      "properties": {
+        "name": "Cherchen",
+        "fantasy_name": "Cherchen",
+        "type": "route-node",
+        "title": "Cherchen",
+        "description": "Waypoint on the southern route between Taklamakan sections.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [85.55, 38.14]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_miran",
+      "properties": {
+        "name": "Miran",
+        "fantasy_name": "Miran",
+        "type": "route-node",
+        "title": "Miran",
+        "description": "Waypoint on southern desert route with Buddhist temple ruins.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [88.07, 40.52]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_charklik",
+      "properties": {
+        "name": "Charklik",
+        "fantasy_name": "Charklik",
+        "type": "route-node",
+        "title": "Charklik",
+        "description": "Waypoint on southern route between desert sections.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [88.15, 39.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_turfan",
+      "properties": {
+        "name": "Turfan",
+        "fantasy_name": "Turfan Depression",
+        "type": "route-node",
+        "title": "Turfan",
+        "description": "Oasis in a depression, protected from desert winds. Known for grapes and wine.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [89.19, 42.95]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_karashahr",
+      "properties": {
+        "name": "Karashahr",
+        "fantasy_name": "Karashahr",
+        "type": "route-node",
+        "title": "Karashahr",
+        "description": "Rest stop on the northern route through Tarim Basin.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [86.53, 41.85]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kucha",
+      "properties": {
+        "name": "Kucha",
+        "fantasy_name": "Kucha",
+        "type": "sacred-site",
+        "title": "Kucha",
+        "description": "Major Buddhist center with Kizil Caves nearby. Place of pilgrimage.",
+        "marker-color": "#9467bd",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [82.95, 41.73]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_shorchuk",
+      "properties": {
+        "name": "Shorchuk",
+        "fantasy_name": "Shorchuk",
+        "type": "route-node",
+        "title": "Shorchuk",
+        "description": "Waypoint on northern route approaching western mountain passes.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [83.86, 41.97]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_aksu",
+      "properties": {
+        "name": "Aksu",
+        "fantasy_name": "Aksu",
+        "type": "route-node",
+        "title": "Aksu",
+        "description": "Vital rest stop on northern route. Gateway toward western high passes.",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.26, 41.17]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_samarkand",
+      "properties": {
+        "name": "Samarkand",
+        "fantasy_name": "Samarqandh",
+        "type": "city",
+        "title": "Samarkand",
+        "description": "Major hub on Silk Road. Known for bazaars and monumental architecture.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "mapmarker": "marker-city"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [66.97, 39.65]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_bukhara",
+      "properties": {
+        "name": "Bukhara",
+        "fantasy_name": "Bukhara",
+        "type": "city",
+        "title": "Bukhara",
+        "description": "Center of Islamic scholarship and trade. Major city of Sogdiana.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [64.43, 39.77]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_balkh",
+      "properties": {
+        "name": "Balkh",
+        "fantasy_name": "Balkh",
+        "type": "city",
+        "title": "Balkh",
+        "description": "Once the 'Mother of Cities,' destroyed by Genghis Khan. Haunting ruins remain.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [66.9, 36.76]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_merv",
+      "properties": {
+        "name": "Merv",
+        "fantasy_name": "Merv",
+        "type": "city",
+        "title": "Merv",
+        "description": "Once a great oasis city, destroyed by Mongols. Rebuilt as Mary, smaller settlement.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [61.83, 37.66]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tashkent",
+      "properties": {
+        "name": "Tashkent",
+        "fantasy_name": "Tashkent",
+        "type": "city",
+        "title": "Tashkent",
+        "description": "Largest city in Central Asia. Known as the 'Stone City' for fortifications.",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [69.24, 41.31]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_northern_corridor",
+      "properties": {
+        "name": "Northern Silk Road Corridor",
+        "title": "Northern Corridor",
+        "description": "Primary northern trade route through Tarim Basin and Central Asia",
+        "stroke": "#1f77b4",
+        "stroke-width": 2,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[66.97, 39.65], [64.43, 39.77], [61.83, 37.66], [69.24, 41.31], [77.57, 39.74], [75.99, 39.65], [80.26, 41.17], [83.86, 41.97], [82.95, 41.73], [86.53, 41.85], [89.19, 42.95], [94.67, 40.15], [109.26, 34.34]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_southern_corridor",
+      "properties": {
+        "name": "Southern Silk Road Corridor",
+        "title": "Southern Corridor",
+        "description": "Secondary southern trade route through Tarim Basin oases",
+        "stroke": "#ff7f0e",
+        "stroke-width": 2,
+        "stroke-opacity": 0.6,
+        "stroke-dasharray": "5 5"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[77.27, 38.43], [79.92, 37.12], [81.18, 37.07], [85.55, 38.14], [88.74, 36.21], [88.07, 40.52], [88.15, 39.0], [94.67, 40.15]]
+      }
+    }
+  ]
+}

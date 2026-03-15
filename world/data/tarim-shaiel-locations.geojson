@@ -1,0 +1,648 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "location_chang-an",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "label": "Chang'an",
+        "title": "Chang'an",
+        "description": "The eastern terminus of the Silk Road. An imperial capital with legendary walls.",
+        "realWorldName": "Chang'an (Xi'an)",
+        "fantasyName": "Chang'an",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [109.26, 34.34]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_jade-gate",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "visibility": "secret",
+        "label": "Jade Gate",
+        "title": "Jade Gate",
+        "description": "The western gateway to imperial China. A heavily fortified checkpoint.",
+        "realWorldName": "Jade Gate",
+        "fantasyName": "Jade Gate",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "fortress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [94.5855, 40.339]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_dunhuang",
+      "properties": {
+        "kind": "location",
+        "category": "sacred-site",
+        "label": "Dunhuang",
+        "title": "Dunhuang",
+        "description": "Gateway to China; home to the Mogao Caves with Buddhist artworks.",
+        "realWorldName": "Dunhuang",
+        "fantasyName": "Dunhuang",
+        "marker-color": "#9467bd",
+        "marker-size": "medium",
+        "marker-symbol": "capital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [94.67, 40.15]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kashgar",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "label": "Kashgar",
+        "title": "Kashgar",
+        "description": "Westernmost major Chinese city; crossroads of cultures and trade.",
+        "realWorldName": "Kashgar",
+        "fantasyName": "Kashgar",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.99, 39.4666]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yarkand",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Yarkand",
+        "title": "Yarkand",
+        "description": "Convergence point where northern and southern routes merge.",
+        "realWorldName": "Yarkand",
+        "fantasyName": "Yarkand",
+        "marker-color": "#ff7f0e",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.27, 38.43]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_maralbashi",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Maralbashi",
+        "title": "Maralbashi",
+        "description": "Gateway to western mountain passes. Guides and supplies for mountain crossing.",
+        "realWorldName": "Maralbashi",
+        "fantasyName": "Maralbashi",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [78.53602, 39.77193]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_khotan",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "label": "Khotan",
+        "title": "Khotan",
+        "description": "The jade capital of the Silk Road.",
+        "realWorldName": "Khotan",
+        "fantasyName": "Khotan",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "city"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [79.92, 37.12]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_niya",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Niya",
+        "title": "Niya",
+        "description": "Ancient oasis ruins on the southern route. Archaeological treasures await.",
+        "realWorldName": "Niya",
+        "fantasyName": "Niya",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [81.18, 37.07]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_endere",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Endere",
+        "title": "Endere",
+        "description": "Isolated waypoint on the southern route through harsh desert.",
+        "realWorldName": "Endere",
+        "fantasyName": "Endere",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [88.74, 36.21]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_cherchen",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Cherchen",
+        "title": "Cherchen",
+        "description": "Waypoint on the southern route between Taklamakan sections.",
+        "realWorldName": "Cherchen",
+        "fantasyName": "Cherchen",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [85.55, 38.14]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_miran",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Miran",
+        "title": "Miran",
+        "description": "Waypoint on southern desert route with Buddhist temple ruins.",
+        "realWorldName": "Miran",
+        "fantasyName": "Miran",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [88.07, 40.52]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_charklik",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Charklik",
+        "title": "Charklik",
+        "description": "Waypoint on southern route between desert sections.",
+        "realWorldName": "Charklik",
+        "fantasyName": "Charklik",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [88.15, 39.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_turfan",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Turfan Depression",
+        "title": "Turfan",
+        "description": "Oasis in a depression, protected from desert winds. Known for grapes and wine.",
+        "realWorldName": "Turfan",
+        "fantasyName": "Turfan Depression",
+        "marker-color": "#ff7f0e",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [89.19, 42.95]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_karashahr",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Karashahr",
+        "title": "Karashahr",
+        "description": "Rest stop on the northern route through Tarim Basin.",
+        "realWorldName": "Karashahr",
+        "fantasyName": "Karashahr",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [86.53, 41.85]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kucha",
+      "properties": {
+        "kind": "location",
+        "category": "sacred-site",
+        "label": "Kucha",
+        "title": "Kucha",
+        "description": "Major Buddhist center with Kizil Caves nearby. Place of pilgrimage.",
+        "realWorldName": "Kucha",
+        "fantasyName": "Kucha",
+        "marker-color": "#9467bd",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [82.95, 41.73]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_shorchuk",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Shorchuk",
+        "title": "Shorchuk",
+        "description": "Waypoint on northern route approaching western mountain passes.",
+        "realWorldName": "Shorchuk",
+        "fantasyName": "Shorchuk",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [83.86, 41.97]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_aksu",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "label": "Aksu",
+        "title": "Aksu",
+        "description": "Vital rest stop on northern route. Gateway toward western high passes.",
+        "realWorldName": "Aksu",
+        "fantasyName": "Aksu",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "caravanserai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.26, 41.17]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_samarkand",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "label": "Samarqandh",
+        "title": "Samarkand",
+        "description": "Major hub on Silk Road. Known for bazaars and monumental architecture.",
+        "realWorldName": "Samarkand",
+        "fantasyName": "Samarqandh",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle",
+        "mapmarker": "marker-city"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [66.97, 39.65]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_bukhara",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "label": "Bukhara",
+        "title": "Bukhara",
+        "description": "Center of Islamic scholarship and trade. Major city of Sogdiana.",
+        "realWorldName": "Bukhara",
+        "fantasyName": "Bukhara",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [64.43, 39.77]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_balkh",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "label": "Balkh",
+        "title": "Balkh",
+        "description": "Once the 'Mother of Cities,' destroyed by Genghis Khan. Haunting ruins remain.",
+        "realWorldName": "Balkh",
+        "fantasyName": "Balkh",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [66.9, 36.76]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_merv",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "label": "Merv",
+        "title": "Merv",
+        "description": "Once a great oasis city, destroyed by Mongols. Rebuilt as Mary, smaller settlement.",
+        "realWorldName": "Merv",
+        "fantasyName": "Merv",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [61.83, 37.66]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tashkent",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "label": "Tashkent",
+        "title": "Tashkent",
+        "description": "Largest city in Central Asia. Known as the 'Stone City' for fortifications.",
+        "realWorldName": "Tashkent",
+        "fantasyName": "Tashkent",
+        "marker-color": "#d62728",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [69.24, 41.31]
+      }
+    }
+    ,
+    {
+      "type": "Feature",
+      "id": "location_yumen-waystation",
+      "properties": {
+        "kind": "location",
+        "category": "caravanserai",
+        "label": "Yumen Waystation (Outer)",
+        "title": "Yumen Waystation (Outer)",
+        "description": "Overflow staging post for caravans approaching the Jade Gate; paperwork, inspections, and remounts.",
+        "realWorldName": "Yumen Gate Waystation",
+        "fantasyName": "Yumen Waystation (Outer)",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [94.78, 40.42]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_wind-cut-narrows",
+      "properties": {
+        "kind": "location",
+        "category": "chokepoint",
+        "label": "The Wind-Cut Narrows",
+        "title": "The Wind-Cut Narrows",
+        "description": "A canyon pinch-point where the road compresses into a single file—ideal for tolls, patrols, and ambushes.",
+        "realWorldName": "Gansu Corridor Narrows",
+        "fantasyName": "The Wind-Cut Narrows",
+        "marker-color": "#7f7f7f",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [94.55, 40.33]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_salt-reed-oasis",
+      "properties": {
+        "kind": "location",
+        "category": "oasis",
+        "label": "Salt-Reed Oasis",
+        "title": "Salt-Reed Oasis",
+        "description": "A reliable water stop at the edge of a brutal stretch; reeds and salt flats mark it from afar.",
+        "realWorldName": "Tarim Basin Oasis",
+        "fantasyName": "Salt-Reed Oasis",
+        "marker-color": "#2ca02c",
+        "marker-size": "large",
+        "marker-symbol": "caravanserai"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [87.9862, 39.554]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_black-timber-post",
+      "properties": {
+        "kind": "location",
+        "category": "caravanserai",
+        "label": "Black-Timber Post",
+        "title": "Black-Timber Post",
+        "description": "Fortified overnight station with stables and a small shrine; a safe stop when the weather turns.",
+        "realWorldName": "Road Station",
+        "fantasyName": "Black-Timber Post",
+        "marker-color": "#ff7f0e",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [82.3, 41.05]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_stone-ledger-gate",
+      "properties": {
+        "kind": "location",
+        "category": "mountain-pass",
+        "label": "The Stone Ledger Gate",
+        "title": "The Stone Ledger Gate",
+        "description": "A controlled high pass where weights, measures, and cargo manifests are certified before crossing.",
+        "realWorldName": "Western Pass",
+        "fantasyName": "The Stone Ledger Gate",
+        "marker-color": "#7f7f7f",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.87956784432755, 40.50249308507127]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_anvil-sunder-switchbacks",
+      "properties": {
+        "kind": "location",
+        "category": "mountain-pass",
+        "label": "The Anvil-Sunder Switchbacks",
+        "title": "The Anvil-Sunder Switchbacks",
+        "description": "A punishing alternate high route of tight switchbacks and exposed ridgelines.",
+        "realWorldName": "High Pass",
+        "fantasyName": "The Anvil-Sunder Switchbacks",
+        "marker-color": "#7f7f7f",
+        "marker-size": "small",
+        "marker-symbol": "route-node"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.9039, 39.9026]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_niya-outer-fields",
+      "properties": {
+        "kind": "location",
+        "category": "ruins",
+        "label": "Niya Outer Fields",
+        "title": "Niya Outer Fields",
+        "description": "Collapsed irrigation lines and wind-buried walls on the approach to Niya; easy to miss in a sandstorm.",
+        "realWorldName": "Niya (Outskirts)",
+        "fantasyName": "Niya Outer Fields",
+        "marker-color": "#8c564b",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [81.05, 37.12]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_miran-temple-district",
+      "properties": {
+        "kind": "location",
+        "category": "ruins",
+        "label": "Miran Temple District",
+        "title": "Miran Temple District",
+        "description": "Ruined temple compounds and broken statuary beyond Miran's waypoint; haunted by wind and sand.",
+        "realWorldName": "Miran (Temple Ruins)",
+        "fantasyName": "Miran Temple District",
+        "marker-color": "#8c564b",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [88.15, 40.47]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_buried-lens",
+      "properties": {
+        "kind": "location",
+        "category": "power-site",
+        "label": "The Buried Lens",
+        "title": "The Buried Lens",
+        "description": "A half-excavated relic site where glassy strata and strange echoes suggest buried ancient works.",
+        "realWorldName": "Relic Site",
+        "fantasyName": "The Buried Lens",
+        "marker-color": "#9467bd",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [86.2, 41.4]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_caravan-crypt",
+      "properties": {
+        "kind": "location",
+        "category": "site",
+        "label": "The Caravan-Crypt",
+        "title": "The Caravan-Crypt",
+        "description": "A sealed cache-chamber used by merchants in hard times; its entrance is easy to miss without a guide.",
+        "realWorldName": "Smuggler Cache",
+        "fantasyName": "The Caravan-Crypt",
+        "marker-color": "#111111",
+        "marker-size": "small",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [83.6, 41.9]
+      }
+    }
+  ]
+}

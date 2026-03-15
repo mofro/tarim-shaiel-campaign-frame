@@ -1,0 +1,965 @@
+2026-01-27 23:22:18,149 [INFO] [DRY RUN] samarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:19,219 [ERROR] Failed to get location 1970053: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970053
+2026-01-27 23:22:19,223 [INFO] [DRY RUN] kucha.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:19,965 [ERROR] Failed to get location 1970054: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970054
+2026-01-27 23:22:19,968 [INFO] [DRY RUN] yarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:20,687 [ERROR] Failed to get location 1970055: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970055
+2026-01-27 23:22:20,691 [INFO] [DRY RUN] tashkent.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:21,410 [ERROR] Failed to get location 1970056: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970056
+2026-01-27 23:22:21,411 [INFO] [DRY RUN] shorchuk.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:22,181 [ERROR] Failed to get location 1970057: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970057
+2026-01-27 23:22:22,183 [INFO] [DRY RUN] niya-outer-fields.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:23,017 [ERROR] Failed to get location 1970058: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970058
+2026-01-27 23:22:23,020 [INFO] [DRY RUN] balkh.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:23,767 [ERROR] Failed to get location 1970059: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970059
+2026-01-27 23:22:23,770 [INFO] [DRY RUN] miran.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:24,496 [ERROR] Failed to get location 1970060: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970060
+2026-01-27 23:22:24,499 [INFO] [DRY RUN] maralbashi.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:25,227 [ERROR] Failed to get location 1970061: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970061
+2026-01-27 23:22:25,230 [INFO] [DRY RUN] merv.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:25,967 [ERROR] Failed to get location 1970062: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970062
+2026-01-27 23:22:25,971 [INFO] [DRY RUN] zzkashkar.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:26,695 [ERROR] Failed to get location 1970063: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970063
+2026-01-27 23:22:26,697 [INFO] [DRY RUN] alak-mor.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:27,488 [ERROR] Failed to get location 1970064: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970064
+2026-01-27 23:22:27,490 [INFO] [DRY RUN] black-timber-post.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:28,228 [ERROR] Failed to get location 1970065: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970065
+2026-01-27 23:22:28,230 [INFO] [DRY RUN] wind-cut-narrows.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:28,972 [ERROR] Failed to get location 1970066: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970066
+2026-01-27 23:22:28,974 [INFO] [DRY RUN] isyk-zhel.md → location (private=False, 2 attrs, 1 GM posts)
+2026-01-27 23:22:29,696 [ERROR] Failed to get location 1970067: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970067
+2026-01-27 23:22:29,700 [INFO] [DRY RUN] khotan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:30,442 [ERROR] Failed to get location 1970068: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970068
+2026-01-27 23:22:30,445 [INFO] [DRY RUN] dun-kharan.md → location (private=False, 0 attrs, 0 GM posts)
+2026-01-27 23:22:31,197 [ERROR] Failed to get location 1970069: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970069
+2026-01-27 23:22:31,199 [INFO] [DRY RUN] stone-ledger-gate.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:32,030 [ERROR] Failed to get location 1970070: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970070
+2026-01-27 23:22:32,033 [INFO] [DRY RUN] kashkar.md → location (private=False, 5 attrs, 3 GM posts)
+2026-01-27 23:22:32,771 [ERROR] Failed to get location 1970071: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970071
+2026-01-27 23:22:32,774 [INFO] [DRY RUN] dunhuang.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:33,516 [ERROR] Failed to get location 1970072: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970072
+2026-01-27 23:22:33,519 [INFO] [DRY RUN] chang-an.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:34,232 [ERROR] Failed to get location 1970073: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970073
+2026-01-27 23:22:34,233 [INFO] [DRY RUN] salt-reed-oasis.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:34,947 [ERROR] Failed to get location 1970074: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970074
+2026-01-27 23:22:34,949 [INFO] [DRY RUN] caravan-crypt.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:35,681 [ERROR] Failed to get location 1970075: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970075
+2026-01-27 23:22:35,683 [INFO] [DRY RUN] miran-temple-district.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:36,404 [ERROR] Failed to get location 1970076: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970076
+2026-01-27 23:22:36,405 [INFO] [DRY RUN] buried-lens.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:37,133 [ERROR] Failed to get location 1970077: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970077
+2026-01-27 23:22:37,135 [INFO] [DRY RUN] jade-gate.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:37,891 [ERROR] Failed to get location 1970078: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970078
+2026-01-27 23:22:37,892 [INFO] [DRY RUN] cherchen.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:38,611 [ERROR] Failed to get location 1970079: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970079
+2026-01-27 23:22:38,612 [INFO] [DRY RUN] balkh-kamen.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:39,323 [ERROR] Failed to get location 1970080: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970080
+2026-01-27 23:22:39,325 [INFO] [DRY RUN] endere.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:40,034 [ERROR] Failed to get location 1970081: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970081
+2026-01-27 23:22:40,035 [INFO] [DRY RUN] anvil-sunder-switchbacks.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:40,759 [ERROR] Failed to get location 1970082: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970082
+2026-01-27 23:22:40,762 [INFO] [DRY RUN] tarim-shaiel.md → location (private=False, 2 attrs, 2 GM posts)
+2026-01-27 23:22:40,764 [INFO] [DRY RUN] turfan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:41,477 [ERROR] Failed to get location 1970045: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970045
+2026-01-27 23:22:41,479 [INFO] [DRY RUN] aksu.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:41,480 [INFO] [DRY RUN] charklik.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:41,481 [INFO] [DRY RUN] yumen-waystation.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:22:41,482 [INFO] [DRY RUN] niya.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:41,483 [INFO] [DRY RUN] bukhara.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:22:41,484 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-27 23:22:41,484 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-27 23:22:41,484 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-27 23:22:41,484 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,485 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,486 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,486 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,486 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,487 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,487 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,487 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,488 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,488 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,489 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,489 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,490 [WARNING] Skipping charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,490 [WARNING] Skipping example_oxbody_charm.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,491 [WARNING] Skipping example_grace_domain.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,491 [WARNING] Skipping example_bridge_diplomatic_resonance.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,491 [WARNING] Skipping exalted_charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,492 [WARNING] Skipping environment_template.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,492 [WARNING] Skipping character_template.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,492 [WARNING] Skipping session_template.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,493 [WARNING] Skipping domain_template.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,493 [WARNING] Skipping hero_heaven_charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,493 [WARNING] Skipping adversary_template.md: Missing required field 'kanka_type'
+2026-01-27 23:22:41,494 [INFO] 
+============================================================
+2026-01-27 23:22:41,494 [INFO] Sync complete:
+2026-01-27 23:22:41,494 [INFO]   ✓ 37 files synced
+2026-01-27 23:22:41,494 [INFO]   ✗ 23 files failed
+2026-01-27 23:22:41,494 [INFO]   ⊘ 0 files skipped
+2026-01-27 23:22:41,494 [INFO] ============================================================
+
+2026-01-27 23:25:24,158 [INFO] [DRY RUN] samarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:25,189 [ERROR] Failed to get location 1970053: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970053
+2026-01-27 23:25:25,191 [INFO] [DRY RUN] kucha.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:25,924 [ERROR] Failed to get location 1970054: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970054
+2026-01-27 23:25:25,926 [INFO] [DRY RUN] yarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:26,652 [ERROR] Failed to get location 1970055: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970055
+2026-01-27 23:25:26,655 [INFO] [DRY RUN] tashkent.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:27,371 [ERROR] Failed to get location 1970056: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970056
+2026-01-27 23:25:27,373 [INFO] [DRY RUN] shorchuk.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:28,073 [ERROR] Failed to get location 1970057: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970057
+2026-01-27 23:25:28,074 [INFO] [DRY RUN] niya-outer-fields.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:28,775 [ERROR] Failed to get location 1970058: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970058
+2026-01-27 23:25:28,777 [INFO] [DRY RUN] balkh.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:29,494 [ERROR] Failed to get location 1970059: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970059
+2026-01-27 23:25:29,496 [INFO] [DRY RUN] miran.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:30,209 [ERROR] Failed to get location 1970060: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970060
+2026-01-27 23:25:30,211 [INFO] [DRY RUN] maralbashi.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:30,922 [ERROR] Failed to get location 1970061: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970061
+2026-01-27 23:25:30,924 [INFO] [DRY RUN] merv.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:31,669 [ERROR] Failed to get location 1970062: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970062
+2026-01-27 23:25:31,671 [INFO] [DRY RUN] zzkashkar.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:32,390 [ERROR] Failed to get location 1970063: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970063
+2026-01-27 23:25:32,392 [INFO] [DRY RUN] alak-mor.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:33,097 [ERROR] Failed to get location 1970064: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970064
+2026-01-27 23:25:33,099 [INFO] [DRY RUN] black-timber-post.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:33,815 [ERROR] Failed to get location 1970065: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970065
+2026-01-27 23:25:33,816 [INFO] [DRY RUN] wind-cut-narrows.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:34,530 [ERROR] Failed to get location 1970066: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970066
+2026-01-27 23:25:34,532 [INFO] [DRY RUN] isyk-zhel.md → location (private=False, 2 attrs, 1 GM posts)
+2026-01-27 23:25:35,256 [ERROR] Failed to get location 1970067: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970067
+2026-01-27 23:25:35,261 [INFO] [DRY RUN] khotan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:35,974 [ERROR] Failed to get location 1970068: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970068
+2026-01-27 23:25:35,975 [INFO] [DRY RUN] dun-kharan.md → location (private=False, 0 attrs, 0 GM posts)
+2026-01-27 23:25:36,694 [ERROR] Failed to get location 1970069: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970069
+2026-01-27 23:25:36,696 [INFO] [DRY RUN] stone-ledger-gate.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:37,440 [ERROR] Failed to get location 1970070: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970070
+2026-01-27 23:25:37,442 [INFO] [DRY RUN] kashkar.md → location (private=False, 5 attrs, 3 GM posts)
+2026-01-27 23:25:38,154 [ERROR] Failed to get location 1970071: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970071
+2026-01-27 23:25:38,155 [INFO] [DRY RUN] dunhuang.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:38,856 [ERROR] Failed to get location 1970072: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970072
+2026-01-27 23:25:38,859 [INFO] [DRY RUN] chang-an.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:39,560 [ERROR] Failed to get location 1970073: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970073
+2026-01-27 23:25:39,561 [INFO] [DRY RUN] salt-reed-oasis.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:40,269 [ERROR] Failed to get location 1970074: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970074
+2026-01-27 23:25:40,270 [INFO] [DRY RUN] caravan-crypt.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:41,018 [ERROR] Failed to get location 1970075: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970075
+2026-01-27 23:25:41,019 [INFO] [DRY RUN] miran-temple-district.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:41,751 [ERROR] Failed to get location 1970076: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970076
+2026-01-27 23:25:41,752 [INFO] [DRY RUN] buried-lens.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:42,492 [ERROR] Failed to get location 1970077: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970077
+2026-01-27 23:25:42,494 [INFO] [DRY RUN] jade-gate.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:43,239 [ERROR] Failed to get location 1970078: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970078
+2026-01-27 23:25:43,240 [INFO] [DRY RUN] cherchen.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:43,958 [ERROR] Failed to get location 1970079: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970079
+2026-01-27 23:25:43,960 [INFO] [DRY RUN] balkh-kamen.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:44,682 [ERROR] Failed to get location 1970080: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970080
+2026-01-27 23:25:44,684 [INFO] [DRY RUN] endere.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:45,466 [ERROR] Failed to get location 1970081: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970081
+2026-01-27 23:25:45,467 [INFO] [DRY RUN] anvil-sunder-switchbacks.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:46,283 [ERROR] Failed to get location 1970082: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970082
+2026-01-27 23:25:46,285 [INFO] [DRY RUN] tarim-shaiel.md → location (private=False, 2 attrs, 2 GM posts)
+2026-01-27 23:25:46,287 [INFO] [DRY RUN] turfan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:47,023 [ERROR] Failed to get location 1970045: 401 Client Error: Unauthorized for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970045
+2026-01-27 23:25:47,024 [INFO] [DRY RUN] aksu.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:47,025 [INFO] [DRY RUN] charklik.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:47,026 [INFO] [DRY RUN] yumen-waystation.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:25:47,026 [INFO] [DRY RUN] niya.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:47,027 [INFO] [DRY RUN] bukhara.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:25:47,028 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-27 23:25:47,028 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-27 23:25:47,028 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-27 23:25:47,028 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,028 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,028 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,028 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,028 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,028 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,029 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,029 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,029 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,029 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,029 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,029 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,029 [WARNING] Skipping charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,030 [WARNING] Skipping example_oxbody_charm.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,030 [WARNING] Skipping example_grace_domain.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,030 [WARNING] Skipping example_bridge_diplomatic_resonance.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,030 [WARNING] Skipping exalted_charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,030 [WARNING] Skipping environment_template.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,030 [WARNING] Skipping character_template.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,031 [WARNING] Skipping session_template.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,031 [WARNING] Skipping domain_template.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,031 [WARNING] Skipping hero_heaven_charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,031 [WARNING] Skipping adversary_template.md: Missing required field 'kanka_type'
+2026-01-27 23:25:47,031 [INFO] 
+============================================================
+2026-01-27 23:25:47,031 [INFO] Sync complete:
+2026-01-27 23:25:47,031 [INFO]   ✓ 37 files synced
+2026-01-27 23:25:47,031 [INFO]   ✗ 23 files failed
+2026-01-27 23:25:47,031 [INFO]   ⊘ 0 files skipped
+2026-01-27 23:25:47,031 [INFO] ============================================================
+
+2026-01-27 23:40:26,542 [INFO] [DRY RUN] samarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:27,653 [INFO] [DRY RUN] samarkand.md marker → map 125882 (marker_id=None, name='Samarqandh', lat=1497.965, lng=1639.174, private=False)
+2026-01-27 23:40:27,655 [INFO] [DRY RUN] kucha.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:28,434 [INFO] [DRY RUN] kucha.md marker → map 125882 (marker_id=None, name='Kucha', lat=1756.588, lng=3067.621, private=False)
+2026-01-27 23:40:28,436 [INFO] [DRY RUN] yarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:29,225 [INFO] [DRY RUN] yarkand.md marker → map 125882 (marker_id=None, name='Yarkand', lat=1376.878, lng=2557.508, private=False)
+2026-01-27 23:40:29,227 [INFO] [DRY RUN] tashkent.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:30,007 [INFO] [DRY RUN] tashkent.md marker → map 125882 (marker_id=None, name='Tashkent', lat=1687.258, lng=1841.98, private=False)
+2026-01-27 23:40:30,008 [INFO] [DRY RUN] shorchuk.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:30,749 [INFO] [DRY RUN] shorchuk.md marker → map 125882 (marker_id=None, name='Shorchuk', lat=1732.255, lng=2989.585, private=False)
+2026-01-27 23:40:30,750 [INFO] [DRY RUN] niya-outer-fields.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:31,544 [INFO] [DRY RUN] niya-outer-fields.md marker → map 125882 (marker_id=None, name='Niya Outer Fields', lat=1238.09, lng=2898.126, private=False)
+2026-01-27 23:40:31,546 [INFO] [DRY RUN] balkh.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:32,323 [INFO] [DRY RUN] balkh.md marker → map 125882 (marker_id=None, name='Balkh', lat=1174.749, lng=1633.145, private=False)
+2026-01-27 23:40:32,324 [INFO] [DRY RUN] miran.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:33,083 [INFO] [DRY RUN] miran.md marker → map 125882 (marker_id=None, name='Miran', lat=1629.666, lng=3525.445, private=False)
+2026-01-27 23:40:33,085 [INFO] [DRY RUN] maralbashi.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:33,939 [INFO] [DRY RUN] maralbashi.md marker → map 125882 (marker_id=None, name='Maralbashi', lat=1530.473, lng=2673.166, private=False)
+2026-01-27 23:40:33,940 [INFO] [DRY RUN] merv.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:34,820 [INFO] [DRY RUN] merv.md marker → map 125882 (marker_id=None, name='Merv (Mary)', lat=1267.095, lng=1179.816, private=False)
+2026-01-27 23:40:34,822 [INFO] [DRY RUN] zzkashkar.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:35,743 [INFO] [DRY RUN] zzkashkar.md marker → map 125882 (marker_id=None, name='Kashkar', lat=1492.182, lng=2445.576, private=False)
+2026-01-27 23:40:35,744 [INFO] [DRY RUN] alak-mor.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:36,563 [INFO] [DRY RUN] alak-mor.md marker → map 125882 (marker_id=None, name='Alak-Mor', lat=2265.148, lng=2937.628, private=False)
+2026-01-27 23:40:36,564 [INFO] [DRY RUN] black-timber-post.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:37,345 [INFO] [DRY RUN] black-timber-post.md marker → map 125882 (marker_id=None, name='Black-Timber Post', lat=1679.504, lng=3009.565, private=False)
+2026-01-27 23:40:37,347 [INFO] [DRY RUN] wind-cut-narrows.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:38,202 [INFO] [DRY RUN] wind-cut-narrows.md marker → map 125882 (marker_id=None, name='The Wind-Cut Narrows', lat=1619.0, lng=4104.772, private=False)
+2026-01-27 23:40:38,204 [INFO] [DRY RUN] isyk-zhel.md → location (private=False, 2 attrs, 1 GM posts)
+2026-01-27 23:40:39,020 [INFO] [DRY RUN] isyk-zhel.md marker → map 125882 (marker_id=None, name='Isyk-Zhel', lat=1821.621, lng=2526.698, private=False)
+2026-01-27 23:40:39,023 [INFO] [DRY RUN] khotan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:39,837 [INFO] [DRY RUN] khotan.md marker → map 125882 (marker_id=None, name='Khotan', lat=1236.245, lng=2797.104, private=False)
+2026-01-27 23:40:39,839 [INFO] [DRY RUN] dun-kharan.md → location (private=False, 0 attrs, 0 GM posts)
+2026-01-27 23:40:40,657 [INFO] [DRY RUN] stone-ledger-gate.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:41,418 [INFO] [DRY RUN] stone-ledger-gate.md marker → map 125882 (marker_id=None, name='The Stone Ledger Gate', lat=1595.246, lng=2374.876, private=False)
+2026-01-27 23:40:41,420 [INFO] [DRY RUN] kashkar.md → location (private=False, 5 attrs, 3 GM posts)
+2026-01-27 23:40:42,200 [INFO] [DRY RUN] kashkar.md marker → map 125882 (marker_id=None, name='Kashgar', lat=1492.182, lng=2445.576, private=False)
+2026-01-27 23:40:42,201 [INFO] [DRY RUN] dunhuang.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:43,012 [INFO] [DRY RUN] dunhuang.md marker → map 125882 (marker_id=None, name='Dunhuang', lat=1599.071, lng=4115.514, private=False)
+2026-01-27 23:40:43,014 [INFO] [DRY RUN] chang-an.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:43,815 [INFO] [DRY RUN] chang-an.md marker → map 125882 (marker_id=None, name='Chang'an', lat=973.324, lng=5420.321, private=False)
+2026-01-27 23:40:43,816 [INFO] [DRY RUN] salt-reed-oasis.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:44,581 [INFO] [DRY RUN] salt-reed-oasis.md marker → map 125882 (marker_id=None, name='Salt-Reed Oasis', lat=1521.531, lng=3518.03, private=False)
+2026-01-27 23:40:44,582 [INFO] [DRY RUN] caravan-crypt.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:45,392 [INFO] [DRY RUN] caravan-crypt.md marker → map 125882 (marker_id=None, name='The Caravan-Crypt', lat=1776.655, lng=3125.717, private=False)
+2026-01-27 23:40:45,393 [INFO] [DRY RUN] miran-temple-district.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:46,186 [INFO] [DRY RUN] miran-temple-district.md marker → map 125882 (marker_id=None, name='Miran Temple District', lat=1624.207, lng=3532.601, private=False)
+2026-01-27 23:40:46,187 [INFO] [DRY RUN] buried-lens.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:46,935 [INFO] [DRY RUN] buried-lens.md marker → map 125882 (marker_id=None, name='The Buried Lens', lat=1724.998, lng=3358.197, private=False)
+2026-01-27 23:40:46,936 [INFO] [DRY RUN] jade-gate.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:47,725 [INFO] [DRY RUN] jade-gate.md marker → map 125882 (marker_id=None, name='Jade Gate', lat=1620.064, lng=4107.945, private=False)
+2026-01-27 23:40:47,726 [INFO] [DRY RUN] cherchen.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:48,492 [INFO] [DRY RUN] cherchen.md marker → map 125882 (marker_id=None, name='Cherchen', lat=1359.47, lng=3300.345, private=False)
+2026-01-27 23:40:48,493 [INFO] [DRY RUN] balkh-kamen.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:49,249 [INFO] [DRY RUN] balkh-kamen.md marker → map 125882 (marker_id=419303, name='Balkh-Kamen', lat=2276.737, lng=2347.573, private=False)
+2026-01-27 23:40:49,250 [INFO] [DRY RUN] endere.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:50,001 [INFO] [DRY RUN] endere.md marker → map 125882 (marker_id=None, name='Endere', lat=1148.902, lng=3585.685, private=False)
+2026-01-27 23:40:50,002 [INFO] [DRY RUN] anvil-sunder-switchbacks.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:50,764 [INFO] [DRY RUN] anvil-sunder-switchbacks.md marker → map 125882 (marker_id=None, name='The Anvil-Sunder Switchbacks', lat=1606.182, lng=2346.222, private=False)
+2026-01-27 23:40:50,765 [INFO] [DRY RUN] tarim-shaiel.md → location (private=False, 2 attrs, 2 GM posts)
+2026-01-27 23:40:50,766 [INFO] [DRY RUN] turfan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:51,618 [INFO] [DRY RUN] turfan.md marker → map 125882 (marker_id=None, name='Turfan Depression', lat=1903.168, lng=3625.38, private=False)
+2026-01-27 23:40:51,619 [INFO] [DRY RUN] aksu.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:51,620 [INFO] [DRY RUN] charklik.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:51,621 [INFO] [DRY RUN] yumen-waystation.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-27 23:40:51,621 [INFO] [DRY RUN] niya.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:51,623 [INFO] [DRY RUN] bukhara.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-27 23:40:51,623 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-27 23:40:51,623 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-27 23:40:51,623 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-27 23:40:51,623 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,623 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,624 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,624 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,624 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,624 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,624 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,624 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,624 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,624 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,625 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,625 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,625 [WARNING] Skipping charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,625 [WARNING] Skipping example_oxbody_charm.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,625 [WARNING] Skipping example_grace_domain.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,626 [WARNING] Skipping example_bridge_diplomatic_resonance.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,626 [WARNING] Skipping exalted_charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,626 [WARNING] Skipping environment_template.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,626 [WARNING] Skipping character_template.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,627 [WARNING] Skipping session_template.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,627 [WARNING] Skipping domain_template.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,627 [WARNING] Skipping hero_heaven_charm_template.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,627 [WARNING] Skipping adversary_template.md: Missing required field 'kanka_type'
+2026-01-27 23:40:51,627 [INFO] 
+============================================================
+2026-01-27 23:40:51,627 [INFO] Sync complete:
+2026-01-27 23:40:51,627 [INFO]   ✓ 37 files synced
+2026-01-27 23:40:51,627 [INFO]   ✗ 23 files failed
+2026-01-27 23:40:51,627 [INFO]   ⊘ 0 files skipped
+2026-01-27 23:40:51,627 [INFO] ============================================================
+
+2026-01-28 20:31:36,217 [INFO] [DRY RUN] samarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:37,332 [INFO] [DRY RUN] samarkand.md marker → map 125882 (marker_id=None, name='Samarqandh', lat=1497.965, lng=1639.174, private=False)
+2026-01-28 20:31:37,336 [INFO] [DRY RUN] kucha.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:38,086 [INFO] [DRY RUN] kucha.md marker → map 125882 (marker_id=None, name='Kucha', lat=1756.588, lng=3067.621, private=False)
+2026-01-28 20:31:38,090 [INFO] [DRY RUN] yarkand.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:38,845 [INFO] [DRY RUN] yarkand.md marker → map 125882 (marker_id=None, name='Yarkand', lat=1376.878, lng=2557.508, private=False)
+2026-01-28 20:31:38,850 [INFO] [DRY RUN] tashkent.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:39,599 [INFO] [DRY RUN] tashkent.md marker → map 125882 (marker_id=None, name='Tashkent', lat=1687.258, lng=1841.98, private=False)
+2026-01-28 20:31:39,602 [INFO] [DRY RUN] shorchuk.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:40,344 [INFO] [DRY RUN] shorchuk.md marker → map 125882 (marker_id=None, name='Shorchuk', lat=1732.255, lng=2989.585, private=False)
+2026-01-28 20:31:40,348 [INFO] [DRY RUN] niya-outer-fields.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:41,084 [INFO] [DRY RUN] niya-outer-fields.md marker → map 125882 (marker_id=None, name='Niya Outer Fields', lat=1238.09, lng=2898.126, private=False)
+2026-01-28 20:31:41,086 [INFO] [DRY RUN] balkh.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:41,831 [INFO] [DRY RUN] balkh.md marker → map 125882 (marker_id=None, name='Balkh', lat=1174.749, lng=1633.145, private=False)
+2026-01-28 20:31:41,833 [INFO] [DRY RUN] miran.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:42,584 [INFO] [DRY RUN] miran.md marker → map 125882 (marker_id=None, name='Miran', lat=1629.666, lng=3525.445, private=False)
+2026-01-28 20:31:42,587 [INFO] [DRY RUN] maralbashi.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:43,366 [INFO] [DRY RUN] maralbashi.md marker → map 125882 (marker_id=None, name='Maralbashi', lat=1530.473, lng=2673.166, private=False)
+2026-01-28 20:31:43,369 [INFO] [DRY RUN] merv.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:44,108 [INFO] [DRY RUN] merv.md marker → map 125882 (marker_id=None, name='Merv (Mary)', lat=1267.095, lng=1179.816, private=False)
+2026-01-28 20:31:44,111 [INFO] [DRY RUN] zzkashkar.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:44,917 [INFO] [DRY RUN] zzkashkar.md marker → map 125882 (marker_id=None, name='Kashkar', lat=1492.182, lng=2445.576, private=False)
+2026-01-28 20:31:44,920 [INFO] [DRY RUN] alak-mor.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:45,680 [INFO] [DRY RUN] alak-mor.md marker → map 125882 (marker_id=None, name='Alak-Mor', lat=2265.148, lng=2937.628, private=False)
+2026-01-28 20:31:45,681 [INFO] [DRY RUN] black-timber-post.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:46,430 [INFO] [DRY RUN] black-timber-post.md marker → map 125882 (marker_id=None, name='Black-Timber Post', lat=1679.504, lng=3009.565, private=False)
+2026-01-28 20:31:46,432 [INFO] [DRY RUN] wind-cut-narrows.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:47,172 [INFO] [DRY RUN] wind-cut-narrows.md marker → map 125882 (marker_id=None, name='The Wind-Cut Narrows', lat=1619.0, lng=4104.772, private=False)
+2026-01-28 20:31:47,174 [INFO] [DRY RUN] isyk-zhel.md → location (private=False, 2 attrs, 1 GM posts)
+2026-01-28 20:31:47,931 [INFO] [DRY RUN] isyk-zhel.md marker → map 125882 (marker_id=None, name='Isyk-Zhel', lat=1821.621, lng=2526.698, private=False)
+2026-01-28 20:31:47,936 [INFO] [DRY RUN] khotan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:48,671 [INFO] [DRY RUN] khotan.md marker → map 125882 (marker_id=None, name='Khotan', lat=1236.245, lng=2797.104, private=False)
+2026-01-28 20:31:48,678 [INFO] [DRY RUN] dun-kharan.md → location (private=False, 0 attrs, 0 GM posts)
+2026-01-28 20:31:49,469 [INFO] [DRY RUN] stone-ledger-gate.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:50,198 [INFO] [DRY RUN] stone-ledger-gate.md marker → map 125882 (marker_id=None, name='The Stone Ledger Gate', lat=1595.246, lng=2374.876, private=False)
+2026-01-28 20:31:50,203 [INFO] [DRY RUN] kashkar.md → location (private=False, 5 attrs, 3 GM posts)
+2026-01-28 20:31:50,952 [INFO] [DRY RUN] kashkar.md marker → map 125882 (marker_id=None, name='Kashgar', lat=1492.182, lng=2445.576, private=False)
+2026-01-28 20:31:50,955 [INFO] [DRY RUN] dunhuang.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:51,691 [INFO] [DRY RUN] dunhuang.md marker → map 125882 (marker_id=None, name='Dunhuang', lat=1599.071, lng=4115.514, private=False)
+2026-01-28 20:31:51,696 [INFO] [DRY RUN] chang-an.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:52,442 [INFO] [DRY RUN] chang-an.md marker → map 125882 (marker_id=None, name='Chang'an', lat=973.324, lng=5420.321, private=False)
+2026-01-28 20:31:52,446 [INFO] [DRY RUN] salt-reed-oasis.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:53,192 [INFO] [DRY RUN] salt-reed-oasis.md marker → map 125882 (marker_id=None, name='Salt-Reed Oasis', lat=1521.531, lng=3518.03, private=False)
+2026-01-28 20:31:53,195 [INFO] [DRY RUN] caravan-crypt.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:53,925 [INFO] [DRY RUN] caravan-crypt.md marker → map 125882 (marker_id=None, name='The Caravan-Crypt', lat=1776.655, lng=3125.717, private=False)
+2026-01-28 20:31:53,927 [INFO] [DRY RUN] miran-temple-district.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:54,673 [INFO] [DRY RUN] miran-temple-district.md marker → map 125882 (marker_id=None, name='Miran Temple District', lat=1624.207, lng=3532.601, private=False)
+2026-01-28 20:31:54,675 [INFO] [DRY RUN] buried-lens.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:55,468 [INFO] [DRY RUN] buried-lens.md marker → map 125882 (marker_id=None, name='The Buried Lens', lat=1724.998, lng=3358.197, private=False)
+2026-01-28 20:31:55,470 [INFO] [DRY RUN] jade-gate.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:56,224 [INFO] [DRY RUN] jade-gate.md marker → map 125882 (marker_id=None, name='Jade Gate', lat=1620.064, lng=4107.945, private=False)
+2026-01-28 20:31:56,227 [INFO] [DRY RUN] cherchen.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:56,973 [INFO] [DRY RUN] cherchen.md marker → map 125882 (marker_id=None, name='Cherchen', lat=1359.47, lng=3300.345, private=False)
+2026-01-28 20:31:56,977 [INFO] [DRY RUN] balkh-kamen.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:57,741 [INFO] [DRY RUN] balkh-kamen.md marker → map 125882 (marker_id=419303, name='Balkh-Kamen', lat=2276.737, lng=2347.573, private=False)
+2026-01-28 20:31:57,745 [INFO] [DRY RUN] endere.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:58,501 [INFO] [DRY RUN] endere.md marker → map 125882 (marker_id=None, name='Endere', lat=1148.902, lng=3585.685, private=False)
+2026-01-28 20:31:58,504 [INFO] [DRY RUN] anvil-sunder-switchbacks.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:59,234 [INFO] [DRY RUN] anvil-sunder-switchbacks.md marker → map 125882 (marker_id=None, name='The Anvil-Sunder Switchbacks', lat=1606.182, lng=2346.222, private=False)
+2026-01-28 20:31:59,237 [INFO] [DRY RUN] tarim-shaiel.md → location (private=False, 2 attrs, 2 GM posts)
+2026-01-28 20:31:59,240 [INFO] [DRY RUN] turfan.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:59,977 [ERROR] Failed to get location 1970045: 429 Client Error: Too Many Requests for url: https://api.kanka.io/1.0/campaigns/371326/locations/1970045
+2026-01-28 20:31:59,981 [INFO] [DRY RUN] aksu.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:59,983 [INFO] [DRY RUN] charklik.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:59,985 [INFO] [DRY RUN] yumen-waystation.md → location (private=False, 2 attrs, 0 GM posts)
+2026-01-28 20:31:59,986 [INFO] [DRY RUN] niya.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:59,989 [INFO] [DRY RUN] bukhara.md → location (private=False, 5 attrs, 0 GM posts)
+2026-01-28 20:31:59,990 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-28 20:31:59,990 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-28 20:31:59,990 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-28 20:31:59,993 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,993 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,993 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,993 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,994 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,994 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,994 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,995 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,995 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,995 [WARNING] Skipping hero_heaven_charm_analysis.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,995 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,996 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,996 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,996 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,996 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,996 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-28 20:31:59,997 [INFO] [DRY RUN] test-bear.md → creature (private=False, 0 attrs, 0 GM posts)
+2026-01-28 20:31:59,997 [INFO] 
+============================================================
+2026-01-28 20:31:59,997 [INFO] Sync complete:
+2026-01-28 20:31:59,997 [INFO]   ✓ 38 files synced
+2026-01-28 20:31:59,997 [INFO]   ✗ 16 files failed
+2026-01-28 20:31:59,997 [INFO]   ⊘ 0 files skipped
+2026-01-28 20:31:59,998 [INFO] ============================================================
+
+2026-01-28 20:33:47,863 [INFO] [DRY RUN] test-bear.md → creature (private=False, 0 attrs, 0 GM posts)
+2026-01-28 20:34:18,687 [INFO] ✓ Created: test-bear.md (ID: 187822)
+2026-01-28 22:29:19,750 [INFO] [DRY RUN] test-bear.md → creature (private=False, 0 attrs, 0 GM posts)
+2026-01-28 22:34:06,380 [INFO] [DRY RUN] test-bear.md → creature (private=False, 0 attrs, 12 DH attrs, 0 GM posts)
+2026-01-28 22:34:39,164 [INFO] ✓ Updated: test-bear.md
+2026-01-28 22:34:49,873 [INFO]   └─ 12 Daggerheart attributes synced
+2026-01-30 00:47:35,081 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/World/Locations
+2026-01-30 00:47:35,082 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/World/Regions
+2026-01-30 00:47:35,082 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-30 00:47:35,082 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-30 00:47:35,083 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-30 00:47:35,083 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Mechanics
+2026-01-30 00:47:35,083 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/bestiary
+2026-01-30 00:47:35,083 [INFO] 
+============================================================
+2026-01-30 00:47:35,083 [INFO] Sync complete:
+2026-01-30 00:47:35,084 [INFO]   ✓ 0 files synced
+2026-01-30 00:47:35,084 [INFO]   ✗ 0 files failed
+2026-01-30 00:47:35,084 [INFO]   ⊘ 0 files skipped
+2026-01-30 00:47:35,084 [INFO] ============================================================
+
+2026-01-30 00:48:29,095 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/World/Locations
+2026-01-30 00:48:29,096 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/World/Regions
+2026-01-30 00:48:29,096 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-30 00:48:29,096 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-30 00:48:29,097 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-30 00:48:29,097 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Mechanics
+2026-01-30 00:48:29,097 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/bestiary
+2026-01-30 00:48:29,097 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/equipment
+2026-01-30 00:48:29,098 [INFO] 
+============================================================
+2026-01-30 00:48:29,098 [INFO] Sync complete:
+2026-01-30 00:48:29,098 [INFO]   ✓ 0 files synced
+2026-01-30 00:48:29,098 [INFO]   ✗ 0 files failed
+2026-01-30 00:48:29,099 [INFO]   ⊘ 0 files skipped
+2026-01-30 00:48:29,099 [INFO] ============================================================
+
+2026-01-30 00:53:58,261 [INFO] [DRY RUN] samarkand.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:53:58,773 [ERROR] Failed to get location 1970053: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970053 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:53:58,777 [INFO] [DRY RUN] kucha.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:53:59,291 [ERROR] Failed to get location 1970054: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970054 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:53:59,296 [INFO] [DRY RUN] yarkand.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:53:59,806 [ERROR] Failed to get location 1970055: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970055 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:53:59,810 [INFO] [DRY RUN] tashkent.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:00,320 [ERROR] Failed to get location 1970056: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970056 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:00,325 [INFO] [DRY RUN] shorchuk.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:00,832 [ERROR] Failed to get location 1970057: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970057 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:00,836 [INFO] [DRY RUN] niya-outer-fields.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:01,347 [ERROR] Failed to get location 1970058: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970058 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:01,356 [INFO] [DRY RUN] balkh.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:01,870 [ERROR] Failed to get location 1970059: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970059 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:01,876 [INFO] [DRY RUN] miran.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:02,388 [ERROR] Failed to get location 1970060: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970060 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:02,393 [INFO] [DRY RUN] maralbashi.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:02,904 [ERROR] Failed to get location 1970061: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970061 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:02,909 [INFO] [DRY RUN] merv.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:03,422 [ERROR] Failed to get location 1970062: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970062 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:03,428 [INFO] [DRY RUN] zzkashkar.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:03,938 [ERROR] Failed to get location 1970063: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970063 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:03,945 [INFO] [DRY RUN] alak-mor.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:04,453 [ERROR] Failed to get location 1970064: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970064 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:04,459 [INFO] [DRY RUN] black-timber-post.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:04,967 [ERROR] Failed to get location 1970065: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970065 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:04,971 [INFO] [DRY RUN] wind-cut-narrows.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:05,479 [ERROR] Failed to get location 1970066: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970066 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:05,484 [INFO] [DRY RUN] isyk-zhel.md → location (private=False, 2 attrs, 0 DH attrs, 1 GM posts)
+2026-01-30 00:54:05,998 [ERROR] Failed to get location 1970067: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970067 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:06,006 [INFO] [DRY RUN] khotan.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:06,510 [ERROR] Failed to get location 1970068: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970068 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:06,514 [INFO] [DRY RUN] dun-kharan.md → location (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:07,023 [ERROR] Failed to get location 1970069: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970069 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:07,027 [INFO] [DRY RUN] stone-ledger-gate.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:07,539 [ERROR] Failed to get location 1970070: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970070 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:07,544 [INFO] [DRY RUN] kashkar.md → location (private=False, 5 attrs, 0 DH attrs, 3 GM posts)
+2026-01-30 00:54:08,056 [ERROR] Failed to get location 1970071: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970071 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:08,063 [INFO] [DRY RUN] dunhuang.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:08,576 [ERROR] Failed to get location 1970072: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970072 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:08,582 [INFO] [DRY RUN] chang-an.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:09,088 [ERROR] Failed to get location 1970073: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970073 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:09,092 [INFO] [DRY RUN] salt-reed-oasis.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:09,598 [ERROR] Failed to get location 1970074: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970074 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:09,604 [INFO] [DRY RUN] caravan-crypt.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:10,111 [ERROR] Failed to get location 1970075: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970075 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:10,115 [INFO] [DRY RUN] miran-temple-district.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:10,626 [ERROR] Failed to get location 1970076: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970076 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:10,632 [INFO] [DRY RUN] buried-lens.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:11,141 [ERROR] Failed to get location 1970077: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970077 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:11,146 [INFO] [DRY RUN] jade-gate.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:11,652 [ERROR] Failed to get location 1970078: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970078 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:11,657 [INFO] [DRY RUN] cherchen.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:12,166 [ERROR] Failed to get location 1970079: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970079 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:12,170 [INFO] [DRY RUN] balkh-kamen.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:12,684 [ERROR] Failed to get location 1970080: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970080 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:12,689 [INFO] [DRY RUN] endere.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:13,197 [ERROR] Failed to get location 1970081: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970081 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:13,201 [INFO] [DRY RUN] anvil-sunder-switchbacks.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:13,712 [ERROR] Failed to get location 1970082: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970082 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:13,717 [INFO] [DRY RUN] tarim-shaiel.md → location (private=False, 2 attrs, 0 DH attrs, 2 GM posts)
+2026-01-30 00:54:13,720 [INFO] [DRY RUN] turfan.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,226 [ERROR] Failed to get location 1970045: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970045 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:14,229 [INFO] [DRY RUN] aksu.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,232 [INFO] [DRY RUN] charklik.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,234 [INFO] [DRY RUN] yumen-waystation.md → location (private=False, 2 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,235 [INFO] [DRY RUN] niya.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,238 [INFO] [DRY RUN] bukhara.md → location (private=False, 5 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,240 [WARNING] Path does not exist: /sessions/zealous-sharp-darwin/mnt/HeroHeaven/Characters/Archetypes
+2026-01-30 00:54:14,240 [WARNING] Path does not exist: /sessions/zealous-sharp-darwin/mnt/HeroHeaven/Characters/NPCs
+2026-01-30 00:54:14,240 [WARNING] Path does not exist: /sessions/zealous-sharp-darwin/mnt/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-30 00:54:14,242 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,244 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,245 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,247 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,248 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,250 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,250 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,251 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,252 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,253 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,254 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,255 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,255 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,257 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,258 [WARNING] Skipping hero_heaven_charm_analysis.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,259 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 00:54:14,262 [INFO] [DRY RUN] test-bear.md → creature (private=False, 0 attrs, 12 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,265 [INFO] [DRY RUN] Tower Shield.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,266 [INFO] [DRY RUN] Round Shield.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,267 [INFO] [DRY RUN] Broadsword.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,268 [INFO] [DRY RUN] Hand Runes.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,269 [INFO] [DRY RUN] Wand.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,270 [INFO] [DRY RUN] Cutlass.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,271 [INFO] [DRY RUN] Shortbow.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,272 [INFO] [DRY RUN] Whip.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,273 [INFO] [DRY RUN] Small Dagger.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,274 [INFO] [DRY RUN] Hand Crossbow.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,275 [INFO] [DRY RUN] Scepter.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,276 [INFO] [DRY RUN] Grappler.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,277 [INFO] [DRY RUN] Returning Blade.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,278 [INFO] [DRY RUN] Arcane Gauntlets.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,280 [INFO] [DRY RUN] Halberd.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,281 [INFO] [DRY RUN] Quarterstaff.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,281 [INFO] [DRY RUN] Longsword.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,282 [INFO] [DRY RUN] Battleaxe.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,283 [INFO] [DRY RUN] Spear.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,284 [INFO] [DRY RUN] Greatsword.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,286 [INFO] [DRY RUN] Shortstaff.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,286 [INFO] [DRY RUN] Longbow.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,288 [INFO] [DRY RUN] Crossbow.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,289 [INFO] [DRY RUN] Rapier.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,290 [INFO] [DRY RUN] Greatstaff.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,291 [INFO] [DRY RUN] Warhammer.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,292 [INFO] [DRY RUN] Dagger.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,293 [INFO] [DRY RUN] Dualstaff.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,294 [INFO] [DRY RUN] Mace.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,295 [INFO] [DRY RUN] Shortsword.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,296 [INFO] [DRY RUN] Hallowed Axe.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,297 [INFO] [DRY RUN] Glowing Rings.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,299 [INFO] [DRY RUN] Gambeson Armor.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,300 [INFO] [DRY RUN] Leather Armor.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,301 [INFO] [DRY RUN] Chainmail Armor.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,302 [INFO] [DRY RUN] Full Plate Armor.md → item (private=False, 0 attrs, 0 DH attrs, 0 GM posts)
+2026-01-30 00:54:14,303 [INFO] 
+============================================================
+2026-01-30 00:54:14,303 [INFO] Sync complete:
+2026-01-30 00:54:14,304 [INFO]   ✓ 74 files synced
+2026-01-30 00:54:14,304 [INFO]   ✗ 16 files failed
+2026-01-30 00:54:14,304 [INFO]   ⊘ 0 files skipped
+2026-01-30 00:54:14,304 [INFO] ============================================================
+
+2026-01-30 00:54:20,585 [ERROR] Failed to update location 1970053: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970053 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:21,101 [ERROR] Failed to update location 1970054: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970054 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:21,613 [ERROR] Failed to update location 1970055: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970055 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:22,124 [ERROR] Failed to update location 1970056: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970056 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:22,639 [ERROR] Failed to update location 1970057: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970057 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:23,150 [ERROR] Failed to update location 1970058: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970058 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:23,664 [ERROR] Failed to update location 1970059: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970059 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:24,171 [ERROR] Failed to update location 1970060: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970060 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:24,682 [ERROR] Failed to update location 1970061: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970061 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:25,192 [ERROR] Failed to update location 1970062: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970062 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:25,706 [ERROR] Failed to update location 1970063: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970063 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:26,221 [ERROR] Failed to update location 1970064: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970064 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:26,735 [ERROR] Failed to update location 1970065: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970065 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:27,252 [ERROR] Failed to update location 1970066: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970066 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:27,764 [ERROR] Failed to update location 1970067: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970067 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:28,277 [ERROR] Failed to update location 1970068: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970068 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:28,784 [ERROR] Failed to update location 1970069: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970069 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:29,295 [ERROR] Failed to update location 1970070: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970070 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:29,806 [ERROR] Failed to update location 1970071: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970071 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:30,319 [ERROR] Failed to update location 1970072: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970072 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:30,833 [ERROR] Failed to update location 1970073: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970073 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:31,347 [ERROR] Failed to update location 1970074: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970074 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:31,863 [ERROR] Failed to update location 1970075: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970075 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:32,374 [ERROR] Failed to update location 1970076: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970076 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:32,883 [ERROR] Failed to update location 1970077: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970077 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:33,391 [ERROR] Failed to update location 1970078: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970078 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:33,910 [ERROR] Failed to update location 1970079: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970079 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:34,420 [ERROR] Failed to update location 1970080: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970080 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:34,934 [ERROR] Failed to update location 1970081: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970081 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:35,444 [ERROR] Failed to update location 1970082: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970082 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:35,958 [ERROR] Failed to create location: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:36,474 [ERROR] Failed to update location 1970045: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations/1970045 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:36,986 [ERROR] Failed to create location: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:37,494 [ERROR] Failed to create location: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:38,009 [ERROR] Failed to create location: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:38,523 [ERROR] Failed to create location: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:39,036 [ERROR] Failed to create location: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/locations (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:39,040 [WARNING] Path does not exist: /sessions/zealous-sharp-darwin/mnt/HeroHeaven/Characters/Archetypes
+2026-01-30 00:54:39,040 [WARNING] Path does not exist: /sessions/zealous-sharp-darwin/mnt/HeroHeaven/Characters/NPCs
+2026-01-30 00:54:39,041 [WARNING] Path does not exist: /sessions/zealous-sharp-darwin/mnt/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-30 00:54:39,043 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,044 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,045 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,047 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,049 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,050 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,051 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,052 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,053 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,054 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,054 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,055 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,056 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,057 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,058 [WARNING] Skipping hero_heaven_charm_analysis.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,060 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 00:54:39,569 [ERROR] Failed to update creature 187822: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/creatures/187822 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:40,079 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:40,597 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:41,114 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:41,628 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:42,136 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:42,652 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:43,164 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:43,676 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:44,186 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:44,696 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:45,212 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:45,721 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:46,236 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:46,748 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:47,268 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:47,781 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:48,293 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:48,806 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:49,320 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:49,836 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:50,346 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:50,861 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:51,369 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:51,883 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:52,394 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:52,905 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:53,415 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:53,929 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:54,440 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:54,949 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:55,463 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:55,974 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:56,487 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:56,998 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:57,512 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:58,021 [ERROR] Failed to create item: HTTPSConnectionPool(host='api.kanka.io', port=443): Max retries exceeded with url: /1.0/campaigns/371326/items (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-01-30 00:54:58,024 [INFO] 
+============================================================
+2026-01-30 00:54:58,024 [INFO] Sync complete:
+2026-01-30 00:54:58,024 [INFO]   ✓ 0 files synced
+2026-01-30 00:54:58,025 [INFO]   ✗ 90 files failed
+2026-01-30 00:54:58,025 [INFO]   ⊘ 0 files skipped
+2026-01-30 00:54:58,026 [INFO] ============================================================
+
+2026-01-29 22:02:51,779 [INFO] ✓ Updated: samarkand.md
+2026-01-29 22:03:11,003 [INFO]   └─ Marker created: samarkand.md (marker_id=420109)
+2026-01-29 22:03:13,758 [INFO] ✓ Updated: kucha.md
+2026-01-29 22:03:32,757 [INFO]   └─ Marker created: kucha.md (marker_id=420110)
+2026-01-29 22:03:35,454 [INFO] ✓ Updated: yarkand.md
+2026-01-29 22:03:54,487 [INFO]   └─ Marker created: yarkand.md (marker_id=420111)
+2026-01-29 22:03:57,181 [INFO] ✓ Updated: tashkent.md
+2026-01-29 22:04:16,267 [INFO]   └─ Marker created: tashkent.md (marker_id=420112)
+2026-01-29 22:04:19,070 [INFO] ✓ Updated: shorchuk.md
+2026-01-29 22:04:38,183 [INFO]   └─ Marker created: shorchuk.md (marker_id=420113)
+2026-01-29 22:04:40,909 [INFO] ✓ Updated: niya-outer-fields.md
+2026-01-29 22:04:52,922 [INFO]   └─ Marker created: niya-outer-fields.md (marker_id=420114)
+2026-01-29 22:04:55,766 [INFO] ✓ Updated: balkh.md
+2026-01-29 22:05:14,900 [INFO]   └─ Marker created: balkh.md (marker_id=420115)
+2026-01-29 22:05:17,689 [INFO] ✓ Updated: miran.md
+2026-01-29 22:05:36,924 [INFO]   └─ Marker created: miran.md (marker_id=420116)
+2026-01-29 22:05:39,740 [INFO] ✓ Updated: maralbashi.md
+2026-01-29 22:05:59,021 [INFO]   └─ Marker created: maralbashi.md (marker_id=420117)
+2026-01-29 22:06:01,899 [INFO] ✓ Updated: merv.md
+2026-01-29 22:06:20,865 [INFO]   └─ Marker created: merv.md (marker_id=420118)
+2026-01-29 22:06:23,819 [INFO] ✓ Updated: zzkashkar.md
+2026-01-29 22:06:42,860 [INFO]   └─ Marker created: zzkashkar.md (marker_id=420120)
+2026-01-29 22:06:45,725 [INFO] ✓ Updated: alak-mor.md
+2026-01-29 22:06:57,755 [INFO]   └─ Marker created: alak-mor.md (marker_id=420121)
+2026-01-29 22:07:00,571 [INFO] ✓ Updated: black-timber-post.md
+2026-01-29 22:07:12,660 [INFO]   └─ Marker created: black-timber-post.md (marker_id=420122)
+2026-01-29 22:07:15,435 [INFO] ✓ Updated: wind-cut-narrows.md
+2026-01-29 22:07:27,497 [INFO]   └─ Marker created: wind-cut-narrows.md (marker_id=420123)
+2026-01-29 22:07:30,275 [INFO] ✓ Updated: isyk-zhel.md
+2026-01-29 22:07:44,729 [INFO]   └─ 1 GM posts synced
+2026-01-29 22:07:47,396 [INFO]   └─ Marker created: isyk-zhel.md (marker_id=420124)
+2026-01-29 22:07:50,166 [INFO] ✓ Updated: khotan.md
+2026-01-29 22:08:09,285 [INFO]   └─ Marker created: khotan.md (marker_id=420125)
+2026-01-29 22:08:12,099 [INFO] ✓ Updated: dun-kharan.md
+2026-01-29 22:08:19,526 [INFO] ✓ Updated: stone-ledger-gate.md
+2026-01-29 22:08:31,527 [INFO]   └─ Marker created: stone-ledger-gate.md (marker_id=420126)
+2026-01-29 22:08:34,175 [INFO] ✓ Updated: kashkar.md
+2026-01-29 22:09:01,318 [INFO]   └─ 3 GM posts synced
+2026-01-29 22:09:03,962 [INFO]   └─ Marker created: kashkar.md (marker_id=420127)
+2026-01-29 22:09:06,739 [INFO] ✓ Updated: dunhuang.md
+2026-01-29 22:09:25,987 [INFO]   └─ Marker created: dunhuang.md (marker_id=420128)
+2026-01-29 22:09:28,858 [INFO] ✓ Updated: chang-an.md
+2026-01-29 22:09:47,901 [INFO]   └─ Marker created: chang-an.md (marker_id=420129)
+2026-01-29 22:09:50,771 [INFO] ✓ Updated: salt-reed-oasis.md
+2026-01-29 22:10:02,843 [INFO]   └─ Marker created: salt-reed-oasis.md (marker_id=420130)
+2026-01-29 22:10:05,665 [INFO] ✓ Updated: caravan-crypt.md
+2026-01-29 22:10:17,706 [INFO]   └─ Marker created: caravan-crypt.md (marker_id=420131)
+2026-01-29 22:10:20,558 [INFO] ✓ Updated: miran-temple-district.md
+2026-01-29 22:10:32,549 [INFO]   └─ Marker created: miran-temple-district.md (marker_id=420132)
+2026-01-29 22:10:35,319 [INFO] ✓ Updated: buried-lens.md
+2026-01-29 22:10:47,313 [INFO]   └─ Marker created: buried-lens.md (marker_id=420133)
+2026-01-29 22:10:50,065 [INFO] ✓ Updated: jade-gate.md
+2026-01-29 22:11:08,984 [INFO]   └─ Marker created: jade-gate.md (marker_id=420134)
+2026-01-29 22:11:11,675 [INFO] ✓ Updated: cherchen.md
+2026-01-29 22:11:30,808 [INFO]   └─ Marker created: cherchen.md (marker_id=420135)
+2026-01-29 22:11:33,585 [INFO] ✓ Updated: balkh-kamen.md
+2026-01-29 22:11:45,525 [INFO]   └─ Marker updated: balkh-kamen.md (marker_id=419303)
+2026-01-29 22:11:48,328 [INFO] ✓ Updated: endere.md
+2026-01-29 22:12:07,475 [INFO]   └─ Marker created: endere.md (marker_id=420136)
+2026-01-29 22:12:10,293 [INFO] ✓ Updated: anvil-sunder-switchbacks.md
+2026-01-29 22:12:22,218 [INFO]   └─ Marker created: anvil-sunder-switchbacks.md (marker_id=420137)
+2026-01-29 22:12:25,079 [INFO] ✓ Created: tarim-shaiel.md (ID: 1974941)
+2026-01-29 22:12:42,382 [INFO]   └─ 2 GM posts synced
+2026-01-29 22:12:42,382 [WARNING] tarim-shaiel.md: invalid 'location' field; expected [lat, lng]
+2026-01-29 22:12:45,146 [INFO] ✓ Updated: turfan.md
+2026-01-29 22:13:04,204 [INFO]   └─ Marker created: turfan.md (marker_id=420138)
+2026-01-29 22:13:06,877 [INFO] ✓ Created: aksu.md (ID: 1974942)
+2026-01-29 22:13:26,058 [INFO]   └─ Marker created: aksu.md (marker_id=420139)
+2026-01-29 22:13:29,078 [INFO] ✓ Created: charklik.md (ID: 1974943)
+2026-01-29 22:13:47,820 [INFO]   └─ Marker created: charklik.md (marker_id=420140)
+2026-01-29 22:13:50,592 [INFO] ✓ Created: yumen-waystation.md (ID: 1974944)
+2026-01-29 22:14:02,771 [INFO]   └─ Marker created: yumen-waystation.md (marker_id=420141)
+2026-01-29 22:14:05,535 [INFO] ✓ Created: niya.md (ID: 1974945)
+2026-01-29 22:14:24,579 [INFO]   └─ Marker created: niya.md (marker_id=420142)
+2026-01-29 22:14:27,552 [INFO] ✓ Created: bukhara.md (ID: 1974946)
+2026-01-29 22:14:46,540 [INFO]   └─ Marker created: bukhara.md (marker_id=420143)
+2026-01-29 22:14:46,542 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-29 22:14:46,543 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-29 22:14:46,543 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-29 22:14:46,544 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,546 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,546 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,547 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,547 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,548 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,548 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,549 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,549 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,550 [WARNING] Skipping hero_heaven_charm_analysis.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,550 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,551 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,551 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,551 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,551 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-29 22:14:46,552 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-29 22:14:49,464 [INFO] ✓ Updated: test-bear.md
+2026-01-29 22:15:22,234 [INFO]   └─ 12 Daggerheart attributes synced
+2026-01-29 22:15:25,099 [INFO] ✓ Created: Tower Shield.md (ID: 579721)
+2026-01-29 22:15:32,420 [INFO] ✓ Created: Round Shield.md (ID: 579722)
+2026-01-29 22:15:39,854 [INFO] ✓ Created: Broadsword.md (ID: 579723)
+2026-01-29 22:15:47,116 [INFO] ✓ Created: Hand Runes.md (ID: 579724)
+2026-01-29 22:15:54,589 [INFO] ✓ Created: Wand.md (ID: 579725)
+2026-01-29 22:16:01,977 [INFO] ✓ Created: Cutlass.md (ID: 579726)
+2026-01-29 22:16:09,746 [INFO] ✓ Created: Shortbow.md (ID: 579727)
+2026-01-29 22:16:17,122 [INFO] ✓ Created: Whip.md (ID: 579728)
+2026-01-29 22:16:24,537 [INFO] ✓ Created: Small Dagger.md (ID: 579729)
+2026-01-29 22:16:32,035 [INFO] ✓ Created: Hand Crossbow.md (ID: 579730)
+2026-01-29 22:16:39,549 [INFO] ✓ Created: Scepter.md (ID: 579731)
+2026-01-29 22:16:47,126 [INFO] ✓ Created: Grappler.md (ID: 579732)
+2026-01-29 22:16:54,599 [INFO] ✓ Created: Returning Blade.md (ID: 579733)
+2026-01-29 22:17:02,099 [INFO] ✓ Created: Arcane Gauntlets.md (ID: 579734)
+2026-01-29 22:17:09,552 [INFO] ✓ Created: Halberd.md (ID: 579735)
+2026-01-29 22:17:17,132 [INFO] ✓ Created: Quarterstaff.md (ID: 579736)
+2026-01-29 22:17:24,935 [INFO] ✓ Created: Longsword.md (ID: 579737)
+2026-01-29 22:17:32,408 [INFO] ✓ Created: Battleaxe.md (ID: 579738)
+2026-01-29 22:17:39,963 [INFO] ✓ Created: Spear.md (ID: 579739)
+2026-01-29 22:17:47,333 [INFO] ✓ Created: Greatsword.md (ID: 579740)
+2026-01-29 22:17:54,706 [INFO] ✓ Created: Shortstaff.md (ID: 579741)
+2026-01-29 22:18:02,188 [INFO] ✓ Created: Longbow.md (ID: 579742)
+2026-01-29 22:18:09,595 [INFO] ✓ Created: Crossbow.md (ID: 579743)
+2026-01-29 22:18:17,030 [INFO] ✓ Created: Rapier.md (ID: 579744)
+2026-01-29 22:18:24,380 [INFO] ✓ Created: Greatstaff.md (ID: 579745)
+2026-01-29 22:18:31,774 [INFO] ✓ Created: Warhammer.md (ID: 579746)
+2026-01-29 22:18:39,048 [INFO] ✓ Created: Dagger.md (ID: 579747)
+2026-01-29 22:18:46,419 [INFO] ✓ Created: Dualstaff.md (ID: 579748)
+2026-01-29 22:18:53,794 [INFO] ✓ Created: Mace.md (ID: 579749)
+2026-01-29 22:19:01,267 [INFO] ✓ Created: Shortsword.md (ID: 579750)
+2026-01-29 22:19:08,640 [INFO] ✓ Created: Hallowed Axe.md (ID: 579751)
+2026-01-29 22:19:15,913 [INFO] ✓ Created: Glowing Rings.md (ID: 579752)
+2026-01-29 22:19:23,186 [INFO] ✓ Created: Gambeson Armor.md (ID: 579753)
+2026-01-29 22:19:30,559 [INFO] ✓ Created: Leather Armor.md (ID: 579754)
+2026-01-29 22:19:38,031 [INFO] ✓ Created: Chainmail Armor.md (ID: 579755)
+2026-01-29 22:19:45,401 [INFO] ✓ Created: Full Plate Armor.md (ID: 579756)
+2026-01-29 22:19:50,113 [INFO] 
+============================================================
+2026-01-29 22:19:50,113 [INFO] Sync complete:
+2026-01-29 22:19:50,114 [INFO]   ✓ 73 files synced
+2026-01-29 22:19:50,114 [INFO]   ✗ 17 files failed
+2026-01-29 22:19:50,114 [INFO]   ⊘ 0 files skipped
+2026-01-29 22:19:50,114 [INFO] ============================================================
+
+2026-01-30 09:08:14,810 [ERROR] Failed to sync /Users/mo/Documents/Games/HeroHeaven/../../references/daggerheart-srd/weapons/Longsword.md: [Errno 2] No such file or directory: '/Users/mo/Documents/Games/HeroHeaven/../../references/daggerheart-srd/weapons/Longsword.md'
+2026-01-30 09:08:14,815 [ERROR] Traceback (most recent call last):
+  File "/Users/mo/Documents/Games/HeroHeaven/utilities/scripts/kanka-sync.py", line 840, in sync_file
+    with open(file_path, 'r', encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/mo/Documents/Games/HeroHeaven/../../references/daggerheart-srd/weapons/Longsword.md'
+
+2026-01-30 09:08:48,836 [INFO] ✓ Updated: Longsword.md
+2026-01-30 09:24:06,741 [ERROR] Failed to update item 579737: 404 Client Error: Not Found for url: https://api.kanka.io/1.0/campaigns/371326/items/579737
+2026-01-30 09:24:31,893 [ERROR] Failed to update item 579737: 404 Client Error: Not Found for url: https://api.kanka.io/1.0/campaigns/371326/items/579737
+2026-01-30 09:25:16,003 [INFO] ✓ Created: Longsword.md (ID: 579821)
+2026-01-30 17:19:32,868 [INFO] ✓ Created: Longsword.md (ID: 580152)
+2026-01-30 17:20:08,929 [INFO] ✓ Created: Longsword.md (ID: 580153)
+2026-01-30 17:21:27,312 [INFO] ✓ Updated: samarkand.md
+2026-01-30 17:21:45,804 [INFO]   └─ Marker updated: samarkand.md (marker_id=420109)
+2026-01-30 17:21:48,528 [INFO] ✓ Updated: kucha.md
+2026-01-30 17:22:07,188 [INFO]   └─ Marker updated: kucha.md (marker_id=420110)
+2026-01-30 17:22:09,894 [INFO] ✓ Updated: yarkand.md
+2026-01-30 17:22:28,268 [INFO]   └─ Marker updated: yarkand.md (marker_id=420111)
+2026-01-30 17:22:30,952 [INFO] ✓ Updated: tashkent.md
+2026-01-30 17:22:49,411 [INFO]   └─ Marker updated: tashkent.md (marker_id=420112)
+2026-01-30 17:22:52,051 [INFO] ✓ Updated: shorchuk.md
+2026-01-30 17:23:10,424 [INFO]   └─ Marker updated: shorchuk.md (marker_id=420113)
+2026-01-30 17:23:13,088 [INFO] ✓ Updated: niya-outer-fields.md
+2026-01-30 17:23:24,708 [INFO]   └─ Marker updated: niya-outer-fields.md (marker_id=420114)
+2026-01-30 17:23:27,385 [INFO] ✓ Updated: balkh.md
+2026-01-30 17:23:45,860 [INFO]   └─ Marker updated: balkh.md (marker_id=420115)
+2026-01-30 17:23:48,474 [INFO] ✓ Updated: miran.md
+2026-01-30 17:24:07,045 [INFO]   └─ Marker updated: miran.md (marker_id=420116)
+2026-01-30 17:24:09,785 [INFO] ✓ Updated: maralbashi.md
+2026-01-30 17:24:28,393 [INFO]   └─ Marker updated: maralbashi.md (marker_id=420117)
+2026-01-30 17:24:31,150 [INFO] ✓ Updated: merv.md
+2026-01-30 17:24:49,623 [INFO]   └─ Marker updated: merv.md (marker_id=420118)
+2026-01-30 17:24:52,353 [INFO] ✓ Updated: zzkashkar.md
+2026-01-30 17:25:10,774 [INFO]   └─ Marker updated: zzkashkar.md (marker_id=420120)
+2026-01-30 17:25:13,461 [INFO] ✓ Updated: alak-mor.md
+2026-01-30 17:25:25,226 [INFO]   └─ Marker updated: alak-mor.md (marker_id=420121)
+2026-01-30 17:25:27,934 [INFO] ✓ Updated: black-timber-post.md
+2026-01-30 17:25:39,579 [INFO]   └─ Marker updated: black-timber-post.md (marker_id=420122)
+2026-01-30 17:25:42,223 [INFO] ✓ Updated: wind-cut-narrows.md
+2026-01-30 17:25:53,966 [INFO]   └─ Marker updated: wind-cut-narrows.md (marker_id=420123)
+2026-01-30 17:25:56,709 [INFO] ✓ Updated: isyk-zhel.md
+2026-01-30 17:26:10,798 [INFO]   └─ 1 GM posts synced
+2026-01-30 17:26:13,359 [INFO]   └─ Marker updated: isyk-zhel.md (marker_id=420124)
+2026-01-30 17:26:16,062 [INFO] ✓ Updated: khotan.md
+2026-01-30 17:26:34,517 [INFO]   └─ Marker updated: khotan.md (marker_id=420125)
+2026-01-30 17:26:37,223 [INFO] ✓ Updated: dun-kharan.md
+2026-01-30 17:26:44,313 [INFO] ✓ Updated: stone-ledger-gate.md
+2026-01-30 17:26:55,928 [INFO]   └─ Marker updated: stone-ledger-gate.md (marker_id=420126)
+2026-01-30 17:26:58,727 [INFO] ✓ Updated: kashkar.md
+2026-01-30 17:27:24,386 [INFO]   └─ 3 GM posts synced
+2026-01-30 17:27:27,007 [INFO]   └─ Marker updated: kashkar.md (marker_id=420127)
+2026-01-30 17:27:29,667 [INFO] ✓ Updated: dunhuang.md
+2026-01-30 17:27:48,165 [INFO]   └─ Marker updated: dunhuang.md (marker_id=420128)
+2026-01-30 17:27:50,899 [INFO] ✓ Updated: chang-an.md
+2026-01-30 17:28:09,492 [INFO]   └─ Marker updated: chang-an.md (marker_id=420129)
+2026-01-30 17:28:12,234 [INFO] ✓ Updated: salt-reed-oasis.md
+2026-01-30 17:28:23,876 [INFO]   └─ Marker updated: salt-reed-oasis.md (marker_id=420130)
+2026-01-30 17:28:26,541 [INFO] ✓ Updated: caravan-crypt.md
+2026-01-30 17:28:38,222 [INFO]   └─ Marker updated: caravan-crypt.md (marker_id=420131)
+2026-01-30 17:28:40,851 [INFO] ✓ Updated: miran-temple-district.md
+2026-01-30 17:28:52,533 [INFO]   └─ Marker updated: miran-temple-district.md (marker_id=420132)
+2026-01-30 17:28:55,141 [INFO] ✓ Updated: buried-lens.md
+2026-01-30 17:29:06,618 [INFO]   └─ Marker updated: buried-lens.md (marker_id=420133)
+2026-01-30 17:29:09,250 [INFO] ✓ Updated: jade-gate.md
+2026-01-30 17:29:27,522 [INFO]   └─ Marker updated: jade-gate.md (marker_id=420134)
+2026-01-30 17:29:30,273 [INFO] ✓ Updated: cherchen.md
+2026-01-30 17:29:48,795 [INFO]   └─ Marker updated: cherchen.md (marker_id=420135)
+2026-01-30 17:29:51,442 [INFO] ✓ Updated: balkh-kamen.md
+2026-01-30 17:30:03,152 [INFO]   └─ Marker updated: balkh-kamen.md (marker_id=419303)
+2026-01-30 17:30:05,810 [INFO] ✓ Updated: endere.md
+2026-01-30 17:30:24,192 [INFO]   └─ Marker updated: endere.md (marker_id=420136)
+2026-01-30 17:30:26,897 [INFO] ✓ Updated: anvil-sunder-switchbacks.md
+2026-01-30 17:30:38,556 [INFO]   └─ Marker updated: anvil-sunder-switchbacks.md (marker_id=420137)
+2026-01-30 17:30:41,174 [INFO] ✓ Updated: tarim-shaiel.md
+2026-01-30 17:30:58,008 [INFO]   └─ 2 GM posts synced
+2026-01-30 17:30:58,009 [WARNING] tarim-shaiel.md: invalid 'location' field; expected [lat, lng]
+2026-01-30 17:31:00,696 [INFO] ✓ Updated: turfan.md
+2026-01-30 17:31:19,239 [INFO]   └─ Marker updated: turfan.md (marker_id=420138)
+2026-01-30 17:31:22,107 [INFO] ✓ Updated: aksu.md
+2026-01-30 17:31:40,629 [INFO]   └─ Marker updated: aksu.md (marker_id=420139)
+2026-01-30 17:31:43,268 [INFO] ✓ Updated: charklik.md
+2026-01-30 17:32:01,725 [INFO]   └─ Marker updated: charklik.md (marker_id=420140)
+2026-01-30 17:32:04,357 [INFO] ✓ Updated: yumen-waystation.md
+2026-01-30 17:32:16,136 [INFO]   └─ Marker updated: yumen-waystation.md (marker_id=420141)
+2026-01-30 17:32:18,773 [INFO] ✓ Updated: niya.md
+2026-01-30 17:32:37,249 [INFO]   └─ Marker updated: niya.md (marker_id=420142)
+2026-01-30 17:32:39,960 [INFO] ✓ Updated: bukhara.md
+2026-01-30 17:32:58,613 [INFO]   └─ Marker updated: bukhara.md (marker_id=420143)
+2026-01-30 17:32:58,620 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/Archetypes
+2026-01-30 17:32:58,620 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Characters/NPCs
+2026-01-30 17:32:58,622 [WARNING] Path does not exist: /Users/mo/Documents/Games/HeroHeaven/Narrative/Awakening-Scenarios
+2026-01-30 17:32:58,625 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,626 [WARNING] Skipping SPELL_RESKIN_TRACKER.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,627 [WARNING] Skipping SPELLS_VS_CHARMS_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,628 [WARNING] Skipping DECISION_LOG.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,628 [WARNING] Skipping CHARACTER_CREATION_SEQUENCE.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,629 [WARNING] Skipping TOOL_EVOLUTION_FRAMEWORK.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,629 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,630 [WARNING] Skipping CELESTIAL_DICE_MECHANICS.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,630 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,631 [WARNING] Skipping hero_heaven_charm_analysis.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,632 [WARNING] Skipping COMPLETE_CHARM_REFERENCE.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,633 [WARNING] Skipping CHARM_SYSTEM_ANALYSIS.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,633 [WARNING] Skipping README.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,634 [WARNING] Skipping INDEX.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,634 [WARNING] Skipping CHARM_ACCESSIBILITY_MATRIX.md: Missing required field 'kanka_type'
+2026-01-30 17:32:58,635 [WARNING] Skipping Index.md: Missing required field 'kanka_type'
+2026-01-30 17:33:01,300 [INFO] ✓ Updated: test-bear.md
+2026-01-30 17:33:33,092 [INFO]   └─ 12 Daggerheart attributes synced
+2026-01-30 17:33:35,754 [INFO] ✓ Updated: Tower Shield.md
+2026-01-30 17:33:58,762 [INFO] ✓ Updated: Round Shield.md
+2026-01-30 17:34:21,863 [INFO] ✓ Updated: Broadsword.md
+2026-01-30 17:34:44,928 [INFO] ✓ Updated: Hand Runes.md
+2026-01-30 17:35:07,845 [INFO] ✓ Updated: Wand.md
+2026-01-30 17:35:30,930 [INFO] ✓ Updated: Cutlass.md
+2026-01-30 17:35:54,067 [INFO] ✓ Updated: Shortbow.md
+2026-01-30 17:36:17,130 [INFO] ✓ Updated: Whip.md
+2026-01-30 17:36:40,074 [INFO] ✓ Updated: Small Dagger.md
+2026-01-30 17:37:03,143 [INFO] ✓ Updated: Hand Crossbow.md
+2026-01-30 17:37:26,247 [INFO] ✓ Updated: Scepter.md
+2026-01-30 17:37:49,174 [INFO] ✓ Updated: Grappler.md
+2026-01-30 17:38:12,290 [INFO] ✓ Updated: Returning Blade.md
+2026-01-30 17:38:35,415 [INFO] ✓ Updated: Arcane Gauntlets.md
+2026-01-30 17:38:58,372 [INFO] ✓ Updated: Halberd.md
+2026-01-30 17:39:21,421 [INFO] ✓ Updated: Quarterstaff.md
+2026-01-30 17:39:44,727 [INFO] ✓ Updated: Longsword.md
+2026-01-30 17:40:07,816 [INFO] ✓ Updated: Battleaxe.md
+2026-01-30 17:40:30,865 [INFO] ✓ Updated: Spear.md
+2026-01-30 17:40:53,932 [INFO] ✓ Updated: Greatsword.md
+2026-01-30 17:41:17,029 [INFO] ✓ Updated: Shortstaff.md
+2026-01-30 17:41:40,217 [INFO] ✓ Updated: Longbow.md
+2026-01-30 17:42:03,499 [INFO] ✓ Updated: Crossbow.md
+2026-01-30 17:42:26,536 [INFO] ✓ Updated: Rapier.md
+2026-01-30 17:42:49,505 [INFO] ✓ Updated: Greatstaff.md
+2026-01-30 17:43:12,449 [INFO] ✓ Updated: Warhammer.md
+2026-01-30 17:43:35,462 [INFO] ✓ Updated: Dagger.md
+2026-01-30 17:43:58,496 [INFO] ✓ Updated: Dualstaff.md
+2026-01-30 17:44:21,573 [INFO] ✓ Updated: Mace.md
+2026-01-30 17:44:44,774 [INFO] ✓ Updated: Shortsword.md
+2026-01-30 17:45:07,745 [INFO] ✓ Updated: Hallowed Axe.md
+2026-01-30 17:45:30,799 [INFO] ✓ Updated: Glowing Rings.md
+2026-01-30 17:45:53,913 [INFO] ✓ Updated: Gambeson Armor.md
+2026-01-30 17:46:07,911 [INFO] ✓ Updated: Leather Armor.md
+2026-01-30 17:46:21,757 [INFO] ✓ Updated: Chainmail Armor.md
+2026-01-30 17:46:35,712 [INFO] ✓ Updated: Full Plate Armor.md
+2026-01-30 17:46:47,017 [INFO] 
+============================================================
+2026-01-30 17:46:47,017 [INFO] Sync complete:
+2026-01-30 17:46:47,017 [INFO]   ✓ 73 files synced
+2026-01-30 17:46:47,017 [INFO]   ✗ 17 files failed
+2026-01-30 17:46:47,018 [INFO]   ⊘ 0 files skipped
+2026-01-30 17:46:47,018 [INFO] ============================================================
+

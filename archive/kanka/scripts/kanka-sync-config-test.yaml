@@ -1,0 +1,56 @@
+# Kanka Sync Configuration - Test Version for utilities/scripts/
+# Copy this to your vault root and customize
+
+kanka:
+  # Get your token from: https://kanka.io/en/settings/api
+  api_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjI3ZjZmOTY0ZTkwMmFjYmRhZDBlZDY5NDhkMDhjNWNjYzg2ZWU2NjIwZjE5M2Y4NzcyYTRkMDI0YTlkOWYxZTIxNzE2YmI3NWU0MzUwYTMiLCJpYXQiOjE3Njk1NzUwNTguNzI0MDg0LCJuYmYiOjE3Njk1NzUwNTguNzI0MDg2LCJleHAiOjE4MDExMTEwNTguNjk5OTgsInN1YiI6IjM2ODIxNCIsInNjb3BlcyI6W119.XVYwyx1av212Zt5qNv_Xqn9Ie25etZBfO5r07-5NC_Kvn9_LemfWMC3gDsoprTq6oyq1pBNYyqZZYF4y90rQ6XfRKT71qndPH5gC5T3AjMBnVPlxQiBXEqLqeMcTa-hCAdsfg6iHv4fv2neHRy-EBz_A3lyUEPUSBTZXyb_iFv1Pbv26RXy50auH1MAzYUKQyFfM_Jml6Vo0H5SB8gFidLVKFajBTJAq49iiEmO1h5hF9GISnKmrgq5UQ2wenzXI_JWrv5NFAi3Daqjy2RjBHO9FkfB2_e41Ft_Y7nuRLVtCo0mgraHdrjcTp70Aj0yxjA1OwMBYW_3lDAsW2y8TJSt8Ncdq0plkzhNkWl9nUFs7l4Wv7NG2OPYbGFYPEohauWgqTKdqnxBO9IuZEB_IG61VxBtdv1BntGqbJgL7jq5mTQigrF5PmMnSPBrlMPJ_tznN-h0Wg1sJtNLX2K2gDP4pqFzlWBf69wcOvG_0Nbr14se9enYIOf89ALuJAskDJ4N9lOJYSKAALrUqCjHS7afUQBRibyCT8LNQTJcVOd7WHDmDMlm_IP1tdgcKA__16pCPyLZBKyj3v6NcIubZi1fMjM075Cs2P5EX_bg2Fy-BRVel7mzfrY5bS4-fgP0rtf-zFyWS78tvxGsAyXpnPI-NsvelGMNzVt2-3Zs1k2M"
+  
+  # Find in URL: https://kanka.io/w/{CAMPAIGN_ID}/dashboard
+  campaign_id: 371326
+  
+  # API base URL (don't change unless Kanka updates)
+  base_url: "https://api.kanka.io/1.0"
+
+sync:
+  # Absolute path to your Obsidian vault
+  vault_path: "/Users/mo/Documents/Games/HeroHeaven"
+  
+  # Directories to include in sync (relative to vault_path)
+  include_paths:
+    - "World/Locations"
+    - "World/Regions"
+    - "Characters/Archetypes"
+    - "Characters/NPCs"
+    - "Narrative/Awakening-Scenarios"
+    - "Mechanics"
+    - "bestiary"
+    - "equipment"
+  
+  # Directories to exclude from sync
+  exclude_paths:
+    - ".obsidian"
+    - "Transcripts"
+    - "Templates"
+    - ".git"
+  
+  # Path prefix → Kanka entity type mapping
+  # Available types: character, location, organization, item, journal,
+  #                  quest, note, event, race, family, ability, creature
+  entity_mapping:
+    "World/Locations": "location"
+    "World/Regions": "location"
+    "Characters/Archetypes": "character"
+    "Characters/NPCs": "character"
+    "Mechanics": "note"
+    "Narrative": "journal"
+    "Session-Notes": "journal"
+    "Quests": "quest"
+    "bestiary": "creature"
+    "equipment": "item"
+
+logging:
+  # Logging level: DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+  
+  # Log file location (relative to where script is run)
+  file: "../logs/kanka-sync.log"

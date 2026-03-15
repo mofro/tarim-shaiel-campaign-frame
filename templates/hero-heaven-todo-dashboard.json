@@ -1,0 +1,2085 @@
+{
+  "last_updated": "2026-03-07",
+  "readiness": 45,
+  "domain_pcts": {
+    "narrative": 43,
+    "mechanics": 84,
+    "world": 15,
+    "infra": 33,
+    "cosmology": 0
+  },
+  "critical_path": [
+    "Resolve cosmological architecture",
+    "Complete Session 0 scenarios",
+    "Resolve Campaign Frame",
+    "Build Charm library",
+    "Playtest"
+  ],
+  "blockers": [
+    "\ud83d\udd25 P0: Cosmological Architecture Decisions (unblocks 8+ items)",
+    "\u26d4 Campaign Frame: Classes vs. Archetypes decision required",
+    "\u26a0\ufe0f liberation_aftermath.md \u2014 wrong 200yr timeline throughout",
+    "\ud83c\udf3f Elven cosmology decision (cascades into culture + magic)",
+    "\ud83d\uddfa GeoJSON field mapping decision (blocks automation script)"
+  ],
+  "recent_sessions": [
+    {
+      "date": "2026-03-05",
+      "title": "Silk Road Myth Analysis \u2014 Regional Source Material",
+      "summary": "New File Created:",
+      "links": [
+        {
+          "label": "SILK_ROAD_MYTH_ANALYSIS",
+          "vault_path": "/narrative/SILK_ROAD_MYTH_ANALYSIS.md"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-04",
+      "title": "Story Arc Synthesis & Cosmological Deep Layer:",
+      "summary": "- [x] Created /narrative/STORY_ARC_SYNTHESIS.md (speculative draft, ~8,000 words)",
+      "links": [
+        {
+          "label": "STORY_ARC_SYNTHESIS",
+          "vault_path": "/narrative/STORY_ARC_SYNTHESIS.md"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-13",
+      "title": "Silk Road Weapons & Orc Culture Expansion:",
+      "summary": "- [x] Created /mechanics/weapons_silk_road.md (comprehensive Silk Road arsenal)",
+      "links": [
+        {
+          "label": "weapons_silk_road",
+          "vault_path": "/mechanics/weapons_silk_road.md"
+        },
+        {
+          "label": "orcs",
+          "vault_path": "/world/ancestries/orcs.md"
+        },
+        {
+          "label": "ORCS_REVISION_SUMMARY",
+          "vault_path": "/world/ancestries/ORCS_REVISION_SUMMARY.md"
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "status": "active",
+      "title": "Active Work",
+      "subtitle": "In progress now",
+      "groups": [
+        {
+          "title": "Critical Decisions (Must resolve before anything below becomes canon)",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Define the Mythic Ecosystem \u2014 Are Warrens/Holds/Hero Heaven/Threshold nodes in a living containment system? Is magic channeled through an infrastructure that can be damaged? (Proposed in synthesis; needs Mo approval)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Define the Sleeping Entity \u2014 Is there a cosmic force beneath/beyond the ecosystem that the ecosystem contains? What is its nature? (Proposed: geological/tectonic, non-conscious, not negotiable)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decide the Entity's Nature \u2014 Pure force (no negotiation possible) vs. proto-conscious (can be communicated with)? (Recommendation: pure force \u2014 the horror is indifference)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decide the Wizard's Awareness \u2014 Option A: tragic ignorance (doesn't know about entity), Option B: tragic hubris (knows, thinks he can manage it), Option C: cosmic manipulation (entity subtly influenced his 1,000-year obsession). Options are combinable (B+C recommended).",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decide: Do Heroes' Charms Strain the Ecosystem? \u2014 If yes, creates devastating tension (their greatest power is part of the problem). Recommendation: yes, but manageable \u2014 cost is real but benefit outweighs it.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Define the Liberation's Ecosystem Side Effects \u2014 Breaking binding spells was RIGHT but damaged ecosystem channels. Heroes should have repaired the damage (\"cleaned up the rubble\"). This is the incomplete charge. Must be framed with extreme care: liberation was unequivocally correct; the failure was not repairing side effects. (Extends the liberation_aftermath.md rewrite far beyond a timeline fix)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Define Threshold as Ecosystem Node \u2014 Threshold is a pressure regulator, not just a door. One of several, but the most critical. Breaching it with necromantic force = cracking containment. (Extends HERO_HEAVEN_THRESHOLD.md)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Define Three-Layer Revelation Structure \u2014 Surface quest (stop the Wizard) \u2192 ecosystem threat (his plan cracks containment) \u2192 deeper repair (heroes must heal what their incomplete charge left damaged). This is the overall story arc shape.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Stakeholder Knowledge Distribution (Must resolve for mid-campaign planning)",
+          "domain": "cosmology",
+          "items": [
+            {
+              "text": "Map High Elf awareness \u2014 They understand the ecosystem, withdrew because of cosmological fear, possess preventive (not restorative) knowledge. This answers the Elven cosmology question: not \"celestial refugees\" but \"cosmologically literate beings who retreated from a fault line.\"",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map Dwarven archivist awareness \u2014 Chronicle of Ages contains empirical evidence of ecosystem degradation (disappearance patterns, magical anomaly data). They have data but need theory.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map Orcish shamanic degradation \u2014 Ancestor communication becoming unreliable as ecosystem symptom. Ancient epic songs contain literal descriptions of the entity. Liberation side effects woven into their traditions.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map human scholar suppression \u2014 Scholar's Purge (~1175 CE) was Wizard eliminating researchers. Surviving scholars are scattered, hunted, hold practical fragments.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map Goblin/Halfling observational network \u2014 Trade disruptions, dead zones, charm failures = best continent-wide empirical dataset of ecosystem degradation. They don't know what their data means.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Design the information synthesis puzzle \u2014 Heroes as the only beings who can assemble distributed knowledge from all cultures. This is a core campaign mechanic, not just plot.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "1. Kanka Sync Implementation  75%",
+          "domain": "infra",
+          "items": [
+            {
+              "text": "Hash computation methods implemented",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Tag management methods implemented",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Documentation updated (kanka-snippets.md)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Implementation checklists created",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Phase 2: Wire up to sync flow (~35 min)",
+              "done": false,
+              "blocked": false,
+              "note": "Update should_sync_file() to accept tag_filter parameter Add hash check logic to sync_file() to skip unchanged files Call update_frontmatter_post_sync() after successful sync Update sync_all() to accept tag_filter, limit, and force parameters",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Phase 3: CLI Parameters (~13 min)",
+              "done": false,
+              "blocked": false,
+              "note": "Add --tag, --limit, --force arguments to argparse Wire up new arguments to sync_all() calls in main()",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Phase 4: Bulk Prepare Script (~3 min)",
+              "done": false,
+              "blocked": false,
+              "note": "Add kanka_hash: null and tags: [needs-sync] to bulk prepare script",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Phase 5: Testing (~30 min)",
+              "done": false,
+              "blocked": false,
+              "note": "Test tag filtering, hash detection, batch limiting, force override Verify backward compatibility",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Decision Required: How do Daggerheart's 9 classes relate to Hero Heaven's 6 archetypes?",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "CAMPAIGN_FRAME_HERO_HEAVEN.md (15-25 pages)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Header (title, concept, complexity, pitch)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Tone/themes/touchstones",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Overview (1-1.5 pages, player-facing)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Heritage & Classes (Communities + Ancestries + class integration)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Player Principles (4-6 evocative guidelines)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "GM Principles (4-6 campaign-specific guidelines)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Distinctions (magic, locations, factions, cosmology, philosophies)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Inciting Incident (Session 0 adaptation)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Custom Mechanics (Charm/Tool/R-H-K detailed explanation)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Session Zero Questions (8-12 thematic questions)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Campaign Map (player-facing version with co-creation tools)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "3. Session 0 Completion  IN PROGRESS",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Breaker Awakening Scenario (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Finish segment structure Erikson-inspired prose Tool interaction (offering/sacrifice mechanics)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Sacrificer Awakening Scenario (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "8-segment structure Erikson-inspired prose Tool interaction (offering/sacrifice mechanics) Secret snippet trigger moment",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Visionary Awakening Scenario (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "8-segment structure Tarot deck as mystical tool Foresight/path-showing mechanics Secret snippet trigger moment",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Bridge Awakening Scenario (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "8-segment structure Unity/influence mechanics Voice/conviction tool Secret snippet trigger moment",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Populate Shared_Memory_Events.md (~1-2 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "5 thematic events (framework defined) Event 1: The Warrior's Choice (method of engagement) Event 2: The Question of Sight (knowledge vs. trust vs. truth) Event 3: The Weight of Choice (action vs. consequence) Event 4: Aspirations Undone (victory's unintended consequences) Event 5: The Wizard's Shadow (false certainty about threat) Each event: 400-600 word sensory scene + canonical truths revealed",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Write Actual Secret Snippets (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "6 archetype-specific snippets Sensory + emotional register (not explanatory) Tied to awakening scenario trigger moments Creates player-to-character investment",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create Session_0_GM_NOTES.md (~1-2 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Detailed execution guide Atmospheric details, NPC quick-refs, pacing cues Scenario-specific GM guidance for all six awakenings Convergence orchestration techniques",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Finalize PLAYER_PITCH_AND_PRINCIPLES.md (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Both versions: transparent (GM reference) + less-transparent (player-facing) All six archetype descriptions Player principles (4-6 guidelines)",
+              "effort": "",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "status": "blocked",
+      "title": "Blocked \u2014 Decisions Required",
+      "subtitle": "Decisions needed",
+      "groups": [
+        {
+          "title": "Critical Blockers",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Campaign Frame: Classes vs. Archetypes",
+              "done": false,
+              "blocked": true,
+              "note": "Question: How do Daggerheart's 9 classes relate to Hero Heaven's 6 archetypes? Impact: Blocks Campaign Frame creation, character creation flow, Charm library design Options: See HIGH PRIORITY section above Required Before: Can proceed with Campaign Frame document",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "GeoJSON Field Mapping",
+              "done": false,
+              "blocked": true,
+              "note": "Question: Which Location Note fields transfer to GeoJSON descriptions? Impact: Blocks GeoJSON automation, Python script creation Decisions Needed: Which fields: resources, factions, elevation, narrative_weight? Description building strategy (combine how?) Wikilink format: [Full details: [[location-name]]]? Marker mapping: Location Note type \u2192 marker-symbol auto-mapping? Single source of truth: manual trigger or auto-regenerate? Version control: git, Obsidian versioning, or both? Validation checks: coordinates present, no duplicates, valid JSON? Required Before: Can build Python script and generate overlays",
+              "effort": "",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "status": "upcoming",
+      "title": "Near-Term & Medium-Term",
+      "subtitle": "This month / next 2\u20133 sessions",
+      "groups": [
+        {
+          "title": "Charm Library Implementation",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Examine Exalted 3e Charm cards PDF \u2014 Extract card format/structure",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Design Warrior Charm tree (pilot) \u2014 Test format with full R/H/K arcs",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Populate remaining 5 Charm trees \u2014 Adapt archetypes per analysis",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create 18-charm core library using template",
+              "done": false,
+              "blocked": false,
+              "note": "Foundation tier (6 Charms, 1 per archetype) Specialization tier (6 Charms, 1 per archetype) Mastery tier (6 Charms, 1 per archetype)",
+              "effort": "",
+              "links": [
+                [
+                  "charms",
+                  "/mechanics/character-progression/charms/"
+                ]
+              ]
+            },
+            {
+              "text": "Test integration \u2014 Session 2, 5, 8 character examples",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Orc Culture (Continued Development)",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Detail specific Orc clans (~1-2 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Create 5-8 named clans with full profiles Clan histories, territories, specializations Current leaders and internal politics Relationships with other clans",
+              "effort": "",
+              "links": [
+                [
+                  "orcs",
+                  "/world/ancestries/orcs.md"
+                ]
+              ]
+            },
+            {
+              "text": "Create Orc NPC stat blocks (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Vessa Goldweave (Master Bondkeeper, Golden Chain League) Thrakmar Ironshaper (Bladespeaker weapon-master) Kera Chainkeeper (Elderly Remembrancer) Dag the Blade-Seller (Independent merchant) Full Daggerheart mechanics + roleplay notes",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Develop \"Breaker's Chain\" memorial weapon (~30 min)",
+              "done": false,
+              "blocked": false,
+              "note": "Daggerheart stat block Ceremonial vs. combat stats Spiritual significance mechanics Other memorial weapons (mining picks, tools)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map Orc settlement patterns (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Major Orc cities/territories on Silk Road map Merchant League headquarters locations Diplomatic academy locations Settlement by clan/region",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create Orc-specific downtime moves (~30 min)",
+              "done": false,
+              "blocked": false,
+              "note": "Weapon-training (martial academies) Diplomatic training (negotiation practice) Clan networking (building trade relationships) Remembrance rituals (cultural reinforcement)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Design Orc martial/diplomatic academy encounters (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "\"The Hundred Stances School\" (martial) \"The House of Broken Chains\" (diplomatic) Location details, NPCs, services, costs Quest hooks and training opportunities",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Weapons & Equipment",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Create legendary weapon variants (~1-2 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Named versions for 16 Mythic Candidates Unique features/histories Tier 3-4 scaled versions Integration with Hero Heaven lore",
+              "effort": "",
+              "links": [
+                [
+                  "weapons_silk_road",
+                  "/mechanics/weapons_silk_road.md"
+                ]
+              ]
+            },
+            {
+              "text": "Develop cultural weapon availability charts (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Which weapons common in which regions Merchant availability by city Rarity/cost by location Cultural significance notes",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create weapon-wielding NPC examples (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Combat archetypes using different weapons Cultural role examples (Steppe Nomad, Temple Warrior, etc.) Quick-reference stat blocks",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Design weapon-specific Charms (~2-3 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Synergize with R/H/K system Weapon mastery Charm trees Mythic weapon awakening mechanics Integration with Tool progression",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Integrate weapons with kanka-sync (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Import weapon list to Kanka Tag structure for filtering Cross-reference with NPC equipment",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Other Ancestries (From Brainstorm)",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Develop Goblin cultural structure (~2-3 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Main drives and identity (pragmatism? independence?) Social hierarchy and roles \"Goblins deliver\" reputation mechanics Free Cities governance Empire-era role (profiteers? collaborators?) Real-world analog (Venetian merchants? Hanseatic League?)",
+              "effort": "",
+              "links": [
+                [
+                  "BRAINSTORM_2026-02-13",
+                  "/narrative/BRAINSTORM_2026-02-13.md"
+                ]
+              ]
+            },
+            {
+              "text": "Develop Halfling cultural structure (~2-3 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Main drives (mediation? comfort? wanderlust?) Scattered community organization (or lack thereof) Neutral mediator mechanics Empire-era role Real-world analog (Armenian traders? Jewish diaspora?)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Develop Dwarf cultural structure (~2-3 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Beyond \"Chronicle of Ages\" - what defines them? Social hierarchy and roles Mountain isolation culture Empire-era role (weapons suppliers? profiteers?) Economic niche beyond craftsmanship",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "MAJOR DECISION: Elven cosmology (~2-4 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Critical Choice: \"Celestial refugees\" vs. traditional high elves? If refugees: What did they flee? Why diminishing? Forced return? Integration with Elder Gods, Warrens, Hero Heaven Impact on magic system and campaign This decision cascades through entire setting",
+              "effort": "",
+              "links": [
+                [
+                  "BRAINSTORM_2026-02-13",
+                  "/narrative/BRAINSTORM_2026-02-13.md"
+                ]
+              ]
+            },
+            {
+              "text": "Develop remaining ancestry structures (~1-2 sessions each)",
+              "done": false,
+              "blocked": false,
+              "note": "Drakona (dragon heritage cultural implications) Fauns (pastoral origins \u2192 modern identity) Firbolg (gentle giant drives) Giants (scale/perspective culture) Katari (feline/pride structures) Infernis (demon-folk stigma vs reality)",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Silk Road Mythology & Locations (From Brainstorm)",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Initial myth research complete \u2014 See `/narrative/SILK_ROAD_MYTH_ANALYSIS.md`",
+              "done": true,
+              "blocked": false,
+              "note": "Cosmological frameworks: 6 regional systems analyzed Heroic resonances: 8 legend structures mapped to HH themes Creatures catalog: 7 adversary types with encounter design notes",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Cross-reference cosmologies with STORY_ARC_SYNTHESIS.md (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Goal: each major world region has a different but compatible interpretation of the Mythic Ecosystem Candidates mapped; needs formal integration decision",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decide: which cosmological framework do High Elves hold? (~1 session, unlocks Elven cosmology blocker)",
+              "done": false,
+              "blocked": false,
+              "note": "Leading candidate: Pangu/Hundun family (world built on sacrifice; afraid to destabilize it) Connects to their cosmological withdrawal per STORY_ARC_SYNTHESIS",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create `WORLD_MYTHOLOGY_FRAMEWORK.md` (~2-3 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "In-world document: which myths exist as oral tradition vs. theology vs. suppressed heresy This is the canon output of SILK_ROAD_MYTH_ANALYSIS research",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Assign creatures to regions (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Albast \u2192 Steppe; Div \u2192 Persian-analog; Jiangshi \u2192 Eastern Gateway; Rakshasa/Vetala \u2192 Subcontinent; Nagas \u2192 underground/crossroads Add to WORLD_REGIONS_AND_LOCATIONS.md",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Design one Vetala NPC (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Recurring figure; tester archetype; inhabits a significant corpse Useful before Session 0 for mystery seeding",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Review Jiangshi \u2194 Orcish funerary rites (~30 min)",
+              "done": false,
+              "blocked": false,
+              "note": "Diaspora/dying-far-from-home intersection",
+              "effort": "",
+              "links": [
+                [
+                  "orcs",
+                  "/world/ancestries/orcs.md"
+                ]
+              ]
+            },
+            {
+              "text": "Identify 3 heroic myths for active NPC oral tradition (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Alpamysh (Steppe bards), Rostam/Sohrab (Persian merchant scholars), Arjuna at Kurukshetra (subcontinent philosophers) Add to NPC design notes when created",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create mythology/location master list (~2-3 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Real Silk Road sites \u2192 fantasy versions Religious/spiritual sites (Jerusalem, Mecca, Varanasi, etc.) Legendary locations (Shambhala, Kunlun Mountains, etc.) Natural wonders (Tian Shan, Pamir, rivers) Decision: Direct analogs, inversions, or ancestry homelands? Map to campaign locations (Lich strongholds, Hero Heaven threshold, etc.)",
+              "effort": "",
+              "links": [
+                [
+                  "BRAINSTORM_2026-02-13",
+                  "/narrative/BRAINSTORM_2026-02-13.md"
+                ]
+              ]
+            },
+            {
+              "text": "Develop regional myth cycles (~1-2 sessions per region, long-term)",
+              "done": false,
+              "blocked": false,
+              "note": "One per major region: 3-5 connected stories defining how that region understands heroism, death, cosmic order These become oral tradition NPCs cite, bards perform, temples preach",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map creatures to Daggerheart adversary stat blocks (~2-3 sessions, long-term)",
+              "done": false,
+              "blocked": false,
+              "note": "Albast (Social/Stealth), Div (Elite/incomprehensible), Jiangshi (Minion/tragic), Rakshasa (Major NPC adversary), Vetala (NPC/tester)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Update all 37 Location Notes with fantasy names",
+              "done": false,
+              "blocked": false,
+              "note": "Use FANTASY_NAMING_GUIDE.md as reference Cross-reference regions.json for proper names Add fantasy_name, era_named, cultural_influence, historical_names fields Update schema in LOCATION_NOTE_SCHEMA.md",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create GeoJSON overlays (after fantasy name updates complete)",
+              "done": false,
+              "blocked": false,
+              "note": "regions.geojson \u2014 Fantasy region polygons + labels features.geojson \u2014 Mountains, deserts, rivers + fantasy names routes.geojson \u2014 Northern Route (Tian-Khor), Southern Route (Kunlain) Lock field mapping decisions (see GeoJSON System Architecture below) Build Python script (Option A recommended) to auto-generate from Location Notes",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Refine Elven dynamics documentation",
+              "done": false,
+              "blocked": false,
+              "note": "Highland enclave locations and characteristics Great Wall maintenance \u2014 who/what/why Elven-adjacent intermediaries (humans, goblins) Celestial mythology basis (Chinese + Asian cosmology) \"Islands to the East\" mystery Dwarven secrecy about Far North kingdoms (Arctic region)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create detailed regional descriptions",
+              "done": false,
+              "blocked": false,
+              "note": "Regional history, current politics, cultural dynamics Key power players and factions per region Tensions and conflicts Trade patterns and dependencies",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Documentation & Infrastructure",
+          "domain": "infra",
+          "items": [
+            {
+              "text": "Fix `/narrative/lore/liberation_aftermath.md` (~2-3 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "CRITICAL: Currently has wrong 200-year timeline throughout Needs complete rewrite to align with 1,000-year timeline Expand with Orc economic rise (Era 2-3 \"Trading Centuries\") Add \"From Warriors to Traders\" development arc Show how Orcs became indispensable to Silk Road economy",
+              "effort": "",
+              "links": [
+                [
+                  "HISTORICAL_TIMELINE",
+                  "/world/content/HISTORICAL_TIMELINE.md"
+                ],
+                [
+                  "orcs",
+                  "/world/ancestries/orcs.md"
+                ]
+              ]
+            },
+            {
+              "text": "Create Factions documentation (FACTIONS.md)",
+              "done": false,
+              "blocked": false,
+              "note": "Merchant guilds (per region, names, specializations) Orc confederations (post-stabilization structures, leaders, territories) Dwarven merchant-states (Venetian-style tolls, monopolies) Human city authorities (remnant imperial vs. new power) Elven enclaves (mysterious, withdrawn) Goblin/Halfling diaspora networks Religious organizations and influence",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create Trade Routes documentation (TRADE_ROUTES.md)",
+              "done": false,
+              "blocked": false,
+              "note": "Northern Route (Tian-Khor Route): waypoints, dangers, seasonal considerations Southern Route (Kunlain Route): waypoints, dangers, seasonal considerations Caravan types, travel times, typical goods",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create session-specific maps",
+              "done": false,
+              "blocked": false,
+              "note": "Player-facing map (filter to player-visible locations only) GM-only map (all locations including gm-only and secret) Episode-specific maps (filter by tags like campaign-arc-desert)",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Campaign Mechanics & Narrative Detail",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Define ghost communication mechanics",
+              "done": false,
+              "blocked": false,
+              "note": "How: Dreams, whispers, visions, fragmented messages Knowledge: What does ghost know/understand vs. what's unclear State: Trapped, guided by others, or genuinely free Interpretation: How heroes misunderstand ambiguous communication Mechanical expression: When/how ghost intervenes",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Explicit unfinished charge definition",
+              "done": false,
+              "blocked": false,
+              "note": "What specifically were heroes supposed to do about the Wizard? When/how was charge conveyed to them at Celestial Peak? Why didn't they recognize it as ongoing duty? What are consequences of failing to complete charge? How does completing charge relate to returning to Hero Heaven?",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Manufactured doubt system design",
+              "done": false,
+              "blocked": false,
+              "note": "Create 8-12 specific NPCs who plant different doubts Design contradictory information encounters per region Build \"suspicious witness\" moments (frame potential traitors) Create ambiguous evidence players must interpret Tie doubt to archetype vulnerabilities",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Develop post-liberation Orcish politics",
+              "done": false,
+              "blocked": false,
+              "note": "Confederation structures (names, leaders, territories) Internal conflicts (traditionalists vs. integrationists) External relations (with humans, dwarves, elves) Player interaction opportunities (quests, negotiations, trade)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create merchant house networks",
+              "done": false,
+              "blocked": false,
+              "note": "6-8 major trading houses with names, specializations, allegiances House hierarchies and succession politics Rivalries and alliances between houses Political influence and dependencies on regional powers Player economic gameplay opportunities",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Character Development Systems",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Expand character archetype documentation",
+              "done": false,
+              "blocked": false,
+              "note": "How each archetype relates to expulsion narrative Mechanical benefits and drawbacks per archetype Character creation walkthrough for exiled heroes Example character concepts per archetype",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create player-facing character creation guide",
+              "done": false,
+              "blocked": false,
+              "note": "Step-by-step creation process (once Campaign Frame locked) Archetype selection with psychological patterns Relationship to Celestial Peak and lost reward Tool assignment and initial state Starting Charms selection How fall shapes motivation and goals",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Document character advancement system",
+              "done": false,
+              "blocked": false,
+              "note": "How do heroes regain/restore aspects of reward? Experience triggers (narrative vs. mechanical) Charm learning and recovery Tool progression triggers Consequence system for trust and unity choices Session-based advancement pacing",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Advanced Mapping",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Create custom fantasy map image (commission or DIY)",
+              "done": false,
+              "blocked": false,
+              "note": "Replace real-world topographic base with fantasy aesthetic Retain geographic accuracy underneath Toggle between fantasy and topographic versions",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Implement image map mode",
+              "done": false,
+              "blocked": false,
+              "note": "Upload custom map image to Obsidian Set bounds to match coordinates Layer Location Note markers over image",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Add marker zoom breakpoints",
+              "done": false,
+              "blocked": false,
+              "note": "Major cities visible at zoom 3+ Minor waypoints visible at zoom 6+ Prevent map clutter at low zoom levels",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Route visualization overlays",
+              "done": false,
+              "blocked": false,
+              "note": "GeoJSON LineString features for trade routes Color-coded by season or danger level Interactive route information (hover/click)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Test GeoJSON export to Google Earth (KML format)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create publishing workflow for session-specific exports",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "World-Building Depth",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Detailed mythical pantheons",
+              "done": false,
+              "blocked": false,
+              "note": "What do the mythical pantheons look like? Do they drive PLOT? What is the overall interaction with the mundane What impacts to characters?",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Detailed magical system paradigms for magical powers/archetypes",
+              "done": false,
+              "blocked": false,
+              "note": "How does the magic system express itself in the lore Does it drive PLOT?",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Possible alternate calendar descriptions",
+              "done": false,
+              "blocked": false,
+              "note": "Is it simple Gregorian, or something more \"alternative earth\" appropriate Regional naming conventions Significant seasonal or religious/mystical events",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "NPC network development",
+              "done": false,
+              "blocked": false,
+              "note": "Major NPCs by region (names, motivations, secrets) Interconnections and conflicts Hidden agendas and faction allegiances Relationship maps",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Encounter tables by region/location type",
+              "done": false,
+              "blocked": false,
+              "note": "Random travel encounters (by terrain, season, route) Social encounters in cities (by district, faction) Combat encounters (by threat level, environment)",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Historical conflicts documentation",
+              "done": false,
+              "blocked": false,
+              "note": "Pre-Empire era conflicts and alliances Empire era oppression and resistance movements Chaos period raiding patterns and atrocities Stabilization era peace-building efforts",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Economic simulation design",
+              "done": false,
+              "blocked": false,
+              "note": "Trade flow maps (what goods move where and why) Price fluctuations by region and season Supply/demand dynamics Impact of politics on trade (tolls, embargoes, monopolies)",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "System Development",
+          "domain": "world",
+          "items": [
+            {
+              "text": "TTRPG encounter resolution mechanics (detail conflict structure)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Session structure templates (Episodes 1-N pacing and format)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "House rules documentation (table-specific rulings)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Character death/resurrection mechanics (fallen hero context)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Team Intelligence Framework",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Cartographer persona (if needed for specialized geospatial work)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Mythweaver-Lore Keeper collaboration patterns documentation",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Context detection system for persona activation",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Update persona schema across all domains",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "status": "done",
+      "title": "Completed Assets",
+      "subtitle": "Locked & verified",
+      "groups": [
+        {
+          "title": "Core Campaign Structure",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Core Campaign Structure",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/narrative/CORE_CAMPAIGN_NARRATIVE.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hero Heaven cosmology (earned reward, premature expulsion)\\[EDITORIAL NOTE] - Is it (e.g., magic system, god hierarchy)?",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Six archetype-specific self-doubt frameworks (Breaker, Bridge, Seeker, Sacrificer, Warrior, Visionary)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Tool mechanics (Resist/Hunger/Know framework)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Campaign arc structure (3 acts)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "The Wizard's catalyst role (not final boss)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Ghost of fallen companion (ambiguous guide)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Core campaign questions and themes",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Session 0 Architecture",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Session 0 Architecture",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/Sessions_Structure.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/gm_secrets/Session_0_Secret_Snippets-Archetype_Templates.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/Shared_Memory_Events.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/Shared_Memory_Narrative_Template.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "8-segment awakening structure (4.5-5 hours verified executable)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hybrid parallel + sequential pacing (Bridge+Seeker, Warrior+Sacrificer parallel; Breaker sequential)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Secret snippet architecture (god-tier moments during individual awakenings)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Four-axis flashback trigger system",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Event-centric shared memory design (5 thematic events framework)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Player pitch (less-transparent version preserving mystery)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Six archetype descriptions (no past-leakage)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Awakening Scenarios",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Awakening Scenarios",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/Session_0_Warrior_Awakening.md` + versions/",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/Session_0_Seeker_Awakening.md` + versions/",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/Session_0_Breaker_Awakening.md` + versions/",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Breaker awakening (not completed)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Sacrificer awakening (not started)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Visionary awakening (not started, will use tarot deck as mystical tool)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Bridge awakening (not started)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Weapons & Equipment",
+          "domain": "world",
+          "items": [
+            {
+              "text": "File: `/mechanics/weapons_silk_road.md`",
+              "done": true,
+              "blocked": false,
+              "note": "50+ weapons from Jerusalem to Changzhou Daggerheart mechanics (SRD-compliant damage/tags) Enhancement potential flags (16 Mythic Candidates) NPC archetype pairings (10+ combat/cultural roles) Ancestry weapon affinities (all 12+ ancestries) Tier scaling guidance (Tier 1-4) Cultural notes and regional availability",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Outstanding TODOs: 7 items (see Near-Term section)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Ancestry Documentation ORC",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Ancestry Documentation ORC",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/world/ancestries/orcs.md`",
+              "done": true,
+              "blocked": false,
+              "note": "Corrected 1,000-year timeline (40 generations post-liberation) Historical context (5 Eras from captivity to present) Cultural characteristics (clan diversity, cosmopolitan adaptation) The Trading Centuries (~3,000 words on economic transformation) Diplomatic Academies (~1,500 words on negotiation mastery) Found Family Philosophy (~1,200 words on kinship expansion) Social hierarchy including Bondkeeper role (trade/diplomatic leader) Orc Merchant Leagues (4 regional leagues detailed) Religious/spiritual practices (no unified religion, ancestor veneration) Economic roles (5 primary industries) Relations with other ancestries Modern challenges (identity beyond liberation, wealth vs. memory, etc.) NPC seeds and PC hooks",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Supporting Files:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": [
+                [
+                  "ORCS_REVISION_SUMMARY",
+                  "/world/ancestries/ORCS_REVISION_SUMMARY.md"
+                ]
+              ]
+            },
+            {
+              "text": "Outstanding TODOs: 6 items for Orcs + all other ancestries pending",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Remaining Ancestries: Goblins, Halflings, Dwarves, Elves, Drakona, Fauns, Firbolg, Giants, Katari, Infernis",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "World-Building GEOGRAPHIC FOUNDATION",
+          "domain": "world",
+          "items": [
+            {
+              "text": "World-Building GEOGRAPHIC FOUNDATION",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Geographic Framework",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Geographic Framework",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "6 major regions defined (Skamarketh, Tarim Basin, Eastern Gateway, Mountain Passes, Steppe, Elven Highlands)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "37 locations with coordinates (22 created as individual notes, 15 more in regions.json)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Complete fantasy naming system with linguistic formulas per faction",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Ancient geographic features named (Taklamehr, Sky-Pass/Tian-Khor, Kunlain, Am-Darkath, Syrghar, Yuraneil)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Regional faction controllers and power dynamics",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Cultural/political framework (Empire \u2192 Chaos \u2192 Stabilization \u2192 Present eras)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Timeline (History)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Major events",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Location Infrastructure",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Location Infrastructure",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Location: `/world/locations/` (37 markdown files)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Status: Infrastructure complete, content population ongoing",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Features:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Obsidian Leaflet integration working",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "7 marker types configured (city, ruins, pass, waystation, oasis, sacred-site, mystery)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "OpenTopoMap tiles verified",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Schema documented in LOCATION_NOTE_SCHEMA.md",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Game Mechanics ARCHITECTURE",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Game Mechanics ARCHITECTURE",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Charm System",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Charm System",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/mechanics/character-progression/charms/CHARM_SYSTEM_ANALYSIS.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decision: Option C - Exalted-Lite (Hope + Fatigue Points hybrid)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Status: Architecture locked, ready for implementation",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Details:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "3-tier progression (Foundation/Specialization/Mastery)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hybrid resources: FP (tactical, from Health) + Hope (strategic, from duality dice)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Conversion formulas: 1-3m \u2192 2 FP OR 1 Hope (Tier 1); 4-6m \u2192 3 FP OR 1 Hope + 1 Will (Tier 2); 7-10m \u2192 2-3 Hope (Tier 3)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Complete 194-charm Exalted reference document created",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Charm template created (`CHARM_TEMPLATE.md`)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Charm accessibility matrix created",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Tool Progression",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Tool Progression",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Status: 4-stage progression defined",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stages:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "1. Crude tools: Standard Daggerheart rolls",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "2. Blessed tools: Narrative advantage only",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "3. Awakened tools: 2d12 Hope (keep highest) \u2014 celestial dice",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "4. Legendary tools: Additional effects TBD",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Integration: Works with Resist/Hunger/Know framework",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Daggerheart Integration  TEMPLATES CREATED",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Location: `/templates/`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Status: Domain-aligned templates complete",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Contents:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Character sheet templates",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Session tracking templates",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Archetype-to-domain mapping",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Adversary templates",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Environment templates",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Resource Management",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Hybrid System: Hope (strategic) + Fatigue Points (tactical)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "FP derived from Health stat, recovers with rest",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hope gained from duality dice + narrative choices + tier bonuses",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Will as rare high-stakes resource",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Charm Activation",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Model: Exalted-Lite with Daggerheart foundation",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Costs: 2-3 FP OR 1-3 Hope (tier-dependent)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Types: Simple, Supplemental, Reflexive",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Simplification: No combat keyword complexity from Exalted",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Tool Mechanics",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Framework: Resist/Hunger/Know (narrative-based, guideline-focused)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Resist: Tool refuses certain actions (protective or restrictive?)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hunger: Tool calls for use/restoration (genuine or manipulation?)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Know: Tool reveals fragmentary memories (truth or interpretation?)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Progression: 4-stage celestial dice advantage system",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Integration: Works with Charm system and duality dice",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Conflict Resolution",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Foundation: Daggerheart's duality dice (Hope/Fear d12s)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hope Generation: Feeds Charm system",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Fear Complication: Affects tool usage (specific mechanics TBD)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Character Identity",
+          "domain": "cosmology",
+          "items": [
+            {
+              "text": "Archetypes: 6 options (Breaker, Bridge, Seeker, Sacrificer, Warrior, Visionary)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Domain Alignment: Maps to Daggerheart domains",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Starting State: Crude tools + tier 1 foundation Charms",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

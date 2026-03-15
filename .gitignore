@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Obsidian app config (local-only)
+.obsidian/
+
+# Claude workspace metadata
+.claude/
+
+# Binary / large assets
+images/
+audio/
+references/
+
+# Binary file types (tracked text data like .geojson/.kml is fine)
+*.pdf
+*.zip
+*.webarchive
+
+# External tool integration (not source content)
+moulinette/

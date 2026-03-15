@@ -1,0 +1,523 @@
+{
+  "metadata": {
+    "project": "Tarim-Shaiel",
+    "source": "Silk Road historical geography",
+    "coordinate_system": "WGS84 (lat/long decimal degrees)",
+    "created": "2025-12-07",
+    "last_updated": "2025-12-24",
+    "naming_guide": "See /world/FANTASY_NAMING_GUIDE.md for etymology and conventions"
+  },
+  "ancient_geography": {
+    "deserts": [
+      {
+        "historical_name": "Taklamakan",
+        "fantasy_name": "Taklamehr",
+        "etymology": "Taklamakan ('withering landscape') → Taklamehr",
+        "type": "desert",
+        "region": "Tarim Basin center",
+        "practical_properties": "Deadly heat, navigation hazard, extreme aridity",
+        "fantastic_properties": "Ancient withering curse? Actively destructive force?"
+      }
+    ],
+    "mountain_ranges": [
+      {
+        "historical_name": "Tian Shan",
+        "fantasy_name": "Sky-Pass (English) / Tian-Khor (Dwarvish)",
+        "etymology": "Tian Shan ('celestial/heavenly mountains') → Sky-Pass + Tian-Khor",
+        "type": "mountain-range",
+        "region": "North of Tarim Basin",
+        "controller": "Dwarves",
+        "practical_properties": "High passes, mining, gateway between regions",
+        "fantastic_properties": "Celestial gateway? Divine connection?"
+      },
+      {
+        "historical_name": "Kunlun",
+        "fantasy_name": "Kunlain",
+        "etymology": "Kunlun ('cradle') → Kunlain",
+        "type": "mountain-range",
+        "region": "South of Tarim Basin",
+        "practical_properties": "Southern barrier, cradling Tarim Basin",
+        "fantastic_properties": "Cradle of ancient civilizations or magic?"
+      }
+    ],
+    "rivers": [
+      {
+        "historical_name": "Amu Darya (Oxus)",
+        "fantasy_name": "Am-Darkath",
+        "etymology": "Amu Darya ('Black River') → Am-Darkath (Orcish guttural)",
+        "type": "river",
+        "region": "Transoxiana (West)",
+        "practical_properties": "Major water source, dark waters, trade route",
+        "fantastic_properties": "Ancient sacred waters? Black magic association?"
+      },
+      {
+        "historical_name": "Syr Darya",
+        "fantasy_name": "Syrghar",
+        "etymology": "Syr Darya ('northern wetlands') → Syrghar (Orcish)",
+        "type": "river",
+        "region": "North",
+        "practical_properties": "Northern water source, boundary marker, life-giving",
+        "fantastic_properties": "Ancient dividing line? Sacred boundary?"
+      },
+      {
+        "historical_name": "Yurung-kash (Jade River)",
+        "fantasy_name": "Yuraneil",
+        "etymology": "Yurung-kash → Yuraneil (Elvish sacred, tied to Elven enclave)",
+        "type": "river",
+        "region": "Khotan",
+        "elven_enclave": "Yuraneil (scattered Elven community)",
+        "practical_properties": "Jade production, sacred river, water source",
+        "fantastic_properties": "Elven-maintained waters? Jade spirituality?"
+      }
+    ]
+  },
+  "routes": [
+    {
+      "id": "northern_route",
+      "name": "Northern Route (Tianshan Corridor)",
+      "fantasy_reference": "Follows Tian-Khor (Sky-Pass/Heavenly Gateway)",
+      "type": "major_trade_route",
+      "path": [
+        {"name": "Dunhuang", "fantasy_name": "Dun-Shaiel", "lat": 40.15, "lon": 94.67},
+        {"name": "Jade Gate", "fantasy_name": "Jade-Khar", "lat": 40.46, "lon": 94.64},
+        {"name": "Turfan", "fantasy_name": "Tur-Shai", "lat": 42.95, "lon": 89.19},
+        {"name": "Karashahr", "fantasy_name": "Kar-Shai", "lat": 41.85, "lon": 86.53},
+        {"name": "Shorchuk", "fantasy_name": "Shor-Khan", "lat": 41.97, "lon": 83.86},
+        {"name": "Kucha", "fantasy_name": "Ku-Thane", "lat": 41.73, "lon": 82.95},
+        {"name": "Aksu", "fantasy_name": "Ak-Shan", "lat": 41.17, "lon": 80.26},
+        {"name": "Maralbashi", "fantasy_name": "Mara-Khal", "lat": 39.74, "lon": 77.57},
+        {"name": "Kashgar", "fantasy_name": "Kashkar", "lat": 39.65, "lon": 75.99}
+      ],
+      "length_km": 1500,
+      "characteristics": "Follows southern foothills of Tian-Khor Mountains; northern rim of Taklamehr Desert",
+      "season": "Spring/Summer preferred",
+      "suitable_for": "Large caravans, government escorts",
+      "mechanical_reference": "Players may refer to as 'Northern Route' but sages/merchants use 'Tian-Khor Route'"
+    },
+    {
+      "id": "southern_route",
+      "name": "Southern Route (Kunlun Corridor)",
+      "fantasy_reference": "Follows Kunlain (southern mountain cradle)",
+      "type": "major_trade_route",
+      "path": [
+        {"name": "Dunhuang", "fantasy_name": "Dun-Shaiel", "lat": 40.15, "lon": 94.67},
+        {"name": "Yang-kuan Gate", "fantasy_name": "Yang-Khar", "lat": 40.46, "lon": 94.64},
+        {"name": "Miran", "fantasy_name": "Mir-Thain", "lat": 40.52, "lon": 88.07},
+        {"name": "Charklik", "fantasy_name": "Char-Khan", "lat": 39.00, "lon": 88.15},
+        {"name": "Cherchen", "fantasy_name": "Cher-Shai", "lat": 38.14, "lon": 85.55},
+        {"name": "Endere", "fantasy_name": "End-Thane", "lat": 36.21, "lon": 88.74},
+        {"name": "Niya", "fantasy_name": "Niya-Khan", "lat": 37.07, "lon": 81.18},
+        {"name": "Khotan", "fantasy_name": "Khotaneth", "lat": 37.12, "lon": 79.92},
+        {"name": "Yarkand", "fantasy_name": "Yar-Khan", "lat": 38.43, "lon": 77.27},
+        {"name": "Kashgar", "fantasy_name": "Kashkar", "lat": 39.65, "lon": 75.99}
+      ],
+      "length_km": 1200,
+      "characteristics": "Follows northern base of Kunlain Mountains; southern rim of Taklamehr Desert",
+      "season": "Year-round but isolated",
+      "suitable_for": "Smaller specialized caravans (jade, spices)",
+      "mechanical_reference": "Players may refer to as 'Southern Route' but sages/merchants use 'Kunlain Route'"
+    }
+  ],
+  "regions": [
+    {
+      "id": "central_asian_hubs",
+      "name": "Central Asian Hub Cities (Skamarketh Region)",
+      "fantasy_name_root": "Orcish Guttural Confederation",
+      "type": "major_commercial_centers",
+      "controller": "Orc confederations (contested with Human imperial remnants)",
+      "locations": [
+        {
+          "historical_name": "Samarkand",
+          "fantasy_name": "Skamarketh",
+          "lat": 39.65,
+          "lon": 66.97,
+          "region_type": "trade-hub",
+          "historical_basis": "Sogdania - Zoroastrian→Islamic; Mongol; Timurid revival",
+          "etymology": "Samarkand → Skamarketh (echoes 'samar,' adds K-sound + Orcish '-eth')",
+          "historical_goods": ["Textiles", "luxury goods", "paper mill (8th c)"],
+          "cultural_notes": "Ancient 'Stone Fort'; magnificent architecture; major intellectual center",
+          "population_rank": "second-largest in Uzbekistan historically",
+          "religious_tradition": "Zoroastrian→Islamic",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Bukhara",
+          "fantasy_name": "Bukhgrath",
+          "lat": 39.77,
+          "lon": 64.43,
+          "region_type": "trade-hub",
+          "historical_basis": "Sogdania - Zoroastrian→Islamic; Mongol destruction & revival",
+          "etymology": "Bukhara → Bukhgrath (echoes 'bukh,' adds guttural 'gr' + '-ath')",
+          "historical_goods": ["Trade hub", "scholarship center"],
+          "cultural_notes": "5th-largest city; center of trade & religion; 140+ architectural monuments",
+          "religious_tradition": "Zoroastrian→Islamic; scholarly hub",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Balkh",
+          "fantasy_name": "Khalkresh",
+          "lat": 36.76,
+          "lon": 66.90,
+          "region_type": "trade-hub",
+          "historical_basis": "Bactria (Afghanistan) - destroyed by Genghis Khan (1220s)",
+          "etymology": "Balkh → Khalkresh (transforms 'balk' → 'khalk' K-heavy, adds '-resh')",
+          "historical_goods": ["General trade hub"],
+          "cultural_notes": "'Mother of Cities' before destruction; major oasis hub",
+          "religious_tradition": "Zoroastrian→Islamic; Buddhist influence",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Merv",
+          "fantasy_name": "Merk-Shahr",
+          "lat": 37.66,
+          "lon": 61.83,
+          "region_type": "ruined-city",
+          "historical_basis": "Margiana (Turkmenistan) - destroyed by Genghis Khan's son",
+          "etymology": "Merv → Merk-Shahr (echoes 'mer,' adds compound '-Shahr' tribal confederation)",
+          "historical_goods": ["Trade hub", "oasis"],
+          "cultural_notes": "Later rebuilt as Mary; now village-sized; 'ruined Silk Road city'",
+          "religious_tradition": "Islamic",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Tashkent",
+          "fantasy_name": "Taskhren",
+          "lat": 41.31,
+          "lon": 69.24,
+          "region_type": "trade-hub",
+          "historical_basis": "Fergana Valley region - Turkic origin; Mongol conquest",
+          "etymology": "Tashkent → Taskhren (echoes 'task,' transforms to K-sound, adds '-ren')",
+          "historical_goods": ["Trade hub", "agriculture center"],
+          "cultural_notes": "'Stone City'; largest city in Central Asia",
+          "religious_tradition": "Islamic (12th-13th c)",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Urgench",
+          "fantasy_name": "Urgkesh",
+          "lat": 42.37,
+          "lon": 61.05,
+          "region_type": "trade-hub",
+          "historical_basis": "Khwarezm (Turkmenistan) - Khwarezmian state; destroyed by Mongols",
+          "etymology": "Urgench → Urgkesh (keeps 'urg,' adds K-sound + '-esh')",
+          "historical_goods": ["Trade hub", "oasis"],
+          "cultural_notes": "Muhammad II's palace ruins; Mongol invasion endpoint",
+          "religious_tradition": "Islamic",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        }
+      ]
+    },
+    {
+      "id": "eastern_gateway",
+      "name": "Eastern Gateway & Council",
+      "fantasy_name_root": "Cosmopolitan Blended (Human + Elvish)",
+      "type": "imperial_center",
+      "controller": "Council of equals (Humans, Halflings, Goblins) with hidden Elven influence",
+      "locations": [
+        {
+          "historical_name": "Dunhuang",
+          "fantasy_name": "Dun-Shaiel",
+          "lat": 40.15,
+          "lon": 94.67,
+          "region_type": "sacred-site",
+          "historical_basis": "Gansu Corridor - Gateway to China; Buddhist religious hub",
+          "etymology": "Dunhuang → Dun-Shaiel (keeps 'dun' practical, adds '-Shaiel' Elvish mystique)",
+          "historical_goods": ["Gateway to China", "artistic/religious hub"],
+          "cultural_notes": "Mogao Caves: largest Buddhist art treasure house",
+          "elven_enclave": "Mogariel (Mogao Caves - Elven scattered community)",
+          "religious_tradition": "Buddhist (major artistic center); Mogao Caves (366-1400 CE)",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Jade Gate",
+          "fantasy_name": "Jade-Khar",
+          "lat": 40.46,
+          "lon": 94.64,
+          "region_type": "gateway",
+          "historical_basis": "Gansu Corridor - Mountain pass gateway; checkpoint",
+          "etymology": "Jade Gate → Jade-Khar (keeps 'jade' recognizable, adds '-Khar' mysterious marker)",
+          "historical_goods": ["Control point for trade"],
+          "cultural_notes": "Strategic checkpoint; gateway between regions",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Chang'an (Xi'an)",
+          "fantasy_name": "Chang-Shai",
+          "lat": 34.34,
+          "lon": 109.26,
+          "region_type": "river-valley",
+          "historical_basis": "Central China - Han/Tang dynasty capitals",
+          "etymology": "Chang'an → Chang-Shai (echoes 'chang,' adds '-shai' Eastern influence)",
+          "historical_goods": ["Silk (currency)", "jade incoming", "horses"],
+          "cultural_notes": "Eastern terminus; 12m walls built 1370; major trade destination",
+          "religious_tradition": "Chinese; Buddhism; Christianity (7th c)",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        }
+      ]
+    },
+    {
+      "id": "tarim_basin_oases",
+      "name": "Tarim Basin Oasis Network",
+      "fantasy_name_root": "Human-Practical with Dwarven Backing (Open Secret)",
+      "type": "waypoint_network",
+      "controller": "Humans (political face); Dwarves (infrastructure authority)",
+      "locations": [
+        {
+          "historical_name": "Kashgar",
+          "fantasy_name": "Kashkar",
+          "lat": 39.65,
+          "lon": 75.99,
+          "region_type": "trade-hub",
+          "historical_basis": "Tarim Basin - Buddhist→Islamic; multiple empires",
+          "etymology": "Kashgar → Kashkar (echoes 'kash,' adds practical '-kar')",
+          "historical_goods": ["Abundant crops", "fruits", "wool", "carpets", "jade"],
+          "cultural_notes": "Continuously inhabited 2K+ years; westernmost major oasis; multiethnic",
+          "religious_tradition": "Buddhist→Islam; Nestorian Christians; cosmopolitan",
+          "dwarven_backing": "Infrastructure investment; open secret",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Khotan",
+          "fantasy_name": "Khotaneth",
+          "lat": 37.12,
+          "lon": 79.92,
+          "region_type": "mountain-kingdom",
+          "historical_basis": "Tarim Basin - Buddhist state; Islamic conversion; jade center",
+          "etymology": "Khotan → Khotaneth (echoes 'khot,' adds '-thane' + Elvish mystique '-eth')",
+          "historical_goods": ["Jade (major)", "carpets", "oasis goods"],
+          "cultural_notes": "Jade production center; river-based prosperity",
+          "elven_enclave": "Khotaneth (scattered Elven community at sacred oasis)",
+          "religious_tradition": "Buddhist→Islamic",
+          "dwarven_backing": "Water infrastructure investment",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Kucha",
+          "fantasy_name": "Ku-Thane",
+          "lat": 41.73,
+          "lon": 82.95,
+          "region_type": "sacred-site",
+          "historical_basis": "Tarim Basin - Buddhist state; major religious center",
+          "etymology": "Kucha → Ku-Thane (echoes 'ku,' adds '-thane' practical/governance)",
+          "historical_goods": ["Buddhist textiles", "oasis trade"],
+          "cultural_notes": "Kizil Caves nearby; major Buddhist center",
+          "elven_enclave": "Kizildor (Kizil Caves - hidden Elven stronghold)",
+          "religious_tradition": "Buddhist (major monasteries)→Islamic",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Yarkand",
+          "fantasy_name": "Yar-Khan",
+          "lat": 38.43,
+          "lon": 77.27,
+          "region_type": "oasis-hub",
+          "historical_basis": "Tarim Basin - oasis settlement; spice hub",
+          "etymology": "Yarkand → Yar-Khan (echoes 'yar,' adds '-khan' practical governance)",
+          "historical_goods": ["Spices", "oasis goods"],
+          "cultural_notes": "Secondary trade hub; spice specialization",
+          "religious_tradition": "Islamic",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Turfan",
+          "fantasy_name": "Tur-Shai",
+          "lat": 42.95,
+          "lon": 89.19,
+          "region_type": "oasis-hub",
+          "historical_basis": "Tarim Basin - karez irrigation system; viticulture",
+          "etymology": "Turfan → Tur-Shai (echoes 'tur,' adds '-shai' practical + Eastern Gateway influence)",
+          "historical_goods": ["Grapes", "wine", "raisins"],
+          "cultural_notes": "Advanced karez irrigation system; engineering hub",
+          "dwarven_backing": "Karez system maintenance and oversight",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Niya",
+          "fantasy_name": "Niya-Khan",
+          "lat": 37.07,
+          "lon": 81.18,
+          "region_type": "desert-crossing",
+          "historical_basis": "Tarim Basin - abandoned oasis; archaeological site",
+          "etymology": "Niya → Niya-Khan (keeps recognizable, adds '-khan' governance echo)",
+          "historical_goods": ["Local oasis goods"],
+          "cultural_notes": "Ancient ruins; abandoned ~4th century; archaeological interest",
+          "religious_tradition": "Buddhist",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        }
+      ]
+    },
+    {
+      "id": "mountain_passes",
+      "name": "Mountain Passes & Dwarven Territory",
+      "fantasy_name_root": "Dwarven Bilingual (English + Dwarvish)",
+      "type": "mountain-kingdom",
+      "controller": "Dwarven confederations (absolute control)",
+      "trade_model": "Venetian-style: tolls + selective access + monopoly on valuable goods",
+      "locations": [
+        {
+          "historical_name": "Hindu Kush",
+          "english_name": "Horsekiller",
+          "dwarvish_name": "Kush-Kamen",
+          "lat": 36.0,
+          "lon": 70.0,
+          "region_type": "mountain-range",
+          "etymology": "Hindu Kush ('killer of horses') → Horsekiller (English etymology) + Kush-Kamen (Dwarvish)",
+          "historical_goods": ["Passage", "mountain trade"],
+          "cultural_notes": "High mountain passes; deadly to unprepared travelers",
+          "practical_properties": "Formidable barrier; difficult passes; strategic chokepoint",
+          "dwarven_control": "Permits required; premium tolls (10-30%); dwarven garrisons",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Pamir Mountains",
+          "english_name": "Roof-of-the-World",
+          "dwarvish_name": "Pamir-Zhel",
+          "lat": 37.0,
+          "lon": 72.0,
+          "region_type": "mountain-range",
+          "etymology": "Pamir ('roof of the world' in Tajik) → Roof-of-the-World (direct translation) + Pamir-Zhel (Dwarvish)",
+          "historical_goods": ["Passage", "high altitude trade"],
+          "cultural_notes": "Highest plateau in world; extremely remote",
+          "practical_properties": "Extreme altitude; harsh weather; extreme isolation",
+          "dwarven_control": "Permits required; premium tolls; dwarven strongholds",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        },
+        {
+          "historical_name": "Karakoram Range",
+          "english_name": "Black-Mountains",
+          "dwarvish_name": "Karak-Mor",
+          "lat": 35.0,
+          "lon": 78.0,
+          "region_type": "mountain-range",
+          "etymology": "Karakoram ('black mountains' in Turkic: Kara=black, Koram=mountain) → Black-Mountains (English etymology) + Karak-Mor (Dwarvish)",
+          "historical_goods": ["Metals", "gems", "mountain resources"],
+          "cultural_notes": "Dark stone mountains; rich mineral deposits",
+          "practical_properties": "Mining-rich; valuable mineral resources; strategic passes",
+          "dwarven_control": "Absolute control; mining monopoly; merchandise inspection; elite dwarven garrisons",
+          "magical_elements": [],
+          "key_factions": [],
+          "campaign_status": "unexplored"
+        }
+      ]
+    },
+    {
+      "id": "steppe",
+      "name": "The Shaggar (Northern Steppe)",
+      "fantasy_name_root": "Orcish Tribal Confederation",
+      "type": "steppe-confederation",
+      "controller": "Orc confederations + allied human nomads + federated allies",
+      "governance": "Loose federation; tribal politics; clan-based authority",
+      "cultural_notes": "Post-liberation tribal reorganization; nomadic pastoralism; loose confederation with volatile inter-tribal politics",
+      "magical_elements": [],
+      "key_factions": [],
+      "campaign_status": "unexplored"
+    },
+    {
+      "id": "elven_highlands",
+      "name": "Elven Highlands & Scattered Enclaves",
+      "fantasy_name_root": "Elvish (Chinese construction + Elvish melody)",
+      "type": "scattered-sacred-sites",
+      "controller": "Elves (scattered, mysterious, non-territorial)",
+      "governance": "Magical/mystical presence; power through transcendence, not territory",
+      "scattered_enclaves": [
+        {
+          "name": "Mogariel",
+          "real_world_analog": "Mogao Caves",
+          "etymology": "Mogao → Mogariel (Mogao + Elvish '-riel' sacred)",
+          "type": "sacred-sanctuary",
+          "location_note": "Near Dunhuang/Dun-Shaiel",
+          "spiritual_power": "Buddhist spiritual art center → Elven spiritual sanctuary",
+          "known": true,
+          "accessible": false
+        },
+        {
+          "name": "Kizildor",
+          "real_world_analog": "Kizil Caves",
+          "etymology": "Kizil → Kizildor (Kizil + Elvish '-dor' house/realm)",
+          "type": "hidden-stronghold",
+          "location_note": "Near Kucha/Ku-Thane",
+          "spiritual_power": "Buddhist hidden caves → Elven hidden stronghold",
+          "known": true,
+          "accessible": false
+        },
+        {
+          "name": "Khotaneth",
+          "real_world_analog": "Khotan Oasis",
+          "etymology": "Khotan → Khotaneth (Khotan + Elvish '-eth' mystical)",
+          "type": "sacred-oasis",
+          "location_note": "Khotan region",
+          "spiritual_power": "Jade spiritual center → Elven mystical realm",
+          "known": true,
+          "accessible": false
+        },
+        {
+          "name": "Yuraneil",
+          "real_world_analog": "Yurung-kash River (Sacred Jade River)",
+          "etymology": "Yuran(g-kash) → Yuraneil (Yuran + Elvish '-eil' flowing)",
+          "type": "water-realm",
+          "location_note": "Khotan region",
+          "spiritual_power": "Sacred river water-source → Elven water-realm",
+          "known": true,
+          "accessible": false
+        },
+        {
+          "name": "Pamethor",
+          "real_world_analog": "Pamir High Peaks",
+          "etymology": "Pamir → Pamethor (Pamir + Elvish '-thor' strong/high)",
+          "type": "high-realm",
+          "location_note": "Pamir mountain region",
+          "spiritual_power": "Roof of the World → Elven high realm",
+          "known": true,
+          "accessible": false
+        },
+        {
+          "name": "Lop-nurien",
+          "real_world_analog": "Lop Nur (Salt Lake)",
+          "etymology": "Lop-nur → Lop-nurien (Lop + nur + Elvish '-ien' mysterious)",
+          "type": "mystery-realm",
+          "location_note": "Lop Nur ghost-city region",
+          "spiritual_power": "Abandoned, eerie, mysterious → Elven mystery sanctuary",
+          "known": true,
+          "accessible": false
+        }
+      ],
+      "great_wall": "Unknown magical infrastructure maintained by Elves; true extent and nature mysterious",
+      "magical_elements": ["Great Wall (mysterious)", "Mystical transcendence", "Hidden presence"],
+      "campaign_status": "mysterious"
+    }
+  ]
+}
