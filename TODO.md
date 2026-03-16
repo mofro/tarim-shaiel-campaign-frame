@@ -292,19 +292,25 @@ _Critical path items — must be completed for campaign launch_
 
 ---
 
-### Charm Reference Audit ⏳ DEFERRED — next session
-**Decision (2026-03-13):** Charm system removed from active scope. Vestiges/Memory Fragments/The Wrongness (Tools + R-H-K) carry the campaign's mechanical identity. Charm infrastructure archived to `archive/charms/`.
+### Charm Reference Audit ⏳ DEFERRED
+**Decision (2026-03-13):** Charm system removed from active scope. Charm mechanics layer deferred — Daggerheart base system is used for now. No semantic renaming until Vestige/Memory Fragment mechanics are actually designed.
 
-**Remaining:** Light reference cleanup in 7 active docs — no rewrites, mostly removing passing mentions or updating to Vestiges language where needed:
-- [ ] `mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md` (12 mentions)
-- [ ] `mechanics/character-progression/CELESTIAL_DICE_MECHANICS.md` (8 mentions)
-- [ ] `narrative/HERO_IDENTITY.md` (8 mentions)
-- [ ] `narrative/STORY_ARC_SYNTHESIS.md` (6 mentions)
-- [ ] `mechanics/character-creation/CHARACTER_CREATION_SEQUENCE.md` (3 mentions)
-- [ ] `templates/tarim-shaiel-templates/character_template.md` (3 mentions)
-- [ ] `.meta/NEXT_SESSION_CONTEXT.md` (1 mention — trivial)
+**Cleanup completed (2026-03-17):**
+- [x] `templates/tarim-shaiel-templates/character_template.md` — removed `charm_tier` frontmatter field and "Active Charms" section (dead references to unbuilt mechanic)
+- [x] `mechanics/character-creation/CHARACTER_CREATION_SEQUENCE.md` — removed "Prepare Charm reveals" checklist items; updated stale Next Steps note
 
-**Estimated Effort:** 1 session
+**Deferred — no semantic rename until mechanics are designed:**
+- [ ] `mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md` — Charm mechanics layer; leave as-is (aspirational, not active)
+- [ ] `mechanics/character-progression/CELESTIAL_DICE_MECHANICS.md` — Charm tier progression; leave as-is (aspirational)
+- [ ] `narrative/HERO_IDENTITY.md` — conceptual references; revisit when Vestige design is underway
+- [ ] `narrative/STORY_ARC_SYNTHESIS.md` — conceptual references; revisit when Vestige design is underway
+- [ ] `.meta/NEXT_SESSION_CONTEXT.md` — 1 trivial mention; low priority
+
+**Also deferred (Charm mechanics layer):**
+- [ ] **Design weapon-specific Charms** — deferred with Charm layer; revisit as weapon-specific abilities when active
+- [ ] **Charm card format evaluation** — deferred; reference: `archive/charms/CHARM_SYSTEM_ANALYSIS.md` § Future Considerations
+
+**Estimated Effort:** 1 session (when Vestige/ability design begins)
 
 ### World-Building Expansion
 
@@ -365,12 +371,6 @@ _Critical path items — must be completed for campaign launch_
   - Combat archetypes using different weapons
   - Cultural role examples (Steppe Nomad, Temple Warrior, etc.)
   - Quick-reference stat blocks
-
-- [ ] **Design weapon-specific Charms** (~2-3 sessions)
-  - Synergize with R/H/K system
-  - Weapon mastery Charm trees
-  - Mythic weapon awakening mechanics
-  - Integration with Tool progression
 
 #### Other Ancestries (From Brainstorm)
 - [ ] **Develop Goblin cultural structure** (~2-3 sessions)
@@ -642,14 +642,6 @@ _Critical path items — must be completed for campaign launch_
 
 - [ ] **Test GeoJSON export to Google Earth** (KML format)
 - [ ] **Create publishing workflow** for session-specific exports
-
-### Charm System Explorations
-
-- [ ] **Charm card format evaluation**
-  - Exploratory phase — decide on Daggerheart card tool viability before committing
-  - Evaluate available tools (see editorial note in Campaign Frame section)
-  - Determine if native card formatting is worth implementation overhead
-  - Reference: `/mechanics/character-progression/charms/CHARM_SYSTEM_ANALYSIS.md` § Future Considerations
 
 ### World-Building Depth
 

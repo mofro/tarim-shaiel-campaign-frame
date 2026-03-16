@@ -29,7 +29,6 @@ knowledge: 0
 
 # Tarim-Shaiel Extensions
 hero_heaven_archetype: ""
-charm_tier: 1
 r_h_k_resist: 0
 r_h_k_hunger: 0
 r_h_k_know: 0
@@ -69,10 +68,6 @@ r_h_k_know: 0
 | Resist | Hunger | Know |
 |:------:|:------:|:----:|
 | 0 | 0 | 0 |
-
-### Active Charms
-
-[List of unlocked charms with links to charm entries]
 
 ## Background
 

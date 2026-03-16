@@ -380,7 +380,6 @@ CLOSING SCENE
 
 **GM Actions:**
 - Document tool descriptions as customized by players
-- Prepare Charm reveals for Session 1
 - Note which Archetype clues players responded to
 - Plan first flashback/memory trigger
 
@@ -531,11 +530,10 @@ CLASS DISCUSSION AGENDA (60 minutes)
 ### **After Session 0:**
 - [ ] Document tool appearances as described
 - [ ] Note Archetype clues players responded to
-- [ ] Prepare Charm reveals for Session 1
 - [ ] Plan first flashback trigger
 
 ---
 
-**Last Updated:** 2026-01-11  
-**Next Steps:** Update SPELLS_VS_CHARMS_ANALYSIS.md with tool-as-conduit explanation  
+**Last Updated:** 2026-03-17
+**Next Steps:** *(SPELLS_VS_CHARMS_ANALYSIS.md archived — Charm layer deferred)*
 **Maintained by:** Lore Keeper, with input from Mythweaver
