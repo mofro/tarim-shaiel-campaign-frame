@@ -43,7 +43,11 @@ banner-fade: -35
 
 %% *Read this to your players when pitching the campaign.* %%
 
-Tarim Shaiel is a dark fantasy campaign set in a world that carries the weight of its past like a wound that never quite closed. It is a world with opinions: about consequence, about history, about the people who shaped it and the debts that haven't been settled. Your characters are people that world has decided something about. Whether those decisions are right, whether they fit, and what you choose to become in their shadow: that is the campaign. Expect doubt. Expect hard choices with no clean answers. Expect consequences that persist, people who have every right to be complicated about you, and moments of recognition that land harder than any fight. This is not a campaign about heroism. It is a campaign about what heroism actually costs. And who pays.
+Tarim Shaiel is a dark fantasy campaign set in a world that carries the weight of its past like a wound that never quite closed. It is a world with opinions: about consequence, about history, about the people who shaped it and the debts that haven't been settled.
+
+Your characters are people that world has decided something about. Whether those decisions are right, whether they fit, and what you choose to become in their shadow: that is the campaign.
+
+Expect doubt. Expect hard choices with no clean answers. Expect consequences that persist, people who have every right to be complicated about you, and moments of recognition that land harder than any fight. This is not a campaign about heroism. It is a campaign about what heroism actually costs. And who pays.
 
 ---
 

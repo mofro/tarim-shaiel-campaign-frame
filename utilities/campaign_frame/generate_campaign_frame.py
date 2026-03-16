@@ -107,6 +107,12 @@ def parse_paragraphs(content: str) -> list[str]:
 
     for line in content.splitlines():
         stripped = line.strip()
+        # Skip horizontal rules
+        if stripped == '---':
+            if current:
+                paras.append(' '.join(current))
+                current = []
+            continue
         # Skip callout type markers and their headers (already stripped by %% removal,
         # but Player/GM Principles callouts remain)
         if re.match(r'^>\s*\[!(tip|important)\]', stripped, re.IGNORECASE):
@@ -188,7 +194,12 @@ def parse_principles(content: str) -> list[tuple[str, str]]:
                     if body_parts:
                         break
                 elif bl.startswith('>'):
-                    i += 1  # skip continuation > lines within callout block
+                    # Body text inside callout block — strip the > prefix and keep content
+                    inner = re.sub(r'^>\s*', '', bl).strip()
+                    if inner and not re.match(r'\[!(tip|important)\]', inner, re.IGNORECASE) \
+                            and not re.match(r'#{1,4}\s', inner):
+                        body_parts.append(inner)
+                    i += 1
                 else:
                     body_parts.append(bl)
                     i += 1
@@ -311,7 +322,8 @@ def render_themes(content: str) -> str:
 
 
 def render_touchstones(content: str) -> str:
-    paras = parse_paragraphs(content)
+    # Filter out GM blockquote lines (> [GM: ...]) before parsing
+    paras = [p for p in parse_paragraphs(content) if not p.strip().startswith('>')]
     # First non-empty para is the touchstone list (italic titles)
     # Second is the throughlines paragraph
     touchstone_line = paras[0] if paras else ''
@@ -357,14 +369,7 @@ def render_heritage(content: str) -> str:
         else:
             html += f'  <p>{inline_md(stripped)}</p>\n'
 
-    return render_section(
-        'Heritage & Classes',
-        html,
-        chapter_intro=(
-            'All ancestries and classes from the Daggerheart Core Rulebook are available.'
-            ' The world is populated and diverse; no door is closed on the basis of what your character is.'
-        ),
-    )
+    return render_section('Heritage & Classes', html)
 
 
 def render_principles_pair(player_content: str, gm_content: str) -> str:
@@ -514,13 +519,13 @@ CSS = """
       position: absolute; inset: 0;
       background-image: url('%(cover_image_url)s');
       background-size: cover;
-      background-position: center 4%%;
+      background-position: center 4%;
       z-index: 0;
     }
 
     .cover-gradient {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(26,18,8,0.08) 0%%, rgba(26,18,8,0.55) 55%%, rgba(26,18,8,0.92) 100%%);
+      background: linear-gradient(to bottom, rgba(26,18,8,0.08) 0%, rgba(26,18,8,0.55) 55%, rgba(26,18,8,0.92) 100%);
       z-index: 1;
     }
 
@@ -586,7 +591,7 @@ CSS = """
     }
 
     .at-a-glance {
-      width: 100%%;
+      width: 100%;
       border-collapse: collapse;
       margin-bottom: 2.4rem;
       font-size: 0.95rem;
@@ -603,7 +608,7 @@ CSS = """
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--steel);
-      width: 42%%;
+      width: 42%;
     }
 
     .at-a-glance tr:last-child td { border-bottom: none; }
@@ -727,7 +732,7 @@ CSS = """
     }
 
     .credits {
-      background: #1a1208;
+      background: var(--steel);
       color: rgba(245,237,216,0.55);
       padding: 2rem 3rem;
       font-size: 0.88rem;
@@ -766,7 +771,8 @@ def render_at_a_glance(content: str) -> str:
         # Match table rows: | label | value |
         m = re.match(r'^\|\s*(.+?)\s*\|\s*(.+?)\s*\|', line)
         if m and not re.match(r'^\|[-| ]+\|', line):  # skip separator rows
-            label = escape(m.group(1).strip())
+            raw_label = re.sub(r'\*\*(.+?)\*\*', r'\1', m.group(1).strip())
+            label = escape(raw_label)
             value = inline_md(m.group(2).strip())
             rows_html += f'      <tr><td>{label}</td><td>{value}</td></tr>\n'
 
@@ -916,7 +922,10 @@ def main() -> None:
     version = 'v2.0'
     m = re.search(r'^version:\s*(.+)$', raw, re.MULTILINE)
     if m:
-        version = f'v{m.group(1).strip()}'
+        ver_str = m.group(1).strip()
+        if '.' not in ver_str:
+            ver_str += '.0'
+        version = f'v{ver_str}'
 
     html = build_html(sections, version=version)
 
