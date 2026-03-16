@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-17
+last_updated: 2026-03-16
 banner: images/places/248420.jpg
 banner-x: 51
 banner-y: 37
@@ -55,20 +55,12 @@ _Pipeline from Obsidian vault → styled HTML → Netlify public site. All compo
 
 ### Obsidian Shell Commands Integration ✅ (setup doc written, plugin config manual)
 - [x] `utilities/shell-commands-config.md` — setup reference for 3 Shell Commands plugin commands
-- [ ] **Install Shell Commands plugin** in Obsidian (Settings → Community Plugins → "Shell Commands")
-- [ ] **Configure Command 1: "Regenerate HTML Preview"** — on-save event (`world/` + `narrative/` folder filter); opens browser
-- [ ] **Configure Command 2: "Full Pipeline (Local)"** — palette + hotkey (`Cmd+Shift+B`); runs all generators; opens `docs/index.html`
-- [ ] **Configure Command 3: "Open Local Preview"** — palette convenience command
+- _Plugin config steps tracked in ACTIVE §4_
 
 ### Sub-document Secret Patterns ✅ (documented, not yet in use)
 - [x] **Pattern A (`%%...%%`):** inline secrets stripped from all HTML output (already working)
 - [x] **Pattern B (`-gm` companion file):** `<stem>-gm.md` with `visibility: gm_secrets`; enables Obsidian transclusion via block IDs; excluded from public deploy automatically
 - [ ] **Apply patterns** as myth/lore documents are authored — no retroactive file changes needed
-
-### Outstanding Pipeline Work
-- [ ] **Charm reference cleanup** — 7 active docs still mention Charm system; surgical removal needed (Priority 1 from 2026-03-13)
-- [ ] **Merge PR #1** (`claude/upbeat-bartik` → `main`) — 8 commits, all pipeline + visibility work
-- [ ] **Connect Netlify site** — netlify.toml is in repo; site needs to be linked at netlify.com (one-time setup)
 
 ---
 
@@ -211,6 +203,17 @@ _Critical path items — must be completed for campaign launch_
   - Player principles (4-6 guidelines)
 
 **Total Estimated:** 7-10 sessions
+
+---
+
+### 4. Publishing Infrastructure Setup 🔄 IN PROGRESS
+_Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
+
+- [ ] **Install Shell Commands plugin** in Obsidian (Settings → Community Plugins → "Shell Commands")
+- [ ] **Configure Command 1: "Regenerate HTML Preview"** — on-save event (`world/` + `narrative/` folder filter); opens browser; reference: `utilities/shell-commands-config.md`
+- [ ] **Configure Command 2: "Full Pipeline (Local)"** — palette + hotkey (`Cmd+Shift+B`); runs all generators; opens `docs/index.html`
+- [ ] **Configure Command 3: "Open Local Preview"** — palette convenience command
+- [ ] **Connect Netlify site** — `netlify.toml` is in repo; site needs to be linked at netlify.com (one-time setup)
 
 ---
 
