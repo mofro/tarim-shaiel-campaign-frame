@@ -6,6 +6,10 @@ on:
     paths:
       - 'TODO.md'
       - 'templates/tarim-shaiel-campaign-frame-v2.md'
+      - 'world/**/*.md'
+      - 'narrative/**/*.md'
+      - 'utilities/legendkeeper-pipeline/generate_world_html.py'
+      - 'utilities/legendkeeper-pipeline/generate_all_world_html.py'
   workflow_dispatch:  # allows manual trigger from GitHub Actions UI
 
 jobs:
@@ -23,11 +27,17 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install dependencies
+        run: pip install pyyaml
+
       - name: Generate TODO dashboard
         run: python utilities/dashboard/generate_dashboard.py --out docs/dashboard.html
 
       - name: Generate campaign frame
         run: python utilities/campaign_frame/generate_campaign_frame.py --out docs/campaign-frame.html
+
+      - name: Generate world HTML + index
+        run: python utilities/legendkeeper-pipeline/generate_all_world_html.py
 
       - name: Commit generated files
         run: |
