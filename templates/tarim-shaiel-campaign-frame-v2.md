@@ -171,7 +171,26 @@ The campaign's spine is: *What do you do when the world is very certain who you 
 
 ---
 
-%% 
+## Session Zero Questions
+
+*These questions are used at Session Zero. They are calibrated for the player-facing context — they invite the right character orientation without revealing the campaign's premise. Deliver them before character creation, not after.*
+
+**On your character:**
+- What is your character's essential method — the way they change things, the thing that makes them distinctly themselves?
+- What does your character most doubt about themselves?
+- What does your character carry that feels inseparable from who they are — an object, a habit, a way of moving through the world?
+- What is your character's relationship to being told who they are? Do they push back? Accept it? Look for the gap between the verdict and the truth?
+
+**On the campaign:**
+- What kinds of moral complexity are you most interested in exploring?
+- Is there anything you want to be sure is handled off-screen, or not at all?
+- What does a successful session feel like for you as a player?
+
+**Lines & Veils:** Use this time to establish what content should never appear (lines) and what should stay off-screen (veils). Content advisories: Grief & Loss · Moral Ambiguity · Consequences of Violence · Liberation & Its Aftermath · Identity Crisis · Cosmic/Existential Dread · Self-Doubt · Complicity & Silence · Generational Consequence.
+
+---
+
+%%
 > # ⚠ GM-FACING CONTENT BELOW THIS LINE
 > *The following sections contain information players should not have access to. This content is intentionally excluded from the player-facing version of this document. See the GM Campaign Document for the full picture.*
 
@@ -218,25 +237,6 @@ The tentpoles of the campaign world. Includes:
 - **Vestiges** — objects the characters carry that don't behave like ordinary objects. Mechanical and narrative framework.
 - **Memory Fragments** — how fragments surface, when, and what they cost.
 - **The Wrongness** — mechanical support for the escalating sense that something is broken in the world's magic.
-
----
-
-## Session Zero Questions
-
-*These questions are used at Session Zero. They are calibrated for the player-facing context — they invite the right character orientation without revealing the campaign's premise. Deliver them before character creation, not after.*
-
-**On your character:**
-- What is your character's essential method — the way they change things, the thing that makes them distinctly themselves?
-- What does your character most doubt about themselves?
-- What does your character carry that feels inseparable from who they are — an object, a habit, a way of moving through the world?
-- What is your character's relationship to being told who they are? Do they push back? Accept it? Look for the gap between the verdict and the truth?
-
-**On the campaign:**
-- What kinds of moral complexity are you most interested in exploring?
-- Is there anything you want to be sure is handled off-screen, or not at all?
-- What does a successful session feel like for you as a player?
-
-**Lines & Veils:** Use this time to establish what content should never appear (lines) and what should stay off-screen (veils). Content advisories: Grief & Loss · Moral Ambiguity · Consequences of Violence · Liberation & Its Aftermath · Identity Crisis · Cosmic/Existential Dread · Self-Doubt · Complicity & Silence · Generational Consequence.
 
 ---
 

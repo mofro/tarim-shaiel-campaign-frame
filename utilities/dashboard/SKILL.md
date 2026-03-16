@@ -1,9 +1,11 @@
 # Skill: Tarim-Shaiel Dashboard Regeneration
 
 ## Purpose
-Generate or update `templates/hero-heaven-todo-dashboard.html` from `TODO.md`.
+Generate or update `docs/dashboard.html` from `TODO.md`.
 **Do not hand-edit the HTML** — it is auto-generated. All content changes go to TODO.md.
 Style tweaks go inside the `STYLE_OVERRIDES` block in the HTML (it survives regeneration).
+
+> **Output path changed 2026-03-15:** was `templates/hero-heaven-todo-dashboard.html`, now `docs/dashboard.html` (GitHub Pages output folder).
 
 ---
 
@@ -12,7 +14,9 @@ Style tweaks go inside the `STYLE_OVERRIDES` block in the HTML (it survives rege
 | ---------------- | ------------------------------------------- |
 | Generator script | `utilities/dashboard/generate_dashboard.py` |
 | Input            | `TODO.md` (vault root)                      |
-| Output           | `templates/hero-heaven-todo-dashboard.html` |
+| Output           | `docs/dashboard.html`                       |
+| Campaign frame   | `docs/campaign-frame.html`                  |
+| Landing page     | `docs/index.html`                           |
 | This skill       | `utilities/dashboard/SKILL.md`              |
 
 ---

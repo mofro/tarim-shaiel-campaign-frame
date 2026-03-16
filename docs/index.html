@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarim Shaiel — Campaign Documents</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inconsolata:wght@400;500&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1208; --parchment: #f5edd8; --parchment2: #ede0c4;
+      --gold: #b8922c; --gold-light: #d4a843; --crimson: #7a1f1f;
+      --steel: #3c4a5a; --rule: rgba(184,146,44,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #111008;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .page-wrap {
+      max-width: 700px;
+      width: 100%;
+      background: var(--parchment);
+      box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    }
+    .header {
+      background: linear-gradient(170deg, #0d0a04 0%, #1a1208 50%, #2a1f0e 100%);
+      padding: 48px 56px 40px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .eyebrow {
+      font-family: 'Inconsolata', monospace;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.75;
+      margin-bottom: 10px;
+    }
+    .title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      text-shadow: 0 2px 20px rgba(184,146,44,0.3);
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: rgba(245,237,216,0.55);
+      font-style: italic;
+    }
+    .content { padding: 48px 56px; }
+    .section-label {
+      font-family: 'Inconsolata', monospace;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .doc-card {
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--parchment);
+      position: relative;
+    }
+    .doc-card:hover {
+      border-color: var(--gold);
+      background: var(--parchment2);
+    }
+    .doc-card-arrow {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 20px;
+      opacity: 0.5;
+      transition: opacity 0.2s, right 0.2s;
+    }
+    .doc-card:hover .doc-card-arrow { opacity: 1; right: 20px; }
+    .doc-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--crimson);
+      margin-bottom: 5px;
+    }
+    .doc-meta {
+      font-family: 'Inconsolata', monospace;
+      font-size: 12px;
+      color: rgba(26,18,8,0.45);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .doc-desc {
+      font-size: 15px;
+      color: rgba(26,18,8,0.65);
+      font-style: italic;
+    }
+    .footer {
+      background: #1a1208;
+      padding: 20px 56px;
+      border-top: 1px solid rgba(184,146,44,0.3);
+    }
+    .footer-text {
+      font-family: 'Inconsolata', monospace;
+      font-size: 12px;
+      color: rgba(245,237,216,0.3);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="header">
+    <div class="eyebrow">Tarim-Shaiel Campaign &middot; Daggerheart System</div>
+    <div class="title">Campaign Documents</div>
+    <div class="subtitle">Auto-generated from source files. Last updated on push to main.</div>
+  </div>
+
+  <div class="content">
+    <div class="section-label">Available Documents</div>
+
+    <a class="doc-card" href="campaign-frame.html">
+      <div class="doc-arrow"></div>
+      <div class="doc-title">Campaign Frame</div>
+      <div class="doc-meta">Player-Facing &middot; v2.0 &middot; Daggerheart</div>
+      <div class="doc-desc">The pitch, themes, principles, and session zero questions. Everything your players need before character creation.</div>
+      <div class="doc-card-arrow">&#8594;</div>
+    </a>
+
+    <a class="doc-card" href="dashboard.html">
+      <div class="doc-title">TODO &amp; Project Dashboard</div>
+      <div class="doc-meta">GM Reference &middot; Generated from TODO.md</div>
+      <div class="doc-desc">Campaign readiness, active work, blockers, and session log. Project health at a glance.</div>
+      <div class="doc-card-arrow">&#8594;</div>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">AUTO-GENERATED &mdash; DO NOT HAND-EDIT &mdash; SOURCE: GITHUB MAIN BRANCH</div>
+  </div>
+
+</div>
+</body>
+</html>

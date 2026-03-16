@@ -32,7 +32,8 @@ from typing import Optional
 SCRIPT_DIR  = Path(__file__).parent
 VAULT_ROOT  = SCRIPT_DIR.parent.parent
 TODO_PATH   = VAULT_ROOT / "TODO.md"
-OUTPUT_PATH = VAULT_ROOT / "templates" / "hero-heaven-todo-dashboard.html"
+OUTPUT_PATH = VAULT_ROOT / "docs" / "dashboard.html"
+# Legacy path kept for reference: VAULT_ROOT / "templates" / "hero-heaven-todo-dashboard.html"
 
 # ---------------------------------------------------------------------------
 # Domain keyword detection
