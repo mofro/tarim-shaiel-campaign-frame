@@ -1,2 +1,3 @@
 [build]
-  publish = "docs"
+  command   = "python utilities/dashboard/generate_dashboard.py && python utilities/campaign_frame/generate_campaign_frame.py"
+  publish   = "docs"
