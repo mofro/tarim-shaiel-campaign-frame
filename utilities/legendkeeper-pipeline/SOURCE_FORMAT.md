@@ -5,7 +5,7 @@ type: operational
 visibility: public
 status: active
 created: 2026-03-16
-last_updated: 2026-03-16
+last_updated: 2026-03-17
 ---
 
 # LegendKeeper Pipeline — Source Format Specification
@@ -40,12 +40,14 @@ title: Document Title
 project: TTRPG_Tarim_Shaiel
 type: myth              # myth | lore | timeline
 tags: [myth]            # LK tag(s), list or string
-visibility: public      # public | gm_secrets
+visibility: public      # public | gm_secrets  (REQUIRED — omitting defaults to gm_secrets)
 status: draft           # draft | review | canon | deprecated
 created: YYYY-MM-DD
 last_updated: YYYY-MM-DD
 ---
 ```
+
+> **Visibility is fails-closed.** The pipeline only publishes documents that are **explicitly** tagged `visibility: public`. Any other value — `gm_secrets`, a typo, or a missing field — causes the document to be treated as GM-only and excluded from Netlify/CI deploys. Local runs (without `--public`) generate everything.
 
 ### Myth/Lore — Additional Optional Fields
 
@@ -233,10 +235,66 @@ Each `## Section` (except `Calendar Eras`) becomes a **lane** in the LK timeline
 
 ## Secret Content Handling
 
-| Content | LK Markdown | LK JSON | HTML |
-|---------|-------------|---------|------|
-| `%%...%%` blocks | Converted to LK Secret section | SECRET lane (timeline); stripped (myth, Phase 2) | Stripped entirely |
-| `visibility: gm_secrets` | No effect on content | No effect on content | File generated anyway; label added |
+### Document-level gating (`visibility:` frontmatter)
+
+| Value | Local run (no flag) | Netlify / CI (`--public` flag) |
+|-------|---------------------|-------------------------------|
+| `visibility: public` | ✅ Generated, **no GM badge** | ✅ Generated and deployed |
+| `visibility: gm_secrets` | ✅ Generated, **GM badge** shown | ❌ Skipped entirely — no HTML, not in index |
+| *(field missing)* | ✅ Generated, **GM badge** (fails-closed default) | ❌ Skipped entirely |
+| *(any other value)* | ✅ Generated, **GM badge** | ❌ Skipped entirely |
+
+**The allowlist is narrow by design.** Only an explicit `public` value passes. Everything else stays off the public deploy.
+
+---
+
+### Inline sub-document secrets — two patterns
+
+#### Pattern A: `%%...%%` blocks (standard)
+
+Use for small secrets tightly coupled to their context. Stripped from all HTML output.
+
+```markdown
+%%
+**GM note:** This event is secretly caused by the Wizard.
+%%
+```
+
+For timelines, secret events are wrapped in a `%% ## Secret ... %%` block:
+
+```markdown
+%%
+## Secret
+
+- "The Wizard Ascends" | date: 1448 | color: "#DC2626" | icon: hat-wizard
+%%
+```
+
+**Rules:**
+- `%%...%%` content is stripped from ALL generated HTML (public and local)
+- Use **bold text** (`**Label**`) for structural labels inside `%%...%%`, not `##` headings (headings inside `%%...%%` may appear in the Obsidian outline panel)
+- Block IDs inside `%%...%%` blocks may not be reliably reachable via Obsidian transclusion — use Pattern B if cross-document referencing is needed
+
+#### Pattern B: `-gm` companion file (for referenceable GM notes)
+
+Use when GM content needs to be authored separately, referenced across documents, or transcluded into other GM materials.
+
+```
+world/myths/the-roads-a-fable.md         (visibility: public)
+world/myths/the-roads-a-fable-gm.md      (visibility: gm_secrets)
+```
+
+- The public file contains NO inline secrets
+- The `-gm` companion is excluded from Netlify in `--public` mode (via `visibility: gm_secrets`)
+- Within Obsidian: `![[the-roads-a-fable-gm#^block-id]]` transclusion works normally
+- Locally: the companion generates its own HTML page for GM preview
+- **Naming convention:** `<public-stem>-gm.md` — sorts next to the public file
+
+#### LK output handling
+
+| Content | LK Markdown | LK JSON |
+|---------|-------------|---------|
+| `%%...%%` blocks | Converted to LK Secret section | SECRET lane (timeline); stripped (myth, Phase 2) |
 
 ---
 

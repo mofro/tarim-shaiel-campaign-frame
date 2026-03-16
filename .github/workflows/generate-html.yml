@@ -37,7 +37,7 @@ jobs:
         run: python utilities/campaign_frame/generate_campaign_frame.py --out docs/campaign-frame.html
 
       - name: Generate world HTML + index
-        run: python utilities/legendkeeper-pipeline/generate_all_world_html.py
+        run: python utilities/legendkeeper-pipeline/generate_all_world_html.py --public
 
       - name: Commit generated files
         run: |
