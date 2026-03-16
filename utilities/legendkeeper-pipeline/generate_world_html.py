@@ -805,8 +805,16 @@ def render_timeline_html(fm: dict, body: str) -> str:
             range_text = date_label
 
         # Card background: subtle color tint over near-black
-        card_bg      = f"linear-gradient(160deg, {color}35 0%, rgba(14,11,6,0.93) 100%)"
-        entry_class  = 'is-era' if is_era else ''
+        card_bg     = f"linear-gradient(160deg, {color}35 0%, rgba(14,11,6,0.93) 100%)"
+        entry_class = 'is-era' if is_era else ''
+
+        # Image area: background-image if provided, else empty (shows color tint)
+        image_url = entry.get('image', '')
+        img_style = (
+            f'background-image:url({escape(image_url)});'
+            f'background-size:cover;background-position:center;'
+            if image_url else ''
+        )
 
         rows_html += f"""<div class="tl-list-entry {entry_class}">
   <div class="tl-date-col">
@@ -820,7 +828,7 @@ def render_timeline_html(fm: dict, body: str) -> str:
   <div class="tl-card-col">
     <div class="tl-card" style="background:{card_bg};">
       <span class="tl-card-badge">{escape(entry['lane'])}</span>
-      <div class="tl-card-image"></div>
+      <div class="tl-card-image" style="{img_style}"></div>
       <div class="tl-card-info">
         <div class="tl-card-icon">{icon}</div>
         <div class="tl-card-name-wrap">

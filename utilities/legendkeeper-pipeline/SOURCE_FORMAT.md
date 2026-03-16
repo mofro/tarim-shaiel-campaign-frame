@@ -154,7 +154,7 @@ calendar: Menology of Epochs
 
 ## Historical Events
 
-- "Empire Rises"              | start: 250 | end: 400 | color: "#7a1f1f" | icon: swords
+- "Empire Rises"              | start: 250 | end: 400 | color: "#7a1f1f" | icon: swords | image: https://assets.legendkeeper.com/abc.jpg
 - "The Great Trade Opens"     | date: 412  | color: "#22C55E"  | icon: scroll
 
 %%
@@ -175,6 +175,7 @@ calendar: Menology of Epochs
 | `end:` | No | End year (omit for point events) | `end: 600` |
 | `color:` | No | Hex color code | `color: "#EAB308"` |
 | `icon:` | No | Icon glyph name (Font Awesome) | `icon: swords` |
+| `image:` | No | Direct image URL — shown as cropped thumbnail in HTML card | `image: https://assets.legendkeeper.com/abc.jpg` |
 | `opacity:` | No | Visual opacity 0–1 (default 1.0) | `opacity: 0.4` |
 
 *One of `start:` or `date:` is required.
