@@ -152,3 +152,36 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 - **Scope restatement** is appropriate when a conversation drifts — ground back to TODO.md and active blockers.
 - When working on narrative prose, match the benchmark register (Warrior Awakening v2.0).
 - Archetype descriptions are for PLAYER eyes — keep them in present-tense psychological framing.
+
+### Git Workflow (Commit on Completion)
+
+This project uses git for version control. Commits and pushes are part of the standard workstream — not afterthoughts.
+
+**Commit triggers — create a commit when:**
+- A discrete piece of work is done: awakening scenario written/revised, location file completed, decision logged, template finalized
+- A session ends (always commit before closing)
+- A blocker is resolved or a priority item from TODO.md is checked off
+- Structural changes are made (new directories, file renames, .gitignore updates)
+
+**Commit message format:**
+```
+<scope>: <what changed> [optional: why/context]
+
+Examples:
+  narrative: complete Seeker Awakening v1.0
+  world: add faction files for Jade Gate region
+  mechanics: lock R/H/K reframe in DECISION_LOG
+  chore: update TODO.md after charm cleanup pass
+```
+
+**Push triggers:**
+- After any commit that represents completed, stable work
+- Always before ending a session
+- After a group of related commits (e.g. finishing a full awakening scenario pass)
+
+**Branching:** Single `main` branch. All work goes directly to main.
+
+**Never commit:**
+- Mid-draft prose that is actively being revised in the same session
+- Temporary notes that will be discarded (use in-context only per FILE_PERSISTENCE_GUIDELINES.md)
+- Binary/asset files covered by `.gitignore`
