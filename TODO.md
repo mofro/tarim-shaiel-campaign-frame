@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-13
+last_updated: 2026-03-17
 banner: images/places/248420.jpg
 banner-x: 51
 banner-y: 37
@@ -15,16 +15,60 @@ banner-y: 37
 
 ## PROJECT HEALTH
 
-**Last Updated:** 2026-03-13
+**Last Updated:** 2026-03-17
 **Critical Path:** Resolve cosmological architecture → Complete Session 0 scenarios → Resolve Campaign Frame → Playtest
 
 **Quick Summary:**
-- [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (7 of 8 decisions locked 2026-03-08)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**
+- [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (7 of 8 decisions locked 2026-03-08)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
 - 🔄 **Active work:** Session 0 scenarios (3/6 done), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
-- ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08), Wizard's motivation/awareness (deferred)
-- 🆕 **Unblocked this session:** Full location hierarchy (Region → Landmark/Settlement/POI → Environment) formalized; entity system scaffolded (indexes + templates); Daggerheart environment mechanics integrated into template system
+- ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08), Wizard's motivation/awareness (deferred), charm reference cleanup (7 active docs still reference old system)
+- 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup
+- 🔒 **PR #1 open** on `claude/upbeat-bartik` — 8 commits, pending merge to main
 - 🐛 **Dashboard fix (2026-03-13):** SESSION LOG + COMPLETED sections now excluded from domain counting; world 58%→34%, readiness 51%→45% (inflation corrected, not regression)
-- 🗃️ **Charm system removed (2026-03-13):** Archived to `archive/charms/`; Vestiges/Memory Fragments/The Wrongness carry mechanical identity; 7-doc reference cleanup deferred to next session
+- 🗃️ **Charm system removed (2026-03-13):** Archived to `archive/charms/`; Vestiges/Memory Fragments/The Wrongness carry mechanical identity; 7-doc reference cleanup still pending
+
+---
+
+
+## PUBLISHING INFRASTRUCTURE ✅ COMPLETE (2026-03-15–17)
+_Pipeline from Obsidian vault → styled HTML → Netlify public site. All components live._
+
+### HTML Pipeline & Netlify Deployment ✅
+- [x] `utilities/legendkeeper-pipeline/generate_world_html.py` — Obsidian MD → styled HTML (Campaign Frame aesthetic); supports `type: timeline` and `type: myth|lore`
+- [x] `utilities/legendkeeper-pipeline/generate_all_world_html.py` — batch runner; discovers all pipeline sources; writes `docs/index.html`; `--public` flag (fails-closed visibility gating)
+- [x] `utilities/legendkeeper-pipeline/SOURCE_FORMAT.md` — canonical source format spec (frontmatter, event syntax, Calendar Eras, secret patterns)
+- [x] `netlify.toml` — Netlify build command; runs all three generators with `--public`
+- [x] `.github/workflows/generate-html.yml` — GitHub Actions; triggers on push to main; regenerates docs/; commits back with `[skip ci]`
+- [x] `docs/index.html` — auto-generated index listing core docs + world docs
+- [x] Calendar Eras section (`## Calendar Eras`) — date labels use LK Time System era definitions (HJ/HB), not swimlane auto-abbreviations
+- [x] Image support — timeline event cards can include `image:` URL field
+- [x] LK reverse converter (`from_lk_json.py`) + canonical Nianhao timeline source
+
+### Visibility Gating ✅ (fails-closed)
+- [x] `--public` flag on both generators: **only `visibility: public` passes**; missing, `gm_secrets`, or any other value → skipped
+- [x] Netlify and GitHub Actions both run with `--public` — GM-only documents never appear in public deploy
+- [x] Local runs (no flag) generate everything including `gm_secrets` docs for full GM preview
+- [x] Default visibility changed from `'public'` to `'gm_secrets'` — untagged docs fail closed
+- [x] Stale `docs/nianhao-the-divine-arc.html` removed from repo (was committed before gating existed)
+- [x] `--open` flag: opens generated HTML in browser after writing
+- [x] Silent-skip for non-pipeline files (exit 0) — Shell Commands on-save event fires without noise
+
+### Obsidian Shell Commands Integration ✅ (setup doc written, plugin config manual)
+- [x] `utilities/shell-commands-config.md` — setup reference for 3 Shell Commands plugin commands
+- [ ] **Install Shell Commands plugin** in Obsidian (Settings → Community Plugins → "Shell Commands")
+- [ ] **Configure Command 1: "Regenerate HTML Preview"** — on-save event (`world/` + `narrative/` folder filter); opens browser
+- [ ] **Configure Command 2: "Full Pipeline (Local)"** — palette + hotkey (`Cmd+Shift+B`); runs all generators; opens `docs/index.html`
+- [ ] **Configure Command 3: "Open Local Preview"** — palette convenience command
+
+### Sub-document Secret Patterns ✅ (documented, not yet in use)
+- [x] **Pattern A (`%%...%%`):** inline secrets stripped from all HTML output (already working)
+- [x] **Pattern B (`-gm` companion file):** `<stem>-gm.md` with `visibility: gm_secrets`; enables Obsidian transclusion via block IDs; excluded from public deploy automatically
+- [ ] **Apply patterns** as myth/lore documents are authored — no retroactive file changes needed
+
+### Outstanding Pipeline Work
+- [ ] **Charm reference cleanup** — 7 active docs still mention Charm system; surgical removal needed (Priority 1 from 2026-03-13)
+- [ ] **Merge PR #1** (`claude/upbeat-bartik` → `main`) — 8 commits, all pipeline + visibility work
+- [ ] **Connect Netlify site** — netlify.toml is in repo; site needs to be linked at netlify.com (one-time setup)
 
 ---
 
@@ -1083,6 +1127,45 @@ _Last verified: 2026-02-05_
 - Create 13 individual concept files using `_TEMPLATE_concept.md`
 - Create 6 region files using `_TEMPLATE_region.md` (Skamarketh, Tarim Basin, Eastern Gateway, Mountain Passes, The Steppe, Elven Highlands)
 - Canonicalize existing 22 location files: replace free-text faction names with wikilinks from `/world/factions/Index.md`
+
+### Session 2026-03-17
+**Visibility Gating + Obsidian Shell Commands Integration**
+
+- [x] Added `--public` flag (fails-closed) to `generate_world_html.py`: only `visibility: public` generates in public mode; missing/gm_secrets/typo → skipped
+- [x] Added `--public` flag (fails-closed) to `generate_all_world_html.py`: same allowlist logic; default visibility changed from `'public'` to `'gm_secrets'`
+- [x] Added `--open` flag to `generate_world_html.py`: opens browser after generation (Shell Commands integration)
+- [x] Added silent-skip for non-pipeline file types (exit 0 without output)
+- [x] Wired `--public` into `netlify.toml` and `.github/workflows/generate-html.yml`
+- [x] Deleted stale `docs/nianhao-the-divine-arc.html` from repo (previously committed without gating)
+- [x] Created `utilities/shell-commands-config.md`: setup reference for 3 Shell Commands plugin commands (on-save preview, full pipeline hotkey, open preview)
+- [x] Updated `SOURCE_FORMAT.md`: fails-closed note, visibility gating table, Pattern A (`%%...%%`) and Pattern B (`-gm` companion file) documented with rules and tradeoffs
+- [x] Committed as `471ecc9` + `c444901`, pushed to `origin/claude/upbeat-bartik` (PR #1, commit 7 & 8)
+
+**Infrastructure design decisions locked this session:**
+- Visibility gating = allowlist design (explicit `public` required, not denylist of `gm_secrets`)
+- Sub-document secrets = two patterns: `%%...%%` inline (stripped everywhere) and `-gm` companion file (separate `gm_secrets` doc for transcludable GM notes)
+- Shell Commands integration = no `--public` flag ever; local always generates everything
+
+### Session 2026-03-15/16
+**HTML Publishing Pipeline + Netlify Deployment**
+
+- [x] Created `utilities/legendkeeper-pipeline/generate_world_html.py` — Obsidian MD → styled HTML; Campaign Frame design system (parchment/gold/crimson); `type: timeline` (list-view with era bands + lane rows) and `type: myth|lore` (cover, epigraph, prose body, section cards)
+- [x] Added image support to timeline event cards (`image:` field)
+- [x] Created `from_lk_json.py` — reverse converter from LK JSON export back to source MD format
+- [x] Created canonical `world/timelines/nianhao-the-divine-arc.md` (57 events, 4 lanes, Calendar Eras)
+- [x] Fixed era label bug: Calendar Eras section (`## Calendar Eras`) uses LK Time System era definitions (HJ/HB), not swimlane auto-abbreviations; supports backward eras and open-ended date ranges
+- [x] Created `utilities/legendkeeper-pipeline/generate_all_world_html.py` — batch runner; auto-discovers pipeline sources; writes `docs/index.html` with Core + World sections
+- [x] Updated `netlify.toml` — build command runs all three generators
+- [x] Updated `.github/workflows/generate-html.yml` — path triggers for `world/**/*.md` + `narrative/**/*.md`; `pip install pyyaml` step; world HTML generation step
+- [x] Deleted stale `docs/nianhao.html` (test artifact)
+- [x] Updated `utilities/legendkeeper-pipeline/SOURCE_FORMAT.md` — Calendar Eras section documented
+- [x] Committed as 5 commits (`06bfad8` through `23dae0e`), pushed to `origin/claude/upbeat-bartik`
+- [x] PR #1 created: `claude/upbeat-bartik` → `main` on `github.com/mofro/tarim-shaiel-campaign-frame`
+
+**⚠️ Follow-up work flagged:**
+- Netlify site needs to be connected at netlify.com (one-time setup; `netlify.toml` is ready)
+- Shell Commands plugin setup in Obsidian (see `utilities/shell-commands-config.md`)
+- Merge PR #1 to get pipeline changes into `main`
 
 ### Session 2026-03-08
 **Cosmological Architecture — 7 of 8 Critical Decisions Locked**
