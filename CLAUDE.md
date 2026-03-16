@@ -143,6 +143,16 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 
 ---
 
+## Working Directory
+
+**Content sessions** (prose, lore, TODO/BACKLOG edits, find-and-replace, world-building): edit files directly in `/Users/mo/Documents/Games/HeroHeaven/` — do NOT use the worktree. Commit directly to `main`.
+
+**Pipeline/infra sessions** (generator scripts, `netlify.toml`, CI/CD): use the worktree or a local branch, PR → merge → triggers rebuild.
+
+Claude Code creates a worktree automatically at conversation start — ignore it for content work. The distinction is what's immediately visible locally vs. what requires a roundtrip through GitHub.
+
+---
+
 ## Working Conventions
 
 - **TODO.md is the session anchor.** Start each session by reading it.
