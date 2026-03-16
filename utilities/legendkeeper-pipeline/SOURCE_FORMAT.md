@@ -188,13 +188,37 @@ Years are relative to the campaign calendar epoch (year 0 = calendar start):
 
 **LK timestamp conversion:** `minutes = year * 525960` (365.25 × 24 × 60)
 
+### Calendar Eras Section (special — not a swimlane)
+
+`## Calendar Eras` defines the **date-labeling system** for the left date column in HTML output.
+It maps directly to LegendKeeper's Time System "Years / Eras" configuration.
+This section is **not rendered as an event swimlane**.
+
+```markdown
+## Calendar Eras
+
+- "The Slow Forgetting (Jibîrkirina Hêdî)" | end: -1 | abbrev: HJ | backward: true
+- "The Held Breath (Tutulan Nefes)"         | start: 0 | abbrev: HB
+```
+
+| Field | Required | Description | Example |
+|-------|----------|-------------|---------|
+| `"Name"` | Yes | Era full name (quoted) | `"The Held Breath"` |
+| `start:` | No | First world-year of era (open-ended toward past if omitted) | `start: 0` |
+| `end:` | No | Last world-year of era (open-ended toward future if omitted) | `end: -1` |
+| `abbrev:` | Yes | Short label prefix shown in date column | `abbrev: HB` |
+| `backward:` | No | If `true`, year displays as \|world_year\| (counts up from epoch into past) | `backward: true` |
+
+If no `## Calendar Eras` section is present, the HTML generator falls back to using the `## Eras` swimlane entries (auto-abbreviated).
+
 ### Section → Lane Mapping
 
-Each `## Section` becomes a **lane** in the LK timeline. Common lanes:
+Each `## Section` (except `Calendar Eras`) becomes a **lane** in the LK timeline. Common lanes:
 
 | Section Name | Suggested Use |
 |-------------|---------------|
-| `Eras` | Background epoch bands (low opacity) |
+| `Calendar Eras` | Date-labeling system — **not a swimlane** (see above) |
+| `Eras` | Background epoch bands (low opacity display) |
 | `Declarations (Nianhao)` | Faction era declarations |
 | `Historical Events` | Primary timeline events |
 | `%%Secret%%` block | GM-only events (SECRET lane) |

@@ -701,11 +701,22 @@ def _era_abbrev(era_name: str) -> str:
 
 
 def _era_date_label(year: float, era_defs: list) -> str:
-    """Format world-year as 'ERA YEAR', e.g. 'HB 188' or 'SF -500'."""
+    """Format world-year as 'ERA YEAR', e.g. 'HB 188' or 'HJ 579'.
+
+    Each era_def may have start_yr and/or end_yr (either can be None = open-ended).
+    Backward eras (era['backward'] = True) display abs(year) instead of year.
+    """
     for era in era_defs:
-        s, e = era['start_yr'], era['end_yr']
-        if (e is None and year >= s) or (e is not None and s <= year <= e):
-            return f"{era['abbrev']} {int(year)}"
+        s = era.get('start_yr')
+        e = era.get('end_yr')
+        if s is not None and year < s:
+            continue
+        if e is not None and year > e:
+            continue
+        abbrev = era['abbrev']
+        if era.get('backward'):
+            return f"{abbrev} {int(abs(year))}"
+        return f"{abbrev} {int(year)}"
     return str(int(year))
 
 
@@ -724,40 +735,75 @@ def render_timeline_html(fm: dict, body: str) -> str:
     body = strip_wikilinks(body)
     body = re.sub(r'\n{3,}', '\n\n', body).strip()
 
-    # Parse ## sections → lanes
+    # Parse ## sections → Calendar Eras (special, not a swimlane) + display lanes
+    # A "## Calendar Eras" section defines the year-labeling system (like LK's
+    # Time System eras: HJ/HB).  It is NOT rendered as an event lane.
+    era_defs: list[dict] = []
     sections: list[tuple[str, list[dict]]] = []
-    cur_name   = ''
+    cur_name    = ''
     cur_events: list[dict] = []
+    is_cal_era  = False
 
     for line in body.splitlines():
         if re.match(r'^## ', line):
             if cur_name:
-                sections.append((cur_name, cur_events))
+                if is_cal_era:
+                    for ev in cur_events:
+                        abbrev   = ev.get('abbrev') or _era_abbrev(ev['name'])
+                        s_raw    = ev.get('start', ev.get('date'))
+                        e_raw    = ev.get('end')
+                        backward = ev.get('backward', '').lower() in ('true', '1', 'yes')
+                        era_defs.append({
+                            'name':     ev['name'],
+                            'abbrev':   abbrev,
+                            'start_yr': float(s_raw) if s_raw else None,
+                            'end_yr':   float(e_raw) if e_raw else None,
+                            'backward': backward,
+                        })
+                else:
+                    sections.append((cur_name, cur_events))
             cur_name   = re.sub(r'^##\s+', '', line).strip()
+            is_cal_era = cur_name.lower() == 'calendar eras'
             cur_events = []
         elif line.strip().startswith('-') and cur_name:
             ev = parse_event_line_html(line)
             if ev:
                 cur_events.append(ev)
+
+    # Flush last section
     if cur_name:
-        sections.append((cur_name, cur_events))
+        if is_cal_era:
+            for ev in cur_events:
+                abbrev   = ev.get('abbrev') or _era_abbrev(ev['name'])
+                s_raw    = ev.get('start', ev.get('date'))
+                e_raw    = ev.get('end')
+                backward = ev.get('backward', '').lower() in ('true', '1', 'yes')
+                era_defs.append({
+                    'name':     ev['name'],
+                    'abbrev':   abbrev,
+                    'start_yr': float(s_raw) if s_raw else None,
+                    'end_yr':   float(e_raw) if e_raw else None,
+                    'backward': backward,
+                })
+        else:
+            sections.append((cur_name, cur_events))
 
     if not sections:
         return build_myth_html(fm, body)
 
-    # Build era defs from the Eras lane for date labelling
-    era_defs: list[dict] = []
-    for lane_name, events in sections:
-        if lane_name.lower() == 'eras':
-            for ev in events:
-                era_defs.append({
-                    'name':     ev['name'],
-                    'abbrev':   _era_abbrev(ev['name']),
-                    'start_yr': ev['start_min'] / MINUTES_PER_YEAR,
-                    'end_yr':   (ev['end_min'] / MINUTES_PER_YEAR
-                                 if ev['end_min'] is not None else None),
-                    'color':    ev['color'],
-                })
+    # Fallback: no Calendar Eras section → derive from Eras swimlane (backward compat)
+    if not era_defs:
+        for lane_name, events in sections:
+            if lane_name.lower() == 'eras':
+                for ev in events:
+                    era_defs.append({
+                        'name':     ev['name'],
+                        'abbrev':   _era_abbrev(ev['name']),
+                        'start_yr': ev['start_min'] / MINUTES_PER_YEAR,
+                        'end_yr':   (ev['end_min'] / MINUTES_PER_YEAR
+                                     if ev['end_min'] is not None else None),
+                        'backward': False,
+                    })
 
     # Flatten all events, tag with lane + is_era, sort by start
     all_entries: list[dict] = []

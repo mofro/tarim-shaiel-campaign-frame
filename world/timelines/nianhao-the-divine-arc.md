@@ -10,6 +10,11 @@ last_updated: 2026-03-16
 calendar: Menology of Epochs
 ---
 
+## Calendar Eras
+
+- "The Slow Forgetting (Jibîrkirina Hêdî)" | end: -1 | abbrev: HJ | backward: true
+- "The Held Breath (Tutulan Nefes)" | start: 0 | abbrev: HB
+
 ## Eras
 
 - "Xwîna Xwedê (God's Blood)" | start: -2499 | end: -599 | color: "#831843" | icon: droplet | opacity: 0.50
