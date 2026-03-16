@@ -689,9 +689,14 @@ def _icon_char(name: str) -> str:
 
 
 def _era_abbrev(era_name: str) -> str:
-    """'The Held Breath' → 'HB', 'The Slow Forgetting' → 'SF'."""
+    """'The Held Breath' → 'HB', 'Împeratoriya Nû (New Empire)' → 'ÎN'."""
+    # Strip parenthetical suffixes and em-dash clauses before abbreviating
+    clean = re.sub(r'\s*\([^)]*\)', '', era_name)   # remove (...)
+    clean = re.sub(r'\s*[—–].*$', '', clean)         # remove — clause
+    clean = clean.strip()
     stops = {'the', 'a', 'an', 'of', 'in', 'at', 'by', 'for', 'and', 'or'}
-    words = [w for w in era_name.split() if w.lower() not in stops]
+    words = [w for w in clean.split()
+             if w.lower() not in stops and w[:1].isalpha()]
     return ''.join(w[0].upper() for w in words[:3]) if words else era_name[:3].upper()
 
 

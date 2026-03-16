@@ -1,0 +1,92 @@
+---
+title: "Nianhao - The Divine Arc"
+project: TTRPG_Tarim_Shaiel
+type: timeline
+tags: [timeline, history]
+visibility: gm_secrets
+status: draft
+created: 2026-03-16
+last_updated: 2026-03-16
+calendar: Menology of Epochs
+---
+
+## Eras
+
+- "Xwîna Xwedê (God's Blood)" | start: -2499 | end: -599 | color: "#831843" | icon: droplet | opacity: 0.50
+- "Împeratoriya Nû (New Empire)" | start: -579 | end: 239 | color: "#F59E0B" | icon: calendar-lines | opacity: 0.25
+- "The Age of Chains" | start: -299 | end: 249 | color: "#22C55E" | icon: link-horizontal | opacity: 0.25
+- "The Scattering" | start: 249 | end: 399 | color: "#22C55E" | icon: arrows-maximize | opacity: 0.25
+- "The Flowering" | start: 409 | end: 699 | color: "#14B8A6" | icon: seedling | opacity: 0.50
+- "The Consolidation" | start: 699 | end: 1049 | color: "#A855F7" | icon: arrows-to-circle | opacity: 0.50
+- "The Gathering Storm (Era 4: ~1000-1200 CE)" | start: 1029 | end: 1199 | color: "#737373" | icon: cloud-bolt-sun | opacity: 0.50
+- "The Age of Reckoning — Campaign Present" | date: 1199 | color: "#0079CC" | icon: swords | opacity: 0.50
+
+## Declarations (Nianhao)
+
+- "The Imperial Ascension (Human Empires)" | start: -500 | end: -200 | color: "#EAB308" | icon: flag | opacity: 0.30
+- "The Age of Bondage (Orc Enslavement)" | start: -300 | end: 198 | color: "#22C55E" | icon: flag | opacity: 0.30
+- "The Silent Watching (High Elf Observation)" | start: -200 | end: 198 | color: "#8B5CF6" | icon: flag | opacity: 0.30
+- "The Breaking (Orc Liberation)" | start: 198 | end: 248 | color: "#22C55E" | icon: flag | opacity: 0.30
+- "The Scattering Chaos (Orc Diaspora)" | start: 248 | end: 318 | color: "#22C55E" | icon: flag | opacity: 0.30
+- "The Mediator's Peace (Halfling-Dwarf Alliance)" | start: 318 | end: 398 | color: "#F59E0B" | icon: flag | opacity: 0.30
+- "The Silent Flowering (Elf Withdrawal)" | start: 398 | end: 698 | color: "#8B5CF6" | icon: life-ring | opacity: 0.30
+- "The Merchant's Rise (Orc Trade Expansion)" | start: 398 | end: 647 | color: "#22C55E" | icon: flag | opacity: 0.30
+- "The Opportunist's Gambit (Goblin Free Cities)" | start: 418 | end: 698 | color: "#F97316" | icon: flag | opacity: 0.30
+- "The League of Seven (Dwarf Consolidation)" | start: 448 | end: 698 | color: "#A16207" | icon: flag | opacity: 0.30
+- "The Fragmented Dynasty (Human East)" | start: 698 | end: 898 | color: "#EAB308" | icon: flag | opacity: 0.30
+- "The Mountain Accord (Dwarf League)" | start: 718 | end: 948 | color: "#A16207" | icon: flag | opacity: 0.30
+- "The Free Cities Compact (Goblin Alliance)" | start: 748 | end: 998 | color: "#F97316" | icon: flag | opacity: 0.30
+- "The Copper Peace (Orc Prosperity)" | start: 848 | end: 948 | color: "#22C55E" | icon: flag | opacity: 0.30
+- "The Chronicle Years (Dwarf Record-Keeping)" | start: 900 | end: 1198 | color: "#A16207" | icon: flag | opacity: 0.30
+- "The Golden Age (Universal Trade)" | start: 998 | end: 1198 | color: "#0EA5E9" | icon: flag | opacity: 0.30
+- "The Watchful Peace (Orc Merchant Dominance)" | start: 998 | end: 1197 | color: "#22C55E" | icon: flag | opacity: 0.30
+- "The Whispered Warning (Elf Watchers)" | start: 1048 | end: 1050 | color: "#8B5CF6" | icon: flag | opacity: 0.30
+
+## Historical Events
+
+- "The First Empire Rises" | start: -500 | end: -400 | color: "#EAB308" | icon: crown | image: https://assets.legendkeeper.com/fcd0671c-396f-43c2-be29-4eb6ee6a8ede.jpg | opacity: 0.50
+- "Beginning of Orc Enslavement" | date: -300 | color: "#22C55E" | icon: link | image: https://assets.legendkeeper.com/68fad35c-1241-436a-abda-792ff2ea111d.gif
+- "The Great Rebellion (Failed)" | date: -150 | color: "#22C55E" | icon: swords | image: https://assets.legendkeeper.com/05d38e0a-cdb0-4724-9ef0-5f270800fb74.png
+- "Binding Magic Perfected" | date: -22 | color: "#831843" | icon: wand-magic-sparkles
+- "Empire at Its Height" | date: 48 | color: "#EAB308" | icon: chess-rook | image: https://assets.legendkeeper.com/39b29fd8-1016-4382-bd44-70f2cf23c28b.webp
+- "The Sentinel's Liberation" | start: 198 | end: 248 | color: "#0079CC" | icon: link-slash
+- "The Orc Eruption" | start: 248 | end: 318 | color: "#22C55E" | icon: fire | opacity: 0.25
+- "Mass Orc Migration" | start: 253 | end: 278 | color: "#22C55E" | icon: people-arrows | opacity: 0.25
+- "First Orc Settlements Founded" | date: 288 | color: "#22C55E" | icon: house-flag
+- "The Mediator Movement" | start: 318 | end: 398 | color: "#F59E0B" | icon: handshake
+- "The Truce of Nine Caravans" | date: 368 | color: "#F59E0B" | icon: scroll
+- "First Orc Weapon Markets Open" | date: 418 | color: "#22C55E" | icon: shop
+- "The Convocation of Eleven Cities" | date: 548 | color: "#F59E0B" | icon: city
+- "First Orc Clan Gathering" | date: 588 | color: "#22C55E" | icon: people-group
+- "The Great Drought" | start: 618 | end: 628 | color: "#0EA5E9" | icon: droplet-slash
+- "Aqueduct Collaboration Project" | date: 623 | color: "#F59E0B" | icon: bridge-water
+- "The Scholar's Plague" | date: 678 | color: "#DC2626" | icon: skull
+- "Chain Chronicles Formalized" | date: 693 | color: "#22C55E" | icon: book-open
+- "The Elf Watchers Begin" | date: 698 | color: "#8B5CF6" | icon: eye
+- "Dwarven League Formalized" | date: 718 | color: "#A16207" | icon: mountain
+- "First Orc Diplomatic Academy" | date: 748 | color: "#22C55E" | icon: graduation-cap
+- "The Siege of Kalar's Gate" | start: 778 | end: 781 | color: "#EAB308" | icon: shield
+- "The Copper Accord" | date: 848 | color: "#F59E0B" | icon: coins
+- "Orc Merchant Leagues Form" | date: 878 | color: "#22C55E" | icon: handshake-angle
+- "The Vanishing of Khorashar" | date: 948 | color: "#DC2626" | icon: ghost
+- "The Golden Age of Trade" | start: 998 | end: 1198 | color: "#0EA5E9" | icon: sack-dollar
+- "Night of Falling Stars" | date: 1048 | color: "#0EA5E9" | icon: meteor
+- "Universities Flourish" | date: 1078 | color: "#F59E0B" | icon: book
+- "The Grey Council" | date: 1118 | color: "#F59E0B" | icon: people-roof
+- "Mysterious Disappearances Begin" | date: 1138 | color: "#DC2626" | icon: user-slash
+- "The Scholar's Purge" | date: 1173 | color: "#DC2626" | icon: fire-flame-curved
+
+%%
+## SECRET
+
+- "The Wizard's Ascension" | date: -50 | color: "#DC2626" | icon: hat-wizard
+- "Death of the Fallen Hero" | date: 243 | color: "#0EA5E9" | icon: heart-crack
+- "Heroes Ascend to Hero Heaven" | date: 248 | color: "#0EA5E9" | icon: cloud
+- "The Long Preparation (Wizard's Plan)" | start: 698 | end: 998 | color: "#DC2626" | icon: flag | opacity: 0.30
+- "First Lich Transformation (Hidden)" | date: 918 | color: "#DC2626" | icon: skull-crossbones
+- "The Final Positioning (Wizard's Endgame)" | start: 1098 | end: 1198 | color: "#DC2626" | icon: flag | opacity: 0.30
+- "The Wizard Locates Hero Heaven" | date: 1183 | color: "#DC2626" | icon: compass
+- "The Expulsion" | start: 1188 | end: 1198 | color: "#DC2626" | icon: hand-sparkles
+- "Heroes Return to the World" | date: 1198 | color: "#0EA5E9" | icon: star
+
+%%
