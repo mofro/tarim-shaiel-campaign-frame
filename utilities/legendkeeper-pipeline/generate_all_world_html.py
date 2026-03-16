@@ -12,6 +12,12 @@ Usage:
     python generate_all_world_html.py
     python generate_all_world_html.py --vault /path/to/vault
     python generate_all_world_html.py --dry-run
+    python generate_all_world_html.py --public   # Netlify/CI: only visibility: public docs
+
+Visibility gating (--public, fails closed):
+    Only documents with EXPLICIT 'visibility: public' in frontmatter are generated
+    and listed in the index.  Missing, gm_secrets, or any other value → skipped.
+    Documents without a visibility tag default to 'gm_secrets' in metadata (safe side).
 """
 
 import re
@@ -76,8 +82,13 @@ def _slug(src: Path) -> str:
 
 # ── generation ────────────────────────────────────────────────────────────────
 
-def generate_all(vault: Path, docs: Path, dry_run: bool = False) -> list[dict]:
-    """Generate HTML for every discovered source. Returns list of doc metadata."""
+def generate_all(vault: Path, docs: Path, dry_run: bool = False, public_only: bool = False) -> list[dict]:
+    """Generate HTML for every discovered source. Returns list of doc metadata.
+
+    Args:
+        public_only: When True, only generate docs explicitly tagged
+                     visibility: public (fails closed — missing/other → skipped).
+    """
     sources = discover_sources(vault)
     generated = []
 
@@ -86,6 +97,14 @@ def generate_all(vault: Path, docs: Path, dry_run: bool = False) -> list[dict]:
         fm, body = parse_frontmatter(raw)
         doc_type = fm.get('type', '').lower()
         if doc_type not in PIPELINE_TYPES:
+            continue
+
+        # Visibility gate (fails closed): require explicit visibility: public.
+        # Default is 'gm_secrets' — untagged docs are treated as GM-only.
+        visibility = fm.get('visibility', 'gm_secrets')
+        if public_only and visibility != 'public':
+            rel = src.relative_to(vault)
+            print(f'  SKIP     {rel}  (not visibility: public)')
             continue
 
         slug     = _slug(src)
@@ -105,7 +124,7 @@ def generate_all(vault: Path, docs: Path, dry_run: bool = False) -> list[dict]:
         generated.append({
             'title':       fm.get('title') or slug.replace('-', ' ').title(),
             'type':        doc_type,
-            'visibility':  fm.get('visibility', 'public'),
+            'visibility':  visibility,   # 'gm_secrets' if untagged (safe default)
             'calendar':    fm.get('calendar', ''),
             'description': fm.get('description', ''),
             'filename':    f'{slug}.html',
@@ -320,15 +339,24 @@ def main() -> None:
     )
     parser.add_argument('--vault',   help='Vault root (default: auto-detected from script location)')
     parser.add_argument('--dry-run', action='store_true', help='Print what would run, do not write files')
+    parser.add_argument(
+        '--public', action='store_true',
+        help='Public-only mode: only generate/index docs with explicit visibility: public. '
+             'Use for Netlify/CI deployments. Fails closed — missing or gm_secrets → skipped.',
+    )
     args = parser.parse_args()
 
     vault = Path(args.vault) if args.vault else Path(__file__).parent.parent.parent
     docs  = vault / 'docs'
 
     print(f'Vault: {vault}')
+    if args.public:
+        print('Mode: PUBLIC (visibility: public only — fails closed)')
+    else:
+        print('Mode: LOCAL (all docs including gm_secrets)')
     print('Scanning for pipeline sources...')
 
-    generated = generate_all(vault, docs, dry_run=args.dry_run)
+    generated = generate_all(vault, docs, dry_run=args.dry_run, public_only=args.public)
     print(f'Generated {len(generated)} world document(s).')
 
     if not args.dry_run:

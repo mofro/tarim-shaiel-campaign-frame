@@ -12,6 +12,8 @@ Supports two document types:
 Usage:
     python generate_world_html.py source.md
     python generate_world_html.py source.md --output docs/my-doc.html
+    python generate_world_html.py source.md --public   # skip gm_secrets docs (fails closed)
+    python generate_world_html.py source.md --open     # open in browser after generating
 """
 
 import re
@@ -960,6 +962,9 @@ def _html_wrapper(
 # Entry point
 # ---------------------------------------------------------------------------
 
+PIPELINE_TYPES = {'timeline', 'myth', 'lore'}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description='Generate Campaign Frame-style HTML from an Obsidian source file.'
@@ -968,6 +973,15 @@ def main() -> None:
     parser.add_argument(
         '--output', '-o',
         help='Output HTML path (default: docs/<source-stem>.html)',
+    )
+    parser.add_argument(
+        '--public', action='store_true',
+        help='Public-only mode: only generate docs explicitly tagged visibility: public. '
+             'Anything else (gm_secrets, untagged, typo) is skipped. Fails closed.',
+    )
+    parser.add_argument(
+        '--open', action='store_true',
+        help='Open generated HTML in the default browser after writing.',
     )
     args = parser.parse_args()
 
@@ -978,6 +992,19 @@ def main() -> None:
     raw = src.read_text(encoding='utf-8')
     fm, body = parse_frontmatter(raw)
     doc_type = fm.get('type', '').lower()
+
+    # Silent skip: not a pipeline source type — exit 0 without noise.
+    # Allows Shell Commands file-save event to fire on any .md without errors.
+    if doc_type not in PIPELINE_TYPES:
+        import sys
+        sys.exit(0)
+
+    # Visibility gate (fails closed): only generate if explicitly visibility: public.
+    # Missing tag, gm_secrets, or any other value → skip in public mode.
+    if args.public and fm.get('visibility') != 'public':
+        print(f'Skipped (not visibility: public): {src}')
+        import sys
+        sys.exit(0)
 
     if doc_type == 'timeline':
         html = render_timeline_html(fm, body)
@@ -996,8 +1023,13 @@ def main() -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding='utf-8')
     print(f'HTML written: {out_path}')
-    print(f'  Type: {doc_type or "page (default)"}')
+    print(f'  Type: {doc_type}')
     print(f'  Title: {fm.get("title", "(no title)")}')
+    print(f'  Visibility: {fm.get("visibility", "(unset — treated as gm_secrets)")}')
+
+    if args.open:
+        import subprocess
+        subprocess.run(['open', str(out_path)])
 
 
 if __name__ == '__main__':
