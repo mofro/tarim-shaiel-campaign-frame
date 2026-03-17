@@ -195,7 +195,22 @@ def parse_frontmatter(text: str) -> tuple[dict, str]:
 # Event line parser
 # ---------------------------------------------------------------------------
 
-def parse_event_line(line: str, lane_id: str, lane_index: int, event_index: int) -> dict | None:
+# Lane names that represent background era/epoch spans — events in these lanes
+# get layer:0 so they render behind other events in LK's timeline view.
+BACKGROUND_LANE_NAMES: frozenset[str] = frozenset({'eras', 'era', 'epochs', 'epoch', 'ages', 'age'})
+
+# Section names in the Markdown that map to calendar-level constructs (negativeEra /
+# positiveEras) already embedded in MENOLOGY_OF_EPOCHS — they must NOT become lanes.
+CALENDAR_ERA_SECTION_NAMES: frozenset[str] = frozenset({'calendar eras', 'calendar era'})
+
+
+def parse_event_line(
+    line: str,
+    lane_id: str,
+    lane_index: int,
+    event_index: int,
+    is_background_lane: bool = False,
+) -> dict | None:
     """Parse one pipe-syntax event line → LK event object."""
     line = line.strip().lstrip('- ').strip()
     m = re.match(r'"([^"]+)"\s*(.*)', line)
@@ -224,7 +239,7 @@ def parse_event_line(line: str, lane_id: str, lane_index: int, event_index: int)
         'laneId': lane_id,
         'type': 'event',
         'pos': event_pos(lane_index, event_index),
-        'detail': 1 if lane_index == 0 else 2,  # era lane = detail 1; others = 2
+        'detail': 1 if is_background_lane else 2,
         'start': year_to_minutes(start_str),
         'name': name,
         'iconGlyph': props.get('icon', 'circle'),
@@ -239,8 +254,9 @@ def parse_event_line(line: str, lane_id: str, lane_index: int, event_index: int)
     if end_str:
         ev['end'] = year_to_minutes(end_str)
 
-    # Era lane events get layer:0 for background rendering
-    if lane_index == 0:
+    # Background lane events (Epochs, Eras, etc.) get layer:0 so they render
+    # as visual bands behind all other events in LK's timeline view.
+    if is_background_lane:
         ev['layer'] = 0
 
     return ev
@@ -288,11 +304,16 @@ def build_timeline_json(fm: dict, body: str) -> dict:
     for i, (section_name, section_content) in enumerate(sections.items()):
         if not section_name:
             continue
+        # Calendar eras (negativeEra / positiveEras) are already encoded in the
+        # MENOLOGY_OF_EPOCHS calendar constant — skip them as a lane entirely.
+        if section_name.lower() in CALENDAR_ERA_SECTION_NAMES:
+            continue
+        is_background = section_name.lower() in BACKGROUND_LANE_NAMES
         lane_id = short_id()
         lane = {
             'id': lane_id,
             'name': section_name,
-            'pos': lane_pos(i),
+            'pos': lane_pos(len(lanes)),  # use current lane count for sequential, gap-free pos
             'size': 'sm',
         }
         lanes.append(lane)
@@ -301,7 +322,7 @@ def build_timeline_json(fm: dict, body: str) -> dict:
         event_index = 0
         for line in section_content.splitlines():
             if line.strip().startswith('-'):
-                ev = parse_event_line(line, lane_id, i, event_index)
+                ev = parse_event_line(line, lane_id, i, event_index, is_background_lane=is_background)
                 if ev:
                     all_events.append(ev)
                     event_index += 1
@@ -327,16 +348,15 @@ def build_timeline_json(fm: dict, body: str) -> dict:
                         all_events.append(ev)
                         event_index += 1
 
-    # Calculate view range from all events
+    # Calculate view range: clamp to calendar bounds so LK doesn't try to render
+    # dates outside the defined calendar range (which can cause stalls).
+    cal_min = MENOLOGY_OF_EPOCHS['negativeEra']['startsAt']
+    cal_max = MENOLOGY_OF_EPOCHS['maxMinutes']
     starts = [e['start'] for e in all_events]
     ends = [e.get('end', e['start']) for e in all_events]
     all_times = starts + ends
-    view_start = min(all_times) if all_times else 0
-    view_end = max(all_times) if all_times else MINUTES_PER_YEAR * 100
-    # Add 5% padding
-    span = view_end - view_start
-    view_start = max(view_start - int(span * 0.05), view_start - MINUTES_PER_YEAR * 10)
-    view_end = view_end + int(span * 0.05)
+    view_start = max(min(all_times) if all_times else 0, cal_min)
+    view_end = min(max(all_times) if all_times else cal_max, cal_max)
 
     # Build transform filter (public lanes only — excludes SECRET)
     transforms: list[dict] = []
@@ -352,7 +372,9 @@ def build_timeline_json(fm: dict, body: str) -> dict:
 
     document_id = short_id()
     resource_id = short_id()
-    now_iso = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+    # Use millisecond precision — JS Date.parse() does not accept Python's default
+    # microsecond precision (6 decimal places) and returns NaN, causing LK to stall.
+    now_iso = datetime.now(timezone.utc).isoformat(timespec='milliseconds').replace('+00:00', 'Z')
 
     # Use Menology of Epochs calendar (or the default)
     calendar = MENOLOGY_OF_EPOCHS.copy()
@@ -385,7 +407,7 @@ def build_timeline_json(fm: dict, body: str) -> dict:
                     'range': {
                         'start': view_start,
                         'end': view_end,
-                        'detail': 2,
+                        'detail': 3,
                     },
                 },
                 'content': {
@@ -394,17 +416,17 @@ def build_timeline_json(fm: dict, body: str) -> dict:
                 },
             }
         ],
-        'iconColor': '#2563EB',
-        'iconGlyph': 'book-open',
-        'iconShape': 'circle',
+        'iconColor': '#FFFFFF',
+        'iconGlyph': 'calendar',
+        'iconShape': 'pin-icon',
         'id': resource_id,
         'isHidden': False,
         'isLocked': False,
-        'name': title,
-        'parentId': None,
+        'name': title if title.startswith('Timeline:') else f'Timeline: {title}',
+        'parentId': '',
         'pos': 'Q',
         'properties': [],
-        'showPropertyBar': True,
+        'showPropertyBar': False,
         'tags': [],
     }
 
@@ -461,7 +483,7 @@ def main() -> None:
         print('  Prose pages (myth/lore) require Phase 2 ProseMirror implementation.')
         raise SystemExit(1)
 
-    json_bytes = json.dumps(export, ensure_ascii=False, indent=2).encode('utf-8')
+    json_bytes = json.dumps(export, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
 
     if args.lk:
         suffix = '.lk'
