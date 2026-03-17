@@ -366,14 +366,14 @@ Does Session 0 (wake up → solve immediate problems → meet on caravan) provid
 - **Snippets are player's secrets** to guard—creates immediate curiosity and buy-in
 - **Recognition scene** provides shared mystery that unites the party
 - **Campfire moment** ends on emotional high without explanation
-- **Session ends on question**, not resolution: "We all remember being gods. Why were we all expelled together?"
+- **Session ends on question**, not resolution: "We all remember being something exceptional. Why were we all expelled together?"
 
 ### Preserves Dual-Truth System
 
 The cosmological architecture depends on **storyteller certainty vs. player uncertainty:**
 
 - **Storyteller knows:** Heroes earned expulsion through incomplete duty; they must finish unfinished work
-- **Players know:** They were gods. They lost something. They're not sure why. They're not sure if it was punishment or something else.
+- **Players know:** They were exceptional. They lost something. They're not sure why. They're not sure if it was punishment or something else.
 
 **Secret snippets preserve this by:**
 - Giving emotional truth without explanatory truth

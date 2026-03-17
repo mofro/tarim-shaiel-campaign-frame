@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-16
+last_updated: 2026-03-17
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -22,7 +22,7 @@ banner-y: 37
 **Quick Summary:**
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (7 of 8 decisions locked 2026-03-08)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
 - 🔄 **Active work:** Session 0 scenarios (3/6 done), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
-- ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08), Wizard's motivation/awareness (deferred to dedicated session)
+- ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to `archive/charms/`; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to `BACKLOG.md`
 
@@ -78,7 +78,7 @@ _Critical path items — must be completed for campaign launch_
 - [x] **Define the Mythic Ecosystem** — Confirmed: multi-dimensional biome. Warrens as distinct dimensional spaces. Power draws power. Affinities not interchangeable. Threshold = porous container. See DECISION_LOG.md 2026-03-08.
 - [x] **Define the Sleeping Entity** — Confirmed: multiple liminal consciousnesses at celestial scale, held in suspension by cosmological equilibrium ("Held Breath"). Not a singular geological force. See DECISION_LOG.md 2026-03-08.
 - [x] **Decide the Entity's Nature** — Confirmed: dormant liminal consciousnesses, not purely mindless, not negotiable (not awake enough). Horror is their weight. Threat is awakening, not containment breach. See DECISION_LOG.md 2026-03-08.
-- [ ] **Decide the Wizard's Awareness** — Option A: tragic ignorance (doesn't know about entity), Option B: tragic hubris (knows, thinks he can manage it), Option C: cosmic manipulation (entity subtly influenced his 1,000-year obsession). Options are combinable (B+C recommended).
+- [x] **Decide the Wizard's Awareness** — LOCKED 2026-03-17. B+C: knows about the ecosystem risks (tragic hubris), AND the entity's 1,000-year subtle influence seeded his overconfidence. He is overconfident and unaware of the true risk — convinced he is the one person who understands the situation well enough to act. He is wrong in the specific way that matters.
 - [x] **Decide: Do Heroes' Charms Strain the Ecosystem?** — Confirmed: yes, scaled by tier, expressed as beacon not immediate cost. R/H/K reframed as Warren allegiance. Tools = endgame cosmological interface. See DECISION_LOG.md 2026-03-08.
 - [x] **Define the Liberation's Ecosystem Side Effects** — Confirmed: NOT ecosystem damage. Liberation = massive beacon event → Warren ripples → drew attention of entities with agendas. Incomplete charge = reckon with what was woken/whose plans were crossed. Player doubt drama intact. See DECISION_LOG.md 2026-03-08.
 - [x] **Define Threshold as Ecosystem Node** — Confirmed: Hero Heaven adjacent to (not a) Warren. Threshold = concentrated ecosystem wiring. Breach = immediate, unmistakable consequences (not slow accumulation). See DECISION_LOG.md 2026-03-08.
@@ -205,14 +205,14 @@ _Critical path items — must be completed for campaign launch_
 
 ---
 
-### 4. Publishing Infrastructure Setup 🔄 IN PROGRESS
+### 4. Publishing Infrastructure Setup ✅ COMPLETE
 _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
-- [ ] **Install Shell Commands plugin** in Obsidian (Settings → Community Plugins → "Shell Commands")
-- [ ] **Configure Command 1: "Regenerate HTML Preview"** — on-save event (`world/` + `narrative/` folder filter); opens browser; reference: `utilities/shell-commands-config.md`
-- [ ] **Configure Command 2: "Full Pipeline (Local)"** — palette + hotkey (`Cmd+Shift+B`); runs all generators; opens `docs/index.html`
-- [ ] **Configure Command 3: "Open Local Preview"** — palette convenience command
-- [ ] **Connect Netlify site** — `netlify.toml` is in repo; site needs to be linked at netlify.com (one-time setup)
+- [x] **Install Shell Commands plugin** in Obsidian (Settings → Community Plugins → "Shell Commands")
+- [x] **Configure Command 1: "Regenerate HTML Preview"** — on-save event (`world/` + `narrative/` folder filter); opens browser; reference: `utilities/shell-commands-config.md`
+- [x] **Configure Command 2: "Full Pipeline (Local)"** — palette + hotkey (`Cmd+Shift+B`); runs all generators; opens `docs/index.html`
+- [x] **Configure Command 3: "Open Local Preview"** — palette convenience command
+- [x] **Connect Netlify site** — `netlify.toml` is in repo; site needs to be linked at netlify.com (one-time setup)
 
 ---
 
@@ -644,7 +644,7 @@ _Last verified: 2026-02-05_
 - [x] **Decision 1: Mythic Ecosystem** — Multi-dimensional biome. Warrens as distinct dimensional spaces. Power draws power. Affinities not interchangeable. Threshold = porous container.
 - [x] **Decision 2: The Sleeping Entity** — Multiple liminal consciousnesses at celestial scale, held in suspension by cosmological equilibrium. Canonical term: "Held Breath." Not a singular geological force.
 - [x] **Decision 3: Entity's Nature** — Dormant liminal consciousnesses. Not purely mindless, not negotiable. Horror is their weight. Threat is awakening, not containment breach.
-- [ ] **Decision 4: Wizard's Awareness** — DEFERRED. Requires dedicated narrative session re: Wizard's motivation.
+- [x] **Decision 4: Wizard's Awareness** — LOCKED 2026-03-17. B+C. See DECISION_LOG.
 - [x] **Decision 5: Charms & Ecosystem** — Yes, scaled by tier, expressed as beacon. R/H/K reframed as Warren allegiance. Tools = endgame cosmological interface. Awakening narratives audited — no conflicts.
 - [x] **Decision 6: Liberation's Side Effects** — REVISED from original. Not ecosystem damage. Liberation = massive beacon event → Warren ripples → drew attention of entities with agendas. Incomplete charge = reckon with what was woken.
 - [x] **Decision 7: Threshold as Ecosystem Node** — Hero Heaven adjacent to (not a) Warren. Threshold = concentrated ecosystem wiring. Breach = immediate, unmistakable consequences.

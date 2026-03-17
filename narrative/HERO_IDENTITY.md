@@ -2,7 +2,7 @@
 
 **Purpose:** Define who heroes ARE fundamentally, establishing design assumptions for all mechanical and narrative decisions.
 
-**Last Updated:** 2025-12-31
+**Last Updated:** 2026-03-17
 
 ---
 
@@ -15,12 +15,12 @@
 - Possibly chosen by higher powers or self-elevated through heroism
 - Earned paradise (Hero Heaven) through completing epic quests
 - Expelled from paradise when their incomplete understanding created paradoxes
-- Retain immense mythic power despite fragmented divine memories
+- Retain immense mythic power despite fragmented legendary memories
 
 **What Heroes Are NOT:**
-- Not diminished (still possess god-tier abilities)
+- Not diminished (still possess legendary abilities)
 - Not guilty (expelled due to consequences, not moral failure)
-- Not powerless (divine capabilities intact, just fractured identity)
+- Not powerless (mythic capabilities intact, just fractured identity)
 - Not villains (incomplete understanding ≠ evil intent)
 
 ---
@@ -28,14 +28,14 @@
 ### **Closest Analogs**
 
 **Hero Heaven Heroes ≈ Daggerheart "Ascended"**
-- Mortals elevated to demigod status
+- Mortals elevated to mythic/ascended status
 - Power earned through heroic deeds
-- Divine nature externalized (tools vs. divine marks)
+- Mythic nature externalized (tools vs. legendary marks)
 - Still connected to mortal world
 
 **Hero Heaven Heroes ≈ Exalted Solars**
-- Chosen champions with god-like power
-- Divine abilities manifest through Charms
+- Chosen champions with legendary power
+- Legendary abilities manifest through Charms
 - Tools as proxy for anima/caste marks
 - Legendary past drives current identity
 
@@ -81,25 +81,25 @@ Heroes were RIGHT to do what they did (earned paradise), but INCOMPLETE in under
 
 ---
 
-## TOOLS AS ANIMISTIC DIVINE MARKS
+## TOOLS AS ANIMISTIC LEGENDARY MARKS
 
 ### **What Tools Are**
 
-**Divine Marks Externalized:**
+**Legendary Marks Externalized:**
 - Exalted Solars have anima (golden aura, caste mark on forehead)
-- Hero Heaven champions have divine tools (artifacts with consciousness)
-- Tools ARE the visible manifestation of divine nature
+- Tarim-Shaiel champions have legendary tools (artifacts with consciousness)
+- Tools ARE the visible manifestation of mythic nature
 
 **Animistic Framework:**
 - Tools possess consciousness (whisper, guide, hunger, resist)
-- Tools remember the hero's divine past (even when hero doesn't)
+- Tools remember the hero's legendary past (even when hero doesn't)
 - Tools serve as mirrors (reflect actual R/H/K to hero)
 - Tools have agency (can refuse, go silent, resist)
 
 **Not Just Equipment:**
 - Tools aren't merely magical items
 - Tools aren't controlled by external gods
-- Tools ARE the hero's divine nature given form
+- Tools ARE the hero's mythic nature given form
 
 ---
 
@@ -166,19 +166,19 @@ Warrior doesn't know WHY they protect (purpose unclear)
 ### **What Heroes Recover**
 
 **Tier 1 (First Awakening):**
-- First Charm: Divine ability returns
+- First Charm: Legendary ability returns
 - First Memory: Flashback to heroic deed
 - First Whisper: Tool recognizes hero
 - Aspirational R/H/K: Hero defines who they think they are
 
 **Tier 2 (Purpose Clarity):**
-- More Charms: Additional divine abilities
+- More Charms: Additional legendary abilities
 - Purpose Memory: Flashback to WHY they were heroic
 - R/H/K Discovery: Hero realizes aspirational ≠ actual
 - Tool Alignment: Whispers reveal truth
 
 **Tier 3 (Full Awakening):**
-- Final Charms: Maximum divine power
+- Final Charms: Maximum legendary power
 - Complete Memory: Full understanding of legendary past
 - Actual R/H/K: Hero knows who they truly are
 - Future Choice: Reclaim paradise or forge new path
@@ -383,5 +383,5 @@ If yes to all three, it fits Tarim-Shaiel's identity.
 
 **Status:** Cosmological foundation locked.
 
-**Last Updated:** 2025-12-31
+**Last Updated:** 2026-03-17
 **Maintained by:** Lore Keeper
