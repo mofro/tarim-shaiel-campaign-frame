@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-16
+last_updated: 2026-03-17
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
