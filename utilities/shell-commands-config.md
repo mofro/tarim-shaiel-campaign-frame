@@ -22,29 +22,26 @@ Open Settings → Shell Commands → click **"+"** to add each command.
 
 ---
 
-### Command 1 — Regenerate HTML Preview (file-save trigger)
+### Command 1 — Regenerate HTML Preview (manual)
 
 **Alias:** `Regenerate HTML Preview`
 
 **Command:**
 ```bash
-python "{{vault_path}}/utilities/legendkeeper-pipeline/generate_world_html.py" --source "{{file_path:absolute}}" --open
+/opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/legendkeeper-pipeline/generate_world_html.py {{file_path:absolute}}
 ```
 
 **Behavior:**
-- Runs whenever you save a pipeline source file (`type: myth|lore|timeline`)
-- Generates `docs/<slug>.html` locally (no `--public` flag — full GM preview)
-- Opens the generated HTML in your default browser
-- Non-pipeline files (location notes, faction docs, etc.) **exit silently** — no output, no error
-- GM-only files (`visibility: gm_secrets`) generate locally — you can preview all content
+- Run manually from the palette when you want to regenerate a single pipeline file
+- Only processes files with `type: myth`, `type: lore`, or `type: timeline` — exits silently for everything else
+- No `--public` flag — generates locally including GM-only content
+- Use Command 3 (Open Local Preview) to view the result after running
 
-**Configure Events tab:**
-1. Under the command's **Events** tab → enable **"After saving a file"**
-2. Under **Folder restrictions** → restrict to `world` and `narrative` (prevents triggering on unrelated saves)
+**No event trigger** — on-save auto-trigger was disabled (autosave loop; Command 2 hotkey is sufficient)
 
 **Configure Output tab:**
 - stdout → **Status bar** (brief success message)
-- stderr → **Notification** (shows errors prominently)
+- stderr → **Error balloon** (shows errors prominently)
 
 ---
 
@@ -54,8 +51,10 @@ python "{{vault_path}}/utilities/legendkeeper-pipeline/generate_world_html.py" -
 
 **Command (macOS/Linux):**
 ```bash
-cd "{{vault_path}}" && python utilities/dashboard/generate_dashboard.py --out docs/dashboard.html && python utilities/campaign_frame/generate_campaign_frame.py --out docs/campaign-frame.html && python utilities/legendkeeper-pipeline/generate_all_world_html.py && open docs/index.html
+/opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/dashboard/generate_dashboard.py --out /Users/mo/Documents/Games/HeroHeaven/docs/dashboard.html && /opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/campaign_frame/generate_campaign_frame.py --out /Users/mo/Documents/Games/HeroHeaven/docs/campaign-frame.html && /opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/legendkeeper-pipeline/generate_all_world_html.py && open /Users/mo/Documents/Games/HeroHeaven/docs/index.html
 ```
+
+_Note: `{{vault_path}}` expands with escaped backslashes and doubles the path — hardcoded path is intentional._
 
 **Behavior:**
 - Runs all three generators: dashboard, campaign frame, world HTML + index
@@ -65,8 +64,8 @@ cd "{{vault_path}}" && python utilities/dashboard/generate_dashboard.py --out do
 **Configure Hotkey:** Assign `Cmd+Shift+B` (or your preference) via Settings → Hotkeys → search "Full Pipeline".
 
 **Configure Output tab:**
-- stdout → **Notification** ("Pipeline complete" summary)
-- stderr → **Notification**
+- stdout → **Error balloon** (shows completion summary)
+- stderr → **Error balloon**
 
 ---
 
@@ -76,13 +75,13 @@ cd "{{vault_path}}" && python utilities/dashboard/generate_dashboard.py --out do
 
 **Command:**
 ```bash
-open "{{vault_path}}/docs/{{file_name:stem}}.html"
+open /Users/mo/Documents/Games/HeroHeaven/docs/$(basename "{{file_path:absolute}}" .md).html
 ```
 
 **Behavior:**
 - Opens the already-generated HTML for the current file — does NOT regenerate
 - Use when you've already run Command 1 and just want to re-open the browser tab
-- Works reliably for kebab-case filenames (all existing world docs); may not resolve correctly for files with spaces or special characters
+- Uses `basename` to strip `.md` extension — more reliable than plugin filename variables
 
 ---
 
@@ -113,7 +112,7 @@ The `--public` flag is only used by:
 ## Troubleshooting
 
 **Command doesn't trigger on save:**
-- Verify the "After saving a file" event is enabled on the command
+- Verify the "File content modified" event is enabled on the command
 - Check folder restrictions — ensure `world` and `narrative` are included
 - Confirm the file has `type: myth`, `type: lore`, or `type: timeline` in frontmatter
 
@@ -121,10 +120,10 @@ The `--public` flag is only used by:
 - Run Command 1 manually first to generate the file
 - Check `docs/` directory exists in vault root
 
-**Python not found:**
-- Ensure Python 3 is in your PATH: `which python3` in terminal
-- If needed, use full path: `/usr/bin/python3` or `/usr/local/bin/python3`
-- On macOS with Homebrew: `/opt/homebrew/bin/python3`
+**Wrong Python version (Xcode Python 3.9 instead of Homebrew 3.13):**
+- Shell Commands plugin may pick up `/Applications/Xcode.app/.../python3` (3.9) instead of Homebrew
+- Fix: use full Homebrew path in commands: `/opt/homebrew/bin/python3`
+- Verify: `which python3` and `python3 --version` in terminal — should show 3.10+
 
 **pyyaml not installed:**
 ```bash
