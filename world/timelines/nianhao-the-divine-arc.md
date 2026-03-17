@@ -15,37 +15,37 @@ calendar: Menology of Epochs
 - "The Slow Forgetting (Jibîrkirina Hêdî)" | end: -1 | abbrev: HJ | backward: true
 - "The Held Breath (Tutulan Nefes)" | start: 0 | abbrev: HB
 
-## Eras
+## Epochs
 
-- "Xwîna Xwedê (God's Blood)" | start: -2499 | end: -599 | color: "#831843" | icon: droplet | opacity: 0.50
+- "God's Blood (Xwîna Xwedê)" | start: -2499 | end: -599 | color: "#831843" | icon: droplet | opacity: 0.50
 - "Împeratoriya Nû (New Empire)" | start: -579 | end: 239 | color: "#F59E0B" | icon: calendar-lines | opacity: 0.25
 - "The Age of Chains" | start: -299 | end: 249 | color: "#22C55E" | icon: link-horizontal | opacity: 0.25
 - "The Scattering" | start: 249 | end: 399 | color: "#22C55E" | icon: arrows-maximize | opacity: 0.25
 - "The Flowering" | start: 409 | end: 699 | color: "#14B8A6" | icon: seedling | opacity: 0.50
 - "The Consolidation" | start: 699 | end: 1049 | color: "#A855F7" | icon: arrows-to-circle | opacity: 0.50
-- "The Gathering Storm (Era 4: ~1000-1200 CE)" | start: 1029 | end: 1199 | color: "#737373" | icon: cloud-bolt-sun | opacity: 0.50
+- "The Gathering Storm (HB ~1000-1200)" | start: 1029 | end: 1199 | color: "#737373" | icon: cloud-bolt-sun | opacity: 0.50
 - "The Age of Reckoning — Campaign Present" | date: 1199 | color: "#0079CC" | icon: swords | opacity: 0.50
 
 ## Declarations (Nianhao)
 
-- "The Imperial Ascension (Human Empires)" | start: -500 | end: -200 | color: "#EAB308" | icon: flag | opacity: 0.30
-- "The Age of Bondage (Orc Enslavement)" | start: -300 | end: 198 | color: "#22C55E" | icon: flag | opacity: 0.30
-- "The Silent Watching (High Elf Observation)" | start: -200 | end: 198 | color: "#8B5CF6" | icon: flag | opacity: 0.30
-- "The Breaking (Orc Liberation)" | start: 198 | end: 248 | color: "#22C55E" | icon: flag | opacity: 0.30
-- "The Scattering Chaos (Orc Diaspora)" | start: 248 | end: 318 | color: "#22C55E" | icon: flag | opacity: 0.30
-- "The Mediator's Peace (Halfling-Dwarf Alliance)" | start: 318 | end: 398 | color: "#F59E0B" | icon: flag | opacity: 0.30
-- "The Silent Flowering (Elf Withdrawal)" | start: 398 | end: 698 | color: "#8B5CF6" | icon: life-ring | opacity: 0.30
-- "The Merchant's Rise (Orc Trade Expansion)" | start: 398 | end: 647 | color: "#22C55E" | icon: flag | opacity: 0.30
-- "The Opportunist's Gambit (Goblin Free Cities)" | start: 418 | end: 698 | color: "#F97316" | icon: flag | opacity: 0.30
-- "The League of Seven (Dwarf Consolidation)" | start: 448 | end: 698 | color: "#A16207" | icon: flag | opacity: 0.30
-- "The Fragmented Dynasty (Human East)" | start: 698 | end: 898 | color: "#EAB308" | icon: flag | opacity: 0.30
-- "The Mountain Accord (Dwarf League)" | start: 718 | end: 948 | color: "#A16207" | icon: flag | opacity: 0.30
-- "The Free Cities Compact (Goblin Alliance)" | start: 748 | end: 998 | color: "#F97316" | icon: flag | opacity: 0.30
-- "The Copper Peace (Orc Prosperity)" | start: 848 | end: 948 | color: "#22C55E" | icon: flag | opacity: 0.30
-- "The Chronicle Years (Dwarf Record-Keeping)" | start: 900 | end: 1198 | color: "#A16207" | icon: flag | opacity: 0.30
-- "The Golden Age (Universal Trade)" | start: 998 | end: 1198 | color: "#0EA5E9" | icon: flag | opacity: 0.30
-- "The Watchful Peace (Orc Merchant Dominance)" | start: 998 | end: 1197 | color: "#22C55E" | icon: flag | opacity: 0.30
-- "The Whispered Warning (Elf Watchers)" | start: 1048 | end: 1050 | color: "#8B5CF6" | icon: flag | opacity: 0.30
+- "The Imperial Ascension (Human Empires)" | start: -500 | end: -200 | color: "#EAB308" | icon: flag | opacity: 0.25
+- "The Age of Bondage (Orc Enslavement)" | start: -300 | end: 198 | color: "#22C55E" | icon: flag | opacity: 0.25
+- "The Silent Watching (High Elf Observation)" | start: -200 | end: 198 | color: "#8B5CF6" | icon: flag | opacity: 0.25
+- "The Breaking (Orc Liberation)" | start: 198 | end: 248 | color: "#22C55E" | icon: flag | opacity: 0.25
+- "The Scattering Chaos (Orc Diaspora)" | start: 248 | end: 318 | color: "#22C55E" | icon: flag | opacity: 0.25
+- "The Mediator's Peace (Halfling-Dwarf Alliance)" | start: 318 | end: 398 | color: "#F59E0B" | icon: flag | opacity: 0.25
+- "The Silent Flowering (Elf Withdrawal)" | start: 398 | end: 698 | color: "#8B5CF6" | icon: life-ring | opacity: 0.25
+- "The Merchant's Rise (Orc Trade Expansion)" | start: 398 | end: 647 | color: "#22C55E" | icon: flag | opacity: 0.25
+- "The Opportunist's Gambit (Goblin Free Cities)" | start: 418 | end: 698 | color: "#F97316" | icon: flag | opacity: 0.25
+- "The League of Seven (Dwarf Consolidation)" | start: 448 | end: 698 | color: "#A16207" | icon: flag | opacity: 0.25
+- "The Fragmented Dynasty (Human East)" | start: 698 | end: 898 | color: "#EAB308" | icon: flag | opacity: 0.25
+- "The Mountain Accord (Dwarf League)" | start: 718 | end: 948 | color: "#A16207" | icon: flag | opacity: 0.25
+- "The Free Cities Compact (Goblin Alliance)" | start: 748 | end: 998 | color: "#F97316" | icon: flag | opacity: 0.25
+- "The Copper Peace (Orc Prosperity)" | start: 848 | end: 948 | color: "#22C55E" | icon: flag | opacity: 0.25
+- "The Chronicle Years (Dwarf Record-Keeping)" | start: 900 | end: 1198 | color: "#A16207" | icon: flag | opacity: 0.25
+- "The Golden Age (Universal Trade)" | start: 998 | end: 1198 | color: "#0EA5E9" | icon: flag | opacity: 0.25
+- "The Watchful Peace (Orc Merchant Dominance)" | start: 998 | end: 1197 | color: "#22C55E" | icon: flag | opacity: 0.25
+- "The Whispered Warning (Elf Watchers)" | start: 1048 | end: 1050 | color: "#8B5CF6" | icon: flag | opacity: 0.25
 
 ## Historical Events
 
@@ -87,9 +87,9 @@ calendar: Menology of Epochs
 - "The Wizard's Ascension" | date: -50 | color: "#DC2626" | icon: hat-wizard
 - "Death of the Fallen Hero" | date: 243 | color: "#0EA5E9" | icon: heart-crack
 - "Heroes Ascend to Hero Heaven" | date: 248 | color: "#0EA5E9" | icon: cloud
-- "The Long Preparation (Wizard's Plan)" | start: 698 | end: 998 | color: "#DC2626" | icon: flag | opacity: 0.30
+- "The Long Preparation (Wizard's Plan)" | start: 698 | end: 998 | color: "#DC2626" | icon: flag | opacity: 0.25
 - "First Lich Transformation (Hidden)" | date: 918 | color: "#DC2626" | icon: skull-crossbones
-- "The Final Positioning (Wizard's Endgame)" | start: 1098 | end: 1198 | color: "#DC2626" | icon: flag | opacity: 0.30
+- "The Final Positioning (Wizard's Endgame)" | start: 1098 | end: 1198 | color: "#DC2626" | icon: flag | opacity: 0.25
 - "The Wizard Locates Hero Heaven" | date: 1183 | color: "#DC2626" | icon: compass
 - "The Expulsion" | start: 1188 | end: 1198 | color: "#DC2626" | icon: hand-sparkles
 - "Heroes Return to the World" | date: 1198 | color: "#0EA5E9" | icon: star

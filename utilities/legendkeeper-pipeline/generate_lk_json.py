@@ -153,6 +153,15 @@ def event_pos(lane_index: int, event_index: int) -> str:
     return f'{letters[lane_index % 26]}{event_index}'
 
 
+# LK exposes exactly three opacity levels in its UI.
+# Any value outside these is non-standard; snap to the nearest valid level.
+_LK_OPACITY_LEVELS = (0.25, 0.5, 1.0)
+
+def snap_opacity(value: float) -> float:
+    """Snap an arbitrary opacity float to the nearest LK-supported level (0.25 / 0.5 / 1.0)."""
+    return min(_LK_OPACITY_LEVELS, key=lambda v: abs(v - value))
+
+
 # ---------------------------------------------------------------------------
 # Timestamp conversion
 # ---------------------------------------------------------------------------
@@ -246,7 +255,7 @@ def parse_event_line(
         'color': props.get('color', '#6B7280'),
         'imageUrl': props.get('image', ''),
         'imageFit': 'cover',
-        'opacity': float(props.get('opacity', '1')),
+        'opacity': snap_opacity(float(props.get('opacity', '1'))),
         'isSynced': False,
         'data': {},
     }
