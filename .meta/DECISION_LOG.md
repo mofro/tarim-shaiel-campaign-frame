@@ -253,6 +253,24 @@ What actually happened: the liberation was a *massive beacon event*. By the "pow
 
 **⚠️ liberation_aftermath.md update required:** The existing framing of ecosystem damage needs to be replaced with Warren disturbance / interested parties framing. The timeline fix (200 → 1,000 years) remains separately needed.
 
+### Decision 4: Wizard's Awareness — LOCKED 2026-03-17
+
+**The Wizard is Options B+C combined: tragic hubris seeded by cosmic manipulation.**
+
+- **Option B (tragic hubris):** The Wizard *knows* about the ecosystem risks and the Held Breath. He does not act in ignorance — he acts in overconfidence. He believes he is the one person who understands the situation well enough to act on it.
+- **Option C (cosmic manipulation):** The entity's 1,000-year subtle influence has shaped his conviction that he *can* manage what he's about to wake. His certainty is not purely his own — it was cultivated.
+- **Synthesis:** He is overconfident and unaware of the true risk. He is wrong in the specific way that matters: the very thing he believes he has under control has been grooming his certainty for a millennium.
+
+**Narrative implications:**
+- The Wizard is not a villain through ignorance (A) and not a pure puppet (straight C) — he has genuine agency and genuine belief in his own competence
+- Players who piece together his plan will find it *almost* coherent — which makes it more unsettling than cartoonish evil
+- Event 5 (The Wizard's Shadow) should plant false certainty about his goals; the B+C truth is GM-layer only
+- His motivation for breaching the Threshold remains a separate writing task (Distinctions / Inciting Incident)
+
+**Status:** LOCKED. Motivation specifics (why he wants to breach) to be developed in campaign frame writing sessions.
+
+---
+
 ### Decision 7: Threshold as Ecosystem Node — LOCKED
 
 **Hero Heaven is adjacent to the Warren structure — not a Warren itself, but directly wired into the infrastructure.**
