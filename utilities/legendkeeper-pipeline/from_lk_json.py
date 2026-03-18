@@ -18,6 +18,7 @@ import gzip
 import argparse
 from datetime import date
 from pathlib import Path
+from typing import Optional
 
 MPYR = 365.25 * 24 * 60  # minutes per year
 
@@ -69,7 +70,7 @@ def fmt_event(ev: dict, lanes_by_id: dict, include_search_images: bool = False) 
     return '- ' + ' | '.join(parts)
 
 
-def convert(json_path: Path, output_path: Path | None,
+def convert(json_path: Path, output_path: Optional[Path],
             include_search_images: bool) -> str:
     raw = json_path.read_bytes()
     if raw[:2] == b'\x1f\x8b':          # gzip magic bytes — .lk files
