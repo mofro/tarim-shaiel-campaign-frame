@@ -191,6 +191,13 @@ Examples:
 
 **Branching:** Single `main` branch. All work goes directly to main.
 
+**Cloud session exception:** When running through the Claude Code cloud harness (e.g. Claude.ai Base), the harness enforces a `claude/*` branch and blocks pushes to `main` with a 403. In that case:
+1. Commit to `main` locally as normal
+2. Push to the harness-designated branch (`git push origin main:<harness-branch>`)
+3. The user will merge to `main` from their local machine
+
+This is expected behaviour — not an error. Do not attempt to override it.
+
 **Never commit:**
 - Mid-draft prose that is actively being revised in the same session
 - Temporary notes that will be discarded (use in-context only per FILE_PERSISTENCE_GUIDELINES.md)
