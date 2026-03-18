@@ -23,7 +23,7 @@ banner-y: 37
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (7 of 8 decisions locked 2026-03-08)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
 - 🔄 **Active work:** Session 0 scenarios (3/6 done), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)
-- 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup
+- 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to `archive/charms/`; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to `BACKLOG.md`
 
 ---
@@ -598,6 +598,18 @@ _Last verified: 2026-02-05_
 - Create 13 individual concept files using `_TEMPLATE_concept.md`
 - Create 6 region files using `_TEMPLATE_region.md` (Skamarketh, Tarim Basin, Eastern Gateway, Mountain Passes, The Steppe, Elven Highlands)
 - Canonicalize existing 22 location files: replace free-text faction names with wikilinks from `/world/factions/Index.md`
+
+### Session 2026-03-17 (continued) — LK Round-Trip Pipeline
+**LegendKeeper ↔ Markdown Round-Trip — Debugging + Completion**
+
+- [x] Diagnosed `.lk` import failures: `parentId: null` (must be string), pretty-printed JSON (must be compact), microsecond timestamps (JS Date only parses milliseconds), out-of-calendar presentation range
+- [x] Snapped opacity to LK's three valid levels (1, 0.5, 0.25) — `0.3` was non-standard
+- [x] Updated `from_lk_json.py`: accepts `.lk` (gzip) input directly via magic-byte detection — no manual decompression needed
+- [x] Fixed Python 3.9 compatibility: `Path | None` → `Optional[Path]` in `from_lk_json.py`
+- [x] Documented Shell Commands for LK pipeline: Command 4 (Generate LK Export via `publish.py`), Command 5 (Import from LK → archives `.md`, runs `from_lk_json.py`, outputs to same folder)
+- [x] Resolved Shell Commands path escaping: `{{file_path:relative}}` (no quotes) instead of `{{file_path:absolute}}` with `!` prefix
+
+**Round-trip is now complete:** Markdown → `.lk` (import to LK) and `.lk` → Markdown (pull from LK) both functional.
 
 ### Session 2026-03-17
 **Visibility Gating + Obsidian Shell Commands Integration**
