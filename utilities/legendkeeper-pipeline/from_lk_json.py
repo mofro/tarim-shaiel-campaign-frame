@@ -14,6 +14,7 @@ Usage:
 import re
 import sys
 import json
+import gzip
 import argparse
 from datetime import date
 from pathlib import Path
@@ -70,7 +71,10 @@ def fmt_event(ev: dict, lanes_by_id: dict, include_search_images: bool = False) 
 
 def convert(json_path: Path, output_path: Path | None,
             include_search_images: bool) -> str:
-    data = json.loads(json_path.read_text(encoding='utf-8'))
+    raw = json_path.read_bytes()
+    if raw[:2] == b'\x1f\x8b':          # gzip magic bytes — .lk files
+        raw = gzip.decompress(raw)
+    data = json.loads(raw)
 
     # Extract metadata
     calendars   = data.get('calendars', [])
@@ -156,13 +160,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description='Convert a LegendKeeper JSON export to pipeline source Markdown.'
     )
-    parser.add_argument('json_file', help='LK .json export file')
+    parser.add_argument('lk_file', help='LK export file (.json or gzip-compressed .lk)')
     parser.add_argument('--output', '-o', help='Output .md path (default: alongside JSON)')
     parser.add_argument('--include-search-images', action='store_true',
                         help='Include vecteezy/search-page imageUrls (default: skip them)')
     args = parser.parse_args()
 
-    json_path = Path(args.json_file)
+    json_path = Path(args.lk_file)
     if not json_path.exists():
         print(f'ERROR: {json_path} not found', file=sys.stderr)
         sys.exit(1)
