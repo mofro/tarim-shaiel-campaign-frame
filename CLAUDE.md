@@ -194,7 +194,8 @@ Examples:
 **Cloud session exception:** When running through the Claude Code cloud harness (e.g. Claude.ai Base), the harness enforces a `claude/*` branch and blocks pushes to `main` with a 403. In that case:
 1. Commit to `main` locally as normal
 2. Push to the harness-designated branch (`git push origin main:<harness-branch>`)
-3. The user will merge to `main` from their local machine
+3. Update local tracking to satisfy the stop hook: `git branch --set-upstream-to=origin/<harness-branch> main`
+4. The user will merge to `main` from their local machine
 
 This is expected behaviour — not an error. Do not attempt to override it.
 
