@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-17
+last_updated: 2026-03-18
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -16,15 +16,39 @@ banner-y: 37
 
 ## PROJECT HEALTH
 
-**Last Updated:** 2026-03-17
+**Last Updated:** 2026-03-18
 **Critical Path:** Resolve cosmological architecture → Complete Session 0 scenarios → Resolve Campaign Frame → Playtest
 
 **Quick Summary:**
-- [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (7 of 8 decisions locked 2026-03-08)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
+- [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (all 8 decisions locked 2026-03-17)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
 - 🔄 **Active work:** Session 0 scenarios (3/6 done), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to `archive/charms/`; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to `BACKLOG.md`
+
+**Players:** 1/6 committed — Warrior ✅ | Breaker / Bridge / Seeker / Sacrificer / Visionary ⏳
+
+---
+
+
+## SESSION LOG
+_What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-03-18
+- Reviewed TODO and memory files at session start (DECISION_LOG, NEXT_SESSION_CONTEXT)
+- Identified NEXT_SESSION_CONTEXT.md as stale and largely redundant with TODO + DECISION_LOG
+- Decided to consolidate: SESSION LOG + Player Status added to TODO.md as first-class citizens
+- Deprecated NEXT_SESSION_CONTEXT.md → archived
+- Session-end checklist established: mark completed items → update SESSION LOG → update Player Status → commit + push to main
+
+### 2026-03-17
+- Locked Decision 4: Wizard's awareness (B+C — tragic hubris seeded by cosmic manipulation)
+- Completed publishing infrastructure: visibility gating (fails-closed), Obsidian Shell Commands integration
+- LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter)
+
+### 2026-03-13
+- Charm system archived to `archive/charms/`; mechanical identity now carried by Vestiges/Memory Fragments/The Wrongness
+- Campaign Frame v2 blocker resolved: "approach" framing sidesteps prescriptive class mapping
 
 ---
 
