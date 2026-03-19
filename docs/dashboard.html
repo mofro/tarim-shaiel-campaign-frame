@@ -133,6 +133,29 @@
       .main { padding: 24px 20px; }
       .footer { padding: 20px 20px; flex-direction: column; gap: 12px; align-items: flex-start; }
     }
+    /* --- Summary + Player Status panel --- */
+    .summary-panel { background:var(--parchment2); border-bottom:1px solid var(--rule); padding:22px 60px; display:grid; grid-template-columns:1fr 1fr; gap:0; }
+    .summary-col { padding:0 30px 0 0; border-right:1px solid var(--rule); }
+    .summary-col:last-child { padding:0 0 0 30px; border-right:none; }
+    .summary-heading { font-family:'Inconsolata',monospace; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+    .summary-item { display:flex; align-items:flex-start; gap:8px; font-size:13.5px; color:rgba(26,18,8,0.75); line-height:1.45; margin-bottom:6px; }
+    .summary-pip { flex-shrink:0; width:10px; height:10px; border-radius:50%; margin-top:4px; }
+    .pip-done    { background:#2e7d32; }
+    .pip-active  { background:#f57f17; }
+    .pip-blocked { background:#c62828; }
+    .pip-info    { background:#0277bd; }
+    .pip-pending { background:rgba(26,18,8,0.2); }
+    .player-count { font-family:'Cinzel',serif; font-size:20px; font-weight:600; color:var(--ink); margin-bottom:10px; }
+    .archetype-chips { display:flex; flex-wrap:wrap; gap:6px; }
+    .archetype-chip { font-family:'Inconsolata',monospace; font-size:13px; padding:4px 10px; border-radius:2px; border:1px solid; }
+    .archetype-chip.committed { background:#e8f5e9; color:#1b5e20; border-color:#a5d6a7; }
+    .archetype-chip.pending   { background:rgba(26,18,8,0.05); color:rgba(26,18,8,0.45); border-color:rgba(26,18,8,0.15); }
+    .archetype-chip.unknown   { background:#fff8e1; color:#f57f17; border-color:#ffe082; }
+    @media (max-width:700px) {
+      .summary-panel { grid-template-columns:1fr; padding:16px 20px; }
+      .summary-col { padding:0 0 16px 0; border-right:none; border-bottom:1px solid var(--rule); }
+      .summary-col:last-child { padding:16px 0 0 0; border-bottom:none; }
+    }
     /* =====================================================
        STYLE_OVERRIDES
        Add your CSS overrides here. Document in SKILL.md.
@@ -172,6 +195,8 @@
       <div class="critical-path"><strong>Resolve cosmological architecture</strong> &rarr; Complete Session 0 scenarios &rarr; Resolve Campaign Frame &rarr; Playtest</div>
     </div>
   </div>
+
+  <div class="summary-panel"><div class="summary-col"><div class="summary-heading">Quick Summary</div><div class="summary-item"><div class="summary-pip pip-done"></div><div>Core complete: Campaign narrative, world geography, fantasy naming, charm architecture, Orc cultural framework, Silk Road weapons, Cosmological architecture (all 8 decisions locked 2026-03-17), World entity infrastructure (factions/events/c…</div></div><div class="summary-item"><div class="summary-pip pip-active"></div><div>🔄 Active work: Session 0 scenarios (3/6 done), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes</div></div><div class="summary-item"><div class="summary-pip pip-blocked"></div><div>⚠️ Blockers: liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)</div></div><div class="summary-item"><div class="summary-pip pip-info"></div><div>🆕 Infrastructure complete (2026-03-15–17): LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed …</div></div><div class="summary-item"><div class="summary-pip pip-info"></div><div>🗃️ Charm system deferred (2026-03-13): Archived to ; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to</div></div></div><div class="summary-col"><div class="summary-heading">Player Status</div><div class="player-count">1/6 committed</div><div class="archetype-chips"><span class="archetype-chip committed">Warrior</span><span class="archetype-chip pending">Breaker</span><span class="archetype-chip pending">Bridge</span><span class="archetype-chip pending">Seeker</span><span class="archetype-chip pending">Sacrificer</span><span class="archetype-chip pending">Visionary</span></div></div></div>
 
   <div class="blockers-callout">
     <div class="blocker-eyebrow">&#9888; Open Blockers &amp; Upstream Dependencies</div>

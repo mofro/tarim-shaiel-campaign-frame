@@ -116,6 +116,8 @@ class DashboardData:
     blockers: list[str]
     recent_sessions: list[dict]
     sections: list[Section]
+    quick_summary: list[dict] = field(default_factory=list)
+    player_status: dict = field(default_factory=dict)
 
 # ---------------------------------------------------------------------------
 # Progress Tracking override parser
@@ -280,6 +282,86 @@ def extract_critical_path(todo_text: str) -> list[str]:
         "Build Charm library",
         "Playtest",
     ]
+
+# ---------------------------------------------------------------------------
+# Quick Summary extractor — parses **Quick Summary:** bullets from PROJECT HEALTH
+# ---------------------------------------------------------------------------
+QUICK_SUMMARY_STATUS_MAP = [
+    ("\u2705",  "done"),     # ✅
+    ("\U0001f504", "active"),  # 🔄
+    ("\u26a0",  "blocked"),  # ⚠ (also ⚠️)
+    ("\U0001f195", "info"),  # 🆕
+    ("\U0001f5c3", "info"),  # 🗃️
+    ("- [x]",   "done"),
+    ("- [ ]",   "pending"),
+]
+
+def extract_quick_summary(todo_text: str) -> list[dict]:
+    items: list[dict] = []
+    in_health = False
+    in_summary = False
+    for line in todo_text.splitlines():
+        if re.match(r"^## PROJECT HEALTH", line, re.IGNORECASE):
+            in_health = True
+            continue
+        if in_health and line.startswith("## "):
+            break
+        if in_health and "**Quick Summary:**" in line:
+            in_summary = True
+            continue
+        if in_summary:
+            stripped = line.strip()
+            if not stripped:
+                continue
+            # Stop when we hit a non-list line that isn't blank (e.g. **Players:**)
+            if not stripped.startswith("-"):
+                break
+            text = stripped.lstrip("- ").strip()
+            # Strip checkbox markers
+            text = re.sub(r"^\[[xX ]\]\s*", "", text)
+            # Clean markdown bold
+            text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
+            # Strip backtick code spans and trailing link references
+            text = re.sub(r"`[^`]+`", "", text).strip()
+            status = "info"
+            for marker, s in QUICK_SUMMARY_STATUS_MAP:
+                if marker in stripped:
+                    status = s
+                    break
+            # Truncate long lines for display
+            display = text[:240] + ("…" if len(text) > 240 else "")
+            items.append({"text": display, "status": status})
+    return items
+
+# ---------------------------------------------------------------------------
+# Player Status extractor — parses **Players:** line from PROJECT HEALTH
+# ---------------------------------------------------------------------------
+def extract_player_status(todo_text: str) -> dict:
+    m = re.search(r"\*\*Players:\*\*\s*(.+?)(?:\n|$)", todo_text)
+    if not m:
+        return {"summary": "", "archetypes": []}
+    raw = m.group(1).strip()
+
+    # Count: "1/6 committed"
+    count_m = re.search(r"(\d+)/(\d+)\s+\w+", raw)
+    summary = f"{count_m.group(1)}/{count_m.group(2)} committed" if count_m else ""
+
+    # Archetype list — after the em-dash: "Warrior ✅ | Breaker / Bridge / Seeker / Sacrificer / Visionary ⏳"
+    archetypes: list[dict] = []
+    after_dash = re.search(r"[—\-]\s*(.+)$", raw)
+    if after_dash:
+        segment = after_dash.group(1)
+        for part in re.split(r"\s*/\s*|\s*\|\s*", segment):
+            part = part.strip()
+            if not part:
+                continue
+            if "\u2705" in part:   # ✅
+                archetypes.append({"name": part.replace("\u2705", "").strip(), "status": "committed"})
+            elif "\u23f3" in part: # ⏳
+                archetypes.append({"name": part.replace("\u23f3", "").strip(), "status": "pending"})
+            else:
+                archetypes.append({"name": part.strip(), "status": "pending"})
+    return {"summary": summary, "archetypes": archetypes}
 
 # ---------------------------------------------------------------------------
 # TODO section parser
@@ -473,6 +555,33 @@ def _session_card(s: dict) -> str:
             f'<div class="session-summary">{s["summary"]}</div>'
             f'{files}</div>')
 
+def _summary_panel_html(quick_summary: list[dict], player_status: dict) -> str:
+    pip_class = {"done": "pip-done", "active": "pip-active", "blocked": "pip-blocked",
+                 "info": "pip-info", "pending": "pip-pending"}
+    items_html = ""
+    for item in quick_summary:
+        pc = pip_class.get(item["status"], "pip-info")
+        items_html += (f'<div class="summary-item">'
+                       f'<div class="summary-pip {pc}"></div>'
+                       f'<div>{item["text"]}</div></div>')
+
+    archetypes_html = ""
+    for a in player_status.get("archetypes", []):
+        cls = a.get("status", "unknown")
+        archetypes_html += f'<span class="archetype-chip {cls}">{a["name"]}</span>'
+    chips = f'<div class="archetype-chips">{archetypes_html}</div>' if archetypes_html else ""
+    count_display = player_status.get("summary", "")
+    player_col = (f'<div class="summary-col">'
+                  f'<div class="summary-heading">Player Status</div>'
+                  f'<div class="player-count">{count_display}</div>'
+                  f'{chips}</div>')
+    summary_col = (f'<div class="summary-col">'
+                   f'<div class="summary-heading">Quick Summary</div>'
+                   f'{items_html}</div>')
+    if not items_html and not count_display:
+        return ""
+    return f'<div class="summary-panel">{summary_col}{player_col}</div>'
+
 def _gauge(label: str, domain: str, pct: int) -> str:
     return (f'<div class="domain-gauge-row">'
             f'<span class="domain-gauge-label">{label}</span>'
@@ -498,6 +607,7 @@ def render_html(data: DashboardData) -> str:
     sections_html = "\n".join(_section_html(s) for s in data.sections)
     sessions_html = "\n".join(_session_card(s) for s in data.recent_sessions)
     blockers_html = "\n".join(f'<div class="blocker-chip">{b}</div>' for b in data.blockers)
+    summary_panel = _summary_panel_html(data.quick_summary, data.player_status)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -630,6 +740,29 @@ def render_html(data: DashboardData) -> str:
       .main {{ padding: 24px 20px; }}
       .footer {{ padding: 20px 20px; flex-direction: column; gap: 12px; align-items: flex-start; }}
     }}
+    /* --- Summary + Player Status panel --- */
+    .summary-panel {{ background:var(--parchment2); border-bottom:1px solid var(--rule); padding:22px 60px; display:grid; grid-template-columns:1fr 1fr; gap:0; }}
+    .summary-col {{ padding:0 30px 0 0; border-right:1px solid var(--rule); }}
+    .summary-col:last-child {{ padding:0 0 0 30px; border-right:none; }}
+    .summary-heading {{ font-family:'Inconsolata',monospace; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }}
+    .summary-item {{ display:flex; align-items:flex-start; gap:8px; font-size:13.5px; color:rgba(26,18,8,0.75); line-height:1.45; margin-bottom:6px; }}
+    .summary-pip {{ flex-shrink:0; width:10px; height:10px; border-radius:50%; margin-top:4px; }}
+    .pip-done    {{ background:#2e7d32; }}
+    .pip-active  {{ background:#f57f17; }}
+    .pip-blocked {{ background:#c62828; }}
+    .pip-info    {{ background:#0277bd; }}
+    .pip-pending {{ background:rgba(26,18,8,0.2); }}
+    .player-count {{ font-family:'Cinzel',serif; font-size:20px; font-weight:600; color:var(--ink); margin-bottom:10px; }}
+    .archetype-chips {{ display:flex; flex-wrap:wrap; gap:6px; }}
+    .archetype-chip {{ font-family:'Inconsolata',monospace; font-size:13px; padding:4px 10px; border-radius:2px; border:1px solid; }}
+    .archetype-chip.committed {{ background:#e8f5e9; color:#1b5e20; border-color:#a5d6a7; }}
+    .archetype-chip.pending   {{ background:rgba(26,18,8,0.05); color:rgba(26,18,8,0.45); border-color:rgba(26,18,8,0.15); }}
+    .archetype-chip.unknown   {{ background:#fff8e1; color:#f57f17; border-color:#ffe082; }}
+    @media (max-width:700px) {{
+      .summary-panel {{ grid-template-columns:1fr; padding:16px 20px; }}
+      .summary-col {{ padding:0 0 16px 0; border-right:none; border-bottom:1px solid var(--rule); }}
+      .summary-col:last-child {{ padding:16px 0 0 0; border-bottom:none; }}
+    }}
     /* =====================================================
        STYLE_OVERRIDES
        Add your CSS overrides here. Document in SKILL.md.
@@ -669,6 +802,8 @@ def render_html(data: DashboardData) -> str:
       <div class="critical-path">{crit}</div>
     </div>
   </div>
+
+  {summary_panel}
 
   <div class="blockers-callout">
     <div class="blocker-eyebrow">&#9888; Open Blockers &amp; Upstream Dependencies</div>
@@ -772,6 +907,8 @@ def main():
         blockers        = extract_blockers(txt),
         recent_sessions = extract_recent_sessions(txt),
         sections        = parse_todo_sections(txt),
+        quick_summary   = extract_quick_summary(txt),
+        player_status   = extract_player_status(txt),
     )
 
     if args.json:
