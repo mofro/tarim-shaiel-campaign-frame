@@ -833,6 +833,9 @@ def render_html(data: DashboardData) -> str:
       <button class="filter-btn" data-filter-domain="infra">Infra</button>
       <button class="filter-btn" data-filter-domain="cosmology">Cosmology</button>
     </div>
+    <div class="filter-group" style="margin-left:auto">
+      <button class="filter-btn" id="toggle-done-btn" onclick="toggleDone()">Show Completed</button>
+    </div>
   </div>
 
   <div class="main">{sections_html}</div>
@@ -846,7 +849,14 @@ def render_html(data: DashboardData) -> str:
 <script>
   function toggleSection(h) {{ h.closest('.section').classList.toggle('collapsed'); }}
   function collapseAll() {{ document.querySelectorAll('.section').forEach(s => s.classList.add('collapsed')); }}
-  let activeStatus = 'all', activeDomain = 'all';
+  let activeStatus = 'all', activeDomain = 'all', hideDone = true;
+  function toggleDone() {{
+    hideDone = !hideDone;
+    const btn = document.getElementById('toggle-done-btn');
+    btn.textContent = hideDone ? 'Show Completed' : 'Hide Completed';
+    btn.classList.toggle('active', !hideDone);
+    applyFilters();
+  }}
   document.querySelectorAll('[data-filter-status]').forEach(btn => {{
     btn.addEventListener('click', () => {{
       document.querySelectorAll('[data-filter-status]').forEach(b => b.classList.remove('active'));
@@ -860,17 +870,25 @@ def render_html(data: DashboardData) -> str:
     }});
   }});
   function applyFilters() {{
+    // Section-level: status filter
     document.querySelectorAll('.section').forEach(s => {{
       s.classList.toggle('hidden', activeStatus !== 'all' && s.dataset.status !== activeStatus);
     }});
-    document.querySelectorAll('.todo-group').forEach(g => {{
-      g.style.display = (activeDomain === 'all' || g.dataset.domain === activeDomain) ? '' : 'none';
+    // Item-level: hide checked items when hideDone
+    document.querySelectorAll('.todo-item').forEach(item => {{
+      const checked = item.querySelector('.todo-checkbox.checked') !== null;
+      item.style.display = (hideDone && checked) ? 'none' : '';
     }});
+    // Group-level: domain filter + hide groups where all items are invisible
+    document.querySelectorAll('.todo-group').forEach(g => {{
+      const domainOk = activeDomain === 'all' || g.dataset.domain === activeDomain;
+      const hasVisible = Array.from(g.querySelectorAll('.todo-item')).some(i => i.style.display !== 'none');
+      g.style.display = (domainOk && hasVisible) ? '' : 'none';
+    }});
+    // Hide sections where all groups are hidden
     document.querySelectorAll('.section:not(.hidden)').forEach(s => {{
-      if (activeDomain !== 'all') {{
-        const any = Array.from(s.querySelectorAll('.todo-group')).some(g => g.style.display !== 'none');
-        if (!any) s.classList.add('hidden');
-      }}
+      const any = Array.from(s.querySelectorAll('.todo-group')).some(g => g.style.display !== 'none');
+      if (!any) s.classList.add('hidden');
     }});
   }}
 </script>
