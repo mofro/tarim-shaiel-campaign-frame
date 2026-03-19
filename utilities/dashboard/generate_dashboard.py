@@ -891,6 +891,7 @@ def render_html(data: DashboardData) -> str:
       if (!any) s.classList.add('hidden');
     }});
   }}
+  applyFilters();
 </script>
 </body>
 </html>"""
