@@ -70,13 +70,16 @@ DOMAIN_KEYWORDS: dict[str, list[str]] = {
     ],
 }
 
-def detect_domain(text: str) -> str:
+def detect_domain(text: str, default: str = "general") -> str:
+    """Return the best-matched domain for text, or `default` if nothing matches.
+    Callers that need a fallback should pass an explicit default rather than
+    relying on silent world-classification of unrelated content."""
     t = text.lower()
     for domain, keywords in DOMAIN_KEYWORDS.items():
         for kw in keywords:
             if kw in t:
                 return domain
-    return "world"
+    return default
 
 def obsidian_link(vault_path: str, vault: str = "HeroHeaven") -> str:
     clean = vault_path.lstrip("/").replace(".md", "")
@@ -461,10 +464,12 @@ def parse_todo_sections(todo_text: str) -> list[Section]:
             # Use SECTION_DOMAIN_HEADERS (same as compute_domain_pcts) so display
             # domain matches the percentage domain. Fall back to parent group's domain
             # rather than defaulting to "world" — prevents false WORLD classification
-            # for sub-headers like "GM-Facing Sections" or "Follow-up From DIVINE_PLAYERS.md"
+            # for sub-headers like "GM-Facing Sections" or "Follow-up From DIVINE_PLAYERS.md".
+            # If neither header nor parent matches, fall back to detect_domain with
+            # "general" default (never silently classifies as world).
             h_lower = raw.lower()
             matched = next((dom for kw, dom in SECTION_DOMAIN_HEADERS.items() if kw in h_lower), None)
-            domain = matched or prev_domain or detect_domain(raw)
+            domain = matched or prev_domain or detect_domain(raw, default="general")
             active_group = TodoGroup(title=raw, domain=domain)
             if active_section.status == "done" and has_done_marker:
                 active_group.items.append(TodoItem(text=raw, done=True))
@@ -472,7 +477,7 @@ def parse_todo_sections(todo_text: str) -> list[Section]:
         # Checkbox item
         elif re.match(r"^\s*- \[[ xX]\]", line) and active_section is not None:
             if active_group is None:
-                active_group = TodoGroup(title="General", domain=detect_domain(line))
+                active_group = TodoGroup(title="General", domain=detect_domain(line, default="general"))
             flush_item()
             done = bool(re.match(r"^\s*- \[[xX]\]", line))
             text = re.sub(r"^\s*- \[[xX ]\]\s*", "", line)
@@ -522,6 +527,7 @@ DOMAIN_COLORS = {
     "mechanics":  "#3949ab",
     "infra":      "#7b1fa2",
     "cosmology":  "#0277bd",
+    "general":    "#78909c",  # neutral blue-grey for unclassified items
 }
 
 def _obs_link(label: str, vault_path: str) -> str:
@@ -716,6 +722,7 @@ def render_html(data: DashboardData) -> str:
     .domain-world     {{ background:#e8f5e9; color:#1b5e20; border:1px solid #a5d6a7; }}
     .domain-infra     {{ background:#f3e5f5; color:#4a148c; border:1px solid #ce93d8; }}
     .domain-cosmology {{ background:#e1f5fe; color:#01579b; border:1px solid #81d4fa; }}
+    .domain-general   {{ background:#eceff1; color:#37474f; border:1px solid #b0bec5; }}
     .todo-group-title {{ font-family:'Cinzel',serif; font-size:14px; font-weight:600; color:var(--ink); }}
     .todo-item {{ padding:10px 20px 10px 32px; display:flex; gap:12px; align-items:flex-start; border-bottom:1px solid rgba(184,146,44,0.08); transition:background 0.15s; }}
     .todo-item:last-child {{ border-bottom:none; }}
