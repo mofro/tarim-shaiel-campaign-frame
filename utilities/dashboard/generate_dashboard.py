@@ -171,6 +171,7 @@ SECTION_DOMAIN_HEADERS: dict[str, str] = {
 def compute_domain_pcts(todo_text: str, overrides: dict[str, int]) -> dict[str, int]:
     counts: dict[str, list[int]] = {d: [0, 0] for d in ["narrative", "mechanics", "world", "infra", "cosmology"]}
     current_domain: Optional[str] = None
+    in_excluded_h2: bool = False
 
     # H2 sections that are archival/reference — never count their checkboxes
     EXCLUDED_H2 = {"session log", "completed"}
@@ -179,15 +180,20 @@ def compute_domain_pcts(todo_text: str, overrides: dict[str, int]) -> dict[str, 
         if re.match(r"^#{2,4} ", line):
             h_text = re.sub(r"^#{2,4}\s+", "", line).lower()
             # H2 exclusion check: if we enter an archive section, kill domain and
-            # keep it dead until another tracked H2 is found
+            # keep it dead (including for any H3/H4 within) until another H2 is found
             if re.match(r"^## ", line):
                 if any(excl in h_text for excl in EXCLUDED_H2):
                     current_domain = None
+                    in_excluded_h2 = True
                     continue
-            for kw, domain in SECTION_DOMAIN_HEADERS.items():
-                if kw in h_text:
-                    current_domain = domain
-                    break
+                else:
+                    in_excluded_h2 = False
+            # Don't let H3/H4 inside excluded sections re-activate domain tracking
+            if not in_excluded_h2:
+                for kw, domain in SECTION_DOMAIN_HEADERS.items():
+                    if kw in h_text:
+                        current_domain = domain
+                        break
         if current_domain:
             if re.search(r"- \[x\]", line, re.IGNORECASE):
                 counts[current_domain][0] += 1
@@ -220,7 +226,6 @@ BLOCKER_PATTERNS = [
     (r"Campaign Frame.*?Archetypes|Classes vs",     "\u26d4 Campaign Frame: Classes vs. Archetypes decision required"),
     (r"liberation_aftermath.*?200|200.year.*?liberation", "\u26a0\ufe0f liberation_aftermath.md — wrong 200yr timeline throughout"),
     (r"Elven cosmolog",                              "\U0001f33f Elven cosmology decision (cascades into culture + magic)"),
-    (r"GeoJSON.*?[Ff]ield [Mm]apping",              "\U0001f5fa GeoJSON field mapping decision (blocks automation script)"),
 ]
 
 def extract_blockers(todo_text: str) -> list[str]:

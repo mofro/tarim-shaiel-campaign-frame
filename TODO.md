@@ -272,38 +272,36 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 1. ~~**Campaign Frame: Class/archetype mapping**~~ ✅ RESOLVED 2026-03-13
    - v2 document uses "approach" framing; all Daggerheart classes open; no prescriptive mapping needed
 
-2. **GeoJSON Field Mapping** 🟡
+### Secondary Decisions
+
+2. - [/] **Ancestries for Silk Road Setting** 🟡
+   - **Question:** Which Daggerheart ancestries fit? Custom ancestries needed?
+   - **Confirmed Fit:** Humans, Orcs, Dwarves, Elves, Halflings, Goblins
+   - **Decision Needed:** Use standard as-is, reflavor with Silk Road context, or create custom?
+   - **Required Before:** Heritage & Classes section of Campaign Frame
+
+3. - [/] **Campaign Frame Complexity Rating** 🟡
+   - **Question:** Rating 3 or 4 on Daggerheart complexity scale?
+   - **Factors:** Charm system + tool progression + R/H/K framework + archetype mechanics
+   - **Recommendation:** 3-4 (significant custom mechanics, streamlined presentation)
+   - **Required Before:** Campaign Frame header
+
+4. - [x] **Cartography System Ownership** 🟢
+   - **Question:** Formal Cartographer persona or lightweight workflow docs?
+   - **Impact:** Minimal — affects who "owns" GeoJSON generation and map updates
+   - **Options:** New persona, Lore Keeper extension, or user-triggered scripts
+   - **Can Defer:** Not blocking immediate work
+
+5. - [/] **GeoJSON Field Mapping** 🟡
    - **Question:** Which Location Note fields transfer to GeoJSON descriptions?
-   - **Impact:** Blocks GeoJSON automation, Python script creation
    - **Decisions Needed:**
      - Which fields: `resources`, `factions`, `elevation`, `narrative_weight`?
      - Description building strategy (combine how?)
      - Wikilink format: `[Full details: [[location-name]]]`?
      - Marker mapping: Location Note `type` → `marker-symbol` auto-mapping?
      - Single source of truth: manual trigger or auto-regenerate?
-     - Version control: git, Obsidian versioning, or both?
      - Validation checks: coordinates present, no duplicates, valid JSON?
-   - **Required Before:** Can build Python script and generate overlays
-
-### Secondary Decisions
-
-3. - [/] **Ancestries for Silk Road Setting** 🟡
-   - **Question:** Which Daggerheart ancestries fit? Custom ancestries needed?
-   - **Confirmed Fit:** Humans, Orcs, Dwarves, Elves, Halflings, Goblins
-   - **Decision Needed:** Use standard as-is, reflavor with Silk Road context, or create custom?
-   - **Required Before:** Heritage & Classes section of Campaign Frame
-
-4. - [/] **Campaign Frame Complexity Rating** 🟡
-   - **Question:** Rating 3 or 4 on Daggerheart complexity scale?
-   - **Factors:** Charm system + tool progression + R/H/K framework + archetype mechanics
-   - **Recommendation:** 3-4 (significant custom mechanics, streamlined presentation)
-   - **Required Before:** Campaign Frame header
-
-5. - [x] **Cartography System Ownership** 🟢
-   - **Question:** Formal Cartographer persona or lightweight workflow docs?
-   - **Impact:** Minimal — affects who "owns" GeoJSON generation and map updates
-   - **Options:** New persona, Lore Keeper extension, or user-triggered scripts
-   - **Can Defer:** Not blocking immediate work
+   - **Required Before:** Building GeoJSON automation script (low priority, not on critical path)
 
 ---
 
