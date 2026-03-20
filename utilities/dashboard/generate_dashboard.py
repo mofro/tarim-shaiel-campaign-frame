@@ -451,13 +451,20 @@ def parse_todo_sections(todo_text: str) -> list[Section]:
 
         # H3/H4 -> group
         elif re.match(r"^#{3,4} ", line) and active_section is not None:
+            prev_domain = active_group.domain if active_group else None
             flush_group()
             raw = re.sub(r"^#{3,4}\s+", "", line)
             has_done_marker = bool(re.search(r"LOCKED|COMPLETE|DECIDED|WORKING", raw, re.IGNORECASE))
             # Strip non-ASCII (emoji) then cleanup status suffixes
             raw = re.sub(r"[^\x00-\x7F]", "", raw).strip()
             raw = re.sub(r"\s*(LOCKED|COMPLETE|DECIDED|WORKING|NEW|PARTIAL)\s*.*$", "", raw, flags=re.IGNORECASE).strip()
-            domain = detect_domain(raw)
+            # Use SECTION_DOMAIN_HEADERS (same as compute_domain_pcts) so display
+            # domain matches the percentage domain. Fall back to parent group's domain
+            # rather than defaulting to "world" — prevents false WORLD classification
+            # for sub-headers like "GM-Facing Sections" or "Follow-up From DIVINE_PLAYERS.md"
+            h_lower = raw.lower()
+            matched = next((dom for kw, dom in SECTION_DOMAIN_HEADERS.items() if kw in h_lower), None)
+            domain = matched or prev_domain or detect_domain(raw)
             active_group = TodoGroup(title=raw, domain=domain)
             if active_section.status == "done" and has_done_marker:
                 active_group.items.append(TodoItem(text=raw, done=True))
@@ -912,6 +919,7 @@ def main():
     ap.add_argument("--todo", default=str(TODO_PATH))
     ap.add_argument("--out",  default=str(OUTPUT_PATH))
     ap.add_argument("--json", action="store_true", help="Also write dashboard_data.json alongside HTML")
+    ap.add_argument("--open", action="store_true", help="Open dashboard in browser after writing")
     args = ap.parse_args()
 
     todo_path = Path(args.todo)
@@ -954,6 +962,12 @@ def main():
         print(f"  {d:12s}: {pct}%{src}")
     print(f"  Sections  : {len(data.sections)}")
     print(f"  Blockers  : {len(data.blockers)}")
+
+    if args.open:
+        import webbrowser
+        webbrowser.open(out_path.as_uri())
+        print(f"  Opened in browser.")
+
     return 0
 
 if __name__ == "__main__":
