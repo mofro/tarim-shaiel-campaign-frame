@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-18
+last_updated: 2026-03-20
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -16,7 +16,7 @@ banner-y: 37
 
 ## PROJECT HEALTH
 
-**Last Updated:** 2026-03-18
+**Last Updated:** 2026-03-20
 **Critical Path:** Resolve cosmological architecture → Complete Session 0 scenarios → Resolve Campaign Frame → Playtest
 
 **Quick Summary:**
@@ -33,6 +33,12 @@ banner-y: 37
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-03-19
+- Created `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md` (canon) — 9 mortal stakeholders, full synthesis puzzle table, synthesis dependencies; supersedes Part 2 of STORY_ARC_SYNTHESIS.md for stakeholder awareness
+- Created `narrative/gm_secrets/DIVINE_PLAYERS.md` (canon) — seven divine players with full entries and alignment map; resolves Celestial Court and Elder Gods pending nodes in cosmological-architecture diagram; supersedes speculative entries in world/factions/Index.md
+- Marked all 6 Stakeholder Knowledge Distribution items complete
+- Follow-up flagged: update factions/Index.md + cosmological-architecture.md diagram
 
 ### 2026-03-18
 - Reviewed TODO and memory files at session start (DECISION_LOG, NEXT_SESSION_CONTEXT)
@@ -110,12 +116,17 @@ _Critical path items — must be completed for campaign launch_
 
 #### Stakeholder Knowledge Distribution (Must resolve for mid-campaign planning)
 
-- [ ] **Map High Elf awareness** — They understand the ecosystem, withdrew because of cosmological fear, possess preventive (not restorative) knowledge. This answers the Elven cosmology question: not "celestial refugees" but "cosmologically literate beings who retreated from a fault line."
-- [ ] **Map Dwarven archivist awareness** — Chronicle of Ages contains empirical evidence of ecosystem degradation (disappearance patterns, magical anomaly data). They have data but need theory.
-- [ ] **Map Orcish shamanic degradation** — Ancestor communication becoming unreliable as ecosystem symptom. Ancient epic songs contain literal descriptions of the entity. Liberation side effects woven into their traditions.
-- [ ] **Map human scholar suppression** — Scholar's Purge (~1175 CE) was Wizard eliminating researchers. Surviving scholars are scattered, hunted, hold practical fragments.
-- [ ] **Map Goblin/Halfling observational network** — Trade disruptions, dead zones, charm failures = best continent-wide empirical dataset of ecosystem degradation. They don't know what their data means.
-- [ ] **Design the information synthesis puzzle** — Heroes as the only beings who can assemble distributed knowledge from all cultures. This is a core campaign mechanic, not just plot.
+- [x] **Map High Elf awareness** — They understand the ecosystem, withdrew because of cosmological fear, possess preventive (not restorative) knowledge. This answers the Elven cosmology question: not "celestial refugees" but "cosmologically literate beings who retreated from a fault line." → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
+- [x] **Map Dwarven archivist awareness** — Chronicle of Ages contains empirical evidence of ecosystem degradation (disappearance patterns, magical anomaly data). They have data but need theory. → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
+- [x] **Map Orcish shamanic degradation** — Ancestor communication becoming unreliable as ecosystem symptom. Ancient epic songs contain literal descriptions of the entity. Liberation side effects woven into their traditions. → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
+- [x] **Map human scholar suppression** — Scholar's Purge (~1175 CE) was Wizard eliminating researchers. Surviving scholars are scattered, hunted, hold practical fragments. → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
+- [x] **Map Goblin/Halfling observational network** — Trade disruptions, dead zones, charm failures = best continent-wide empirical dataset of ecosystem degradation. They don't know what their data means. → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
+- [x] **Design the information synthesis puzzle** — Heroes as the only beings who can assemble distributed knowledge from all cultures. This is a core campaign mechanic, not just plot. → Section 1 of `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
+
+#### Follow-up From DIVINE_PLAYERS.md (2026-03-19)
+
+- [ ] **Update `world/factions/Index.md`** — supersede the speculative "Divine & Cosmic Powers" entries with the seven canonical divine players from `narrative/gm_secrets/DIVINE_PLAYERS.md`
+- [ ] **Update `world/diagrams/cosmological-architecture.md`** — resolve two ⚠️ pending nodes (Celestial Court nature + Elder Gods) using the locked divine player entries
 
 #### Items This Unblocks (Existing TODOs That Get Answered)
 
