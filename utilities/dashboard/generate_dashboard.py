@@ -231,7 +231,6 @@ def compute_readiness(domain_pcts: dict[str, int]) -> int:
 BLOCKER_PATTERNS = [
     (r"Campaign Frame.*?Archetypes|Classes vs",     "\u26d4 Campaign Frame: Classes vs. Archetypes decision required"),
     (r"liberation_aftermath.*?200|200.year.*?liberation", "\u26a0\ufe0f liberation_aftermath.md — wrong 200yr timeline throughout"),
-    (r"Elven cosmolog",                              "\U0001f33f Elven cosmology decision (cascades into culture + magic)"),
 ]
 
 def extract_blockers(todo_text: str) -> list[str]:
