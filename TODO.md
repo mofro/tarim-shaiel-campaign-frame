@@ -26,7 +26,7 @@ banner-y: 37
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to `archive/charms/`; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to `BACKLOG.md`
 
-**Players:** 1/10 committed — Warrior ✅ | Breaker / Bridge / Seeker / Sacrificer / Visionary / Trickster / Crafter / Sentinel / Healer ⏳
+**Players:** 1/6 committed — Warrior ✅ | Breaker / Bridge / Seeker / Sacrificer / Visionary / Trickster / Crafter / Sentinel / Healer ⏳
 
 ---
 
