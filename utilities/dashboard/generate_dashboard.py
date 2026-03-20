@@ -70,13 +70,16 @@ DOMAIN_KEYWORDS: dict[str, list[str]] = {
     ],
 }
 
-def detect_domain(text: str) -> str:
+def detect_domain(text: str, default: str = "general") -> str:
+    """Return the best-matched domain for text, or `default` if nothing matches.
+    Callers that need a fallback should pass an explicit default rather than
+    relying on silent world-classification of unrelated content."""
     t = text.lower()
     for domain, keywords in DOMAIN_KEYWORDS.items():
         for kw in keywords:
             if kw in t:
                 return domain
-    return "world"
+    return default
 
 def obsidian_link(vault_path: str, vault: str = "HeroHeaven") -> str:
     clean = vault_path.lstrip("/").replace(".md", "")
@@ -171,23 +174,32 @@ SECTION_DOMAIN_HEADERS: dict[str, str] = {
 def compute_domain_pcts(todo_text: str, overrides: dict[str, int]) -> dict[str, int]:
     counts: dict[str, list[int]] = {d: [0, 0] for d in ["narrative", "mechanics", "world", "infra", "cosmology"]}
     current_domain: Optional[str] = None
+    in_excluded_h2: bool = False
 
-    # H2 sections that are archival/reference — never count their checkboxes
-    EXCLUDED_H2 = {"session log", "completed"}
+    # H2 sections that are pure journal/archive — never count their checkboxes
+    # NOTE: "completed" is intentionally NOT excluded here — completed items
+    # must count as done toward the domain percentages so the gauge reflects
+    # actual overall progress, not just how much of the outstanding work is ticked.
+    EXCLUDED_H2 = {"session log"}
 
     for line in todo_text.splitlines():
         if re.match(r"^#{2,4} ", line):
             h_text = re.sub(r"^#{2,4}\s+", "", line).lower()
             # H2 exclusion check: if we enter an archive section, kill domain and
-            # keep it dead until another tracked H2 is found
+            # keep it dead (including for any H3/H4 within) until another H2 is found
             if re.match(r"^## ", line):
                 if any(excl in h_text for excl in EXCLUDED_H2):
                     current_domain = None
+                    in_excluded_h2 = True
                     continue
-            for kw, domain in SECTION_DOMAIN_HEADERS.items():
-                if kw in h_text:
-                    current_domain = domain
-                    break
+                else:
+                    in_excluded_h2 = False
+            # Don't let H3/H4 inside excluded sections re-activate domain tracking
+            if not in_excluded_h2:
+                for kw, domain in SECTION_DOMAIN_HEADERS.items():
+                    if kw in h_text:
+                        current_domain = domain
+                        break
         if current_domain:
             if re.search(r"- \[x\]", line, re.IGNORECASE):
                 counts[current_domain][0] += 1
@@ -220,7 +232,6 @@ BLOCKER_PATTERNS = [
     (r"Campaign Frame.*?Archetypes|Classes vs",     "\u26d4 Campaign Frame: Classes vs. Archetypes decision required"),
     (r"liberation_aftermath.*?200|200.year.*?liberation", "\u26a0\ufe0f liberation_aftermath.md — wrong 200yr timeline throughout"),
     (r"Elven cosmolog",                              "\U0001f33f Elven cosmology decision (cascades into culture + magic)"),
-    (r"GeoJSON.*?[Ff]ield [Mm]apping",              "\U0001f5fa GeoJSON field mapping decision (blocks automation script)"),
 ]
 
 def extract_blockers(todo_text: str) -> list[str]:
@@ -443,13 +454,22 @@ def parse_todo_sections(todo_text: str) -> list[Section]:
 
         # H3/H4 -> group
         elif re.match(r"^#{3,4} ", line) and active_section is not None:
+            prev_domain = active_group.domain if active_group else None
             flush_group()
             raw = re.sub(r"^#{3,4}\s+", "", line)
             has_done_marker = bool(re.search(r"LOCKED|COMPLETE|DECIDED|WORKING", raw, re.IGNORECASE))
             # Strip non-ASCII (emoji) then cleanup status suffixes
             raw = re.sub(r"[^\x00-\x7F]", "", raw).strip()
             raw = re.sub(r"\s*(LOCKED|COMPLETE|DECIDED|WORKING|NEW|PARTIAL)\s*.*$", "", raw, flags=re.IGNORECASE).strip()
-            domain = detect_domain(raw)
+            # Use SECTION_DOMAIN_HEADERS (same as compute_domain_pcts) so display
+            # domain matches the percentage domain. Fall back to parent group's domain
+            # rather than defaulting to "world" — prevents false WORLD classification
+            # for sub-headers like "GM-Facing Sections" or "Follow-up From DIVINE_PLAYERS.md".
+            # If neither header nor parent matches, fall back to detect_domain with
+            # "general" default (never silently classifies as world).
+            h_lower = raw.lower()
+            matched = next((dom for kw, dom in SECTION_DOMAIN_HEADERS.items() if kw in h_lower), None)
+            domain = matched or prev_domain or detect_domain(raw, default="general")
             active_group = TodoGroup(title=raw, domain=domain)
             if active_section.status == "done" and has_done_marker:
                 active_group.items.append(TodoItem(text=raw, done=True))
@@ -457,7 +477,7 @@ def parse_todo_sections(todo_text: str) -> list[Section]:
         # Checkbox item
         elif re.match(r"^\s*- \[[ xX]\]", line) and active_section is not None:
             if active_group is None:
-                active_group = TodoGroup(title="General", domain=detect_domain(line))
+                active_group = TodoGroup(title="General", domain=detect_domain(line, default="general"))
             flush_item()
             done = bool(re.match(r"^\s*- \[[xX]\]", line))
             text = re.sub(r"^\s*- \[[xX ]\]\s*", "", line)
@@ -507,6 +527,7 @@ DOMAIN_COLORS = {
     "mechanics":  "#3949ab",
     "infra":      "#7b1fa2",
     "cosmology":  "#0277bd",
+    "general":    "#78909c",  # neutral blue-grey for unclassified items
 }
 
 def _obs_link(label: str, vault_path: str) -> str:
@@ -701,6 +722,7 @@ def render_html(data: DashboardData) -> str:
     .domain-world     {{ background:#e8f5e9; color:#1b5e20; border:1px solid #a5d6a7; }}
     .domain-infra     {{ background:#f3e5f5; color:#4a148c; border:1px solid #ce93d8; }}
     .domain-cosmology {{ background:#e1f5fe; color:#01579b; border:1px solid #81d4fa; }}
+    .domain-general   {{ background:#eceff1; color:#37474f; border:1px solid #b0bec5; }}
     .todo-group-title {{ font-family:'Cinzel',serif; font-size:14px; font-weight:600; color:var(--ink); }}
     .todo-item {{ padding:10px 20px 10px 32px; display:flex; gap:12px; align-items:flex-start; border-bottom:1px solid rgba(184,146,44,0.08); transition:background 0.15s; }}
     .todo-item:last-child {{ border-bottom:none; }}
@@ -904,6 +926,7 @@ def main():
     ap.add_argument("--todo", default=str(TODO_PATH))
     ap.add_argument("--out",  default=str(OUTPUT_PATH))
     ap.add_argument("--json", action="store_true", help="Also write dashboard_data.json alongside HTML")
+    ap.add_argument("--open", action="store_true", help="Open dashboard in browser after writing")
     args = ap.parse_args()
 
     todo_path = Path(args.todo)
@@ -946,6 +969,12 @@ def main():
         print(f"  {d:12s}: {pct}%{src}")
     print(f"  Sections  : {len(data.sections)}")
     print(f"  Blockers  : {len(data.blockers)}")
+
+    if args.open:
+        import webbrowser
+        webbrowser.open(out_path.as_uri())
+        print(f"  Opened in browser.")
+
     return 0
 
 if __name__ == "__main__":
