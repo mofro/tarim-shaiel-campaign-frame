@@ -21,7 +21,7 @@ banner-y: 37
 
 **Quick Summary:**
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (all 8 decisions locked 2026-03-17)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
-- 🔄 **Active work:** Session 0 scenarios (3/6 done), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
+- 🔄 **Active work:** Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to `archive/charms/`; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to `BACKLOG.md`
@@ -33,6 +33,12 @@ banner-y: 37
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-03-20
+- Developed Surrendered-Layer Framework via comparative analysis of Warrior, Breaker, and Seeker awakenings: each tool = the specific attribute surrendered at the threshold; the tool's voice is the exiled self trying to reclaim primacy
+- Codified full 10-archetype taxonomy: surrendered layer, tool proposal, voice character, and crisis test for all archetypes (6 core + 4 expanded)
+- Filed to `gm_secrets/Session_0_Awakening_Design_Notes.md` (new §THE SURRENDERED-LAYER FRAMEWORK), `TOOL_EVOLUTION_FRAMEWORK.md` (filled deferred Tool Personalities section), and `mechanics/design-decisions/DECISION_LOG.md`
+- **Two open design questions flagged before framework locks:** (1) Seeker tome/bow discrepancy between TOOL_EVOLUTION_FRAMEWORK Stage 0 examples and written awakening; (2) Sentinel tool conflict — existing stub has "recording device" (epistemic/witness function), framework proposes "cracked lantern" (doxastic/vigilance function) — different design logic, requires creative decision
 
 ### 2026-03-19
 - Created `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md` (canon) — 9 mortal stakeholders, full synthesis puzzle table, synthesis dependencies; supersedes Part 2 of STORY_ARC_SYNTHESIS.md for stakeholder awareness
@@ -178,37 +184,43 @@ _Critical path items — must be completed for campaign launch_
 **Estimated remaining effort:** 4-5 sessions
 
 ### 3. Session 0 Completion 🔄 IN PROGRESS
-**Status:** 3 of 6 awakening scenarios complete
+**Status:** 3 of 6 core awakening scenarios complete. 4 expanded archetypes have design framework (surrendered layer + tool proposal + crisis test) but no prose.
+**Design anchor:** Surrendered-Layer Framework filed 2026-03-20 — all new awakenings use this as the design checklist. See `gm_secrets/Session_0_Awakening_Design_Notes.md` §THE SURRENDERED-LAYER FRAMEWORK.
 
-**Remaining Work:**
+**Open design questions (resolve before writing):**
+- [ ] **Seeker tome/bow discrepancy** — TOOL_EVOLUTION_FRAMEWORK Stage 0 lists bow; written awakening uses tome. Reconcile before Character Creation doc is finalized.
+- [ ] **Sentinel tool** — existing stub: recording device (epistemic/witness); framework proposal: cracked lantern (doxastic/vigilance). Different design logic. Creative decision required.
+
+**Core Six — Remaining Work:**
 - [ ] **Breaker Awakening Scenario** (~1 session)
-  - Finish segment structure
-  - Erikson-inspired prose
-  - Tool interaction (offering/sacrifice mechanics)
+  - Rewrite Segment 5 per revised single-path architecture (leave the hammer — see Design Notes)
+  - Write Segments 6-8 (Snippet, Rescue, Convergence)
+  - Tool: crude hammer — surrendered layer: ontological (identity through destruction); voice: comforts, *"I'm right here"*
 
 - [ ] **Sacrificer Awakening Scenario** (~1 session)
-  - 8-segment structure
-  - Erikson-inspired prose
-  - Tool interaction (offering/sacrifice mechanics)
+  - 8-segment structure (woven into Act 2 convergence, not standalone)
+  - Resolve open situation question: what currency of sacrifice? what relationship? what forces the confrontation?
+  - Tool: balance scale with one pan missing — surrendered layer: volitional (right to refuse); voice: offers cost with perfect clarity
   - Secret snippet trigger moment
 
 - [ ] **Visionary Awakening Scenario** (~1 session)
-  - 8-segment structure
-  - Tarot deck as mystical tool
-  - Foresight/path-showing mechanics
+  - 8-segment structure (fast/explosive — 15-20 min target)
+  - ⚠️ Tool conflict: existing notes say "tarot deck"; framework proposes obsidian disk (polished, divination mirror). Resolve before writing.
+  - Surrendered layer: perceptual (right to look away); voice: shows — silent, directional, layers visions over present
   - Secret snippet trigger moment
 
 - [ ] **Bridge Awakening Scenario** (~1 session)
-  - 8-segment structure
-  - Unity/influence mechanics
-  - Voice/conviction tool
+  - 8-segment structure (dialogue-driven, 20-25 min target)
+  - ⚠️ Tool conflict: existing notes say "voice/conviction tool"; framework proposes knotted silk cord. Resolve before writing. (May be complementary: seal = social proof, cord = tool proper.)
+  - Surrendered layer: relational (right to have a side); voice: aches — weight of never landing
   - Secret snippet trigger moment
 
-- [ ] **Sentinel awakening** — NEW (~1 session) — stub in `Session_0_Awakening_Design_Notes.md`
-- [ ] **Keeper awakening** — NEW (~1 session) — stub in `Session_0_Awakening_Design_Notes.md`
-- [ ] **Trickster awakening** — NEW (~1 session) — stub in `Session_0_Awakening_Design_Notes.md`
-- [ ] **Crafter awakening** — NEW (~1 session) — stub in `Session_0_Awakening_Design_Notes.md`
-- [ ] **Healer awakening** — NEW (~1 session) — stub in `Session_0_Awakening_Design_Notes.md`
+**Expanded Four — Design Framework Only (write when archetype enters play):**
+- [ ] **Trickster awakening** — framework: shaved coin / authenticating layer / mirrors hero's own voice
+- [ ] **Crafter awakening** — framework: worn whetstone / receptive layer / *"one more pass"*
+- [ ] **Sentinel awakening** — framework: TBD (see open question above) / doxastic layer / vigilance-without-trust
+- [ ] **Healer awakening** — framework: bone needle + silk thread / restorative layer / insists toward next wound
+- [ ] *(Keeper awakening — not in expanded player list but stub exists in Design Notes)*
 
 - [ ] **Populate Shared_Memory_Events.md** (~1-2 sessions)
   - 5 thematic events (framework defined)
@@ -219,10 +231,10 @@ _Critical path items — must be completed for campaign launch_
   - Event 5: The Wizard's Shadow (false certainty about threat)
   - Each event: 400-600 word sensory scene + canonical truths revealed
 
-- [ ] **Write Actual Secret Snippets** (~1 session)
-  - 6 archetype-specific snippets
+- [ ] **Write Actual Secret Snippets** (~1 session for core 6; expanded 4 deferred)
+  - 6 core archetype snippets (priority); 4 expanded snippets when scenarios are written
   - Sensory + emotional register (not explanatory)
-  - Tied to awakening scenario trigger moments
+  - Tied to awakening scenario trigger moments — each snippet surfaces: *"you've faced this choice before"*
   - Creates player-to-character investment
 
 - [ ] **Create Session_0_GM_NOTES.md** (~1-2 sessions)
@@ -233,8 +245,9 @@ _Critical path items — must be completed for campaign launch_
 
 - [ ] **Finalize PLAYER_PITCH_AND_PRINCIPLES.md** (~1 session)
   - Both versions: transparent (GM reference) + less-transparent (player-facing)
-  - All six archetype descriptions
+  - 6 core archetype descriptions (priority) + 4 expanded (Trickster, Crafter, Sentinel, Healer) when ready
   - Player principles (4-6 guidelines)
+  - ⚠️ All descriptions must be present-tense psychological framing only — no hints of fallen godhood or past power
 
 **Total Estimated:** 7-10 sessions
 
@@ -530,7 +543,7 @@ _Last verified: 2026-02-05_
 - [x] **Fear Complication:** Affects tool usage (specific mechanics TBD)
 
 ### Character Identity
-- [x] **Archetypes:** 6 options (Breaker, Bridge, Seeker, Sacrificer, Warrior, Visionary)
+- [x] **Archetypes:** 6 core (Breaker, Bridge, Seeker, Sacrificer, Warrior, Visionary) + 4 expanded optional (Trickster, Crafter, Sentinel, Healer) — Surrendered-Layer Framework covers all 10 (2026-03-20)
 - [x] **Domain Alignment:** Maps to Daggerheart domains
 - [x] **Starting State:** Crude tools + tier 1 foundation Charms
 

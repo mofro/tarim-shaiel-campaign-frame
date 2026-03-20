@@ -307,20 +307,51 @@ The tool whispers: "We are whole again."
 
 ## PART 7: DESIGN NOTES
 
-### **Tool Personalities (Deferred)**
+### **Tool Personalities**
 
-Tools are **limited entities** with their own nature (Moorcock-style blades), but specific personality frameworks will be developed after playtesting. For now:
+*Framework developed 2026-03-20 from comparative analysis of three completed awakenings. Full design rationale and complete archetype grid: `narrative/sessions/00_session0/gm_secrets/Session_0_Awakening_Design_Notes.md` §THE SURRENDERED-LAYER FRAMEWORK.*
 
-**Guidelines:**
-- Tools have preferences (expressed through whispers)
-- Tools have drives (Hunger for certain actions)
-- Tools have knowledge (Know what hero has forgotten)
-- Tools are NOT neutral—they push toward specific behaviors
+Tools are **limited entities** with their own nature (Moorcock-style). Their personality is not invented independently — it follows from what the tool *is*: the specific attribute the hero surrendered at the threshold. The tool's voice is the exiled self trying to reclaim primacy.
 
-**To be developed:**
-- Archetype-specific personality templates
-- R/H/K whisper pattern frameworks
-- GM guidance on voicing tools consistently
+**The governing principle:** Each tool is the specific attribute surrendered at the threshold. Its resistance, hunger, and whispers are not neutral or protective — they are the surrendered self lobbying to come back.
+
+---
+
+#### Voice Character Per Archetype
+
+| Archetype | Tool | Voice character |
+|---|---|---|
+| Seeker | Tome | Argues, whispers, seduces through reason — *"without certainty, what are you?"* |
+| Warrior | Iron blade (bone-wrapped) | Howls — pre-verbal, embodied, instinctive; moves the body before the mind decides |
+| Breaker | Crude hammer | Comforts — *"I'm right here"* — offers identity back, not just power |
+| Bridge | Knotted silk cord | Aches — the weight of never landing; *"you could tie one end to something and stay"* |
+| Sacrificer | Scale, one pan missing | Offers — presents the cost of every action with perfect clarity; cannot measure return |
+| Visionary | Obsidian disk | Shows — silent, directional; layers visions over the present; does not speak, only illuminates |
+| Trickster | Shaved coin | Mirrors — sounds exactly like the hero's own voice; hero cannot locate the seam |
+| Crafter | Worn whetstone | Persists — *"one more pass"* — never urgent, never satisfied, consuming itself to improve everything else |
+| Sentinel | Cracked lantern | Points — illuminates without distinguishing real threat from the hero's own fear |
+| Healer | Bone needle + silk thread | Insists — the physical pull toward the next wound; the thread runs shorter every time |
+
+---
+
+#### R/H/K Pattern Templates
+
+**Resist** — The tool refuses when the hero uses the surrendered attribute to avoid a harder truth (not to protect the hero; the tool has no interest in the hero's safety — it has an interest in its own nature being *correctly deployed*).
+
+**Hunger** — The tool calls for use when the surrendered attribute is genuinely the right answer. The hero's challenge is learning to distinguish authentic hunger from reflexive demand.
+
+**Know** — The tool delivers the specific memory of a time when the surrendered thing was the right tool for the moment — not as permission to always use it, but as proof that it has genuine value. The Warren mediates this delivery and may frame it strategically.
+
+---
+
+#### GM Guidance on Voicing Tools
+
+- The tool's voice is **not the Warren's voice**. The Warren speaks through Know; the tool speaks through its own nature, which predates the Warren relationship.
+- **Seeker's tome** argues. If you play it, use complete sentences with logical structure.
+- **Warrior's blade** doesn't argue. It moves the body. Describe it as physical sensation, not thought.
+- **Breaker's hammer** is almost tender. It's not aggressive — it's offering comfort. Play it as warmth, weight, familiarity.
+- For tools not yet written: follow the voice character in the table above. The voice should always feel like *the hero talking to themselves*, because it is — just the part of themselves they gave away.
+- Never let the tool feel neutral. It always wants something specific. The R/H/K mechanic is the moment where that want becomes a question the hero has to answer.
 
 ### **Edge Cases**
 
@@ -369,6 +400,6 @@ Tools are **limited entities** with their own nature (Moorcock-style blades), bu
 
 ---
 
-**Last Updated:** 2026-01-11  
-**Next Steps:** Create CHARACTER_CREATION_SEQUENCE.md with Session -1 questionnaire structure  
+**Last Updated:** 2026-03-20
+**Next Steps:** Create CHARACTER_CREATION_SEQUENCE.md with Session -1 questionnaire structure; resolve Seeker tome/bow discrepancy between Stage 0 examples and written awakening scenario
 **Maintained by:** Lore Keeper, with input from Mythweaver
