@@ -155,6 +155,7 @@ Claude Code creates a worktree automatically at conversation start — ignore it
 
 ## Working Conventions
 
+- **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.
 - **TODO.md is the session anchor.** Start each session by reading it.
 - **Update `last_updated` frontmatter** when editing any persistent file.
 - **DECISION_LOG.md gets an entry** for any significant design choice — include date, decision, rationale, and lock status.
