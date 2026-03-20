@@ -173,8 +173,11 @@ def compute_domain_pcts(todo_text: str, overrides: dict[str, int]) -> dict[str, 
     current_domain: Optional[str] = None
     in_excluded_h2: bool = False
 
-    # H2 sections that are archival/reference — never count their checkboxes
-    EXCLUDED_H2 = {"session log", "completed"}
+    # H2 sections that are pure journal/archive — never count their checkboxes
+    # NOTE: "completed" is intentionally NOT excluded here — completed items
+    # must count as done toward the domain percentages so the gauge reflects
+    # actual overall progress, not just how much of the outstanding work is ticked.
+    EXCLUDED_H2 = {"session log"}
 
     for line in todo_text.splitlines():
         if re.match(r"^#{2,4} ", line):
