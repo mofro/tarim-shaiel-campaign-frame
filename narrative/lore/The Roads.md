@@ -1,21 +1,12 @@
 ---
-date:
-session_number:
-opening_scene:
-broader_narrative_impact:
-narrative_focus:
-narrative_challenges_overcome:
-narrative_developments:
-potential_narrative_directions:
-knowledge_shared_discoveries:
-unresolved_threads:
-suggested_scene_focuses:
-world_state_changes:
-banner: images/people/NPCs/Narrator/Julian-Narrator.png
-banner-x: 47
-banner-y: 14
-banner-align: center
-banner-display: 30%
+title: The Roads
+project: TTRPG_Tarim_Shaiel
+type: narrative
+visibility: public
+status: canon
+created: 2026-03-21
+last_updated: 2026-03-21
+description: The roads were here before the empire. A lore piece on the world's ancient trade routes and the silence that has returned to them.
 ---
 
 ### Narrative Summary
