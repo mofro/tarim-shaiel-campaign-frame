@@ -1,5 +1,12 @@
 # HERO HEAVEN DESIGN DECISIONS LOG
 
+> **⚠️ SUPERSEDED — 2026-03-21**
+> This file is no longer the canonical decision log. Active decisions have been migrated to `.meta/DECISION_LOG.md`.
+> This file is retained as historical record only. Do not add new decisions here.
+> - Charm system content: deprecated (archived 2026-03-13)
+> - Surrendered-Layer Framework: migrated to `.meta/DECISION_LOG.md` as Decision 10
+> - Convergence Architecture: migrated to `.meta/DECISION_LOG.md` as Decision 9
+
 **Last Updated:** 2026-01-01
 **Maintained by:** Lore Keeper
 

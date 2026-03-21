@@ -322,3 +322,42 @@ Six Convergence Points (CP1–CP6) govern stakes escalation across Sessions 3–
 - `world/GLOSSARY_PLAYER.md` (new, draft — player-facing vocabulary stub)
 - `narrative/Shared_Memory_Events.md` (updated — CP distribution, locked count, frontmatter corrected)
 - `archive/Context.md` (moved from root — completed work order, annotated)
+
+---
+
+### Decision 10: Surrendered-Layer Framework — PROPOSED (pending lock)
+**Date:** 2026-03-20
+**Status:** Proposed — pending review and confirmation against character files.
+
+The **Surrendered-Layer Framework** is adopted as the governing design principle for all awakening scenarios.
+
+**Core principle:** Each tool is the specific attribute surrendered at the threshold. The tool's behavior — its voice, its resistance, its hunger — is the exiled self trying to reclaim primacy. The awakening's crisis is always the same question: *will the hero let the surrendered thing come back?*
+
+**Rationale:** Emerged from comparative analysis of three independently-written awakening scenarios (Warrior, Seeker, Breaker). The pattern was already present in all three without having been explicitly designed for.
+
+**The Surrendered Layers:**
+
+| Archetype | Layer | What they gave up |
+|---|---|---|
+| Seeker | Epistemic | Certainty as operating system |
+| Warrior | Tactical | Force as the clean answer |
+| Breaker | Ontological | Identity defined by what they can destroy |
+| Bridge | Relational | The right to have a side |
+| Sacrificer | Volitional | The right to refuse |
+| Visionary | Perceptual | The right to look away |
+| Trickster | Authenticating | The right to be believed when telling the truth |
+| Crafter | Receptive | The experience of the world as finished |
+| Sentinel | Doxastic | The ability to trust without evidence |
+| Healer | Restorative | The certainty that wholeness is possible |
+
+**Tool proposals (proposed, unconfirmed):** Seeker: Tome | Warrior: Iron blade | Breaker: Crude hammer | Bridge: Knotted silk cord | Sacrificer: Scale with one pan missing | Visionary: Obsidian disk | Trickster: Shaved coin | Crafter: Worn whetstone | Sentinel: Cracked lantern | Healer: Bone needle + silk thread
+
+**Open items before locking:**
+- Resolve Seeker tome/bow discrepancy (TOOL_EVOLUTION_FRAMEWORK Stage 0 vs. written awakening)
+- Confirm Sentinel tool ("recording device" vs. "cracked lantern" — different design logic)
+- Cross-check all layer assignments against existing character files
+- Confirm expanded archetypes (Trickster, Crafter, Sentinel, Healer) have design skeletons before play
+
+**Full rationale and voice character:** `narrative/sessions/00_session0/gm_secrets/Session_0_Awakening_Design_Notes.md` §THE SURRENDERED-LAYER FRAMEWORK
+
+**Migrated from:** `mechanics/design-decisions/DECISION_LOG.md` (2026-03-21)
