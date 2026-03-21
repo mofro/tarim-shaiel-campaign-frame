@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-20
+last_updated: 2026-03-21
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -33,6 +33,14 @@ banner-y: 37
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-03-21
+- Designed mid-campaign Convergence Point architecture (six points, Sessions 3-26): world-dynamic pressure systems that escalate stakes without plot-on-rails
+- Filed to `narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md` (canon) + `DECISION_LOG.md` entry
+- Shared Memory Event distribution locked: Events 1-2 at CP1, Events 3-4 at CP3, Event 5 at CP5
+- The Wrongness three-tier escalation defined (obstacle → moral complication → weight made concrete)
+- Tool stage transition timing locked to convergence points
+- **Follow-up flagged:** Populate `narrative/Shared_Memory_Events.md` (currently template stubs) using CP distribution; update `narrative/STORY_ARC_SYNTHESIS.md` pre-lock framing
 
 ### 2026-03-20
 - Developed Surrendered-Layer Framework via comparative analysis of Warrior, Breaker, and Seeker awakenings: each tool = the specific attribute surrendered at the threshold; the tool's voice is the exiled self trying to reclaim primacy
