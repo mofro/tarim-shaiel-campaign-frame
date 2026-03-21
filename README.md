@@ -37,9 +37,8 @@ This is a comprehensive TTRPG campaign development workspace for **Tarim-Shaiel*
 ### ⚙️ Game Mechanics
 - **[[mechanics/Index|Mechanics Hub]]** - Complete game systems (5 domains)
   - **Character Creation** - Session 0 and character development
-  - **Character Progression** - Charms, tools, advancement systems
-  - **Magic Systems** - Spells vs charms analysis
-  - **Charm Analysis** - Detailed charm system research
+  - **Character Progression** - Tiers, Tools, advancement systems
+  - **Magic Systems** - Warren-sourced spells and effects
   - **Design Decisions** - Mechanical design rationale
 
 ### 🌍 World-Building
