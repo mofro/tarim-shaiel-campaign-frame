@@ -260,6 +260,12 @@ _CORE_DOCS = [
         'meta':     'Player-Facing · v2.0 · Daggerheart',
         'desc':     'The pitch, themes, principles, and session zero questions. Everything your players need before character creation.',
     },
+    {
+        'filename': 'the-roads.html',
+        'title':    'The Roads',
+        'meta':     'World Lore · Public',
+        'desc':     "The roads were here before the empire. A lore piece on the world's ancient trade routes and the silence that has returned to them.",
+    },
 ]
 
 
