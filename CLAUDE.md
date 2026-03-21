@@ -80,7 +80,7 @@ Full guidelines: `FILE_PERSISTENCE_GUIDELINES.md`
 
 ## Locked Decisions — Do Not Change Without Explicit Override
 
-These are authoritative. Source: `DECISION_LOG.md` and `ARCHITECTURAL_DECISIONS.md`.
+These are authoritative. Source: `.meta/DECISION_LOG.md` and `ARCHITECTURAL_DECISIONS.md`.
 
 1. **Session 0 narrative architecture** — Four-axis flashback triggers, 5 thematic shared memory events, 7-segment pacing (~145 min play / 4.5-5 hrs with pacing), GM-imposed recognition at campfire
 2. **Player pitch & archetype descriptions** — Describe CURRENT psychological pattern + role function only. No hints of fallen godhood, past power, or cosmic mystery.
