@@ -119,3 +119,44 @@ Full rationale and voice character: `narrative/sessions/00_session0/gm_secrets/S
 - Confirm Sentinel tool (existing stub has "recording device"; framework proposes "cracked lantern" — different design logic; requires creative decision)
 - Cross-check all layer assignments against existing character files
 - Confirm expanded archetypes (Trickster, Crafter, Sentinel, Healer) get at minimum a one-page design skeleton before play begins
+
+---
+
+## MID-CAMPAIGN CONVERGENCE POINT ARCHITECTURE
+
+**Date:** 2026-03-21
+**Status:** Canon
+
+### Decision
+
+The mid-campaign (Sessions 3-26) is structured around six **Convergence Points** — moments of maximum gravitational pull created by multiple independent world-forces arriving simultaneously. These are not quests or plot beats; they are pressure systems the heroes cannot avoid indefinitely because the forces that create them are always moving.
+
+**The six points:**
+1. "The Chain-Breakers Know" (Sessions 3-6) — Layer 1 depth; incomplete charge named
+2. "The Dwarven Archive Speaks" (Sessions 7-11) — Layer 1 deepened; active suppression confirmed
+3. "The Orcish Songs Are Literal" (Sessions 10-14) — Held Breath named; beacon event confirmed
+4. "The Mirror Cracks" (Sessions 13-18, variable) — Full cosmological architecture; synthesis proven insufficient
+5. "The Wizard Is Already There" (Sessions 17-22) — Layer 2; Wizard's plan would breach containment
+6. "The Companion Speaks Clearly" (Sessions 21-26) — Layer 2 → 3 transition; deeper charge named
+
+### Rationale
+
+The campaign had clearly defined Act I (Awakening) and Act III (endgame) with locked cosmological architecture but no designed stakes escalation for the meaty middle. Without designed pressure points, the risk is players moving from personal confusion directly to cosmic stakes without the emotional preparation that earns the endgame. The Convergence Point architecture solves this for an open-world campaign by creating gravitational pull rather than plot rails.
+
+### Canonical reference
+
+`narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md`
+
+### What this locks
+
+- The six convergence point structure, their approximate session ranges, and their revelation layer assignments
+- Shared Memory Event distribution: Events 1-2 at CP1, Events 3-4 at CP3, Event 5 at CP5
+- The Wrongness three-tier environmental escalation (obstacle → moral complication → weight made concrete)
+- Tool stage transition timing: Stage 1 at CP1, Stage 2 at CP2, Stage 3 begin at CP5, complete at CP6
+
+### What remains flexible
+
+- Exact session numbers (±5 sessions per point)
+- Order of CPs 2-5 within their ranges
+- Jade Illusionist placement (can appear at any convergence)
+- Specific locations (convergence mechanisms are world-dynamic, not geographic)
