@@ -584,6 +584,24 @@ CSS = """
       margin: 0 3rem;
     }
 
+    .back-nav {
+      background: #111008;
+      padding: 0.5rem 3rem;
+      border-bottom: 1px solid rgba(184,146,44,0.2);
+    }
+
+    .back-nav a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(184,146,44,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-nav a:hover { color: var(--gold); }
+
     .content {
       position: relative;
       z-index: 1;
@@ -859,6 +877,11 @@ def build_html(sections: dict[str, str], version: str = 'v2.0') -> str:
 <body>
 
 <div class="page-wrap">
+
+  <!-- BACK NAV -->
+  <div class="back-nav">
+    <a href="index.html">&#8592; Campaign Documents</a>
+  </div>
 
   <!-- COVER -->
   <div class="cover">
