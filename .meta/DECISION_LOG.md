@@ -294,3 +294,31 @@ The nested story arc shape is confirmed:
 - **Layer 3 (endgame):** Stopping the Wizard is necessary but not sufficient — the heroes must also reckon with the Warren-level agendas and entities disturbed by the liberation 1,000 years ago, and address what was already stirring before the Wizard ever made his move
 
 **Integration note:** Layer 3 ties Decision 6 (liberation disturbance) directly into the endgame. The heroes' incomplete charge is not just "stop the Wizard" and not just "repair damage" — it's "account for everything your power has touched, including what you woke a thousand years ago." The tools (as Warren ambassadors, Decision 5) are the mechanism by which they can act at this scale.
+
+---
+
+### Decision 9: Mid-Campaign Convergence Architecture — LOCKED
+**Date:** 2026-03-20
+
+Six Convergence Points (CP1–CP6) govern stakes escalation across Sessions 3–26. CPs are not quests or plot waypoints — they are inevitable collisions between independently-moving world forces. Heroes cannot dodge them indefinitely.
+
+**The six CPs:**
+- CP1 "The Chain-Breakers Know" (Sessions 3–6) — incomplete charge named; SMEs 1–2
+- CP2 "The Dwarven Archive Speaks" (Sessions 7–11) — Scholar's Purge as deliberate suppression
+- CP3 "The Orcish Songs Are Literal" (Sessions 10–14) — Held Breath named; SMEs 3–4
+- CP4 "The Mirror Cracks" (Sessions 13–18, variable) — full cosmological architecture received and immediately proven insufficient
+- CP5 "The Wizard Is Already There" (Sessions 17–22) — Layer 2 revelation; SME 5; all tools resist simultaneously
+- CP6 "The Companion Speaks Clearly" (Sessions 21–26) — Layer 2→3 transition; charge fully named
+
+**SME distribution locked:** SMEs 1–2 at CP1, SMEs 3–4 at CP3, SME 5 at CP5.
+
+**The Wrongness escalation:** Three tiers keyed to CP pairs — localized dead zones (CP1–2), alive-wrong dead zones (CP3–4), location endings (CP5–6). Always Warren disturbance framing.
+
+**New vocabulary established:** "Convergence Point (CP)" — defined in `mechanics/GLOSSARY_GM.md` and `narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md`.
+
+**Files created/updated:**
+- `narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md` (new, canon)
+- `mechanics/GLOSSARY_GM.md` (new, draft — seed entries including CP definition)
+- `world/GLOSSARY_PLAYER.md` (new, draft — player-facing vocabulary stub)
+- `narrative/Shared_Memory_Events.md` (updated — CP distribution, locked count, frontmatter corrected)
+- `archive/Context.md` (moved from root — completed work order, annotated)

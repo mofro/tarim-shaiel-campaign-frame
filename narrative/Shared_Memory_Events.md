@@ -1,9 +1,11 @@
 ---
-title: Shared Memory Events - Interaction Trigger Architecture
+title: Shared Memory Events — Interaction Trigger Architecture
 project: TTRPG_Tarim_Shaiel
-type: narrative_framework
-status: template_ready_for_population
+type: narrative
+visibility: gm_secrets
+status: draft
 created: 2025-12-23
+last_updated: 2026-03-20
 ---
 
 # Shared Memory Events: Interaction Trigger Architecture
@@ -12,7 +14,7 @@ created: 2025-12-23
 
 This document tracks critical moments from the heroes' shared legendary past that will be revealed through interaction triggers (when 2+ characters work in concert).
 
-**Design Philosophy:** Define 8-12 *moments*, not 15+ pair-specific flashbacks. Any pairing can trigger any moment through appropriate narrative conditions.
+**Design Philosophy:** Five events (locked count — do not expand). Event-centric, not pair-specific. Any pairing can trigger any event through appropriate narrative conditions. Count and titles are canonical — see `CLAUDE.md` locked decisions and `narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md` for CP distribution.
 
 ---
 
@@ -48,59 +50,60 @@ This document tracks critical moments from the heroes' shared legendary past tha
 
 ---
 
-## Events to Be Populated
+## The Five Events
 
-### Tier 1: ESSENTIAL (Must eventually emerge)
+| # | Title | CP anchor | Session range | Status |
+|---|-------|-----------|---------------|--------|
+| 1 | The Warrior's Choice | CP1 | 3–6 | Stub |
+| 2 | The Question of Sight | CP1 | 3–6 | Stub |
+| 3 | The Weight of Choice | CP3 | 10–14 | Stub |
+| 4 | Aspirations Undone | CP3 | 10–14 | Stub |
+| 5 | The Wizard's Shadow | CP5 | 17–22 | Stub |
 
-These events carry fundamental information about the heroes' legendary existence and why they were expelled. Priority for early campaign.
+---
 
-1. **Event: [NAME]** — *Status: TEMPLATE ONLY*
-   - Reveals: [What canonical truth?]
-   - Triggers through: [What circumstances?]
-   - Archetype focus: [Which archetypes' perspectives matter most?]
+### Event 1: The Warrior's Choice
+*CP1 — Sessions 3–6 — triggers when heroes are in a space where their legendary past is named accurately for the first time*
 
-2. **Event: [NAME]** — *Status: TEMPLATE ONLY*
-   - Reveals: [What canonical truth?]
-   - Triggers through: [What circumstances?]
-   - Archetype focus: [Which archetypes' perspectives matter most?]
+- **Reveals:** [Canonical truth to be designed]
+- **Triggers through:** [Narrative / mechanical / emotional conditions]
+- **Archetype focus:** [Which archetypes' perspectives matter most?]
 
-3. **Event: [NAME]** — *Status: TEMPLATE ONLY*
-   - Reveals: [What canonical truth?]
-   - Triggers through: [What circumstances?]
-   - Archetype focus: [Which archetypes' perspectives matter most?]
+---
 
-### Tier 2: IMPORTANT (Should emerge before midcampaign)
+### Event 2: The Question of Sight
+*CP1 — Sessions 3–6 — fires in same window as Event 1, in close sequence*
 
-These events clarify relationships between party members and deepen party cohesion. Can trigger through diverse narrative circumstances.
+- **Reveals:** [Canonical truth to be designed]
+- **Triggers through:** [Narrative / mechanical / emotional conditions]
+- **Archetype focus:** [Which archetypes' perspectives matter most?]
 
-4. **Event: [NAME]** — *Status: TEMPLATE ONLY*
-   - Reveals: [What canonical truth?]
-   - Triggers through: [What circumstances?]
-   - Archetype focus: [Which archetypes' perspectives matter most?]
+---
 
-5. **Event: [NAME]** — *Status: TEMPLATE ONLY*
-   - Reveals: [What canonical truth?]
-   - Triggers through: [What circumstances?]
-   - Archetype focus: [Which archetypes' perspectives matter most?]
+### Event 3: The Weight of Choice
+*CP3 — Sessions 10–14 — triggers when Orcish shamanic data is confirmed against tool data*
 
-6. **Event: [NAME]** — *Status: TEMPLATE ONLY*
-   - Reveals: [What canonical truth?]
-   - Triggers through: [What circumstances?]
-   - Archetype focus: [Which archetypes' perspectives matter most?]
+- **Reveals:** [Canonical truth to be designed]
+- **Triggers through:** [Narrative / mechanical / emotional conditions]
+- **Archetype focus:** [Which archetypes' perspectives matter most?]
 
-### Tier 3: SUPPORTING (May emerge, deepens specific relationships)
+---
 
-These events are optional but create richer webs of connection between specific archetype pairs.
+### Event 4: Aspirations Undone
+*CP3 — Sessions 10–14 — fires in same window as Event 3*
 
-7. **Event: [NAME]** — *Status: TEMPLATE ONLY*
-   - Reveals: [What canonical truth?]
-   - Triggers through: [What circumstances?]
-   - Archetype focus: [Which archetypes' perspectives matter most?]
+- **Reveals:** [Canonical truth to be designed]
+- **Triggers through:** [Narrative / mechanical / emotional conditions]
+- **Archetype focus:** [Which archetypes' perspectives matter most?]
 
-8. **Event: [NAME]** — *Status: TEMPLATE ONLY*
-   - Reveals: [What canonical truth?]
-   - Triggers through: [What circumstances?]
-   - Archetype focus: [Which archetypes' perspectives matter most?]
+---
+
+### Event 5: The Wizard's Shadow
+*CP5 — Sessions 17–22 — triggers during or immediately after first direct Wizard encounter*
+
+- **Reveals:** [Canonical truth to be designed]
+- **Triggers through:** [Narrative / mechanical / emotional conditions]
+- **Archetype focus:** [Which archetypes' perspectives matter most?]
 
 ---
 
@@ -130,10 +133,11 @@ These events are optional but create richer webs of connection between specific 
 
 ### Pacing Considerations
 
-- Tier 1 events should emerge naturally in Sessions 0-2
-- Tier 2 events should be available by Session 5
-- Tier 3 events are optional, can emerge anytime party dynamics create the moment
-- Never force a shared memory—let them emerge when the narrative moment feels genuine
+- Events 1–2 anchor to CP1 (Sessions 3–6) — first accurate external naming of the heroes' legendary past
+- Events 3–4 anchor to CP3 (Sessions 10–14) — cosmological turn when the Held Breath is first named
+- Event 5 anchors to CP5 (Sessions 17–22) — first direct Wizard encounter
+- Never force a shared memory — let them emerge when the narrative moment feels genuine
+- CP anchors define the *earliest natural window*, not a mandatory session number
 
 ---
 
