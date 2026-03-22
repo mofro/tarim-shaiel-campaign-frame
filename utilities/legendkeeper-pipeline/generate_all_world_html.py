@@ -272,6 +272,12 @@ _CORE_DOCS = [
         'meta':     'Player-Facing · v2.0 · Daggerheart',
         'desc':     'The chronicle of the world timeline. Major Epochs and Events are documented here.',
     },
+    {
+        'filename': 'campaign-frame.html',
+        'title':    'Campaign Frame',
+        'meta':     'Player-Facing · v2.0 · Daggerheart',
+        'desc':     'The pitch, themes, principles, and session zero questions. Everything your players need before character creation.',
+    },
 ]
 
 
