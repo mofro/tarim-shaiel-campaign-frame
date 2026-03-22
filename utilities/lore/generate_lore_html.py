@@ -160,26 +160,38 @@ def render_prose(body: str) -> str:
 def prepare_audio(audio_field: str) -> str | None:
     """Resolve the audio frontmatter field to a docs-relative URL.
 
-    Copies the source file into docs/audio/ if it exists.
-    Returns the relative URL (e.g. 'audio/filename.mp3') or None.
+    Resolution order:
+      1. Search docs/ by filename (manually-placed files, too large for vault)
+      2. Try vault-relative path and copy to docs/audio/
+      3. Fail silently — no audio block rendered
     """
     if not audio_field:
         return None
 
+    fname = Path(audio_field).name
+
+    # 1. Search docs/ for an existing file with this name
+    for candidate in DOCS_DIR.rglob(fname):
+        if candidate.is_file():
+            rel = candidate.relative_to(DOCS_DIR)
+            print(f'  [audio] Found in docs/: {candidate}')
+            return str(rel).replace('\\', '/')
+
+    # 2. Try vault-relative path → copy to docs/audio/
     src = Path(audio_field)
     if not src.is_absolute():
         src = VAULT_ROOT / src
+    if src.exists():
+        dest_dir = DOCS_DIR / 'audio'
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        dest = dest_dir / fname
+        shutil.copy2(src, dest)
+        print(f'  [audio] Copied to {dest}')
+        return f'audio/{fname}'
 
-    if not src.exists():
-        print(f'  [audio] Source not found, skipping player: {src}')
-        return None
-
-    dest_dir = DOCS_DIR / 'audio'
-    dest_dir.mkdir(parents=True, exist_ok=True)
-    dest = dest_dir / src.name
-    shutil.copy2(src, dest)
-    print(f'  [audio] Copied to {dest}')
-    return f'audio/{src.name}'
+    # 3. Fail silently
+    print(f'  [audio] Not found, skipping player: {audio_field}')
+    return None
 
 
 # ---------------------------------------------------------------------------
