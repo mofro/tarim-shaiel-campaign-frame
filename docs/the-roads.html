@@ -45,7 +45,7 @@
     .page-wrap::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%%3E%%3Cfilter id='n'%%3E%%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%%3E%%3C/filter%%3E%%3Crect width='300' height='300' filter='url(%%23n)' opacity='0.06'/%%3E%%3C/svg%%3E");
       pointer-events: none;
       z-index: 0;
       opacity: 0.45;
@@ -159,6 +159,66 @@
       margin: 2.4rem 0;
     }
 
+    /* ---- Inline image figure ---- */
+
+    .lore-figure {
+      float: right;
+      margin: 0.4rem 0 1.6rem 2rem;
+      max-width: 240px;
+      clear: right;
+    }
+
+    .lore-figure img {
+      width: 100%%;
+      display: block;
+      border: 1px solid var(--rule);
+      box-shadow: 4px 6px 18px var(--shadow);
+    }
+
+    .lore-figure figcaption {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--steel);
+      text-align: center;
+      margin-top: 0.45rem;
+      padding-top: 0.35rem;
+      border-top: 1px solid var(--rule);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      .lore-figure {
+        float: none;
+        max-width: 100%%;
+        margin: 0 0 1.5rem 0;
+      }
+    }
+
+    /* ---- Audio player ---- */
+
+    .audio-player {
+      margin: 2.4rem 0;
+      padding: 1.1rem 1.4rem 1.2rem;
+      background: var(--parchment2);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      box-shadow: inset 0 1px 4px rgba(26,18,8,0.06);
+    }
+
+    .audio-player-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.65rem;
+    }
+
+    .audio-player audio {
+      width: 100%%;
+      display: block;
+    }
+
     .credits {
       background: var(--steel);
       color: rgba(245,237,216,0.55);
@@ -228,7 +288,7 @@
 
   <!-- FOOTER -->
   <div class="credits">
-    Tarim-Shaiel &middot; World Lore &middot; The Roads &middot; 2026-03-21
+    Tarim-Shaiel &middot; World Lore &middot; The Roads &middot; 2026-03-22
   </div>
 
 </div><!-- /page-wrap -->
