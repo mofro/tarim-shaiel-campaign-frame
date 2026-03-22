@@ -9,10 +9,9 @@ last_updated: 2026-03-22
 description: The roads were here before the empire. A lore piece on the world's ancient trade routes and the silence that has returned to them.
 ---
 ### Narrative Summary
+![[audio/Narration/The Road_A Fable.mp3|The Road_A Fable]]
 ​
 The roads were here before the empire.  That is the thing people forget.
-
-![[audio/Narration/The Road_A Fable.mp3|The Road_A Fable]]
 
 ![[storyteller.png]]
 
