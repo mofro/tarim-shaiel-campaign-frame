@@ -572,6 +572,7 @@ def main() -> None:
     description = fm.get('description', '')
     date_str = fm.get('last_updated') or fm.get('created') or 'March 2026'
     audio_field = fm.get('audio', '')
+    audio_title = fm.get('audio_title', 'Opening Narration')
 
     audio_url = prepare_audio(audio_field) if audio_field else None
 
@@ -588,7 +589,7 @@ def main() -> None:
         slug = slugify(title)
         out = DOCS_DIR / f'{slug}.html'
 
-    html = build_html(title, description, body, date_str, audio_url=audio_url)
+    html = build_html(title, description, body, date_str, audio_url=audio_url, audio_title=audio_title)
 
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding='utf-8')
