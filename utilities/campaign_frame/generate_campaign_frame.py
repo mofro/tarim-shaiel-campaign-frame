@@ -273,7 +273,7 @@ def render_pitch(content: str) -> str:
     return render_section(
         'The Pitch',
         html,
-        chapter_intro='Read this to your players when pitching the campaign.',
+        # chapter_intro='Read this to your players when pitching the campaign.',
     )
 
 
@@ -481,7 +481,7 @@ CSS = """
     html { scroll-behavior: smooth; }
 
     body {
-      background: #1a1208;
+    #   background: #1a1208;
       background-image: url('images/paper-texture-top-view-2.jpg');
       font-family: 'EB Garamond', Georgia, serif;
       font-size: 17px;
