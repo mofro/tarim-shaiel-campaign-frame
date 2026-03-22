@@ -27,6 +27,7 @@ archive/
 # Binary / large assets
 images/
 audio/
+!narrative/audio/
 references/
 
 # Binary file types (tracked text data like .geojson/.kml is fine)
