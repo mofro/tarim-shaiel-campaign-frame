@@ -648,7 +648,7 @@ def render_html(data: DashboardData) -> str:
       --rule:rgba(184,146,44,0.35); --shadow:rgba(26,18,8,0.12);
     }}
     html {{ scroll-behavior:smooth; }}
-    body {{ background:#111008; font-family:'EB Garamond',Georgia,serif; font-size:17px; line-height:1.7; color:var(--ink); min-height:100vh; }}
+    body {{ background:#111008; background-image: url('images/paper-texture-top-view-2.jpg'); font-family:'EB Garamond',Georgia,serif; font-size:17px; line-height:1.7; color:var(--ink); min-height:100vh; }}
     .page-wrap {{ max-width:1100px; margin:0 auto; background:var(--parchment); box-shadow:0 0 100px rgba(0,0,0,0.8); }}
     .header {{ background:linear-gradient(170deg,#0d0a04 0%,#1a1208 50%,#2a1f0e 100%); padding:48px 60px 40px; position:relative; overflow:hidden; border-bottom:2px solid var(--gold); }}
     .header::after {{ content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 60% 50%,rgba(184,146,44,0.08) 0%,transparent 70%); pointer-events:none; }}
