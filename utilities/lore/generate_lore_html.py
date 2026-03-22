@@ -142,9 +142,6 @@ def build_html(title: str, description: str, body: str, date_str: str,
     desc_esc = escape(description) if description else ''
 
     content_html = ''
-    if desc_esc:
-        content_html += f'\n    <div class="divider"></div>\n    <p><em>{desc_esc}</em></p>\n    <div class="divider"></div>\n'
-
     if audio_url:
         audio_title_esc = escape(audio_title) if audio_title else ''
         audio_url_esc = escape(audio_url)
@@ -156,6 +153,9 @@ def build_html(title: str, description: str, body: str, date_str: str,
             f'      </audio>\n'
             f'    </div>\n'
         )
+
+    if desc_esc:
+        content_html += f'\n    <div class="divider"></div>\n    <p><em>{desc_esc}</em></p>\n    <div class="divider"></div>\n'
 
     content_html += prose_html
 
