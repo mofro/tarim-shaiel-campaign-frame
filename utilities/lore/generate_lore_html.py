@@ -55,6 +55,7 @@ CSS_LORE = """\
 
     body {
       background: #1a1208;
+      background-image: url('images/paper-texture-top-view-2.jpg');
       font-family: 'EB Garamond', Georgia, serif;
       font-size: 18px;
       line-height: 1.85;
