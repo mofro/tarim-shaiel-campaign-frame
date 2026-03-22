@@ -7,6 +7,12 @@ status: canon
 created: 2026-03-21
 last_updated: 2026-03-22
 description: The roads were here before the empire. A lore piece on the world's ancient trade routes and the silence that has returned to them.
+banner: images/places/798802.jpg
+banner-height: 300
+banner-x: 50
+banner-y: 11
+content-start: 226
+banner-fade: -70
 ---
 ### Narrative Summary
 ![[audio/Narration/The Road_A Fable.mp3|The Road_A Fable]]
@@ -15,7 +21,7 @@ The roads were here before the empire.
 
 That is the thing people forget.
 
-![[storyteller.png|"Chronicles of Empires and Dust": Nādir Qissakhān — نادر قصه‌خوان from the Azure Convocation, 1175th year of 'Held Breath']]
+![[storyteller.png|"Chronicles of Empires and Dust": Nādir Qissakhān — نادر قصه‌خوان from the Azure Convocation, 1175th year of 'Held Breath'|250]]
 
  They forget because empires are loud — they build walls and stamp seals and rename things in languages that coat their tongues with the taste of authority. And when they fall, the silence they leave behind is so deafening that your ears believe that the sound is of a world that has ended. But it hasn't.
 
