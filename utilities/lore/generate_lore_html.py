@@ -111,14 +111,17 @@ def render_prose(body: str) -> str:
     for p in paras:
         if not p:
             continue
-        # Detect Obsidian wiki-embed: ![[filename]] — image or audio
-        obs_m = re.match(r'^!\[\[([^\]]+)\]\]$', p)
+        # Detect Obsidian wiki-embed: ![[file]], ![[path/file]], ![[path/file|Alias]]
+        obs_m = re.match(r'^!\[\[([^\]|]+)(?:\|([^\]]*))?\]\]$', p)
         if obs_m:
-            fname = obs_m.group(1)
+            path_part  = obs_m.group(1).strip()
+            alias_part = (obs_m.group(2) or '').strip()
+            fname = Path(path_part).name
             ext = Path(fname).suffix.lower()
             if ext in AUDIO_EXTS:
                 src   = escape(f'audio/{fname}')
-                label = escape(Path(fname).stem.replace('-', ' ').replace('_', ' ').title())
+                label = escape(alias_part if alias_part else
+                               Path(fname).stem.replace('-', ' ').replace('_', ' ').title())
                 mime  = AUDIO_MIME.get(ext, 'audio/mpeg')
                 html += (
                     f'    <div class="audio-player">\n'
@@ -130,7 +133,7 @@ def render_prose(body: str) -> str:
                 )
             else:
                 src = escape(f'images/{fname}')
-                alt = escape(fname.rsplit('.', 1)[0])
+                alt = escape(alias_part if alias_part else fname.rsplit('.', 1)[0])
                 html += (
                     f'    <figure class="lore-figure">\n'
                     f'      <img src="{src}" alt="{alt}" />\n'
@@ -160,26 +163,38 @@ def render_prose(body: str) -> str:
 def prepare_audio(audio_field: str) -> str | None:
     """Resolve the audio frontmatter field to a docs-relative URL.
 
-    Copies the source file into docs/audio/ if it exists.
-    Returns the relative URL (e.g. 'audio/filename.mp3') or None.
+    Resolution order:
+      1. Search docs/ by filename (manually-placed files, too large for vault)
+      2. Try vault-relative path and copy to docs/audio/
+      3. Fail silently — no audio block rendered
     """
     if not audio_field:
         return None
 
+    fname = Path(audio_field).name
+
+    # 1. Search docs/ for an existing file with this name
+    for candidate in DOCS_DIR.rglob(fname):
+        if candidate.is_file():
+            rel = candidate.relative_to(DOCS_DIR)
+            print(f'  [audio] Found in docs/: {candidate}')
+            return str(rel).replace('\\', '/')
+
+    # 2. Try vault-relative path → copy to docs/audio/
     src = Path(audio_field)
     if not src.is_absolute():
         src = VAULT_ROOT / src
+    if src.exists():
+        dest_dir = DOCS_DIR / 'audio'
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        dest = dest_dir / fname
+        shutil.copy2(src, dest)
+        print(f'  [audio] Copied to {dest}')
+        return f'audio/{fname}'
 
-    if not src.exists():
-        print(f'  [audio] Source not found, skipping player: {src}')
-        return None
-
-    dest_dir = DOCS_DIR / 'audio'
-    dest_dir.mkdir(parents=True, exist_ok=True)
-    dest = dest_dir / src.name
-    shutil.copy2(src, dest)
-    print(f'  [audio] Copied to {dest}')
-    return f'audio/{src.name}'
+    # 3. Fail silently
+    print(f'  [audio] Not found, skipping player: {audio_field}')
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -210,15 +225,33 @@ def prepare_image(fname: str) -> str | None:
 
 
 def prepare_audio_wiki(fname: str) -> str | None:
-    """Find an audio file by filename in vault, copy to docs/audio/, return relative URL."""
+    """Find audio by filename, ensure it's at docs/audio/, return relative URL.
+
+    Resolution order:
+      1. Search docs/ by filename (manually-placed files, too large for vault)
+      2. Search vault by filename
+      3. Fail silently
+    """
+    dest_dir = DOCS_DIR / 'audio'
+    dest = dest_dir / fname
+
+    # 1. Search docs/ by filename
+    for candidate in DOCS_DIR.rglob(fname):
+        if candidate.is_file():
+            if candidate != dest:
+                dest_dir.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(candidate, dest)
+                print(f'  [audio] Copied {candidate} → {dest}')
+            else:
+                print(f'  [audio] Already at {dest}')
+            return f'audio/{fname}'
+
+    # 2. Search vault by filename
     src = find_image_in_vault(fname)
     if src is None:
-        print(f'  [audio] WARNING: {fname!r} not found in vault')
+        print(f'  [audio] WARNING: {fname!r} not found in docs/ or vault')
         return None
-
-    dest_dir = DOCS_DIR / 'audio'
     dest_dir.mkdir(parents=True, exist_ok=True)
-    dest = dest_dir / fname
     shutil.copy2(src, dest)
     print(f'  [audio] Copied {src} → {dest}')
     return f'audio/{fname}'
@@ -572,15 +605,17 @@ def main() -> None:
     description = fm.get('description', '')
     date_str = fm.get('last_updated') or fm.get('created') or 'March 2026'
     audio_field = fm.get('audio', '')
+    audio_title = fm.get('audio_title', 'Opening Narration')
 
     audio_url = prepare_audio(audio_field) if audio_field else None
 
-    # Pre-copy assets referenced via Obsidian ![[filename]] syntax
-    for ref in re.findall(r'!\[\[([^\]]+)\]\]', body):
-        if Path(ref).suffix.lower() in AUDIO_EXTS:
-            prepare_audio_wiki(ref)
+    # Pre-copy assets referenced via Obsidian ![[...]] syntax
+    for m in re.finditer(r'!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]', body):
+        fname = Path(m.group(1).strip()).name
+        if Path(fname).suffix.lower() in AUDIO_EXTS:
+            prepare_audio_wiki(fname)
         else:
-            prepare_image(ref)
+            prepare_image(fname)
 
     if args.out:
         out = Path(args.out)
@@ -588,7 +623,7 @@ def main() -> None:
         slug = slugify(title)
         out = DOCS_DIR / f'{slug}.html'
 
-    html = build_html(title, description, body, date_str, audio_url=audio_url)
+    html = build_html(title, description, body, date_str, audio_url=audio_url, audio_title=audio_title)
 
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding='utf-8')
