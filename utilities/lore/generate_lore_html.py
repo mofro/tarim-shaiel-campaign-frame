@@ -431,7 +431,7 @@ CSS = """
 # ---------------------------------------------------------------------------
 
 def build_html(title: str, description: str, body: str, date_str: str,
-               audio_url: str | None = None) -> str:
+               audio_url: str, audio_title: str | None = None) -> str:
     css = CSS.replace('%(cover_image_url)s', COVER_IMAGE_URL)
     prose_html = render_prose(body)
     title_esc = escape(title)
@@ -443,10 +443,11 @@ def build_html(title: str, description: str, body: str, date_str: str,
 
     audio_block = ''
     if audio_url:
+        audio_title_esc = escape(audio_title) if audio_title else ''
         audio_url_esc = escape(audio_url)
         audio_block = (
             f'\n    <div class="audio-player">\n'
-            f'      <div class="audio-player-label">Opening Narration</div>\n'
+            f'      <div class="audio-player-label">{audio_title_esc}</div>\n'
             f'      <audio controls preload="metadata">\n'
             f'        <source src="{audio_url_esc}" type="audio/mpeg" />\n'
             f'      </audio>\n'

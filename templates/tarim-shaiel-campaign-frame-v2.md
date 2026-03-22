@@ -30,7 +30,7 @@ banner-fade: -35
 ---
 ## At a Glance
 
-| **Players**    | 3 – 5                        |
+| **Players**    | 3 – 6                        |
 | -------------- | ---------------------------- |
 | **Length**     | Long Campaign (30+ Sessions) |
 | **Complexity** | ●●●●○                        |
