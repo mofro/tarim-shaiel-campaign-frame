@@ -6,7 +6,7 @@ visibility: public
 status: canon
 created: 2026-03-21
 last_updated: 2026-03-22
-audio: narrative/audio/The Opening Narration_ The Roads - MUSIC.mp3
+audio: narrative/audio/Opening Narration - The Roads-MUSIC.mp3
 description: The roads were here before the empire. A lore piece on the world's ancient trade routes and the silence that has returned to them.
 ---
 
