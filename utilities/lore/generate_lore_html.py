@@ -27,6 +27,10 @@ DOCS_DIR    = VAULT_ROOT / "docs"
 
 COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 
+AUDIO_EXTS = {'.mp3', '.ogg', '.wav', '.m4a', '.flac', '.aac'}
+AUDIO_MIME  = {'.mp3': 'audio/mpeg', '.ogg': 'audio/ogg', '.wav': 'audio/wav',
+               '.m4a': 'audio/mp4',  '.flac': 'audio/flac', '.aac': 'audio/aac'}
+
 # ---------------------------------------------------------------------------
 # Frontmatter parsing
 # ---------------------------------------------------------------------------
@@ -107,18 +111,32 @@ def render_prose(body: str) -> str:
     for p in paras:
         if not p:
             continue
-        # Detect Obsidian wiki-embed image: ![[filename]]
+        # Detect Obsidian wiki-embed: ![[filename]] — image or audio
         obs_m = re.match(r'^!\[\[([^\]]+)\]\]$', p)
         if obs_m:
             fname = obs_m.group(1)
-            src = escape(f'images/{fname}')
-            alt = escape(fname.rsplit('.', 1)[0])
-            html += (
-                f'    <figure class="lore-figure">\n'
-                f'      <img src="{src}" alt="{alt}" />\n'
-                f'      <figcaption>{alt}</figcaption>\n'
-                f'    </figure>\n'
-            )
+            ext = Path(fname).suffix.lower()
+            if ext in AUDIO_EXTS:
+                src   = escape(f'audio/{fname}')
+                label = escape(Path(fname).stem.replace('-', ' ').replace('_', ' ').title())
+                mime  = AUDIO_MIME.get(ext, 'audio/mpeg')
+                html += (
+                    f'    <div class="audio-player">\n'
+                    f'      <div class="audio-player-label">{label}</div>\n'
+                    f'      <audio controls preload="metadata">\n'
+                    f'        <source src="{src}" type="{mime}" />\n'
+                    f'      </audio>\n'
+                    f'    </div>\n'
+                )
+            else:
+                src = escape(f'images/{fname}')
+                alt = escape(fname.rsplit('.', 1)[0])
+                html += (
+                    f'    <figure class="lore-figure">\n'
+                    f'      <img src="{src}" alt="{alt}" />\n'
+                    f'      <figcaption>{alt}</figcaption>\n'
+                    f'    </figure>\n'
+                )
         # Detect standalone image: ![caption](url)
         elif re.match(r'^!\[([^\]]*)\]\(([^)]+)\)$', p):
             img_m = re.match(r'^!\[([^\]]*)\]\(([^)]+)\)$', p)
@@ -189,6 +207,21 @@ def prepare_image(fname: str) -> str | None:
     shutil.copy2(src, dest)
     print(f'  [image] Copied {src} → {dest}')
     return f'images/{fname}'
+
+
+def prepare_audio_wiki(fname: str) -> str | None:
+    """Find an audio file by filename in vault, copy to docs/audio/, return relative URL."""
+    src = find_image_in_vault(fname)
+    if src is None:
+        print(f'  [audio] WARNING: {fname!r} not found in vault')
+        return None
+
+    dest_dir = DOCS_DIR / 'audio'
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    dest = dest_dir / fname
+    shutil.copy2(src, dest)
+    print(f'  [audio] Copied {src} → {dest}')
+    return f'audio/{fname}'
 
 
 # ---------------------------------------------------------------------------
@@ -541,9 +574,12 @@ def main() -> None:
 
     audio_url = prepare_audio(audio_field) if audio_field else None
 
-    # Pre-copy images referenced via Obsidian ![[filename]] syntax
-    for img_ref in re.findall(r'!\[\[([^\]]+)\]\]', body):
-        prepare_image(img_ref)
+    # Pre-copy assets referenced via Obsidian ![[filename]] syntax
+    for ref in re.findall(r'!\[\[([^\]]+)\]\]', body):
+        if Path(ref).suffix.lower() in AUDIO_EXTS:
+            prepare_audio_wiki(ref)
+        else:
+            prepare_image(ref)
 
     if args.out:
         out = Path(args.out)
