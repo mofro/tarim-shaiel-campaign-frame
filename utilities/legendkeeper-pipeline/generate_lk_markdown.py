@@ -14,81 +14,19 @@ Usage:
 """
 
 import re
+import sys
 import argparse
 from pathlib import Path
 
-try:
-    import yaml
-    _YAML_AVAILABLE = True
-except ImportError:
-    _YAML_AVAILABLE = False
-
-
-# ---------------------------------------------------------------------------
-# Frontmatter
-# ---------------------------------------------------------------------------
-
-def parse_frontmatter(text: str) -> tuple[dict, str]:
-    """Return (frontmatter_dict, body_text). Handles missing yaml gracefully."""
-    m = re.match(r'^---\n(.*?\n)---\n', text, re.DOTALL)
-    if not m:
-        return {}, text
-    fm_text = m.group(1)
-    body = text[m.end():]
-    if _YAML_AVAILABLE:
-        try:
-            fm = yaml.safe_load(fm_text) or {}
-        except Exception:
-            fm = {}
-    else:
-        # Minimal key: value parser (no nested structures)
-        fm = {}
-        for line in fm_text.splitlines():
-            kv = line.split(':', 1)
-            if len(kv) == 2:
-                k, v = kv[0].strip(), kv[1].strip()
-                fm[k] = v.strip('"\'')
-    return fm, body
-
-
-# ---------------------------------------------------------------------------
-# Text transforms
-# ---------------------------------------------------------------------------
-
-def extract_secret_blocks(text: str) -> tuple[str, list[str]]:
-    """Remove %% ... %% blocks and return (cleaned_text, [secret_contents])."""
-    secrets: list[str] = []
-
-    def _collect(m: re.Match) -> str:
-        content = m.group(1).strip()
-        if content:
-            secrets.append(content)
-        return ''
-
-    cleaned = re.sub(r'%%(.+?)%%', _collect, text, flags=re.DOTALL)
-    return cleaned, secrets
-
-
-def strip_wikilinks(text: str) -> str:
-    """Convert [[link|alias]] → alias, [[link]] → link."""
-    text = re.sub(r'\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', text)
-    text = re.sub(r'\[\[([^\]]+)\]\]', r'\1', text)
-    return text
-
-
-def strip_obsidian_embeds(text: str) -> str:
-    """Remove ![[embedded media]] references."""
-    return re.sub(r'!\[\[[^\]]+\]\]', '', text)
-
-
-def clean_body(text: str) -> str:
-    text = strip_wikilinks(text)
-    text = strip_obsidian_embeds(text)
-    # Strip Obsidian callout markers (> [!tip] etc.) but keep content
-    text = re.sub(r'^>\s*\[!\w+\]\s*$', '', text, flags=re.MULTILINE)
-    # Normalize excessive blank lines
-    text = re.sub(r'\n{3,}', '\n\n', text)
-    return text.strip()
+# Make utilities/shared importable regardless of working directory
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from shared.frontmatter import parse_frontmatter
+from shared.md_utils import (
+    extract_secret_blocks,
+    strip_wikilinks,
+    strip_obsidian_embeds,
+    clean_body,
+)
 
 
 # ---------------------------------------------------------------------------
