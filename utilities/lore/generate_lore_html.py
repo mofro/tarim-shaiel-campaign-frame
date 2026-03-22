@@ -234,7 +234,7 @@ CSS = """
     .page-wrap::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%%3E%%3Cfilter id='n'%%3E%%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%%3E%%3C/filter%%3E%%3Crect width='300' height='300' filter='url(%%23n)' opacity='0.06'/%%3E%%3C/svg%%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
       opacity: 0.45;
@@ -253,13 +253,13 @@ CSS = """
       position: absolute; inset: 0;
       background-image: url('%(cover_image_url)s');
       background-size: cover;
-      background-position: center 4%%;
+      background-position: center 4%;
       z-index: 0;
     }
 
     .cover-gradient {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(26,18,8,0.08) 0%%, rgba(26,18,8,0.55) 55%%, rgba(26,18,8,0.92) 100%%);
+      background: linear-gradient(to bottom, rgba(26,18,8,0.08) 0%, rgba(26,18,8,0.55) 55%, rgba(26,18,8,0.92) 100%);
       z-index: 1;
     }
 
@@ -358,7 +358,7 @@ CSS = """
     }
 
     .lore-figure img {
-      width: 100%%;
+      width: 100%;
       display: block;
       border: 1px solid var(--rule);
       box-shadow: 4px 6px 18px var(--shadow);
@@ -378,7 +378,7 @@ CSS = """
     @media (max-width: 640px) {
       .lore-figure {
         float: none;
-        max-width: 100%%;
+        max-width: 100%;
         margin: 0 0 1.5rem 0;
       }
     }
@@ -404,7 +404,7 @@ CSS = """
     }
 
     .audio-player audio {
-      width: 100%%;
+      width: 100%;
       display: block;
     }
 
