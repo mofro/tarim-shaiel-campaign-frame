@@ -13,6 +13,7 @@ Usage:
 """
 
 import re
+import shutil
 import argparse
 from pathlib import Path
 from html import escape
@@ -75,10 +76,11 @@ def inline_md(text: str) -> str:
 # ---------------------------------------------------------------------------
 
 def render_prose(body: str) -> str:
-    """Render the body as a sequence of <p> paragraphs.
+    """Render the body as a sequence of <p> paragraphs and inline figures.
 
     Strips heading lines (### etc.) and renders each paragraph block.
     Handles the leading zero-width space that Obsidian sometimes inserts.
+    Image lines (![caption](url)) on their own paragraph become <figure> blocks.
     """
     # Remove heading lines (###, ##, #)
     lines = [l for l in body.splitlines() if not re.match(r'^#{1,6}\s', l.strip())]
@@ -103,9 +105,51 @@ def render_prose(body: str) -> str:
 
     html = ''
     for p in paras:
-        if p:
+        if not p:
+            continue
+        # Detect standalone image: ![caption](url)
+        img_m = re.match(r'^!\[([^\]]*)\]\(([^)]+)\)$', p)
+        if img_m:
+            alt = escape(img_m.group(1))
+            src = escape(img_m.group(2))
+            html += (
+                f'    <figure class="lore-figure">\n'
+                f'      <img src="{src}" alt="{alt}" />\n'
+                f'      <figcaption>{alt}</figcaption>\n'
+                f'    </figure>\n'
+            )
+        else:
             html += f'    <p>{inline_md(p)}</p>\n'
     return html
+
+
+# ---------------------------------------------------------------------------
+# Audio helper
+# ---------------------------------------------------------------------------
+
+def prepare_audio(audio_field: str) -> str | None:
+    """Resolve the audio frontmatter field to a docs-relative URL.
+
+    Copies the source file into docs/audio/ if it exists.
+    Returns the relative URL (e.g. 'audio/filename.mp3') or None.
+    """
+    if not audio_field:
+        return None
+
+    src = Path(audio_field)
+    if not src.is_absolute():
+        src = VAULT_ROOT / src
+
+    if not src.exists():
+        print(f'  [audio] Source not found, skipping player: {src}')
+        return None
+
+    dest_dir = DOCS_DIR / 'audio'
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    dest = dest_dir / src.name
+    shutil.copy2(src, dest)
+    print(f'  [audio] Copied to {dest}')
+    return f'audio/{src.name}'
 
 
 # ---------------------------------------------------------------------------
@@ -151,7 +195,7 @@ CSS = """
     .page-wrap::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%%3E%%3Cfilter id='n'%%3E%%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%%3E%%3C/filter%%3E%%3Crect width='300' height='300' filter='url(%%23n)' opacity='0.06'/%%3E%%3C/svg%%3E");
       pointer-events: none;
       z-index: 0;
       opacity: 0.45;
@@ -265,6 +309,66 @@ CSS = """
       margin: 2.4rem 0;
     }
 
+    /* ---- Inline image figure ---- */
+
+    .lore-figure {
+      float: right;
+      margin: 0.4rem 0 1.6rem 2rem;
+      max-width: 240px;
+      clear: right;
+    }
+
+    .lore-figure img {
+      width: 100%%;
+      display: block;
+      border: 1px solid var(--rule);
+      box-shadow: 4px 6px 18px var(--shadow);
+    }
+
+    .lore-figure figcaption {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--steel);
+      text-align: center;
+      margin-top: 0.45rem;
+      padding-top: 0.35rem;
+      border-top: 1px solid var(--rule);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      .lore-figure {
+        float: none;
+        max-width: 100%%;
+        margin: 0 0 1.5rem 0;
+      }
+    }
+
+    /* ---- Audio player ---- */
+
+    .audio-player {
+      margin: 2.4rem 0;
+      padding: 1.1rem 1.4rem 1.2rem;
+      background: var(--parchment2);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      box-shadow: inset 0 1px 4px rgba(26,18,8,0.06);
+    }
+
+    .audio-player-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.65rem;
+    }
+
+    .audio-player audio {
+      width: 100%%;
+      display: block;
+    }
+
     .credits {
       background: var(--steel);
       color: rgba(245,237,216,0.55);
@@ -287,7 +391,8 @@ CSS = """
 # Full page assembly
 # ---------------------------------------------------------------------------
 
-def build_html(title: str, description: str, body: str, date_str: str) -> str:
+def build_html(title: str, description: str, body: str, date_str: str,
+               audio_url: str | None = None) -> str:
     css = CSS.replace('%(cover_image_url)s', COVER_IMAGE_URL)
     prose_html = render_prose(body)
     title_esc = escape(title)
@@ -296,6 +401,18 @@ def build_html(title: str, description: str, body: str, date_str: str) -> str:
     desc_block = ''
     if desc_esc:
         desc_block = f'\n    <div class="divider"></div>\n    <p><em>{desc_esc}</em></p>\n    <div class="divider"></div>\n'
+
+    audio_block = ''
+    if audio_url:
+        audio_url_esc = escape(audio_url)
+        audio_block = (
+            f'\n    <div class="audio-player">\n'
+            f'      <div class="audio-player-label">Opening Narration</div>\n'
+            f'      <audio controls preload="metadata">\n'
+            f'        <source src="{audio_url_esc}" type="audio/mpeg" />\n'
+            f'      </audio>\n'
+            f'    </div>\n'
+        )
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -334,7 +451,7 @@ def build_html(title: str, description: str, body: str, date_str: str) -> str:
 
   <!-- MAIN CONTENT -->
   <div class="content">
-{desc_block}
+{desc_block}{audio_block}
 {prose_html}
   </div><!-- /content -->
 
@@ -381,6 +498,9 @@ def main() -> None:
     title = fm.get('title') or src.stem
     description = fm.get('description', '')
     date_str = fm.get('last_updated') or fm.get('created') or 'March 2026'
+    audio_field = fm.get('audio', '')
+
+    audio_url = prepare_audio(audio_field) if audio_field else None
 
     if args.out:
         out = Path(args.out)
@@ -388,7 +508,7 @@ def main() -> None:
         slug = slugify(title)
         out = DOCS_DIR / f'{slug}.html'
 
-    html = build_html(title, description, body, date_str)
+    html = build_html(title, description, body, date_str, audio_url=audio_url)
 
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding='utf-8')
