@@ -107,9 +107,21 @@ def render_prose(body: str) -> str:
     for p in paras:
         if not p:
             continue
+        # Detect Obsidian wiki-embed image: ![[filename]]
+        obs_m = re.match(r'^!\[\[([^\]]+)\]\]$', p)
+        if obs_m:
+            fname = obs_m.group(1)
+            src = escape(f'images/{fname}')
+            alt = escape(fname.rsplit('.', 1)[0])
+            html += (
+                f'    <figure class="lore-figure">\n'
+                f'      <img src="{src}" alt="{alt}" />\n'
+                f'      <figcaption>{alt}</figcaption>\n'
+                f'    </figure>\n'
+            )
         # Detect standalone image: ![caption](url)
-        img_m = re.match(r'^!\[([^\]]*)\]\(([^)]+)\)$', p)
-        if img_m:
+        elif re.match(r'^!\[([^\]]*)\]\(([^)]+)\)$', p):
+            img_m = re.match(r'^!\[([^\]]*)\]\(([^)]+)\)$', p)
             alt = escape(img_m.group(1))
             src = escape(img_m.group(2))
             html += (
@@ -150,6 +162,33 @@ def prepare_audio(audio_field: str) -> str | None:
     shutil.copy2(src, dest)
     print(f'  [audio] Copied to {dest}')
     return f'audio/{src.name}'
+
+
+# ---------------------------------------------------------------------------
+# Image helper
+# ---------------------------------------------------------------------------
+
+def find_image_in_vault(fname: str) -> Path | None:
+    """Search vault recursively for an image file by name (Obsidian-style resolution)."""
+    for candidate in VAULT_ROOT.rglob(fname):
+        if candidate.is_file():
+            return candidate
+    return None
+
+
+def prepare_image(fname: str) -> str | None:
+    """Find an image by filename in the vault, copy to docs/images/, return relative URL."""
+    src = find_image_in_vault(fname)
+    if src is None:
+        print(f'  [image] WARNING: {fname!r} not found in vault')
+        return None
+
+    dest_dir = DOCS_DIR / 'images'
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    dest = dest_dir / fname
+    shutil.copy2(src, dest)
+    print(f'  [image] Copied {src} → {dest}')
+    return f'images/{fname}'
 
 
 # ---------------------------------------------------------------------------
@@ -501,6 +540,10 @@ def main() -> None:
     audio_field = fm.get('audio', '')
 
     audio_url = prepare_audio(audio_field) if audio_field else None
+
+    # Pre-copy images referenced via Obsidian ![[filename]] syntax
+    for img_ref in re.findall(r'!\[\[([^\]]+)\]\]', body):
+        prepare_image(img_ref)
 
     if args.out:
         out = Path(args.out)
