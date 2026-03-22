@@ -15,7 +15,7 @@ The roads were here before the empire.
 
 That is the thing people forget.
 
-![[storyteller.png|Nādir Qissakhān — نادر قصه‌خوان (the Azure Convocation, the 1175th year of The Held Breath)]]
+![[storyteller.png|"Chronicles of Empires and Dust": Nādir Qissakhān — نادر قصه‌خوان from the Azure Convocation, 1175th year of 'Held Breath']]
 
  They forget because empires are loud — they build walls and stamp seals and rename things in languages that coat their tongues with the taste of authority. And when they fall, the silence they leave behind is so deafening that your ears believe that the sound is of a world that has ended. But it hasn't.
 
