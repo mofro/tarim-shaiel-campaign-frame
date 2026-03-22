@@ -10,6 +10,7 @@ so this module is not hardcoded to any particular project layout.
 
 import shutil
 from pathlib import Path
+from .errors import log, LogLevel, handle_asset_error, verify_file_integrity, AssetNotFoundError
 
 
 def find_in_vault(fname: str, vault_root: Path) -> Path | None:
@@ -25,17 +26,38 @@ def find_in_vault(fname: str, vault_root: Path) -> Path | None:
 
 def prepare_image(fname: str, vault_root: Path, docs_dir: Path) -> str | None:
     """Find an image by filename in the vault, copy to docs/images/, return relative URL."""
-    src = find_in_vault(fname, vault_root)
-    if src is None:
-        print(f'  [image] WARNING: {fname!r} not found in vault')
-        return None
-
-    dest_dir = docs_dir / 'images'
-    dest_dir.mkdir(parents=True, exist_ok=True)
-    dest = dest_dir / fname
-    shutil.copy2(src, dest)
-    print(f'  [image] Copied {src} → {dest}')
-    return f'images/{fname}'
+    try:
+        dest_dir = docs_dir / 'images'
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        dest = dest_dir / fname
+        
+        # First check if file already exists in docs
+        if dest.exists():
+            log(LogLevel.INFO, f'Image already exists in docs: {dest}')
+            return f'images/{fname}'
+        
+        # Search for image in vault
+        src = find_in_vault(fname, vault_root)
+        if src is None:
+            log(LogLevel.WARNING, f'Image not found in vault: {fname!r}')
+            return None
+        
+        # Verify source file integrity before copying
+        if not verify_file_integrity(src):
+            return handle_asset_error("verify source image", fname, AssetNotFoundError(f"Source file verification failed: {src}"), fail_silently=True)
+        
+        # Copy from vault to docs
+        shutil.copy2(src, dest)
+        log(LogLevel.INFO, f'Copied image', {"src": str(src), "dest": str(dest)})
+        
+        # Verify the copied file
+        if not verify_file_integrity(dest):
+            return handle_asset_error("verify copied image", fname, AssetCopyError(f"Destination file verification failed: {dest}"), fail_silently=True)
+        
+        return f'images/{fname}'
+    
+    except Exception as e:
+        return handle_asset_error("prepare image", fname, e, fail_silently=True)
 
 
 def prepare_audio(audio_field: str, vault_root: Path, docs_dir: Path) -> str | None:
