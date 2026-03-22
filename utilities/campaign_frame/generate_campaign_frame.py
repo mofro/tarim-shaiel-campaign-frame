@@ -14,6 +14,7 @@ Usage:
 """
 
 import re
+import sys
 import argparse
 from pathlib import Path
 from html import escape
@@ -26,6 +27,11 @@ VAULT_ROOT  = SCRIPT_DIR.parent.parent
 SRC_PATH    = VAULT_ROOT / "templates" / "tarim-shaiel-campaign-frame-v2.md"
 OUTPUT_PATH = VAULT_ROOT / "docs" / "campaign-frame.html"
 
+# Make utilities/shared importable regardless of working directory
+sys.path.insert(0, str(SCRIPT_DIR.parent))
+from shared.frontmatter import parse_frontmatter
+from shared.md_utils import inline_md, strip_obsidian_comments
+
 COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 
 # ---------------------------------------------------------------------------
@@ -36,12 +42,6 @@ def strip_frontmatter(text: str) -> str:
     """Remove YAML frontmatter between opening --- delimiters."""
     m = re.match(r'^---\n.*?\n---\n', text, re.DOTALL)
     return text[m.end():] if m else text
-
-
-def strip_obsidian_comments(text: str) -> str:
-    """Remove %% ... %% blocks (handles both single-line and multi-line).
-    This also removes the GM-facing section, which is wrapped in %% ... %%."""
-    return re.sub(r'%%.*?%%', '', text, flags=re.DOTALL)
 
 
 def preprocess(text: str) -> str:
@@ -74,23 +74,6 @@ def split_sections(text: str) -> dict[str, str]:
 
     sections[current_title] = '\n'.join(current_lines).strip()
     return sections
-
-
-# ---------------------------------------------------------------------------
-# Inline markdown conversion
-# ---------------------------------------------------------------------------
-
-def inline_md(text: str) -> str:
-    """Convert inline markdown to HTML (after HTML-escaping the raw text)."""
-    text = escape(text)
-    # Bold-italic: ***text***
-    text = re.sub(r'\*{3}(.+?)\*{3}', r'<strong><em>\1</em></strong>', text)
-    # Bold: **text**
-    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
-    # Italic: *text* or _text_
-    text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-    text = re.sub(r'_(.+?)_', r'<em>\1</em>', text)
-    return text
 
 
 # ---------------------------------------------------------------------------
