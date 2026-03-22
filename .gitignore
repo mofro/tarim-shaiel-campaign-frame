@@ -26,7 +26,7 @@ archive/
 
 # Binary / large assets
 images/
-!images//paper-texture-top-view-2.jpg
+!images/paper-texture-top-view-2.jpg
 audio/
 !narrative/audio/Opening Narration - The Roads-MUSIC.mp3
 references/
