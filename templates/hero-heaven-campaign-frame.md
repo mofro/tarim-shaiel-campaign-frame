@@ -20,12 +20,12 @@ aliases:
 >
 > *You enter a world that did not wait for you. It does not know what to make of you. And neither, quite yet, do you.*
 
-| | |
-|---|---|
-| **Players** | 3 – 5 |
-| **Length** | Long Campaign (30+ Sessions) |
-| **Tone** | Dark Fantasy · Morally Grey |
-| **System** | Daggerheart |
+|             |                              |
+| ----------- | ---------------------------- |
+| **Players** | 3 – 6                        |
+| **Length**  | Long Campaign (30+ Sessions) |
+| **Tone**    | Dark Fantasy · Morally Grey  |
+| **System**  | Daggerheart                  |
 
 ---
 

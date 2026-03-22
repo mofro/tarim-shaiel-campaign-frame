@@ -26,8 +26,9 @@ archive/
 
 # Binary / large assets
 images/
+!images/paper-texture-top-view-2.jpg
 audio/
-!narrative/audio/Opening Narration - The Roads-MUSIC.mp3
+!narrative/audio/The Road_A Fable.mp3
 references/
 
 # Binary file types (tracked text data like .geojson/.kml is fine)
