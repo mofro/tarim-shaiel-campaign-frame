@@ -492,7 +492,7 @@ CSS = """
 
     .cover {
       position: relative;
-      min-height: 520px;
+      min-height: 300px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;

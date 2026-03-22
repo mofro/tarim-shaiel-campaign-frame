@@ -61,7 +61,7 @@ CSS_LORE = """\
       color: var(--ink);
     }
 
-    .cover { min-height: 460px; }
+    .cover { min-height: 300px; }
 
     .content {
       position: relative;
