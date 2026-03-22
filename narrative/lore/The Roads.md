@@ -9,12 +9,13 @@ last_updated: 2026-03-22
 audio: narrative/audio/Opening Narration - The Roads-MUSIC.mp3
 description: The roads were here before the empire. A lore piece on the world's ancient trade routes and the silence that has returned to them.
 ---
-
 ### Narrative Summary
 ​
 The roads were here before the empire.
 
  That is the thing people forget.
+
+![[storyteller.png]]
 
  They forget because empires are loud — they build walls and stamp seals and rename things in languages that coat their tongues with the taste of authority. And when they fall, the silence they leave behind is so deafening that your ears believe that the sound is of a world that has ended. But it hasn't.
 
