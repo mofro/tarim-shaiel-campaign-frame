@@ -1,0 +1,160 @@
+{
+"boxes": [  ],
+"frame": {
+"enabled": false,
+"size": 1.0,
+"texture": "celtic_dotted",
+"tint": Color( 1, 1, 1, 1 )
+},
+"grid": null,
+"ground": ".ground.png",
+"included_default_packs": [ "Arabia by Chan", "Gothic Horror", "Tang Dynasty by Chan" ],
+"included_packs": [  ],
+"labels": [  ],
+"layers": {
+"enabled": false,
+"lock": [ false, false, false, false, false, false, false, false, false, false, false ],
+"names": [ "+5", "+4", "+3", "+2", "+1", "Default", "-1", "-2", "-3", "-4", "-5" ],
+"visibility": [ true, true, true, true, true, true, true, true, true, true, true ]
+},
+"load_default_not_symbols": true,
+"load_default_symbols": true,
+"map_height": 1440.0,
+"map_width": 3440.0,
+"mask": ".mask.png",
+"paths": [  ],
+"scale": null,
+"sharpen_labels": false,
+"symbols": [  ],
+"territories": {
+"territories": [  ]
+},
+"theme": {
+"coastal_fx_distance": 14.01,
+"coastline_color": Color( 0.009476, 0.105469, 0.08972, 0.630431 ),
+"coastline_style": 5,
+"color_grading": {
+"colors": PoolColorArray( 0.355469, 0.269628, 0.087479, 1, 1, 1, 1, 1 ),
+"offsets": PoolRealArray( 0, 1 ),
+"strength": 0.0
+},
+"freshwater_color": Color( 0.062256, 0.265625, 0.256092, 0.483686 ),
+"freshwater_outline_color": Color( 0.394531, 0.249676, 0.044693, 1 ),
+"ground_color_names": [ "", "", "", "", "" ],
+"ground_colors": [ Color( 0.566406, 0.497196, 0.365067, 1 ), Color( 0.554688, 0.444183, 0.34668, 1 ), Color( 0.550781, 0.477731, 0.374359, 1 ), Color( 0.589844, 0.544446, 0.366348, 1 ), Color( 0.535156, 0.488023, 0.303116, 1 ) ],
+"ground_texture": "Vintage",
+"label_presets": {
+"City": {
+"font_color": Color( 0.300781, 0.136806, 0.028198, 1 ),
+"font_name": "Merriweather",
+"font_outline_color": Color( 1, 1, 1, 0.498039 ),
+"font_outline_width": 0.0,
+"font_size": 32.0
+},
+"Terrain": {
+"font_color": Color( 0.179688, 0.131135, 0.016144, 1 ),
+"font_name": "Gentium Book Basic",
+"font_outline_color": Color( 0.710938, 0.650188, 0.48877, 0.498039 ),
+"font_outline_width": 2.0,
+"font_size": 40.0
+},
+"Town": {
+"font_color": Color( 0.300781, 0.136806, 0.028198, 1 ),
+"font_name": "Merriweather",
+"font_outline_color": Color( 1, 1, 1, 0.498039 ),
+"font_outline_width": 0.0,
+"font_size": 22.0
+},
+"Water": {
+"font_color": Color( 0.921875, 0.813843, 0.489746, 0.451098 ),
+"font_name": "Merriweather",
+"font_outline_color": Color( 0.109375, 0.109375, 0.109375, 0.498039 ),
+"font_outline_width": 2.0,
+"font_size": 64.0
+}
+},
+"landmass_outline_blend": 1.12,
+"landmass_outline_color": Color( 0.320313, 0.170577, 0.06131, 0.516275 ),
+"path_color": Color( 0.394531, 0.270096, 0.14949, 1 ),
+"randomize_water_mirror": true,
+"randomize_water_offsets": true,
+"symbol_custom_colors": [ Color( 0.25, 0.13765, 0.055664, 0.847843 ), Color( 0.746094, 0.662623, 0.518768, 0.815216 ), Color( 1, 1, 1, 0 ) ],
+"vignette_strength": 0.29,
+"water_color_names": [ "", "", "", "" ],
+"water_colors": [ Color( 0.275879, 0.625, 0.567722, 1 ), Color( 0.298935, 0.522079, 0.558594, 1 ), Color( 0.286011, 0.424138, 0.515625, 1 ), Color( 0.309814, 0.381351, 0.550781, 1 ) ],
+"water_hue": -0.03,
+"water_saturation": -0.06,
+"water_texture": "Imagination",
+"water_value": -0.03,
+"windrose_color": Color( 0.222656, 0.159694, 0.026093, 0.5 )
+},
+"trace": null,
+"version": 15,
+"water_flip_x": false,
+"water_flip_y": false,
+"water_level": 0.5,
+"water_offset": Vector2( 0.6952, 0 ),
+"water_stain": 0.280345,
+"water_tint": ".water_tint.png",
+"windroses": [ {
+"circles": 0,
+"color": Color( 0.222656, 0.159694, 0.026093, 0.5 ),
+"divisions": 16,
+"fade_out": false,
+"gradient": Object(Gradient,"resource_local_to_scene":false,"resource_name":"","offsets":PoolRealArray( 0, 1 ),"colors":PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 ),"script":null)
+,
+"inner_radius": 0,
+"line_width": 3,
+"outer_radius": 2048,
+"position": Vector2( 281.16, 1134.83 ),
+"rotation": 0.0
+}, {
+"circles": 0,
+"color": Color( 0.222656, 0.159694, 0.026093, 0.5 ),
+"divisions": 16,
+"fade_out": false,
+"gradient": Object(Gradient,"resource_local_to_scene":false,"resource_name":"","offsets":PoolRealArray( 0, 1 ),"colors":PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 ),"script":null)
+,
+"inner_radius": 0,
+"line_width": 3,
+"outer_radius": 2048,
+"position": Vector2( 334.537, 1124.38 ),
+"rotation": 0.0
+}, {
+"circles": 0,
+"color": Color( 0.222656, 0.159694, 0.026093, 0.5 ),
+"divisions": 16,
+"fade_out": false,
+"gradient": Object(Gradient,"resource_local_to_scene":false,"resource_name":"","offsets":PoolRealArray( 0, 1 ),"colors":PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 ),"script":null)
+,
+"inner_radius": 0,
+"line_width": 3,
+"outer_radius": 2048,
+"position": Vector2( 317.131, 1075.65 ),
+"rotation": 0.0
+}, {
+"circles": 0,
+"color": Color( 0.222656, 0.159694, 0.026093, 0.5 ),
+"divisions": 16,
+"fade_out": false,
+"gradient": Object(Gradient,"resource_local_to_scene":false,"resource_name":"","offsets":PoolRealArray( 0, 1 ),"colors":PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 ),"script":null)
+,
+"inner_radius": 0,
+"line_width": 3,
+"outer_radius": 2048,
+"position": Vector2( 237.067, 905.077 ),
+"rotation": 0.0
+}, {
+"circles": 0,
+"color": Color( 0.222656, 0.159694, 0.026093, 0.5 ),
+"divisions": 16,
+"fade_out": false,
+"gradient": Object(Gradient,"resource_local_to_scene":false,"resource_name":"","offsets":PoolRealArray( 0, 1 ),"colors":PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 ),"script":null)
+,
+"inner_radius": 0,
+"line_width": 3,
+"outer_radius": 2048,
+"position": Vector2( 386.753, 997.905 ),
+"rotation": 0.0
+} ]
+}
