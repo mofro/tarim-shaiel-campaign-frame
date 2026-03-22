@@ -35,6 +35,16 @@ banner-y: 37
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
 
+### 2026-03-22
+- Real-world historical parallels exploration via TimeMaps (1453 CE analog mapping across Middle East, Iran, Turkey, South Asia, China, Arabia, Steppe Peoples)
+- Created `world/historical-parallels.md` — new doc type: design substrate (lower-case, `doc_type: substrate`); analog map, open questions, inspiration inventory, crawl status
+- Established transitional workflow: substrate → named anchor → stub file → TODO checkbox → eventual canon promotion
+- Created event stubs: `world/events/scholars-purge.md` (1173 HB, Byzantine dispersal model), `world/events/silent-flowering.md` (398–698 HB, Ming withdrawal model)
+- DECISION_LOG entry 11: Cosmic Conscription — open question flagged; gates Celestial Court + Wizard motivation decisions
+- BACKLOG: frontmatter schema redesign (3 competing schemas identified; proposed `domain`/`doc_type`/`content_type` split; single `visibility` field)
+- BACKLOG: Real-World Analogs section updated — Elves/Ming and Orcs/Mamluks analogs added
+- **Follow-up:** Reconcile Scholar's Purge description (see line below); link stubs from `world/events/Index.md`
+
 ### 2026-03-21
 - Designed mid-campaign Convergence Point architecture (six points, Sessions 3-26): world-dynamic pressure systems that escalate stakes without plot-on-rails
 - Filed to `narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md` (canon) + `DECISION_LOG.md` entry
@@ -135,6 +145,7 @@ _Critical path items — must be completed for campaign launch_
 - [x] **Map Dwarven archivist awareness** — Chronicle of Ages contains empirical evidence of ecosystem degradation (disappearance patterns, magical anomaly data). They have data but need theory. → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
 - [x] **Map Orcish shamanic degradation** — Ancestor communication becoming unreliable as ecosystem symptom. Ancient epic songs contain literal descriptions of the entity. Liberation side effects woven into their traditions. → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
 - [x] **Map human scholar suppression** — Scholar's Purge (~1175 CE) was Wizard eliminating researchers. Surviving scholars are scattered, hunted, hold practical fragments. → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
+  - ⚠️ **Reconcile model (2026-03-22):** "Wizard eliminating researchers" implies annihilation. `world/events/scholars-purge.md` now adopts Byzantine dispersal model (knowledge scattered, not destroyed). Decide: did the Wizard orchestrate dispersal deliberately, or was scattering an unintended side effect? Resolve before stub is promoted to canon.
 - [x] **Map Goblin/Halfling observational network** — Trade disruptions, dead zones, charm failures = best continent-wide empirical dataset of ecosystem degradation. They don't know what their data means. → `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
 - [x] **Design the information synthesis puzzle** — Heroes as the only beings who can assemble distributed knowledge from all cultures. This is a core campaign mechanic, not just plot. → Section 1 of `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`
 
@@ -142,6 +153,12 @@ _Critical path items — must be completed for campaign launch_
 
 - [ ] **Update `world/factions/Index.md`** — supersede the speculative "Divine & Cosmic Powers" entries with the seven canonical divine players from `narrative/gm_secrets/DIVINE_PLAYERS.md`
 - [ ] **Update `world/diagrams/cosmological-architecture.md`** — resolve two ⚠️ pending nodes (Celestial Court nature + Elder Gods) using the locked divine player entries
+
+#### Event Stubs — From 2026-03-22 Session
+
+- [ ] **Flesh out `world/events/scholars-purge.md`** — resolve open questions (who enacted it; annihilation vs. dispersal; Wizard's role); link from `world/events/Index.md`; gates `scholars-remnant` faction file
+- [ ] **Flesh out `world/events/silent-flowering.md`** — resolve open questions (the Zheng He moment; the Japan-equivalent faction; what "The Whispered Warning" 1048 HB saw); link from `world/events/Index.md`; gates `elven-highland-enclaves` faction file
+- [ ] **Link both stubs from `world/events/Index.md`** — small task, do at session start next time
 
 #### Items This Unblocks (Existing TODOs That Get Answered)
 

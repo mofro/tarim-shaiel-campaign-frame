@@ -361,3 +361,31 @@ The **Surrendered-Layer Framework** is adopted as the governing design principle
 **Full rationale and voice character:** `narrative/sessions/00_session0/gm_secrets/Session_0_Awakening_Design_Notes.md` §THE SURRENDERED-LAYER FRAMEWORK
 
 **Migrated from:** `mechanics/design-decisions/DECISION_LOG.md` (2026-03-21)
+
+
+---
+
+### Decision 11: Cosmic Conscription — OPEN QUESTION
+**Date:** 2026-03-22
+**Status:** Open — significant reframe of campaign premise, not yet resolved.
+
+**The question:** Are the heroes expelled from paradise because they left something *undone in the past*, or because they are needed for something *coming in the future*?
+
+**Standard reading (deficiency model):** Heroes failed to recognize unfinished work, paradise revoked, expelled to discover what they left undone. Slightly punitive; sits uneasily against the "heroes are not diminished" hard constraint.
+
+**Proposed reframe (cosmic conscription model):** The celestial/cosmic/natural powers — possibly not coordinating, possibly each acting independently — have recognized that campaign-present is a structural crux point. The Liberation disturbance, the Warren ripples, the Held Breath stirring, the Silk Road corridor at its pivot point (real-world analog: 1453 CE): all of it converging simultaneously. The heroes are the instrument. The expulsion is not punishment — it is *deployment*.
+
+**Why the doubt-paradigm survives intact:** The heroes experience expulsion as shame and disorientation. They don't know they're being conscripted. The celestial court may be constitutionally incapable of saying "we need you" clearly — or may not even know that's what it's doing (see: distributed will option in Celestial Court decision). The heroes' self-doubt ("what did I fail to do?") is emotionally authentic even if factually wrong.
+
+**The dramatic irony:** The "unfinished work" framing is either a cover story, a genuine misunderstanding, or — most interestingly — both simultaneously true. The heroes *did* leave something undone; but the reason they're needed now is not that past failure. It's the approaching crux. Two truths, one expulsion.
+
+**Downstream implications (gates the following open decisions):**
+- **Celestial Court nature (Decision pending):** Distributed will option becomes most interesting — no one is lying to the heroes because no one knows the full picture. Multiple independent cosmic forces all pulling toward the same moment.
+- **Wizard motivation (Decision 4, unresolved):** If the Wizard is cosmologically aware — and the Ulugh Beg shadow suggests he is — he may know about the crux and have his own solution. The conflict is two responses to the same crisis, not a moral binary.
+- **Endgame architecture:** If the heroes are conscripted for the Held Breath awakening/crux, the "unfinished work" may not exist yet — they're being pulled *forward*, not backward. Structural pivot for the Three-Layer Revelation.
+
+**Real-world analog:** The Silk Road at 1453 CE is at a structural pivot — maritime routes beginning to bypass the overland corridor, Constantinople just fallen, Timurid renaissance peaking and crumbling simultaneously. The heroes wake up at the precise historical moment when the world they knew is becoming unrecognizable. The "unfinished work" could be the thread that holds the corridor's meaning together through the transition — something only they can do because only they remember what the corridor *was*.
+
+**Do not resolve until:** Celestial Court decision and Wizard motivation (Decision 4) are resolved first — this framing depends on both.
+
+**Session source:** 2026-03-22 historical parallels exploration session.

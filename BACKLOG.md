@@ -239,6 +239,16 @@ _Pre-Act 2 design work — not blocking Session 0 but must be resolved before mi
 
 ### Documentation & Infrastructure
 
+- [ ] **Frontmatter schema redesign for DataView compatibility** (~1 session) ⚠️ ARCHITECTURAL
+  - **Problem:** At least 3 competing frontmatter schemas in active use; visibility handled 4 different ways (`visibility:` field, `is_private:` boolean, `classification:` field, `[player-visible]` tag); `type:` conflates domain + doc_type + content_type into one overloaded field
+  - **Goal:** Single agreed schema that enables Obsidian DataView queries across all files
+  - **Proposed schema:** Split `type` into `domain:` + `doc_type:` + `content_type:`; consolidate all visibility signals into single `visibility:` field; standardize `tags:` for cross-cutting concerns (analog-X, region-X, archetype-X, campaign-arc-X)
+  - **Proof-of-concept:** `world/historical-parallels.md` uses proposed schema — validate it first
+  - **Scope:** Retrofit across all active (non-archive) files with frontmatter; update `metadata_template.md` and `CLAUDE.md` schema definition
+  - **DataView experiments already exist:** `templates/maps/experiments/test_dataview.md`, `templates/experiments/character_template_DATAVIEW.md`
+  - **Related:** Glossary fragmentation (visibility-as-file vs. visibility-as-tag is the same problem); `world/locations/` files already use a richer schema worth examining as a base
+  - Reference: 2026-03-22 session discussion on schema fragmentation
+
 - [ ] **Fix `/narrative/lore/liberation_aftermath.md`** (~2-3 sessions)
   - **CRITICAL:** Currently has wrong 200-year timeline throughout
   - Needs complete rewrite to align with 1,000-year timeline
@@ -492,12 +502,14 @@ Open questions to develop when inspiration strikes. These may never need full an
 - [ ] Social hierarchies, economic roles, cultural identities for each
 
 ### Real-World Analogs & Stereotype Reversals
-- [ ] Orcs = Sogdian merchants (cosmopolitan traders) ✅ done
+- **Reference doc:** `world/historical-parallels.md` (created 2026-03-22) — full analog map against 1453 CE; use as substrate when building any of the below
+- [ ] Orcs = Sogdian merchants (cosmopolitan traders) ✅ done; **also** Mamluks (slave-warrior ruling class, sacred site guardians) — see historical-parallels.md
 - [ ] Goblins = Venetian/Genoese republics?
 - [ ] Halflings = Armenian/Jewish diaspora traders?
 - [ ] Dwarves = Byzantine scholars? Islamic Golden Age?
-- [ ] Elves = ??? (depends on cosmology decision)
+- [ ] Elves = Ming dynasty (deliberate withdrawal after expansionist moment; Great Wall as policy not tragedy) — see historical-parallels.md; `elven-highland-enclaves` confirmed canon faction
 - [ ] Which real Silk Road peoples are "missing" that ancestries could represent?
+- [ ] Arab dispersed-network model (influence without territory; Sufi mysticism substrate) — no faction assigned yet; candidate for mystic/merchant network
 
 ### Empire-Era Roles
 - [ ] Which ancestries profited from Orc enslavement?
