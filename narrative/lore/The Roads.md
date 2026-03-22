@@ -10,9 +10,7 @@ description: The roads were here before the empire. A lore piece on the world's 
 ---
 ### Narrative Summary
 ​
-The roads were here before the empire.
-
- That is the thing people forget.
+The roads were here before the empire.  That is the thing people forget.
 
 ![[audio/Narration/The Road_A Fable.mp3|The Road_A Fable]]
 
