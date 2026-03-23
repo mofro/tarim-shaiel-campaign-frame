@@ -145,6 +145,34 @@ The fall is simultaneously: an ancient world ending, a new one beginning, knowle
 
 ---
 
+### The Night of Falling Stars — Halley's Comet Analog
+
+**Real world:** Halley's Comet, 1301 CE — one year before 1048 HB's real-world mapping of ~1302 CE
+**Tarim-Shaiel:** Night of Falling Stars (timeline date: 1048 HB); coincides exactly with "The Whispered Warning (Elf Watchers)" 1048–1050 HB
+
+**The date mapping:** 1199 HB ≈ 1453 CE; therefore 1048 HB ≈ 1302 CE. Halley's Comet appeared in 1301 CE — one year off. Essentially exact.
+
+Halley's Comet 1301 CE was visible worldwide for weeks, dragging a brilliant tail across the sky. Interpreted as divine portent simultaneously across every culture along the Silk Road — Islamic, Chinese, Persian, European. Giotto painted it into the Arena Chapel as the Star of Bethlehem four years later. The universality of the response is the point: every civilization saw the same sky and read it as significant.
+
+**The Islamic meteor mythology** is cosmologically precise for this world: in Islamic tradition, meteors are *angels throwing fire at djinn who try to eavesdrop on divine conversations*. A *night* of falling stars is a night when something below was listening to something above and was repelled in enormous numbers. For a world with Held Breath entities pressing against the cosmological membrane from underneath, that framing is pointed.
+
+**The 1054 CE Crab Nebula supernova** is worth noting (chronologically earlier, but the most dramatic medieval astronomical event): a star exploded and was visible in daylight for 23 days, then faded. Recorded in Chinese chronicles as a "guest star," in Islamic astronomical texts, possibly in Anasazi rock art. A star that *appeared and then died visibly* — something the heavens couldn't hold. A second resonance layer if needed.
+
+**The critical structural observation:** The Elf Watchers were established at 698 HB — 350 years before the Night of Falling Stars. They had been watching for three and a half centuries. The Night of Falling Stars at 1048 HB *coincides exactly* with "The Whispered Warning (Elf Watchers)" 1048–1050 HB. Whatever fell that night was what they'd been watching for. They didn't start watching because of the event — they were already watching, and the event answered the question.
+
+**The first domino:** In the Tarim-Shaiel causal chain, the Night of Falling Stars is the inciting astronomical incident that initiates everything:
+- 1048 HB: Stars fall → Elves break 350 years of silence with a warning
+- 1078 HB: Universities Flourish (scholars investigate what was seen)
+- 1118 HB: The Grey Council forms (coordination around growing knowledge)
+- 1138 HB: Mysterious Disappearances Begin (the ecosystem responds)
+- 1173 HB: The Scholar's Purge (someone silences the researchers)
+- 1183 HB: The Wizard Locates Hero Heaven *(secret)*
+- 1199 HB: Campaign present
+
+**Warren framing:** What the world saw as falling stars may not have been physical. In Warren terms, something at celestial scale *shifted* — the Held Breath stirred slightly — and the visible sky was the ecosystem's tremor. The stars didn't fall. The world moved.
+
+---
+
 ## Open Questions (Active)
 
 These were raised during the 2026-03-22 exploration session and are unresolved design questions, not inconsistencies.

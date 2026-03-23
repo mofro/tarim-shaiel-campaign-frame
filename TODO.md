@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-21
+last_updated: 2026-03-22
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -153,12 +153,14 @@ _Critical path items — must be completed for campaign launch_
 
 - [ ] **Update `world/factions/Index.md`** — supersede the speculative "Divine & Cosmic Powers" entries with the seven canonical divine players from `narrative/gm_secrets/DIVINE_PLAYERS.md`
 - [ ] **Update `world/diagrams/cosmological-architecture.md`** — resolve two ⚠️ pending nodes (Celestial Court nature + Elder Gods) using the locked divine player entries
+- [ ] **Create individual entity files for all seven divine players** — templates now in `templates/world-building/`. Suggested split: **Adversary template** (`_TEMPLATE_divine_adversary.md`) → The Weighmaster, The Shattered King, The Jade Illusionist, The Conquering Heaven; **Environment template** (`_TEMPLATE_divine_environment.md`) → The Sky-Father, The Chaos Weaver, The Memory-Keeper. All files are `visibility: gm_secrets`; file in `narrative/gm_secrets/divine-players/` (create directory).
 
 #### Event Stubs — From 2026-03-22 Session
 
 - [ ] **Flesh out `world/events/scholars-purge.md`** — resolve open questions (who enacted it; annihilation vs. dispersal; Wizard's role); link from `world/events/Index.md`; gates `scholars-remnant` faction file
 - [ ] **Flesh out `world/events/silent-flowering.md`** — resolve open questions (the Zheng He moment; the Japan-equivalent faction; what "The Whispered Warning" 1048 HB saw); link from `world/events/Index.md`; gates `elven-highland-enclaves` faction file
-- [ ] **Link both stubs from `world/events/Index.md`** — small task, do at session start next time
+- [ ] **Flesh out `world/events/night-of-falling-stars.md`** — resolve open questions (what the Elf Watchers saw; Whispered Warning content; Wizard's relationship — his Long Preparation begins 698 HB, *before* 1048 HB; clarify causal direction); link from `world/events/Index.md`
+- [ ] **Link all three stubs from `world/events/Index.md`** — scholars-purge, silent-flowering, night-of-falling-stars; small task, do at session start next time
 
 #### Items This Unblocks (Existing TODOs That Get Answered)
 
