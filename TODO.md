@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-22
+last_updated: 2026-03-24
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -278,6 +278,33 @@ _Critical path items — must be completed for campaign launch_
   - ⚠️ All descriptions must be present-tense psychological framing only — no hints of fallen godhood or past power
 
 **Total Estimated:** 7-10 sessions
+
+---
+
+### 5. Cyclical Year Calendar 🆕 NOT STARTED
+**Domain:** `world/`
+**Description:** A setting-appropriate cyclical calendar for years fashioned after the Chinese year-cycle tradition, synthesized with the competing mystical and religious traditions of Tarim-Shaiel (Islamic, Buddhist, Taoist, Silk Road animist). Should feel native to the setting, not imported.
+
+- [ ] **Determine cycle structure** — 12-year animal cycle? 60-year stem-branch cycle? Hybrid? Decide what maps cleanly to the setting's cosmological logic (Warrens, celestial forces, Held Breath periodicity)
+- [ ] **Name the cycle units** — names drawn from in-world traditions, not real-world direct translations; cross-reference the major competing religious/mystical traditions for resonance
+- [ ] **Map to HJ/HB era system** — integrate with existing Calendar Eras so cycle year labels can appear alongside era dates in timelines and in-world documents
+- [ ] **File to `world/calendar-cycles.md`** (new file, `visibility: public`); add reference in `world/` index
+
+**Estimated effort:** ~1 session
+
+---
+
+### 6. Warren Index 🆕 NOT STARTED
+**Domain:** `world/cosmology/` + `narrative/gm_secrets/`
+**Description:** A comprehensive list of Warrens — both **power Warrens** (housing major cosmic forces and celestial figures) and **affinity Warrens** (abstract, elemental, or conceptual). Some are inhabited by gods or divine players; others are pure dimensional realms with no governing intelligence.
+
+- [ ] **Define Warren taxonomy** — power vs. affinity; inhabited vs. uninhabited; accessible vs. sealed
+- [ ] **Map divine players to Warrens** — assign each of the seven canonical divine players (from `narrative/gm_secrets/DIVINE_PLAYERS.md`) to their home Warren or sphere of influence
+- [ ] **Design abstract/conceptual Warrens** — death, memory, transformation, hunger, silence, etc. — at minimum those with mechanical/narrative relevance to the heroes' tools and the Held Breath
+- [ ] **Flag Warrens with tool resonance** — which Warrens connect to specific hero archetypes or tool evolution stages (endgame cosmological interface)
+- [ ] **File public scaffold to `world/cosmology/warrens.md`** (new file, `visibility: public`); GM detail layer at `narrative/gm_secrets/warrens-gm.md`; link from `world/diagrams/cosmological-architecture.md`
+
+**Estimated effort:** ~1-2 sessions
 
 ---
 
