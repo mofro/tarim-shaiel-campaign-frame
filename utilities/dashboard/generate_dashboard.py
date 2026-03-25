@@ -691,7 +691,7 @@ def render_html(data: DashboardData) -> str:
     .obs-link:hover {{ background:rgba(60,74,90,0.18); color:var(--ink); }}
     .obs-link svg {{ width:10px; height:10px; flex-shrink:0; }}
     .filter-bar {{ padding:16px 60px; background:var(--parchment2); border-bottom:1px solid var(--rule); display:flex; gap:24px; flex-wrap:wrap; align-items:center; }}
-    .filter-group {{ display:flex; gap:6px; align-items:center; }}
+    .filter-group {{ display:flex; gap:6px; align-items:center; flex-wrap: wrap;  }}
     .filter-label {{ font-family:'Inconsolata',monospace; font-size:15px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(26,18,8,0.5); margin-right:4px; }}
     .filter-btn {{ font-family:'Inconsolata',monospace; font-size:13px; padding:4px 10px; border:1px solid var(--rule); border-radius:2px; background:var(--parchment); color:rgba(26,18,8,0.6); cursor:pointer; transition:all 0.15s; }}
     .filter-btn:hover {{ border-color:var(--gold); color:var(--ink); }}
