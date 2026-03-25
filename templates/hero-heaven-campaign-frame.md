@@ -5,7 +5,7 @@ system: Daggerheart
 status: player-facing draft
 version: 1.1
 created: 2026-03-04
-last_updated: 2026-03-04
+last_updated: 2026-03-24
 notes: |
   Player-facing document. Session Zero content is a placeholder pending GM guidance.
   Secrets excluded: origin/fall of heroes, the antagonist, the Lich-Legion, the Celestial
@@ -353,8 +353,9 @@ Someone is present at the character's arrival. Who this person is, and why they 
 
 *Session Zero is GM-led and personalised to each table. Full guidance is provided in a separate document.*
 
-**[PLACEHOLDER — Content Pending]**
-Session Zero questions, character creation guidance, and awakening structure are developed separately from this Campaign Frame and provided to players before play begins. This section will be completed with your GM prior to Session One.
+Full Session Zero content — including the pitch, tone & themes, world overview, opening narration, player and GM principles, safety & content tools, archetype overview, session zero questions, and session flow — lives in:
+
+> `narrative/sessions/00_session0/Session_0_Introduction.md`
 
 In broad strokes, Session Zero will give you time to establish who your hero is — not just mechanically, but as a person. Time to understand your Vestige enough to feel what it means to hold it. Time to establish the texture of your relationships with the other characters. And time to be placed into the first moment of the campaign in a way that is specific to you.
 

@@ -7,7 +7,7 @@ status: draft_v0.1
 audience: player_facing + gm_reference
 narrative_focus: Introduction to the World
 created: 2026-02-11
-updated: 2026-02-11
+updated: 2026-03-24
 related_documents:
   - Sessions_Structure.md
   - CORE_CAMPAIGN_NARRATIVE.md
@@ -57,7 +57,7 @@ This is a campaign of sensory immersion and slow revelation. Expect long stretch
 
 ## Themes
 
-Each theme below is also a question the campaign will ask — of the characters, and of the players.
+Each theme below is also a question the campaign will ask — of the characters, and of you as players.
 
 **Duty vs. Understanding** — Is it enough to do the right thing, or must you also understand *why* it's right? What happens when you complete a task without grasping its full consequences?
 
@@ -67,7 +67,7 @@ Each theme below is also a question the campaign will ask — of the characters,
 
 **The Weight of the Past** — History is not a story told by the victors. It is a living thing carried by everyone who survived it — in their languages, their grudges, their trade routes, and the names they refuse to change.
 
-**Something Unfinished** — The world is not broken. It is *incomplete*. And the difference between those two things matters enormously.
+**The Unknown Summons** — The world is not broken. It is *incomplete*. Something recognizes that incompleteness. The difference between those two things matters enormously.
 
 ---
 
@@ -75,20 +75,22 @@ Each theme below is also a question the campaign will ask — of the characters,
 
 <!-- TODO (Mo): Fill in touchstones that resonate with you. -->
 <!-- Consider a mix of accessible + niche. Some candidates to consider: -->
-<!-- LITERATURE: Malazan Book of the Fallen (Erikson), The Odyssey, Shahnameh, One Thousand and One Nights -->
-<!-- FILM: ?, ?, ? -->
-<!-- GAMES: Shadow of the Colossus?, Prince of Persia?, Assassin's Creed (Silk Road vibe)? -->
-<!-- OTHER TTRPG: Exalted (power scale), ? -->
+<!-- LITERATURE: Malazan Book of the Fallen (Erikson), The Odyssey, Shahnameh, One Thousand and One Nights, The Bhagavad Gita, Assassin's Creed: The Silk Road   -->
+<!-- FILM/TV: The Forbidden Kingdom, The Old Guard, Frieren: Beyond Journey's End, The Rising of the Shield Hero, GoT, The Holy Mountain -->
+<!-- GAMES: Shadow of the Colossus, Assassin's Creed: The Silk Road? -->
+<!-- TTRPGs: Daggerheart -->
 <!-- The Homebrew Kit recommends supplementing niche works with broadly popular media -->
 <!-- so players can orient expectations. Malazan alone might not land for everyone. -->
 
-**Literature:** *Malazan Book of the Fallen* (Steven Erikson), [additional touchstones TBD]
+*The throughline across all of these: moral complexity without nihilism, consequence that compounds, characters genuinely changed by what they do, worlds with deep lived-in history that wasn't built for the protagonists.*
 
-**Film/TV:** [TBD]
+**Literature:** *Malazan Book of the Fallen* (Steven Erikson) · *The Odyssey* · *Shahnameh* (Ferdowsi) · *One Thousand and One Nights* · *The Bhagavad Gita*
 
-**Games:** [TBD]
+**Film/TV:** *The Forbidden Kingdom* · *The Old Guard* · *Frieren: Beyond Journey's End* · *The Rising of the Shield Hero* · *Game of Thrones* · *The Holy Mountain*
 
-**Other TTRPG:** [TBD]
+**Games:** *Shadow of the Colossus* · *Assassin's Creed* (Silk Road entries)
+
+**Other TTRPG:** *Daggerheart*
 
 ---
 
@@ -190,6 +192,54 @@ What the players need to know is this: the world is alive, functioning, and in m
 **Reward Restraint** — In this campaign, choosing *not* to act is often more heroic than acting. Build encounters where the obvious solution — the one that uses the character's greatest strength at full power — is available but carries costs. Make restraint feel like a meaningful, powerful choice rather than a failure to engage.
 
 **Protect the Mystery** — You know things the players do not. Guard that knowledge carefully. When players ask questions you cannot yet answer, do not deflect awkwardly — acknowledge the question with gravity. "That's a very good question" is a complete sentence. The mystery is an asset. Spend it wisely.
+
+---
+
+## Safety & Content
+
+This campaign engages with morally complex themes. These tools keep the table a space where difficult material creates meaning, not distress.
+
+**Lines & Veils** — Establish at Session Zero what content should never appear (lines) and what should happen off-screen (veils).
+
+**X-Card** — Any player can tap the X-Card (or type "X") at any time to skip, rewind, or edit a scene — no explanation needed.
+
+**Open Door** — Any player may step away from the table at any time without comment or consequence.
+
+**Check-Ins** — Brief check-in at session start and end to surface anything that needs adjustment.
+
+**Content to discuss and calibrate at Session Zero:**
+
+Grief & Loss · Moral Ambiguity · Consequences of Violence · Liberation & Its Aftermath · Identity Crisis · Cosmic/Existential Dread · Self-Doubt · Complicity & Silence · Generational Consequence
+
+---
+
+## Archetypes
+
+Players choose an archetype — not a mechanical class, but a thematic role describing *how* your hero changed the world. Each carries a question the campaign will not stop asking. No two characters should share an archetype; different methods in friction create the campaign's best moments.
+
+**The Warrior** — *"Was force the right answer — or did it prevent me from seeing what I should have seen?"*
+
+**The Seeker** — *"Did the truths I found serve the people I found them for — or did they find other uses?"*
+
+**The Breaker** — *"Is breaking things my greatest gift — or the only thing I know how to do?"*
+
+**The Visionary** — *"Was I seeing truth — or seeing what I was meant to see?"*
+
+**The Bridge** — *"Is the unity I built genuine — or did I find ways to make people stop fighting long enough to serve a purpose?"*
+
+**The Diplomat** — *"Was my willingness to work within systems wisdom — or did I leave standing what should have been torn down?"*
+
+**The Sacrificer** — *"Is my willingness to give my greatest strength — or a vulnerability that others have always known how to use?"*
+
+**The Martyr** — *"Was the sacrifice that defined us genuine — or was it arranged, and does the difference matter now?"*
+
+**The Sentinel** — *"At what point does the faithful observer become the one who could have spoken — and chose not to?"*
+
+**The Keeper** — *"Was I protecting what was worth keeping — or holding alive what should have been allowed to end?"*
+
+**The Trickster** — *"Can you wear enough masks without losing what was underneath — and do I still know what that was?"*
+
+*Full archetype descriptions — including Vestiges and extended mechanical guidance — are provided separately.*
 
 ---
 
