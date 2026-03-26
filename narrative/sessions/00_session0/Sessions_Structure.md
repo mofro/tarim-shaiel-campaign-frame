@@ -17,7 +17,7 @@ This document records the FINAL STRUCTURE for Sessions 0-1 following intensive n
 **Core Question Resolved:**
 How do we create satisfying emotional investment and catharsis in Session 0 with newly-created characters while maintaining mystery and player agency?
 
-**ANSWER: Secret god-tier snippets + group recognition ending**
+**ANSWER: Secret mythical-tier snippets + group recognition ending**
 
 ---
 
@@ -26,12 +26,12 @@ How do we create satisfying emotional investment and catharsis in Session 0 with
 ### Core Narrative Architecture (ESTABLISHED)
 
 **Three-Layer Narrative:**
-1. **Hero Heaven** - The literal magical paradise from which heroes were expelled
-2. **Legendary Past** - Memories of god-tier power (200 years ago)
-3. **Current World** - Present day, heroes wake as mortals who remember godhood
+1. **Hero Heaven** - The literal magical paradise from which heroes were recalled
+2. **Legendary Past** - Memories of mythical-tier power (~1000 years ago)
+3. **Current World** - Present day, heroes wake as mortals who remember …nothing
 
 **Key Principle:**
-Heroes were NOT punished for evil deeds. They earned paradise through legitimate heroism but were expelled when their doubt about unintended consequences created a paradox Hero Heaven couldn't contain. Their expulsion was merciful deployment, not judgment.
+Heroes were NOT punished for evil deeds. They earned paradise through legitimate heroism but recalled for reasons they won’t know and wouldn’t immediately comprehend. Their recall was urgent deployment, not judgment.
 
 **Campaign Direction:**
 - Heroes travel WESTWARD (away from eventual eastern climax)
@@ -75,7 +75,7 @@ Heroes were NOT punished for evil deeds. They earned paradise through legitimate
 **Act 1: Individual Awakenings** (~3-4 hours total)
 - Each hero wakes alone in location that challenges their archetype's core strength
 - Solves immediate crisis through their archetype's natural tools
-- At **narrative-perfect moment during crisis**, receives **secret god-tier snippet** (player only)
+- At **narrative-perfect moment during crisis**, receives **secret mythical-tier snippet** (player only)
 - Continues to solution/convergence point
 
 **Act 2: Convergence** (~45 minutes)
@@ -161,15 +161,15 @@ All heroes naturally converge on the same merchant caravan through their victory
 
 ---
 
-## The Secret God-Tier Snippets (NEW ARCHITECTURE)
+## The Secret Mythical-Tier Snippets (NEW ARCHITECTURE)
 
 ### Content Register: Emotional & Sensory (NOT Explanatory)
 
-**Core Principle:** Players experience the *loss* and *weight* of godhood without understanding *what happened*.
+**Core Principle:** Players experience the *loss* and *weight* of their mythic stature without understanding *what happened*.
 
 **Design Philosophy:**
 - Snippets give emotional truth, not explanatory truth
-- Allow players to create personal interpretation of what godhood *meant*
+- Allow players to create personal interpretation of what their ascendancy *meant*
 - Prevent early explanation of the "why"
 - Preserve dual-truth system (storyteller knows; players only feel)
 
@@ -180,7 +180,7 @@ All heroes naturally converge on the same merchant caravan through their victory
 **What Makes This Work:**
 - Sensory details ground it in *present crisis* (trapped, alone, stone, darkness)
 - Emotional architecture mirrors archetype's core doubt (Breaker fears their destruction freed something worse)
-- Connection is *implicit*, not stated ("I remember being a god")
+- Connection is *implicit*, not stated ("I remember being a godlike")
 - Doesn't explain what happened; only reveals internal emotional experience
 - Player reads it and understands: *I held back my power once. I doubted myself. I still carry that weight.*
 
