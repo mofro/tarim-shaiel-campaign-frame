@@ -389,3 +389,19 @@ The **Surrendered-Layer Framework** is adopted as the governing design principle
 **Do not resolve until:** Celestial Court decision and Wizard motivation (Decision 4) are resolved first — this framing depends on both.
 
 **Session source:** 2026-03-22 historical parallels exploration session.
+
+---
+
+## Decision 12 — TODO→GitHub Issues Workflow Convention
+**Date:** 2026-03-26
+**Type:** Process/workflow
+
+**Decision:** All qualifying planned items in TODO.md — status `[ ]`, `[-]`, or `[/]`, living in ACTIVE or BLOCKED, with a title and implementation context — get a corresponding GitHub Issue created at authoring time, as part of the same work unit. The inline reference `[#NN](url)` is added to the TODO item before committing. Sub-tasks belong in the issue body as a checklist, not as separate issues. For retrospective catch-up on existing items, run an explicit "sync TODO→issues" pass.
+
+**Rationale:** TODO.md text items have no persistent URL, no comment thread, and no cross-reference capability. GitHub Issues provide all three without duplicating the source of truth — TODO.md remains the session anchor and the place Claude reads at session start; issues provide tracking, discoverability, and a place for implementation context to live between sessions.
+
+**Initial migration:** 23 issues created (mofro/tarim-shaiel-campaign-frame#41–#63) covering all qualifying ACTIVE and BLOCKED items as of 2026-03-26.
+
+**Documented in:** `CLAUDE.md` Working Conventions; `TODO.md` WORKING PRINCIPLES
+
+**Lock status:** Convention — not locked. Revisable if the workflow proves cumbersome in practice.

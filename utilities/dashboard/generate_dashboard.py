@@ -533,18 +533,24 @@ def _obs_link(label: str, vault_path: str) -> str:
     href = obsidian_link(vault_path)
     return f'<a class="obs-link" href="{href}">{SVG_FILE}{label}</a>'
 
+_MD_LINK_RE = re.compile(r'\[([^\]]+)\]\((https?://[^)]+)\)')
+
+def _md_links(text: str) -> str:
+    """Convert markdown inline links [text](url) to HTML anchors."""
+    return _MD_LINK_RE.sub(r'<a href="\2" target="_blank">\1</a>', text)
+
 def _item_html(item: TodoItem) -> str:
     cb = "checked" if item.done else ("blocked" if item.blocked else "")
     tc = "todo-text done-text" if item.done else "todo-text"
     note = ""
     if item.note:
         warn = any(x in item.note for x in ("CRITICAL", "BLOCKED", "ERROR", "wrong"))
-        note = f'<div class="todo-note{" warning" if warn else ""}">{item.note}</div>'
+        note = f'<div class="todo-note{" warning" if warn else ""}">{_md_links(item.note)}</div>'
     links = "".join(_obs_link(l, p) for l, p in item.links)
     links = f'<div class="todo-links">{links}</div>' if links else ""
     effort = f'<div class="todo-effort">{item.effort}</div>' if item.effort else ""
     return (f'<div class="todo-item"><div class="todo-checkbox {cb}"></div>'
-            f'<div class="todo-text-wrap"><div class="{tc}">{item.text}</div>'
+            f'<div class="todo-text-wrap"><div class="{tc}">{_md_links(item.text)}</div>'
             f'{note}{links}{effort}</div></div>')
 
 def _group_html(g: TodoGroup) -> str:
