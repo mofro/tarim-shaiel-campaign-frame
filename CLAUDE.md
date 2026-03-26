@@ -163,6 +163,7 @@ Claude Code creates a worktree automatically at conversation start — ignore it
 - **Scope restatement** is appropriate when a conversation drifts — ground back to TODO.md and active blockers.
 - When working on narrative prose, match the benchmark register (Warrior Awakening v2.0).
 - Archetype descriptions are for PLAYER eyes — keep them in present-tense psychological framing.
+- **New planned TODO items get a GitHub Issue.** When writing or significantly expanding a TODO item that meets all qualifying criteria (status `[ ]`/`[-]`/`[/]`, has title + implementation context, lives in ACTIVE or BLOCKED), create a GitHub Issue as part of that same work unit — not as a follow-up. Add the inline reference (`[#NN](url)`) to the TODO item before committing. For retrospective catch-up on existing items, run an explicit "sync TODO→issues" pass. Qualifying criteria: item represents a discrete unit of work or decision; sub-tasks belong in the issue body as a checklist, not as separate issues.
 
 ### Git Workflow (Commit on Completion)
 
