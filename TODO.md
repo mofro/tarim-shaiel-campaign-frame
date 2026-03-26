@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-24
+last_updated: 2026-03-26
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -151,15 +151,15 @@ _Critical path items — must be completed for campaign launch_
 
 #### Follow-up From DIVINE_PLAYERS.md (2026-03-19)
 
-- [ ] **Update `world/factions/Index.md`** — supersede the speculative "Divine & Cosmic Powers" entries with the seven canonical divine players from `narrative/gm_secrets/DIVINE_PLAYERS.md`
-- [ ] **Update `world/diagrams/cosmological-architecture.md`** — resolve two ⚠️ pending nodes (Celestial Court nature + Elder Gods) using the locked divine player entries
-- [ ] **Create individual entity files for all seven divine players** — templates now in `templates/world-building/`. Suggested split: **Adversary template** (`_TEMPLATE_divine_adversary.md`) → The Weighmaster, The Shattered King, The Jade Illusionist, The Conquering Heaven; **Environment template** (`_TEMPLATE_divine_environment.md`) → The Sky-Father, The Chaos Weaver, The Memory-Keeper. All files are `visibility: gm_secrets`; file in `narrative/gm_secrets/divine-players/` (create directory).
+- [ ] **Update `world/factions/Index.md`** ([#41](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/41)) — supersede the speculative "Divine & Cosmic Powers" entries with the seven canonical divine players from `narrative/gm_secrets/DIVINE_PLAYERS.md`
+- [ ] **Update `world/diagrams/cosmological-architecture.md`** ([#41](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/41)) — resolve two ⚠️ pending nodes (Celestial Court nature + Elder Gods) using the locked divine player entries
+- [ ] **Create individual entity files for all seven divine players** ([#41](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/41)) — templates now in `templates/world-building/`. Suggested split: **Adversary template** (`_TEMPLATE_divine_adversary.md`) → The Weighmaster, The Shattered King, The Jade Illusionist, The Conquering Heaven; **Environment template** (`_TEMPLATE_divine_environment.md`) → The Sky-Father, The Chaos Weaver, The Memory-Keeper. All files are `visibility: gm_secrets`; file in `narrative/gm_secrets/divine-players/` (create directory).
 
 #### Event Stubs — From 2026-03-22 Session
 
-- [ ] **Flesh out `world/events/scholars-purge.md`** — resolve open questions (who enacted it; annihilation vs. dispersal; Wizard's role); link from `world/events/Index.md`; gates `scholars-remnant` faction file
-- [ ] **Flesh out `world/events/silent-flowering.md`** — resolve open questions (the Zheng He moment; the Japan-equivalent faction; what "The Whispered Warning" 1048 HB saw); link from `world/events/Index.md`; gates `elven-highland-enclaves` faction file
-- [ ] **Flesh out `world/events/night-of-falling-stars.md`** — resolve open questions (what the Elf Watchers saw; Whispered Warning content; Wizard's relationship — his Long Preparation begins 698 HB, *before* 1048 HB; clarify causal direction); link from `world/events/Index.md`
+- [ ] **Flesh out `world/events/scholars-purge.md`** ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42)) — resolve open questions (who enacted it; annihilation vs. dispersal; Wizard's role); link from `world/events/Index.md`; gates `scholars-remnant` faction file
+- [ ] **Flesh out `world/events/silent-flowering.md`** ([#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43)) — resolve open questions (the Zheng He moment; the Japan-equivalent faction; what "The Whispered Warning" 1048 HB saw); link from `world/events/Index.md`; gates `elven-highland-enclaves` faction file
+- [ ] **Flesh out `world/events/night-of-falling-stars.md`** ([#44](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/44)) — resolve open questions (what the Elf Watchers saw; Whispered Warning content; Wizard's relationship — his Long Preparation begins 698 HB, *before* 1048 HB; clarify causal direction); link from `world/events/Index.md`
 - [ ] **Link all three stubs from `world/events/Index.md`** — scholars-purge, silent-flowering, night-of-falling-stars; small task, do at session start next time
 
 #### Items This Unblocks (Existing TODOs That Get Answered)
@@ -192,20 +192,20 @@ _Critical path items — must be completed for campaign launch_
 - [x] Session Zero Questions (7 questions + Lines & Veils)
 
 #### GM-Facing Sections — STUBS ONLY (writing required)
-- [ ] **Distinctions** (~1-2 sessions) — draw from existing locked material:
+- [ ] **Distinctions** ([#45](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/45)) (~1-2 sessions) — draw from existing locked material:
   - How the Warrens, Holds, and unreliable magic actually work (cosmological architecture)
   - The Heroic Age, the thousand-year gap, and what the characters actually are
   - The empire and its successor factions — the full picture (not player-facing)
   - The antagonist, the Lich-Legion, the Celestial Peak, the Fallen Companion, the Gaes
-- [ ] **Inciting Incident** (~1 session) — creative writing task, no direct source exists yet:
+- [ ] **Inciting Incident** ([#46](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/46)) (~1 session) — creative writing task, no direct source exists yet:
   - The specific awakening circumstances: location, first witness, opening situation
   - Three-element structure: situation / objective / hooks keyed to character approaches
   - Must preserve secrets while making the opening scene executable
-- [ ] **Custom Mechanics: Vestiges / Memory Fragments / The Wrongness** (~1 session) — translate locked decisions into campaign frame voice:
+- [ ] **Custom Mechanics: Vestiges / Memory Fragments / The Wrongness** ([#47](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/47)) (~1 session) — translate locked decisions into campaign frame voice:
   - Vestiges = Tools; R-H-K (Resist/Hunger/Know) behavioral framework
   - Memory Fragments = Know behavior as a subsystem; how fragments surface and what they cost
   - The Wrongness = ecosystem strain / beacon effect / Warren inversion as players experience it
-- [ ] **Campaign Map** (~1 session) — player-facing version of existing geographic framework:
+- [ ] **Campaign Map** ([#48](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/48)) (~1 session) — player-facing version of existing geographic framework:
   - Eight regions named and placed; post-imperial political shape
   - Space left for table co-creation contributions
 
@@ -216,28 +216,28 @@ _Critical path items — must be completed for campaign launch_
 **Design anchor:** Surrendered-Layer Framework filed 2026-03-20 — all new awakenings use this as the design checklist. See `gm_secrets/Session_0_Awakening_Design_Notes.md` §THE SURRENDERED-LAYER FRAMEWORK.
 
 **Open design questions (resolve before writing):**
-- [ ] **Seeker tome/bow discrepancy** — TOOL_EVOLUTION_FRAMEWORK Stage 0 lists bow; written awakening uses tome. Reconcile before Character Creation doc is finalized.
-- [ ] **Sentinel tool** — existing stub: recording device (epistemic/witness); framework proposal: cracked lantern (doxastic/vigilance). Different design logic. Creative decision required.
+- [ ] **Seeker tome/bow discrepancy** ([#49](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/49)) — TOOL_EVOLUTION_FRAMEWORK Stage 0 lists bow; written awakening uses tome. Reconcile before Character Creation doc is finalized.
+- [ ] **Sentinel tool** ([#50](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/50)) — existing stub: recording device (epistemic/witness); framework proposal: cracked lantern (doxastic/vigilance). Different design logic. Creative decision required.
 
 **Core Six — Remaining Work:**
-- [ ] **Breaker Awakening Scenario** (~1 session)
+- [ ] **Breaker Awakening Scenario** ([#51](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/51)) (~1 session)
   - Rewrite Segment 5 per revised single-path architecture (leave the hammer — see Design Notes)
   - Write Segments 6-8 (Snippet, Rescue, Convergence)
   - Tool: crude hammer — surrendered layer: ontological (identity through destruction); voice: comforts, *"I'm right here"*
 
-- [ ] **Sacrificer Awakening Scenario** (~1 session)
+- [ ] **Sacrificer Awakening Scenario** ([#52](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/52)) (~1 session)
   - 8-segment structure (woven into Act 2 convergence, not standalone)
   - Resolve open situation question: what currency of sacrifice? what relationship? what forces the confrontation?
   - Tool: balance scale with one pan missing — surrendered layer: volitional (right to refuse); voice: offers cost with perfect clarity
   - Secret snippet trigger moment
 
-- [ ] **Visionary Awakening Scenario** (~1 session)
+- [ ] **Visionary Awakening Scenario** ([#53](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/53)) (~1 session)
   - 8-segment structure (fast/explosive — 15-20 min target)
   - ⚠️ Tool conflict: existing notes say "tarot deck"; framework proposes obsidian disk (polished, divination mirror). Resolve before writing.
   - Surrendered layer: perceptual (right to look away); voice: shows — silent, directional, layers visions over present
   - Secret snippet trigger moment
 
-- [ ] **Bridge Awakening Scenario** (~1 session)
+- [ ] **Bridge Awakening Scenario** ([#54](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/54)) (~1 session)
   - 8-segment structure (dialogue-driven, 20-25 min target)
   - ⚠️ Tool conflict: existing notes say "voice/conviction tool"; framework proposes knotted silk cord. Resolve before writing. (May be complementary: seal = social proof, cord = tool proper.)
   - Surrendered layer: relational (right to have a side); voice: aches — weight of never landing
@@ -250,7 +250,7 @@ _Critical path items — must be completed for campaign launch_
 - [ ] **Healer awakening** — framework: bone needle + silk thread / restorative layer / insists toward next wound
 - [ ] *(Keeper awakening — not in expanded player list but stub exists in Design Notes)*
 
-- [ ] **Populate Shared_Memory_Events.md** (~1-2 sessions)
+- [ ] **Populate Shared_Memory_Events.md** ([#55](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/55)) (~1-2 sessions)
   - 5 thematic events (framework defined)
   - Event 1: The Warrior's Choice (method of engagement)
   - Event 2: The Question of Sight (knowledge vs. trust vs. truth)
@@ -259,19 +259,19 @@ _Critical path items — must be completed for campaign launch_
   - Event 5: The Wizard's Shadow (false certainty about threat)
   - Each event: 400-600 word sensory scene + canonical truths revealed
 
-- [ ] **Write Actual Secret Snippets** (~1 session for core 6; expanded 4 deferred)
+- [ ] **Write Actual Secret Snippets** ([#56](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/56)) (~1 session for core 6; expanded 4 deferred)
   - 6 core archetype snippets (priority); 4 expanded snippets when scenarios are written
   - Sensory + emotional register (not explanatory)
   - Tied to awakening scenario trigger moments — each snippet surfaces: *"you've faced this choice before"*
   - Creates player-to-character investment
 
-- [ ] **Create Session_0_GM_NOTES.md** (~1-2 sessions)
+- [ ] **Create Session_0_GM_NOTES.md** ([#57](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/57)) (~1-2 sessions)
   - Detailed execution guide
   - Atmospheric details, NPC quick-refs, pacing cues
   - Scenario-specific GM guidance for all six awakenings
   - Convergence orchestration techniques
 
-- [ ] **Finalize PLAYER_PITCH_AND_PRINCIPLES.md** (~1 session)
+- [ ] **Finalize PLAYER_PITCH_AND_PRINCIPLES.md** ([#58](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/58)) (~1 session)
   - Both versions: transparent (GM reference) + less-transparent (player-facing)
   - 6 core archetype descriptions (priority) + 4 expanded (Trickster, Crafter, Sentinel, Healer) when ready
   - Player principles (4-6 guidelines)
@@ -281,7 +281,7 @@ _Critical path items — must be completed for campaign launch_
 
 ---
 
-### 5. Cyclical Year Calendar 🆕 NOT STARTED
+### 5. Cyclical Year Calendar 🆕 NOT STARTED ([#59](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/59))
 **Domain:** `world/`
 **Description:** A setting-appropriate cyclical calendar for years fashioned after the Chinese year-cycle tradition, synthesized with the competing mystical and religious traditions of Tarim-Shaiel (Islamic, Buddhist, Taoist, Silk Road animist). Should feel native to the setting, not imported.
 
@@ -294,7 +294,7 @@ _Critical path items — must be completed for campaign launch_
 
 ---
 
-### 6. Warren Index 🆕 NOT STARTED
+### 6. Warren Index 🆕 NOT STARTED ([#60](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/60))
 **Domain:** `world/cosmology/` + `narrative/gm_secrets/`
 **Description:** A comprehensive list of Warrens — both **power Warrens** (housing major cosmic forces and celestial figures) and **affinity Warrens** (abstract, elemental, or conceptual). Some are inhabited by gods or divine players; others are pure dimensional realms with no governing intelligence.
 
@@ -329,13 +329,13 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
 ### Secondary Decisions
 
-2. - [/] **Ancestries for Silk Road Setting** 🟡
+2. - [/] **Ancestries for Silk Road Setting** ([#61](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/61)) 🟡
    - **Question:** Which Daggerheart ancestries fit? Custom ancestries needed?
    - **Confirmed Fit:** Humans, Orcs, Dwarves, Elves, Halflings, Goblins
    - **Decision Needed:** Use standard as-is, reflavor with Silk Road context, or create custom?
    - **Required Before:** Heritage & Classes section of Campaign Frame
 
-3. - [/] **Campaign Frame Complexity Rating** 🟡
+3. - [/] **Campaign Frame Complexity Rating** ([#62](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/62)) 🟡
    - **Question:** Rating 3 or 4 on Daggerheart complexity scale?
    - **Factors:** Charm system + tool progression + R/H/K framework + archetype mechanics
    - **Recommendation:** 3-4 (significant custom mechanics, streamlined presentation)
@@ -347,7 +347,7 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
    - **Options:** New persona, Lore Keeper extension, or user-triggered scripts
    - **Can Defer:** Not blocking immediate work
 
-5. - [/] **GeoJSON Field Mapping** 🟡
+5. - [/] **GeoJSON Field Mapping** ([#63](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/63)) 🟡
    - **Question:** Which Location Note fields transfer to GeoJSON descriptions?
    - **Decisions Needed:**
      - Which fields: `resources`, `factions`, `elevation`, `narrative_weight`?
@@ -939,6 +939,9 @@ _Last verified: 2026-02-05_
 2. **Playable Before Perfect:** Get to functional state, then polish
 3. **Test Integration Early:** Verify systems work together before going deep
 4. **Document Decisions:** Capture rationale, not just outcomes
+
+### GitHub Issues
+- **TODO → GitHub Issues:** Qualifying planned items (ACTIVE/BLOCKED, with implementation context) get a GitHub Issue at authoring time. See `CLAUDE.md` Working Conventions for full criteria and workflow.
 
 ### Session Flow
 1. **Review Status:** Check TODO.md at session start
