@@ -23,6 +23,7 @@ banner-y: 37
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (all 8 decisions locked 2026-03-17)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
 - 🔄 **Active work:** Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)
+- 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to `archive/charms/`; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to `BACKLOG.md`
@@ -34,6 +35,14 @@ banner-y: 37
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-03-26
+- Explored Claude Code hooks vs. GitHub webhooks; designed `workflow_dispatch` trigger pattern via Claude Code `Stop`/`SessionStart` hooks
+- Created GitHub Issue [#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40): infra hooks plan (SessionStart sync + Stop pipeline trigger with commit-ahead guard)
+- Migrated 23 ACTIVE/BLOCKED TODO items to GitHub Issues ([#41](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/41)–[#63](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/63))
+- Established TODO→Issues workflow convention; documented in `CLAUDE.md` Working Conventions + `WORKING PRINCIPLES` pointer in TODO.md
+- Fixed dashboard generator: inline markdown links `[text](url)` now render as HTML anchors (`_md_links()` helper)
+- **Follow-up:** Merge `claude/github-hooks-investigation-DjJhb` → `main`; implement hooks locally per [#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)
 
 ### 2026-03-22
 - Real-world historical parallels exploration via TimeMaps (1453 CE analog mapping across Middle East, Iran, Turkey, South Asia, China, Arabia, Steppe Peoples)
