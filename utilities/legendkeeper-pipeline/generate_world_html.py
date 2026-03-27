@@ -21,6 +21,29 @@ import argparse
 from pathlib import Path
 from html import escape
 
+# ---------------------------------------------------------------------------
+# Local asset resolution
+# ---------------------------------------------------------------------------
+
+_LK_ASSET_RE = re.compile(r'https://assets\.legendkeeper\.com/([\w.\-]+)')
+
+
+def _resolve_image_url(url: str) -> str:
+    """Return a local relative path if the asset exists in docs/assets/, else the original URL.
+
+    Source .md files keep LK CDN URLs (preserves round-trip to LegendKeeper).
+    When download_lk_assets.py has fetched the files locally, this transparently
+    upgrades to a self-hosted relative path so the HTML works without LK auth.
+    """
+    if not url:
+        return url
+    m = _LK_ASSET_RE.match(url)
+    if m:
+        local = Path('docs/assets') / m.group(1)
+        if local.exists():
+            return f'assets/{m.group(1)}'
+    return url
+
 try:
     import yaml
     _YAML_AVAILABLE = True
@@ -861,7 +884,8 @@ def render_timeline_html(fm: dict, body: str) -> str:
         entry_class = 'is-era' if is_era else ''
 
         # Image area: background-image if provided, else empty (shows color tint)
-        image_url = entry.get('image', '')
+        # _resolve_image_url upgrades LK CDN URLs to local paths when available
+        image_url = _resolve_image_url(entry.get('image', ''))
         img_style = (
             f'background-image:url({escape(image_url)});'
             f'background-size:cover;background-position:center;'
