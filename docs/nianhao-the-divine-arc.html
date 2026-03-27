@@ -27,7 +27,6 @@
 
     body {
       background: #1a1208;
-      background-image: url('images/paper-texture-top-view-2.jpg');
       font-family: 'EB Garamond', Georgia, serif;
       font-size: 17px;
       line-height: 1.72;
@@ -123,7 +122,7 @@
     /* --- Timeline list view (LK-inspired vertical card layout) --- */
 
     /* Dark page for timeline */
-    .page-wrap { background: #0d0a05; }
+    .page-wrap { background: var(--steel); }
     .page-wrap::before { opacity: 0.1; }
     .content { padding: 0; }
 
@@ -293,7 +292,6 @@
       font-size: 0.88rem;
       font-weight: 700;
       color: var(--parchment);
-      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }

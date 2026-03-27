@@ -230,7 +230,7 @@ CSS_TIMELINE = """
     /* --- Timeline list view (LK-inspired vertical card layout) --- */
 
     /* Dark page for timeline */
-    .page-wrap { background: #0d0a05; }
+    .page-wrap { background: var(--steel); }
     .page-wrap::before { opacity: 0.1; }
     .content { padding: 0; }
 
@@ -400,7 +400,6 @@ CSS_TIMELINE = """
       font-size: 0.88rem;
       font-weight: 700;
       color: var(--parchment);
-      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
