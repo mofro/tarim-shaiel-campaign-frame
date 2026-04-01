@@ -2,15 +2,18 @@
 """
 Download LegendKeeper asset images to docs/assets/ for local self-hosting.
 
-LK asset URLs (assets.legendkeeper.com) return 403 for unauthenticated
-requests. Run this script locally (with internet access) to download all
-referenced images. generate_world_html.py will then use local relative paths
-instead of the LK CDN URLs.
+LK asset URLs (assets.legendkeeper.com) require authentication. Run this
+script locally with your LK session cookie to download all referenced images.
+generate_world_html.py will then use local relative paths instead of CDN URLs.
 
 Usage:
-    python download_lk_assets.py                   # scan all *.md, download all
-    python download_lk_assets.py --dry-run         # list URLs without downloading
-    python download_lk_assets.py --source FILE.md  # limit scan to one file
+    python download_lk_assets.py --dry-run
+    python download_lk_assets.py --cookie "session=abc123"
+    python download_lk_assets.py --source FILE.md --cookie "session=abc123"
+
+Getting your cookie:
+    Browser DevTools → Application → Cookies → app.legendkeeper.com
+    Copy the full cookie string (or just the session= value).
 """
 
 import re
@@ -46,7 +49,20 @@ def main() -> None:
     )
     parser.add_argument('--dry-run',  action='store_true', help='List URLs without downloading')
     parser.add_argument('--source',   metavar='FILE',      help='Limit scan to a single .md file')
+    parser.add_argument('--cookie',   metavar='COOKIE_STRING',
+                        help='LK session cookie (from browser DevTools → Application → Cookies)')
     args = parser.parse_args()
+
+    headers = {
+        'User-Agent': (
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
+            'AppleWebKit/537.36 (KHTML, like Gecko) '
+            'Chrome/124.0.0.0 Safari/537.36'
+        ),
+        'Referer': 'https://app.legendkeeper.com/',
+    }
+    if args.cookie:
+        headers['Cookie'] = args.cookie
 
     repo_root = Path(__file__).resolve().parents[2]
 
@@ -81,7 +97,7 @@ def main() -> None:
             skipped += 1
             continue
         try:
-            resp = requests.get(url, timeout=15)
+            resp = requests.get(url, timeout=15, headers=headers)
             if resp.status_code == 200:
                 dest.write_bytes(resp.content)
                 print(f'  ✓  saved   {filename}  ({len(resp.content):,} bytes)')
