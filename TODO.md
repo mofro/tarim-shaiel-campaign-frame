@@ -339,10 +339,13 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
 ### Secondary Decisions
 
-2. - [/] **Ancestries for Silk Road Setting** ([#61](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/61)) 🟡
-   - **Question:** Which Daggerheart ancestries fit? Custom ancestries needed?
-   - **Confirmed Fit:** Humans, Orcs, Dwarves, Elves, Halflings, Goblins
-   - **Decision Needed:** Use standard as-is, reflavor with Silk Road context, or create custom?
+2. - [x] **Ancestries for Tarim-Shaiel** ([#61](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/61)) 🟢
+   - **Decision (2026-04-01):** All 18 canonical Daggerheart 1.0 ancestries reviewed and suitability-ranked. Approach: Tarim-Shaiel-specific in-world descriptions for all 18; 6 priority ancestries receive full foundation documents. Several ancestries renamed (Simiah→Vanara, Infernis→Div-Born, Firbolg→Gavar, Clank→Tadbir, Faun→Pari-Kin, Fungril→Khavar, Drakona→Naga-Kin). See Decision 14 in `.meta/DECISION_LOG.md`.
+   - **Execution tracked in:** [#79](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/79)
+
+2a. - [ ] **Ancestry Reskin Series: Descriptions + Foundation Documents** ([#79](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/79)) 🟡
+   - Phase 1: Create `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — all 18 in-world descriptions compiled (player-facing artifact)
+   - Phase 2: Foundation documents for 6 priority ancestries (Vanara, Div-Born, Gavar, Tadbir, Pari-Kin, Khavar) following `world/ancestries/orcs.md` structure at 1/3 depth
    - **Required Before:** Heritage & Classes section of Campaign Frame
 
 3. - [x] **Campaign Frame Complexity Rating** ([#62](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/62)) 🟢
