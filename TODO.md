@@ -170,7 +170,7 @@ _Critical path items — must be completed for campaign launch_
 - [ ] **Flesh out `world/events/scholars-purge.md`** ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42)) — resolve open questions (who enacted it; annihilation vs. dispersal; Wizard's role); link from `world/events/Index.md`; gates `scholars-remnant` faction file
 - [ ] **Flesh out `world/events/silent-flowering.md`** ([#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43)) — resolve open questions (the Zheng He moment; the Japan-equivalent faction; what "The Whispered Warning" 1048 HB saw); link from `world/events/Index.md`; gates `elven-highland-enclaves` faction file
 - [ ] **Flesh out `world/events/night-of-falling-stars.md`** ([#44](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/44)) — resolve open questions (what the Elf Watchers saw; Whispered Warning content; Wizard's relationship — his Long Preparation begins 698 HB, *before* 1048 HB; clarify causal direction); link from `world/events/Index.md`
-- [ ] **Link all three stubs from `world/events/Index.md`** — scholars-purge, silent-flowering, night-of-falling-stars; small task, do at session start next time
+- [x] **Link all three stubs from `world/events/Index.md`** ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42), [#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43), [#44](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/44)) — scholars-purge, silent-flowering, night-of-falling-stars; done 2026-04-01
 
 #### Items This Unblocks (Existing TODOs That Get Answered)
 
