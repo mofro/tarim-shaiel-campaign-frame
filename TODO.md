@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-03-26
+last_updated: 2026-03-31
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -106,6 +106,7 @@ _Pipeline from Obsidian vault → styled HTML → Netlify public site. All compo
 - [x] Calendar Eras section (`## Calendar Eras`) — date labels use LK Time System era definitions (HJ/HB), not swimlane auto-abbreviations
 - [x] Image support — timeline event cards can include `image:` URL field
 - [x] LK reverse converter (`from_lk_json.py`) + canonical Nianhao timeline source
+- [ ] Self-host LK asset images — `download_lk_assets.py` fetches CDN assets to `docs/assets/`; generator rewrites URLs to local relative paths when available; HTML portable without LK auth ([#70](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/70))
 
 ### Visibility Gating ✅ (fails-closed)
 - [x] `--public` flag on both generators: **only `visibility: public` passes**; missing, `gm_secrets`, or any other value → skipped
@@ -344,11 +345,9 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
    - **Decision Needed:** Use standard as-is, reflavor with Silk Road context, or create custom?
    - **Required Before:** Heritage & Classes section of Campaign Frame
 
-3. - [/] **Campaign Frame Complexity Rating** ([#62](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/62)) 🟡
-   - **Question:** Rating 3 or 4 on Daggerheart complexity scale?
-   - **Factors:** Charm system + tool progression + R/H/K framework + archetype mechanics
-   - **Recommendation:** 3-4 (significant custom mechanics, streamlined presentation)
-   - **Required Before:** Campaign Frame header
+3. - [x] **Campaign Frame Complexity Rating** ([#62](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/62)) 🟢
+   - **Decision:** Rating **3** — charm system removed; remaining mechanics (Vestiges/Memory Fragments/The Wrongness/R/H/K) are narrative-first, not mechanical crunch. DECISION_LOG #13 (2026-03-31).
+   - **Updated:** `templates/tarim-shaiel-campaign-frame-v2.md` header → ●●●○○
 
 4. - [x] **Cartography System Ownership** 🟢
    - **Question:** Formal Cartographer persona or lightweight workflow docs?

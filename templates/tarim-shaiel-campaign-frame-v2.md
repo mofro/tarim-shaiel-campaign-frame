@@ -5,6 +5,7 @@ system: Daggerheart
 version: 2
 status: player-facing draft
 created: 2026-03-08
+last_updated: 2026-03-31
 notes: |
   Rebuilt to official Daggerheart Campaign Frame structure (Homebrew Kit v1.0).
   Player-facing sections: Title through GM Principles.
@@ -33,7 +34,7 @@ banner-fade: -35
 | **Players**    | 3 – 6                        |
 | -------------- | ---------------------------- |
 | **Length**     | Long Campaign (30+ Sessions) |
-| **Complexity** | ●●●●○                        |
+| **Complexity** | ●●●○○                        |
 | **Tone**       | Dark Fantasy · Morally Grey  |
 | **System**     | Daggerheart                  |
 
