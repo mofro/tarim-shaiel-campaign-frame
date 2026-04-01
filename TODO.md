@@ -106,6 +106,7 @@ _Pipeline from Obsidian vault → styled HTML → Netlify public site. All compo
 - [x] Calendar Eras section (`## Calendar Eras`) — date labels use LK Time System era definitions (HJ/HB), not swimlane auto-abbreviations
 - [x] Image support — timeline event cards can include `image:` URL field
 - [x] LK reverse converter (`from_lk_json.py`) + canonical Nianhao timeline source
+- [ ] Self-host LK asset images — `download_lk_assets.py` fetches CDN assets to `docs/assets/`; generator rewrites URLs to local relative paths when available; HTML portable without LK auth ([#70](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/70))
 
 ### Visibility Gating ✅ (fails-closed)
 - [x] `--public` flag on both generators: **only `visibility: public` passes**; missing, `gm_secrets`, or any other value → skipped
