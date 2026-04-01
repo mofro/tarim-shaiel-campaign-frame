@@ -21,13 +21,20 @@ Each archetype receives a **personalized, secret Mythical-tier memory fragment**
 ### The Register: Emotional & Sensory (NOT Explanatory)
 
 ✓ **DO:** Sensory details grounded in the present crisis
+
 ✓ **DO:** Emotional weight specific to the archetype's core doubt
+
 ✓ **DO:** Implicit connections ("I felt this before")
+
 ✓ **DO:** Physical sensations that link past to present
 
+---
 ✗ **DON'T:** Explain what happened
-✗ **DON'T:** State "you were a god"
-✗ **DON'T:** Reveal the actual cause of expulsion
+
+✗ **DON'T:** State "you were the mythic heroes" or “you were gods”
+
+✗ **DON'T:** Reveal the actual cause of recall
+
 ✗ **DON'T:** Name the Wizard or the charge directly
 
 ### The Structure

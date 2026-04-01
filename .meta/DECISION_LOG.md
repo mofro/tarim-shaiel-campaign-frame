@@ -392,6 +392,26 @@ The **Surrendered-Layer Framework** is adopted as the governing design principle
 
 ---
 
+## Decision 13 — Campaign Frame Complexity Rating: 3
+**Date:** 2026-03-31
+**Type:** Mechanics / Campaign Frame
+**Status:** Locked
+**Closes:** [#62](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/62)
+
+**Decision:** Complexity rating set to **3** (●●●○○) on the Daggerheart scale.
+
+**Rationale:** The charm system was removed 2026-03-13, significantly reducing mechanical overhead. The remaining custom mechanics — Vestiges/Memory Fragments, The Wrongness (three-tier escalation), and the Tool R/H/K behavioral framework — are narrative-first and lighter than mechanical crunch. All Daggerheart classes are available without restriction; there are no bespoke class systems. Rating 4 reflected the complexity of the charm system and a heavier custom-mechanics assumption. Post-removal, 3 is accurate: custom mechanics exist and require orientation, but do not add hard mechanical layers on top of Daggerheart.
+
+**Factors considered:**
+- Charm system removed (archived 2026-03-13) → primary driver for downward revision
+- Tool progression (4 stages, R/H/K framework) — narrative-first, not a separate subsystem
+- Memory Fragments / The Wrongness — discovery/escalation mechanics, not crunch
+- All standard Daggerheart classes available without restriction
+
+**Applied to:** `templates/tarim-shaiel-campaign-frame-v2.md` header — `| **Complexity** | ●●●○○ |`
+
+---
+
 ## Decision 12 — TODO→GitHub Issues Workflow Convention
 **Date:** 2026-03-26
 **Type:** Process/workflow
