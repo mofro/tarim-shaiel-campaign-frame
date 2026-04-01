@@ -125,8 +125,8 @@ This document tracks critical moments from the heroes' shared legendary past tha
 
 ### What Information Should NEVER Be Revealed (Save for Final Arcs)
 
-- The actual mechanism by which they were expelled
-- Whether they can actually return to Hero Heaven
+- The actual mechanism by which they were summoned
+- Whether they can actually return to the Celestial Peak
 - What the Wizard is planning or how to stop him
 - Whether any hero actively betrayed the others
 - The nature of the Celestial Peak and how it works

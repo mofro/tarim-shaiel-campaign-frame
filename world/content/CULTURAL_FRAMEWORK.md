@@ -127,6 +127,7 @@ Rather than imperial imposition, cultures **naturally blended** in trade hubs:
 - The Orc integration, while successful, is still relatively new
 - Old imperial ideologies persist in some factions (particularly in Chang'an, where prestige is fading)
 - Trust between races/regions is pragmatic rather than deep
+- On the border regions, news is spreading of the impending impact of water trade and shipping
 - The Wizard, having been plotting for ~170 years, is finally ready to move against Hero Heaven
 
 **Political Tensions:**
