@@ -425,3 +425,34 @@ The **Surrendered-Layer Framework** is adopted as the governing design principle
 **Documented in:** `CLAUDE.md` Working Conventions; `TODO.md` WORKING PRINCIPLES
 
 **Lock status:** Convention — not locked. Revisable if the workflow proves cumbersome in practice.
+
+---
+
+## Decision 14 — Ancestry Reskin Approach for Tarim-Shaiel
+**Date:** 2026-04-01
+**Type:** World-building / Campaign Frame
+**Status:** Locked
+**Closes:** [#61](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/61)
+**Execution:** [#79](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/79)
+
+**Decision:** All 18 canonical Daggerheart 1.0 ancestries are used. No ancestries are excluded. Each receives a Tarim-Shaiel-specific in-world description replacing the canonical Daggerheart blurb. Six priority ancestries receive full foundation documents following the `world/ancestries/orcs.md` template.
+
+**Approach:** Reflavor with Tarim-Shaiel cultural substrate — not wholesale replacement, not use-as-is. The canonical Daggerheart mechanical features are preserved unchanged. Only the lore framing, cultural context, and (for priority ancestries) the name are changed.
+
+**Renamed ancestries and cultural anchors:**
+
+| Original | Tarim-Shaiel Name | Primary Cultural Anchor |
+|---|---|---|
+| Simiah | Vanara | Hindu Vanara (Ramayana) + Chinese Hou-Xian (Journey to the West) |
+| Infernis | Div-Born | Persian Div (Zoroastrian) + Arabic Jann (djinn cosmology) |
+| Firbolg | Gavar | Zoroastrian primordial bull + Hindu Nandi + Sumerian bull-deity |
+| Clank | Tadbir | Al-Jazari automata tradition (1206 CE) |
+| Faun | Pari-Kin | Persian Pari + Babylonian Capricorn/sea-goat |
+| Fungril | Khavar | Central Asian shamanic death-walking + bone-reader traditions |
+| Drakona | Naga-Kin | South/East Asian Naga lineages |
+
+Remaining ancestries (Human, Elf, Dwarf, Orc, Katari, Goblin, Halfling, Giant, Galapa, Ribbet, Faerie) keep their original names with Tarim-Shaiel-grounded descriptions.
+
+**Rationale:** The Orc ancestry demonstrates the project's standard for this work — deep cultural reimagination, specific named institutions, historical grounding, internal tensions. The renamed ancestries required the same active departure from default Daggerheart flavor to fit Tarim-Shaiel's ~1450s CE Silk Road aesthetic and earned-grimness tone register.
+
+**Player artifact:** All 18 descriptions compile into `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — a player-facing document usable at Session Zero.
