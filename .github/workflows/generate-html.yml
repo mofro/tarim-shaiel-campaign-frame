@@ -10,6 +10,7 @@ on:
       - 'narrative/**/*.md'
       - 'utilities/legendkeeper-pipeline/generate_world_html.py'
       - 'utilities/legendkeeper-pipeline/generate_all_world_html.py'
+      - 'utilities/ancestries/generate_ancestry_html.py'
   workflow_dispatch:  # allows manual trigger from GitHub Actions UI
 
 jobs:
@@ -35,6 +36,9 @@ jobs:
 
       - name: Generate campaign frame
         run: python utilities/campaign_frame/generate_campaign_frame.py --out docs/campaign-frame.html
+
+      - name: Generate ancestry guide
+        run: python utilities/ancestries/generate_ancestry_html.py
 
       - name: Generate world HTML + index
         run: python utilities/legendkeeper-pipeline/generate_all_world_html.py --public

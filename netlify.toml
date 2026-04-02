@@ -1,3 +1,3 @@
 [build]
-  command   = "python utilities/dashboard/generate_dashboard.py && python utilities/campaign_frame/generate_campaign_frame.py && python utilities/lore/generate_lore_html.py --source 'narrative/lore/The Roads.md' && python utilities/legendkeeper-pipeline/generate_all_world_html.py --public"
+  command   = "python utilities/dashboard/generate_dashboard.py && python utilities/campaign_frame/generate_campaign_frame.py && python utilities/lore/generate_lore_html.py --source 'narrative/lore/The Roads.md' && python utilities/ancestries/generate_ancestry_html.py && python utilities/legendkeeper-pipeline/generate_all_world_html.py --public"
   publish   = "docs"

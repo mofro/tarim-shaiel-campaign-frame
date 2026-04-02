@@ -272,6 +272,12 @@ _CORE_DOCS = [
         'meta':     'Player-Facing · v2.0 · Daggerheart',
         'desc':     'The chronicle of the world timeline. Major Epochs and Events are documented here.',
     },
+    {
+        'filename': 'peoples-of-tarim-shaiel.html',
+        'title':    'Peoples of Tarim-Shaiel',
+        'meta':     'Player-Facing · Ancestry Guide · Daggerheart',
+        'desc':     'Fourteen ancestries of the known world — lore descriptions and in-world feature summaries for character creation.',
+    },
 ]
 
 
