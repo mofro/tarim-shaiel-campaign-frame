@@ -200,14 +200,11 @@ Examples:
 
 This is expected behaviour — not an error. Do not attempt to override it.
 
-**Push flag — always use `--no-thin`:** This repo uses squash-merge + delete-branch. After a branch is merged and deleted, the remote no longer has its objects in any reachable ref. A standard thin-pack push assumes the remote has base objects to delta against — it doesn't, and the push fails with a 413. `--no-thin` sends a self-contained packfile and works reliably regardless of remote branch state.
-
-Always push as:
+**Push 413 fallback — `--no-thin`:** Auto-delete-branches is disabled on this repo, so standard pushes should work normally. If a push fails with a 413 (can happen when the remote branch doesn't have expected base objects — e.g. after a manually deleted branch), switch immediately to:
 ```
 git push --no-thin origin HEAD:<branch-name>
 ```
-
-Do not retry a failing push without `--no-thin`. Do not burn retries on a 413 — switch to `--no-thin` immediately. Check branch existence with `git ls-remote --heads origin <branch-name>` if uncertain.
+Do not burn retries on a 413 before trying this. `--no-thin` sends a self-contained packfile and works regardless of remote branch state.
 
 **Never commit:**
 - Mid-draft prose that is actively being revised in the same session
