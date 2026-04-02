@@ -10,6 +10,9 @@ Each ancestry entry mirrors the canonical Daggerheart format:
   - 3-paragraph lore description
   - Two named feature boxes with in-world flavor text
 
+Feature flavor text lives in PEOPLES_OF_TARIM_SHAIEL.md under each
+ancestry's "### Ancestry Features" subsection — parsed at runtime.
+
 Usage:
     python utilities/ancestries/generate_ancestry_html.py
     python utilities/ancestries/generate_ancestry_html.py --out docs/custom.html
@@ -33,381 +36,27 @@ from shared.page_shell import build_page
 COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 
 # ---------------------------------------------------------------------------
-# Ancestry data
-# Keys match the heading key (uppercase, hyphenated) from PEOPLES_OF_TARIM_SHAIEL.md.
-# Feature flavor text is in-world only — no roll language, no game-system terms.
+# Ancestry metadata
+# Maps heading key → world name + Daggerheart system name.
+# Feature flavor text lives in PEOPLES_OF_TARIM_SHAIEL.md under each
+# ancestry's "### Ancestry Features" subsection — parsed at runtime.
 # ---------------------------------------------------------------------------
 
 ANCESTRY_DATA = {
-    "VANARA": {
-        "world_name": "Vanara",
-        "dh_name": "Simiah",
-        "features": [
-            {
-                "name": "Natural Climber",
-                "flavor": (
-                    "Prehensile extremities are not a curiosity — they are an integrated "
-                    "part of Vanara physical life and culture. Vanara children learn to use "
-                    "feet and tail from birth. The advantage this provides in climbing, "
-                    "combat, and fine manipulation is real and recognized by every people "
-                    "that has traveled with them."
-                ),
-            },
-            {
-                "name": "Nimble",
-                "flavor": (
-                    "Vanara martial traditions were developed for bodies with four or five "
-                    "potential grip points rather than two. The result is a fighting style "
-                    "built around repositioning and redirection — one that makes a Vanara "
-                    "in motion exceptionally difficult to corner or hold."
-                ),
-            },
-        ],
-    },
-    "DIV-BORN": {
-        "world_name": "Div-Born",
-        "dh_name": "Infernis",
-        "features": [
-            {
-                "name": "Fearless",
-                "flavor": (
-                    "Div-Born carry something from the Outer Reaches in their physical "
-                    "constitution that makes them harder to diminish than their appearance "
-                    "might suggest. Within Div-Born culture this is understood as the "
-                    "inheritance being protective as well as complicated — the Outer Reaches "
-                    "shaped beings who endure."
-                ),
-            },
-            {
-                "name": "Dread Visage",
-                "flavor": (
-                    "The shift in appearance that surfaces under strong emotion is something "
-                    "the Div-Born lives with, not deploys. That said, when it surfaces in a "
-                    "tense negotiation, it tends to clarify the situation rapidly. Whether "
-                    "that is useful depends on what outcome the Div-Born wanted."
-                ),
-            },
-        ],
-    },
-    "GAVAR": {
-        "world_name": "Gavar",
-        "dh_name": "Firbolg",
-        "features": [
-            {
-                "name": "Charge",
-                "flavor": (
-                    "Gavar can move with explosive force when they decide to. The decision "
-                    "is the critical element — a Gavar charge is the physical expression of "
-                    "a commitment already fully made. The people of Tarim-Shaiel who have "
-                    "seen one tend to describe not so much the impact as the moment just "
-                    "before it, when the Gavar stopped considering and simply became what "
-                    "they had decided to be."
-                ),
-            },
-            {
-                "name": "Unshakable",
-                "flavor": (
-                    "Gavar strength is consistent across their lifespan in a way that is "
-                    "unusual even among large ancestries. An elder Gavar is not weaker than "
-                    "a young one. This is understood within Gavar culture as the body "
-                    "holding what the threshold-keeper needs for as long as the keeper stands."
-                ),
-            },
-        ],
-    },
-    "TADBIR": {
-        "world_name": "Tadbir",
-        "dh_name": "Clank",
-        "features": [
-            {
-                "name": "Purposeful Design",
-                "flavor": (
-                    "The purpose for which a Tadbir was made leaves physical traces in their "
-                    "mechanisms. The articulation of specific joints, the calibration of "
-                    "certain sensors, the arrangement of their maker's marks — all of it "
-                    "encodes the original intention in material form. In the domain of that "
-                    "purpose, a Tadbir operates with a precision that feels less like skill "
-                    "and more like being correctly configured for the work."
-                ),
-            },
-            {
-                "name": "Efficient",
-                "flavor": (
-                    "Tadbir do not recover the way biological beings do. What they have "
-                    "they conserve, and when rest is available, they can use it with a "
-                    "thoroughness that other peoples cannot match — completing in a short "
-                    "period what would take a biological being much longer. The oldest "
-                    "Tadbir are particularly good at this. They have had centuries to learn "
-                    "what rest is actually for."
-                ),
-            },
-        ],
-    },
-    "PARI-KIN": {
-        "world_name": "Pari-Kin",
-        "dh_name": "Faun",
-        "features": [
-            {
-                "name": "Caprine Leap",
-                "flavor": (
-                    "Pari-Kin leaping ability is a physical fact that informs everything "
-                    "about how they move through the world. It is not a special technique — "
-                    "it is simply how Pari-Kin bodies work. The gaps and ascents that "
-                    "present obstacles to other peoples are, to a Pari-Kin, features of "
-                    "terrain to be read and used."
-                ),
-            },
-            {
-                "name": "Kick",
-                "flavor": (
-                    "The same legs that carry a Pari-Kin over a barrier carry significant "
-                    "force when directed at a person. A Pari-Kin kick used in contact is "
-                    "not a defensive gesture — it is a propulsive one, capable of sending "
-                    "either the kicker or the kicked across real distance. Most Pari-Kin "
-                    "treat this as one more way of managing the space between themselves "
-                    "and a problem."
-                ),
-            },
-        ],
-    },
-    "KHAVAR": {
-        "world_name": "Khavar",
-        "dh_name": "Fungril",
-        "features": [
-            {
-                "name": "Fungril Network",
-                "flavor": (
-                    "The ancestor-web connection between Khavar is biological and constant. "
-                    "It is not a skill or a practice — it is a condition of being Khavar. "
-                    "What passes through it is not language but emotional register and "
-                    "presence. Coordinated Khavar action across distances is possible "
-                    "because of it, but requires communities to have developed conventions "
-                    "for what to send and how to read it."
-                ),
-            },
-            {
-                "name": "Death Connection",
-                "flavor": (
-                    "The ability to recover a memory from a corpse is specific: one memory, "
-                    "tied to a strong emotion or sensation, recovered through contact within "
-                    "the window after death. The Khavar cannot choose which memory surfaces. "
-                    "They specify the emotion or sensation they are looking for, but the "
-                    "memory that answers is chosen by whatever remains in the dead — the "
-                    "dead retaining some agency in what they reveal."
-                ),
-            },
-        ],
-    },
-    "HUMAN": {
-        "world_name": "Human",
-        "dh_name": "Human",
-        "features": [
-            {
-                "name": "High Stamina",
-                "flavor": (
-                    "Human bodies are built for endurance rather than peak output — a "
-                    "design that does not impress in a single moment but accumulates over "
-                    "time into something other ancestries find difficult to match. A human "
-                    "who has decided not to stop is, practically speaking, difficult to stop."
-                ),
-            },
-            {
-                "name": "Adaptability",
-                "flavor": (
-                    "Humans adjust to new climates and conditions with a speed that other "
-                    "ancestries find remarkable. A human who has lived five years somewhere "
-                    "tends to look and move like someone who belongs there. When a method "
-                    "fails, they do not insist on it — they find another way, and they "
-                    "do it faster than most."
-                ),
-            },
-        ],
-    },
-    "ELF": {
-        "world_name": "Elf",
-        "dh_name": "Elf",
-        "features": [
-            {
-                "name": "Quick Reactions",
-                "flavor": (
-                    "Elven senses are acutely attuned in ways that make them difficult to "
-                    "surprise. They track more simultaneous signals than most ancestries "
-                    "can consciously register — sound, light, the shift in air that "
-                    "precedes movement. When something happens before they expect it, "
-                    "they are already responding."
-                ),
-            },
-            {
-                "name": "Celestial Trance",
-                "flavor": (
-                    "Elves do not sleep — they enter a trance that achieves the same "
-                    "restoration in a fraction of the time, and from which they emerge "
-                    "with a sharpness that has made their night watches legendary. The "
-                    "trance also gives them a quality of reflection unavailable to "
-                    "ancestries that lose consciousness entirely."
-                ),
-            },
-        ],
-    },
-    "DWARF": {
-        "world_name": "Dwarf",
-        "dh_name": "Dwarf",
-        "features": [
-            {
-                "name": "Thick Skin",
-                "flavor": (
-                    "Dwarven skin and nails contain an unusually high concentration of "
-                    "keratin — dense enough to accept embedded gemstones, and resilient "
-                    "enough to take impacts that would cause more damage to other "
-                    "ancestries. Minor injuries that would slow others down tend not "
-                    "to slow dwarves down."
-                ),
-            },
-            {
-                "name": "Increased Fortitude",
-                "flavor": (
-                    "Dwarven physical constitution includes a capacity for deliberate "
-                    "resistance that goes beyond their frame. A dwarf who decides to "
-                    "absorb something rather than avoid it can reduce the damage through "
-                    "sheer accumulated hardness. Among people who have fought alongside "
-                    "dwarves, this is considered one of their defining qualities."
-                ),
-            },
-        ],
-    },
-    "ORC": {
-        "world_name": "Orc",
-        "dh_name": "Orc",
-        "features": [
-            {
-                "name": "Sturdy",
-                "flavor": (
-                    "When an Orc is down to their last reserves, something in the way "
-                    "they carry themselves makes the next blow harder to land cleanly. "
-                    "Experienced fighters describe it as the body becoming harder to read "
-                    "when it has nothing left to spare. The Orc proverb applies: you are "
-                    "what you carry, and what they carry, at the end, is the determination "
-                    "not to go down easily."
-                ),
-            },
-            {
-                "name": "Tusks",
-                "flavor": (
-                    "Orc tusks grow continuously throughout their lives and are decorated "
-                    "with meaningful ornamentation — metal bands, carved symbols, tokens "
-                    "that mark significant commitments. In contact range, they are also "
-                    "weapons. An Orc who chooses to use them has made a statement beyond "
-                    "the damage itself."
-                ),
-            },
-        ],
-    },
-    "KATARI": {
-        "world_name": "Katari",
-        "dh_name": "Katari",
-        "features": [
-            {
-                "name": "Feline Instincts",
-                "flavor": (
-                    "Katari hunting instincts are not separate from their social selves — "
-                    "the read on a room, the tracking of movement at the edge of "
-                    "perception, and the precise assessment of threat are natural "
-                    "functions rather than practiced skills. When a situation requires "
-                    "them to be fast, they are usually already moving."
-                ),
-            },
-            {
-                "name": "Retracting Claws",
-                "flavor": (
-                    "Katari retractable claws are part of how they engage with the world "
-                    "at close range. Deployed in contact, they can create a vulnerability "
-                    "in an opponent that wasn't there before — a disruption precise enough "
-                    "to change how that opponent is able to defend themselves in the "
-                    "moments that follow."
-                ),
-            },
-        ],
-    },
-    "GOBLIN": {
-        "world_name": "Goblin",
-        "dh_name": "Goblin",
-        "features": [
-            {
-                "name": "Surefooted",
-                "flavor": (
-                    "Goblins move through complex environments with an ease that owes as "
-                    "much to their large eyes and exceptional hearing as to their size. "
-                    "They read the ground they are moving over while they are still "
-                    "moving, and are rarely caught off-balance by terrain that would "
-                    "require other peoples to slow down."
-                ),
-            },
-            {
-                "name": "Danger Sense",
-                "flavor": (
-                    "Goblins are extremely difficult to sneak up on. Their ears rotate "
-                    "independently, their eyes function well in conditions where most "
-                    "ancestries are effectively blind, and they have developed the habit "
-                    "of reading a situation for threat without appearing to do so. An "
-                    "attack that was supposed to be a surprise often isn't."
-                ),
-            },
-        ],
-    },
-    "HALFLING": {
-        "world_name": "Halfling",
-        "dh_name": "Halfling",
-        "features": [
-            {
-                "name": "Luckbringer",
-                "flavor": (
-                    "Halflings treat the care of a community as a form of craft, and "
-                    "there is something in their presence — in how they attend to the "
-                    "people around them, in how they create the conditions for things "
-                    "to go right — that other peoples notice and benefit from. Parties "
-                    "that include a Halfling tend to start their days a little better "
-                    "resourced than they expected."
-                ),
-            },
-            {
-                "name": "Internal Compass",
-                "flavor": (
-                    "Halflings are magnetically attuned to their world in a way that "
-                    "means they do not get lost. This is not metaphor. Their internal "
-                    "compass functions regardless of weather, terrain, or how long it "
-                    "has been since they last knew where they were. To a Halfling, this "
-                    "seems basic. To their traveling companions, it is frequently "
-                    "invaluable."
-                ),
-            },
-        ],
-    },
-    "GIANT": {
-        "world_name": "Giant",
-        "dh_name": "Giant",
-        "features": [
-            {
-                "name": "Endurance",
-                "flavor": (
-                    "Giant frames carry more than other ancestries can, in the simplest "
-                    "physical sense. They sustain more before they stop, and sustain it "
-                    "without the visible deterioration that would slow other peoples "
-                    "down. Their shorter lifespan seems to have produced a constitution "
-                    "built for density of use rather than length of service."
-                ),
-            },
-            {
-                "name": "Reach",
-                "flavor": (
-                    "Giants have wide frames and elongated arms that give them a reach "
-                    "that can be startling at close quarters. What other ancestries can "
-                    "only touch by moving, a Giant can touch from where they stand. "
-                    "In practice, this means that the distance a Giant considers "
-                    "'close' is further than most people expect."
-                ),
-            },
-        ],
-    },
+    "VANARA":    {"world_name": "Vanara",   "dh_name": "Simiah"},
+    "DIV-BORN":  {"world_name": "Div-Born", "dh_name": "Infernis"},
+    "GAVAR":     {"world_name": "Gavar",    "dh_name": "Firbolg"},
+    "TADBIR":    {"world_name": "Tadbir",   "dh_name": "Clank"},
+    "PARI-KIN":  {"world_name": "Pari-Kin", "dh_name": "Faun"},
+    "KHAVAR":    {"world_name": "Khavar",   "dh_name": "Fungril"},
+    "HUMAN":     {"world_name": "Human",    "dh_name": "Human"},
+    "ELF":       {"world_name": "Elf",      "dh_name": "Elf"},
+    "DWARF":     {"world_name": "Dwarf",    "dh_name": "Dwarf"},
+    "ORC":       {"world_name": "Orc",      "dh_name": "Orc"},
+    "KATARI":    {"world_name": "Katari",   "dh_name": "Katari"},
+    "GOBLIN":    {"world_name": "Goblin",   "dh_name": "Goblin"},
+    "HALFLING":  {"world_name": "Halfling", "dh_name": "Halfling"},
+    "GIANT":     {"world_name": "Giant",    "dh_name": "Giant"},
 }
 
 # Rendering order
@@ -550,31 +199,52 @@ CSS_ANCESTRY = """\
 # Parse PEOPLES_OF_TARIM_SHAIEL.md
 # ---------------------------------------------------------------------------
 
-def parse_peoples_md(path: Path) -> dict[str, str]:
-    """Return {HEADING_KEY: lore_text} for each ## heading in the file.
+def parse_peoples_md(path: Path) -> dict[str, dict]:
+    """Parse the source markdown into structured ancestry data.
 
-    HEADING_KEY is the uppercase name portion, e.g. 'VANARA', 'DIV-BORN'.
-    lore_text is the body paragraphs with leading/trailing whitespace and
-    trailing '---' stripped.
+    Returns:
+        {HEADING_KEY: {"lore": str, "features": [{"name": str, "flavor": str}]}}
+
+    HEADING_KEY is the uppercase name from the ## heading, e.g. 'VANARA'.
+    lore is the prose paragraphs before ### Ancestry Features.
+    features is a list of {name, flavor} dicts parsed from **Name:** blocks.
     """
     raw = path.read_text(encoding="utf-8")
-    # Split on lines that start a ## heading
     chunks = re.split(r'\n(?=## [A-Z])', raw)
     result = {}
+
     for chunk in chunks:
         chunk = chunk.strip()
         if not chunk.startswith("## "):
             continue
         lines = chunk.splitlines()
-        heading = lines[0]  # e.g. "## VANARA (Simiah)"
+        heading = lines[0]
         m = re.match(r"## ([A-Z][A-Z\-]*)", heading)
         if not m:
             continue
         key = m.group(1)
-        # Body = everything after the heading line, stripped of trailing ---
+
         body = "\n".join(lines[1:]).strip()
         body = re.sub(r'\n---\s*$', '', body).strip()
-        result[key] = body
+
+        # Split lore from ### Ancestry Features subsection
+        parts = re.split(r'\n### Ancestry Features\n', body, maxsplit=1)
+        lore_text = parts[0].strip()
+        features = []
+
+        if len(parts) > 1:
+            feat_block = parts[1].strip()
+            # Format is **Feature Name:** flavor text (colon inside bold markers)
+            for para in feat_block.split('\n\n'):
+                fm = re.match(r'\*\*(.+?):\*\*\s*(.+)', para.strip(), re.DOTALL)
+                if fm:
+                    features.append({
+                        "name":   fm.group(1).strip(),
+                        "flavor": fm.group(2).strip(),
+                    })
+
+        result[key] = {"lore": lore_text, "features": features}
+
     return result
 
 
@@ -583,7 +253,7 @@ def parse_peoples_md(path: Path) -> dict[str, str]:
 # ---------------------------------------------------------------------------
 
 def paragraphs_html(text: str) -> str:
-    """Convert plain-text paragraphs (blank-line-separated) to <p> tags."""
+    """Convert blank-line-separated plain text into <p> tags."""
     paras = re.split(r'\n{2,}', text.strip())
     parts = []
     for p in paras:
@@ -594,7 +264,7 @@ def paragraphs_html(text: str) -> str:
 
 
 def slug(name: str) -> str:
-    return name.lower().replace("-", "-").replace(" ", "-")
+    return re.sub(r'\s+', '-', name.lower())
 
 
 # ---------------------------------------------------------------------------
@@ -604,10 +274,8 @@ def slug(name: str) -> str:
 def build_jump_nav(order: list[str]) -> str:
     links = []
     for key in order:
-        data = ANCESTRY_DATA[key]
-        world_name = data["world_name"]
-        anchor = slug(world_name)
-        links.append(f'<a href="#{anchor}">{escape(world_name)}</a>')
+        world_name = ANCESTRY_DATA[key]["world_name"]
+        links.append(f'<a href="#{slug(world_name)}">{escape(world_name)}</a>')
     return (
         '\n    <div class="jump-nav">\n      '
         + "\n      ".join(links)
@@ -615,12 +283,16 @@ def build_jump_nav(order: list[str]) -> str:
     )
 
 
-def build_ancestry_section(key: str, lore_text: str) -> str:
-    data = ANCESTRY_DATA[key]
+def build_ancestry_section(key: str, parsed: dict) -> str:
+    data      = ANCESTRY_DATA[key]
     world_name = data["world_name"]
-    dh_name = data["dh_name"]
-    features = data["features"]
-    anchor = slug(world_name)
+    dh_name    = data["dh_name"]
+    features   = parsed.get("features", [])
+    lore_text  = parsed.get("lore", "")
+    anchor     = slug(world_name)
+
+    if not features:
+        print(f"  WARNING: no ### Ancestry Features found for {key}")
 
     lore_html = paragraphs_html(lore_text)
 
@@ -648,11 +320,11 @@ def build_ancestry_section(key: str, lore_text: str) -> str:
 """
 
 
-def build_content(lore_map: dict[str, str]) -> str:
+def build_content(parsed_map: dict[str, dict]) -> str:
     parts = [build_jump_nav(ANCESTRY_ORDER)]
     for i, key in enumerate(ANCESTRY_ORDER):
-        lore_text = lore_map.get(key, "")
-        parts.append(build_ancestry_section(key, lore_text))
+        parsed = parsed_map.get(key, {"lore": "", "features": []})
+        parts.append(build_ancestry_section(key, parsed))
         if i < len(ANCESTRY_ORDER) - 1:
             parts.append('    <div class="ancestry-divider"></div>\n')
     return "".join(parts)
@@ -674,14 +346,14 @@ def main() -> None:
 
     out_path = Path(args.out) if args.out else OUTPUT_PATH
 
-    lore_map = parse_peoples_md(SOURCE_PATH)
+    parsed_map = parse_peoples_md(SOURCE_PATH)
 
     # Warn if any requested ancestry is missing from the source file
     for key in ANCESTRY_ORDER:
-        if key not in lore_map:
+        if key not in parsed_map:
             print(f"WARNING: '{key}' not found in {SOURCE_PATH.name}")
 
-    content_html = build_content(lore_map)
+    content_html = build_content(parsed_map)
 
     credits_html = (
         "    Tarim-Shaiel &middot; Ancestry Guide &middot; "
