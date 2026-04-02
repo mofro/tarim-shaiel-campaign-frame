@@ -22,7 +22,7 @@ import re
 import json
 import argparse
 from pathlib import Path
-from datetime import date
+from datetime import date, datetime, datetime
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -113,6 +113,7 @@ class Section:
 @dataclass
 class DashboardData:
     last_updated: str
+    generation_time: str
     readiness: int
     domain_pcts: dict[str, int]
     critical_path: list[str]
@@ -277,9 +278,26 @@ def extract_recent_sessions(todo_text: str) -> list[dict]:
 def extract_last_updated(todo_text: str) -> str:
     m = re.search(r"last_updated:\s*(\d{4}-\d{2}-\d{2})", todo_text)
     if m:
-        return m.group(1)
+        # Parse the date and format nicely
+        from datetime import datetime as dt
+        date_str = m.group(1)
+        try:
+            parsed = dt.strptime(date_str, "%Y-%m-%d")
+            return parsed.strftime("%B %d, %Y")
+        except ValueError:
+            return date_str  # fallback
     m = re.search(r"\*\*Last Updated:\*\*\s*(\d{4}-\d{2}-\d{2})", todo_text)
-    return m.group(1) if m else str(date.today())
+    if m:
+        date_str = m.group(1)
+        try:
+            parsed = dt.strptime(date_str, "%Y-%m-%d")
+            return parsed.strftime("%B %d, %Y")
+        except ValueError:
+            return date_str
+    return date.today().strftime("%B %d, %Y")
+
+def extract_generation_time() -> str:
+    return datetime.now().strftime("%B %d, %Y at %I:%M %p")
 
 def extract_critical_path(todo_text: str) -> list[str]:
     m = re.search(r"\*\*Critical Path:\*\*\s*(.+?)(?:\n|$)", todo_text)
@@ -804,7 +822,7 @@ def render_html(data: DashboardData) -> str:
       <div>
         <div class="header-eyebrow">Tarim-Shaiel Campaign &middot; Daggerheart System</div>
         <div class="header-title">TODO & Project Dashboard</div>
-        <div class="header-subtitle">State of the world as of {data.last_updated}</div>
+        <div class="header-subtitle">State of the world as of {data.generation_time}</div>
       </div>
       <div class="header-meta">
         <div class="last-updated">TODO.md last updated: {data.last_updated}</div>
@@ -948,6 +966,7 @@ def main():
     readiness   = compute_readiness(domain_pcts)
     data = DashboardData(
         last_updated    = extract_last_updated(txt),
+        generation_time = extract_generation_time(),
         readiness       = readiness,
         domain_pcts     = domain_pcts,
         critical_path   = extract_critical_path(txt),
