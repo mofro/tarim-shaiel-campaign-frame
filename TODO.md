@@ -318,6 +318,22 @@ _Critical path items — must be completed for campaign launch_
 
 ---
 
+### 7. Python Toolset Refactor 🆕 NOT STARTED ([#87](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/87))
+**Domain:** `utilities/`
+**Description:** Evolve the ~29-script publishing toolset (~8,000 lines) into a coordinated,
+modular infrastructure. 5-stage incremental refactor — each stage independently deployable
+without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands invocations.
+
+- [ ] **Stage 1:** `utilities/shared/config.py` — shared `ProjectConfig` dataclass (vault_root, docs_dir, environment); rename internal logger from `"hero_heaven_generators"` → `"tarim_shaiel_generators"` in `logging_config.py`; adopt in `generate_campaign_frame.py` + `generate_dashboard.py`
+- [ ] **Stage 2:** Extract embedded CSS — `utilities/campaign_frame/campaign_frame.css` (~765 lines from `generate_campaign_frame.py` lines 447–795) and `utilities/legendkeeper-pipeline/world.css`; generators read CSS at runtime, HTML output unchanged
+- [ ] **Stage 3:** `utilities/shared/base_generator.py` — lightweight `Generator` protocol (`name`, `description`, `run(config, args) -> int`); add thin wrapper class at bottom of each existing generator (no rewrites)
+- [ ] **Stage 4:** `utilities/build.py` — unified CLI dispatcher covering all 8 generators; extends `legendkeeper-pipeline/publish.py` pattern to the entire toolset (`build.py campaign-frame`, `build.py all`, `build.py list`)
+- [ ] **Stage 5 (after #79):** Fix `generate_ancestry_html.py` — replace hardcoded `ANCESTRY_DATA` dict with `parse_ancestry_file()` reading from `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md`
+
+**Estimated effort:** 3–4 sessions (stages 1–4); stage 5 deferred to ancestry reskin pass
+
+---
+
 ### 4. Publishing Infrastructure Setup ✅ COMPLETE
 _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
