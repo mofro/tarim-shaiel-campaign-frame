@@ -108,6 +108,8 @@ This is most visible in Vanara martial traditions, which were developed for bodi
 
 **Tadbir:** Mutual curiosity. The Tadbir relationship to purpose — carrying an original function across centuries — resonates with Vanara ideas about devotion. The practical collaboration is less obvious, but Vanara scholars and Tadbir have worked together at several major archives.
 
+**Dwarves:** *[NEEDS REFINEMENT — see Development Notes]*  A significant relationship that requires dedicated treatment. Dwarves hold the interior of the mountain; Vanara hold the surface routes. Complementary niches with real friction over who speaks for the mountain itself.
+
 ---
 
 ## PLAYER CHARACTER HOOKS
@@ -132,8 +134,10 @@ This is most visible in Vanara martial traditions, which were developed for bodi
 
 ## DEVELOPMENT NOTES
 
-- Specific mountain pass communities: TBD — tie to `/world/` locations when regional files are developed
-- Named academies: placeholder — at least one major and one minor, with distinct scholarly traditions
-- Relationship to the Warren: Vanara devotion bonds and the R/H/K system — worth exploring whether the Warren reads devotion as an energy source
-- Liberation era named Vanara: candidate for NPC seeds when `/characters/` NPCs are developed
-- Vanara martial tradition specifics: coordinate with `/mechanics/` weapons work
+- **[NEEDS REFINEMENT] Dwarven relationship:** Surface/interior mountain complementarity needs full treatment — friction over mountain "ownership," what each people has learned from the other, archival craft exchange (Dwarven stone-record depth → Vanara route-knowledge breadth), named locations where their territories overlap. Coordinate with Dwarf foundation document when written.
+- **[NEEDS REFINEMENT] Celestial lineage (Option A selected):** All Vanara carry mythic inheritance from transcendent beings — expressed differently between mountain communities (disciplined, systematized through academies) and arboreal cousins (wilder, more immediate, no less real). The academies are an attempt to codify what arboreal Vanara simply *are*. Neither expression is more authentic. Needs: named arboreal communities, relationship between mountain and arboreal Vanara (respectful distance? active tension?), how the celestial inheritance manifests in-world.
+- **[NEEDS GM SECRETS FILE]** Vanara scholars as liberation-era witnesses: what their archives may contain about the Heroes, Warren disturbances, Held Breath precursor activity. What was lost in scholar purges and who ordered them. File: `world/ancestries/gm_secrets/simiah_gm.md`.
+- Specific mountain pass communities: TBD — tie to `/world/` locations when regional files are developed.
+- Named academies: placeholder — at least one major and one minor, with distinct scholarly traditions.
+- Liberation era named Vanara: candidate for NPC seeds when `/characters/` NPCs are developed.
+- Vanara martial tradition specifics: coordinate with `/mechanics/` weapons work.
