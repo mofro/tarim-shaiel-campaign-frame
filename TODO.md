@@ -318,7 +318,7 @@ _Critical path items — must be completed for campaign launch_
 
 ---
 
-### 7. Python Toolset Refactor 🆕 NOT STARTED ([#?](https://github.com/mofro/tarim-shaiel-campaign-frame/issues))
+### 7. Python Toolset Refactor 🆕 NOT STARTED ([#87](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/87))
 **Domain:** `utilities/`
 **Description:** Evolve the ~29-script publishing toolset (~8,000 lines) into a coordinated,
 modular infrastructure. 5-stage incremental refactor — each stage independently deployable
