@@ -1,5 +1,5 @@
 ---
-title: The Roads: A Fable
+title: "The Roads: A Fable"
 project: TTRPG_Tarim_Shaiel
 type: myth
 tags: [myth]
