@@ -200,6 +200,16 @@ Examples:
 
 This is expected behaviour — not an error. Do not attempt to override it.
 
+**Long-lived branch inflation — process trap:** The harness assigns one `claude/*` branch per session and locks it for that session's lifetime. All commits land on that branch. If the branch is not rebased onto `main` after each PR merge, subsequent sessions accumulate "ghost" commits — prior session commits that are already in `main` but still appear as ahead on the branch. This inflates commit counts and makes PRs look larger than they are.
+
+**Fix at the start of each session:**
+```bash
+git fetch origin main
+git rebase origin/main
+git push --force-with-lease origin <harness-branch>
+```
+If the rebase hits conflicts on generated files (e.g. `docs/dashboard.html`), skip those commits with `git rebase --skip` — they are chore artifacts already in `main`. If the rebase drops all commits (everything already upstream), the branch is clean; push to confirm.
+
 **Push 413 — diagnose before retrying:** If a push fails with a 413, first check whether the remote branch exists:
 ```
 git ls-remote --heads origin <branch-name>
