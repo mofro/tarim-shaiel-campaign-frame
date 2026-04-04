@@ -84,7 +84,7 @@ def main() -> None:
         results.append(('LK JSON', ok))
 
     if do_html:
-        script = SCRIPT_DIR / 'generate_world_html.py'
+        script = SCRIPT_DIR.parent / 'world' / 'generate_world_html.py'
         args = [str(src)]
         if a.output:
             # If output is a directory, construct the output filename

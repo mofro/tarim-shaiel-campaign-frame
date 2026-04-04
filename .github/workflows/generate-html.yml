@@ -8,8 +8,8 @@ on:
       - 'templates/tarim-shaiel-campaign-frame-v2.md'
       - 'world/**/*.md'
       - 'narrative/**/*.md'
-      - 'utilities/legendkeeper-pipeline/generate_world_html.py'
-      - 'utilities/legendkeeper-pipeline/generate_all_world_html.py'
+      - 'utilities/world/generate_world_html.py'
+      - 'utilities/world/generate_all_world_html.py'
       - 'utilities/ancestries/generate_ancestry_html.py'
   workflow_dispatch:  # allows manual trigger from GitHub Actions UI
 
@@ -41,7 +41,7 @@ jobs:
         run: python utilities/ancestries/generate_ancestry_html.py
 
       - name: Generate world HTML + index
-        run: python utilities/legendkeeper-pipeline/generate_all_world_html.py --public
+        run: python utilities/world/generate_all_world_html.py --public
 
       - name: Commit generated files
         run: |
