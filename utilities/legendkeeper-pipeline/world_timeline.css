@@ -1,0 +1,193 @@
+
+    /* --- Timeline list view (LK-inspired vertical card layout) --- */
+
+    /* Dark page for timeline */
+    .page-wrap { background: var(--steel); }
+    .page-wrap::before { opacity: 0.1; }
+    .content { padding: 0; }
+
+    .tl-header {
+      background: var(--steel);
+      padding: 2rem 3rem 1.6rem;
+      color: var(--parchment);
+    }
+
+    .tl-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #f5e6c0;
+      margin-bottom: 0.2rem;
+    }
+
+    .tl-calendar {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .tl-list-wrap { padding: 0.5rem 0 2.5rem; }
+
+    /* Each event row: date | connector | card */
+    .tl-list-entry {
+      display: grid;
+      grid-template-columns: 160px 48px 1fr;
+      min-height: 165px;
+      position: relative;
+    }
+
+    .tl-list-entry.is-era {
+      min-height: 80px;
+      opacity: 0.65;
+    }
+
+    /* Left: date column */
+    .tl-date-col {
+      padding: 1.5rem 1rem 1.5rem 1.5rem;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .tl-date-main {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--parchment);
+      line-height: 1.3;
+    }
+
+    .tl-date-end {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      color: rgba(245,237,216,0.42);
+      margin-top: 0.15rem;
+    }
+
+    .tl-date-gap {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.73rem;
+      color: rgba(245,237,216,0.28);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* Center: continuous vertical line + diamond marker */
+    .tl-connector-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .tl-connector-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(184,146,44,0.22);
+    }
+
+    .tl-diamond {
+      position: relative;
+      z-index: 2;
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      transform: rotate(45deg);
+      margin-top: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .tl-list-entry.is-era .tl-diamond {
+      width: 7px;
+      height: 7px;
+      margin-top: 1.1rem;
+    }
+
+    /* Right: event card */
+    .tl-card-col { padding: 0.75rem 1.5rem 0.75rem 0.5rem; }
+
+    .tl-card {
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      min-height: 135px;
+    }
+
+    .tl-list-entry.is-era .tl-card { min-height: 55px; }
+
+    /* Lane badge pill — top-left of card */
+    .tl-card-badge {
+      position: absolute;
+      top: 0.55rem;
+      left: 0.55rem;
+      background: rgba(26,18,8,0.65);
+      color: rgba(245,237,216,0.85);
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    /* Image area — empty by default, takes remaining height */
+    .tl-card-image { flex: 1; min-height: 68px; }
+    .tl-list-entry.is-era .tl-card-image { min-height: 8px; }
+
+    /* Bottom info row: icon + name + date range */
+    .tl-card-info {
+      padding: 0.6rem 0.75rem;
+      background: rgba(0,0,0,0.42);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .tl-card-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .tl-card-name-wrap { flex: 1; min-width: 0; }
+
+    .tl-card-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--parchment);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tl-card-range {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.73rem;
+      color: rgba(245,237,216,0.38);
+      margin-top: 0.05rem;
+    }
+
+    .credits { border-top: 1px solid rgba(184,146,44,0.15); }
+
+    @media (max-width: 640px) {
+      .tl-list-entry { grid-template-columns: 90px 36px 1fr; }
+      .tl-date-col { padding: 1rem 0.5rem 1rem 0.75rem; }
+      .tl-header { padding: 1.5rem 1.4rem 1.2rem; }
+      .tl-card-col { padding: 0.5rem 0.75rem 0.5rem 0.25rem; }
+    }
