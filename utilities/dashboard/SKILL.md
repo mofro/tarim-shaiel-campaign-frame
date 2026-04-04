@@ -5,8 +5,6 @@ Generate or update `docs/dashboard.html` from `TODO.md`.
 **Do not hand-edit the HTML** — it is auto-generated. All content changes go to TODO.md.
 Style tweaks go inside the `STYLE_OVERRIDES` block in the HTML (it survives regeneration).
 
-> **Output path changed 2026-03-15:** was `templates/hero-heaven-todo-dashboard.html`, now `docs/dashboard.html` (GitHub Pages output folder).
-
 ---
 
 ## Canonical Locations
@@ -37,30 +35,43 @@ Optional flags:
 
 When Mo asks to "regenerate the dashboard" or "update the dashboard from TODO":
 
-### Step 1 — Copy generator and TODO to container
-```
-Filesystem:copy_file_user_to_claude
-  /Users/mo/Documents/Games/HeroHeaven/utilities/dashboard/generate_dashboard.py
+---
 
-Filesystem:copy_file_user_to_claude
-  /Users/mo/Documents/Games/HeroHeaven/TODO.md
+### Claude Code (CLI / web harness)
+
+Claude has direct filesystem access — just run the script in place:
+
+```bash
+python utilities/dashboard/generate_dashboard.py
+# output: docs/dashboard.html
 ```
 
-### Step 2 — Run the generator
+Report the script's stdout summary so Mo can verify computed percentages.
+
+---
+
+### Claude.ai Chat / Cowork (no direct filesystem access)
+
+Upload-run-write-back workflow:
+
+**Step 1 — Upload files**
+Upload both files to the conversation:
+- `utilities/dashboard/generate_dashboard.py`
+- `TODO.md`
+
+**Step 2 — Run the generator**
 ```
 bash_tool: python /mnt/user-data/uploads/generate_dashboard.py \
   --todo /mnt/user-data/uploads/TODO.md \
   --out /home/claude/dashboard_out.html
 ```
+*(Tool names may vary by interface version — adapt as needed)*
 
-### Step 3 — Write output back to vault
-Read `/home/claude/dashboard_out.html` content and write to:
-```
-Filesystem:write_file
-  /Users/mo/Documents/Games/HeroHeaven/templates/hero-heaven-todo-dashboard.html
-```
+**Step 3 — Write output back to vault**
+Read `/home/claude/dashboard_out.html` and write to:
+`docs/dashboard.html`
 
-### Step 4 — Report
+**Step 4 — Report**
 Echo the script's stdout summary so Mo can verify computed percentages.
 
 ---

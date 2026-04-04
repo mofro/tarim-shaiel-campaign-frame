@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Hero Heaven Dashboard Generator
-================================
-Parses TODO.md and generates hero-heaven-todo-dashboard.html
+Tarim-Shaiel Dashboard Generator
+=================================
+Parses TODO.md and generates docs/dashboard.html
 
 Usage:
     python generate_dashboard.py
