@@ -327,7 +327,7 @@ without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands in
 - [x] **Stage 2 ✅:** Extract embedded CSS — `utilities/campaign_frame/campaign_frame.css` and `utilities/world/world_{base,myth,timeline}.css`; generators read CSS at runtime, HTML output verified identical
 - [x] **Stage 3 ✅:** `utilities/shared/base_generator.py` — `Generator` protocol; thin `_Generator` wrapper + `generator` singleton appended to all 6 generators; all verified standalone and via `wrapper.run()`
 - [ ] **Stage 4:** `utilities/build.py` — unified CLI dispatcher covering all 8 generators; extends `legendkeeper-pipeline/publish.py` pattern to the entire toolset (`build.py campaign-frame`, `build.py all`, `build.py list`)
-- [ ] **Stage 5 (after #79):** Fix `generate_ancestry_html.py` — replace hardcoded `ANCESTRY_DATA` dict with `parse_ancestry_file()` reading from `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md`
+- [ ] **Stage 5 (unblocked):** Fix `generate_ancestry_html.py` — replace hardcoded `ANCESTRY_DATA` dict with `parse_ancestry_file()` reading from `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — previously blocked by #79; file now exists with all 18 ancestries in stable format
 
 **Also completed (adjacent to staged plan):**
 - [x] Moved `generate_world_html.py`, `generate_all_world_html.py`, and CSS files out of `legendkeeper-pipeline/` into new `utilities/world/` — `legendkeeper-pipeline/` now contains only the 5 LK-specific tools
@@ -335,7 +335,7 @@ without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands in
 - [x] `shared/frontmatter.py` fix: YAML parse failure now falls back to regex rather than silently returning `{}`
 - [x] `CLAUDE.md` updated: long-lived branch inflation trap documented with fix procedure
 
-**Estimated effort:** ~1 session remaining (stage 4); stage 5 deferred to ancestry reskin pass
+**Estimated effort:** ~1 session remaining (stages 4 + 5 both unblocked)
 
 ---
 
