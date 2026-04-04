@@ -200,6 +200,13 @@ Examples:
 
 This is expected behaviour — not an error. Do not attempt to override it.
 
+**Push 413 — diagnose before retrying:** If a push fails with a 413, first check whether the remote branch exists:
+```
+git ls-remote --heads origin <branch-name>
+```
+- **Branch missing** → use `--no-thin`. A thin pack assumes the remote has base objects to delta against; if the branch was deleted those objects are gone, producing the 413. `--no-thin` sends a self-contained packfile and resolves this.
+- **Branch present** → `--no-thin` is not the fix (it sends a *larger* payload). The issue is something else — genuinely oversized payload, proxy limit, network problem. Investigate rather than retry blindly.
+
 **Never commit:**
 - Mid-draft prose that is actively being revised in the same session
 - Temporary notes that will be discarded (use in-context only per FILE_PERSISTENCE_GUIDELINES.md)
