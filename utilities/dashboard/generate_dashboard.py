@@ -19,6 +19,7 @@ Domain mapping (keyword -> domain key):
 """
 
 import re
+import sys
 import json
 import argparse
 from pathlib import Path
@@ -30,10 +31,12 @@ from typing import Optional
 # Paths (relative to this script's location: utilities/dashboard/)
 # ---------------------------------------------------------------------------
 SCRIPT_DIR  = Path(__file__).parent
-VAULT_ROOT  = SCRIPT_DIR.parent.parent
+sys.path.insert(0, str(SCRIPT_DIR.parent))
+from shared.config import ProjectConfig
+
+VAULT_ROOT  = ProjectConfig.vault_root
 TODO_PATH   = VAULT_ROOT / "TODO.md"
 OUTPUT_PATH = VAULT_ROOT / "docs" / "dashboard.html"
-# Legacy path kept for reference: VAULT_ROOT / "templates" / "hero-heaven-todo-dashboard.html"
 
 # ---------------------------------------------------------------------------
 # Domain keyword detection
@@ -81,7 +84,7 @@ def detect_domain(text: str, default: str = "general") -> str:
                 return domain
     return default
 
-def obsidian_link(vault_path: str, vault: str = "HeroHeaven") -> str:
+def obsidian_link(vault_path: str, vault: str = ProjectConfig.vault_name) -> str:
     clean = vault_path.lstrip("/").replace(".md", "")
     return f"obsidian://open?vault={vault}&file={clean}"
 

@@ -55,7 +55,7 @@ def setup_logging(
             level = "INFO"
     
     # Create logger
-    logger = logging.getLogger("hero_heaven_generators")
+    logger = logging.getLogger("tarim_shaiel_generators")
     logger.setLevel(getattr(logging, level.upper()))
     
     # Clear existing handlers
@@ -90,7 +90,7 @@ def setup_logging(
     return logger
 
 
-def get_logger(name: str = "hero_heaven_generators") -> logging.Logger:
+def get_logger(name: str = "tarim_shaiel_generators") -> logging.Logger:
     """Get a logger instance with the current configuration."""
     return logging.getLogger(name)
 
