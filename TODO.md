@@ -318,19 +318,23 @@ _Critical path items — must be completed for campaign launch_
 
 ---
 
-### 7. Python Toolset Refactor 🆕 NOT STARTED ([#87](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/87))
+### 7. Python Toolset Refactor 🔄 IN PROGRESS ([#87](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/87))
 **Domain:** `utilities/`
 **Description:** Evolve the ~29-script publishing toolset (~8,000 lines) into a coordinated,
 modular infrastructure. 5-stage incremental refactor — each stage independently deployable
 without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands invocations.
 
 - [ ] **Stage 1:** `utilities/shared/config.py` — shared `ProjectConfig` dataclass (vault_root, docs_dir, environment); rename internal logger from `"hero_heaven_generators"` → `"tarim_shaiel_generators"` in `logging_config.py`; adopt in `generate_campaign_frame.py` + `generate_dashboard.py`
-- [ ] **Stage 2:** Extract embedded CSS — `utilities/campaign_frame/campaign_frame.css` (~765 lines from `generate_campaign_frame.py` lines 447–795) and `utilities/legendkeeper-pipeline/world.css`; generators read CSS at runtime, HTML output unchanged
+- [x] **Stage 2 ✅:** Extract embedded CSS — `utilities/campaign_frame/campaign_frame.css` and `utilities/world/world_{base,myth,timeline}.css`; generators read CSS at runtime, HTML output verified identical
 - [ ] **Stage 3:** `utilities/shared/base_generator.py` — lightweight `Generator` protocol (`name`, `description`, `run(config, args) -> int`); add thin wrapper class at bottom of each existing generator (no rewrites)
 - [ ] **Stage 4:** `utilities/build.py` — unified CLI dispatcher covering all 8 generators; extends `legendkeeper-pipeline/publish.py` pattern to the entire toolset (`build.py campaign-frame`, `build.py all`, `build.py list`)
 - [ ] **Stage 5 (after #79):** Fix `generate_ancestry_html.py` — replace hardcoded `ANCESTRY_DATA` dict with `parse_ancestry_file()` reading from `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md`
 
-**Estimated effort:** 3–4 sessions (stages 1–4); stage 5 deferred to ancestry reskin pass
+**Also completed (adjacent to staged plan):**
+- [x] Moved `generate_world_html.py`, `generate_all_world_html.py`, and CSS files out of `legendkeeper-pipeline/` into new `utilities/world/` — `legendkeeper-pipeline/` now contains only the 5 LK-specific tools
+- [x] Dashboard housekeeping: renamed "Hero Heaven" → "Tarim-Shaiel" in `generate_dashboard.py` docstring; stratified `SKILL.md` for Claude Code vs Chat/Cowork contexts
+
+**Estimated effort:** 2–3 sessions remaining (stages 1, 3, 4); stage 5 deferred to ancestry reskin pass
 
 ---
 
