@@ -28,7 +28,7 @@ Open Settings → Shell Commands → click **"+"** to add each command.
 
 **Command:**
 ```bash
-/opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/legendkeeper-pipeline/generate_world_html.py {{file_path:absolute}}
+/opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/world/generate_world_html.py {{file_path:absolute}}
 ```
 
 **Behavior:**
@@ -51,7 +51,7 @@ Open Settings → Shell Commands → click **"+"** to add each command.
 
 **Command (macOS/Linux):**
 ```bash
-/opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/dashboard/generate_dashboard.py --out /Users/mo/Documents/Games/HeroHeaven/docs/dashboard.html && /opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/campaign_frame/generate_campaign_frame.py --out /Users/mo/Documents/Games/HeroHeaven/docs/campaign-frame.html && /opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/legendkeeper-pipeline/generate_all_world_html.py && open /Users/mo/Documents/Games/HeroHeaven/docs/index.html
+/opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/dashboard/generate_dashboard.py --out /Users/mo/Documents/Games/HeroHeaven/docs/dashboard.html && /opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/campaign_frame/generate_campaign_frame.py --out /Users/mo/Documents/Games/HeroHeaven/docs/campaign-frame.html && /opt/homebrew/bin/python3 /Users/mo/Documents/Games/HeroHeaven/utilities/world/generate_all_world_html.py && open /Users/mo/Documents/Games/HeroHeaven/docs/index.html
 ```
 
 _Note: `{{vault_path}}` expands with escaped backslashes and doubles the path — hardcoded path is intentional._
