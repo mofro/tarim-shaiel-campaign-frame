@@ -23,14 +23,16 @@ from html import escape
 # Paths (relative to this script: utilities/campaign_frame/)
 # ---------------------------------------------------------------------------
 SCRIPT_DIR  = Path(__file__).parent
-VAULT_ROOT  = SCRIPT_DIR.parent.parent
-SRC_PATH    = VAULT_ROOT / "templates" / "tarim-shaiel-campaign-frame-v2.md"
-OUTPUT_PATH = VAULT_ROOT / "docs" / "campaign-frame.html"
 
 # Make utilities/shared importable regardless of working directory
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.frontmatter import parse_frontmatter
 from shared.md_utils import inline_md, strip_obsidian_comments
+from shared.config import ProjectConfig
+
+VAULT_ROOT  = ProjectConfig.vault_root
+SRC_PATH    = VAULT_ROOT / "templates" / "tarim-shaiel-campaign-frame-v2.md"
+OUTPUT_PATH = VAULT_ROOT / "docs" / "campaign-frame.html"
 
 COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 
