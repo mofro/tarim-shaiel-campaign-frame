@@ -28,12 +28,15 @@ def parse_frontmatter(text: str) -> tuple[dict, str]:
     fm_text = m.group(1)
     body = text[m.end():]
 
+    fm = None
+
     if _YAML_AVAILABLE:
         try:
             fm = yaml.safe_load(fm_text) or {}
         except Exception:
-            fm = {}
-    else:
+            pass  # fall through to regex parser
+
+    if fm is None:
         fm = {}
         for line in fm_text.splitlines():
             kv = line.split(':', 1)
