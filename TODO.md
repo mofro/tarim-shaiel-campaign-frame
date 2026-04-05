@@ -15,13 +15,13 @@ banner-y: 37
 
 ## PROJECT HEALTH
 
-**Last Updated:** 2026-03-20
+**Last Updated:** 2026-04-05
 **Critical Path:** Resolve cosmological architecture → Complete Session 0 scenarios → Resolve Campaign Frame → Playtest
 
 **Quick Summary:**
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (all 8 decisions locked 2026-03-17)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
 - 🔄 **Active work:** Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
-- ⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)
+- ~~⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)~~ ✅ **Resolved 2026-04-05** — v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)
 - 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
@@ -813,7 +813,7 @@ _Last verified: 2026-02-05_
 
 **⚠️ Follow-up work flagged:**
 - `STORY_ARC_SYNTHESIS.md` — update [PROPOSED] sections to reflect locked decisions; replace "Sleeping Entity" framing with "Held Breath" / liminal consciousnesses
-- `liberation_aftermath.md` — rewrite with Warren disturbance framing + timeline fix (200 → 1,000 years)
+- ~~`liberation_aftermath.md` — rewrite with Warren disturbance framing + timeline fix (200 → 1,000 years)~~ ✅ Done 2026-04-05
 - `HERO_HEAVEN_THRESHOLD.md` — extend with Threshold-as-ecosystem-wiring framing
 - `TOOL_EVOLUTION_FRAMEWORK.md` — add GM note: why does the Warren keep its heroes alive?
 

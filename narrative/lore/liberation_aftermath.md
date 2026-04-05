@@ -1,11 +1,18 @@
 ---
 banner: images/elements/mofro_An_ultra-realistic_documentary_image_of_a_gathering_of__42d4d882-cf48-4b51-ab53-d785ba01f626_2.gif
+title: The Liberation and Its Aftermath — Orc Timeline
+project: TTRPG_Tarim_Shaiel
+type: world_building
+visibility: public
+status: draft
+created: 2026-02-11
+last_updated: 2026-04-05
 ---
-# The Liberation and Its Aftermath - Orc Timeline
+# The Liberation and Its Aftermath — Orc Timeline
 
-**Status:** Historical Overview v1.0  
-**Related Docs:** `/world/ancestries/orcs.md`, `/gm_secrets/heroes_original_deed.md`  
-**Spoiler Level:** LOW (general historical knowledge, PC-accessible)
+**Status:** Historical Overview v2.0 (Warren disturbance framing — 2026-04-05)
+**Related Docs:** `/world/ancestries/orcs.md`, `/gm_secrets/heroes_original_deed.md`
+**Spoiler Level:** LOW (general historical knowledge, PC-accessible) — GM sections marked
 
 ---
 
@@ -13,7 +20,7 @@ banner: images/elements/mofro_An_ultra-realistic_documentary_image_of_a_gatherin
 
 The liberation of the Orcs stands as one of the most significant—and most complicated—events in recent Silk Road history. What began as a heroic intervention became a generational tragedy, then slowly transformed into a story of resilience and adaptation. This document tracks the major phases from enslavement through present day.
 
-**Timeline Span:** Captivity Era (centuries) → Liberation (~200 years ago) → Chaos Period (~50 years) → Stabilization (~150 years ago to present)
+**Timeline Span:** Captivity Era (centuries) → Liberation (~1,000 years ago) → Chaos Period (~50 years) → Stabilization (~950 years ago to present)
 
 ---
 
@@ -21,14 +28,14 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 
 ### Duration & Scope
 - **Timeframe:** Centuries (exact duration lost to oral tradition, varies by region)
-- **Geographic Spread:** Jerusalem to Changzhou—wherever empires needed labor
+- **Geographic Spread:** Jerusalem to Changzhou — wherever empires needed labor
 - **Enslaved Populations:** Millions across multiple empires and regions
 - **Uses:** Mining, construction, agriculture, military service, domestic labor
 
 ### Fragmentation
-**Critical Detail:** There was no unified "Orc slavery"—different populations served different masters under different conditions:
+**Critical Detail:** There was no unified "Orc slavery" — different populations served different masters under different conditions:
 
-- **Western Regions (Persian/Byzantine):** 
+- **Western Regions (Persian/Byzantine):**
   - Heavy construction labor, mining
   - Some military service
   - Relatively more integrated into society (as servants)
@@ -62,18 +69,18 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 **Survival Strategies:**
 - Some Orcs earned limited freedoms through exceptional service
 - Others married into local populations (rare, varying legality)
-- Many learned to "become invisible"—do the work, avoid notice, survive
+- Many learned to "become invisible" — do the work, avoid notice, survive
 
 ---
 
-## THE LIBERATION (~200 Years Ago)
+## THE LIBERATION (~1,000 Years Ago)
 
 ### The Heroes' Intervention
 
-**What Actually Happened:** The Heroes (PCs in their previous lives) acted to free the enslaved Orcs, believing they were righting a great wrong.
+**What Actually Happened:** The Heroes (PCs in their previous lives) acted to free the enslaved Orcs, believing they were righting a great wrong. They were correct. The liberation was unequivocally right.
 
-**Mechanics of Liberation:** 
-- [DETAILS VARY - see `/gm_secrets/heroes_original_deed.md` for GM truth]
+**Mechanics of Liberation:**
+- [DETAILS VARY — see `/gm_secrets/heroes_original_deed.md` for GM truth]
 - **Effect:** Sudden, widespread liberation across multiple empires simultaneously
 - **No Infrastructure:** Orcs freed without plan, resources, or coordination
 - **Imperial Collapse:** Several empires destabilized by sudden labor loss
@@ -82,7 +89,7 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 
 **Chaos Unleashed:**
 
-1. **Violence:** 
+1. **Violence:**
    - Some Orcs attacked former masters
    - Retributive raids, revenge killings
    - Imperial military forces attempted recapture
@@ -106,13 +113,13 @@ The liberation of the Orcs stands as one of the most significant—and most comp
    - Others sought shelter wherever possible
    - Some attempted to return to pre-captivity homelands (largely failed)
 
-**Death Toll:** Conservative estimates suggest 30-40% of liberated Orcs died in first 5 years from violence, starvation, disease, or exposure.
+**Death Toll:** Conservative estimates suggest 30–40% of liberated Orcs died in the first 5 years from violence, starvation, disease, or exposure.
 
 ---
 
 ## THE CHAOS PERIOD (Post-Liberation, ~50 Years)
 
-### Scattered Survival (Years 0-20)
+### Scattered Survival (Years 0–20)
 
 **Regional Variation:**
 
@@ -135,12 +142,12 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 - Gradual integration into lower social strata
 
 **Indian Subcontinent:**
-- Mixed reception—some violence, some acceptance
+- Mixed reception — some violence, some acceptance
 - Orcs settled in hill regions, forest margins
 - Adopted regional languages rapidly
 - Some integration into existing caste systems (low status)
 
-### Emergence of Clan Identity (Years 20-50)
+### Emergence of Clan Identity (Years 20–50)
 
 **Geographic Clustering:** Orc populations coalesced around:
 - Defensible locations (mountains, river valleys)
@@ -160,13 +167,13 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 - Integrated local customs, foods, dress
 - Preserved core Orcish identity while adapting to circumstances
 
-**Early Trade Networks:** 
+**Early Trade Networks:**
 - Orc weapon merchants emerged (selling diverse styles)
 - Caravan guard contracts (Orcs cheaper than regional guards)
 - Craft guilds cautiously accepted Orc members
 - Marriage alliances with sympathetic humans, halflings
 
-### Stabilization Begins (Years 30-50)
+### Stabilization Begins (Years 30–50)
 
 **Turning Points:**
 - First permanent Orc settlements established
@@ -183,13 +190,13 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 
 ---
 
-## THE STABILIZATION PERIOD (~150 Years Ago to Present)
+## THE STABILIZATION PERIOD (~950 Years Ago to Present)
 
-### Economic Integration (Years 50-100)
+### Economic Integration (Years 50–100 Post-Liberation)
 
 **Orc Specializations Emerge:**
 
-1. **Weapon Trade:** 
+1. **Weapon Trade:**
    - Orc cosmopolitan knowledge = competitive advantage
    - "Need any style of blade? Ask an Orc"
    - Weapon markets in major cities have Orc quarters
@@ -209,7 +216,7 @@ The liberation of the Orcs stands as one of the most significant—and most comp
    - Mixed companies (Orcs + others)
    - Reputation for "we fight, we don't ask why"
 
-### Social Developments (Years 50-150)
+### Social Developments (Years 50–150 Post-Liberation)
 
 **First Orc Academies:**
 - Multi-style weapon training schools
@@ -219,19 +226,19 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 **Chain Chronicles Formalized:**
 - Written clan histories standardized
 - Remembrancers become formal role
-- First comprehensive Orc history compiled (~100 years ago)
+- First comprehensive Orc history compiled (~900 years ago)
 
 **Inter-Clan Gatherings:**
-- First gathering ~80 years ago
+- First gathering ~920 years ago
 - Now held every 10 years
 - Share histories, settle disputes, exchange techniques
 
 **Generational Shifts:**
-- 3rd-4th generation Orcs never knew captivity
+- 3rd–4th generation Orcs never knew captivity
 - Tension between "remember the chains" vs. "we're free now"
 - Some young Orcs reject liberation narrative as defining identity
 
-### Political Landscape (Years 100-Present)
+### Political Landscape (Years 100–Present)
 
 **Limited Representation:**
 - Few Orcs in government positions
@@ -251,7 +258,7 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 
 ---
 
-## CURRENT STATUS (Present Day - ~200 Years Post-Liberation)
+## CURRENT STATUS (Present Day — ~1,000 Years Post-Liberation)
 
 ### Demographics
 - **Population:** Millions across Silk Road (exact numbers unknown)
@@ -264,18 +271,18 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 - **Underclass Persists:** Economic marginalization continues in some regions
 
 ### Cultural Identity
-- **Clan Diversity:** No unified "Orc culture"—each clan distinct
+- **Clan Diversity:** No unified "Orc culture" — each clan distinct
 - **Shared History:** Liberation narrative bonds all Orcs
 - **Generational Debate:** What it means to "be Orc" beyond trauma
 
 ### Relations with Other Peoples
-- **Improved but Complicated:** 200 years insufficient to erase prejudice
+- **Improved but Complicated:** 1,000 years insufficient to erase all prejudice — old empire lines still cast long shadows
 - **Case-by-Case:** Varies enormously by region, clan, individual
 - **Growing Acceptance:** Younger generations less biased (generally)
 
 ---
 
-## THE HEROES' ROLE (GM EYES ONLY - CROSS-REF)
+## THE HEROES' ROLE (GM EYES ONLY — CROSS-REF)
 
 **What the Heroes Know (When They Wake):**
 - [See `/gm_secrets/heroes_original_deed.md`]
@@ -284,17 +291,60 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 - They don't remember what happened after
 
 **What Actually Happened:**
-- [DETAILS VARY BY GM CHOICE]
-- Liberation succeeded but Heroes didn't complete their charge
-- Chaos ensued because Heroes were pulled to paradise too soon
-- Current Orc struggles = consequences of incomplete heroism
+- The liberation succeeded — it was unequivocally right
+- The Heroes did not fail to complete their charge because the mortal aftermath went badly; the chaos of those first decades was an unavoidable consequence of liberating millions with no infrastructure, and Orc civilization adapted over centuries
+- The Heroes' incomplete charge is **cosmological, not mortal-social**: the simultaneous shattering of thousands of binding spells was a **massive beacon event** — it rang through the Warrens like a struck bell
+- By the "power draws power" principle: that much concentrated liberation energy attracted cosmological pressure from entities with their own agendas
+- The incomplete work is not "repair the chaos you left behind" — it is **"reckon with what was woken, and whose plans were crossed, and what those parties have been doing for 1,000 years while you were in Hero Heaven"**
 
-**Current Implications:**
-- Heroes must confront: "We freed them... and left them to chaos"
-- Orcs' response to Heroes' return: Complex, not simple gratitude
-- Some Orcs: "You saved us"
-- Others: "You abandoned us"
-- Most: "It's complicated"
+**How Heroes Return Into This:**
+- The mortal-world Orc situation is its own complex, living thing — 1,000 years of adaptation, not frozen chaos
+- Orc responses to the heroes' return: not simple gratitude
+  - Some Orcs: "You saved us"
+  - Others: "You vanished — the stories say you just... left"
+  - Most: "It's complicated — that was a thousand years ago"
+- The drama of "did we cause harm by liberating them?" survives intact — the answer is no longer "you cracked the ecosystem" but **"you drew attention you didn't account for, and some of that attention has been patient"**
+
+---
+
+## THE WARREN DISTURBANCE (GM EYES ONLY)
+
+*This section documents the cosmological layer beneath the mortal-world history above. The two layers are distinct: Orc civilization's mortal struggles were real and evolved over centuries on their own terms. The Warren disturbance is a separate consequence of the same event — one that has been developing in the background ever since.*
+
+### The Beacon Event
+
+When the Heroes shattered thousands of binding spells simultaneously, the release of that much bound power propagated through the Warrens. Warren denizens operate on the "power draws power" principle — concentrated energy bends the ecosystem toward it. The liberation didn't crack the ecosystem; it **announced itself to everything listening**.
+
+### Categories of Interested Parties
+
+Three broad categories of entities were affected — their specific identities are left for the Wizard/entity decision sessions:
+
+**1. Displaced Warren Denizens**
+- Thousands of binding spells meant thousands of forced connections between the mortal world and specific Warren entities or currents
+- When those connections severed simultaneously, denizens tethered to those bonds were displaced or agitated
+- Some lost territory; some lost power sources; some were simply... unmoored
+- These parties have had 1,000 years to stabilize, reorient, and form new agendas
+
+**2. Powers Whose Plans Depended on the Bindings**
+- Celestial entities and Warren powers sometimes work across very long timeframes — centuries of slow arrangement
+- Some of those arrangements relied on the binding spells remaining intact: as anchor points, as power conduits, as leverage over mortal populations
+- The liberation wrecked those plans mid-execution
+- These parties have had 1,000 years of patience and motive
+
+**3. Opportunists Drawn by the Beacon**
+- The liberation was the largest single power event on the Silk Road in living Warren-memory
+- Entities with no prior stake may have been drawn simply by the magnitude of the event
+- Their interest is less about grievance and more about capability — whatever the heroes did once, they might do again
+
+### The 1,000-Year Gap
+
+The heroes return not into the immediate aftermath of what they did, but into **a situation that has evolved**. Interested parties have had ten centuries to:
+- Establish new positions
+- Form alliances the heroes have no knowledge of
+- Work through mortal proxies without the heroes realizing
+- Wait for exactly this moment — when the heroes return and the power that drew their attention in the first place is walking the earth again
+
+The heroes are not returning to fix a broken world. They are returning into a world where something has been watching, waiting, and **building** — and their return is not a surprise to everyone who noticed that bell ring.
 
 ---
 
@@ -308,11 +358,15 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 
 4. **Are there still enslaved Orc populations?** Some hidden enclaves the Heroes missed?
 
-5. **What's the "Wizard" connection to Orc enslavement?** Did the Wizard benefit from Orc slavery? Oppose it? Create it?
+5. **What's the Wizard's connection to Orc enslavement?** Did the Wizard benefit from Orc slavery? Oppose it? Create it? Did the Wizard's plans specifically depend on those binding spells?
 
-6. **Lost clan histories:** Many clan lineages severed during chaos—can they be recovered?
+6. **Lost clan histories:** Many clan lineages were severed during the chaos — can they be recovered?
 
 7. **The First Remembrancer:** Who compiled the first comprehensive Orc history? Are they still alive?
+
+8. **What Warren entities were displaced when thousands of binding spells shattered simultaneously?** Where are they now, and what have they built in 1,000 years?
+
+9. **Which powers had agendas that depended on Orc enslavement continuing** — and what has a millennium of patience, grievance, and planning produced?
 
 ---
 
@@ -320,12 +374,13 @@ The liberation of the Orcs stands as one of the most significant—and most comp
 
 1. Detail specific regional Orc experiences (Persian vs. Chinese vs. Indian, etc.)
 2. Create timeline of major Orc clan formations
-3. Develop NPC Orcs representing different generational perspectives
+3. Develop NPC Orcs representing different generational perspectives on a liberation that happened before their grandparents' grandparents were born
 4. Map Orc settlement patterns geographically
 5. Create "Chain Chronicles" excerpts as handouts
-6. Design encounters exploring Orc-Hero relationship complexity
+6. Design encounters exploring Orc–Hero relationship complexity (heroes as mythology, not memory)
+7. Develop Warren-layer entities from categories in "The Warren Disturbance" section — pending Wizard/entity decision sessions
 
 ---
 
-**Version Control:** See `VERSIONS_liberation_aftermath.md` for detailed change log  
-**Cross-References:** Orc culture (`/world/ancestries/orcs.md`), Heroes' Deed (`/gm_secrets/heroes_original_deed.md`), Weapons (`/mechanics/weapons_silk_road.md`)
+**Version Control:** v2.0 — 2026-04-05 — Warren disturbance framing; timeline corrected to ~1,000 years; GM sections rewritten per DECISION_LOG 2026-03-08 Decision 6. See `VERSIONS_liberation_aftermath.md` for prior change log.
+**Cross-References:** Orc culture (`/world/ancestries/orcs.md`), Heroes' Deed (`/gm_secrets/heroes_original_deed.md`), Weapons (`/mechanics/weapons_silk_road.md`), DECISION_LOG Decision 6 (Liberation's Ecosystem Side Effects)
