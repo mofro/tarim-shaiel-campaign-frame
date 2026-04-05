@@ -42,28 +42,8 @@ COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 # ancestry's "### Ancestry Features" subsection — parsed at runtime.
 # ---------------------------------------------------------------------------
 
-ANCESTRY_DATA = {
-    "VANARA":    {"world_name": "Vanara",   "dh_name": "Simiah"},
-    "DIV-BORN":  {"world_name": "Div-Born", "dh_name": "Infernis"},
-    "GAVAR":     {"world_name": "Gavar",    "dh_name": "Firbolg"},
-    "TADBIR":    {"world_name": "Tadbir",   "dh_name": "Clank"},
-    "PARI-KIN":  {"world_name": "Pari-Kin", "dh_name": "Faun"},
-    "KHAVAR":    {"world_name": "Khavar",   "dh_name": "Fungril"},
-    "HUMAN":     {"world_name": "Human",    "dh_name": "Human"},
-    "ELF":       {"world_name": "Elf",      "dh_name": "Elf"},
-    "DWARF":     {"world_name": "Dwarf",    "dh_name": "Dwarf"},
-    "ORC":       {"world_name": "Orc",      "dh_name": "Orc"},
-    "KATARI":    {"world_name": "Katari",   "dh_name": "Katari"},
-    "GOBLIN":    {"world_name": "Goblin",   "dh_name": "Goblin"},
-    "HALFLING":  {"world_name": "Halfling", "dh_name": "Halfling"},
-    "GIANT":     {"world_name": "Giant",    "dh_name": "Giant"},
-}
-
-# Rendering order
-ANCESTRY_ORDER = [
-    "VANARA", "DIV-BORN", "GAVAR", "TADBIR", "PARI-KIN", "KHAVAR",
-    "HUMAN", "ELF", "DWARF", "ORC", "KATARI", "GOBLIN", "HALFLING", "GIANT",
-]
+# Ancestry metadata is derived at runtime from PEOPLES_OF_TARIM_SHAIEL.md.
+# Rendering order follows document order in that file.
 
 # ---------------------------------------------------------------------------
 # CSS (extends CSS_BASE from page_shell)
@@ -219,10 +199,12 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
             continue
         lines = chunk.splitlines()
         heading = lines[0]
-        m = re.match(r"## ([A-Z][A-Z\-]*)", heading)
+        m = re.match(r"## ([A-Z][A-Z\-]*)(?:\s+\(([^)]+)\))?", heading)
         if not m:
             continue
-        key = m.group(1)
+        key        = m.group(1)
+        world_name = key.title()               # "VANARA" → "Vanara", "DIV-BORN" → "Div-Born"
+        dh_name    = m.group(2) or world_name  # "Simiah" if present, else same as world_name
 
         body = "\n".join(lines[1:]).strip()
         body = re.sub(r'\n---\s*$', '', body).strip()
@@ -243,7 +225,12 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
                         "flavor": fm.group(2).strip(),
                     })
 
-        result[key] = {"lore": lore_text, "features": features}
+        result[key] = {
+            "world_name": world_name,
+            "dh_name":    dh_name,
+            "lore":       lore_text,
+            "features":   features,
+        }
 
     return result
 
@@ -271,10 +258,10 @@ def slug(name: str) -> str:
 # Page assembly
 # ---------------------------------------------------------------------------
 
-def build_jump_nav(order: list[str]) -> str:
+def build_jump_nav(order: list[str], parsed_map: dict) -> str:
     links = []
     for key in order:
-        world_name = ANCESTRY_DATA[key]["world_name"]
+        world_name = parsed_map[key]["world_name"]
         links.append(f'<a href="#{slug(world_name)}">{escape(world_name)}</a>')
     return (
         '\n    <div class="jump-nav">\n      '
@@ -284,9 +271,8 @@ def build_jump_nav(order: list[str]) -> str:
 
 
 def build_ancestry_section(key: str, parsed: dict) -> str:
-    data      = ANCESTRY_DATA[key]
-    world_name = data["world_name"]
-    dh_name    = data["dh_name"]
+    world_name = parsed["world_name"]
+    dh_name    = parsed["dh_name"]
     features   = parsed.get("features", [])
     lore_text  = parsed.get("lore", "")
     anchor     = slug(world_name)
@@ -321,11 +307,11 @@ def build_ancestry_section(key: str, parsed: dict) -> str:
 
 
 def build_content(parsed_map: dict[str, dict]) -> str:
-    parts = [build_jump_nav(ANCESTRY_ORDER)]
-    for i, key in enumerate(ANCESTRY_ORDER):
-        parsed = parsed_map.get(key, {"lore": "", "features": []})
-        parts.append(build_ancestry_section(key, parsed))
-        if i < len(ANCESTRY_ORDER) - 1:
+    order = list(parsed_map.keys())
+    parts = [build_jump_nav(order, parsed_map)]
+    for i, key in enumerate(order):
+        parts.append(build_ancestry_section(key, parsed_map[key]))
+        if i < len(order) - 1:
             parts.append('    <div class="ancestry-divider"></div>\n')
     return "".join(parts)
 
@@ -348,11 +334,6 @@ def main() -> None:
 
     parsed_map = parse_peoples_md(SOURCE_PATH)
 
-    # Warn if any requested ancestry is missing from the source file
-    for key in ANCESTRY_ORDER:
-        if key not in parsed_map:
-            print(f"WARNING: '{key}' not found in {SOURCE_PATH.name}")
-
     content_html = build_content(parsed_map)
 
     credits_html = (
@@ -362,7 +343,7 @@ def main() -> None:
 
     html = build_page(
         title="Peoples of Tarim-Shaiel",
-        cover_subtitle="Fourteen Ancestries of the Known World",
+        cover_subtitle=f"{len(parsed_map)} Ancestries of the Known World",
         banner_left="Ancestry Guide",
         banner_right="Peoples of Tarim-Shaiel · Daggerheart",
         content_html=content_html,
@@ -375,7 +356,7 @@ def main() -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
     print(f"Generated: {out_path}")
-    print(f"  Ancestries: {len(ANCESTRY_ORDER)}")
+    print(f"  Ancestries: {len(parsed_map)}")
 
 
 if __name__ == "__main__":
