@@ -51,6 +51,12 @@ except ImportError:
     _YAML_AVAILABLE = False
 
 SCRIPT_DIR = Path(__file__).parent
+VAULT_ROOT = SCRIPT_DIR.parent.parent
+DOCS_DIR   = VAULT_ROOT / "docs"
+
+import sys as _sys
+_sys.path.insert(0, str(SCRIPT_DIR.parent))
+from shared.assets import prepare_image, prepare_audio_wiki
 
 # ---------------------------------------------------------------------------
 # Shared CSS design system (loaded from .css files at runtime; inlined into HTML)
@@ -109,8 +115,25 @@ def strip_wikilinks(text: str) -> str:
     return text
 
 
-def strip_obsidian_embeds(text: str) -> str:
-    return re.sub(r'!\[\[[^\]]+\]\]', '', text)
+_AUDIO_EXTS = {'.mp3', '.ogg', '.wav', '.m4a', '.flac', '.aac'}
+_IMAGE_EXTS = {'.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'}
+
+
+def prepare_embeds(text: str) -> str:
+    """Copy ![[image/audio]] vault assets to docs/ before rendering.
+
+    Returns text unchanged — wiki-embed syntax is preserved so render_myth_para()
+    can render it as <figure> or <audio>. Assets are copied here so they exist
+    in docs/images/ or docs/audio/ when the HTML is served.
+    """
+    for m in re.finditer(r'!\[\[([^\]|]+?)(?:\|[^\]]*)?\]\]', text):
+        fname = Path(m.group(1).strip()).name
+        ext   = Path(fname).suffix.lower()
+        if ext in _IMAGE_EXTS:
+            prepare_image(fname, VAULT_ROOT, DOCS_DIR)
+        elif ext in _AUDIO_EXTS:
+            prepare_audio_wiki(fname, VAULT_ROOT, DOCS_DIR)
+    return text
 
 
 def inline_md(text: str) -> str:
@@ -126,7 +149,8 @@ def inline_md(text: str) -> str:
 def preprocess_body(text: str) -> str:
     text = strip_secret_blocks(text)
     text = strip_wikilinks(text)
-    text = strip_obsidian_embeds(text)
+    # Note: ![[embeds]] are NOT stripped here — prepare_embeds() has already
+    # copied their assets; render_myth_para() renders them as figure/audio HTML.
     text = re.sub(r'^>\s*\[!\w+\]\s*$', '', text, flags=re.MULTILINE)
     text = re.sub(r'\n{3,}', '\n\n', text)
     return text.strip()
@@ -153,8 +177,36 @@ def split_sections(text: str) -> dict[str, str]:
 # ---------------------------------------------------------------------------
 
 def render_myth_para(line: str) -> str:
-    """Render a single paragraph line, handling blockquotes."""
+    """Render a single paragraph line, handling blockquotes and wiki-embeds."""
     line = line.strip()
+    # Wiki-embed: ![[image.png|alias]] or ![[audio.mp3]]
+    m = re.match(r'^!\[\[([^\]|]+?)(?:\|([^\]]*))?\]\]$', line)
+    if m:
+        path_part  = m.group(1).strip()
+        alias_part = (m.group(2) or '').strip()
+        fname = Path(path_part).name
+        ext   = Path(fname).suffix.lower()
+        if ext in _AUDIO_EXTS:
+            from html import escape as _esc
+            src   = _esc(f'audio/{fname}')
+            label = _esc(alias_part or Path(fname).stem.replace('-', ' ').replace('_', ' ').title())
+            return (
+                f'<div class="audio-player">\n'
+                f'  <div class="audio-player-label">{label}</div>\n'
+                f'  <audio controls preload="metadata">'
+                f'<source src="{src}" type="audio/mpeg" /></audio>\n'
+                f'</div>\n'
+            )
+        else:
+            from html import escape as _esc
+            src = _esc(f'images/{fname}')
+            alt = _esc(alias_part or fname.rsplit('.', 1)[0])
+            return (
+                f'<figure class="lore-figure">\n'
+                f'  <img src="{src}" alt="{alt}" />\n'
+                f'  <figcaption>{alt}</figcaption>\n'
+                f'</figure>\n'
+            )
     if line.startswith('> ') or line.startswith('>'):
         inner = re.sub(r'^>\s*', '', line).strip()
         return f'<div class="callout">{inline_md(inner)}</div>\n'
@@ -180,6 +232,7 @@ def build_myth_html(fm: dict, body: str) -> str:
     tag_label = ', '.join(str(t) for t in tags) if tags else ''
     cover_image = fm.get('lk_cover_image', '')
 
+    prepare_embeds(body)   # copy vault assets to docs/ before stripping/rendering
     body = preprocess_body(body)
     sections = split_sections(body)
 

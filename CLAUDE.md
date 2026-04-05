@@ -153,6 +153,16 @@ Claude Code creates a worktree automatically at conversation start — ignore it
 
 ---
 
+## Image Conventions
+
+**Ancestry images:** Source images live in `images/people/ancestries/` and are committed to git (`.gitignore` has an exception for this directory). Reference them in per-ancestry `.md` files using filename only — `![[VANARA.png|250]]` — never a full path. The generator finds them via vault search and copies to `docs/images/` at build time. Works identically locally and on Netlify.
+
+**World / lore images:** Reference with `![[filename.ext]]` anywhere in the document body. `generate_world_html.py` and `generate_lore_html.py` both call `prepare_image()` to copy vault assets to `docs/images/` before rendering. Source images must be findable via `rglob()` from vault root (i.e. anywhere in `images/`).
+
+**`docs/images/` is gitignored** — it is a build artifact directory. Images are always copied at generation time.
+
+---
+
 ## Working Conventions
 
 - **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.

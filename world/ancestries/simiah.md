@@ -16,7 +16,7 @@ last_updated: 2026-04-02
 
 ## OVERVIEW
 
-![[docs/images/VANARA.png|250]]
+![[VANARA.png|250]]
 
 Vanara are primate folk found across Tarim-Shaiel, ranging in build from compact and quick-moving to broad-shouldered and deliberate. Their coats span from jet black to deep amber to a gold that catches light readily. All Vanara have prehensile feet nearly as dexterous as their hands, and roughly half have a fully grasping tail as well.
 
