@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-04-02
+last_updated: 2026-04-05
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -34,6 +34,14 @@ banner-y: 37
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-04-02 / 2026-04-05
+- Completed Phase 1 of #79: `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — all 18 Tarim-Shaiel-flavored ancestry descriptions (player-facing artifact)
+- Completed Phase 2 of #79: 6 foundation documents (`simiah.md`, `infernis.md`, `firbolg.md`, `clank.md`, `faun.md`, `fungril.md`) following `orcs.md` at 1/3 depth
+- Flagged refinements in `simiah.md`: Dwarven relationship, Celestial lineage (Option A locked), GM secrets files for all 6
+- Scope decision: remaining 11 ancestry foundation docs deferred; new issue to be created
+- Audit identified 5 follow-up concerns: naming pass, pipeline integration, frontmatter `daggerheart_name:`, transclusion, two-generator conflict
+- **Follow-up:** Issues for Pipeline Integration + Naming Pass to be created (see plan file)
 
 ### 2026-03-26
 - Explored Claude Code hooks vs. GitHub webhooks; designed `workflow_dispatch` trigger pattern via Claude Code `Stop`/`SessionStart` hooks
@@ -365,10 +373,11 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
    - **Decision (2026-04-01):** All 18 canonical Daggerheart 1.0 ancestries reviewed and suitability-ranked. Approach: Tarim-Shaiel-specific in-world descriptions for all 18; 6 priority ancestries receive full foundation documents. Several ancestries renamed (Simiah→Vanara, Infernis→Div-Born, Firbolg→Gavar, Clank→Tadbir, Faun→Pari-Kin, Fungril→Khavar, Drakona→Naga-Kin). See Decision 14 in `.meta/DECISION_LOG.md`.
    - **Execution tracked in:** [#79](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/79)
 
-2a. - [ ] **Ancestry Reskin Series: Descriptions + Foundation Documents** ([#79](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/79)) 🟡
-   - Phase 1: Create `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — all 18 in-world descriptions compiled (player-facing artifact)
-   - Phase 2: Foundation documents for 6 priority ancestries (Vanara, Div-Born, Gavar, Tadbir, Pari-Kin, Khavar) following `world/ancestries/orcs.md` structure at 1/3 depth
-   - **Required Before:** Heritage & Classes section of Campaign Frame
+2a. - [x] **Ancestry Reskin Series: Descriptions + Foundation Documents** ([#79](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/79)) 🟢
+   - ✅ Phase 1 (2026-04-02): `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — all 18 in-world descriptions compiled (player-facing artifact)
+   - ✅ Phase 2 (2026-04-02): Foundation documents — `simiah.md` (Vanara), `infernis.md` (Div-Born), `firbolg.md` (Gavar), `clank.md` (Tadbir), `faun.md` (Pari-Kin), `fungril.md` (Khavar)
+   - **Deferred:** Remaining 11 ancestry foundation docs — new issue TBD
+   - **Unblocks:** Heritage & Classes section of Campaign Frame
 
 3. - [x] **Campaign Frame Complexity Rating** ([#62](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/62)) 🟢
    - **Decision:** Rating **3** — charm system removed; remaining mechanics (Vestiges/Memory Fragments/The Wrongness/R/H/K) are narrative-first, not mechanical crunch. DECISION_LOG #13 (2026-03-31).
