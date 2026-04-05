@@ -258,6 +258,37 @@
       margin: 0;
     }
 
+    /* ---- Ancestry image figure ---- */
+
+    .lore-figure {
+      float: right;
+      margin: 0.4rem 0 1.6rem 2rem;
+      max-width: 240px;
+      clear: right;
+    }
+
+    .lore-figure img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--rule);
+      box-shadow: 4px 6px 18px var(--shadow);
+    }
+
+    .lore-figure figcaption {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--steel);
+      text-align: center;
+      margin-top: 0.45rem;
+      padding-top: 0.35rem;
+      border-top: 1px solid var(--rule);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      .lore-figure { float: none; max-width: 100%; margin: 0 0 1.5rem 0; }
+    }
+
     /* ---- Divider between ancestries ---- */
 
     .ancestry-divider {
@@ -288,7 +319,7 @@
     <div class="cover-gradient"></div>
     <div class="cover-content">
       <div class="cover-title">Peoples of Tarim-Shaiel</div>
-      <div class="cover-subtitle">Fourteen Ancestries of the Known World</div>
+      <div class="cover-subtitle">18 Ancestries of the Known World</div>
     </div>
   </div>
 
@@ -313,9 +344,13 @@
       <a href="#dwarf">Dwarf</a>
       <a href="#orc">Orc</a>
       <a href="#katari">Katari</a>
+      <a href="#naga-kin">Naga-Kin</a>
       <a href="#goblin">Goblin</a>
       <a href="#halfling">Halfling</a>
       <a href="#giant">Giant</a>
+      <a href="#galapa">Galapa</a>
+      <a href="#ribbet">Ribbet</a>
+      <a href="#faerie">Faerie</a>
     </div>
     <div class="ancestry-section" id="vanara">
       <div class="ancestry-header">
@@ -323,6 +358,10 @@
         <span class="ancestry-dh-name">Simiah</span>
       </div>
       <div class="ancestry-lore">
+        <figure class="lore-figure">
+          <img src="images/storyteller.png" alt="">
+          <figcaption>Vanara</figcaption>
+        </figure>
         <p>Vanara are primate folk found across Tarim-Shaiel, ranging in build from compact and quick-moving to broad-shouldered and deliberate. Their coats span from jet black to deep amber to a gold that catches light readily. All Vanara have prehensile feet nearly as dexterous as their hands, and roughly half have a fully grasping tail as well.</p>
 <p>Vanara communities are most commonly found along high mountain passes and pilgrimage routes, where they have served for generations as guides, teachers, and guardians. They are known throughout Tarim-Shaiel as scholar-warriors — people who treat the disciplined body and the studied text as the same instrument. Their traditions of devotion are their most recognizable feature: when a Vanara commits to a cause or a person, that commitment is understood as binding.</p>
 <p>Their pride is the counterweight to this loyalty. A perceived slight lands differently on a Vanara than on most — not because they react immediately, but because they don&#x27;t forget. They rarely pursue vengeance openly. They wait, with a patience that can unsettle people who were hoping the matter had passed.</p>
@@ -559,6 +598,20 @@
       </div>
     </div>
     <div class="ancestry-divider"></div>
+    <div class="ancestry-section" id="naga-kin">
+      <div class="ancestry-header">
+        <span class="ancestry-name">Naga-Kin</span>
+        <span class="ancestry-dh-name">Drakona</span>
+      </div>
+      <div class="ancestry-lore">
+        <p>Naga-Kin are humanoids whose ancestry traces to the great Naga lineages — serpentine beings of enormous power whose histories in Tarim-Shaiel stretch back further than most recorded traditions. They are large, averaging 5 to 7 feet, covered in thick scales that vary from copper-green to deep indigo to near-black. Their teeth are pronounced and grow continuously throughout their lives. Unlike their ancestral forebears, Naga-Kin walk upright and cannot fly without magical aid.</p>
+<p>Each Naga-Kin carries an elemental breath — fire, ice, lightning, or other forces — passed down through family lines. Within Naga-Kin communities this functions as a kind of signature: a family characteristic as distinctive as a face, readable to those who know how to look. Concealing or suppressing it is considered a deeply personal act, rarely done without cost.</p>
+<p>Naga-Kin are not common in Tarim-Shaiel&#x27;s densest cities. They tend toward the great river corridors and the older trade routes where their ancestral histories run deepest — places where the ground remembers what the people who settled it carried with them.</p>
+      </div>
+      <div class="feature-grid">
+      </div>
+    </div>
+    <div class="ancestry-divider"></div>
     <div class="ancestry-section" id="goblin">
       <div class="ancestry-header">
         <span class="ancestry-name">Goblin</span>
@@ -622,6 +675,48 @@
             <div class="feature-name">Reach</div>
             <p>Giants have wide frames and elongated arms that give them a reach that can be startling at close quarters. What other ancestries can only touch by moving, a Giant can touch from where they stand. In practice, this means that the distance a Giant considers &#x27;close&#x27; is further than most people expect.</p>
           </div>
+      </div>
+    </div>
+    <div class="ancestry-divider"></div>
+    <div class="ancestry-section" id="galapa">
+      <div class="ancestry-header">
+        <span class="ancestry-name">Galapa</span>
+        <span class="ancestry-dh-name">Galapa</span>
+      </div>
+      <div class="ancestry-lore">
+        <p>Galapa are turtle-humanoids with large, domed shells they can retract into fully. Their head and body shapes echo various species of turtle — some with long necks and narrow faces, others with broader, flatter features — and they come primarily in earth tones, greens, and browns, with shells that carry patterns as individual as a face. On average, Galapa stand between 4 and 6 feet. Their movement is deliberate; speed is not, for them, a primary value.</p>
+<p>Galapa communities are found near bodies of water and along routes that have been traveled for a very long time. Their 150-year lifespans, combined with a tendency to establish in one place and stay, means that Galapa elders often hold knowledge of a location that predates living memory for every other ancestry in the region. They do not always volunteer this knowledge. They wait to be asked properly.</p>
+<p>The shell is both armor and statement. Attaching additional materials to a Galapa shell, or carving it with patterns beyond what grew naturally, is a practice that exists but is understood to carry weight — it requires pain, and it is not done lightly. When a Galapa does carry such modifications, they mark something that mattered enough to bear the cost.</p>
+      </div>
+      <div class="feature-grid">
+      </div>
+    </div>
+    <div class="ancestry-divider"></div>
+    <div class="ancestry-section" id="ribbet">
+      <div class="ancestry-header">
+        <span class="ancestry-name">Ribbet</span>
+        <span class="ancestry-dh-name">Ribbet</span>
+      </div>
+      <div class="ancestry-lore">
+        <p>Ribbets are amphibious humanoids whose wide-set eyes give them a field of vision covering most of a full circle. Their skin is smooth or gently warty and must stay moist — most Ribbets live near water or carry what they need with them. Their webbed hands and feet make them exceptional swimmers. The more dramatically long-legged among them move primarily by hopping, efficiently and over distances that tend to surprise people the first time they see it.</p>
+<p>Ribbets live for approximately 100 years and are born from eggs laid in water, passing through an aquatic early life before emerging in their adult form around age 6 or 7. Their coloring ranges from practical camouflage to vivid, high-contrast markings. In Tarim-Shaiel, Ribbet communities are found along rivers, wetlands, and the marshy stretches of several coastal regions, where knowledge of waterways and amphibious range make them effective traders and travelers along routes most peoples find difficult.</p>
+<p>Their reputation is for practicality. Also for being extremely difficult to sneak up on.</p>
+      </div>
+      <div class="feature-grid">
+      </div>
+    </div>
+    <div class="ancestry-divider"></div>
+    <div class="ancestry-section" id="faerie">
+      <div class="ancestry-header">
+        <span class="ancestry-name">Faerie</span>
+        <span class="ancestry-dh-name">Faerie</span>
+      </div>
+      <div class="ancestry-lore">
+        <p>Faeries are winged humanoids whose connection to the living world manifests in a remarkable range of physical forms. Some are near-humanoid with translucent wings; others carry distinctly insectoid features — compound eyes, chitinous surfaces, additional limbs. Heights range from about 2 feet to 7 feet, and all faeries undergo a metamorphosis at some point in early adulthood — a transformation unique to each individual that results in the appearance they carry for the rest of their lives.</p>
+<p>All faeries fly. Their wings are membranous and strong enough for sustained movement. The transformation that shapes their adult form is treated within Faerie communities as a significant passage — the individual who emerges is understood to be fully themselves in a way they were not before.</p>
+<p>Faeries live for approximately 50 years, among the shortest lifespans of any people in Tarim-Shaiel. They are not treated as less significant for this. Their presence tends to carry a quality of completeness that longer-lived peoples sometimes find difficult to name — Faeries do not defer things the way others do. They have not developed the habit of it.</p>
+      </div>
+      <div class="feature-grid">
       </div>
     </div>
   </div><!-- /content -->
