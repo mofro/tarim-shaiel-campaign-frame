@@ -317,7 +317,7 @@ _Critical path items — must be completed for campaign launch_
 
 ---
 
-### 7. Python Toolset Refactor 🔄 IN PROGRESS ([#87](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/87))
+### 7. Python Toolset Refactor ✅ COMPLETE ([#87](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/87))
 **Domain:** `utilities/`
 **Description:** Evolve the ~29-script publishing toolset (~8,000 lines) into a coordinated,
 modular infrastructure. 5-stage incremental refactor — each stage independently deployable
@@ -326,7 +326,7 @@ without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands in
 - [x] **Stage 1 ✅:** `utilities/shared/config.py` — `ProjectConfig` dataclass; logger renamed `"tarim_shaiel_generators"`; adopted in `generate_campaign_frame.py` + `generate_dashboard.py`
 - [x] **Stage 2 ✅:** Extract embedded CSS — `utilities/campaign_frame/campaign_frame.css` and `utilities/world/world_{base,myth,timeline}.css`; generators read CSS at runtime, HTML output verified identical
 - [x] **Stage 3 ✅:** `utilities/shared/base_generator.py` — `Generator` protocol; thin `_Generator` wrapper + `generator` singleton appended to all 6 generators; all verified standalone and via `wrapper.run()`
-- [ ] **Stage 4:** `utilities/build.py` — unified CLI dispatcher covering all 8 generators; extends `legendkeeper-pipeline/publish.py` pattern to the entire toolset (`build.py campaign-frame`, `build.py all`, `build.py list`)
+- [x] **Stage 4 ✅:** `utilities/build.py` — unified CLI dispatcher; `build.py list`, `build.py all [--public]`, `build.py <name>`; mirrors Netlify pipeline order; `world` excluded from `all` (requires --source)
 - [x] **Stage 5 ✅:** Fix `generate_ancestry_html.py` — removed hardcoded `ANCESTRY_DATA`/`ANCESTRY_ORDER`; `parse_peoples_md()` derives names + order from source MD; renders all 18 ancestries
 
 **Also completed (adjacent to staged plan):**
