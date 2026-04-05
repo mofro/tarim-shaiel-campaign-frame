@@ -338,8 +338,6 @@ without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands in
 - [x] Ancestry visibility gating: `visibility: gm_secrets` in per-ancestry frontmatter excludes from public HTML; GALAPA, RIBBET, FAERIE, NAGA-KIN gated; stub files created
 - [x] `.gitignore` fixed: `images/*` + `!images/people/ancestries/` so ancestry portraits are committable
 
-**Estimated effort:** Stage 4 only remaining — ~half session
-
 ---
 
 ### 4. Publishing Infrastructure Setup ✅ COMPLETE
