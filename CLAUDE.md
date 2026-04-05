@@ -175,6 +175,8 @@ Claude Code creates a worktree automatically at conversation start — ignore it
 - Archetype descriptions are for PLAYER eyes — keep them in present-tense psychological framing.
 - **New planned TODO items get a GitHub Issue.** When writing or significantly expanding a TODO item that meets all qualifying criteria (status `[ ]`/`[-]`/`[/]`, has title + implementation context, lives in ACTIVE or BLOCKED), create a GitHub Issue as part of that same work unit — not as a follow-up. Add the inline reference (`[#NN](url)`) to the TODO item before committing. For retrospective catch-up on existing items, run an explicit "sync TODO→issues" pass. Qualifying criteria: item represents a discrete unit of work or decision; sub-tasks belong in the issue body as a checklist, not as separate issues.
 
+- **Issue-first discipline — treat work as a group effort.** Any non-trivial line of work should be documented before it is implemented, as if a different session (or a different person entirely) might be the one to execute it. The GitHub Issue is the spec. Before beginning implementation, ensure the issue contains: (1) **background and motivation** — what led here, what decisions are already locked; (2) **implementation plan** — ordered checklist of concrete steps; (3) **open questions** — design decisions that need resolution before or during the work; (4) **reference files** — key paths, relevant DECISION_LOG entries, prior session context. If the issue doesn't have this, write it first. This discipline applies to both new issues and existing ones being picked up mid-stream.
+
 ### Git Workflow (Commit on Completion)
 
 This project uses git for version control. Commits and pushes are part of the standard workstream — not afterthoughts.
