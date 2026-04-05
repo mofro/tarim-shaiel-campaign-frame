@@ -32,6 +32,7 @@ OUTPUT_PATH = DOCS_DIR / "peoples-of-tarim-shaiel.html"
 
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.page_shell import build_page
+from shared.assets import prepare_image
 
 COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 
@@ -160,6 +161,37 @@ CSS_ANCESTRY = """\
       margin: 0;
     }
 
+    /* ---- Ancestry image figure ---- */
+
+    .lore-figure {
+      float: right;
+      margin: 0.4rem 0 1.6rem 2rem;
+      max-width: 240px;
+      clear: right;
+    }
+
+    .lore-figure img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--rule);
+      box-shadow: 4px 6px 18px var(--shadow);
+    }
+
+    .lore-figure figcaption {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--steel);
+      text-align: center;
+      margin-top: 0.45rem;
+      padding-top: 0.35rem;
+      border-top: 1px solid var(--rule);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      .lore-figure { float: none; max-width: 100%; margin: 0 0 1.5rem 0; }
+    }
+
     /* ---- Divider between ancestries ---- */
 
     .ancestry-divider {
@@ -212,6 +244,14 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
         # Split lore from ### Ancestry Features subsection
         parts = re.split(r'\n### Ancestry Features\n', body, maxsplit=1)
         lore_text = parts[0].strip()
+
+        # Extract optional ![[image.ext]] reference from lore text
+        image_fname = None
+        img_match = re.search(r'!\[\[([^\]|]+?)(?:\|[^\]]*)?\]\]', lore_text)
+        if img_match:
+            image_fname = Path(img_match.group(1).strip()).name
+            lore_text = lore_text[:img_match.start()].rstrip() + lore_text[img_match.end():]
+            lore_text = lore_text.strip()
         features = []
 
         if len(parts) > 1:
@@ -226,10 +266,12 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
                     })
 
         result[key] = {
-            "world_name": world_name,
-            "dh_name":    dh_name,
-            "lore":       lore_text,
-            "features":   features,
+            "world_name":  world_name,
+            "dh_name":     dh_name,
+            "lore":        lore_text,
+            "features":    features,
+            "image_fname": image_fname,   # filename only; URL resolved in main()
+            "image_url":   None,          # filled by main() after prepare_image()
         }
 
     return result
@@ -280,7 +322,17 @@ def build_ancestry_section(key: str, parsed: dict) -> str:
     if not features:
         print(f"  WARNING: no ### Ancestry Features found for {key}")
 
-    lore_html = paragraphs_html(lore_text)
+    image_url  = parsed.get("image_url")
+    lore_html  = paragraphs_html(lore_text)
+
+    figure_html = ""
+    if image_url:
+        figure_html = (
+            f'\n        <figure class="lore-figure">'
+            f'\n          <img src="{escape(image_url)}" alt="">'
+            f'\n          <figcaption>{escape(world_name)}</figcaption>'
+            f'\n        </figure>'
+        )
 
     feature_boxes = ""
     for feat in features:
@@ -297,7 +349,7 @@ def build_ancestry_section(key: str, parsed: dict) -> str:
         <span class="ancestry-name">{escape(world_name)}</span>
         <span class="ancestry-dh-name">{escape(dh_name)}</span>
       </div>
-      <div class="ancestry-lore">
+      <div class="ancestry-lore">{figure_html}
         {lore_html}
       </div>
       <div class="feature-grid">{feature_boxes}
@@ -333,6 +385,11 @@ def main() -> None:
     out_path = Path(args.out) if args.out else OUTPUT_PATH
 
     parsed_map = parse_peoples_md(SOURCE_PATH)
+
+    # Resolve and copy any ancestry images referenced via ![[filename]] in source
+    for data in parsed_map.values():
+        if data["image_fname"]:
+            data["image_url"] = prepare_image(data["image_fname"], VAULT_ROOT, DOCS_DIR)
 
     content_html = build_content(parsed_map)
 
