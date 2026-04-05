@@ -24,11 +24,12 @@ import argparse
 from pathlib import Path
 from html import escape
 
-SCRIPT_DIR  = Path(__file__).parent
-VAULT_ROOT  = SCRIPT_DIR.parent.parent
-DOCS_DIR    = VAULT_ROOT / "docs"
-SOURCE_PATH = VAULT_ROOT / "world" / "ancestries" / "PEOPLES_OF_TARIM_SHAIEL.md"
-OUTPUT_PATH = DOCS_DIR / "peoples-of-tarim-shaiel.html"
+SCRIPT_DIR   = Path(__file__).parent
+VAULT_ROOT   = SCRIPT_DIR.parent.parent
+DOCS_DIR     = VAULT_ROOT / "docs"
+SOURCE_PATH  = VAULT_ROOT / "world" / "ancestries" / "PEOPLES_OF_TARIM_SHAIEL.md"
+ANCESTRY_DIR = VAULT_ROOT / "world" / "ancestries"
+OUTPUT_PATH  = DOCS_DIR / "peoples-of-tarim-shaiel.html"
 
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.page_shell import build_page
@@ -245,13 +246,6 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
         parts = re.split(r'\n### Ancestry Features\n', body, maxsplit=1)
         lore_text = parts[0].strip()
 
-        # Extract optional ![[image.ext]] reference from lore text
-        image_fname = None
-        img_match = re.search(r'!\[\[([^\]|]+?)(?:\|[^\]]*)?\]\]', lore_text)
-        if img_match:
-            image_fname = Path(img_match.group(1).strip()).name
-            lore_text = lore_text[:img_match.start()].rstrip() + lore_text[img_match.end():]
-            lore_text = lore_text.strip()
         features = []
 
         if len(parts) > 1:
@@ -266,12 +260,11 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
                     })
 
         result[key] = {
-            "world_name":  world_name,
-            "dh_name":     dh_name,
-            "lore":        lore_text,
-            "features":    features,
-            "image_fname": image_fname,   # filename only; URL resolved in main()
-            "image_url":   None,          # filled by main() after prepare_image()
+            "world_name": world_name,
+            "dh_name":    dh_name,
+            "lore":       lore_text,
+            "features":   features,
+            "image_url":  None,   # filled by main() via per-ancestry file lookup
         }
 
     return result
@@ -369,6 +362,32 @@ def build_content(parsed_map: dict[str, dict]) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Per-ancestry image lookup
+# ---------------------------------------------------------------------------
+
+def find_ancestry_image(dh_name: str) -> str | None:
+    """Scan world/ancestries/{dh_name.lower()}.md for an Obsidian ![[filename]] image link.
+
+    Returns the bare filename (e.g. 'storyteller.png'), or None if no detail
+    file exists or no image wiki-link is found. The generator calls this for each
+    ancestry so images are sourced from per-ancestry canonical files, not from
+    the consolidated PEOPLES_OF_TARIM_SHAIEL.md. This is compatible with the
+    eventual Obsidian transclusion architecture (issue #79 Phase 2).
+    """
+    candidate = ANCESTRY_DIR / f"{dh_name.lower()}.md"
+    if not candidate.exists():
+        return None
+    text = candidate.read_text(encoding="utf-8")
+    m = re.search(
+        r'!\[\[([^\]|]+?\.(png|jpg|jpeg|webp|gif|svg))(?:\|[^\]]*)?\]\]',
+        text, re.IGNORECASE
+    )
+    if not m:
+        return None
+    return Path(m.group(1).strip()).name
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
@@ -386,10 +405,11 @@ def main() -> None:
 
     parsed_map = parse_peoples_md(SOURCE_PATH)
 
-    # Resolve and copy any ancestry images referenced via ![[filename]] in source
+    # Resolve images from per-ancestry detail files (world/ancestries/{dh_name}.md)
     for data in parsed_map.values():
-        if data["image_fname"]:
-            data["image_url"] = prepare_image(data["image_fname"], VAULT_ROOT, DOCS_DIR)
+        fname = find_ancestry_image(data["dh_name"])
+        if fname:
+            data["image_url"] = prepare_image(fname, VAULT_ROOT, DOCS_DIR)
 
     content_html = build_content(parsed_map)
 
