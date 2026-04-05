@@ -7,7 +7,6 @@ status: draft
 created: 2026-04-02
 last_updated: 2026-04-03
 ---
-
 # Peoples of Tarim-Shaiel
 
 *Player-facing ancestry descriptions for all eighteen peoples of Tarim-Shaiel. These replace the canonical Daggerheart blurbs — same mechanics, different world.*
