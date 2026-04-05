@@ -327,15 +327,18 @@ without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands in
 - [x] **Stage 2 ✅:** Extract embedded CSS — `utilities/campaign_frame/campaign_frame.css` and `utilities/world/world_{base,myth,timeline}.css`; generators read CSS at runtime, HTML output verified identical
 - [x] **Stage 3 ✅:** `utilities/shared/base_generator.py` — `Generator` protocol; thin `_Generator` wrapper + `generator` singleton appended to all 6 generators; all verified standalone and via `wrapper.run()`
 - [ ] **Stage 4:** `utilities/build.py` — unified CLI dispatcher covering all 8 generators; extends `legendkeeper-pipeline/publish.py` pattern to the entire toolset (`build.py campaign-frame`, `build.py all`, `build.py list`)
-- [ ] **Stage 5 (unblocked):** Fix `generate_ancestry_html.py` — replace hardcoded `ANCESTRY_DATA` dict with `parse_ancestry_file()` reading from `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — previously blocked by #79; file now exists with all 18 ancestries in stable format
+- [x] **Stage 5 ✅:** Fix `generate_ancestry_html.py` — removed hardcoded `ANCESTRY_DATA`/`ANCESTRY_ORDER`; `parse_peoples_md()` derives names + order from source MD; renders all 18 ancestries
 
 **Also completed (adjacent to staged plan):**
 - [x] Moved `generate_world_html.py`, `generate_all_world_html.py`, and CSS files out of `legendkeeper-pipeline/` into new `utilities/world/` — `legendkeeper-pipeline/` now contains only the 5 LK-specific tools
 - [x] Dashboard housekeeping: renamed "Hero Heaven" → "Tarim-Shaiel" in `generate_dashboard.py` docstring; stratified `SKILL.md` for Claude Code vs Chat/Cowork contexts
 - [x] `shared/frontmatter.py` fix: YAML parse failure now falls back to regex rather than silently returning `{}`
 - [x] `CLAUDE.md` updated: long-lived branch inflation trap documented with fix procedure
+- [x] Ancestry image support: `![[filename]]` in per-ancestry file body → floated `<figure class="lore-figure">`; `VANARA.png` live
+- [x] Ancestry visibility gating: `visibility: gm_secrets` in per-ancestry frontmatter excludes from public HTML; GALAPA, RIBBET, FAERIE, NAGA-KIN gated; stub files created
+- [x] `.gitignore` fixed: `images/*` + `!images/people/ancestries/` so ancestry portraits are committable
 
-**Estimated effort:** ~1 session remaining (stages 4 + 5 both unblocked)
+**Estimated effort:** Stage 4 only remaining — ~half session
 
 ---
 
