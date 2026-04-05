@@ -16,6 +16,8 @@ last_updated: 2026-04-02
 
 ## OVERVIEW
 
+![[VANARA.png|250]]
+
 Vanara are primate folk found across Tarim-Shaiel, ranging in build from compact and quick-moving to broad-shouldered and deliberate. Their coats span from jet black to deep amber to a gold that catches light readily. All Vanara have prehensile feet nearly as dexterous as their hands, and roughly half have a fully grasping tail as well.
 
 Vanara communities are most commonly found along high mountain passes and pilgrimage routes, where they have served for generations as guides, teachers, and guardians. They are known throughout Tarim-Shaiel as scholar-warriors — people who treat the disciplined body and the studied text as the same instrument. Their traditions of devotion are their most recognizable feature: when a Vanara commits to a cause or a person, that commitment is understood as binding.
