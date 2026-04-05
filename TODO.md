@@ -378,6 +378,7 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
    - ✅ Phase 2 (2026-04-02): Foundation documents — `simiah.md` (Vanara), `infernis.md` (Div-Born), `firbolg.md` (Gavar), `clank.md` (Tadbir), `faun.md` (Pari-Kin), `fungril.md` (Khavar)
    - **Deferred:** Remaining 11 ancestry foundation docs — new issue TBD
    - **Unblocks:** Heritage & Classes section of Campaign Frame
+   - **Follow-up:** [#102](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/102) Ancestry Pipeline Integration | [#103](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/103) Ancestry Naming Pass
 
 3. - [x] **Campaign Frame Complexity Rating** ([#62](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/62)) 🟢
    - **Decision:** Rating **3** — charm system removed; remaining mechanics (Vestiges/Memory Fragments/The Wrongness/R/H/K) are narrative-first, not mechanical crunch. DECISION_LOG #13 (2026-03-31).
