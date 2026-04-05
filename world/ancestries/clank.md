@@ -16,6 +16,8 @@ last_updated: 2026-04-02
 
 ## OVERVIEW
 
+![[daggerheart-ancestry-Tadbir.png|250]]
+
 Tadbir are mechanical beings built from brass, copper, carved wood, stone, and other materials. Their forms vary considerably — some are closely humanoid, others are shaped for specific purposes that give them more unusual configurations. Each Tadbir's body is unique, typically marked with the geometric patterns, calligraphy, or maker's signs of the artificer who built them.
 
 The Tadbir tradition in Tarim-Shaiel traces to the great artificer schools — craftspeople who held that a sufficiently precise mechanism, filled with a sufficiently precise intention, could sustain a living mind. A Tadbir's body can last indefinitely with proper maintenance and replacement parts. Their minds are another matter. The animating force that sustains their thought loses potency over time, and the oldest Tadbir have developed a notable economy of focus — holding onto what matters most because they can no longer afford to hold onto everything.

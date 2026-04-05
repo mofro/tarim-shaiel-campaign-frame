@@ -15,6 +15,7 @@ last_updated: 2026-04-02
 ---
 
 ## OVERVIEW
+![[daggerheart-ancestry-Pari-Kin.png]]
 
 Pari-Kin have a goatlike lower body and broadly humanoid upper body, with horns, cloven hooves, and horizontal pupils. Their lower bodies are covered in dense fur. Horn shapes range from modest backward curves to full dramatic spirals, and ear shapes vary similarly. They stand between 4 and 6½ feet tall, though posture plays an outsized role in how they carry that height — Pari-Kin can appear considerably taller or shorter depending on how they choose to hold themselves.
 

@@ -7,7 +7,6 @@ status: draft
 created: 2026-04-02
 last_updated: 2026-04-02
 ---
-
 # Div-Born — Children of the Outer Reaches
 
 *Daggerheart ancestry: Infernis. Foundation document — player-facing.*
@@ -15,6 +14,8 @@ last_updated: 2026-04-02
 ---
 
 ## OVERVIEW
+
+![[daggerheart-ancestry-Div-Born.png]]
 
 Div-Born are humanoids with horns, pronounced canine teeth, and pointed ears. Their horns vary considerably — some have two or four, others a crown of many, some only one — and tend to grow asymmetrically in ways that Div-Born commonly emphasize through carving and ornamentation. Skin tones range from deep crimson to silver-ash to charcoal, with hair and horns following a similarly broad range of colors.
 

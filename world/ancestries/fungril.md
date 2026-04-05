@@ -16,6 +16,8 @@ last_updated: 2026-04-02
 
 ## OVERVIEW
 
+![[daggerheart-ancestry-Khavar.png]]
+
 Khavar are humanoid in form, with skin toned in the colors of earth and old wood, often mottled in the way of forest floors or weathered stone. Their features and height vary considerably. They are among the longer-lived peoples of Tarim-Shaiel, with lifespans commonly reaching 300 years.
 
 Khavar can communicate with others of their ancestry across any distance through a mycelial network — a biological connection to a shared ancestor-web that pre-dates most written records in Tarim-Shaiel. This connection also gives them access to the memories of the recent dead: by touching a corpse, they can draw out a memory tied to a specific emotion or sensation. Khavar have served for centuries as death-witnesses, grave-tenders, and keepers of what was lost — records that exist nowhere else.
