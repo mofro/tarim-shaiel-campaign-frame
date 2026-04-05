@@ -25,7 +25,7 @@ __pycache__/
 archive/
 
 # Binary / large assets
-images/
+images/*
 !images/paper-texture-top-view-2.jpg
 !images/people/ancestries/
 audio/
