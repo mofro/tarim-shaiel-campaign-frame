@@ -246,15 +246,6 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
         parts = re.split(r'\n### Ancestry Features\n', body, maxsplit=1)
         lore_text = parts[0].strip()
 
-        # Optional inline visibility marker — first line of lore may be
-        # "visibility: gm_secrets" (same convention as file frontmatter).
-        # Strip it from the prose; use it to gate public publication.
-        visibility = "public"
-        vis_match = re.match(r'^visibility:\s*(\S+)', lore_text, re.IGNORECASE)
-        if vis_match:
-            visibility = vis_match.group(1).lower()
-            lore_text = lore_text[vis_match.end():].lstrip('\n').strip()
-
         features = []
 
         if len(parts) > 1:
@@ -273,8 +264,8 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
             "dh_name":    dh_name,
             "lore":       lore_text,
             "features":   features,
-            "visibility": visibility,
-            "image_url":  None,   # filled by main() via per-ancestry file lookup
+            "visibility": "public",  # overwritten by main() from per-ancestry file
+            "image_url":  None,      # overwritten by main() from per-ancestry file
         }
 
     return result
@@ -373,29 +364,44 @@ def build_content(parsed_map: dict[str, dict]) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Per-ancestry image lookup
+# Per-ancestry metadata lookup
 # ---------------------------------------------------------------------------
 
-def find_ancestry_image(dh_name: str) -> str | None:
-    """Scan world/ancestries/{dh_name.lower()}.md for an Obsidian ![[filename]] image link.
+def read_ancestry_metadata(dh_name: str) -> dict:
+    """Read visibility and image from world/ancestries/{dh_name.lower()}.md.
 
-    Returns the bare filename (e.g. 'storyteller.png'), or None if no detail
-    file exists or no image wiki-link is found. The generator calls this for each
-    ancestry so images are sourced from per-ancestry canonical files, not from
-    the consolidated PEOPLES_OF_TARIM_SHAIEL.md. This is compatible with the
-    eventual Obsidian transclusion architecture (issue #79 Phase 2).
+    Returns a dict with keys:
+      visibility  — 'public' (default) or 'gm_secrets'
+      image_fname — bare image filename from first ![[...]] link, or None
+
+    Both fields are sourced from the per-ancestry canonical file so that
+    PEOPLES_OF_TARIM_SHAIEL.md carries no metadata of its own — consistent
+    with the eventual Obsidian transclusion architecture (issue #79 Phase 2).
     """
     candidate = ANCESTRY_DIR / f"{dh_name.lower()}.md"
     if not candidate.exists():
-        return None
+        return {"visibility": "public", "image_fname": None}
+
     text = candidate.read_text(encoding="utf-8")
-    m = re.search(
+
+    # Read visibility from YAML frontmatter
+    visibility = "public"
+    fm_match = re.match(r'^---\s*\n(.*?)\n---', text, re.DOTALL)
+    if fm_match:
+        vis = re.search(r'^visibility:\s*(\S+)', fm_match.group(1), re.MULTILINE | re.IGNORECASE)
+        if vis:
+            visibility = vis.group(1).lower()
+
+    # Find first image wiki-link in body
+    image_fname = None
+    img = re.search(
         r'!\[\[([^\]|]+?\.(png|jpg|jpeg|webp|gif|svg))(?:\|[^\]]*)?\]\]',
         text, re.IGNORECASE
     )
-    if not m:
-        return None
-    return Path(m.group(1).strip()).name
+    if img:
+        image_fname = Path(img.group(1).strip()).name
+
+    return {"visibility": visibility, "image_fname": image_fname}
 
 
 # ---------------------------------------------------------------------------
@@ -416,11 +422,12 @@ def main() -> None:
 
     parsed_map = parse_peoples_md(SOURCE_PATH)
 
-    # Resolve images from per-ancestry detail files (world/ancestries/{dh_name}.md)
+    # Read visibility and image from per-ancestry canonical files
     for data in parsed_map.values():
-        fname = find_ancestry_image(data["dh_name"])
-        if fname:
-            data["image_url"] = prepare_image(fname, VAULT_ROOT, DOCS_DIR)
+        meta = read_ancestry_metadata(data["dh_name"])
+        data["visibility"] = meta["visibility"]
+        if meta["image_fname"]:
+            data["image_url"] = prepare_image(meta["image_fname"], VAULT_ROOT, DOCS_DIR)
 
     content_html = build_content(parsed_map)
 
