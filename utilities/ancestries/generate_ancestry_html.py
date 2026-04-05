@@ -246,6 +246,15 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
         parts = re.split(r'\n### Ancestry Features\n', body, maxsplit=1)
         lore_text = parts[0].strip()
 
+        # Optional inline visibility marker — first line of lore may be
+        # "visibility: gm_secrets" (same convention as file frontmatter).
+        # Strip it from the prose; use it to gate public publication.
+        visibility = "public"
+        vis_match = re.match(r'^visibility:\s*(\S+)', lore_text, re.IGNORECASE)
+        if vis_match:
+            visibility = vis_match.group(1).lower()
+            lore_text = lore_text[vis_match.end():].lstrip('\n').strip()
+
         features = []
 
         if len(parts) > 1:
@@ -264,6 +273,7 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
             "dh_name":    dh_name,
             "lore":       lore_text,
             "features":   features,
+            "visibility": visibility,
             "image_url":  None,   # filled by main() via per-ancestry file lookup
         }
 
@@ -352,7 +362,8 @@ def build_ancestry_section(key: str, parsed: dict) -> str:
 
 
 def build_content(parsed_map: dict[str, dict]) -> str:
-    order = list(parsed_map.keys())
+    # Honour visibility: only public ancestries appear in the published HTML
+    order = [k for k, v in parsed_map.items() if v.get("visibility", "public") == "public"]
     parts = [build_jump_nav(order, parsed_map)]
     for i, key in enumerate(order):
         parts.append(build_ancestry_section(key, parsed_map[key]))
@@ -432,8 +443,10 @@ def main() -> None:
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
+    published = sum(1 for v in parsed_map.values() if v.get("visibility", "public") == "public")
+    skipped   = len(parsed_map) - published
     print(f"Generated: {out_path}")
-    print(f"  Ancestries: {len(parsed_map)}")
+    print(f"  Ancestries: {published} published" + (f", {skipped} skipped (gm_secrets)" if skipped else ""))
 
 
 if __name__ == "__main__":
