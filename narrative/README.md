@@ -7,7 +7,6 @@ created: 2025-01-21
 updated: 2026-01-28
 status: active
 ---
-
 # Narrative Directory Index
 
 ## Core Narrative Structure

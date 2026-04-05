@@ -16,6 +16,8 @@ last_updated: 2026-04-02
 
 ## OVERVIEW
 
+![[daggerheart-ancestry-Gavar.png|250]]
+
 Gavar are bovine humanoids recognized by their broad frames, fur-covered bodies, and horns. Their faces range from humanoid with subtle caprine features to fully bull-headed; those with the fullest bovine aspect are called Minaurid within Gavar communities. Their fur runs in earthy tones — deep brown, black, cream, occasional ash — and their horns can be modest and swept-back or dramatically curved. On average, Gavar stand between 5 and 7 feet and are consistently strong regardless of age.
 
 Gavar communities are found throughout Tarim-Shaiel at thresholds: crossroads, river fords, city gates, mountain passes. They have kept these places for generations and are associated with oaths, agricultural contracts, and the marking of seasons. Their presence at a boundary is generally understood as a guarantee that the boundary will be respected.
