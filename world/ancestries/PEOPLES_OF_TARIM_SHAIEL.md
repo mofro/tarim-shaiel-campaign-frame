@@ -250,8 +250,6 @@ They are found throughout Tarim-Shaiel, in every kind of community, and have bee
 
 ## GALAPA
 
-visibility: gm_secrets
-
 Galapa are turtle-humanoids with large, domed shells they can retract into fully. Their head and body shapes echo various species of turtle — some with long necks and narrow faces, others with broader, flatter features — and they come primarily in earth tones, greens, and browns, with shells that carry patterns as individual as a face. On average, Galapa stand between 4 and 6 feet. Their movement is deliberate; speed is not, for them, a primary value.
 
 Galapa communities are found near bodies of water and along routes that have been traveled for a very long time. Their 150-year lifespans, combined with a tendency to establish in one place and stay, means that Galapa elders often hold knowledge of a location that predates living memory for every other ancestry in the region. They do not always volunteer this knowledge. They wait to be asked properly.
@@ -262,8 +260,6 @@ The shell is both armor and statement. Attaching additional materials to a Galap
 
 ## RIBBET
 
-visibility: gm_secrets
-
 Ribbets are amphibious humanoids whose wide-set eyes give them a field of vision covering most of a full circle. Their skin is smooth or gently warty and must stay moist — most Ribbets live near water or carry what they need with them. Their webbed hands and feet make them exceptional swimmers. The more dramatically long-legged among them move primarily by hopping, efficiently and over distances that tend to surprise people the first time they see it.
 
 Ribbets live for approximately 100 years and are born from eggs laid in water, passing through an aquatic early life before emerging in their adult form around age 6 or 7. Their coloring ranges from practical camouflage to vivid, high-contrast markings. In Tarim-Shaiel, Ribbet communities are found along rivers, wetlands, and the marshy stretches of several coastal regions, where knowledge of waterways and amphibious range make them effective traders and travelers along routes most peoples find difficult.
@@ -273,8 +269,6 @@ Their reputation is for practicality. Also for being extremely difficult to snea
 ---
 
 ## FAERIE
-
-visibility: gm_secrets
 
 Faeries are winged humanoids whose connection to the living world manifests in a remarkable range of physical forms. Some are near-humanoid with translucent wings; others carry distinctly insectoid features — compound eyes, chitinous surfaces, additional limbs. Heights range from about 2 feet to 7 feet, and all faeries undergo a metamorphosis at some point in early adulthood — a transformation unique to each individual that results in the appearance they carry for the rest of their lives.
 
