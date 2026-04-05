@@ -104,7 +104,7 @@ The campaign is long. The world is alive and opinionated. The best moments will 
 ---
 ## Heritage & Classes
 
-All ancestries and classes from the Daggerheart Core Rulebook are available in Tarim Shaiel. The world is populated and diverse; no door is closed on the basis of what your character is.
+Most ancestries and classes from the Daggerheart Core Rulebook are available in Tarim Shaiel. The world is populous and diverse; doors are not closed on the basis of what your character is.
 
 > *What matters more than ancestry or class is **approach.***
 
