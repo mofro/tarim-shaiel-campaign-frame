@@ -176,6 +176,7 @@ CSS_ANCESTRY = """\
       display: block;
       border: 1px solid var(--rule);
       box-shadow: 4px 6px 18px var(--shadow);
+      border-radius: 1rem;
     }
 
     .lore-figure figcaption {
