@@ -652,6 +652,8 @@ def render_html(data: DashboardData) -> str:
     )
     sections_html = "\n".join(_section_html(s) for s in data.sections)
     sessions_html = "\n".join(_session_card(s) for s in data.recent_sessions)
+    has_blockers = data.blockers != ["No active blockers detected"]
+    blockers_class = "blockers-callout" if has_blockers else "blockers-callout hidden"
     blockers_html = "\n".join(f'<div class="blocker-chip">{b}</div>' for b in data.blockers)
     summary_panel = _summary_panel_html(data.quick_summary, data.player_status)
 
@@ -703,6 +705,7 @@ def render_html(data: DashboardData) -> str:
     .critical-path {{ margin-top:8px; font-size:14px; color:rgba(26,18,8,0.7); font-style:italic; }}
     .critical-path strong {{ color:var(--crimson); font-style:normal; font-weight:600; }}
     .blockers-callout {{ background:#2a1208; border-top:1px solid #5a2a10; border-bottom:1px solid #5a2a10; padding:20px 60px; display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start; }}
+    .blockers-callout.hidden {{ display:none; }}
     .blocker-eyebrow {{ font-family:'Inconsolata',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#d4843b; margin-bottom:10px; flex-basis:100%; }}
     .blocker-chip {{ background:rgba(122,31,31,0.25); border:1px solid rgba(122,31,31,0.5); border-radius:3px; padding:6px 12px; font-size:14px; color:#f5c9a0; font-family:'Inconsolata',monospace; }}
     .sessions-panel {{ background:var(--parchment3); border-bottom:1px solid var(--rule); padding:24px 60px; }}
@@ -852,7 +855,7 @@ def render_html(data: DashboardData) -> str:
 
   {summary_panel}
 
-  <div class="blockers-callout">
+  <div class="{blockers_class}">
     <div class="blocker-eyebrow">&#9888; Open Blockers &amp; Upstream Dependencies</div>
     {blockers_html}
   </div>
