@@ -718,7 +718,7 @@ function drawTLInfluenceChart() {
             }).join('');
 
             if (tooltip) {
-                tooltip.innerHTML = '<div class="tl-tt-year">' + formatTLYear(clamped) + '</div>' + rows;
+                tooltip.innerHTML = '<div class="tl-tt-body"><div class="tl-tt-year">' + formatTLYear(clamped) + '</div>' + rows + '</div>';
                 tooltip.classList.add('visible');
                 var rect = tooltip.getBoundingClientRect();
                 var tx = event.clientX + 16, ty = event.clientY - 10;
@@ -794,11 +794,14 @@ def render_stem_timeline_section(
         yr = round(ev['start_min'] / MINUTES_PER_YEAR, 1)
         slug = re.sub(r'[^a-z0-9]+', '-', ev['name'].lower()).strip('-')
         stem_events.append({
-            'year':  yr,
-            'title': ev['name'],
-            'type':  ev.get('category', 'political'),
-            'desc':  ev.get('desc', ''),
-            'slug':  slug,
+            'year':      yr,
+            'title':     ev['name'],
+            'type':      ev.get('category', 'political'),
+            'desc':      ev.get('desc', ''),
+            'slug':      slug,
+            'color':     ev.get('color', '#b8922c'),
+            'icon':      ev.get('_iconChar', '◆'),
+            'dateRange': ev.get('_dateRange', ''),
         })
 
     if not stem_events:
@@ -952,9 +955,16 @@ function drawTLStemTimeline(filter) {
                 d3.select(this).attr('r', 8);
                 var tl = evt.type.charAt(0).toUpperCase() + evt.type.slice(1);
                 if (tooltip) {
-                    tooltip.innerHTML = '<div class="tl-tt-title">' + evt.title + '</div>' +
-                        '<div class="tl-tt-year">' + formatTLYear2(evt.year) + '</div>' +
-                        '<span class="tl-tt-type tl-cat-' + evt.type + '">' + tl + '</span>';
+                    tooltip.innerHTML =
+                        '<div class="tl-tt-header" style="background:' + evt.color + '22;border-bottom:1px solid ' + evt.color + '44;padding:8px 10px 6px;">' +
+                            '<span class="tl-tt-icon" style="color:' + evt.color + ';">' + evt.icon + '</span>' +
+                            '<span class="tl-tt-title">' + evt.title + '</span>' +
+                        '</div>' +
+                        '<div class="tl-tt-body">' +
+                            '<div class="tl-tt-year">' + evt.dateRange + '</div>' +
+                            '<span class="tl-tt-type tl-cat-' + evt.type + '">' + tl + '</span>' +
+                            '<div class="tl-tt-hint">click to view card ↓</div>' +
+                        '</div>';
                     tooltip.classList.add('visible');
                     var rect = tooltip.getBoundingClientRect();
                     var tx = event.clientX + 16, ty = event.clientY - 10;
@@ -1114,6 +1124,17 @@ def render_timeline_html(fm: dict, body: str) -> str:
             for ev in events:
                 if not ev.get('is_era'):
                     stem_events_d3.append(ev)
+
+    # Enrich stem events with display fields (era_defs available here, not in render fn)
+    for ev in stem_events_d3:
+        start_yr = ev['start_min'] / MINUTES_PER_YEAR
+        end_yr   = ev['end_min'] / MINUTES_PER_YEAR if ev['end_min'] is not None else None
+        start_lbl = _era_date_label(start_yr, era_defs)
+        if end_yr is not None and end_yr != start_yr:
+            ev['_dateRange'] = f"{start_lbl} → {_era_date_label(end_yr, era_defs)}"
+        else:
+            ev['_dateRange'] = start_lbl
+        ev['_iconChar'] = _icon_char(ev.get('icon', ''))
 
     faction_groups = group_declarations_by_faction(declaration_events_d3)
     d3_year_min, d3_year_max = -500, 1199

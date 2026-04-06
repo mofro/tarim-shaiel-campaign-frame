@@ -445,34 +445,61 @@
     .tl-chart-tooltip {
       position: fixed;
       z-index: 9999;
-      background: rgba(14,11,6,0.95);
+      background: rgba(14,11,6,0.97);
       border: 1px solid rgba(184,146,44,0.45);
-      border-radius: 6px;
-      padding: 10px 14px;
+      border-radius: 8px;
+      padding: 0;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.1s;
-      max-width: 240px;
+      transition: opacity 0.12s;
+      max-width: 280px;
+      min-width: 200px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.55);
     }
 
     .tl-chart-tooltip.visible { opacity: 1; }
 
-    .tl-tt-year {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
+    /* Event mini-card layout */
+    .tl-tt-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .tl-tt-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
     }
 
     .tl-tt-title {
       font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--parchment);
-      margin-bottom: 4px;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
+    .tl-tt-body {
+      padding: 8px 10px 9px;
+    }
+
+    .tl-tt-year {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      margin-bottom: 5px;
+    }
+
+    .tl-tt-hint {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.72rem;
+      color: rgba(245,237,216,0.35);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* Faction rows (influence chart tooltip) */
     .tl-tt-row {
       display: flex;
       align-items: center;
@@ -493,10 +520,9 @@
     .tl-tt-type {
       display: inline-block;
       font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
+      font-size: 0.63rem;
       padding: 2px 8px;
       border-radius: 8px;
-      margin-top: 5px;
       letter-spacing: 0.04em;
     }
 
@@ -718,7 +744,7 @@ function drawTLInfluenceChart() {
             }).join('');
 
             if (tooltip) {
-                tooltip.innerHTML = '<div class="tl-tt-year">' + formatTLYear(clamped) + '</div>' + rows;
+                tooltip.innerHTML = '<div class="tl-tt-body"><div class="tl-tt-year">' + formatTLYear(clamped) + '</div>' + rows + '</div>';
                 tooltip.classList.add('visible');
                 var rect = tooltip.getBoundingClientRect();
                 var tx = event.clientX + 16, ty = event.clientY - 10;
@@ -786,7 +812,7 @@ drawTLInfluenceChart();
 </div>
 <script>
 (function() {
-var TL_EVENTS = [{"year": -500.0, "title": "Empire Rises", "type": "political", "desc": "", "slug": "empire-rises"}, {"year": -300.0, "title": "Beginning of Orc Enslavement", "type": "military", "desc": "", "slug": "beginning-of-orc-enslavement"}, {"year": -150.0, "title": "The Great Rebellion (Failed)", "type": "military", "desc": "", "slug": "the-great-rebellion-failed"}, {"year": -22.0, "title": "Binding Magic Perfected", "type": "cosmological", "desc": "", "slug": "binding-magic-perfected"}, {"year": 48.0, "title": "Empire at Its Height", "type": "political", "desc": "", "slug": "empire-at-its-height"}, {"year": 198.0, "title": "The Sentinel's Liberation", "type": "cosmological", "desc": "", "slug": "the-sentinel-s-liberation"}, {"year": 248.0, "title": "The Orc Eruption", "type": "military", "desc": "", "slug": "the-orc-eruption"}, {"year": 253.0, "title": "Mass Orc Migration", "type": "political", "desc": "", "slug": "mass-orc-migration"}, {"year": 288.0, "title": "First Orc Settlements Founded", "type": "political", "desc": "", "slug": "first-orc-settlements-founded"}, {"year": 318.0, "title": "The Mediator Movement", "type": "political", "desc": "", "slug": "the-mediator-movement"}, {"year": 368.0, "title": "The Truce of Nine Caravans", "type": "trade", "desc": "", "slug": "the-truce-of-nine-caravans"}, {"year": 418.0, "title": "First Orc Weapon Markets Open", "type": "trade", "desc": "", "slug": "first-orc-weapon-markets-open"}, {"year": 548.0, "title": "The Convocation of Eleven Cities", "type": "political", "desc": "", "slug": "the-convocation-of-eleven-cities"}, {"year": 588.0, "title": "First Orc Clan Gathering", "type": "political", "desc": "", "slug": "first-orc-clan-gathering"}, {"year": 618.0, "title": "The Great Drought", "type": "political", "desc": "", "slug": "the-great-drought"}, {"year": 623.0, "title": "Aqueduct Collaboration Project", "type": "trade", "desc": "", "slug": "aqueduct-collaboration-project"}, {"year": 678.0, "title": "The Scholar's Plague", "type": "political", "desc": "", "slug": "the-scholar-s-plague"}, {"year": 693.0, "title": "Chain Chronicles Formalized", "type": "political", "desc": "", "slug": "chain-chronicles-formalized"}, {"year": 698.0, "title": "The Elf Watchers Begin", "type": "cosmological", "desc": "", "slug": "the-elf-watchers-begin"}, {"year": 718.0, "title": "Dwarven League Formalized", "type": "political", "desc": "", "slug": "dwarven-league-formalized"}, {"year": 748.0, "title": "First Orc Diplomatic Academy", "type": "political", "desc": "", "slug": "first-orc-diplomatic-academy"}, {"year": 778.0, "title": "The Siege of Kalar's Gate", "type": "military", "desc": "", "slug": "the-siege-of-kalar-s-gate"}, {"year": 848.0, "title": "The Copper Accord", "type": "trade", "desc": "", "slug": "the-copper-accord"}, {"year": 878.0, "title": "Orc Merchant Leagues Form", "type": "trade", "desc": "", "slug": "orc-merchant-leagues-form"}, {"year": 948.0, "title": "The Vanishing of Khorashar", "type": "cosmological", "desc": "", "slug": "the-vanishing-of-khorashar"}, {"year": 998.0, "title": "The Golden Age of Trade", "type": "trade", "desc": "", "slug": "the-golden-age-of-trade"}, {"year": 1048.0, "title": "Night of Falling Stars", "type": "cosmological", "desc": "", "slug": "night-of-falling-stars"}, {"year": 1078.0, "title": "Universities Flourish", "type": "political", "desc": "", "slug": "universities-flourish"}, {"year": 1118.0, "title": "The Grey Council", "type": "political", "desc": "", "slug": "the-grey-council"}, {"year": 1138.0, "title": "Mysterious Disappearances Begin", "type": "cosmological", "desc": "", "slug": "mysterious-disappearances-begin"}, {"year": 1173.0, "title": "The Scholar's Purge", "type": "military", "desc": "", "slug": "the-scholar-s-purge"}];
+var TL_EVENTS = [{"year": -500.0, "title": "Empire Rises", "type": "political", "desc": "", "slug": "empire-rises", "color": "#EAB308", "icon": "\u265b", "dateRange": "HJ 500 \u2192 HJ 400"}, {"year": -300.0, "title": "Beginning of Orc Enslavement", "type": "military", "desc": "", "slug": "beginning-of-orc-enslavement", "color": "#22C55E", "icon": "\u25c6", "dateRange": "HJ 300"}, {"year": -150.0, "title": "The Great Rebellion (Failed)", "type": "military", "desc": "", "slug": "the-great-rebellion-failed", "color": "#22C55E", "icon": "\u2694", "dateRange": "HJ 150"}, {"year": -22.0, "title": "Binding Magic Perfected", "type": "cosmological", "desc": "", "slug": "binding-magic-perfected", "color": "#831843", "icon": "\u25c6", "dateRange": "HJ 22"}, {"year": 48.0, "title": "Empire at Its Height", "type": "political", "desc": "", "slug": "empire-at-its-height", "color": "#EAB308", "icon": "\u25c6", "dateRange": "HB 48"}, {"year": 198.0, "title": "The Sentinel's Liberation", "type": "cosmological", "desc": "", "slug": "the-sentinel-s-liberation", "color": "#0079CC", "icon": "\u25c6", "dateRange": "HB 198 \u2192 HB 248"}, {"year": 248.0, "title": "The Orc Eruption", "type": "military", "desc": "", "slug": "the-orc-eruption", "color": "#22C55E", "icon": "\u2726", "dateRange": "HB 248 \u2192 HB 318"}, {"year": 253.0, "title": "Mass Orc Migration", "type": "political", "desc": "", "slug": "mass-orc-migration", "color": "#22C55E", "icon": "\u25c6", "dateRange": "HB 253 \u2192 HB 278"}, {"year": 288.0, "title": "First Orc Settlements Founded", "type": "political", "desc": "", "slug": "first-orc-settlements-founded", "color": "#22C55E", "icon": "\u25c6", "dateRange": "HB 288"}, {"year": 318.0, "title": "The Mediator Movement", "type": "political", "desc": "", "slug": "the-mediator-movement", "color": "#F59E0B", "icon": "\u25c6", "dateRange": "HB 318 \u2192 HB 398"}, {"year": 368.0, "title": "The Truce of Nine Caravans", "type": "trade", "desc": "", "slug": "the-truce-of-nine-caravans", "color": "#F59E0B", "icon": "\ud83d\udcdc", "dateRange": "HB 368"}, {"year": 418.0, "title": "First Orc Weapon Markets Open", "type": "trade", "desc": "", "slug": "first-orc-weapon-markets-open", "color": "#22C55E", "icon": "\u25c6", "dateRange": "HB 418"}, {"year": 548.0, "title": "The Convocation of Eleven Cities", "type": "political", "desc": "", "slug": "the-convocation-of-eleven-cities", "color": "#F59E0B", "icon": "\u25c9", "dateRange": "HB 548"}, {"year": 588.0, "title": "First Orc Clan Gathering", "type": "political", "desc": "", "slug": "first-orc-clan-gathering", "color": "#22C55E", "icon": "\u25c6", "dateRange": "HB 588"}, {"year": 618.0, "title": "The Great Drought", "type": "political", "desc": "", "slug": "the-great-drought", "color": "#0EA5E9", "icon": "\u25c6", "dateRange": "HB 618 \u2192 HB 628"}, {"year": 623.0, "title": "Aqueduct Collaboration Project", "type": "trade", "desc": "", "slug": "aqueduct-collaboration-project", "color": "#F59E0B", "icon": "\u25c6", "dateRange": "HB 623"}, {"year": 678.0, "title": "The Scholar's Plague", "type": "political", "desc": "", "slug": "the-scholar-s-plague", "color": "#DC2626", "icon": "\u2620", "dateRange": "HB 678"}, {"year": 693.0, "title": "Chain Chronicles Formalized", "type": "political", "desc": "", "slug": "chain-chronicles-formalized", "color": "#22C55E", "icon": "\u25c6", "dateRange": "HB 693"}, {"year": 698.0, "title": "The Elf Watchers Begin", "type": "cosmological", "desc": "", "slug": "the-elf-watchers-begin", "color": "#8B5CF6", "icon": "\u25c9", "dateRange": "HB 698"}, {"year": 718.0, "title": "Dwarven League Formalized", "type": "political", "desc": "", "slug": "dwarven-league-formalized", "color": "#A16207", "icon": "\u25c6", "dateRange": "HB 718"}, {"year": 748.0, "title": "First Orc Diplomatic Academy", "type": "political", "desc": "", "slug": "first-orc-diplomatic-academy", "color": "#22C55E", "icon": "\u25c6", "dateRange": "HB 748"}, {"year": 778.0, "title": "The Siege of Kalar's Gate", "type": "military", "desc": "", "slug": "the-siege-of-kalar-s-gate", "color": "#EAB308", "icon": "\u26ca", "dateRange": "HB 778 \u2192 HB 781"}, {"year": 848.0, "title": "The Copper Accord", "type": "trade", "desc": "", "slug": "the-copper-accord", "color": "#F59E0B", "icon": "\u25c6", "dateRange": "HB 848"}, {"year": 878.0, "title": "Orc Merchant Leagues Form", "type": "trade", "desc": "", "slug": "orc-merchant-leagues-form", "color": "#22C55E", "icon": "\u25c6", "dateRange": "HB 878"}, {"year": 948.0, "title": "The Vanishing of Khorashar", "type": "cosmological", "desc": "", "slug": "the-vanishing-of-khorashar", "color": "#DC2626", "icon": "\u25c6", "dateRange": "HB 948"}, {"year": 998.0, "title": "The Golden Age of Trade", "type": "trade", "desc": "", "slug": "the-golden-age-of-trade", "color": "#0EA5E9", "icon": "\u25c6", "dateRange": "HB 998 \u2192 HB 1198"}, {"year": 1048.0, "title": "Night of Falling Stars", "type": "cosmological", "desc": "", "slug": "night-of-falling-stars", "color": "#0EA5E9", "icon": "\u25c6", "dateRange": "HB 1048"}, {"year": 1078.0, "title": "Universities Flourish", "type": "political", "desc": "", "slug": "universities-flourish", "color": "#F59E0B", "icon": "\ud83d\udcd6", "dateRange": "HB 1078"}, {"year": 1118.0, "title": "The Grey Council", "type": "political", "desc": "", "slug": "the-grey-council", "color": "#F59E0B", "icon": "\u25c6", "dateRange": "HB 1118"}, {"year": 1138.0, "title": "Mysterious Disappearances Begin", "type": "cosmological", "desc": "", "slug": "mysterious-disappearances-begin", "color": "#DC2626", "icon": "\u25c6", "dateRange": "HB 1138"}, {"year": 1173.0, "title": "The Scholar's Purge", "type": "military", "desc": "", "slug": "the-scholar-s-purge", "color": "#DC2626", "icon": "\u25c6", "dateRange": "HB 1173"}];
 var tlCurrentFilter = "all";
 
 var TYPE_COLORS = {
@@ -912,9 +938,16 @@ function drawTLStemTimeline(filter) {
                 d3.select(this).attr('r', 8);
                 var tl = evt.type.charAt(0).toUpperCase() + evt.type.slice(1);
                 if (tooltip) {
-                    tooltip.innerHTML = '<div class="tl-tt-title">' + evt.title + '</div>' +
-                        '<div class="tl-tt-year">' + formatTLYear2(evt.year) + '</div>' +
-                        '<span class="tl-tt-type tl-cat-' + evt.type + '">' + tl + '</span>';
+                    tooltip.innerHTML =
+                        '<div class="tl-tt-header" style="background:' + evt.color + '22;border-bottom:1px solid ' + evt.color + '44;padding:8px 10px 6px;">' +
+                            '<span class="tl-tt-icon" style="color:' + evt.color + ';">' + evt.icon + '</span>' +
+                            '<span class="tl-tt-title">' + evt.title + '</span>' +
+                        '</div>' +
+                        '<div class="tl-tt-body">' +
+                            '<div class="tl-tt-year">' + evt.dateRange + '</div>' +
+                            '<span class="tl-tt-type tl-cat-' + evt.type + '">' + tl + '</span>' +
+                            '<div class="tl-tt-hint">click to view card ↓</div>' +
+                        '</div>';
                     tooltip.classList.add('visible');
                     var rect = tooltip.getBoundingClientRect();
                     var tx = event.clientX + 16, ty = event.clientY - 10;
