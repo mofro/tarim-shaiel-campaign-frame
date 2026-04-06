@@ -633,8 +633,8 @@ function drawTLInfluenceChart() {
             .attr('fill', era.shade).attr('opacity', 0.06);
         if (ew > 70) {
             g.append('text').attr('x', ex + ew / 2).attr('y', 12)
-                .attr('text-anchor', 'middle').attr('font-size', '9px')
-                .attr('fill', '#b8922c66')
+                .attr('text-anchor', 'middle').attr('font-size', '11px')
+                .attr('fill', '#b8922ccc')
                 .text(era.label.substring(0, 22));
         }
     });
@@ -664,25 +664,25 @@ function drawTLInfluenceChart() {
         .attr('transform', 'translate(0,' + height + ')')
         .call(d3.axisBottom(x).ticks(7)
             .tickFormat(function(d) { return formatTLYear(d); }));
-    xAxis.selectAll('text').attr('font-size', '9px').attr('fill', '#b8922c')
+    xAxis.selectAll('text').attr('font-size', '11px').attr('fill', '#d4a843')
         .attr('font-family', 'Cinzel, serif');
-    xAxis.select('.domain').attr('stroke', '#b8922c44');
-    xAxis.selectAll('.tick line').attr('stroke', '#b8922c44');
+    xAxis.select('.domain').attr('stroke', '#b8922c66');
+    xAxis.selectAll('.tick line').attr('stroke', '#b8922c55');
 
     // Y axis
     if (tlCurrentView !== 'stream') {
         var yAxis = g.append('g').attr('class', 'tl-axis')
             .call(d3.axisLeft(y).ticks(4)
                 .tickFormat(tlCurrentView === 'expanded' ? d3.format('.0%') : d3.format('d')));
-        yAxis.selectAll('text').attr('font-size', '9px').attr('fill', '#b8922c88');
-        yAxis.select('.domain').attr('stroke', '#b8922c44');
-        yAxis.selectAll('.tick line').attr('stroke', '#b8922c44');
+        yAxis.selectAll('text').attr('font-size', '11px').attr('fill', '#d4a843');
+        yAxis.select('.domain').attr('stroke', '#b8922c66');
+        yAxis.selectAll('.tick line').attr('stroke', '#b8922c55');
     }
 
     // Tooltip
     var tooltip = document.getElementById('tl-chart-tooltip');
     var hoverLine = g.append('line')
-        .attr('stroke', '#b8922c55').attr('stroke-width', 1)
+        .attr('stroke', '#b8922c99').attr('stroke-width', 1)
         .attr('stroke-dasharray', '4,3')
         .attr('y1', 0).attr('y2', height).style('opacity', 0);
 
@@ -828,10 +828,10 @@ def render_stem_timeline_section(
         'var tlCurrentFilter = "all";\n'
         """
 var TYPE_COLORS = {
-    political:    '#5b7fa5',
-    military:     '#b35a4a',
-    trade:        '#7a9a5a',
-    cosmological: '#831843',
+    political:    '#6ba3d6',
+    military:     '#e06858',
+    trade:        '#82bc5a',
+    cosmological: '#d04878',
 };
 
 function formatTLYear2(y) {
@@ -894,7 +894,7 @@ function drawTLStemTimeline(filter) {
         if (ew > 80) {
             g.append('text').attr('x', ex + ew / 2).attr('y', height + 46)
                 .attr('text-anchor', 'middle').attr('font-size', '10px')
-                .attr('font-family', 'Cinzel, serif').attr('fill', '#b8922c55')
+                .attr('font-family', 'Cinzel, serif').attr('fill', '#b8922cbb')
                 .text(era.label.substring(0, 18));
         }
     });
@@ -903,7 +903,7 @@ function drawTLStemTimeline(filter) {
     var axisY = height * 0.5;
     g.append('line').attr('x1', 0).attr('x2', width)
         .attr('y1', axisY).attr('y2', axisY)
-        .attr('stroke', '#b8922c33').attr('stroke-width', 1.5);
+        .attr('stroke', '#b8922c77').attr('stroke-width', 1.5);
 
     // Tick marks
     var span = xMax - xMin;
@@ -912,10 +912,10 @@ function drawTLStemTimeline(filter) {
     for (var yr = firstTick; yr <= xMax; yr += tickStep) {
         g.append('line').attr('x1', x(yr)).attr('x2', x(yr))
             .attr('y1', axisY - 5).attr('y2', axisY + 5)
-            .attr('stroke', '#b8922c44').attr('stroke-width', 1);
+            .attr('stroke', '#b8922c88').attr('stroke-width', 1);
         g.append('text').attr('x', x(yr)).attr('y', axisY + 20)
             .attr('text-anchor', 'middle').attr('font-size', '10px')
-            .attr('fill', '#b8922c88').text(formatTLYear2(yr));
+            .attr('fill', '#d4a843').text(formatTLYear2(yr));
     }
 
     // Position events
@@ -941,7 +941,7 @@ function drawTLStemTimeline(filter) {
         g.append('line').attr('x1', cx).attr('x2', cx)
             .attr('y1', axisY).attr('y2', ey)
             .attr('stroke', color).attr('stroke-width', 1)
-            .attr('stroke-opacity', 0.3).attr('stroke-dasharray', '2,2');
+            .attr('stroke-opacity', 0.55).attr('stroke-dasharray', '3,2');
 
         g.append('circle').attr('cx', cx).attr('cy', axisY).attr('r', 5)
             .attr('fill', color).attr('stroke', '#0e0b06').attr('stroke-width', 2)
@@ -976,8 +976,8 @@ function drawTLStemTimeline(filter) {
                 ? ey - 6 - totalH + (li + 1) * lh
                 : ey + 9 + li * lh;
             g.append('text').attr('x', cx).attr('y', ty)
-                .attr('text-anchor', 'middle').attr('font-size', '9px')
-                .attr('fill', '#b8922c99').text(line);
+                .attr('text-anchor', 'middle').attr('font-size', '11px')
+                .attr('fill', '#e8d5a0').text(line);
         });
     });
 }
