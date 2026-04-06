@@ -1,8 +1,8 @@
 
     /* --- Timeline list view (LK-inspired vertical card layout) --- */
 
-    /* Dark page for timeline */
-    .page-wrap { background: var(--steel); }
+    /* Dark page for timeline — full-width to allow D3 chart horizontal scroll */
+    .page-wrap { background: var(--steel); max-width: 1200px; overflow-x: auto; }
     .page-wrap::before { opacity: 0.1; }
     .content { padding: 0; }
 
@@ -191,3 +191,213 @@
       .tl-header { padding: 1.5rem 1.4rem 1.2rem; }
       .tl-card-col { padding: 0.5rem 0.75rem 0.5rem 0.25rem; }
     }
+
+    /* ===== D3 Chart Sections ===== */
+
+    .tl-d3-section {
+      background: #0e0b06;
+      border-top: 1px solid rgba(184,146,44,0.15);
+      border-bottom: 1px solid rgba(184,146,44,0.15);
+    }
+
+    .tl-d3-section-alt {
+      background: #110e09;
+    }
+
+    .tl-d3-inner {
+      padding: 2rem 2rem 1.5rem;
+    }
+
+    .tl-d3-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #d4a843;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .tl-d3-desc {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.88rem;
+      color: rgba(245,237,216,0.42);
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* Chart toggle buttons (Stacked / Stream / Expanded) */
+    .tl-chart-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tl-chart-btn {
+      padding: 4px 14px;
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .tl-chart-btn.active {
+      background: var(--gold);
+      color: #0e0b06;
+    }
+
+    /* Category filter buttons */
+    .tl-filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tl-filter-btn {
+      padding: 4px 13px;
+      border: 1px solid rgba(184,146,44,0.55);
+      border-radius: 12px;
+      background: transparent;
+      color: rgba(184,146,44,0.85);
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .tl-filter-btn.active {
+      background: var(--gold);
+      color: #0e0b06;
+      border-color: var(--gold);
+    }
+
+    /* D3 chart containers */
+    .tl-chart-container {
+      width: 100%;
+      min-height: 200px;
+      overflow-x: auto;
+    }
+
+    .tl-stem-container {
+      min-height: 300px;
+    }
+
+    /* Faction legend */
+    .tl-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-top: 1rem;
+    }
+
+    .tl-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.82rem;
+      color: rgba(245,237,216,0.65);
+      transition: opacity 0.15s;
+      user-select: none;
+    }
+
+    .tl-legend-item:hover { color: var(--parchment); }
+
+    .tl-legend-item.dimmed { opacity: 0.3; }
+
+    .tl-legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Tooltip (shared by both D3 charts) */
+    .tl-chart-tooltip {
+      position: fixed;
+      z-index: 9999;
+      background: rgba(14,11,6,0.95);
+      border: 1px solid rgba(184,146,44,0.45);
+      border-radius: 6px;
+      padding: 10px 14px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s;
+      max-width: 240px;
+    }
+
+    .tl-chart-tooltip.visible { opacity: 1; }
+
+    .tl-tt-year {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .tl-tt-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: var(--parchment);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .tl-tt-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.82rem;
+      color: rgba(245,237,216,0.75);
+      margin-top: 3px;
+    }
+
+    .tl-tt-swatch {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .tl-tt-type {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-top: 5px;
+      letter-spacing: 0.04em;
+    }
+
+    /* D3 axis / grid overrides */
+    .tl-chart-container .tl-grid .tick line {
+      stroke: rgba(184,146,44,0.1);
+    }
+
+    .tl-chart-container .tl-axis .domain {
+      stroke: rgba(184,146,44,0.3);
+    }
+
+    /* Category badge on card lane label */
+    .tl-cat-badge {
+      font-size: 0.6rem;
+      padding: 1px 6px;
+      border-radius: 8px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    .tl-cat-political    { background: #1e3a5a; color: #a8c8e8; }
+    .tl-cat-military     { background: #5a1e1e; color: #e8a8a8; }
+    .tl-cat-trade        { background: #2a4a1e; color: #a8d8a0; }
+    .tl-cat-cosmological { background: #3d0a1f; color: #e8a8c0; }
