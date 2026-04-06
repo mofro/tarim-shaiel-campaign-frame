@@ -792,11 +792,13 @@ def render_stem_timeline_section(
         if ev.get('is_era'):
             continue
         yr = round(ev['start_min'] / MINUTES_PER_YEAR, 1)
+        slug = re.sub(r'[^a-z0-9]+', '-', ev['name'].lower()).strip('-')
         stem_events.append({
             'year':  yr,
             'title': ev['name'],
             'type':  ev.get('category', 'political'),
             'desc':  ev.get('desc', ''),
+            'slug':  slug,
         })
 
     if not stem_events:
@@ -964,6 +966,15 @@ function drawTLStemTimeline(filter) {
             .on('mouseleave', function() {
                 d3.select(this).attr('r', 5);
                 if (tooltip) tooltip.classList.remove('visible');
+            })
+            .on('click', function() {
+                if (tooltip) tooltip.classList.remove('visible');
+                var card = document.getElementById('tl-card-' + evt.slug);
+                if (card) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    card.classList.add('tl-card-highlight');
+                    setTimeout(function() { card.classList.remove('tl-card-highlight'); }, 1800);
+                }
             });
 
         g.append('circle').attr('cx', cx).attr('cy', ey).attr('r', 2.5)
@@ -1178,7 +1189,11 @@ def render_timeline_html(fm: dict, body: str) -> str:
             if image_url else ''
         )
 
-        rows_html += f"""<div class="tl-list-entry {entry_class}">
+        # Slug for cross-linking from D3 stem dots
+        slug = re.sub(r'[^a-z0-9]+', '-', entry['name'].lower()).strip('-')
+        card_id_attr = f' id="tl-card-{slug}"' if not is_era else ''
+
+        rows_html += f"""<div class="tl-list-entry {entry_class}"{card_id_attr}>
   <div class="tl-date-col">
     {date_html}
     {gap_html}
