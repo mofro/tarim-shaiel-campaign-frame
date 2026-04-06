@@ -522,6 +522,16 @@
     .tl-cat-military     { background: #5a1e1e; color: #e8a8a8; }
     .tl-cat-trade        { background: #2a4a1e; color: #a8d8a0; }
     .tl-cat-cosmological { background: #3d0a1f; color: #e8a8c0; }
+
+    /* Highlight flash when navigating from stem dot click */
+    @keyframes tl-card-flash {
+      0%   { box-shadow: 0 0 0 0 rgba(184,146,44,0); }
+      20%  { box-shadow: 0 0 0 6px rgba(184,146,44,0.6); }
+      100% { box-shadow: 0 0 0 0 rgba(184,146,44,0); }
+    }
+    .tl-card-highlight .tl-card {
+      animation: tl-card-flash 1.8s ease-out forwards;
+    }
   </style>
 </head>
 <body>
@@ -776,7 +786,7 @@ drawTLInfluenceChart();
 </div>
 <script>
 (function() {
-var TL_EVENTS = [{"year": -500.0, "title": "Empire Rises", "type": "political", "desc": ""}, {"year": -300.0, "title": "Beginning of Orc Enslavement", "type": "military", "desc": ""}, {"year": -150.0, "title": "The Great Rebellion (Failed)", "type": "military", "desc": ""}, {"year": -22.0, "title": "Binding Magic Perfected", "type": "cosmological", "desc": ""}, {"year": 48.0, "title": "Empire at Its Height", "type": "political", "desc": ""}, {"year": 198.0, "title": "The Sentinel's Liberation", "type": "cosmological", "desc": ""}, {"year": 248.0, "title": "The Orc Eruption", "type": "military", "desc": ""}, {"year": 253.0, "title": "Mass Orc Migration", "type": "political", "desc": ""}, {"year": 288.0, "title": "First Orc Settlements Founded", "type": "political", "desc": ""}, {"year": 318.0, "title": "The Mediator Movement", "type": "political", "desc": ""}, {"year": 368.0, "title": "The Truce of Nine Caravans", "type": "trade", "desc": ""}, {"year": 418.0, "title": "First Orc Weapon Markets Open", "type": "trade", "desc": ""}, {"year": 548.0, "title": "The Convocation of Eleven Cities", "type": "political", "desc": ""}, {"year": 588.0, "title": "First Orc Clan Gathering", "type": "political", "desc": ""}, {"year": 618.0, "title": "The Great Drought", "type": "political", "desc": ""}, {"year": 623.0, "title": "Aqueduct Collaboration Project", "type": "trade", "desc": ""}, {"year": 678.0, "title": "The Scholar's Plague", "type": "political", "desc": ""}, {"year": 693.0, "title": "Chain Chronicles Formalized", "type": "political", "desc": ""}, {"year": 698.0, "title": "The Elf Watchers Begin", "type": "cosmological", "desc": ""}, {"year": 718.0, "title": "Dwarven League Formalized", "type": "political", "desc": ""}, {"year": 748.0, "title": "First Orc Diplomatic Academy", "type": "political", "desc": ""}, {"year": 778.0, "title": "The Siege of Kalar's Gate", "type": "military", "desc": ""}, {"year": 848.0, "title": "The Copper Accord", "type": "trade", "desc": ""}, {"year": 878.0, "title": "Orc Merchant Leagues Form", "type": "trade", "desc": ""}, {"year": 948.0, "title": "The Vanishing of Khorashar", "type": "cosmological", "desc": ""}, {"year": 998.0, "title": "The Golden Age of Trade", "type": "trade", "desc": ""}, {"year": 1048.0, "title": "Night of Falling Stars", "type": "cosmological", "desc": ""}, {"year": 1078.0, "title": "Universities Flourish", "type": "political", "desc": ""}, {"year": 1118.0, "title": "The Grey Council", "type": "political", "desc": ""}, {"year": 1138.0, "title": "Mysterious Disappearances Begin", "type": "cosmological", "desc": ""}, {"year": 1173.0, "title": "The Scholar's Purge", "type": "military", "desc": ""}];
+var TL_EVENTS = [{"year": -500.0, "title": "Empire Rises", "type": "political", "desc": "", "slug": "empire-rises"}, {"year": -300.0, "title": "Beginning of Orc Enslavement", "type": "military", "desc": "", "slug": "beginning-of-orc-enslavement"}, {"year": -150.0, "title": "The Great Rebellion (Failed)", "type": "military", "desc": "", "slug": "the-great-rebellion-failed"}, {"year": -22.0, "title": "Binding Magic Perfected", "type": "cosmological", "desc": "", "slug": "binding-magic-perfected"}, {"year": 48.0, "title": "Empire at Its Height", "type": "political", "desc": "", "slug": "empire-at-its-height"}, {"year": 198.0, "title": "The Sentinel's Liberation", "type": "cosmological", "desc": "", "slug": "the-sentinel-s-liberation"}, {"year": 248.0, "title": "The Orc Eruption", "type": "military", "desc": "", "slug": "the-orc-eruption"}, {"year": 253.0, "title": "Mass Orc Migration", "type": "political", "desc": "", "slug": "mass-orc-migration"}, {"year": 288.0, "title": "First Orc Settlements Founded", "type": "political", "desc": "", "slug": "first-orc-settlements-founded"}, {"year": 318.0, "title": "The Mediator Movement", "type": "political", "desc": "", "slug": "the-mediator-movement"}, {"year": 368.0, "title": "The Truce of Nine Caravans", "type": "trade", "desc": "", "slug": "the-truce-of-nine-caravans"}, {"year": 418.0, "title": "First Orc Weapon Markets Open", "type": "trade", "desc": "", "slug": "first-orc-weapon-markets-open"}, {"year": 548.0, "title": "The Convocation of Eleven Cities", "type": "political", "desc": "", "slug": "the-convocation-of-eleven-cities"}, {"year": 588.0, "title": "First Orc Clan Gathering", "type": "political", "desc": "", "slug": "first-orc-clan-gathering"}, {"year": 618.0, "title": "The Great Drought", "type": "political", "desc": "", "slug": "the-great-drought"}, {"year": 623.0, "title": "Aqueduct Collaboration Project", "type": "trade", "desc": "", "slug": "aqueduct-collaboration-project"}, {"year": 678.0, "title": "The Scholar's Plague", "type": "political", "desc": "", "slug": "the-scholar-s-plague"}, {"year": 693.0, "title": "Chain Chronicles Formalized", "type": "political", "desc": "", "slug": "chain-chronicles-formalized"}, {"year": 698.0, "title": "The Elf Watchers Begin", "type": "cosmological", "desc": "", "slug": "the-elf-watchers-begin"}, {"year": 718.0, "title": "Dwarven League Formalized", "type": "political", "desc": "", "slug": "dwarven-league-formalized"}, {"year": 748.0, "title": "First Orc Diplomatic Academy", "type": "political", "desc": "", "slug": "first-orc-diplomatic-academy"}, {"year": 778.0, "title": "The Siege of Kalar's Gate", "type": "military", "desc": "", "slug": "the-siege-of-kalar-s-gate"}, {"year": 848.0, "title": "The Copper Accord", "type": "trade", "desc": "", "slug": "the-copper-accord"}, {"year": 878.0, "title": "Orc Merchant Leagues Form", "type": "trade", "desc": "", "slug": "orc-merchant-leagues-form"}, {"year": 948.0, "title": "The Vanishing of Khorashar", "type": "cosmological", "desc": "", "slug": "the-vanishing-of-khorashar"}, {"year": 998.0, "title": "The Golden Age of Trade", "type": "trade", "desc": "", "slug": "the-golden-age-of-trade"}, {"year": 1048.0, "title": "Night of Falling Stars", "type": "cosmological", "desc": "", "slug": "night-of-falling-stars"}, {"year": 1078.0, "title": "Universities Flourish", "type": "political", "desc": "", "slug": "universities-flourish"}, {"year": 1118.0, "title": "The Grey Council", "type": "political", "desc": "", "slug": "the-grey-council"}, {"year": 1138.0, "title": "Mysterious Disappearances Begin", "type": "cosmological", "desc": "", "slug": "mysterious-disappearances-begin"}, {"year": 1173.0, "title": "The Scholar's Purge", "type": "military", "desc": "", "slug": "the-scholar-s-purge"}];
 var tlCurrentFilter = "all";
 
 var TYPE_COLORS = {
@@ -916,6 +926,15 @@ function drawTLStemTimeline(filter) {
             .on('mouseleave', function() {
                 d3.select(this).attr('r', 5);
                 if (tooltip) tooltip.classList.remove('visible');
+            })
+            .on('click', function() {
+                if (tooltip) tooltip.classList.remove('visible');
+                var card = document.getElementById('tl-card-' + evt.slug);
+                if (card) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    card.classList.add('tl-card-highlight');
+                    setTimeout(function() { card.classList.remove('tl-card-highlight'); }, 1800);
+                }
             });
 
         g.append('circle').attr('cx', cx).attr('cy', ey).attr('r', 2.5)
@@ -956,7 +975,7 @@ drawTLStemTimeline('all');
 </script>
 <div id="tl-chart-tooltip" class="tl-chart-tooltip"></div>
 <div class="tl-list-wrap">
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-god-s-blood-xw-na-xwed">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 2499</div><div class="tl-date-end">→ HJ 599</div>
     
@@ -979,7 +998,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-mperatoriya-n-new-empire">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 579</div><div class="tl-date-end">→ HB 239</div>
     <div class="tl-date-gap">1,920 years later</div>
@@ -1002,7 +1021,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-imperial-ascension-human-empires">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 500</div><div class="tl-date-end">→ HJ 200</div>
     <div class="tl-date-gap">79 years later</div>
@@ -1025,7 +1044,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-empire-rises">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 500</div><div class="tl-date-end">→ HJ 400</div>
     
@@ -1048,7 +1067,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-age-of-bondage-orc-enslavement">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 300</div><div class="tl-date-end">→ HB 198</div>
     <div class="tl-date-gap">200 years later</div>
@@ -1071,7 +1090,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-beginning-of-orc-enslavement">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 300</div>
     
@@ -1094,7 +1113,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-age-of-chains">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 299</div><div class="tl-date-end">→ HB 249</div>
     <div class="tl-date-gap">1 year later</div>
@@ -1117,7 +1136,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-silent-watching-high-elf-observation">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 200</div><div class="tl-date-end">→ HB 198</div>
     <div class="tl-date-gap">99 years later</div>
@@ -1140,7 +1159,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-great-rebellion-failed">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 150</div>
     <div class="tl-date-gap">50 years later</div>
@@ -1163,7 +1182,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-binding-magic-perfected">
   <div class="tl-date-col">
     <div class="tl-date-main">HJ 22</div>
     <div class="tl-date-gap">128 years later</div>
@@ -1186,7 +1205,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-empire-at-its-height">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 48</div>
     <div class="tl-date-gap">70 years later</div>
@@ -1209,7 +1228,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-breaking-orc-liberation">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 198</div><div class="tl-date-end">→ HB 248</div>
     <div class="tl-date-gap">150 years later</div>
@@ -1232,7 +1251,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-sentinel-s-liberation">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 198</div><div class="tl-date-end">→ HB 248</div>
     
@@ -1255,7 +1274,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-scattering-chaos-orc-diaspora">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 248</div><div class="tl-date-end">→ HB 318</div>
     <div class="tl-date-gap">50 years later</div>
@@ -1278,7 +1297,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-orc-eruption">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 248</div><div class="tl-date-end">→ HB 318</div>
     
@@ -1301,7 +1320,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-scattering">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 249</div><div class="tl-date-end">→ HB 399</div>
     <div class="tl-date-gap">1 year later</div>
@@ -1324,7 +1343,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-mass-orc-migration">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 253</div><div class="tl-date-end">→ HB 278</div>
     <div class="tl-date-gap">4 years later</div>
@@ -1347,7 +1366,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-first-orc-settlements-founded">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 288</div>
     <div class="tl-date-gap">35 years later</div>
@@ -1370,7 +1389,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-mediator-s-peace-halfling-dwarf-alliance">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 318</div><div class="tl-date-end">→ HB 398</div>
     <div class="tl-date-gap">30 years later</div>
@@ -1393,7 +1412,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-mediator-movement">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 318</div><div class="tl-date-end">→ HB 398</div>
     
@@ -1416,7 +1435,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-truce-of-nine-caravans">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 368</div>
     <div class="tl-date-gap">50 years later</div>
@@ -1439,7 +1458,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-silent-flowering-elf-withdrawal">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 398</div><div class="tl-date-end">→ HB 698</div>
     <div class="tl-date-gap">30 years later</div>
@@ -1462,7 +1481,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-merchant-s-rise-orc-trade-expansion">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 398</div><div class="tl-date-end">→ HB 647</div>
     
@@ -1485,7 +1504,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-flowering">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 409</div><div class="tl-date-end">→ HB 699</div>
     <div class="tl-date-gap">11 years later</div>
@@ -1508,7 +1527,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-opportunist-s-gambit-goblin-free-cities">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 418</div><div class="tl-date-end">→ HB 698</div>
     <div class="tl-date-gap">9 years later</div>
@@ -1531,7 +1550,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-first-orc-weapon-markets-open">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 418</div>
     
@@ -1554,7 +1573,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-league-of-seven-dwarf-consolidation">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 448</div><div class="tl-date-end">→ HB 698</div>
     <div class="tl-date-gap">30 years later</div>
@@ -1577,7 +1596,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-convocation-of-eleven-cities">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 548</div>
     <div class="tl-date-gap">100 years later</div>
@@ -1600,7 +1619,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-first-orc-clan-gathering">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 588</div>
     <div class="tl-date-gap">40 years later</div>
@@ -1623,7 +1642,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-great-drought">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 618</div><div class="tl-date-end">→ HB 628</div>
     <div class="tl-date-gap">30 years later</div>
@@ -1646,7 +1665,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-aqueduct-collaboration-project">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 623</div>
     <div class="tl-date-gap">5 years later</div>
@@ -1669,7 +1688,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-scholar-s-plague">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 678</div>
     <div class="tl-date-gap">55 years later</div>
@@ -1692,7 +1711,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-chain-chronicles-formalized">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 693</div>
     <div class="tl-date-gap">15 years later</div>
@@ -1715,7 +1734,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-fragmented-dynasty-human-east">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 698</div><div class="tl-date-end">→ HB 898</div>
     <div class="tl-date-gap">5 years later</div>
@@ -1738,7 +1757,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-elf-watchers-begin">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 698</div>
     
@@ -1761,7 +1780,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-consolidation">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 699</div><div class="tl-date-end">→ HB 1049</div>
     <div class="tl-date-gap">1 year later</div>
@@ -1784,7 +1803,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-mountain-accord-dwarf-league">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 718</div><div class="tl-date-end">→ HB 948</div>
     <div class="tl-date-gap">19 years later</div>
@@ -1807,7 +1826,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-dwarven-league-formalized">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 718</div>
     
@@ -1830,7 +1849,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-free-cities-compact-goblin-alliance">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 748</div><div class="tl-date-end">→ HB 998</div>
     <div class="tl-date-gap">30 years later</div>
@@ -1853,7 +1872,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-first-orc-diplomatic-academy">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 748</div>
     
@@ -1876,7 +1895,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-siege-of-kalar-s-gate">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 778</div><div class="tl-date-end">→ HB 781</div>
     <div class="tl-date-gap">30 years later</div>
@@ -1899,7 +1918,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-copper-peace-orc-prosperity">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 848</div><div class="tl-date-end">→ HB 948</div>
     <div class="tl-date-gap">70 years later</div>
@@ -1922,7 +1941,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-copper-accord">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 848</div>
     
@@ -1945,7 +1964,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-orc-merchant-leagues-form">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 878</div>
     <div class="tl-date-gap">30 years later</div>
@@ -1968,7 +1987,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-chronicle-years-dwarf-record-keeping">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 900</div><div class="tl-date-end">→ HB 1198</div>
     <div class="tl-date-gap">22 years later</div>
@@ -1991,7 +2010,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-vanishing-of-khorashar">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 948</div>
     <div class="tl-date-gap">48 years later</div>
@@ -2014,7 +2033,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-golden-age-universal-trade">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 998</div><div class="tl-date-end">→ HB 1198</div>
     <div class="tl-date-gap">50 years later</div>
@@ -2037,7 +2056,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-watchful-peace-orc-merchant-dominance">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 998</div><div class="tl-date-end">→ HB 1197</div>
     
@@ -2060,7 +2079,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-golden-age-of-trade">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 998</div><div class="tl-date-end">→ HB 1198</div>
     
@@ -2083,7 +2102,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-gathering-storm-hb-1000-1200">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 1029</div><div class="tl-date-end">→ HB 1199</div>
     <div class="tl-date-gap">31 years later</div>
@@ -2106,7 +2125,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-whispered-warning-elf-watchers">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 1048</div><div class="tl-date-end">→ HB 1050</div>
     <div class="tl-date-gap">19 years later</div>
@@ -2129,7 +2148,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-night-of-falling-stars">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 1048</div>
     
@@ -2152,7 +2171,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-universities-flourish">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 1078</div>
     <div class="tl-date-gap">30 years later</div>
@@ -2175,7 +2194,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-grey-council">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 1118</div>
     <div class="tl-date-gap">40 years later</div>
@@ -2198,7 +2217,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-mysterious-disappearances-begin">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 1138</div>
     <div class="tl-date-gap">20 years later</div>
@@ -2221,7 +2240,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-scholar-s-purge">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 1173</div>
     <div class="tl-date-gap">35 years later</div>
@@ -2244,7 +2263,7 @@ drawTLStemTimeline('all');
     </div>
   </div>
 </div>
-<div class="tl-list-entry ">
+<div class="tl-list-entry " id="tl-card-the-age-of-reckoning-campaign-present">
   <div class="tl-date-col">
     <div class="tl-date-main">HB 1199</div>
     <div class="tl-date-gap">26 years later</div>

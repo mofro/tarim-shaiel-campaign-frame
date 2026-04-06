@@ -401,3 +401,13 @@
     .tl-cat-military     { background: #5a1e1e; color: #e8a8a8; }
     .tl-cat-trade        { background: #2a4a1e; color: #a8d8a0; }
     .tl-cat-cosmological { background: #3d0a1f; color: #e8a8c0; }
+
+    /* Highlight flash when navigating from stem dot click */
+    @keyframes tl-card-flash {
+      0%   { box-shadow: 0 0 0 0 rgba(184,146,44,0); }
+      20%  { box-shadow: 0 0 0 6px rgba(184,146,44,0.6); }
+      100% { box-shadow: 0 0 0 0 rgba(184,146,44,0); }
+    }
+    .tl-card-highlight .tl-card {
+      animation: tl-card-flash 1.8s ease-out forwards;
+    }
