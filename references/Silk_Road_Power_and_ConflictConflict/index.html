@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silk Road: Power &amp; Conflict (1–1300 AD)</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <svg class="logo" viewBox="0 0 32 32" width="28" height="28" fill="none" aria-label="Silk Road logo">
+        <path d="M4 24C8 18 14 10 16 10s8 8 12 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="8" cy="20" r="1.5" fill="currentColor" opacity="0.5"/>
+        <circle cx="16" cy="12" r="1.5" fill="currentColor" opacity="0.5"/>
+        <circle cx="24" cy="20" r="1.5" fill="currentColor" opacity="0.5"/>
+      </svg>
+      <span class="header-title">Silk Road: Power &amp; Conflict</span>
+      <button data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>The Silk Road</h1>
+      <p class="hero-subtitle">Political &amp; Martial Events, 1–1300 AD</p>
+      <p class="hero-description">A thirteen-century panorama of the empires, battles, and shifting alliances that shaped the world's most consequential trade network.</p>
+    </div>
+  </section>
+
+  <!-- Influence Chart Section -->
+  <section class="section" id="influence">
+    <div class="section-inner">
+      <h2>Rise &amp; Fall of Silk Road Powers</h2>
+      <p class="section-desc">Relative political and military influence of major factions along the Silk Road corridor. Hover over the chart to see details for each era.</p>
+      <div class="chart-controls">
+        <button class="chart-btn active" data-view="stacked">Stacked</button>
+        <button class="chart-btn" data-view="stream">Stream</button>
+        <button class="chart-btn" data-view="expanded">Expanded</button>
+      </div>
+      <div id="influence-chart" class="chart-container"></div>
+      <div id="influence-legend" class="legend"></div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section section-alt" id="timeline">
+    <div class="section-inner">
+      <h2>Timeline of Key Events</h2>
+      <p class="section-desc">Major political and martial events along the Silk Road. Click an event to learn more.</p>
+      <div class="timeline-filters">
+        <button class="filter-btn active" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter="political">Political</button>
+        <button class="filter-btn" data-filter="military">Military</button>
+        <button class="filter-btn" data-filter="trade">Trade &amp; Diplomacy</button>
+      </div>
+      <div id="timeline-chart" class="chart-container timeline-container"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Sources: <a href="https://silk-road.com/artl/chrono.shtml/" target="_blank" rel="noopener noreferrer">Silk-Road.com</a>, <a href="https://en.wikipedia.org/wiki/Silk_Road" target="_blank" rel="noopener noreferrer">Wikipedia</a>, <a href="https://www.thecollector.com/four-empires-silk-road/" target="_blank" rel="noopener noreferrer">TheCollector</a></p>
+  </footer>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+<script data-pplx-inline-edit>
+(function(){
+  if(window===window.top)return;
+  function inlineAll(orig,clone){
+    if(orig.nodeType!==1)return;
+    try{
+      var cs=getComputedStyle(orig);
+      var t='';
+      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
+      clone.style.cssText=t;
+    }catch(e){}
+    var oc=orig.children,cc=clone.children;
+    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
+  }
+  function stripExternal(clone){
+    var imgs=clone.querySelectorAll('img');
+    for(var i=0;i<imgs.length;i++){
+      var s=imgs[i].getAttribute('src');
+      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
+    }
+    var all=clone.querySelectorAll('*');
+    for(var i=0;i<all.length;i++){
+      var st=all[i].style.cssText;
+      if(st&&st.indexOf('url(')>=0){
+        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
+      }
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
+    var scrollX=window.scrollX||window.pageXOffset||0;
+    var scrollY=window.scrollY||window.pageYOffset||0;
+    var w=window.innerWidth,h=window.innerHeight;
+    try{
+      var clone=document.documentElement.cloneNode(true);
+      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
+      for(var i=0;i<rm.length;i++){rm[i].remove();}
+      inlineAll(document.documentElement,clone);
+      stripExternal(clone);
+      var html=new XMLSerializer().serializeToString(clone);
+      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
+        +'<foreignObject width="100%" height="100%">'
+        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
+        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
+        +html+'</div></div></foreignObject></svg>';
+      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+      var img=new Image();
+      img.onload=function(){
+        var c=document.createElement('canvas');c.width=w;c.height=h;
+        c.getContext('2d').drawImage(img,0,0);
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.onerror=function(){
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.src=svgUrl;
+    }catch(err){
+      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+    }
+  });
+})();
+</script></body>
+</html>
