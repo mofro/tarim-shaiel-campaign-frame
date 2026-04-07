@@ -2,7 +2,7 @@
 title: Vanara — The Scholar-Warriors of the High Passes
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: public
+visibility: gm_secrets
 daggerheart_name: Simiah
 status: draft
 created: 2026-04-02

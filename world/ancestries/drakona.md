@@ -2,7 +2,7 @@
 title: Naga-Kin
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: public
+visibility: gm_secrets
 daggerheart_name: Drakona
 status: stub
 created: 2026-04-05
