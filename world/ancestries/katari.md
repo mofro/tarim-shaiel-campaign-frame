@@ -12,6 +12,12 @@ last_updated: 2026-04-07
 
 # Vaghri
 
+*Daggerheart ancestry: Katarina. Foundation document — player-facing.*
+
+## OVERVIEW
+
+![[daggerheart-ancestry-Vaghri.png|250]]
+
 Vaghri are feline humanoids with retractable claws, vertical pupils, and triangular ears set high on the head. Their whiskers assist navigation in near-darkness and crowded spaces, and their ears can rotate nearly 180 degrees to track sound independently of their head position. Some Katari are more pronouncedly feline — muzzle, dense fur, tail — while others are nearer to humanoid with primarily feline eyes and ears. About half carry a tail. Their fur and skin patterns span the full range of felid colorings: solids, stripes, spots, marbling, calico.
 
 Vaghri stand between 3 and 6½ feet tall and live to around 150 years. They are found across Tarim-Shaiel in broadly distributed communities, without the geographic concentration that marks some other ancestries. Their hunting instincts are not separate from their social selves — Vaghri are simply people for whom the read on a room, the tracking of movement at the edge of perception, and the precise assessment of threat are natural functions rather than practiced skills.

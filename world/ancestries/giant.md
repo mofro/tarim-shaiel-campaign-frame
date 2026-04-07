@@ -9,8 +9,13 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-
 # Kalan
+
+*Daggerheart ancestry: Giants. Foundation document — player-facing.*
+
+## OVERVIEW
+
+![[daggerheart-ancestry-Kalan.png|250]]
 
 Kalan are the tallest of Tarim-Shaiel's peoples, ranging from 6½ to 8½ feet in adulthood, with wide frames and elongated arms that give them a reach that can be startling at close quarters. They are born without eyes — a sightless first year is universal to the ancestry — and their eyes develop gradually, sometimes settling on one, sometimes two, sometimes three. Those with a single eye, known as cyclops across most of Tarim-Shaiel, are not uncommon; the variation is treated within Kalan communities as individual rather than categorical.
 

@@ -15,6 +15,9 @@ last_updated: 2026-04-07
 **Status:** Cultural Overview v1.0  
 **Related Docs:** `/narrative/lore/liberation_aftermath.md`, `/mechanics/weapons_silk_road.md`
 
+*Daggerheart ancestry: Orcs. Foundation document — player-facing.*
+
+
 ---
 
 ## OVERVIEW

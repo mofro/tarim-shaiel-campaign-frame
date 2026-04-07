@@ -12,6 +12,12 @@ last_updated: 2026-04-07
 
 # Human
 
+*Daggerheart ancestry: Human. Foundation document — player-facing.*
+
+## Overview
+
+![[daggerheart-ancestry-Human.png|250]]
+
 Humans are the most widely distributed of Tarim-Shaiel's peoples, found in every region, every kind of settlement, and every kind of role. Their average height runs from just under 5 feet to about 6½ feet, with a breadth of builds that spans the full range from light and quick to broad and grounded. They adjust to new climates and conditions with a speed that other ancestries find remarkable; a human who has lived five years somewhere tends to look and move like someone who belongs there.
 
 They live for about 100 years, shorter than many of the peoples they share Tarim-Shaiel with. This does not appear to limit them. Humans are not defined by a single cultural tradition, a characteristic geography, or a particular appearance — they are defined, to the extent any single thing can define them, by the fact that they adapt, and that they do it quickly.

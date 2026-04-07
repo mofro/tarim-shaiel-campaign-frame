@@ -48,12 +48,18 @@ last_updated: 2026-04-07
 
 | Who | Name | Register / Meaning |
 |---|---|---|
-| Orcs (*Baatyr*) | *Buz'han* | Turkic/Mongolian: "Ice-speakers." Cold, useful, baffling. Not quite insult, not quite compliment. |
+| Orcs (*Tulpar*) | *Buz'han* | Turkic/Mongolian: "Ice-speakers." Cold, useful, baffling. Not quite insult, not quite compliment. |
 | Goblins (*Jivar*) | *Purdah-folk* | Persian *purdah* (veil/curtain): "The behind-the-curtain people." Everything is about access; Elves keep the curtain drawn. |
 | Dwarves (*Kuhban*) | *Takhtshin* | Persian: "Throne-dwellers." Elevated, untouchable, resentful admiration. |
 | Humans (Tarim Basin) | *Serenvar* | They use the trade-word. Pragmatic. |
 | Humans (Tang/Chang'an) | *Xianren* | Chinese: "Celestial immortals." A genuine honorific with real awe in it. |
 | Naga-Kin | *Akashavar* | Sanskrit *ākāśa* (sky/ether) + *-var*: "Sky-dwellers." Places Elves within Naga cosmological framework. |
+
+**Orc Regional Nicknames**
+
+| Who | Name | Register / Meaning |
+|---|---|---|
+| Dwarves (*Kuhban*) | *Baatyr* | Turkic/Mongolian: "hero/warrior of the people." What the Kuhban call the Tulpar — pragmatic respect that acknowledges the martial history without flinching from it. |
 
 #### ORCS
 
@@ -81,7 +87,7 @@ last_updated: 2026-04-07
 
 | File | What changes |
 |---|---|
-| `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` | Section headers and inline references: Dwarf → Kuhban, Goblin → Jivar, Halfling → Rahban, Katari → Vaghri, Giant → Kalan, Elf → Serenvar, Orc → Baatyr |
+| `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` | Section headers use trade name as primary with Daggerheart name in parentheses (e.g., `## SERENVAR (Elf)`). Inline references follow same pattern on first use per section. Ancestries: Dwarf → Kuhban, Goblin → Jivar, Halfling → Rahban, Katari → Vaghri, Giant → Kalan, Elf → Serenvar, Orc → Tulpar |
 | `world/content/CULTURAL_FRAMEWORK.md` | Section headers and inline text for the same ancestries throughout the Racial & Cultural Positions section |
 
 ### Assets requiring renaming (optional / lower priority)
@@ -109,13 +115,7 @@ last_updated: 2026-04-07
 ## Status
 
 - [x] Names agreed
-- [x] `PEOPLES_OF_TARIM_SHAIEL.md` updated
-- [x] `CULTURAL_FRAMEWORK.md` updated
+- [x] `narrative/gm_secrets/ANCESTRY_SECRET_NAMES.md` created
+- [ ] `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` updated
+- [ ] `world/content/CULTURAL_FRAMEWORK.md` updated
 - [ ] Audio folder renames (optional)
-
-### Additional: Stub files created (2026-04-07)
-Individual stub files created for all at-risk ancestries — `human.md`, `elf.md` (Serenvar),
-`dwarf.md` (Kuhban), `katari.md` (Vaghri), `goblin.md` (Jivar), `halfling.md` (Rahban),
-`giant.md` (Kalan). Descriptions pulled from `PEOPLES_OF_TARIM_SHAIEL.md`. `type: lore`,
-`status: stub`. Eliminates single-point-of-failure risk for at-risk ancestry content.
-GM-only doc naming pass (HISTORICAL_TIMELINE.md etc.) deferred — not player-facing.

@@ -9,8 +9,13 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-
 # Jivar
+
+*Daggerheart ancestry: Goblins. Foundation document — player-facing.*
+
+## OVERVIEW
+
+![[daggerheart-ancestry-Jivar.png|250]]
 
 Jivar are small humanoids instantly recognizable by their oversized membranous ears — roughly the size of their head on each side — and large, sharp eyes that function well in low light and across distances most other ancestries find difficult. Their skin and eye colors span an enormous range, from subdued earth tones to vivid greens, blues, and warm reds; no single hue dominates. They average 3 to 4 feet tall and live for approximately 100 years, with their hearing and sight holding well into late life.
 

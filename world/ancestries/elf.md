@@ -9,8 +9,13 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-
 # Serenvar
+
+*Daggerheart ancestry: Elves. Foundation document — player-facing.*
+
+## OVERVIEW
+
+![[daggerheart-ancestry-Serenvar.png|250]]
 
 Serenvar are tall, pointed-eared humanoids whose acutely attuned senses make them difficult to surprise. Their heights run from about 6 to 6½ feet, and their ears vary from sharply angular to gently curved, drooping slightly at the tips with age. Rather than sleep, Serenvar enter a celestial trance — a restful state they can hold in far less time than full sleep requires, and from which they emerge with an alertness that has made their night watches legendary.
 

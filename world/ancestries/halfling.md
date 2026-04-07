@@ -12,6 +12,12 @@ last_updated: 2026-04-07
 
 # Rahban
 
+*Daggerheart ancestry: Halflings. Foundation document — player-facing.*
+
+## OVERVIEW
+
+![[daggerheart-ancestry-Rahban.png|250]]
+
 Rahban are small, rounded humanoids with notably large feet, prominent ears, and an internal sense of direction that functions regardless of weather, terrain, or how long it has been since they last knew where they were. Their average height runs from 3 to 4 feet. Their feet — hairy and broad — give them a stability on irregular terrain that larger peoples sometimes envy. They live for around 150 years, maintaining a youthful appearance well into late adulthood.
 
 Their internal compass is not metaphor. Rahban are magnetically attuned to their world in a way that means they do not get lost. This has made them sought-after as guides and navigators across Tarim-Shaiel, though halflings themselves tend to be skeptical of the value others place on this ability — to them, it is simply knowing where you are, which seems basic.
