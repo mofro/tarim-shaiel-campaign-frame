@@ -5,6 +5,7 @@ type: lore
 visibility: gm_secrets
 status: draft
 daggerheart_name: Orc
+published: true
 created: 2026-02-13
 last_updated: 2026-04-07
 ---

@@ -1,7 +1,7 @@
 ---
 title: Peoples of Tarim-Shaiel
 project: TTRPG_Tarim_Shaiel
-type: lore
+type: ancestry
 visibility: public
 status: draft
 created: 2026-04-02
@@ -157,7 +157,7 @@ Their longevity — up to 250 years — means that an elder Kuhban may carry dir
 
 ---
 
-## ORC / TULPAR
+## TULPAR (Orcs)
 
 Orcs are recognizable by their square features, prominent lower tusks, and pointed ears. Their skin tones run through greens, blues, pinks, and grays, and their hair tends toward strong color and significant volume. Tusks vary in size and continue to grow throughout a lifespan of approximately 125 years; most Orcs decorate them with meaningful ornamentation — metal bands, carved symbols, or tokens that mark significant events.
 
