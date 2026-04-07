@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-04-05
+last_updated: 2026-04-07
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -22,6 +22,7 @@ banner-y: 37
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (all 8 decisions locked 2026-03-17)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
 - 🔄 **Active work:** Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ~~⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)~~ ✅ **Resolved 2026-04-05** — v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)
+- 🗒️ **Backlog added (2026-04-07):** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization, LK sync docs, click-through to event pages. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
 - 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
