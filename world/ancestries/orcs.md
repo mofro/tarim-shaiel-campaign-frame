@@ -1,3 +1,14 @@
+---
+title: Tulpar — Children of the Broken Chains
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: public
+status: draft
+daggerheart_name: Orc
+created: 2026-02-13
+last_updated: 2026-04-07
+---
+
 # Tulpar - Children of the Broken Chains
 
 **Status:** Cultural Overview v1.0  

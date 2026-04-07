@@ -1,11 +1,12 @@
 ---
 title: Gavar — Keepers of the Threshold
 project: TTRPG_Tarim_Shaiel
-type: world_building
+type: lore
 visibility: public
+daggerheart_name: Firbolg
 status: draft
 created: 2026-04-02
-last_updated: 2026-04-02
+last_updated: 2026-04-07
 ---
 
 # Gavar — Keepers of the Threshold

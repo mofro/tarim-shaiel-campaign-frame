@@ -5,7 +5,7 @@ type: world_building / implementation_plan
 visibility: gm_only
 status: approved_pending_implementation
 created: 2026-04-03
-last_updated: 2026-04-03
+last_updated: 2026-04-07
 ---
 
 # Ancestry Naming Plan — Tarim-Shaiel
@@ -109,6 +109,13 @@ last_updated: 2026-04-03
 ## Status
 
 - [x] Names agreed
-- [ ] `PEOPLES_OF_TARIM_SHAIEL.md` updated
-- [ ] `CULTURAL_FRAMEWORK.md` updated
+- [x] `PEOPLES_OF_TARIM_SHAIEL.md` updated
+- [x] `CULTURAL_FRAMEWORK.md` updated
 - [ ] Audio folder renames (optional)
+
+### Additional: Stub files created (2026-04-07)
+Individual stub files created for all at-risk ancestries — `human.md`, `elf.md` (Serenvar),
+`dwarf.md` (Kuhban), `katari.md` (Vaghri), `goblin.md` (Jivar), `halfling.md` (Rahban),
+`giant.md` (Kalan). Descriptions pulled from `PEOPLES_OF_TARIM_SHAIEL.md`. `type: lore`,
+`status: stub`. Eliminates single-point-of-failure risk for at-risk ancestry content.
+GM-only doc naming pass (HISTORICAL_TIMELINE.md etc.) deferred — not player-facing.

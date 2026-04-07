@@ -1,11 +1,11 @@
 ---
 title: Peoples of Tarim-Shaiel
 project: TTRPG_Tarim_Shaiel
-type: world_building
+type: lore
 visibility: public
 status: draft
 created: 2026-04-02
-last_updated: 2026-04-03
+last_updated: 2026-04-07
 ---
 # Peoples of Tarim-Shaiel
 
@@ -125,39 +125,39 @@ Humans carry their experiences in the way they move. A human who has trained at 
 
 ---
 
-## ELF
+## SERENVAR (Elf)
 
-Elves are tall, pointed-eared humanoids whose acutely attuned senses make them difficult to surprise. Their heights run from about 6 to 6½ feet, and their ears vary from sharply angular to gently curved, drooping slightly at the tips with age. Rather than sleep, elves enter a celestial trance — a restful state they can hold in far less time than full sleep requires, and from which they emerge with an alertness that has made their night watches legendary.
+Serenvar are tall, pointed-eared humanoids whose acutely attuned senses make them difficult to surprise. Their heights run from about 6 to 6½ feet, and their ears vary from sharply angular to gently curved, drooping slightly at the tips with age. Rather than sleep, Serenvar enter a celestial trance — a restful state they can hold in far less time than full sleep requires, and from which they emerge with an alertness that has made their night watches legendary.
 
-Some elves, through deep study or long dedication to a particular practice, develop what their own communities call a mystic form — physical changes that reflect the work of their inner life. Celestial freckles, leaves or blossoms present in the hair, eyes that shift in color with concentration. These traits can be inherited, but they also shift over a lifetime in response to how an elf lives. An elder elf who has changed focus more than once may carry several layers of change simultaneously, each readable to those who know what they are looking at.
+Some Serenvar, through deep study or long dedication to a particular practice, develop what their own communities call a mystic form — physical changes that reflect the work of their inner life. Celestial freckles, leaves or blossoms present in the hair, eyes that shift in color with concentration. These traits can be inherited, but they also shift over a lifetime in response to how a Serenvar lives. An elder Serenvar who has changed focus more than once may carry several layers of change simultaneously, each readable to those who know what they are looking at.
 
-Elves in Tarim-Shaiel are distributed across every region, with notable concentrations in centers of learning, sacred sites, and the courts of older polities. Their approximately 350-year lifespan means they carry institutional memory in their persons, and most cultures that live alongside them have learned — with varying degrees of willingness — to consult them before making decisions that involve the past.
-
-### Ancestry Features
-
-**Quick Reactions:** Elven senses are acutely attuned in ways that make them difficult to surprise. They track more simultaneous signals than most ancestries can consciously register — sound, light, the shift in air that precedes movement. When something happens before they expect it, they are already responding.
-
-**Celestial Trance:** Elves do not sleep — they enter a trance that achieves the same restoration in a fraction of the time, and from which they emerge with a sharpness that has made their night watches legendary. The trance also gives them a quality of reflection unavailable to ancestries that lose consciousness entirely.
-
----
-
-## DWARF
-
-Dwarves are short, broad humanoids with dense musculature, thick hair, and nails containing enough keratin to accept embedded gemstones. Their average height runs from 4 to 5½ feet, though their frames carry a heft that can surprise people who judge by height alone. All genders can grow facial hair, which dwarves of Tarim-Shaiel style with care and regional variation — elaborate braids in the high mountain communities of the north, close-cropped patterns in the southern trade cities, woven through with tokens that mark clan and accomplishment.
-
-Dwarven communities are found throughout Tarim-Shaiel wherever mountains, mines, or long-established trade routes exist. They are not a people of expansion; they are a people of depth. Dwarven families in a given location tend to have been there for many generations, and their knowledge of a region's physical geography, underground resources, and historical layers is typically unmatched.
-
-Their longevity — up to 250 years — means that an elder dwarf may carry direct memory of events others know only from records. This shapes how Dwarven communities handle knowledge: carefully, with citation, and with a strong cultural bias toward writing things down.
+Serenvar in Tarim-Shaiel are distributed across every region, with notable concentrations in centers of learning, sacred sites, and the courts of older polities. Their approximately 350-year lifespan means they carry institutional memory in their persons, and most cultures that live alongside them have learned — with varying degrees of willingness — to consult them before making decisions that involve the past.
 
 ### Ancestry Features
 
-**Thick Skin:** Dwarven skin and nails contain an unusually high concentration of keratin — dense enough to accept embedded gemstones, and resilient enough to take impacts that would cause more damage to other ancestries. Minor injuries that would slow others down tend not to slow dwarves down.
+**Quick Reactions:** Serenvar senses are acutely attuned in ways that make them difficult to surprise. They track more simultaneous signals than most ancestries can consciously register — sound, light, the shift in air that precedes movement. When something happens before they expect it, they are already responding.
 
-**Increased Fortitude:** Dwarven physical constitution includes a capacity for deliberate resistance that goes beyond their frame. A dwarf who decides to absorb something rather than avoid it can reduce the damage through sheer accumulated hardness. Among people who have fought alongside dwarves, this is considered one of their defining qualities.
+**Celestial Trance:** Serenvar do not sleep — they enter a trance that achieves the same restoration in a fraction of the time, and from which they emerge with a sharpness that has made their night watches legendary. The trance also gives them a quality of reflection unavailable to ancestries that lose consciousness entirely.
 
 ---
 
-## ORC
+## KUHBAN (Dwarf)
+
+Kuhban are short, broad humanoids with dense musculature, thick hair, and nails containing enough keratin to accept embedded gemstones. Their average height runs from 4 to 5½ feet, though their frames carry a heft that can surprise people who judge by height alone. All genders can grow facial hair, which Kuhban of Tarim-Shaiel style with care and regional variation — elaborate braids in the high mountain communities of the north, close-cropped patterns in the southern trade cities, woven through with tokens that mark clan and accomplishment.
+
+Kuhban communities are found throughout Tarim-Shaiel wherever mountains, mines, or long-established trade routes exist. They are not a people of expansion; they are a people of depth. Kuhban families in a given location tend to have been there for many generations, and their knowledge of a region's physical geography, underground resources, and historical layers is typically unmatched.
+
+Their longevity — up to 250 years — means that an elder Kuhban may carry direct memory of events others know only from records. This shapes how Kuhban communities handle knowledge: carefully, with citation, and with a strong cultural bias toward writing things down.
+
+### Ancestry Features
+
+**Thick Skin:** Kuhban skin and nails contain an unusually high concentration of keratin — dense enough to accept embedded gemstones, and resilient enough to take impacts that would cause more damage to other ancestries. Minor injuries that would slow others down tend not to slow dwarves down.
+
+**Increased Fortitude:** Kuhban physical constitution includes a capacity for deliberate resistance that goes beyond their frame. A dwarf who decides to absorb something rather than avoid it can reduce the damage through sheer accumulated hardness. Among people who have fought alongside Kuhban, this is considered one of their defining qualities.
+
+---
+
+## ORC / TULPAR
 
 Orcs are recognizable by their square features, prominent lower tusks, and pointed ears. Their skin tones run through greens, blues, pinks, and grays, and their hair tends toward strong color and significant volume. Tusks vary in size and continue to grow throughout a lifespan of approximately 125 years; most Orcs decorate them with meaningful ornamentation — metal bands, carved symbols, or tokens that mark significant events.
 
@@ -173,19 +173,19 @@ Orc identity centers on clan over ancestry. A clan is defined by shared history 
 
 ---
 
-## KATARI
+## VAGHRI (Katari)
 
-Katari are feline humanoids with retractable claws, vertical pupils, and triangular ears set high on the head. Their whiskers assist navigation in near-darkness and crowded spaces, and their ears can rotate nearly 180 degrees to track sound independently of their head position. Some Katari are more pronouncedly feline — muzzle, dense fur, tail — while others are nearer to humanoid with primarily feline eyes and ears. About half carry a tail. Their fur and skin patterns span the full range of felid colorings: solids, stripes, spots, marbling, calico.
+Vaghri are feline humanoids with retractable claws, vertical pupils, and triangular ears set high on the head. Their whiskers assist navigation in near-darkness and crowded spaces, and their ears can rotate nearly 180 degrees to track sound independently of their head position. Some Katari are more pronouncedly feline — muzzle, dense fur, tail — while others are nearer to humanoid with primarily feline eyes and ears. About half carry a tail. Their fur and skin patterns span the full range of felid colorings: solids, stripes, spots, marbling, calico.
 
-Katari stand between 3 and 6½ feet tall and live to around 150 years. They are found across Tarim-Shaiel in broadly distributed communities, without the geographic concentration that marks some other ancestries. Their hunting instincts are not separate from their social selves — Katari are simply people for whom the read on a room, the tracking of movement at the edge of perception, and the precise assessment of threat are natural functions rather than practiced skills.
+Vaghri stand between 3 and 6½ feet tall and live to around 150 years. They are found across Tarim-Shaiel in broadly distributed communities, without the geographic concentration that marks some other ancestries. Their hunting instincts are not separate from their social selves — Vaghri are simply people for whom the read on a room, the tracking of movement at the edge of perception, and the precise assessment of threat are natural functions rather than practiced skills.
 
-They have a reputation for pride that is not entirely inaccurate. Katari do not perform humility they don't feel. They are also, among the peoples most frequently sought as companions and partners by those who understand what it means to have someone in their corner who will not flinch.
+They have a reputation for pride that is not entirely inaccurate. Vaghri do not perform humility they don't feel. They are also, among the peoples most frequently sought as companions and partners by those who understand what it means to have someone in their corner who will not flinch.
 
 ### Ancestry Features
 
-**Feline Instincts:** Katari hunting instincts are not separate from their social selves — the read on a room, the tracking of movement at the edge of perception, and the precise assessment of threat are natural functions rather than practiced skills. When a situation requires them to be fast, they are usually already moving.
+**Feline Instincts:** Vaghri hunting instincts are not separate from their social selves — the read on a room, the tracking of movement at the edge of perception, and the precise assessment of threat are natural functions rather than practiced skills. When a situation requires them to be fast, they are usually already moving.
 
-**Retracting Claws:** Katari retractable claws are part of how they engage with the world at close range. Deployed in contact, they can create a vulnerability in an opponent that wasn't there before — a disruption precise enough to change how that opponent is able to defend themselves in the moments that follow.
+**Retracting Claws:** Vaghri retractable claws are part of how they engage with the world at close range. Deployed in contact, they can create a vulnerability in an opponent that wasn't there before — a disruption precise enough to change how that opponent is able to defend themselves in the moments that follow.
 
 ---
 
@@ -199,51 +199,51 @@ Naga-Kin are not common in Tarim-Shaiel's densest cities. They tend toward the g
 
 ---
 
-## GOBLIN
+## JIVAR (Goblin)
 
-Goblins are small humanoids instantly recognizable by their oversized membranous ears — roughly the size of their head on each side — and large, sharp eyes that function well in low light and across distances most other ancestries find difficult. Their skin and eye colors span an enormous range, from subdued earth tones to vivid greens, blues, and warm reds; no single hue dominates. They average 3 to 4 feet tall and live for approximately 100 years, with their hearing and sight holding well into late life.
+Jivar are small humanoids instantly recognizable by their oversized membranous ears — roughly the size of their head on each side — and large, sharp eyes that function well in low light and across distances most other ancestries find difficult. Their skin and eye colors span an enormous range, from subdued earth tones to vivid greens, blues, and warm reds; no single hue dominates. They average 3 to 4 feet tall and live for approximately 100 years, with their hearing and sight holding well into late life.
 
-Goblins communicate a great deal through ear position — a nonverbal vocabulary precise enough to hold whole conversations in a crowded room without a word spoken. Most non-Goblins are unaware of this until it is pointed out to them, which is, in the experience of most Goblins, quite late.
+Jivar communicate a great deal through ear position — a nonverbal vocabulary precise enough to hold whole conversations in a crowded room without a word spoken. Most non-Jivar are unaware of this until it is pointed out to them, which is, in the experience of most Goblins, quite late.
 
-They are found everywhere in Tarim-Shaiel, with particular density in cities, markets, and the kinds of places where information changes hands quickly. They have a reputation for moving through social environments with ease, which is accurate. Whether that ease reflects charm, intelligence, or simply a very accurate map of how any given room is actually organized is a question people argue about, mostly in front of Goblins who are listening.
+Jivar are found everywhere in Tarim-Shaiel, with particular density in cities, markets, and the kinds of places where information changes hands quickly. They have a reputation for moving through social environments with ease, which is accurate. Whether that ease reflects charm, intelligence, or simply a very accurate map of how any given room is actually organized is a question people argue about, mostly in front of Jivar who are listening.
 
 ### Ancestry Features
 
-**Surefooted:** Goblins move through complex environments with an ease that owes as much to their large eyes and exceptional hearing as to their size. They read the ground they are moving over while they are still moving, and are rarely caught off-balance by terrain that would require other peoples to slow down.
+**Surefooted:** Jivar move through complex environments with an ease that owes as much to their large eyes and exceptional hearing as to their size. They read the ground they are moving over while they are still moving, and are rarely caught off-balance by terrain that would require other peoples to slow down.
 
-**Danger Sense:** Goblins are extremely difficult to sneak up on. Their ears rotate independently, their eyes function well in conditions where most ancestries are effectively blind, and they have developed the habit of reading a situation for threat without appearing to do so. An attack that was supposed to be a surprise often isn't.
+**Danger Sense:** Jivar are extremely difficult to sneak up on. Their ears rotate independently, their eyes function well in conditions where most ancestries are effectively blind, and they have developed the habit of reading a situation for threat without appearing to do so. An attack that was supposed to be a surprise often isn't.
 
 ---
 
-## HALFLING
+## RAHBAN (Halfling)
 
-Halflings are small, rounded humanoids with notably large feet, prominent ears, and an internal sense of direction that functions regardless of weather, terrain, or how long it has been since they last knew where they were. Their average height runs from 3 to 4 feet. Their feet — hairy and broad — give them a stability on irregular terrain that larger peoples sometimes envy. They live for around 150 years, maintaining a youthful appearance well into late adulthood.
+Rahban are small, rounded humanoids with notably large feet, prominent ears, and an internal sense of direction that functions regardless of weather, terrain, or how long it has been since they last knew where they were. Their average height runs from 3 to 4 feet. Their feet — hairy and broad — give them a stability on irregular terrain that larger peoples sometimes envy. They live for around 150 years, maintaining a youthful appearance well into late adulthood.
 
-Their internal compass is not metaphor. Halflings are magnetically attuned to their world in a way that means they do not get lost. This has made them sought-after as guides and navigators across Tarim-Shaiel, though halflings themselves tend to be skeptical of the value others place on this ability — to them, it is simply knowing where you are, which seems basic.
+Their internal compass is not metaphor. Rahban are magnetically attuned to their world in a way that means they do not get lost. This has made them sought-after as guides and navigators across Tarim-Shaiel, though halflings themselves tend to be skeptical of the value others place on this ability — to them, it is simply knowing where you are, which seems basic.
 
-Halfling communities are generally close-knit and intentional. They form strong bonds, maintain those bonds across distance, and treat the care of a community as a form of craft. Halflings who travel widely are rarely people who have abandoned community; more often, they are people who have expanded their definition of who counts.
+Rahban communities are generally close-knit and intentional. They form strong bonds, maintain those bonds across distance, and treat the care of a community as a form of craft. Rahban who travel widely are rarely people who have abandoned community; more often, they are people who have expanded their definition of who counts.
 
 ### Ancestry Features
 
-**Luckbringer:** Halflings treat the care of a community as a form of craft, and there is something in their presence — in how they attend to the people around them, in how they create the conditions for things to go right — that other peoples notice and benefit from. Parties that include a Halfling tend to start their days a little better resourced than they expected.
+**Luckbringer:** Rahban treat the care of a community as a form of craft, and there is something in their presence — in how they attend to the people around them, in how they create the conditions for things to go right — that other peoples notice and benefit from. Parties that include a Halfling tend to start their days a little better resourced than they expected.
 
-**Internal Compass:** Halflings are magnetically attuned to their world in a way that means they do not get lost. This is not metaphor. Their internal compass functions regardless of weather, terrain, or how long it has been since they last knew where they were. To a Halfling, this seems basic. To their traveling companions, it is frequently invaluable.
+**Internal Compass:** Halflings are magnetically attuned to their world in a way that means they do not get lost. This is not metaphor. Their internal compass functions regardless of weather, terrain, or how long it has been since they last knew where they were. To a Rahban, this seems basic. To their traveling companions, it is frequently invaluable.
 
 ---
 
-## GIANT
+## KALAN (Giant)
 
-Giants are the tallest of Tarim-Shaiel's peoples, ranging from 6½ to 8½ feet in adulthood, with wide frames and elongated arms that give them a reach that can be startling at close quarters. They are born without eyes — a sightless first year is universal to the ancestry — and their eyes develop gradually, sometimes settling on one, sometimes two, sometimes three. Those with a single eye, known as cyclops across most of Tarim-Shaiel, are not uncommon; the variation is treated within Giant communities as individual rather than categorical.
+Kalan are the tallest of Tarim-Shaiel's peoples, ranging from 6½ to 8½ feet in adulthood, with wide frames and elongated arms that give them a reach that can be startling at close quarters. They are born without eyes — a sightless first year is universal to the ancestry — and their eyes develop gradually, sometimes settling on one, sometimes two, sometimes three. Those with a single eye, known as cyclops across most of Tarim-Shaiel, are not uncommon; the variation is treated within Kalan communities as individual rather than categorical.
 
-Giants are strong. This is rarely in question and rarely the most interesting thing about them, though it is frequently the first thing mentioned. Their average lifespan runs to about 75 years — shorter than most of the peoples they live alongside — which tends to give them a different relationship to urgency. Time presses on Giants in a way it does not press on a dwarf or an elf. Most of them are aware of this.
+Kalan are strong. This is rarely in question and rarely the most interesting thing about them, though it is frequently the first thing mentioned. Their average lifespan runs to about 75 years — shorter than most of the peoples they live alongside — which tends to give them a different relationship to urgency. Time presses on Giants in a way it does not press on a Kuhban or a Serenvar. Most of them are aware of this.
 
-They are found throughout Tarim-Shaiel, in every kind of community, and have been for as long as records exist. The stories that frame them as creatures of remote wilderness are stories told by people who do not know them well.
+Kalan are found throughout Tarim-Shaiel, in every kind of community, and have been for as long as records exist. The stories that frame them as creatures of remote wilderness are stories told by people who do not know them well.
 
 ### Ancestry Features
 
-**Endurance:** Giant frames carry more than other ancestries can, in the simplest physical sense. They sustain more before they stop, and sustain it without the visible deterioration that would slow other peoples down. Their shorter lifespan seems to have produced a constitution built for density of use rather than length of service.
+**Endurance:** Kalan frames carry more than other ancestries can, in the simplest physical sense. They sustain more before they stop, and sustain it without the visible deterioration that would slow other peoples down. Their shorter lifespan seems to have produced a constitution built for density of use rather than length of service.
 
-**Reach:** Giants have wide frames and elongated arms that give them a reach that can be startling at close quarters. What other ancestries can only touch by moving, a Giant can touch from where they stand. In practice, this means that the distance a Giant considers 'close' is further than most people expect.
+**Reach:** Kalan have wide frames and elongated arms that give them a reach that can be startling at close quarters. What other ancestries can only touch by moving, a Kalan can touch from where they stand. In practice, this means that the distance a Kalan considers 'close' is further than most people expect.
 
 ---
 

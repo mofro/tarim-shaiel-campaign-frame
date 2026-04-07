@@ -1,11 +1,12 @@
 ---
 title: Khavar — Keepers of the Recent Dead
 project: TTRPG_Tarim_Shaiel
-type: world_building
+type: lore
 visibility: public
+daggerheart_name: Fungril
 status: draft
 created: 2026-04-02
-last_updated: 2026-04-02
+last_updated: 2026-04-07
 ---
 
 # Khavar — Keepers of the Recent Dead
