@@ -1,11 +1,12 @@
 ---
 title: Galapa
 project: TTRPG_Tarim_Shaiel
-type: world_building
-visibility: gm_secrets
-status: draft
+type: lore
+visibility: public
+daggerheart_name: Galapa
+status: stub
 created: 2026-04-05
-last_updated: 2026-04-05
+last_updated: 2026-04-07
 ---
 
 # Galapa

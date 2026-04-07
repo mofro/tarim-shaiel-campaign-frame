@@ -59,7 +59,7 @@ Freed Orcs, suddenly autonomous after generations of magical enslavement and mil
 
 **How It Ended:**
 Not through military victory, but through **economic exhaustion and diplomatic pressure**:
-- Southern powers (Dwarven kingdoms, merchant leagues, some human city-states, Elven enclaves) recognized that raiding benefited no one
+- Southern powers (Kuhban kingdoms, merchant leagues, some human city-states, Serenvar enclaves) recognized that raiding benefited no one
 - They collectively offered **economic incentives for stability over warfare**:
   - Guaranteed trade partnerships for Orc confederations willing to establish order
   - Mediation and negotiation services
@@ -91,18 +91,18 @@ Rather than empire or domination, the world reorganized around **actual economic
 **Regional Powers Stabilized:**
 Each major region found its role:
 - **Orc Confederations:** Transitioned from raiders to traders; confederations formed around trade rather than conquest
-- **Dwarven Kingdoms:** Maintained independence; became respected gatekeepers of mountain passes
+- **Kuhban Kingdoms:** Maintained independence; became respected gatekeepers of mountain passes
 - **Human City-States:** Some thrived (Samarkand, Bukhara, Kashgar); others struggled (Chang'an lost relevance)
-- **Elves:** Remained withdrawn, producing luxury goods that everyone desired
-- **Merchant Diasporas:** (Halflings, Goblins) Spread across routes, becoming essential information/credit networks
+- **Serenvar:** Remained withdrawn, producing luxury goods that everyone desired
+- **Merchant Diasporas:** (Rahban, Jivar) Spread across routes, becoming essential information/credit networks
 
 **Mutual Dependency Model:**
 Rather than hierarchy, the system became **networked and reciprocal**:
 - Orc traders needed mountain pass access → Dwarves got tolls + respect
 - Merchants needed security on routes → Orcs got legitimate trade wealth
 - Dwarves needed goods → Traders supplied them
-- Elves provided luxury goods → Everyone needed them (but Elves remained socially withdrawn)
-- Goblins/Halflings facilitated trade → They became essential intermediaries
+- Serenvar provided luxury goods → Everyone needed them (but Serenvar remained socially withdrawn)
+- Jivar/Rahban facilitated trade → They became essential intermediaries
 
 **Cultural Blending:**
 Rather than imperial imposition, cultures **naturally blended** in trade hubs:
@@ -136,7 +136,7 @@ Rather than imperial imposition, cultures **naturally blended** in trade hubs:
 - **Tarim Basin:** Booming; cosmopolitan; source of real power
 - **Mountain Passes:** Stable; respected; neutral
 - **Steppe:** Recently stabilized; proud of newfound trading wealth; sensitive to suggestions of renewed raiding
-- **Elves:** Remain socially separate; produce luxury goods; refuse political engagement
+- **Serenvar:** Remain socially separate; produce luxury goods; refuse political engagement
 
 ---
 
@@ -216,7 +216,7 @@ Neutral gatekeeper; everyone respects them; they profit from all sides and maint
 - Produce goods that *everyone* wants (economic leverage without political engagement)
 - Socially withdrawn; consider themselves culturally superior
 - Celestial mythology (Chinese + Asian cosmology) explains their origins; keep this secret from outsiders
-- Living alongside Elves: Elven-adjacent humans, Goblins, other races who engage in trade/politics on behalf of Elves
+- Living alongside Serenvar: Serenvar-adjacent humans, Jivar, other peoples who engage in trade/politics on behalf of Serenvar
 
 **Cultural Markers:**
 - Proud, mysterious, detached from "lesser" politics
@@ -224,10 +224,10 @@ Neutral gatekeeper; everyone respects them; they profit from all sides and maint
 - Philosophically oriented; spiritual rather than martial
 - Multilingual but rarely engage directly in diplomacy
 - Language: Melodic, tonal, multisyllabic; references to nature/celestial origins
-- Names: Ancient, sacred; rarely shared with outsiders; transformation into human-adjacent languages preserves Elven origins
+- Names: Ancient, sacred; rarely shared with outsiders; transformation into human-adjacent languages preserves Serenvar origins
 
 **Political Position:**
-Deliberately removed from wider politics; use subordinate races (Elven-adjacent humans, Goblins) to engage in trade while maintaining separation.
+Deliberately removed from wider politics; use subordinate races (Serenvar-adjacent humans, Jivar) to engage in trade while maintaining separation.
 
 ---
 
@@ -319,7 +319,7 @@ Essential but marginal; economically powerful but politically vulnerable; surviv
 - Younger Orcish generations have only known trading; older generations remember raiding
 - Risk of regression if economics collapse
 
-**Player Agency:** Heroes might smooth or complicate Orc-human/Orc-Dwarven relations through their actions
+**Player Agency:** Heroes might smooth or complicate Orc-human/Orc-Kuhban relations through their actions
 
 ---
 
@@ -336,16 +336,16 @@ Essential but marginal; economically powerful but politically vulnerable; surviv
 
 ---
 
-### Tension 3: Elven Detachment & Economic Leverage
-**The Issue:** Elves produce goods everyone wants but refuse political engagement. This creates imbalance.
+### Tension 3: Serenvar Detachment & Economic Leverage
+**The Issue:** Serenvar produce goods everyone wants but refuse political engagement. This creates imbalance.
 
 **Manifestation:**
-- All powers court Elven favor but receive cold rebuff
-- Elven goods command premium prices due to rarity + mystery
-- Elven-adjacent humans/Goblins become essential intermediaries
-- Resentment that Elves benefit economically without political responsibility
+- All powers court Serenvar favor but receive cold rebuff
+- Serenvar goods command premium prices due to rarity + mystery
+- Serenvar-adjacent humans/Jivar become essential intermediaries
+- Resentment that Serenvar benefit economically without political responsibility
 
-**Player Agency:** Heroes might gain Elven access (unprecedented) or challenge the dynamic
+**Player Agency:** Heroes might gain Serenvar access (unprecedented) or challenge the dynamic
 
 ---
 
@@ -369,8 +369,8 @@ The world runs on **mutual economic need**, not empire:
 
 - **Orc confederations** control steppe trade routes → others need their cooperation
 - **Dwarves** control mountain passes → others pay tolls, need their maintenance
-- **Elves** produce luxury goods → everyone wants them
-- **Merchants** (Goblins, Halflings, Humans) facilitate trade → all depend on their networks
+- **Serenvar** produce luxury goods → everyone wants them
+- **Merchants** (Jivar, Rahban, Humans) facilitate trade → all depend on their networks
 - **River/oasis cities** provide necessary stops → benefit from merchant traffic
 
 ### Wealth Centers
@@ -382,8 +382,8 @@ The world runs on **mutual economic need**, not empire:
 
 ### Currency & Credit
 - Multiple currencies in circulation (gold, silver, local trade currencies)
-- Merchant guilds and Goblin money-lenders provide credit networks
-- Halfling/Gnome diaspora houses provide letters of credit across routes
+- Merchant guilds and Jivar money-lenders provide credit networks
+- Rahban/Gnome diaspora houses provide letters of credit across routes
 - Dwarves maintain neutral stance; accept all currency
 
 ---
