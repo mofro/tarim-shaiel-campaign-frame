@@ -2,7 +2,7 @@
 title: Kuhban
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: public
+visibility: gm_secrets
 status: stub
 daggerheart_name: Dwarf
 created: 2026-04-07
