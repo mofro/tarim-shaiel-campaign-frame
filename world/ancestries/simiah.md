@@ -4,6 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: lore
 visibility: gm_secrets
 daggerheart_name: Simiah
+published: true
 status: draft
 created: 2026-04-02
 last_updated: 2026-04-07

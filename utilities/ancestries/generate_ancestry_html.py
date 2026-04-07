@@ -385,13 +385,21 @@ def read_ancestry_metadata(dh_name: str) -> dict:
 
     text = candidate.read_text(encoding="utf-8")
 
-    # Read visibility from YAML frontmatter
+    # Read HTML inclusion gate from YAML frontmatter.
+    # `published: true` takes precedence — it separates "source file is GM-only"
+    # from "ancestry appears in the player-facing HTML".
+    # Falls back to `visibility: public` for backward compatibility.
     visibility = "public"
     fm_match = re.match(r'^---\s*\n(.*?)\n---', text, re.DOTALL)
     if fm_match:
-        vis = re.search(r'^visibility:\s*(\S+)', fm_match.group(1), re.MULTILINE | re.IGNORECASE)
-        if vis:
-            visibility = vis.group(1).lower()
+        fm_body = fm_match.group(1)
+        pub = re.search(r'^published:\s*(\S+)', fm_body, re.MULTILINE | re.IGNORECASE)
+        if pub:
+            visibility = "public" if pub.group(1).lower() in ("true", "yes", "1") else "gm_secrets"
+        else:
+            vis = re.search(r'^visibility:\s*(\S+)', fm_body, re.MULTILINE | re.IGNORECASE)
+            if vis:
+                visibility = vis.group(1).lower()
 
     # Find first image wiki-link in body
     image_fname = None

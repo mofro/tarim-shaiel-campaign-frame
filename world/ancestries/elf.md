@@ -5,6 +5,7 @@ type: lore
 visibility: gm_secrets
 status: stub
 daggerheart_name: Elf
+published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
