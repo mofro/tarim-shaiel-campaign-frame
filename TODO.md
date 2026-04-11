@@ -23,6 +23,7 @@ banner-y: 37
 - 🔄 **Active work:** Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ~~⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)~~ ✅ **Resolved 2026-04-05** — v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)
 - ✅ **Completed (2026-04-11):** `lat.md/` AI navigation layer — 6 dense, path-forward orientation files (`cosmology`, `session0`, `characters`, `world`, `mechanics`, `decisions`) + CLAUDE.md Quick Navigation table. [#121](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/121)
+- 🗒️ **Backlog added (2026-04-11):** CLAUDE.md audit + subagent context block — 5-pass baseline testing revealed subagents bypass CLAUDE.md entirely; need to identify portable behavioral constraints for spawned agents; audit-first before any slimming; risks documented. [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128)
 - 🗒️ **Backlog added (2026-04-07):** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization, LK sync docs, click-through to event pages. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
 - 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
@@ -41,7 +42,15 @@ _What happened this session. Newest first. Trim to last 3 sessions; older entrie
 - Fixed `visibility: public` → `visibility: internal` on all 6 `lat.md/` files; added `internal` to CLAUDE.md frontmatter spec
 - Added session-init sentence to CLAUDE.md Working Conventions: "Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work."
 - Logged `visibility: internal` schema extension in DECISION_LOG.md
-- **Pending (user-run):** Baseline test in fresh session — 3 domain questions with tool-use artifact tracking; evaluate routing efficiency before CLAUDE.md slimming pass. Test questions and artifact spec documented in session transcript.
+- Ran 5-pass baseline test (user-run parallel Explore agents, 3 domain questions each pass):
+  - Pass 1 (pre-lat.md/): Q1 1,480 lines / Q2 1,206 lines / Q3 1,423 lines
+  - Pass 2 (section anchors + noise suppressors): Q3 improved to 630 lines; Q2 regressed (liberation_aftermath.md added to Key Files)
+  - Pass 3 (Key Files renamed → "Only if"; list culled): Q3 regressed; identified listing = read invitation
+  - Pass 4 (stronger suppressors; Do not read blocks): Q3 515 lines (win); Q2 1,898 lines (worst pass — blocks not working)
+  - Pass 5 (DECISION_LOG removed from nav chain; CLAUDE.md hard block): Q3 515 lines (stable win); Q1/Q2 still noisy
+- Root cause identified: subagents bypass CLAUDE.md entirely; no instruction reaches them at spawn time
+- Decided: lat.md/ nav layer works when followed; problem is portability of constraints to spawned agents
+- Filed [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128): CLAUDE.md audit + subagent context block
 
 ### 2026-04-11
 - Explored lat.md (Agent Lattice) as an AI navigation pattern for the vault — `[[wikilinks]]` convention matches directly; identified key gap: vault has content graph but no curated AI-readable orientation layer
