@@ -168,6 +168,23 @@ Examples:
 
 **Branching:** Single `main` branch. All work goes directly to main.
 
+**Cloud session exception:** When running through the Claude Code cloud harness (e.g. Claude.ai Base), the harness enforces a `claude/*` branch and blocks pushes to `main` with a 403. In that case:
+1. Commit to `main` locally as normal
+2. Push to the harness-designated branch (`git push origin main:<harness-branch>`)
+3. The user will merge to `main` from their local machine
+
+This is expected behaviour — not an error. Do not attempt to override it.
+
+**Long-lived branch inflation — process trap:** The harness assigns one `claude/*` branch per session and locks it for that session's lifetime. All commits land on that branch. If the branch is not rebased onto `main` after each PR merge, subsequent sessions accumulate "ghost" commits — prior session commits that are already in `main` but still appear as ahead on the branch. This inflates commit counts and makes PRs look larger than they are.
+
+**Fix at the start of each session:**
+```bash
+git fetch origin main
+git rebase origin/main
+git push --force-with-lease origin <harness-branch>
+```
+If the rebase hits conflicts on generated files (e.g. `docs/dashboard.html`), skip those commits with `git rebase --skip` — they are chore artifacts already in `main`. If the rebase drops all commits (everything already upstream), the branch is clean; push to confirm.
+
 **Never commit:**
 - Mid-draft prose that is actively being revised in the same session
 - Temporary notes that will be discarded (use in-context only; see File Persistence Rule above)
