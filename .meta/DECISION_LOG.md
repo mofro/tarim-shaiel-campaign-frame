@@ -472,4 +472,36 @@ Remaining ancestries (Human, Elf, Dwarf, Orc, Katari, Goblin, Halfling, Giant, G
 
 **Rationale:** The two-value schema (`public` / `gm_secrets`) had no category for files that are neither campaign content nor player-facing — purely operational files like the `lat.md/` navigation layer. Using `public` for those files was semantically wrong (implies player visibility) and potentially confusing for pipeline logic, even if functionally harmless (`type: navigation` is not in `PIPELINE_TYPES`).
 
+---
+
+## Subagent Context Architecture — `lat.md/subagent-context.md`
+**Date:** 2026-04-11
+**Type:** Infrastructure / AI workflow
+**Status:** Convention (not locked; revisable as subagent behavior evolves)
+**Issue:** [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128)
+
+**Decision:** Created `lat.md/subagent-context.md` as a portable constraint block for spawned agent prompts. CLAUDE.md is the authoritative main-session document; `subagent-context.md` is a derived deployment artifact.
+
+**Architecture:**
+- `CLAUDE.md` = main session context; read at conversation start automatically
+- `lat.md/subagent-context.md` = portable block; injected explicitly into spawned agent prompts; not automatically read by anything
+- These serve different audiences. Content removed from CLAUDE.md in the slimming pass was content already fully covered by `lat.md/decisions.md` or `lat.md/cosmology.md` — not content being moved to `subagent-context.md`
+
+**What `subagent-context.md` contains (7 sections):**
+1. Suppressors (`.meta/` blanket block, `transcripts/`, Dataview index files)
+2. Navigation routing (full Quick Navigation table from CLAUDE.md)
+3. Hard constraints (8 critical behavioral rules; Wizard constraint corrected to reflect locked Decision 4)
+4. R/H/K reframe (Warren allegiance, not tool loyalty)
+5. Narrative tone (Erikson-grade density, Warrior Awakening benchmark)
+6. File conventions (frontmatter schema + visibility taxonomy)
+7. Persona cues (Lore Keeper + Mythweaver, minimal)
+
+**What it omits:** project orientation (incomplete and not actionable), git workflow, issue-first discipline, image conventions, Working Directory. These are main-session-only.
+
+**Drift mitigation:** `subagent-context.md` carries a header note marking it as derived. CLAUDE.md Working Conventions includes: "When updating Quick Navigation, Hard Constraints, or Narrative Tone, also update `lat.md/subagent-context.md` in the same commit."
+
+**Concurrent changes (same session):**
+- `mechanics/design-decisions/DECISION_LOG.md` → `.meta/MECHANICS_DESIGN_DECISION_LOG.md` (consolidate archive)
+- CLAUDE.md slimmed 258→174 lines (removed redundant/stale sections; fixed stale Wizard constraint)
+
 **Applied to:** `CLAUDE.md` frontmatter spec (visibility field), all `lat.md/*.md` files.

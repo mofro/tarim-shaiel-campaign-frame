@@ -23,7 +23,7 @@ banner-y: 37
 - 🔄 **Active work:** Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ~~⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)~~ ✅ **Resolved 2026-04-05** — v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)
 - ✅ **Completed (2026-04-11):** `lat.md/` AI navigation layer — 6 dense, path-forward orientation files (`cosmology`, `session0`, `characters`, `world`, `mechanics`, `decisions`) + CLAUDE.md Quick Navigation table. [#121](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/121)
-- 🗒️ **Backlog added (2026-04-11):** CLAUDE.md audit + subagent context block — 5-pass baseline testing revealed subagents bypass CLAUDE.md entirely; need to identify portable behavioral constraints for spawned agents; audit-first before any slimming; risks documented. [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128)
+- ✅ **Completed (2026-04-11):** CLAUDE.md audit + subagent context block — created `lat.md/subagent-context.md` (portable 83-line constraint block for spawned agents); CLAUDE.md slimmed 258→174 lines; stale Wizard constraint corrected; `.meta/` consolidated as archive directory; subagent-context maintenance rule added to Working Conventions. [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128)
 - 🗒️ **Backlog added (2026-04-07):** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization, LK sync docs, click-through to event pages. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
 - 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
@@ -37,6 +37,15 @@ banner-y: 37
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-04-11 (continued, session 2)
+- Implemented [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128): CLAUDE.md audit + subagent context block
+  - Moved `mechanics/design-decisions/DECISION_LOG.md` → `.meta/MECHANICS_DESIGN_DECISION_LOG.md`; suppressor simplified to blanket `.meta/` rule
+  - Created `lat.md/subagent-context.md` — 83-line portable constraint block for spawned agents (7 sections: suppressors, navigation, hard constraints, R/H/K, narrative tone, file conventions, persona cues)
+  - CLAUDE.md slimmed 258→174 lines: removed Domain Structure, Locked Decisions, R/H/K System, Working Directory, Cloud session exception, Long-lived branch inflation; slimmed Persona Protocols; cleaned Key Reference Files
+  - Fixed stale Wizard constraint ("Decision 4 unresolved") — Decision 4 locked 2026-03-17
+  - DECISION_LOG convention clarified as write-only (do not read archive)
+  - Added subagent-context maintenance rule to Working Conventions
 
 ### 2026-04-11 (continued)
 - Fixed `visibility: public` → `visibility: internal` on all 6 `lat.md/` files; added `internal` to CLAUDE.md frontmatter spec
