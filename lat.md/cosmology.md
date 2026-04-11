@@ -8,7 +8,7 @@ created: 2026-04-11
 last_updated: 2026-04-11
 ---
 
-> _Navigation layer — points to where answers live, not what they are. Follow specific links below. Avoid index files with Dataview queries and `transcripts/` — neither is a canonical source._
+> _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
 
 # Cosmology
 
@@ -64,3 +64,7 @@ last_updated: 2026-04-11
 
 ## Only if the summary above doesn't answer it
 - [[.meta/DECISION_LOG.md]] § Decision 6 (liberation framing), § Decisions 2&3 (Held Breath), § Decision 4 (Wizard)
+
+## Do not read
+- `narrative/lore/liberation_aftermath.md` — liberation prose; framing is fully covered in the summary above; only read if prose specifically requested
+- `narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md` — deep CP architecture; only read if convergence point specifics requested
