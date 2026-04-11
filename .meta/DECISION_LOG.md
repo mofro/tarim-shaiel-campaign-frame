@@ -472,6 +472,8 @@ Remaining ancestries (Human, Elf, Dwarf, Orc, Katari, Goblin, Halfling, Giant, G
 
 **Rationale:** The two-value schema (`public` / `gm_secrets`) had no category for files that are neither campaign content nor player-facing — purely operational files like the `lat.md/` navigation layer. Using `public` for those files was semantically wrong (implies player visibility) and potentially confusing for pipeline logic, even if functionally harmless (`type: navigation` is not in `PIPELINE_TYPES`).
 
+**Applied to:** `CLAUDE.md` frontmatter spec (visibility field), all `lat.md/*.md` files.
+
 ---
 
 ## Subagent Context Architecture — `lat.md/subagent-context.md`
@@ -502,6 +504,14 @@ Remaining ancestries (Human, Elf, Dwarf, Orc, Katari, Goblin, Halfling, Giant, G
 
 **Concurrent changes (same session):**
 - `mechanics/design-decisions/DECISION_LOG.md` → `.meta/MECHANICS_DESIGN_DECISION_LOG.md` (consolidate archive)
-- CLAUDE.md slimmed 258→174 lines (removed redundant/stale sections; fixed stale Wizard constraint)
+- CLAUDE.md slimmed 258→191 lines (removed redundant/stale sections; fixed stale Wizard constraint; restored cloud session + branch inflation as per-session operational content)
 
-**Applied to:** `CLAUDE.md` frontmatter spec (visibility field), all `lat.md/*.md` files.
+### Validation (2026-04-11)
+
+Post-implementation baseline test — 3 parallel Explore agents with `lat.md/subagent-context.md` as sole injected context:
+
+| Question | Baseline (Pass 1) | Post | Suppressor result |
+|---|---|---|---|
+| "What are the locked decisions?" | 908 lines / 9 inv | **59 lines / 1 file** | `.meta/` never opened ✅ |
+| "What happened in previous sessions?" | 1,307 lines / 6 inv | **282 lines / 4 files** | `transcripts/` never opened ✅ |
+| "Write a Warrior archetype description" | 1,423 lines / 9 inv | **198 lines / 2 files** | Routed via `lat.md/characters.md` first; constraints applied correctly ✅ |
