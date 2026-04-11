@@ -60,4 +60,3 @@ last_updated: 2026-04-11
 
 ## Only if the summary above doesn't answer it
 - [[mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md]] — tool evolution + tether mechanics
-- [[.meta/DECISION_LOG.md]] § Decisions 5, 10, 13 for mechanics context

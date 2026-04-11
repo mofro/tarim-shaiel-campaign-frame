@@ -68,7 +68,6 @@ last_updated: 2026-04-11
 
 ## Only if the summary above doesn't answer it
 - [[characters/archetypes.md]] — 6 core archetypes with thematic tensions
-- [[.meta/DECISION_LOG.md]] § Player Pitch & Archetype Development (archetype one-liners + design philosophy)
 
 ## Do not read
 - `characters/Index.md` — Dataview queries only; not Claude-readable
