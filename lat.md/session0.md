@@ -2,7 +2,7 @@
 title: Session 0 — AI Navigation
 project: TTRPG_Tarim_Shaiel
 type: navigation
-visibility: public
+visibility: internal
 status: canon
 created: 2026-04-11
 last_updated: 2026-04-11

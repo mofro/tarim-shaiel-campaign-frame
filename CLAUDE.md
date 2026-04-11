@@ -72,7 +72,7 @@ Domain directories = CAMPAIGN CONTENT.
 title: [Document title]
 project: TTRPG_Tarim_Shaiel
 type: [world_building|narrative|mechanics|character|reference|template|operational]
-visibility: [public|gm_secrets]
+visibility: [public|gm_secrets|internal]
 status: [draft|review|canon|deprecated]
 created: YYYY-MM-DD
 last_updated: YYYY-MM-DD
@@ -81,7 +81,7 @@ last_updated: YYYY-MM-DD
 
 ### Key conventions
 - `/gm_secrets/` subdirectory exists in each domain for player-invisible content
-- `visibility: gm_secrets` = GM-only; `visibility: public` = player-facing
+- `visibility: gm_secrets` = GM-only; `visibility: public` = player-facing; `visibility: internal` = operational/navigational infrastructure (never player-facing, never published; e.g. `lat.md/` files)
 - `status: canon` = locked/authoritative; do not change without explicit direction
 - Template filenames are prefixed `_TEMPLATE_`
 
@@ -181,7 +181,7 @@ Claude Code creates a worktree automatically at conversation start — ignore it
 ## Working Conventions
 
 - **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.
-- **TODO.md is the session anchor.** Start each session by reading it.
+- **TODO.md is the session anchor.** Start each session by reading it. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work.
 - **Update `last_updated` frontmatter** when editing any persistent file.
 - **DECISION_LOG.md gets an entry** for any significant design choice — include date, decision, rationale, and lock status.
 - **Batch minor inconsistencies** rather than interrupting mid-flow; surface them in a summary.
