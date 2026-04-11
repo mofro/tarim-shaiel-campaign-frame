@@ -37,6 +37,12 @@ banner-y: 37
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
 
+### 2026-04-11 (continued)
+- Fixed `visibility: public` → `visibility: internal` on all 6 `lat.md/` files; added `internal` to CLAUDE.md frontmatter spec
+- Added session-init sentence to CLAUDE.md Working Conventions: "Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work."
+- Logged `visibility: internal` schema extension in DECISION_LOG.md
+- **Pending (user-run):** Baseline test in fresh session — 3 domain questions with tool-use artifact tracking; evaluate routing efficiency before CLAUDE.md slimming pass. Test questions and artifact spec documented in session transcript.
+
 ### 2026-04-11
 - Explored lat.md (Agent Lattice) as an AI navigation pattern for the vault — `[[wikilinks]]` convention matches directly; identified key gap: vault has content graph but no curated AI-readable orientation layer
 - Established design constraints: dense not narrative, path-forward (wikilinks to source-of-truth), 20–40 lines per file, locked 🔒 / open ❓ flagged, Obsidian wikilink format
