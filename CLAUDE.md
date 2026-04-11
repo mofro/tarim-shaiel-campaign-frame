@@ -8,6 +8,21 @@ This is a **design and authoring workspace**, not a software project. Files are 
 
 ---
 
+## Quick Navigation (AI-readable domain index)
+
+Read the relevant `lat.md/` file before diving into domain content — one read replaces 2–3 file searches.
+
+| Domain | File | When to read |
+|---|---|---|
+| Cosmological architecture, Warren, R/H/K, Held Breath | [[lat.md/cosmology]] | Any cosmology / Warren / Wizard question |
+| Session 0 design, awakenings, flashbacks, memory events | [[lat.md/session0]] | Session 0 work, pacing, scenario status |
+| Archetypes, tools system, surrendered-layer, identity | [[lat.md/characters]] | Archetype descriptions, tools-as-divine-marks |
+| Locations, regions, factions, geography | [[lat.md/world]] | Any world / location / faction question |
+| Daggerheart integration, current mechanics, Wrongness | [[lat.md/mechanics]] | Rules questions, mechanical identity |
+| All locked decisions + hard constraints (summary) | [[lat.md/decisions]] | Verifying lock status before any design work |
+
+---
+
 ## Persona Protocols
 
 Two named personas are active in this project. Honor them in appropriate contexts.
