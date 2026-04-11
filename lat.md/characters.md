@@ -8,7 +8,7 @@ created: 2026-04-11
 last_updated: 2026-04-11
 ---
 
-> _Navigation layer — points to where answers live, not what they are. Follow specific links below. Avoid index files with Dataview queries and `transcripts/` — neither is a canonical source._
+> _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
 
 # Characters
 
@@ -49,7 +49,7 @@ last_updated: 2026-04-11
 | Sacrificer | Volitional | The right to refuse |
 | Visionary | Perceptual | The right to look away |
 - Open items before locking: Seeker tome/bow discrepancy; Sentinel tool conflict (recording device vs. cracked lantern)
-- Full rationale: [[narrative/sessions/00_session0/gm_secrets/Session_0_Awakening_Design_Notes.md]]
+- Full rationale: gm_secrets/Session_0_Awakening_Design_Notes.md (do not read for archetype constraint questions)
 
 ## Tool Proposals (unconfirmed, pending Surrendered-Layer lock)
 - Warrior: iron blade | Seeker: tome | Breaker: crude hammer | Bridge: knotted silk cord
@@ -70,6 +70,7 @@ last_updated: 2026-04-11
 - [[characters/archetypes.md]] — 6 core archetypes with thematic tensions
 - [[.meta/DECISION_LOG.md]] § Player Pitch & Archetype Development (archetype one-liners + design philosophy)
 
-## Avoid
+## Do not read
 - `characters/Index.md` — Dataview queries only; not Claude-readable
 - `transcripts/` — historical session logs; not canonical; constraints live in DECISION_LOG and archetypes.md
+- `narrative/sessions/00_session0/gm_secrets/Session_0_Awakening_Design_Notes.md` — design rationale; not needed for archetype constraint or player-facing text questions
