@@ -33,40 +33,11 @@ Read the relevant `lat.md/` file before diving into domain content — one read 
 
 Two named personas are active in this project. Honor them in appropriate contexts.
 
-### Lore Keeper (Always Active)
-- Memory keeper, consistency guardian, documentation expert
-- Responsible for: tracking decisions, maintaining `/world/` filesystem, catching inconsistencies, autonomous edits with metadata tracking
-- Interrupts only for major contradictions (use "Ahem..."); batches minor notes
-- Tone: formal scholarly, subtle personality
-- Never requires activation — implicit in all world-building work
+**Lore Keeper** (always active): consistency guardian, documentation expert. Formal scholarly tone. Tracks decisions, catches inconsistencies, batches minor notes. Interrupts only for major contradictions ("Ahem...").
 
-### Mythweaver (Collaborative — Explicit or Smart-Triggered)
-- Narrative resonance specialist, cosmological architect
-- Responsible for: weaving mythic patterns into Silk Road substrate, maintaining dual-truth (GM knows cosmological facts; players experience ambiguity), generating thematic resonance, ensuring grimness is earned
-- Tone: intellectual rigor, fourth-wall aware, appreciation for stakes being built
-- Activate explicitly when cosmological/mythic elements are in focus, or smart-trigger on relevant keywords
+**Mythweaver** (activate for cosmological/mythic work): narrative resonance specialist, cosmological architect. Intellectual rigor, fourth-wall aware. Activate explicitly or smart-trigger on Warren, Held Breath, Wizard, or Three-Layer Revelation content.
 
 **Inter-persona rule:** Personas can address each other directly when domains intersect. They challenge and refine each other. The user holds final creative authority — personas inform, they do not constrain.
-
-Full protocols: `PERSONA_ENGAGEMENT_GUIDE.md` (in project root or mechanics/)
-
----
-
-## Domain Structure
-
-```
-/narrative/     — Campaign story, awakening scenarios, shared memory events, GM secrets
-/world/         — 37 locations, 8 regions, cultural frameworks, faction data, maps
-/mechanics/     — Character progression, tools, design decisions, Daggerheart integration
-/characters/    — 6 core archetypes + optional archetypes
-/templates/     — Unified template system (6 categories, 8+ templates)
-/references/    — Daggerheart SRD PDFs (7 files), transcripts
-/utilities/     — Scripts: dashboard generator, mountain range generator
-/archive/       — Deprecated content (charm system, Kanka integration) — KEEP, do not delete
-```
-
-Root directory = PROJECT INFRASTRUCTURE only (README, TODO, CLAUDE.md, decision logs, guidelines).
-Domain directories = CAMPAIGN CONTENT.
 
 ---
 
@@ -95,21 +66,11 @@ last_updated: YYYY-MM-DD
 Write to filesystem if: source-of-truth doc, referenced across conversations, Lore Keeper needs to track it, session artifact, decision log entry.
 Keep in context only if: ephemeral brainstorm, single-session working draft, might be discarded.
 
-Full guidelines: `FILE_PERSISTENCE_GUIDELINES.md`
-
 ---
 
-## Locked Decisions — Do Not Change Without Explicit Override
+## Locked Decisions
 
-These are authoritative. Source: `.meta/DECISION_LOG.md` and `ARCHITECTURAL_DECISIONS.md`.
-
-1. **Session 0 narrative architecture** — Four-axis flashback triggers, 5 thematic shared memory events, 7-segment pacing (~145 min play / 4.5-5 hrs with pacing), GM-imposed recognition at campfire
-2. **Player pitch & archetype descriptions** — Describe CURRENT psychological pattern + role function only. No hints of fallen godhood, past power, or cosmic mystery.
-3. **Cosmological architecture** — 7/8 decisions locked (2026-03-08). See DECISION_LOG for full list. Pending: Wizard's awareness/motivation (Options A/B/C; B+C recommended but unresolved).
-4. **Tools as animistic divine marks** — Tools = externalized divine nature; possess consciousness; remember hero's past; have agency (can refuse/resist); serve as mirrors of R/H/K alignment
-5. **5 Thematic shared memory events** — Not 12+. Event-centric design. Flexible pairing. Titles: The Warrior's Choice, The Question of Sight, The Weight of Choice, Aspirations Undone, The Wizard's Shadow
-6. **Liberation framing** — Liberation = massive beacon event → Warren ripples → drew attention of entities with agendas. NOT ecosystem damage. Do not use "ecosystem damage" framing.
-7. **Charm system REMOVED** — Archived to `archive/charms/` (2026-03-13). Mechanical identity now carried by Vestiges/Memory Fragments/The Wrongness. Do not reintroduce charms.
+See `lat.md/decisions.md` — authoritative table with dates, domains, and gate status. Do not modify locked decisions without explicit direction.
 
 ---
 
@@ -120,7 +81,6 @@ These are authoritative. Source: `.meta/DECISION_LOG.md` and `ARCHITECTURAL_DECI
 - Do NOT reveal to players that they ARE the heroes — discovered through play
 - Do NOT hint at fallen godhood in archetype descriptions or player-facing text
 - Do NOT use "sleeping entity" language — use "Held Breath" for liminal consciousnesses
-- Do NOT frame the Wizard's awareness/motivation until Decision 4 is resolved
 - Do NOT write endgame scenarios without the Three-Layer Revelation structure
 - Do NOT explain cosmological architecture to players directly — encountered only through practical effects
 - Do NOT delete the `archive/` directory or its contents — kept for reference
@@ -128,13 +88,9 @@ These are authoritative. Source: `.meta/DECISION_LOG.md` and `ARCHITECTURAL_DECI
 
 ---
 
-## R/H/K System (Reframed 2026-03-08)
+## R/H/K System
 
-- **Resist:** Warren protecting its investment, OR protecting itself from what the hero is about to do
-- **Hunger:** Warren (or its denizens) calling for energy use, for reasons the hero may not understand
-- **Know:** Warren-mediated revelation — what the Warren WANTS the hero to know (may be true, partial, or strategically framed)
-
-This is NOT the tool being protective of the hero. NOT neutral truth-delivery.
+Warren allegiance, not tool loyalty — see `lat.md/cosmology.md` for full definitions.
 
 ---
 
@@ -152,25 +108,9 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 | File | Purpose |
 |---|---|
 | `TODO.md` | Active work, blockers, project health — source of truth for session priorities |
-| `DECISION_LOG.md` | All design decisions with rationale and lock status |
-| `ARCHITECTURAL_DECISIONS.md` | Project structure, workflow guidance, persona definitions |
-| `FILE_PERSISTENCE_GUIDELINES.md` | What goes to filesystem vs. stays in context |
-| `PERSONA_ENGAGEMENT_GUIDE.md` | Full persona protocols for Lore Keeper and Mythweaver |
 | `narrative/sessions/00_session0/` | Session 0 awakening scenario files |
-| `world/factions/Index.md` | Faction scaffolding (individual files TBD) |
 | `templates/tarim-shaiel-campaign-frame-v2.md` | Primary player-facing campaign frame |
 | `utilities/dashboard/generate_dashboard.py` | Project health dashboard script |
-| `archive/charms/` | Archived charm system (15 files) — reference only |
-
----
-
-## Working Directory
-
-**Content sessions** (prose, lore, TODO/BACKLOG edits, find-and-replace, world-building): edit files directly in `/Users/mo/Documents/Games/HeroHeaven/` — do NOT use the worktree. Commit directly to `main`.
-
-**Pipeline/infra sessions** (generator scripts, `netlify.toml`, CI/CD): use the worktree or a local branch, PR → merge → triggers rebuild.
-
-Claude Code creates a worktree automatically at conversation start — ignore it for content work. The distinction is what's immediately visible locally vs. what requires a roundtrip through GitHub.
 
 ---
 
@@ -189,11 +129,13 @@ Claude Code creates a worktree automatically at conversation start — ignore it
 - **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.
 - **TODO.md is the session anchor.** Start each session by reading it. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work.
 - **Update `last_updated` frontmatter** when editing any persistent file.
-- **DECISION_LOG.md gets an entry** for any significant design choice — include date, decision, rationale, and lock status.
+- **Append an entry to `.meta/DECISION_LOG.md`** for any significant design choice — include date, decision, rationale, and lock status. (Write only; do not read the archive.)
 - **Batch minor inconsistencies** rather than interrupting mid-flow; surface them in a summary.
 - **Scope restatement** is appropriate when a conversation drifts — ground back to TODO.md and active blockers.
 - When working on narrative prose, match the benchmark register (Warrior Awakening v2.0).
 - Archetype descriptions are for PLAYER eyes — keep them in present-tense psychological framing.
+- **Content vs. pipeline:** Prose, lore, and world-building work edits files directly. Generator scripts and CI/CD work uses a feature branch and PR.
+- **Subagent context maintenance:** When updating the Quick Navigation table, Hard Constraints, or Narrative Tone section, also update `lat.md/subagent-context.md` in the same commit.
 - **New planned TODO items get a GitHub Issue.** When writing or significantly expanding a TODO item that meets all qualifying criteria (status `[ ]`/`[-]`/`[/]`, has title + implementation context, lives in ACTIVE or BLOCKED), create a GitHub Issue as part of that same work unit — not as a follow-up. Add the inline reference (`[#NN](url)`) to the TODO item before committing. For retrospective catch-up on existing items, run an explicit "sync TODO→issues" pass. Qualifying criteria: item represents a discrete unit of work or decision; sub-tasks belong in the issue body as a checklist, not as separate issues.
 
 - **Issue-first discipline — treat work as a group effort.** Any non-trivial line of work should be documented before it is implemented, as if a different session (or a different person entirely) might be the one to execute it. The GitHub Issue is the spec. Before beginning implementation, ensure the issue contains: (1) **background and motivation** — what led here, what decisions are already locked; (2) **implementation plan** — ordered checklist of concrete steps; (3) **open questions** — design decisions that need resolution before or during the work; (4) **reference files** — key paths, relevant DECISION_LOG entries, prior session context. If the issue doesn't have this, write it first. This discipline applies to both new issues and existing ones being picked up mid-stream.
@@ -226,31 +168,7 @@ Examples:
 
 **Branching:** Single `main` branch. All work goes directly to main.
 
-**Cloud session exception:** When running through the Claude Code cloud harness (e.g. Claude.ai Base), the harness enforces a `claude/*` branch and blocks pushes to `main` with a 403. In that case:
-1. Commit to `main` locally as normal
-2. Push to the harness-designated branch (`git push origin main:<harness-branch>`)
-3. The user will merge to `main` from their local machine
-
-This is expected behaviour — not an error. Do not attempt to override it.
-
-**Long-lived branch inflation — process trap:** The harness assigns one `claude/*` branch per session and locks it for that session's lifetime. All commits land on that branch. If the branch is not rebased onto `main` after each PR merge, subsequent sessions accumulate "ghost" commits — prior session commits that are already in `main` but still appear as ahead on the branch. This inflates commit counts and makes PRs look larger than they are.
-
-**Fix at the start of each session:**
-```bash
-git fetch origin main
-git rebase origin/main
-git push --force-with-lease origin <harness-branch>
-```
-If the rebase hits conflicts on generated files (e.g. `docs/dashboard.html`), skip those commits with `git rebase --skip` — they are chore artifacts already in `main`. If the rebase drops all commits (everything already upstream), the branch is clean; push to confirm.
-
-**Push 413 — diagnose before retrying:** If a push fails with a 413, first check whether the remote branch exists:
-```
-git ls-remote --heads origin <branch-name>
-```
-- **Branch missing** → use `--no-thin`. A thin pack assumes the remote has base objects to delta against; if the branch was deleted those objects are gone, producing the 413. `--no-thin` sends a self-contained packfile and resolves this.
-- **Branch present** → `--no-thin` is not the fix (it sends a *larger* payload). The issue is something else — genuinely oversized payload, proxy limit, network problem. Investigate rather than retry blindly.
-
 **Never commit:**
 - Mid-draft prose that is actively being revised in the same session
-- Temporary notes that will be discarded (use in-context only per FILE_PERSISTENCE_GUIDELINES.md)
+- Temporary notes that will be discarded (use in-context only; see File Persistence Rule above)
 - Binary/asset files covered by `.gitignore`
