@@ -46,6 +46,11 @@ _What happened this session. Newest first. Trim to last 3 sessions; older entrie
   - Fixed stale Wizard constraint ("Decision 4 unresolved") — Decision 4 locked 2026-03-17
   - DECISION_LOG convention clarified as write-only (do not read archive)
   - Added subagent-context maintenance rule to Working Conventions
+- Ran 3-question post-implementation baseline test (parallel Explore agents with subagent-context.md injected):
+  - Q1 "What are the locked decisions?": 1 file / 59 lines (vs. 908 baseline) — `.meta/DECISION_LOG.md` never opened ✅
+  - Q2 "What happened in previous sessions?": 4 files / 282 lines (vs. 1,307 baseline, −78%) — `transcripts/` never opened ✅; agent read CLAUDE.md + narrative file (reasonable for question)
+  - Q3 "Write a Warrior archetype description": 2 files / 198 lines (vs. 1,423 baseline) — routed through `lat.md/characters.md` first; constraints applied correctly ✅
+  - All 3 primary suppressor goals achieved (no `.meta/` reads, no `transcripts/` reads)
 
 ### 2026-04-11 (continued)
 - Fixed `visibility: public` → `visibility: internal` on all 6 `lat.md/` files; added `internal` to CLAUDE.md frontmatter spec
