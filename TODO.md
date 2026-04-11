@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-04-07
+last_updated: 2026-04-11
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -15,13 +15,14 @@ banner-y: 37
 
 ## PROJECT HEALTH
 
-**Last Updated:** 2026-04-05
+**Last Updated:** 2026-04-11
 **Critical Path:** Resolve cosmological architecture → Complete Session 0 scenarios → Resolve Campaign Frame → Playtest
 
 **Quick Summary:**
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (all 8 decisions locked 2026-03-17)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
 - 🔄 **Active work:** Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ~~⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)~~ ✅ **Resolved 2026-04-05** — v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)
+- 🗒️ **Backlog added (2026-04-11):** `lat.md/` AI navigation layer — 6 dense, path-forward orientation files (`cosmology`, `session0`, `characters`, `world`, `mechanics`, `decisions`) + CLAUDE.md Quick Navigation table. Reduces session orientation from CLAUDE.md+search+file reads to one targeted read. [#121](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/121)
 - 🗒️ **Backlog added (2026-04-07):** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization, LK sync docs, click-through to event pages. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
 - 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
@@ -35,6 +36,15 @@ banner-y: 37
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-04-11
+- Explored lat.md (Agent Lattice) as an AI navigation pattern for the vault — `[[wikilinks]]` convention matches directly; identified key gap: vault has content graph but no curated AI-readable orientation layer
+- Established design constraints: dense not narrative, path-forward (wikilinks to source-of-truth), 20–40 lines per file, locked 🔒 / open ❓ flagged, Obsidian wikilink format
+- Designed `lat.md/` layer: 6 orientation files — `cosmology.md`, `session0.md`, `characters.md`, `world.md`, `mechanics.md`, `decisions.md`
+- CLAUDE.md to gain Quick Navigation table pointing to all 6 files with "when to read" column; no content removed
+- Maintenance protocol: Lore Keeper updates relevant `lat.md/` file in same commit as source-of-truth changes
+- Filed [#121](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/121): `infra: create lat.md/ AI navigation layer`
+- **Out of scope (deferred):** lat.md CLI install, lat check, lat mcp server, semantic search
 
 ### 2026-04-02 / 2026-04-05
 - Completed Phase 1 of #79: `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — all 18 Tarim-Shaiel-flavored ancestry descriptions (player-facing artifact)
