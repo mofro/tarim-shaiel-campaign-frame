@@ -62,11 +62,5 @@ last_updated: 2026-04-11
 - Cosmic Conscription (Decision 11) ❓ — expulsion as punishment vs. deployment; unresolved, gates Celestial Court + full Wizard motivation
 - Celestial Court nature ❓ — distributed will option most interesting; not yet decided
 
-## Key Files
-- [[.meta/DECISION_LOG.md]] § Decision 6 (liberation framing), § Decisions 2&3 (Held Breath), § Decision 4 (Wizard) — Decisions 1–8 in full (sessions 2026-03-08 and 2026-03-17)
-- [[narrative/lore/liberation_aftermath.md]] — liberation prose (Warren beacon framing, 1,000-year aftermath)
-- [[world/mythology/]] — Cosmological lore for player-facing content
-- [[narrative/gm_secrets/]] — Held Breath details, Wizard layer, Divine Players
-- [[narrative/gm_secrets/DIVINE_PLAYERS.md]] — Seven divine players, alignment map
-- [[narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md]] — Six CPs + Held Breath escalation
-- [[narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md]] — Who knows what
+## Only if the summary above doesn't answer it
+- [[.meta/DECISION_LOG.md]] § Decision 6 (liberation framing), § Decisions 2&3 (Held Breath), § Decision 4 (Wizard)

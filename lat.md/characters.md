@@ -66,11 +66,9 @@ last_updated: 2026-04-11
 - [[characters/NPCs/]] — named NPCs with images and stat blocks
 - [[characters/NPCs/Narrator/Narrator.md]] — The Narrator NPC
 
-## Key Files
+## Only if the summary above doesn't answer it
 - [[characters/archetypes.md]] — 6 core archetypes with thematic tensions
-- [[.meta/DECISION_LOG.md]] § Player Pitch & Archetype Development (archetype one-liners + design philosophy) — Decision 10 (Surrendered-Layer), Decision 5 (R/H/K/tools)
-- [[mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md]] — 4-stage tool evolution (crude → legendary)
-- [[world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md]] — all 18 ancestries (player-facing)
+- [[.meta/DECISION_LOG.md]] § Player Pitch & Archetype Development (archetype one-liners + design philosophy)
 
 ## Avoid
 - `characters/Index.md` — Dataview queries only; not Claude-readable

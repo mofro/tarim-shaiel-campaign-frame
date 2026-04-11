@@ -58,10 +58,6 @@ last_updated: 2026-04-11
 - 6 priority ancestries renamed with Tarim-Shaiel cultural anchors (Vanara, Div-Born, Gavar, Tadbir, Pari-Kin, Khavar)
 - Player-facing descriptions: [[world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md]]
 
-## Key Files
+## Only if the summary above doesn't answer it
 - [[mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md]] — tool evolution + tether mechanics
-- [[mechanics/design-decisions/DECISION_LOG.md]] — early mechanics decisions
-- [[mechanics/GLOSSARY_GM.md]] — GM vocabulary (Convergence Point defined here)
-- [[world/GLOSSARY_PLAYER.md]] — player-facing vocabulary stub
-- [[.meta/DECISION_LOG.md]] — Decisions 5, 10, 13 for mechanics context
-- [[archive/charms/]] — archived charm system (reference only)
+- [[.meta/DECISION_LOG.md]] § Decisions 5, 10, 13 for mechanics context
