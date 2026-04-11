@@ -74,5 +74,4 @@ last_updated: 2026-04-11
 - Cut to black before anyone speaks; session ends on realization, not explanation
 
 ## Only if the summary above doesn't answer it
-- [[.meta/DECISION_LOG.md]] § Shared Memory Events Architecture — Session 0 architecture entries (2026-01-08)
 - [[narrative/Shared_Memory_Events.md]] — SME event stubs + CP distribution

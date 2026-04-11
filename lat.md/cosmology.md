@@ -62,9 +62,6 @@ last_updated: 2026-04-11
 - Cosmic Conscription (Decision 11) ❓ — expulsion as punishment vs. deployment; unresolved, gates Celestial Court + full Wizard motivation
 - Celestial Court nature ❓ — distributed will option most interesting; not yet decided
 
-## Only if the summary above doesn't answer it
-- [[.meta/DECISION_LOG.md]] § Decision 6 (liberation framing), § Decisions 2&3 (Held Breath), § Decision 4 (Wizard)
-
 ## Do not read
 - `narrative/lore/liberation_aftermath.md` — liberation prose; framing is fully covered in the summary above; only read if prose specifically requested
 - `narrative/gm_secrets/MID_CAMPAIGN_CONVERGENCE_ARCHITECTURE.md` — deep CP architecture; only read if convergence point specifics requested

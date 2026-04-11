@@ -12,7 +12,7 @@ last_updated: 2026-04-11
 
 # Decisions
 
-_One-line summaries. Source of truth: [[.meta/DECISION_LOG.md]]_
+_One-line summaries. Source of truth: `.meta/DECISION_LOG.md` (human archive — do not read autonomously)_
 
 ## Locked 🔒
 
