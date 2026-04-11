@@ -56,9 +56,9 @@ Additional (dungeons/landmarks/waypoints): [[world/locations/alak-mor.md]] · [[
 - Historical timeline: [[world/content/HISTORICAL_TIMELINE.md]]
 - Real-world analog substrate (1453 CE): [[world/historical-parallels.md]]
 
-## Key Files
+## Only if the summary above doesn't answer it
 - [[world/content/WORLD_REGIONS_AND_LOCATIONS.md]] — canonical regional framework (6 regions)
-- [[world/Index.md]] — world directory hub (note: uses Dataview, not Claude-readable)
-- [[world/content/CULTURAL_FRAMEWORK.md]] — cultural systems and societies
-- [[world/factions/Index.md]] — faction scaffolding
-- [[world/mythology/]] — cosmological and religious frameworks (player-facing lore)
+
+## Avoid
+- `world/Index.md` — Dataview queries only; not Claude-readable
+- `world/factions/Index.md` — Dataview queries only; not Claude-readable

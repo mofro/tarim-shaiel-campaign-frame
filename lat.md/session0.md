@@ -73,9 +73,6 @@ last_updated: 2026-04-11
 - Vision: emotionally specific, visually vague — architecture of care, voices as peers, serene
 - Cut to black before anyone speaks; session ends on realization, not explanation
 
-## Key Files
-- [[narrative/sessions/00_session0/Sessions_Structure.md]] — full locked structure (§ Shared Memory Events Architecture for event details; § Flashback Triggering System for 4-axis triggers)
-- [[narrative/sessions/00_session0/Session_0_Introduction.md]] — opening framework text
-- [[narrative/sessions/00_session0/gm_secrets/]] — design notes, surrendered-layer framework
+## Only if the summary above doesn't answer it
 - [[.meta/DECISION_LOG.md]] § Shared Memory Events Architecture — Session 0 architecture entries (2026-01-08)
 - [[narrative/Shared_Memory_Events.md]] — SME event stubs + CP distribution
