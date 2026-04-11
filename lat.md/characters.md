@@ -8,6 +8,8 @@ created: 2026-04-11
 last_updated: 2026-04-11
 ---
 
+> _Navigation layer — points to where answers live, not what they are. Follow specific links below. Avoid index files with Dataview queries and `transcripts/` — neither is a canonical source._
+
 # Characters
 
 ## Archetype Description Rule 🔒
@@ -66,7 +68,10 @@ last_updated: 2026-04-11
 
 ## Key Files
 - [[characters/archetypes.md]] — 6 core archetypes with thematic tensions
-- [[.meta/DECISION_LOG.md]] — Decision 10 (Surrendered-Layer), Decision 5 (R/H/K/tools)
+- [[.meta/DECISION_LOG.md]] § Player Pitch & Archetype Development (archetype one-liners + design philosophy) — Decision 10 (Surrendered-Layer), Decision 5 (R/H/K/tools)
 - [[mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md]] — 4-stage tool evolution (crude → legendary)
-- [[characters/Index.md]] — character frameworks index
 - [[world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md]] — all 18 ancestries (player-facing)
+
+## Avoid
+- `characters/Index.md` — Dataview queries only; not Claude-readable
+- `transcripts/` — historical session logs; not canonical; constraints live in DECISION_LOG and archetypes.md

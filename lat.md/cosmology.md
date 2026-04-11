@@ -8,6 +8,8 @@ created: 2026-04-11
 last_updated: 2026-04-11
 ---
 
+> _Navigation layer — points to where answers live, not what they are. Follow specific links below. Avoid index files with Dataview queries and `transcripts/` — neither is a canonical source._
+
 # Cosmology
 
 ## The Mythic Ecosystem 🔒
@@ -61,7 +63,8 @@ last_updated: 2026-04-11
 - Celestial Court nature ❓ — distributed will option most interesting; not yet decided
 
 ## Key Files
-- [[.meta/DECISION_LOG.md]] — Decisions 1–8 in full (sessions 2026-03-08 and 2026-03-17)
+- [[.meta/DECISION_LOG.md]] § Decision 6 (liberation framing), § Decisions 2&3 (Held Breath), § Decision 4 (Wizard) — Decisions 1–8 in full (sessions 2026-03-08 and 2026-03-17)
+- [[narrative/lore/liberation_aftermath.md]] — liberation prose (Warren beacon framing, 1,000-year aftermath)
 - [[world/mythology/]] — Cosmological lore for player-facing content
 - [[narrative/gm_secrets/]] — Held Breath details, Wizard layer, Divine Players
 - [[narrative/gm_secrets/DIVINE_PLAYERS.md]] — Seven divine players, alignment map
