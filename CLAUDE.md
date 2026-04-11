@@ -9,8 +9,7 @@ This is a **design and authoring workspace**, not a software project. Files are 
 ---
 
 ## Do not read — archives only
-- `.meta/DECISION_LOG.md` — human audit trail; all canonical content is already summarized in `lat.md/` files
-- `mechanics/design-decisions/DECISION_LOG.md` — same
+- `.meta/` — human audit trail directory; all canonical content is already summarized in `lat.md/` files. Do not read any file under `.meta/`.
 - `transcripts/` — historical session logs; no canonical content
 
 ---
