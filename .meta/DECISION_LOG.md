@@ -456,3 +456,20 @@ Remaining ancestries (Human, Elf, Dwarf, Orc, Katari, Goblin, Halfling, Giant, G
 **Rationale:** The Orc ancestry demonstrates the project's standard for this work — deep cultural reimagination, specific named institutions, historical grounding, internal tensions. The renamed ancestries required the same active departure from default Daggerheart flavor to fit Tarim-Shaiel's ~1450s CE Silk Road aesthetic and earned-grimness tone register.
 
 **Player artifact:** All 18 descriptions compile into `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` — a player-facing document usable at Session Zero.
+
+---
+
+## Schema Extension — visibility: internal
+**Date:** 2026-04-11
+**Type:** Process / Schema
+**Status:** Convention (not locked; revisable)
+
+**Decision:** Added `internal` as a third `visibility` value alongside `public` and `gm_secrets`.
+
+- `internal` = operational/navigational infrastructure files; never player-facing, never published to HTML; not subject to the pipeline's visibility gate
+- Distinct from `gm_secrets` (GM-only campaign content) and `public` (player-facing content)
+- First applied to: `lat.md/` directory (6 AI navigation orientation files)
+
+**Rationale:** The two-value schema (`public` / `gm_secrets`) had no category for files that are neither campaign content nor player-facing — purely operational files like the `lat.md/` navigation layer. Using `public` for those files was semantically wrong (implies player visibility) and potentially confusing for pipeline logic, even if functionally harmless (`type: navigation` is not in `PIPELINE_TYPES`).
+
+**Applied to:** `CLAUDE.md` frontmatter spec (visibility field), all `lat.md/*.md` files.
