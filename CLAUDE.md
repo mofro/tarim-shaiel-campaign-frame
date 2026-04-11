@@ -168,6 +168,8 @@ Examples:
 
 **Branching:** Single `main` branch. All work goes directly to main.
 
+**Remote operations:** Prefer `mcp__github__*` tools (create/update files, create branches) over Bash git commands for anything touching the remote. Bash git is for local operations; MCP tools are more reliable for remote ones and sidestep push/413 issues entirely.
+
 **Cloud session exception:** When running through the Claude Code cloud harness (e.g. Claude.ai Base), the harness enforces a `claude/*` branch and blocks pushes to `main` with a 403. In that case:
 1. Commit to `main` locally as normal
 2. Push to the harness-designated branch (`git push origin main:<harness-branch>`)
