@@ -2,7 +2,7 @@
 title: Gavar — Keepers of the Threshold
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: public | gm_secrets
+visibility: public
 daggerheart_name: Firbolg
 published: true
 status: draft

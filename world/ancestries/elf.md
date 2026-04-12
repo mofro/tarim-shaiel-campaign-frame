@@ -2,7 +2,7 @@
 title: Serenvar
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: gm_secrets
+visibility: public
 status: stub
 daggerheart_name: Elf
 published: true

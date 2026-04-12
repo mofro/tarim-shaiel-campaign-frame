@@ -2,7 +2,7 @@
 title: Tulpar — Children of the Broken Chains
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: public | gm_secrets
+visibility: public
 status: draft
 daggerheart_name: Orc
 published: true

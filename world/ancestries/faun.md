@@ -2,7 +2,7 @@
 title: Pari-Kin — Children of the Liminal
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: gm_secrets
+visibility: public
 daggerheart_name: Faun
 published: true
 status: draft

@@ -2,7 +2,7 @@
 title: Tadbir — The Intended Minds
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: public | gm_secrets
+visibility: public
 daggerheart_name: Clank
 published: true
 status: draft
