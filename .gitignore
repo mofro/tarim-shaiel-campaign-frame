@@ -39,7 +39,7 @@ references/
 *.webarchive
 
 # Workflow and build artifacts
-*.html
+docs/*.html
 
 # External tool integration (not source content)
 moulinette/
