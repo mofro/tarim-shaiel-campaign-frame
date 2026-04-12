@@ -529,7 +529,6 @@ _INDEX_CSS = """
       height: 1px; background: var(--gold); opacity: 0.4;
     }
 """
-"""
 
 
 def _card_html(filename: str, title: str, meta: str, desc: str, gm: bool = False) -> str:
