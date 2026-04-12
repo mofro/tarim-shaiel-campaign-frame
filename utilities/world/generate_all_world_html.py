@@ -31,6 +31,9 @@ HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
 from generate_world_html import parse_frontmatter, render_timeline_html, build_myth_html
 
+sys.path.insert(0, str(HERE.parent))   # makes utilities/shared importable
+from shared.assets import prepare_image
+
 # ── discovery config ──────────────────────────────────────────────────────────
 PIPELINE_TYPES = {'timeline', 'myth', 'lore'}
 
@@ -42,6 +45,50 @@ SKIP_DIRS = {'archive', 'references', 'utilities', '.git', 'docs', 'templates'}
 
 # File-name prefixes that are skipped (templates, test fixtures)
 SKIP_PREFIXES = ('_',)
+
+CATEGORY_DISPLAY_NAMES: dict[str, str] = {
+    'world':      'World',
+    'narrative':  'Narrative',
+    'gm_secrets': 'GM Secrets',
+}
+
+CATEGORY_DESCRIPTIONS: dict[str, str] = {
+    'world':      'Geography, history, factions, and peoples.',
+    'narrative':  'Session write-ups, fiction, and campaign prose.',
+    'gm_secrets': 'GM-only reference material.',
+}
+
+
+def _category_label(folder: str) -> str:
+    return CATEGORY_DISPLAY_NAMES.get(folder, folder.replace('_', ' ').title())
+
+
+# ── category config helpers ───────────────────────────────────────────────────
+
+def _find_folder_path(vault: Path, folder: str) -> Path | None:
+    """Return the filesystem path of a named folder under any SCAN_ROOT."""
+    for root_name in SCAN_ROOTS:
+        p = vault / root_name / folder
+        if p.is_dir():
+            return p
+    p = vault / folder
+    return p if p.is_dir() else None
+
+
+def _read_category_config(vault: Path, folder: str) -> dict:
+    """Read optional _category.md config for a folder. Returns frontmatter dict or {}."""
+    folder_path = _find_folder_path(vault, folder)
+    if folder_path is None:
+        return {}
+    cfg_file = folder_path / '_category.md'
+    if not cfg_file.exists():
+        return {}
+    try:
+        raw = cfg_file.read_text(encoding='utf-8')
+        fm, _ = parse_frontmatter(raw)
+        return fm
+    except Exception:
+        return {}
 
 
 # ── discovery ─────────────────────────────────────────────────────────────────
@@ -55,9 +102,9 @@ def _should_skip(path: Path, vault: Path) -> bool:
     return False
 
 
-def discover_sources(vault: Path) -> list[Path]:
-    """Return all .md files under SCAN_ROOTS with a recognised pipeline type."""
-    found = []
+def discover_sources(vault: Path) -> dict[str, list[Path]]:
+    """Return all .md files under SCAN_ROOTS bucketed by parent folder name."""
+    buckets: dict[str, list[Path]] = {}
     for root_name in SCAN_ROOTS:
         root = vault / root_name
         if not root.exists():
@@ -71,8 +118,16 @@ def discover_sources(vault: Path) -> list[Path]:
                 continue
             m = re.search(r'^type:\s*(\w+)', head, re.MULTILINE)
             if m and m.group(1).lower() in PIPELINE_TYPES:
-                found.append(md)
-    return found
+                # TODO: section: frontmatter override — folder = fm.get('section') or src.parent.name
+                folder = md.parent.name
+                buckets.setdefault(folder, []).append(md)
+    # Apply _category.md suppression
+    suppressed = [f for f in list(buckets.keys())
+                  if _read_category_config(vault, f).get('published') is False]
+    for folder in suppressed:
+        print(f'  SUPPRESS  category "{folder}" (published: false in _category.md)')
+        del buckets[folder]
+    return buckets
 
 
 def _slug(src: Path) -> str:
@@ -82,55 +137,65 @@ def _slug(src: Path) -> str:
 
 # ── generation ────────────────────────────────────────────────────────────────
 
-def generate_all(vault: Path, docs: Path, dry_run: bool = False, public_only: bool = False) -> list[dict]:
-    """Generate HTML for every discovered source. Returns list of doc metadata.
+def generate_all(
+    vault: Path, docs: Path,
+    dry_run: bool = False,
+    public_only: bool = False,
+    grouped_sources: dict[str, list[Path]] | None = None,
+) -> dict[str, list[dict]]:
+    """Generate HTML for every discovered source. Returns docs grouped by folder.
 
     Args:
         public_only: When True, only generate docs explicitly tagged
                      visibility: public (fails closed — missing/other → skipped).
+        grouped_sources: Pre-computed discover_sources() result. If None, calls
+                         discover_sources() internally (preserves backward compat).
     """
-    sources = discover_sources(vault)
-    generated = []
+    if grouped_sources is None:
+        grouped_sources = discover_sources(vault)
 
-    for src in sources:
-        raw = src.read_text(encoding='utf-8')
-        fm, body = parse_frontmatter(raw)
-        doc_type = fm.get('type', '').lower()
-        if doc_type not in PIPELINE_TYPES:
-            continue
+    grouped: dict[str, list[dict]] = {}
 
-        # Visibility gate (fails closed): require explicit visibility: public.
-        # Default is 'gm_secrets' — untagged docs are treated as GM-only.
-        visibility = fm.get('visibility', 'gm_secrets')
-        if public_only and visibility != 'public':
-            rel = src.relative_to(vault)
-            print(f'  SKIP     {rel}  (not visibility: public)')
-            continue
+    for folder, sources in grouped_sources.items():
+        for src in sources:
+            raw = src.read_text(encoding='utf-8')
+            fm, body = parse_frontmatter(raw)
+            doc_type = fm.get('type', '').lower()
+            if doc_type not in PIPELINE_TYPES:
+                continue
 
-        slug     = _slug(src)
-        out_path = docs / f'{slug}.html'
-        rel      = src.relative_to(vault)
+            # Visibility gate (fails closed): require explicit visibility: public.
+            # Default is 'gm_secrets' — untagged docs are treated as GM-only.
+            visibility = fm.get('visibility', 'gm_secrets')
+            if public_only and visibility != 'public':
+                rel = src.relative_to(vault)
+                print(f'  SKIP     {rel}  (not visibility: public)')
+                continue
 
-        print(f'  {doc_type:8}  {rel}  →  docs/{slug}.html')
+            slug     = _slug(src)
+            out_path = docs / f'{slug}.html'
+            rel      = src.relative_to(vault)
 
-        if not dry_run:
-            if doc_type == 'timeline':
-                html = render_timeline_html(fm, body)
-            else:
-                html = build_myth_html(fm, body)
-            docs.mkdir(parents=True, exist_ok=True)
-            out_path.write_text(html, encoding='utf-8')
+            print(f'  {doc_type:8}  {rel}  →  docs/{slug}.html')
 
-        generated.append({
-            'title':       fm.get('title') or slug.replace('-', ' ').title(),
-            'type':        doc_type,
-            'visibility':  visibility,   # 'gm_secrets' if untagged (safe default)
-            'calendar':    fm.get('calendar', ''),
-            'description': fm.get('description', ''),
-            'filename':    f'{slug}.html',
-        })
+            if not dry_run:
+                if doc_type == 'timeline':
+                    html = render_timeline_html(fm, body)
+                else:
+                    html = build_myth_html(fm, body)
+                docs.mkdir(parents=True, exist_ok=True)
+                out_path.write_text(html, encoding='utf-8')
 
-    return generated
+            grouped.setdefault(folder, []).append({
+                'title':       fm.get('title') or slug.replace('-', ' ').title(),
+                'type':        doc_type,
+                'visibility':  visibility,   # 'gm_secrets' if untagged (safe default)
+                'calendar':    fm.get('calendar', ''),
+                'description': fm.get('description', ''),
+                'filename':    f'{slug}.html',
+            })
+
+    return grouped
 
 
 # ── index generator ───────────────────────────────────────────────────────────
@@ -217,13 +282,29 @@ _INDEX_CSS = """
       font-family: 'Inconsolata', monospace; font-size: 12px;
       color: rgba(245,237,216,0.3); letter-spacing: 0.1em;
     }
+    .doc-card.gm-secrets {
+      background: rgba(122,31,31,0.04);
+      border-color: rgba(122,31,31,0.25);
+    }
+    .doc-card.gm-secrets:hover {
+      background: rgba(122,31,31,0.08);
+      border-color: var(--crimson);
+    }
+    .back-link {
+      display: inline-block; margin-bottom: 24px;
+      font-family: 'Inconsolata', monospace; font-size: 12px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none; opacity: 0.75;
+    }
+    .back-link:hover { opacity: 1; }
 """
 
 
 def _card_html(filename: str, title: str, meta: str, desc: str, gm: bool = False) -> str:
     gm_badge = '<span class="gm-badge">GM</span>' if gm else ''
+    extra    = ' gm-secrets' if gm else ''
     return (
-        f'    <a class="doc-card" href="{escape(filename)}">\n'
+        f'    <a class="doc-card{extra}" href="{escape(filename)}">\n'
         f'      <div class="doc-title">{escape(title)}{gm_badge}</div>\n'
         f'      <div class="doc-meta">{escape(meta)}</div>\n'
         f'      <div class="doc-desc">{escape(desc)}</div>\n'
@@ -281,31 +362,97 @@ _CORE_DOCS = [
 ]
 
 
-def generate_index(docs: Path, pipeline_docs: list[dict]) -> None:
-    """Write docs/index.html listing core docs + all pipeline-generated docs."""
+def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: list[dict]) -> int:
+    """Write docs/category-{folder}.html. Returns count of docs rendered."""
+    cfg   = _read_category_config(vault, folder)
+    label = cfg.get('title') or _category_label(folder)
+    desc  = cfg.get('description') or CATEGORY_DESCRIPTIONS.get(folder, '')
+
+    # Hero image (optional)
+    hero_style = ''
+    hero_file  = cfg.get('hero_image') or cfg.get('hero')
+    if hero_file:
+        url = prepare_image(hero_file, vault, docs)
+        if url:
+            hero_style = (
+                f' style="background-image: linear-gradient(170deg, '
+                f'rgba(13,10,4,0.92) 0%, rgba(26,18,8,0.85) 50%, rgba(42,31,14,0.9) 100%), '
+                f'url({url}); background-size: cover; background-position: center;"'
+            )
+
+    sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
+    cards_html  = ''.join(
+        _card_html(
+            d['filename'], d['title'], _meta_line(d), _auto_desc(d),
+            gm=(d['visibility'] == 'gm_secrets'),
+        )
+        for d in sorted_docs
+    )
+    count = len(sorted_docs)
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{escape(label)} — Tarim-Shaiel</title>
+  <!-- AUTO-GENERATED by utilities/world/generate_all_world_html.py — do not hand-edit -->
+  <link rel="icon" href="{_FAVICON}">
+  <style>{_INDEX_CSS}  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="header"{hero_style}>
+    <div class="eyebrow">Tarim-Shaiel Campaign &middot; Daggerheart System</div>
+    <div class="title">{escape(label)}</div>
+    <div class="subtitle">{escape(desc)}</div>
+  </div>
+
+  <div class="content">
+    <a class="back-link" href="index.html">&#8592; All Categories</a>
+    <div class="section-label">{escape(label)} ({count})</div>
+{cards_html}
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">AUTO-GENERATED &mdash; DO NOT HAND-EDIT &mdash; {count} DOCUMENTS &mdash; SOURCE: GITHUB MAIN BRANCH</div>
+  </div>
+
+</div>
+</body>
+</html>
+"""
+    (docs / f'category-{folder}.html').write_text(html, encoding='utf-8')
+    return count
+
+
+def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path | None = None) -> None:
+    """Write docs/index.html listing core docs + Browse by Category section."""
     core_html = ''.join(
         _card_html(d['filename'], d['title'], d['meta'], d['desc'])
         for d in _CORE_DOCS
     )
 
-    world_html = ''
-    if pipeline_docs:
-        sorted_docs = sorted(pipeline_docs, key=lambda d: (d['type'], d['title'].lower()))
-        world_html = (
-            '    <div class="section-label">World Documents</div>\n'
-            + ''.join(
-                _card_html(
-                    d['filename'],
-                    d['title'],
-                    _meta_line(d),
-                    _auto_desc(d),
-                    gm=(d['visibility'] == 'gm_secrets'),
-                )
-                for d in sorted_docs
-            )
+    categories_html = ''
+    if grouped_docs:
+        sorted_folders = sorted(grouped_docs.keys(), key=_category_label)
+        cards = []
+        for folder in sorted_folders:
+            folder_docs = grouped_docs[folder]
+            cfg   = _read_category_config(vault, folder) if vault else {}
+            label = cfg.get('title') or _category_label(folder)
+            desc  = cfg.get('description') or CATEGORY_DESCRIPTIONS.get(folder, '')
+            count = len(folder_docs)
+            has_gm = any(d['visibility'] == 'gm_secrets' for d in folder_docs)
+            meta  = f'{count} document{"s" if count != 1 else ""}' + (' · includes GM content' if has_gm else '')
+            cards.append(_card_html(f'category-{folder}.html', label, meta, desc, gm=has_gm))
+        categories_html = (
+            '    <div class="section-label">Browse by Category</div>\n'
+            + ''.join(cards)
         )
 
-    total = len(_CORE_DOCS) + len(pipeline_docs)
+    total = len(_CORE_DOCS) + sum(len(v) for v in grouped_docs.values())
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -329,7 +476,7 @@ def generate_index(docs: Path, pipeline_docs: list[dict]) -> None:
   <div class="content">
     <div class="section-label">Core Documents</div>
 {core_html}
-{world_html}
+{categories_html}
   </div>
 
   <div class="footer">
@@ -368,12 +515,18 @@ def main() -> None:
         print('Mode: LOCAL (all docs including gm_secrets)')
     print('Scanning for pipeline sources...')
 
-    generated = generate_all(vault, docs, dry_run=args.dry_run, public_only=args.public)
-    print(f'Generated {len(generated)} world document(s).')
+    grouped_sources = discover_sources(vault)
+    grouped_docs    = generate_all(vault, docs, grouped_sources=grouped_sources,
+                                   dry_run=args.dry_run, public_only=args.public)
+    total = sum(len(v) for v in grouped_docs.values())
+    print(f'Generated {total} world document(s) across {len(grouped_docs)} categories.')
 
     if not args.dry_run:
-        generate_index(docs, generated)
-        print(f'Index: docs/index.html ({len(_CORE_DOCS)} core + {len(generated)} world docs)')
+        for folder, folder_docs in sorted(grouped_docs.items()):
+            count = generate_category_page(docs, vault, folder, folder_docs)
+            print(f'  Category: {folder} ({count} doc(s)) → docs/category-{folder}.html')
+        generate_index(docs, grouped_docs, vault=vault)
+        print(f'Index: docs/index.html ({len(_CORE_DOCS)} core + {len(grouped_docs)} categories)')
 
 
 if __name__ == '__main__':
