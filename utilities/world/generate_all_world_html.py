@@ -91,6 +91,112 @@ def _read_category_config(vault: Path, folder: str) -> dict:
         return {}
 
 
+def _extract_concept(body: str) -> str:
+    m = re.search(r'(?ms)^##\s*Concept\s*$\n(.*?)(?:\n^##\s+|\Z)', body)
+    if not m:
+        return ''
+    for line in m.group(1).splitlines():
+        line = line.strip()
+        if re.match(r'^[_*].+[_*]$', line):
+            return re.sub(r'^[_*]+(.+?)[_*]+$', r'\1', line).strip()
+    return ''
+
+
+def _read_site_config(vault: Path) -> dict:
+    cfg_file = vault / 'templates' / 'tarim-shaiel-campaign-frame-v2.md'
+    if not cfg_file.exists():
+        return {}
+    raw = cfg_file.read_text(encoding='utf-8')
+    fm, body = parse_frontmatter(raw)
+    if 'concept' not in fm:
+        fm['concept'] = _extract_concept(body)
+    return fm
+
+
+def _hero_html(config: dict, vault: Path, docs: Path) -> str:
+    banner = str(config.get('banner', '')).strip()
+    banner_style = ''
+    if banner:
+        if re.match(r'^(https?:|data:)', banner):
+            url = banner
+        else:
+            url = prepare_image(banner, vault, docs)
+            if not url:
+                url = banner
+        banner_x = config.get('banner-x') or config.get('banner_x') or '50'
+        banner_y = config.get('banner-y') or config.get('banner_y') or '50'
+        banner_height = config.get('banner-height') or config.get('banner_height') or '360'
+        try:
+            banner_height = int(str(banner_height).strip())
+        except ValueError:
+            banner_height = 360
+        banner_style = (
+            f' style="background-image: linear-gradient(180deg, rgba(17,16,8,0.92) 0%, rgba(17,16,8,0.42) 60%, rgba(17,16,8,0.92) 100%), url({url}); '
+            f'background-size: cover; background-position: {escape(str(banner_x))}% {escape(str(banner_y))}%; min-height: {banner_height}px;'
+        )
+
+    title = config.get('title', 'Tarim Shaiel')
+    subtitle = config.get('subtitle', '')
+    concept = config.get('concept', '')
+
+    subtitle_html = f'    <div class="hero-subtitle">{escape(subtitle)}</div>\n' if subtitle else ''
+    concept_html = f'    <div class="hero-concept">{escape(concept)}</div>\n' if concept else ''
+
+    return (
+        f'  <div class="hero-block"{banner_style}>\n'
+        f'    <div class="hero-overlay">\n'
+        f'      <div class="hero-title">{escape(title)}</div>\n'
+        f'{subtitle_html}'
+        f'{concept_html}'
+        f'    </div>\n'
+        f'  </div>\n'
+    )
+
+
+def _category_section_html(folder: str, folder_docs: list[dict], vault: Path, public_only: bool) -> str:
+    cfg = _read_category_config(vault, folder)
+    label = cfg.get('title') or _category_label(folder)
+    desc = cfg.get('description') or CATEGORY_DESCRIPTIONS.get(folder, '')
+    count = len(folder_docs)
+    has_gm = any(d['visibility'] == 'gm_secrets' for d in folder_docs)
+    plural = 's' if count != 1 else ''
+    meta = f'{count} document{plural}' + (' · includes GM content' if has_gm else '')
+    sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
+    inline_docs = sorted_docs[:6]
+    remainder = max(0, count - len(inline_docs))
+
+    items_html = ''
+    for d in inline_docs:
+        badge = ' <span class="gm-badge">GM</span>' if d['visibility'] == 'gm_secrets' else ''
+        extra = ' gm-secrets' if d['visibility'] == 'gm_secrets' else ''
+        items_html += (
+            f'      <a class="inline-doc-item{extra}" href="{escape(d['filename'])}">{escape(d['title'])}{badge}</a>\n'
+        )
+
+    remainder_html = ''
+    if remainder:
+        remainder_html = f'      <div class="inline-doc-more">+ {remainder} more</div>\n'
+
+    desc_html = f'    <div class="cat-section-desc">{escape(desc)}</div>\n' if desc else ''
+
+    return (
+        '    <div class="cat-section">\n'
+        '      <div class="cat-section-header">\n'
+        '        <div>\n'
+        f'          <div class="cat-section-title">{escape(label)}</div>\n'
+        f'          <div class="cat-section-meta">{escape(meta)}</div>\n'
+        '        </div>\n'
+        f'        <a class="see-all" href="category-{escape(folder)}.html">See all →</a>\n'
+        '      </div>\n'
+        f'{desc_html}'
+        '      <div class="inline-doc-list">\n'
+        f'{items_html}'
+        f'{remainder_html}'
+        '      </div>\n'
+        '    </div>\n'
+    )
+
+
 # ── discovery ─────────────────────────────────────────────────────────────────
 
 def _should_skip(path: Path, vault: Path) -> bool:
@@ -297,6 +403,82 @@ _INDEX_CSS = """
       color: var(--gold); text-decoration: none; opacity: 0.75;
     }
     .back-link:hover { opacity: 1; }
+    .hero-block {
+      position: relative; overflow: hidden;
+      color: #f5edd8; display: flex; align-items: flex-end;
+      border-bottom: 1px solid rgba(184,146,44,0.4);
+    }
+    .hero-block::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(17,16,8,0.18), rgba(17,16,8,0.92));
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: relative; z-index: 1;
+      padding: 48px 56px 52px;
+      width: 100%;
+    }
+    .hero-title {
+      font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 700;
+      letter-spacing: 0.04em; line-height: 1.05; margin-bottom: 12px;
+    }
+    .hero-subtitle {
+      font-size: 1.05rem; color: rgba(245,237,216,0.85); margin-bottom: 14px;
+    }
+    .hero-concept {
+      font-size: 1rem; font-style: italic; color: rgba(245,237,216,0.8);
+      max-width: 42rem;
+    }
+    .cat-section {
+      margin-top: 2.8rem;
+      padding: 28px 26px 22px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      background: rgba(245,237,216,0.95);
+    }
+    .cat-section-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 1rem; margin-bottom: 14px;
+    }
+    .cat-section-title {
+      font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .cat-section-meta {
+      font-family: 'Inconsolata', monospace; font-size: 11px;
+      color: rgba(26,18,8,0.6); text-transform: uppercase; letter-spacing: 0.14em;
+    }
+    .cat-section-desc {
+      font-size: 0.95rem; color: rgba(26,18,8,0.75); margin-bottom: 16px;
+    }
+    .see-all {
+      font-family: 'Cinzel', serif; font-size: 0.95rem;
+      color: var(--gold); text-decoration: none; white-space: nowrap;
+    }
+    .see-all:hover { text-decoration: underline; }
+    .inline-doc-list {
+      display: flex; flex-wrap: wrap; gap: 10px 12px;
+    }
+    .inline-doc-item {
+      display: inline-flex; align-items: center;
+      padding: 10px 14px; border-radius: 999px;
+      background: rgba(26,18,8,0.08); color: var(--ink);
+      text-decoration: none; font-size: 0.95rem;
+      transition: background 0.2s, border-color 0.2s;
+      border: 1px solid transparent;
+    }
+    .inline-doc-item:hover { background: rgba(26,18,8,0.12); }
+    .inline-doc-item.gm-secrets {
+      border-color: rgba(122,31,31,0.25);
+      background: rgba(122,31,31,0.06);
+    }
+    .inline-doc-more {
+      align-self: center; font-family: 'Inconsolata', monospace;
+      font-size: 0.9rem; color: rgba(26,18,8,0.6);
+      padding: 10px 14px; border-radius: 999px;
+      background: rgba(26,18,8,0.04);
+    }
 """
 
 
@@ -427,8 +609,11 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
     return count
 
 
-def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path | None = None) -> None:
-    """Write docs/index.html listing core docs + Browse by Category section."""
+def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path | None = None, public_only: bool = False) -> None:
+    """Write docs/index.html listing core docs with hero and category sections."""
+    config = _read_site_config(vault) if vault else {}
+    hero_html = _hero_html(config, vault, docs) if config else ''
+
     core_html = ''.join(
         _card_html(d['filename'], d['title'], d['meta'], d['desc'])
         for d in _CORE_DOCS
@@ -437,19 +622,9 @@ def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path 
     categories_html = ''
     if grouped_docs:
         sorted_folders = sorted(grouped_docs.keys(), key=_category_label)
-        cards = []
-        for folder in sorted_folders:
-            folder_docs = grouped_docs[folder]
-            cfg   = _read_category_config(vault, folder) if vault else {}
-            label = cfg.get('title') or _category_label(folder)
-            desc  = cfg.get('description') or CATEGORY_DESCRIPTIONS.get(folder, '')
-            count = len(folder_docs)
-            has_gm = any(d['visibility'] == 'gm_secrets' for d in folder_docs)
-            meta  = f'{count} document{"s" if count != 1 else ""}' + (' · includes GM content' if has_gm else '')
-            cards.append(_card_html(f'category-{folder}.html', label, meta, desc, gm=has_gm))
-        categories_html = (
-            '    <div class="section-label">Browse by Category</div>\n'
-            + ''.join(cards)
+        categories_html = ''.join(
+            _category_section_html(folder, grouped_docs[folder], vault, public_only)
+            for folder in sorted_folders
         )
 
     total = len(_CORE_DOCS) + sum(len(v) for v in grouped_docs.values())
@@ -460,18 +635,14 @@ def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarim Shaiel — Campaign Lore</title>
-  <!-- AUTO-GENERATED by utilities/legendkeeper-pipeline/generate_all_world_html.py — do not hand-edit -->
+  <!-- AUTO-GENERATED by utilities/world/generate_all_world_html.py — do not hand-edit -->
   <link rel="icon" href="{_FAVICON}">
   <style>{_INDEX_CSS}  </style>
 </head>
 <body>
 <div class="page-wrap">
 
-  <div class="header">
-    <div class="eyebrow">Tarim-Shaiel Campaign &middot; Daggerheart System</div>
-    <div class="title">Campaign Lore</div>
-    <div class="subtitle">Auto-generated from source files. Last updated on push to main.</div>
-  </div>
+{hero_html}
 
   <div class="content">
     <div class="section-label">Core Documents</div>
@@ -525,7 +696,7 @@ def main() -> None:
         for folder, folder_docs in sorted(grouped_docs.items()):
             count = generate_category_page(docs, vault, folder, folder_docs)
             print(f'  Category: {folder} ({count} doc(s)) → docs/category-{folder}.html')
-        generate_index(docs, grouped_docs, vault=vault)
+        generate_index(docs, grouped_docs, vault=vault, public_only=args.public)
         print(f'Index: docs/index.html ({len(_CORE_DOCS)} core + {len(grouped_docs)} categories)')
 
 
