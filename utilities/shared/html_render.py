@@ -235,7 +235,8 @@ def render_body(body: str, vault: 'Path', docs: 'Path') -> 'tuple[str, list[dict
             for line in para.splitlines():
                 ls = line.strip()
                 if re.match(r'^[-*]\s+', ls):
-                    list_items.append(f'  <li>{inline_md(re.sub(r"^[-*]\s+", "", ls))}</li>\n')
+                    item_text = re.sub(r'^[-*]\s+', '', ls)
+                    list_items.append(f'  <li>{inline_md(item_text)}</li>\n')
                 elif ls and not list_items:
                     prefix_lines.append(ls)
             if prefix_lines:
