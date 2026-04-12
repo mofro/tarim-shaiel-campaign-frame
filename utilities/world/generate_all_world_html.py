@@ -305,7 +305,7 @@ def _category_section_html(folder: str, folder_docs: list[dict], vault: Path, pu
         badge = ' <span class="gm-badge">GM</span>' if d['visibility'] == 'gm_secrets' else ''
         extra = ' gm-secrets' if d['visibility'] == 'gm_secrets' else ''
         items_html += (
-            f'      <a class="inline-doc-item{extra}" href="{escape(d['filename'])}">{escape(d['title'])}{badge}</a>\n'
+            f"      <a class=\"inline-doc-item{extra}\" href=\"{escape(d['filename'])}\">{escape(d['title'])}{badge}</a>\n"
         )
 
     remainder_html = ''
