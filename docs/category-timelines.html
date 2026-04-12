@@ -95,6 +95,41 @@
       color: var(--gold); text-decoration: none; opacity: 0.75;
     }
     .back-link:hover { opacity: 1; }
+    .hero-block {
+      min-height: 320px; display: flex; flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero-concept {
+      font-size: 18px; color: rgba(245,237,216,0.75); font-style: italic;
+      margin-top: 10px; line-height: 1.5; max-width: 520px;
+    }
+    .cat-section { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+    .cat-section:last-child { border-bottom: none; }
+    .cat-section-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; margin-bottom: 14px;
+    }
+    .see-all {
+      font-family: 'Inconsolata', monospace; font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none; opacity: 0.7;
+      white-space: nowrap; margin-left: 16px;
+    }
+    .see-all:hover { opacity: 1; }
+    .doc-list { list-style: none; column-count: 2; column-gap: 24px; }
+    .doc-list li { padding: 3px 0; break-inside: avoid; }
+    .doc-list li a {
+      color: var(--ink); text-decoration: none; font-size: 15px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .doc-list li a:hover { color: var(--crimson); border-bottom-color: var(--rule); }
+    .doc-list li.gm-item a { color: var(--crimson); opacity: 0.75; }
+    .doc-list li.gm-item a:hover { opacity: 1; }
+    .doc-list li.remainder {
+      font-family: 'Inconsolata', monospace; font-size: 12px;
+      color: rgba(26,18,8,0.4); letter-spacing: 0.05em; font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -111,8 +146,8 @@
     <div class="section-label">Timelines (1)</div>
     <a class="doc-card gm-secrets" href="nianhao-the-divine-arc.html">
       <div class="doc-title">Nianhao - The Divine Arc<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Timeline · Menology of Epochs · GM Only</div>
-      <div class="doc-desc">World timeline · Menology of Epochs.</div>
+      <div class="doc-meta">Timeline &middot; Menology of Epochs &middot; GM Only</div>
+      <div class="doc-desc">World timeline &middot; Menology of Epochs.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
 
