@@ -29,15 +29,11 @@ from html import escape
 # ── import sibling generator ──────────────────────────────────────────────────
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
-try:
-    from generate_world_html import parse_frontmatter, render_timeline_html, build_myth_html
-except ImportError:
-    # Fallback to shared
-    from shared.frontmatter import parse_frontmatter
-    from generate_world_html import render_timeline_html, build_myth_html
+from generate_world_html import render_timeline_html, build_myth_html
 
 sys.path.insert(0, str(HERE.parent))   # makes utilities/shared importable
 from shared.assets import prepare_image
+from shared.frontmatter import parse_frontmatter
 
 # ── discovery config ──────────────────────────────────────────────────────────
 PIPELINE_TYPES = {'timeline', 'myth', 'lore'}
