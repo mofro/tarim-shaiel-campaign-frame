@@ -38,5 +38,8 @@ references/
 *.zip
 *.webarchive
 
+# Workflow and build artifacts
+*.html
+
 # External tool integration (not source content)
 moulinette/
