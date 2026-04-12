@@ -1,10 +1,6 @@
 
-    /* --- Category/index pages: Inconsolata for mono labels --- */
-    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&display=swap');
-
-    /* --- Category page content area --- */
+/* --- Category page content area (overrides world_base .content padding) --- */
     .content {
-      position: relative; z-index: 1;
       padding: 0 3rem 3.5rem;
     }
 
