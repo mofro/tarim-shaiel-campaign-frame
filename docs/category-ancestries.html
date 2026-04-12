@@ -95,6 +95,41 @@
       color: var(--gold); text-decoration: none; opacity: 0.75;
     }
     .back-link:hover { opacity: 1; }
+    .hero-block {
+      min-height: 320px; display: flex; flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero-concept {
+      font-size: 18px; color: rgba(245,237,216,0.75); font-style: italic;
+      margin-top: 10px; line-height: 1.5; max-width: 520px;
+    }
+    .cat-section { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+    .cat-section:last-child { border-bottom: none; }
+    .cat-section-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; margin-bottom: 14px;
+    }
+    .see-all {
+      font-family: 'Inconsolata', monospace; font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none; opacity: 0.7;
+      white-space: nowrap; margin-left: 16px;
+    }
+    .see-all:hover { opacity: 1; }
+    .doc-list { list-style: none; column-count: 2; column-gap: 24px; }
+    .doc-list li { padding: 3px 0; break-inside: avoid; }
+    .doc-list li a {
+      color: var(--ink); text-decoration: none; font-size: 15px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .doc-list li a:hover { color: var(--crimson); border-bottom-color: var(--rule); }
+    .doc-list li.gm-item a { color: var(--crimson); opacity: 0.75; }
+    .doc-list li.gm-item a:hover { opacity: 1; }
+    .doc-list li.remainder {
+      font-family: 'Inconsolata', monospace; font-size: 12px;
+      color: rgba(26,18,8,0.4); letter-spacing: 0.05em; font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -111,109 +146,109 @@
     <div class="section-label">Ancestries (18)</div>
     <a class="doc-card gm-secrets" href="infernis.html">
       <div class="doc-title">Div-Born — Children of the Outer Reaches<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="faerie.html">
       <div class="doc-title">Faerie<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="galapa.html">
       <div class="doc-title">Galapa<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="firbolg.html">
       <div class="doc-title">Gavar — Keepers of the Threshold<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="human.html">
       <div class="doc-title">Human<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="goblin.html">
       <div class="doc-title">Jivar<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="giant.html">
       <div class="doc-title">Kalan<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="fungril.html">
       <div class="doc-title">Khavar — Keepers of the Recent Dead<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="dwarf.html">
       <div class="doc-title">Kuhban<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="drakona.html">
       <div class="doc-title">Naga-Kin<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="faun.html">
       <div class="doc-title">Pari-Kin — Children of the Liminal<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="halfling.html">
       <div class="doc-title">Rahban<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="ribbet.html">
       <div class="doc-title">Ribbet<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="elf.html">
       <div class="doc-title">Serenvar<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="clank.html">
       <div class="doc-title">Tadbir — The Intended Minds<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="orcs.html">
       <div class="doc-title">Tulpar — Children of the Broken Chains<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="katari.html">
       <div class="doc-title">Vaghri<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
     <a class="doc-card gm-secrets" href="simiah.html">
       <div class="doc-title">Vanara — The Scholar-Warriors of the High Passes<span class="gm-badge">GM</span></div>
-      <div class="doc-meta">Lore · GM Only</div>
+      <div class="doc-meta">Lore &middot; GM Only</div>
       <div class="doc-desc">World lore document.</div>
       <div class="doc-card-arrow">&#8594;</div>
     </a>
