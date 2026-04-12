@@ -405,13 +405,22 @@ def generate_all(
             if doc_type not in PIPELINE_TYPES:
                 continue
 
-            # Visibility gate (fails closed): require explicit visibility: public.
+            # Visibility gate (fails closed): check if "public" is in visibility list.
             # Default is 'gm_secrets' — untagged docs are treated as GM-only.
-            visibility = fm.get('visibility', 'gm_secrets')
-            if public_only and visibility != 'public':
+            # Supports: "public", ["public", "gm_secrets"], "public | gm_secrets"
+            vis_raw = fm.get('visibility', 'gm_secrets')
+            if isinstance(vis_raw, list):
+                vis_list = [str(v).strip() for v in vis_raw]
+            else:
+                vis_list = [v.strip() for v in str(vis_raw).split('|')]
+            
+            if public_only and 'public' not in vis_list:
                 rel = src.relative_to(vault)
-                print(f'  SKIP     {rel}  (not visibility: public)')
+                print(f'  SKIP     {rel}  (visibility: {vis_raw}, not public-safe)')
                 continue
+            
+            # Normalize visibility for badge logic (prefer gm_secrets if present for GM badge)
+            visibility = 'gm_secrets' if 'gm_secrets' in vis_list else vis_list[0] if vis_list else 'gm_secrets'
 
             slug     = _slug(src)
             out_path = docs / f'{slug}.html'
