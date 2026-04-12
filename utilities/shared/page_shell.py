@@ -18,6 +18,7 @@ Each generator supplies:
   - generator_name : appears in the <!-- AUTO-GENERATED --> comment
 """
 
+from pathlib import Path
 from html import escape as html_escape
 
 FAVICON_SVG = (
@@ -30,10 +31,11 @@ FAVICON_SVG = (
 )
 
 # ---------------------------------------------------------------------------
-# Shared CSS base
+# Shared CSS base — single source of truth: utilities/world/world_base.css
 # ---------------------------------------------------------------------------
 
-CSS_BASE = """\
+_WORLD_BASE_CSS = Path(__file__).parent.parent / "world" / "world_base.css"
+CSS_BASE = _WORLD_BASE_CSS.read_text(encoding="utf-8") if _WORLD_BASE_CSS.exists() else """\
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -176,7 +178,7 @@ CSS_BASE = """\
       .banner-rule { margin: 0 1.4rem; }
       .credits { padding: 1.6rem 1.4rem; }
     }
-"""
+"""  # fallback ends here — only used if world_base.css is missing
 
 
 # ---------------------------------------------------------------------------

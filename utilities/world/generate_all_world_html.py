@@ -34,7 +34,7 @@ from generate_world_html import render_timeline_html, build_myth_html
 sys.path.insert(0, str(HERE.parent))   # makes utilities/shared importable
 from shared.assets import prepare_image
 from shared.frontmatter import parse_frontmatter
-from shared.html_render import render_wiki_embed, inline_md as shared_inline_md
+from shared.html_render import render_wiki_embed, inline_md as shared_inline_md, render_body as shared_render_body
 
 # ── discovery config ──────────────────────────────────────────────────────────
 PIPELINE_TYPES = {'timeline', 'myth', 'lore'}
@@ -432,7 +432,7 @@ def generate_all(
                 if doc_type == 'timeline':
                     html = render_timeline_html(fm, body)
                 else:
-                    html = build_myth_html(fm, body)
+                    html = build_myth_html(fm, body, folder=folder)
                 docs.mkdir(parents=True, exist_ok=True)
                 out_path.write_text(html, encoding='utf-8')
 
@@ -458,7 +458,14 @@ _FAVICON = (
     "18.9,18.9 43.1,33.4' fill='%23b8922c'/></svg>"
 )
 
-_INDEX_CSS = """
+_CSS_DIR = Path(__file__).parent
+_INDEX_CSS = (
+    (_CSS_DIR / "world_base.css").read_text(encoding="utf-8") +
+    (_CSS_DIR / "world_category.css").read_text(encoding="utf-8")
+)
+
+# ── Legacy inline CSS kept as dead reference only — DO NOT USE ────────────────
+_INDEX_CSS_LEGACY_UNUSED = """
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inconsolata:wght@400;500&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -768,7 +775,7 @@ _INDEX_CSS = """
       .banner-rule { margin: 0 1.4rem; }
       .footer { padding: 1.6rem 1.4rem; }
     }
-"""
+"""  # end _INDEX_CSS_LEGACY_UNUSED
 
 
 def _card_html(filename: str, title: str, meta: str, desc: str, gm: bool = False) -> str:

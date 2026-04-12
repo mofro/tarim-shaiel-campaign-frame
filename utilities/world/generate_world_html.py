@@ -111,8 +111,9 @@ def strip_secret_blocks(text: str) -> str:
 
 
 def strip_wikilinks(text: str) -> str:
-    text = re.sub(r'\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', text)
-    text = re.sub(r'\[\[([^\]]+)\]\]', r'\1', text)
+    # Negative lookbehind (?<!!) preserves image embeds (![[...]])
+    text = re.sub(r'(?<!!)\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', text)
+    text = re.sub(r'(?<!!)\[\[([^\]]+)\]\]', r'\1', text)
     return text
 
 
@@ -225,7 +226,17 @@ def render_myth_section(title: str, content: str) -> str:
     )
 
 
-def build_myth_html(fm: dict, body: str) -> str:
+def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
+    """Build a styled HTML page for a lore/myth document.
+
+    Args:
+        fm:     Parsed frontmatter dict.
+        body:   Raw markdown body text.
+        folder: Parent folder name (e.g. 'ancestries') used to generate
+                back-navigation breadcrumb. Pass None to omit.
+    """
+    from shared.html_render import render_body as _render_body
+
     title = fm.get('title', 'Untitled')
     tags = fm.get('tags', [])
     if isinstance(tags, str):
@@ -233,27 +244,53 @@ def build_myth_html(fm: dict, body: str) -> str:
     tag_label = ', '.join(str(t) for t in tags) if tags else ''
     cover_image = fm.get('lk_cover_image', '')
 
-    prepare_embeds(body)   # copy vault assets to docs/ before stripping/rendering
-    body = preprocess_body(body)
-    sections = split_sections(body)
+    prepare_embeds(body)   # copy vault assets to docs/ before rendering
 
-    # Preamble (before first ##) — first italic line is epigraph
-    preamble = sections.get('', '')
-    preamble_lines = [l.strip() for l in preamble.splitlines() if l.strip()]
+    # Strip only secrets and Obsidian artefacts — render_body handles wikilinks
+    # with the correct !-preserving negative lookbehind
+    body = strip_secret_blocks(body)
+    body = re.sub(r'^>\s*\[!\w+\]\s*$', '', body, flags=re.MULTILINE)
+    body = re.sub(r'\n{3,}', '\n\n', body)
+    body = body.strip()
 
-    epigraph = ''
-    body_paras: list[str] = []
-    for line in preamble_lines:
-        # Detect epigraph: line that is fully italic (starts and ends with _ or *)
-        if not epigraph and re.match(r'^[_*].+[_*]$', line):
-            epigraph = re.sub(r'^[_*](.+)[_*]$', r'\1', line)
-        else:
-            body_paras.append(line)
+    # Detect epigraph: first italic-only line before any ## heading
+    epigraph_html = ''
+    lines_before_h2 = []
+    for line in body.splitlines():
+        if re.match(r'^## ', line):
+            break
+        lines_before_h2.append(line.strip())
+    non_empty_pre = [l for l in lines_before_h2 if l]
+    if non_empty_pre and re.match(r'^[_*].+[_*]$', non_empty_pre[0]):
+        epigraph_text = re.sub(r'^[_*](.+)[_*]$', r'\1', non_empty_pre[0])
+        epigraph_html = f'<div class="epigraph">{inline_md(epigraph_text)}</div>\n'
+        body = body.replace(non_empty_pre[0], '', 1).strip()
 
-    # Named sections (Moral, Cultural Significance, etc.)
-    named_sections = [(k, v) for k, v in sections.items() if k]
+    # Render full body with component support (images, features, jump nav, headers)
+    content_html, jump_nav_items = _render_body(body, VAULT_ROOT, DOCS_DIR)
+    if epigraph_html:
+        content_html = epigraph_html + content_html
 
-    # Assemble cover / header
+    # --- Back navigation ---
+    back_nav_html = ''
+    if folder:
+        cat_label = folder.replace('-', ' ').replace('_', ' ').title()
+        back_nav_html = (
+            f'<div class="back-nav">'
+            f'<a href="category-{escape(folder)}.html">&larr; {escape(cat_label)}</a>'
+            f'</div>\n'
+        )
+
+    # --- Jump navigation (shown when 2+ sections exist, opt-out with jump_nav: false) ---
+    if jump_nav_items and (fm.get('jump_nav', True) is not False):
+        nav_links = []
+        for item in jump_nav_items:
+            indent = '\u2007' if item['level'] == 3 else ''
+            nav_links.append(f'{indent}<a href="#{item["anchor"]}">{escape(item["text"])}</a>')
+        jump_nav_html = '<div class="jump-nav">\n  ' + '\n  '.join(nav_links) + '\n</div>\n'
+        content_html = jump_nav_html + content_html
+
+    # --- Cover / header ---
     if cover_image:
         header_html = (
             f'<div class="cover">\n'
@@ -272,37 +309,22 @@ def build_myth_html(fm: dict, body: str) -> str:
             + f'</div>\n'
         )
 
-    # Banner
+    # --- Banner (frontmatter-overridable) ---
     doc_type_label = str(fm.get('type', 'lore')).capitalize()
+    banner_left  = fm.get('banner_left',  'Tarim-Shaiel')
+    banner_right = fm.get('banner_right', doc_type_label)
     banner_html = (
         f'<div class="banner">'
-        f'<span>Tarim-Shaiel</span>'
-        f'<span>{escape(doc_type_label)}</span>'
+        f'<span>{escape(str(banner_left))}</span>'
+        f'<span>{escape(str(banner_right))}</span>'
         f'</div>\n'
         f'<div class="banner-rule"></div>\n'
     )
 
-    # Content
-    content_parts: list[str] = []
-
-    if epigraph:
-        content_parts.append(f'<div class="epigraph">{inline_md(epigraph)}</div>\n')
-
-    if body_paras:
-        paras_html = ''.join(render_myth_para(p) for p in body_paras)
-        content_parts.append(f'<div class="myth-body">{paras_html}</div>\n')
-
-    if named_sections:
-        content_parts.append('<div class="divider"></div>\n')
-        for sec_title, sec_body in named_sections:
-            if sec_body.strip():
-                content_parts.append(render_myth_section(sec_title, sec_body))
-
-    content_html = '\n'.join(content_parts)
-
     return _html_wrapper(
         title=title,
         css=CSS_BASE + CSS_MYTH,
+        back_nav_html=back_nav_html,
         header_html=header_html,
         banner_html=banner_html,
         content_html=content_html,
@@ -1286,6 +1308,7 @@ def _html_wrapper(
     banner_html: str,
     content_html: str,
     extra_head: str = '',
+    back_nav_html: str = '',
 ) -> str:
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1294,14 +1317,14 @@ def _html_wrapper(
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{escape(title)} &mdash; Tarim-Shaiel</title>
   <link rel="icon" href="{FAVICON}">
-  <!-- AUTO-GENERATED by utilities/legendkeeper-pipeline/generate_world_html.py — do not hand-edit -->
+  <!-- AUTO-GENERATED by utilities/world/generate_world_html.py — do not hand-edit -->
   {extra_head}<style>{css}  </style>
 </head>
 <body>
 
 <div class="page-wrap">
 
-{header_html}
+{back_nav_html}{header_html}
 {banner_html}
 
   <div class="content">

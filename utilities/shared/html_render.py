@@ -115,3 +115,137 @@ def render_prose(body: str) -> str:
         html += f'    <p>{inline_md(p)}</p>\n'
 
     return html
+
+def _slug_anchor(text: str) -> str:
+    """Convert a header string to a URL-safe anchor id."""
+    return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
+
+
+def render_body(body: str, vault: 'Path', docs: 'Path') -> 'tuple[str, list[dict]]':
+    """Render a full Markdown body to HTML with component support.
+
+    Handles (in priority order):
+      ![[file|caption]]  → lore-figure or audio-player (via render_wiki_embed)
+      ![alt](path)       → lore-figure
+      **Name:** text     → feature-box (accumulated into feature-grid)
+      ## heading         → <h2 id=...>  (jump nav level 2)
+      ### heading        → <h3 id=...>  (jump nav level 3)
+      > text             → callout div
+      - item / * item    → <ul>
+      anything else      → <p>
+
+    Strips: frontmatter, Obsidian %% comments, wikilinks (preserving ![[]] embeds),
+    Obsidian callout markers.
+
+    Returns: (html_string, jump_nav_items)
+      jump_nav_items = [{'text': str, 'anchor': str, 'level': int}, ...]
+    """
+    if not body or not body.strip():
+        return '', []
+
+    # --- Preprocessing ---
+    body = re.sub(r'^---\n.*?\n---\n', '', body, flags=re.DOTALL)   # frontmatter
+    body = re.sub(r'%%.*?%%', '', body, flags=re.DOTALL)             # GM comments
+    body = re.sub(r'(?<!!)\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', body)  # wikilinks w/ alias
+    body = re.sub(r'(?<!!)\[\[([^\]]+)\]\]', r'\1', body)             # bare wikilinks
+    body = re.sub(r'^>\s*\[!\w+\]\s*$', '', body, flags=re.MULTILINE) # callout markers
+    body = re.sub(r'\n{3,}', '\n\n', body)
+    body = body.strip()
+
+    if not body:
+        return '', []
+
+    html_parts: list[str] = []
+    jump_nav_items: list[dict] = []
+    paragraphs = [p.strip() for p in re.split(r'\n\n+', body) if p.strip()]
+    feature_buffer: list[tuple[str, str]] = []
+
+    def _flush_features() -> None:
+        nonlocal feature_buffer
+        if not feature_buffer:
+            return
+        html_parts.append('<div class="feature-grid">\n')
+        for name, flavor in feature_buffer:
+            html_parts.append(
+                f'  <div class="feature-box">\n'
+                f'    <div class="feature-name">{escape(name)}</div>\n'
+                f'    <p>{inline_md(flavor)}</p>\n'
+                f'  </div>\n'
+            )
+        html_parts.append('</div>\n')
+        feature_buffer = []
+
+    for para in paragraphs:
+        # Wiki-embed: ![[file|caption|width]] → figure or audio
+        wiki_html = render_wiki_embed(para)
+        if wiki_html:
+            _flush_features()
+            html_parts.append(wiki_html)
+            continue
+
+        # Markdown image: ![alt](path)
+        md_img = re.match(r'^!\[([^\]]*)\]\(([^\)]+)\)$', para)
+        if md_img:
+            alt = escape(md_img.group(1))
+            src = escape(md_img.group(2))
+            _flush_features()
+            html_parts.append(
+                f'    <figure class="lore-figure">\n'
+                f'      <img src="{src}" alt="{alt}" />\n'
+                f'      <figcaption>{alt}</figcaption>\n'
+                f'    </figure>\n'
+            )
+            continue
+
+        # Feature box: **Feature Name:** description text
+        feat = re.match(r'^\*\*(.+?):\*\*\s*(.+)', para, re.DOTALL)
+        if feat:
+            feature_buffer.append((feat.group(1).strip(), feat.group(2).strip()))
+            continue
+
+        # Flush features before non-feature content
+        _flush_features()
+
+        # H2 header
+        if para.startswith('## '):
+            text = para[3:].strip()
+            anchor = _slug_anchor(text)
+            jump_nav_items.append({'text': text, 'anchor': anchor, 'level': 2})
+            html_parts.append(f'<h2 id="{anchor}">{inline_md(text)}</h2>\n')
+            continue
+
+        # H3 header
+        if para.startswith('### '):
+            text = para[4:].strip()
+            anchor = _slug_anchor(text)
+            jump_nav_items.append({'text': text, 'anchor': anchor, 'level': 3})
+            html_parts.append(f'<h3 id="{anchor}">{inline_md(text)}</h3>\n')
+            continue
+
+        # Callout
+        if para.startswith('> ') or para == '>':
+            inner = re.sub(r'^>\s*', '', para, flags=re.MULTILINE).strip()
+            html_parts.append(f'<div class="callout">{inline_md(inner)}</div>\n')
+            continue
+
+        # Unordered list
+        if any(re.match(r'^[-*]\s+', line.strip()) for line in para.splitlines()):
+            prefix_lines: list[str] = []
+            list_items: list[str] = []
+            for line in para.splitlines():
+                ls = line.strip()
+                if re.match(r'^[-*]\s+', ls):
+                    list_items.append(f'  <li>{inline_md(re.sub(r"^[-*]\s+", "", ls))}</li>\n')
+                elif ls and not list_items:
+                    prefix_lines.append(ls)
+            if prefix_lines:
+                html_parts.append(f'<p>{inline_md(" ".join(prefix_lines))}</p>\n')
+            if list_items:
+                html_parts.append('<ul>\n' + ''.join(list_items) + '</ul>\n')
+            continue
+
+        # Regular paragraph
+        html_parts.append(f'<p>{inline_md(para)}</p>\n')
+
+    _flush_features()
+    return ''.join(html_parts), jump_nav_items

@@ -41,7 +41,7 @@ Tulpar (Orcs) in Tarim-Shaiel are not the savage raiders of traditional fantasy.
 - **Cultural Impact:** Different Tulpar populations served different masters, experienced different conditions
 
 ### The Liberation (~1,000 Years Ago - Era 0)
-- **Trigger:** The Heroes' incomplete intervention (details in `/gm_secrets/heroes_original_deed.md`)
+- **Trigger:** The Tulpar are liberated prior to the fall of the first empire.
 - **Initial Result:** Sudden, chaotic freedom without infrastructure or plan
 - **Immediate Aftermath:** Decades of bloodshed, displacement, desperate survival
 - **Timeline Reference:** See `/narrative/lore/liberation_aftermath.md` for detailed chronology
