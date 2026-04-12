@@ -2,7 +2,7 @@
 title: Div-Born — Children of the Outer Reaches
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: gm_secrets
+visibility: public | gm_secrets
 daggerheart_name: Infernis
 published: true
 status: draft

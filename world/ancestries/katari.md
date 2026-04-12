@@ -2,7 +2,7 @@
 title: Vaghri
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: gm_secrets
+visibility: public | gm_secrets
 status: stub
 daggerheart_name: Katari
 published: true

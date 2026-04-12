@@ -34,6 +34,7 @@ from generate_world_html import render_timeline_html, build_myth_html
 sys.path.insert(0, str(HERE.parent))   # makes utilities/shared importable
 from shared.assets import prepare_image
 from shared.frontmatter import parse_frontmatter
+from shared.html_render import render_wiki_embed, inline_md as shared_inline_md
 
 # ── discovery config ──────────────────────────────────────────────────────────
 PIPELINE_TYPES = {'timeline', 'myth', 'lore'}
@@ -76,20 +77,159 @@ def _find_folder_path(vault: Path, folder: str) -> Path | None:
     return p if p.is_dir() else None
 
 
-def _read_category_config(vault: Path, folder: str) -> dict:
-    """Read optional _category.md config for a folder. Returns frontmatter dict or {}."""
+def _read_category_config(vault: Path, folder: str) -> tuple[dict, str]:
+    """Read optional _category.md config for a folder. Returns (frontmatter dict, body content)."""  
     folder_path = _find_folder_path(vault, folder)
     if folder_path is None:
-        return {}
+        return {}, ''
     cfg_file = folder_path / '_category.md'
     if not cfg_file.exists():
-        return {}
+        return {}, ''
     try:
         raw = cfg_file.read_text(encoding='utf-8')
-        fm, _ = parse_frontmatter(raw)
-        return fm
+        fm, body = parse_frontmatter(raw)
+        return fm, body
     except Exception:
-        return {}
+        return {}, ''
+
+
+def inline_md(text: str) -> str:
+    """Convert inline markdown to HTML (after HTML-escaping)."""
+    text = escape(text)
+    text = re.sub(r'\*{3}(.+?)\*{3}', r'<strong><em>\1</em></strong>', text)
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+    text = re.sub(r'_(.+?)_', r'<em>\1</em>', text)
+    return text
+
+
+def render_category_body(body: str, vault: Path, docs: Path) -> tuple[str, list[dict]]:
+    """Render category body Markdown as HTML. Returns (html, jump_nav_items).
+    
+    Supports:
+    - Images: ![[image.png|caption]] → <figure class="lore-figure">
+    - Feature boxes: **Feature Name:** description → <div class="feature-box">
+    - Headers: ## and ### with auto-generated anchors for jump nav
+    - Lists, callouts, bold/italic
+    
+    Args:
+        body: Markdown content
+        vault: Vault root path for image resolution
+        docs: Docs output path for image copying
+        
+    Returns:
+        (html_string, [{text, anchor}]) where jump_nav_items are H2/H3 headers
+    """
+    if not body.strip():
+        return '', []
+    
+    # Strip frontmatter if present
+    body = re.sub(r'^---\n.*?\n---\n', '', body, flags=re.DOTALL)
+    # Strip Obsidian comments
+    body = re.sub(r'%%.*?%%', '', body, flags=re.DOTALL)
+    # Strip wikilinks (but NOT image embeds which start with !)
+    body = re.sub(r'(?<!!)\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', body)
+    body = re.sub(r'(?<!!)\[\[([^\]]+)\]\]', r'\1', body)
+    # Strip callout markers
+    body = re.sub(r'^>\s*\[!\w+\]\s*$', '', body, flags=re.MULTILINE)
+    # Normalize blank lines
+    body = re.sub(r'\n{3,}', '\n\n', body)
+    body = body.strip()
+    
+    if not body:
+        return '', []
+    
+    html_parts = []
+    jump_nav_items = []
+    paragraphs = [p.strip() for p in re.split(r'\n\n+', body) if p.strip()]
+    
+    feature_buffer = []  # Accumulate feature boxes
+    
+    def _slug(text: str) -> str:
+        return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
+    
+    def _flush_features():
+        """Output accumulated feature boxes as a grid."""
+        nonlocal feature_buffer
+        if not feature_buffer:
+            return
+        html_parts.append('<div class=\"feature-grid\">\n')
+        for name, flavor in feature_buffer:
+            html_parts.append(f'  <div class=\"feature-box\">\n')
+            html_parts.append(f'    <div class=\"feature-name\">{escape(name)}</div>\n')
+            html_parts.append(f'    <p>{inline_md(flavor)}</p>\n')
+            html_parts.append(f'  </div>\n')
+        html_parts.append('</div>\n')
+        feature_buffer = []
+    
+    for para in paragraphs:
+        # Try wiki embed first (handles ![[file|caption|width]] automatically)
+        wiki_html = render_wiki_embed(para)
+        if wiki_html:
+            _flush_features()  # Features can't span images
+            html_parts.append(wiki_html)
+            continue
+        
+        # Try standalone markdown image: ![alt](path)
+        md_img_match = re.match(r'^!\[([^\]]*)\]\(([^\)]+)\)$', para)
+        if md_img_match:
+            alt = escape(md_img_match.group(1))
+            src = escape(md_img_match.group(2))
+            _flush_features()  # Features can't span images
+            html_parts.append(f'    <figure class=\"lore-figure\">\n')
+            html_parts.append(f'      <img src=\"{src}\" alt=\"{alt}\" />\n')
+            html_parts.append(f'      <figcaption>{alt}</figcaption>\n')
+            html_parts.append(f'    </figure>\n')
+            continue
+        
+        # Feature boxes: **Feature Name:** description
+        feat_match = re.match(r'^\*\*(.+?):\*\*\s*(.+)', para, re.DOTALL)
+        if feat_match:
+            feature_buffer.append((feat_match.group(1).strip(), feat_match.group(2).strip()))
+            continue
+        
+        # Flush features if we hit non-feature content
+        _flush_features()
+        
+        # Headers with jump nav anchors
+        if para.startswith('## '):
+            header_text = para[3:].strip()
+            anchor = _slug(header_text)
+            jump_nav_items.append({'text': header_text, 'anchor': anchor, 'level': 2})
+            html_parts.append(f'<h2 id=\"{anchor}\">{inline_md(header_text)}</h2>\n')
+        elif para.startswith('### '):
+            header_text = para[4:].strip()
+            anchor = _slug(header_text)
+            jump_nav_items.append({'text': header_text, 'anchor': anchor, 'level': 3})
+            html_parts.append(f'<h3 id=\"{anchor}\">{inline_md(header_text)}</h3>\n')
+        # Callouts
+        elif para.startswith('> ') or para.startswith('>'):
+            inner = re.sub(r'^>\s*', '', para, flags=re.MULTILINE).strip()
+            html_parts.append(f'<div class=\"callout\">{inline_md(inner)}</div>\n')
+        # Lists (check if any line starts with - or *)
+        elif any(re.match(r'^[-*]\s+', line.strip()) for line in para.splitlines()):
+            list_items = []
+            prefix_para = []
+            for line in para.splitlines():
+                line_stripped = line.strip()
+                if re.match(r'^[-*]\s+', line_stripped):
+                    item_text = re.sub(r'^[-*]\s+', '', line_stripped)
+                    list_items.append(f'  <li>{inline_md(item_text)}</li>\n')
+                elif line_stripped and not list_items:
+                    # Text before the list starts (like "Consider:")
+                    prefix_para.append(line_stripped)
+            if prefix_para:
+                html_parts.append(f'<p>{inline_md(" ".join(prefix_para))}</p>\n')
+            if list_items:
+                html_parts.append('<ul>\n' + ''.join(list_items) + '</ul>\n')
+        # Regular paragraphs
+        else:
+            html_parts.append(f'<p>{inline_md(para)}</p>\n')
+    
+    # Flush any remaining features
+    _flush_features()
+    
+    return ''.join(html_parts), jump_nav_items
 
 
 def _extract_concept(body: str) -> str:
@@ -116,7 +256,7 @@ def _read_site_config(vault: Path) -> dict:
 
 def _hero_html(config: dict, vault: Path, docs: Path) -> str:
     banner = str(config.get('banner', '')).strip()
-    banner_style = ''
+    image_style = ''
     if banner:
         if re.match(r'^(https?:|data:)', banner):
             url = banner
@@ -125,37 +265,31 @@ def _hero_html(config: dict, vault: Path, docs: Path) -> str:
             if not url:
                 url = banner
         banner_x = config.get('banner-x') or config.get('banner_x') or '50'
-        banner_y = config.get('banner-y') or config.get('banner_y') or '50'
-        banner_height = config.get('banner-height') or config.get('banner_height') or '360'
-        try:
-            banner_height = int(str(banner_height).strip())
-        except ValueError:
-            banner_height = 360
-        banner_style = (
-            f' style="background-image: linear-gradient(180deg, rgba(17,16,8,0.92) 0%, rgba(17,16,8,0.42) 60%, rgba(17,16,8,0.92) 100%), url({url}); '
-            f'background-size: cover; background-position: {escape(str(banner_x))}% {escape(str(banner_y))}%; min-height: {banner_height}px;'
-        )
+        banner_y = config.get('banner-y') or config.get('banner_y') or '4'
+        image_style = f' style="background-image: url({url}); background-position: center {escape(str(banner_y))}%;"'
 
     title = config.get('title', 'Tarim Shaiel')
     subtitle = config.get('subtitle', '')
     concept = config.get('concept', '')
 
-    subtitle_html = f'    <div class="hero-subtitle">{escape(subtitle)}</div>\n' if subtitle else ''
-    concept_html = f'    <div class="hero-concept">{escape(concept)}</div>\n' if concept else ''
+    subtitle_html = f'      <div class="cover-subtitle">{escape(subtitle)}</div>\n' if subtitle else ''
+    if concept and not subtitle:
+        subtitle_html = f'      <div class="cover-subtitle">{escape(concept)}</div>\n'
 
     return (
-        f'  <div class="hero-block"{banner_style}>\n'
-        f'    <div class="hero-overlay">\n'
-        f'      <div class="hero-title">{escape(title)}</div>\n'
+        f'  <div class="cover">\n'
+        f'    <div class="cover-image"{image_style}></div>\n'
+        f'    <div class="cover-gradient"></div>\n'
+        f'    <div class="cover-content">\n'
+        f'      <div class="cover-title">{escape(title)}</div>\n'
         f'{subtitle_html}'
-        f'{concept_html}'
         f'    </div>\n'
         f'  </div>\n'
     )
 
 
 def _category_section_html(folder: str, folder_docs: list[dict], vault: Path, public_only: bool) -> str:
-    cfg = _read_category_config(vault, folder)
+    cfg, _ = _read_category_config(vault, folder)  # body not needed for inline preview
     label = cfg.get('title') or _category_label(folder)
     desc = cfg.get('description') or CATEGORY_DESCRIPTIONS.get(folder, '')
     count = len(folder_docs)
@@ -230,7 +364,7 @@ def discover_sources(vault: Path) -> dict[str, list[Path]]:
                 buckets.setdefault(folder, []).append(md)
     # Apply _category.md suppression
     suppressed = [f for f in list(buckets.keys())
-                  if _read_category_config(vault, f).get('published') is False]
+                  if _read_category_config(vault, f)[0].get('published') is False]
     for folder in suppressed:
         print(f'  SUPPRESS  category "{folder}" (published: false in _category.md)')
         del buckets[folder]
@@ -321,40 +455,208 @@ _INDEX_CSS = """
     :root {
       --ink: #1a1208; --parchment: #f5edd8; --parchment2: #ede0c4;
       --gold: #b8922c; --gold-light: #d4a843; --crimson: #7a1f1f;
-      --steel: #3c4a5a; --rule: rgba(184,146,44,0.4);
+      --steel: #3c4a5a; --rule: rgba(184,146,44,0.4); --shadow: rgba(26,18,8,0.15);
     }
     html { scroll-behavior: smooth; }
     body {
-      background: #111008;
+      background: #1a1208;
+      background-image: url('images/paper-texture-top-view-2.jpg');
       font-family: 'EB Garamond', Georgia, serif;
-      font-size: 17px; line-height: 1.7; color: var(--ink);
-      min-height: 100vh; display: flex; align-items: center;
-      justify-content: center; padding: 40px 20px;
+      font-size: 17px; line-height: 1.72; color: var(--ink);
     }
-    .page-wrap { max-width: 700px; width: 100%; background: var(--parchment); box-shadow: 0 0 80px rgba(0,0,0,0.8); }
-    .header {
-      background: linear-gradient(170deg, #0d0a04 0%, #1a1208 50%, #2a1f0e 100%);
-      padding: 48px 56px 40px; border-bottom: 2px solid var(--gold);
+    .page-wrap {
+      max-width: 860px; margin: 0 auto;
+      background: var(--parchment);
+      box-shadow: 0 0 80px rgba(0,0,0,0.75);
+      position: relative; overflow: hidden;
     }
-    .eyebrow {
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold); opacity: 0.75; margin-bottom: 10px;
+    .page-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.45;
     }
-    .title {
-      font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 700;
-      color: var(--gold-light); letter-spacing: 0.04em; line-height: 1.1;
-      text-shadow: 0 2px 20px rgba(184,146,44,0.3); margin-bottom: 8px;
+    .back-nav {
+      background: #111008;
+      padding: 0.5rem 3rem;
+      border-bottom: 1px solid rgba(184,146,44,0.2);
     }
-    .subtitle { font-size: 15px; color: rgba(245,237,216,0.55); font-style: italic; }
-    .content { padding: 48px 56px; }
+    .back-nav a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(184,146,44,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-nav a:hover { color: var(--gold); }
+    .cover {
+      position: relative; min-height: 280px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      overflow: hidden;
+    }
+    .cover-image {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .cover-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(26,18,8,0.08) 0%, rgba(26,18,8,0.55) 55%, rgba(26,18,8,0.92) 100%);
+      z-index: 1;
+    }
+    .cover-content {
+      position: relative; z-index: 2;
+      padding: 2.5rem 3rem 3rem;
+      color: var(--parchment);
+    }
+    .cover-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem; font-weight: 700;
+      letter-spacing: 0.06em; line-height: 1.1;
+      color: #f5e6c0;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+      margin-bottom: 0.15rem;
+    }
+    .cover-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem; font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .banner {
+      background: var(--steel);
+      color: var(--parchment);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.5rem 3rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .banner-rule {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 3rem;
+    }
+    .content {
+      position: relative; z-index: 1;
+      padding: 0 3rem 3.5rem;
+    }
+    .content h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.45rem; font-weight: 600;
+      color: var(--crimson);
+      letter-spacing: 0.04em;
+      margin: 2.4rem 0 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--rule);
+    }
+    .content h2:first-child { margin-top: 2.8rem; }
+    .content h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--steel);
+      letter-spacing: 0.04em;
+      margin: 1.8rem 0 0.6rem;
+    }
+    .content p {
+      margin-bottom: 1em;
+      line-height: 1.72;
+    }
+    .content p:last-child { margin-bottom: 0; }
+    .content ul {
+      margin: 0.8em 0;
+      padding-left: 2em;
+    }
+    .content li {
+      margin-bottom: 0.4em;
+      line-height: 1.6;
+    }
+    .content .callout {
+      background: var(--parchment2);
+      border-left: 3px solid var(--gold);
+      border-radius: 2px;
+      padding: 0.9rem 1.1rem;
+      margin: 1.1rem 0;
+      font-size: 0.97rem;
+    }
+    .content .callout strong { color: var(--steel); }
+    .jump-nav {
+      display: flex; flex-wrap: wrap;
+      gap: 0.3rem 1.1rem;
+      padding: 1.1rem 0 1.4rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2.8rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .jump-nav a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .jump-nav a:hover { color: var(--gold-light); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-top: 1.3rem;
+    }
+    .feature-box {
+      background: var(--parchment2);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.95rem 1.1rem 1rem;
+      box-shadow: inset 0 1px 4px rgba(26,18,8,0.06);
+    }
+    .feature-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.45rem;
+    }
+    .feature-box p {
+      margin: 0;
+      font-size: 0.97rem;
+      line-height: 1.6;
+    }
+    .lore-figure {
+      float: right;
+      margin: 0.4rem 0 1.6rem 2rem;
+      max-width: 240px;
+      clear: right;
+    }
+    .lore-figure img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--rule);
+      box-shadow: 4px 6px 18px var(--shadow);
+      border-radius: 1rem;
+    }
+    .lore-figure figcaption {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--steel);
+      text-align: center;
+      margin-top: 0.45rem;
+      padding-top: 0.35rem;
+      border-top: 1px solid var(--rule);
+      line-height: 1.4;
+    }
     .section-label {
       font-family: 'Inconsolata', monospace; font-size: 12px;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
+      color: var(--gold); margin: 2.2rem 0 1.2rem;
     }
-    .section-label + .section-label,
-    .doc-card + .section-label { margin-top: 2.2rem; }
     .doc-card {
       border: 1px solid var(--rule); border-radius: 3px; padding: 24px 28px;
       margin-bottom: 16px; text-decoration: none; display: block;
@@ -384,11 +686,6 @@ _INDEX_CSS = """
       padding: 2px 7px; border-radius: 100px; margin-left: 8px;
       font-family: 'Inconsolata', monospace; vertical-align: middle;
     }
-    .footer { background: #1a1208; padding: 20px 56px; border-top: 1px solid rgba(184,146,44,0.3); }
-    .footer-text {
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      color: rgba(245,237,216,0.3); letter-spacing: 0.1em;
-    }
     .doc-card.gm-secrets {
       background: rgba(122,31,31,0.04);
       border-color: rgba(122,31,31,0.25);
@@ -396,40 +693,6 @@ _INDEX_CSS = """
     .doc-card.gm-secrets:hover {
       background: rgba(122,31,31,0.08);
       border-color: var(--crimson);
-    }
-    .back-link {
-      display: inline-block; margin-bottom: 24px;
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--gold); text-decoration: none; opacity: 0.75;
-    }
-    .back-link:hover { opacity: 1; }
-    .hero-block {
-      position: relative; overflow: hidden;
-      color: #f5edd8; display: flex; align-items: flex-end;
-      border-bottom: 1px solid rgba(184,146,44,0.4);
-    }
-    .hero-block::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(17,16,8,0.18), rgba(17,16,8,0.92));
-      pointer-events: none;
-    }
-    .hero-overlay {
-      position: relative; z-index: 1;
-      padding: 48px 56px 52px;
-      width: 100%;
-    }
-    .hero-title {
-      font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 700;
-      letter-spacing: 0.04em; line-height: 1.05; margin-bottom: 12px;
-    }
-    .hero-subtitle {
-      font-size: 1.05rem; color: rgba(245,237,216,0.85); margin-bottom: 14px;
-    }
-    .hero-concept {
-      font-size: 1rem; font-style: italic; color: rgba(245,237,216,0.8);
-      max-width: 42rem;
     }
     .cat-section {
       margin-top: 2.8rem;
@@ -480,53 +743,21 @@ _INDEX_CSS = """
       padding: 10px 14px; border-radius: 999px;
       background: rgba(26,18,8,0.04);
     }
-    .back-nav {
-      padding: 24px 56px 0;
-      margin-bottom: -8px;
+    .footer {
+      background: #1a1208;
+      padding: 1.6rem 3rem;
+      border-top: 1px solid rgba(184,146,44,0.3);
     }
-    .back-nav a {
-      display: inline-block;
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--gold); text-decoration: none; opacity: 0.75;
+    .footer-text {
+      font-family: 'Inconsolata', monospace; font-size: 11px;
+      color: rgba(245,237,216,0.3); letter-spacing: 0.1em;
     }
-    .back-nav a:hover { opacity: 1; }
-    .cover {
-      position: relative; height: 380px; overflow: hidden;
-      background: linear-gradient(170deg, #0d0a04 0%, #1a1208 50%, #2a1f0e 100%);
-      border-bottom: 1px solid rgba(184,146,44,0.4);
-    }
-    .cover-image {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center;
-      background-repeat: no-repeat;
-    }
-    .cover-gradient {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(17,16,8,0.18), rgba(17,16,8,0.92));
-    }
-    .cover-content {
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      height: 100%; padding: 0 56px 48px;
-      color: #f5edd8;
-    }
-    .cover-title {
-      font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 700;
-      letter-spacing: 0.04em; line-height: 1.1;
-      text-shadow: 0 2px 20px rgba(184,146,44,0.3); margin-bottom: 8px;
-    }
-    .cover-subtitle {
-      font-size: 15px; color: rgba(245,237,216,0.55); font-style: italic;
-    }
-    .banner {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0.5rem 1.4rem; background: var(--ink); color: var(--parchment);
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      letter-spacing: 0.15em; text-transform: uppercase;
-    }
-    .banner-rule {
-      height: 1px; background: var(--gold); opacity: 0.4;
+    @media (max-width: 640px) {
+      .cover-title { font-size: 2.2rem; }
+      .cover-content, .content { padding: 1.8rem 1.4rem; }
+      .banner { padding: 0.5rem 1.4rem; }
+      .banner-rule { margin: 0 1.4rem; }
+      .footer { padding: 1.6rem 1.4rem; }
     }
 """
 
@@ -595,9 +826,21 @@ _CORE_DOCS = [
 
 def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: list[dict]) -> int:
     """Write docs/category-{folder}.html. Returns count of docs rendered."""
-    cfg   = _read_category_config(vault, folder)
+    cfg, body = _read_category_config(vault, folder)
     label = cfg.get('title') or _category_label(folder)
     desc  = cfg.get('description') or CATEGORY_DESCRIPTIONS.get(folder, '')
+    
+    # Render body content as HTML with jump nav support
+    body_html, jump_nav_items = render_category_body(body, vault, docs)
+    
+    # Generate jump nav if enabled in frontmatter
+    jump_nav_html = ''
+    if cfg.get('jump_nav') and jump_nav_items:
+        nav_links = []
+        for item in jump_nav_items:
+            indent = '  ' if item['level'] == 3 else ''
+            nav_links.append(f'{indent}<a href=\"#{item["anchor"]}\">{escape(item["text"])}</a>')
+        jump_nav_html = '<div class=\"jump-nav\">\n  ' + '\n  '.join(nav_links) + '\n</div>\n'
 
     # Cover image (optional)
     cover_style = ''
@@ -605,7 +848,9 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
     if cover_file:
         url = prepare_image(cover_file, vault, docs)
         if url:
-            cover_style = f' style="background-image: url({url});"'
+            cover_x = cfg.get('cover-x') or cfg.get('cover_x') or '50'
+            cover_y = cfg.get('cover-y') or cfg.get('cover_y') or '4'
+            cover_style = f' style="background-image: url({url}); background-position: center {escape(str(cover_y))}%;"'
 
     sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
     cards_html  = ''.join(
@@ -637,10 +882,12 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
     )
 
     # Banner
+    banner_left = cfg.get('banner_left') or 'Category Index'
+    banner_right = cfg.get('banner_right') or f'{escape(label)} · Tarim-Shaiel'
     banner_html = (
         '<div class="banner">\n'
-        '<span>Player-Facing Document</span>\n'
-        f'<span>Category Index · {escape(label)}</span>\n'
+        f'<span>{escape(banner_left)}</span>\n'
+        f'<span>{banner_right}</span>\n'
         '</div>\n'
         '<div class="banner-rule"></div>\n'
     )
@@ -650,12 +897,13 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>""" + escape(label) + """ - Tarim-Shaiel</title>
+  <title>{escape(label)} - Tarim-Shaiel</title>
   <!-- AUTO-GENERATED by utilities/world/generate_all_world_html.py - do not hand-edit -->
   <link rel="icon" href="{_FAVICON}">
   <style>{_INDEX_CSS}  </style>
 </head>
 <body>
+
 <div class="page-wrap">
 
 {back_nav_html}
@@ -663,6 +911,7 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
 {banner_html}
 
   <div class="content">
+{jump_nav_html}{body_html}
     <div class="section-label">{escape(label)} ({count})</div>
 {cards_html}
   </div>
@@ -683,6 +932,15 @@ def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path 
     """Write docs/index.html listing core docs with hero and category sections."""
     config = _read_site_config(vault) if vault else {}
     hero_html = _hero_html(config, vault, docs) if config else ''
+
+    # Banner for index page
+    banner_html = (
+        '<div class="banner">\n'
+        '<span>Campaign Documents</span>\n'
+        '<span>Tarim-Shaiel · Daggerheart</span>\n'
+        '</div>\n'
+        '<div class="banner-rule"></div>\n'
+    )
 
     core_html = ''.join(
         _card_html(d['filename'], d['title'], d['meta'], d['desc'])
@@ -710,9 +968,11 @@ def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path 
   <style>{_INDEX_CSS}  </style>
 </head>
 <body>
+
 <div class="page-wrap">
 
 {hero_html}
+{banner_html}
 
   <div class="content">
     <div class="section-label">Core Documents</div>
