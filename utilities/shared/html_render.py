@@ -78,7 +78,7 @@ def render_prose(body: str) -> str:
     current: list[str] = []
 
     for line in body.splitlines():
-        stripped = line.strip()
+        stripped = line.strip().replace('\u200b', '').replace('\u00a0', ' ').strip()
         if stripped:
             current.append(stripped)
         elif current:

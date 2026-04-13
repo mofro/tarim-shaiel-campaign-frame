@@ -15,8 +15,9 @@ content-start: 226
 banner-fade: -70
 ---
 ### Narrative Summary
+
 ![[audio/Narration/The Road_A Fable.mp3|The Road_A Fable]]
-​
+
 The roads were here before the empire.
 
 That is the thing people forget.
