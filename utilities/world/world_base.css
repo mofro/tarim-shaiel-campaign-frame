@@ -110,6 +110,7 @@
     }
 
     @media (max-width: 640px) {
+      body { font-size: 19px; }
       .content { padding: 1rem 1.4rem; }
       .banner  { padding: 0.5rem 1.4rem; }
     }

@@ -223,6 +223,7 @@ CSS_BASE = """\
     }
 
     @media (max-width: 640px) {
+      body { font-size: 19px; }
       .cover-title { font-size: 2.2rem; }
       .cover-content { padding: 1.8rem 1.4rem; }
       .content { padding: 1rem 1.4rem; }
