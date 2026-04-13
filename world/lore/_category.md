@@ -1,7 +1,7 @@
 ---
 title: Lore
 description: Words and Knowledge of Tarim Shaiel
-published: false
+published: true
 banner_left: TARIM-SHAIEL * Lore
 banner_right: Lore
 jump_nav: true
