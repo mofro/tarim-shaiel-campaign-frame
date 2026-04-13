@@ -67,7 +67,7 @@ CSS_LORE = """\
     .content {
       position: relative;
       z-index: 1;
-      padding: 0.2rem 3.8rem 3.6rem;
+      padding: 1rem 3rem;
       max-width: 680px;
       margin: 0 auto;
     }

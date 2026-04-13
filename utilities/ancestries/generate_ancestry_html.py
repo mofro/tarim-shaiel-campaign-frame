@@ -69,7 +69,7 @@ CSS_ANCESTRY = """\
     .content {
       position: relative;
       z-index: 1;
-      padding: 0 3rem 3.5rem;
+      padding: 1rem 3rem;
     }
 
     /* ---- Ancestry section ---- */
@@ -180,7 +180,7 @@ CSS_ANCESTRY = """\
     }
 
     @media (max-width: 640px) {
-      .content { padding: 0 1.4rem 2.5rem; }
+      .content { padding: 1rem 1.4rem; }
       .feature-grid { grid-template-columns: 1fr; }
       .jump-nav { gap: 0.4rem 0.9rem; }
     }
