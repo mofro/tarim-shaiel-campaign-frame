@@ -426,7 +426,7 @@ def main() -> None:
 
     html = build_page(
         title="Peoples of Tarim-Shaiel",
-        cover_subtitle=f"{len(parsed_map)} Ancestries of the Known World",
+        cover_subtitle="Ancestries of the Known World",
         banner_left="Ancestry Guide",
         banner_right="Peoples of Tarim-Shaiel · Daggerheart",
         content_html=content_html,
