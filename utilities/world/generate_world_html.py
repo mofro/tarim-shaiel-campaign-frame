@@ -292,13 +292,17 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
         )
 
     # --- Jump navigation (shown when 2+ sections exist, opt-out with jump_nav: false) ---
-    if jump_nav_items and (fm.get('jump_nav', True) is not False):
-        nav_links = []
+    jump_nav_html = ''
+    if len(jump_nav_items) >= 2 and (fm.get('jump_nav', True) is not False):
+        nav_items = []
+        if folder:
+            nav_items.append(f'  <li style="list-style:none"><a href="category-{escape(folder)}.html">&larr; {escape(cat_label)}</a></li>')
+            nav_items.append('  <li class="nav-divider"></li>')
         for item in jump_nav_items:
-            indent = '\u2007' if item['level'] == 3 else ''
-            nav_links.append(f'{indent}<a href="#{item["anchor"]}">{escape(item["text"])}</a>')
-        jump_nav_html = '<div class="jump-nav">\n  ' + '\n  '.join(nav_links) + '\n</div>\n'
-        content_html = jump_nav_html + content_html
+            nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
+        nav_items.append('  <li class="nav-divider"></li>')
+        nav_items.append('  <li style="list-style:none"><a href="#">&#8593; Top</a></li>')
+        jump_nav_html = '<div class="jump-nav">\n<ul>\n' + '\n'.join(nav_items) + '\n</ul>\n</div>\n'
 
     # --- Cover / header ---
     if cover_image:
@@ -338,6 +342,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
         header_html=header_html,
         banner_html=banner_html,
         content_html=content_html,
+        jump_nav_html=jump_nav_html,
     )
 
 
@@ -1319,6 +1324,7 @@ def _html_wrapper(
     content_html: str,
     extra_head: str = '',
     back_nav_html: str = '',
+    jump_nav_html: str = '',
 ) -> str:
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -1332,7 +1338,7 @@ def _html_wrapper(
 </head>
 <body>
 
-<div class="page-wrap">
+{jump_nav_html}<div class="page-wrap">
 
 {back_nav_html}{header_html}
 {banner_html}

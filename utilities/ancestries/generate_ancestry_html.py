@@ -72,29 +72,6 @@ CSS_ANCESTRY = """\
       padding: 0 3rem 3.5rem;
     }
 
-    /* ---- Jump navigation ---- */
-
-    .jump-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem 1.1rem;
-      padding: 1.1rem 0 1.4rem;
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: 2.8rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    .jump-nav a {
-      color: var(--gold);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .jump-nav a:hover { color: var(--gold-light); }
-
     /* ---- Ancestry section ---- */
 
     .ancestry-section { scroll-margin-top: 1.5rem; }
@@ -296,15 +273,16 @@ def slug(name: str) -> str:
 # ---------------------------------------------------------------------------
 
 def build_jump_nav(order: list[str], parsed_map: dict) -> str:
-    links = []
+    items = [
+        '  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>',
+        '  <li class="nav-divider"></li>',
+    ]
     for key in order:
         world_name = parsed_map[key]["world_name"]
-        links.append(f'<a href="#{slug(world_name)}">{escape(world_name)}</a>')
-    return (
-        '\n    <div class="jump-nav">\n      '
-        + "\n      ".join(links)
-        + "\n    </div>\n"
-    )
+        items.append(f'  <li><a href="#{slug(world_name)}">{escape(world_name)}</a></li>')
+    items.append('  <li class="nav-divider"></li>')
+    items.append('  <li style="list-style:none"><a href="#">&#8593; Top</a></li>')
+    return '<div class="jump-nav">\n<ul>\n' + '\n'.join(items) + '\n</ul>\n</div>\n'
 
 
 def build_ancestry_section(key: str, parsed: dict) -> str:
@@ -353,15 +331,16 @@ def build_ancestry_section(key: str, parsed: dict) -> str:
 """
 
 
-def build_content(parsed_map: dict[str, dict]) -> str:
+def build_content(parsed_map: dict[str, dict]) -> tuple[str, str]:
     # Honour visibility: only public ancestries appear in the published HTML
     order = [k for k, v in parsed_map.items() if v.get("visibility", "public") == "public"]
-    parts = [build_jump_nav(order, parsed_map)]
+    jump_nav = build_jump_nav(order, parsed_map)
+    parts = []
     for i, key in enumerate(order):
         parts.append(build_ancestry_section(key, parsed_map[key]))
         if i < len(order) - 1:
             parts.append('    <div class="ancestry-divider"></div>\n')
-    return "".join(parts)
+    return jump_nav, "".join(parts)
 
 
 # ---------------------------------------------------------------------------
@@ -438,7 +417,7 @@ def main() -> None:
         if meta["image_fname"]:
             data["image_url"] = prepare_image(meta["image_fname"], VAULT_ROOT, DOCS_DIR)
 
-    content_html = build_content(parsed_map)
+    jump_nav_html, content_html = build_content(parsed_map)
 
     credits_html = (
         "    Tarim-Shaiel &middot; Ancestry Guide &middot; "
@@ -455,6 +434,7 @@ def main() -> None:
         cover_image_url=COVER_IMAGE_URL,
         css_extra=CSS_ANCESTRY,
         generator_name="utilities/ancestries/generate_ancestry_html.py",
+        jump_nav_html=jump_nav_html,
     )
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
