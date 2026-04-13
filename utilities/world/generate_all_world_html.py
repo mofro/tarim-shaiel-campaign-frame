@@ -210,7 +210,6 @@ def render_category_body(body: str, vault: Path, docs: Path) -> tuple[str, list[
         elif para.startswith('### '):
             header_text = para[4:].strip()
             anchor = _slug(header_text)
-            jump_nav_items.append({'text': header_text, 'anchor': anchor, 'level': 3})
             html_parts.append(f'<h3 id=\"{anchor}\">{inline_md(header_text)}</h3>\n')
         # Callouts
         elif para.startswith('> ') or para.startswith('>'):
@@ -489,9 +488,10 @@ _INDEX_CSS_LEGACY_UNUSED = """
       background-image: url('images/paper-texture-top-view-2.jpg');
       font-family: 'EB Garamond', Georgia, serif;
       font-size: 17px; line-height: 1.72; color: var(--ink);
+      display: flex; align-items: flex-start; justify-content: center;
     }
     .page-wrap {
-      max-width: 860px; margin: 0 auto;
+      max-width: 860px; margin: 0;
       background: var(--parchment);
       box-shadow: 0 0 80px rgba(0,0,0,0.75);
       position: relative; overflow: hidden;
@@ -612,16 +612,23 @@ _INDEX_CSS_LEGACY_UNUSED = """
     }
     .content .callout strong { color: var(--steel); }
     .jump-nav {
-      display: flex; flex-wrap: wrap;
-      gap: 0.3rem 1.1rem;
-      padding: 1.1rem 0 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem 0.5rem 1rem 0.5rem;
       border-bottom: 1px solid var(--rule);
-      margin-bottom: 2.8rem;
       font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.13em;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 280px;
+      background-color: rgb(26, 18, 8);
+      min-width: -webkit-fit-content;
+      min-width: fit-content;
+      max-inline-size: 22%;
     }
+    .jump-nav ul { list-style-type: bengali; padding-left: 1.2rem; }
     .jump-nav a {
       color: var(--gold);
       text-decoration: none;
@@ -868,12 +875,13 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
     
     # Generate jump nav if enabled in frontmatter
     jump_nav_html = ''
-    if cfg.get('jump_nav') and jump_nav_items:
-        nav_links = []
+    if cfg.get('jump_nav') and len(jump_nav_items) >= 2:
+        nav_items = []
         for item in jump_nav_items:
-            indent = '  ' if item['level'] == 3 else ''
-            nav_links.append(f'{indent}<a href=\"#{item["anchor"]}\">{escape(item["text"])}</a>')
-        jump_nav_html = '<div class=\"jump-nav\">\n  ' + '\n  '.join(nav_links) + '\n</div>\n'
+            nav_items.append(f'  <li><a href=\"#{item["anchor"]}\">{escape(item["text"])}</a></li>')
+        nav_items.append('  <li class=\"nav-divider\"></li>')
+        nav_items.append('  <li style=\"list-style:none\"><a href=\"#\">&#8593; Top</a></li>')
+        jump_nav_html = '<div class=\"jump-nav\">\n<ul>\n' + '\n'.join(nav_items) + '\n</ul>\n</div>\n'
 
     # Cover image (optional)
     cover_style = ''
@@ -945,14 +953,14 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
 </head>
 <body>
 
-<div class="page-wrap">
+{jump_nav_html}<div class="page-wrap">
 
 {back_nav_html}
 {cover_html}
 {banner_html}
 
   <div class="content">
-{jump_nav_html}{body_html}
+{body_html}
     <div class="section-label">{escape(label)} ({count})</div>
 {cards_html}
   </div>

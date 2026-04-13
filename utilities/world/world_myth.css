@@ -1,7 +1,7 @@
 
     /* --- Myth/Lore specific overrides --- */
-    /* Lore pages have a taller cover than category pages */
-    .cover { min-height: 380px; }
+    /* Lore pages allow a taller cover than category pages */
+    .cover { max-height: 32rem; }
 
     .cover-tag {
       font-family: 'Cinzel', serif;

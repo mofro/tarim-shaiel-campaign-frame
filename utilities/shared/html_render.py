@@ -220,7 +220,6 @@ def render_body(body: str, vault: 'Path', docs: 'Path') -> 'tuple[str, list[dict
         if para.startswith('### '):
             text = para[4:].strip()
             anchor = _slug_anchor(text)
-            jump_nav_items.append({'text': text, 'anchor': anchor, 'level': 3})
             html_parts.append(f'<h3 id="{anchor}">{inline_md(text)}</h3>\n')
             continue
 

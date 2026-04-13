@@ -55,9 +55,11 @@ CSS_BASE = """\
 
     html { scroll-behavior: smooth; }
 
+    body { display: flex; align-items: flex-start; justify-content: center; }
+
     .page-wrap {
       max-width: 860px;
-      margin: 0 auto;
+      margin: 0;
       background: var(--parchment);
       box-shadow: 0 0 80px rgba(0,0,0,0.75);
       position: relative;
@@ -75,10 +77,58 @@ CSS_BASE = """\
 
     .cover {
       position: relative;
+      max-height: 32rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       overflow: hidden;
+    }
+
+    /* --- Jump navigation --- */
+    .jump-nav {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem 0.5rem;
+      border-bottom: 1px solid var(--rule);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 100px;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      background-color: rgb(26, 18, 8);
+      min-width: -webkit-fit-content;
+      min-width: fit-content;
+      max-inline-size: 22%;
+    }
+    .jump-nav ul { list-style-type: bengali; padding-left: 1.2rem; }
+    .jump-nav a { color: var(--gold); text-decoration: none; transition: color 0.15s; }
+    .jump-nav a:hover { color: var(--gold-light); }
+    .jump-nav .nav-divider { list-style: none; border-top: 1px solid rgba(184,146,44,0.3); margin: 0.5rem 0; padding: 0; }
+
+    @media (max-width: 640px) {
+      body { flex-direction: column; justify-content: flex-start; }
+      .jump-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        max-inline-size: 100%;
+        width: 100%;
+        border-bottom: 1px solid var(--rule);
+        padding: 0.5rem 1rem;
+        overflow-y: visible;
+        max-height: none;
+      }
+      .jump-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem 1rem;
+        padding-left: 0;
+        list-style: none;
+      }
     }
 
     .cover-image {
@@ -196,6 +246,7 @@ def build_page(
     cover_image_url: str,
     css_extra: str = '',
     generator_name: str = 'utilities',
+    jump_nav_html: str = '',
 ) -> str:
     """Assemble a complete HTML page using the shared Tarim-Shaiel design system.
 
@@ -231,7 +282,7 @@ def build_page(
 </head>
 <body>
 
-<div class="page-wrap">
+{jump_nav_html}<div class="page-wrap">
 
   <!-- BACK NAV -->
   <div class="back-nav">
