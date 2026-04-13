@@ -176,7 +176,7 @@ CSS_ANCESTRY = """\
       font-family: 'Inconsolata', monospace;
       font-size: 0.7em;
       letter-spacing: 0.06em;
-      opacity: 0.6;
+      color: floralwhite;
       text-transform: none;
       font-weight: 400;
     }
