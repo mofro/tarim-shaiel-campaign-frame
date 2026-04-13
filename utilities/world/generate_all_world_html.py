@@ -32,7 +32,7 @@ sys.path.insert(0, str(HERE))
 from generate_world_html import render_timeline_html, build_myth_html
 
 sys.path.insert(0, str(HERE.parent))   # makes utilities/shared importable
-from shared.assets import prepare_image
+from shared.assets import prepare_image, prepare_audio_wiki
 from shared.frontmatter import parse_frontmatter
 from shared.html_render import render_wiki_embed, inline_md as shared_inline_md, render_body as shared_render_body
 
@@ -122,7 +122,17 @@ def render_category_body(body: str, vault: Path, docs: Path) -> tuple[str, list[
     """
     if not body.strip():
         return '', []
-    
+
+    # Pre-copy any ![[...]] audio/image assets referenced in the body
+    _AUDIO_EXTS = {'.mp3', '.ogg', '.wav', '.m4a', '.flac', '.aac'}
+    for m in re.finditer(r'!\[\[([^\]|]+?)(?:\|[^\]]*)?\]\]', body):
+        fname = Path(m.group(1).strip()).name
+        ext   = Path(fname).suffix.lower()
+        if ext in _AUDIO_EXTS:
+            prepare_audio_wiki(fname, vault, docs)
+        else:
+            prepare_image(fname, vault, docs)
+
     # Strip frontmatter if present
     body = re.sub(r'^---\n.*?\n---\n', '', body, flags=re.DOTALL)
     # Strip Obsidian comments
