@@ -7,13 +7,10 @@ status: draft
 daggerheart_name: Orc
 published: true
 created: 2026-02-13
-last_updated: 2026-04-07
+last_updated: 2026-04-12
 ---
 
-# Tulpar - Children of the Broken Chains
-
-**Status:** Cultural Overview v1.0  
-**Related Docs:** `/narrative/lore/liberation_aftermath.md`, `/mechanics/weapons_silk_road.md`
+# Tulpar — Children of the Broken Chains
 
 *Daggerheart ancestry: Orcs. Foundation document — player-facing.*
 
@@ -24,7 +21,7 @@ last_updated: 2026-04-07
 
 ![[daggerheart-ancestry-Tulpar.png]]
 
-Tulpar (Orcs) in Tarim-Shaiel are not the savage raiders of traditional fantasy. They are a people defined by **hard-won freedom**, **cosmopolitan diversity**, and **economic mastery**. After 1,000 years of liberation from enslavement (~40 generations), Tulpar culture has evolved from survival to prosperity. Modern Tulpar are respected as master traders, diplomatic mediators, and cultural bridges across the Silk Road—while never forgetting the chains they once wore.
+Tulpar (Orcs) are not the savage raiders of traditional fantasy. They are a people defined by hard-won freedom, cosmopolitan diversity, and economic mastery. After 1,000 years of liberation from enslavement — roughly forty generations — Tulpar culture has evolved from survival to prosperity. Modern Tulpar are respected as master traders, diplomatic mediators, and cultural bridges across the Silk Road, while never forgetting the chains they once wore.
 
 **Core Identity:** "We remember where we came from. We choose where we're going."
 
@@ -35,44 +32,24 @@ Tulpar (Orcs) in Tarim-Shaiel are not the savage raiders of traditional fantasy.
 ## HISTORICAL CONTEXT
 
 ### The Captivity Era
-- **Duration:** Centuries (exact length lost to oral tradition)
-- **Nature:** Enslaved as laborers, miners, soldiers, builders across multiple empires
-- **Geographic Spread:** Scattered from Jerusalem to Changzhou wherever their captors needed them
-- **Cultural Impact:** Different Tulpar populations served different masters, experienced different conditions
 
-### The Liberation (~1,000 Years Ago - Era 0)
-- **Trigger:** The Tulpar are liberated prior to the fall of the first empire.
-- **Initial Result:** Sudden, chaotic freedom without infrastructure or plan
-- **Immediate Aftermath:** Decades of bloodshed, displacement, desperate survival
-- **Timeline Reference:** See `/narrative/lore/liberation_aftermath.md` for detailed chronology
+The exact duration of Tulpar captivity has been lost to oral tradition — centuries, at minimum. Scattered from one end of the Silk Road to the other, different Tulpar populations served different masters under different conditions. They were enslaved as laborers, miners, soldiers, builders. The absence of a single shared experience of captivity is why no two Tulpar clans are identical today.
 
-### The Chaos Period (Era 1: ~150 years)
-- Fragmented Tulpar populations scattered across Silk Road
-- Some groups fought former captors; others fled to remote regions
-- Many sought shelter with sympathetic peoples
-- **Key Development:** Clan structures emerged based on geographic settlement and local alliances
-- **Casualties:** ~30-40% of liberated Tulpar died in first decades
-- **Cultural Formation:** Different clans adopted different cultural practices based on where they settled
+### The Liberation (~1,000 Years Ago)
+
+The Tulpar were liberated prior to the fall of the first empire. The result was sudden, chaotic freedom without infrastructure or plan — decades of bloodshed, displacement, and desperate survival followed. Some thirty to forty percent of the liberated Tulpar died in the first decades. The chaos period produced the clan structures that still define Tulpar life: small, mobile communities anchored to geography and local alliances rather than any central authority.
 
 ### The Flowering (Era 2: ~300 years)
-- **Economic Integration:** Tulpar transitioned from warriors to traders
-- **Cultural Renaissance:** Oral epic tradition standardized; Chain Chronicles formalized
-- **Martial Academies:** First multi-style weapon schools established
-- **Trade Networks:** Tulpar merchant clans became recognized trading partners
-- **"From Swords to Ledgers":** This era saw Tulpar master bargaining, contracts, and commerce
+
+What began as survival — selling seized weapons, offering guard services — became mastery. Over three centuries, Tulpar transitioned from martial specialists into economic powerhouses. Oral tradition was standardized; the Chain Chronicles were formalized. The first multi-style weapon schools were established. Tulpar merchant clans became recognized trading partners across the Silk Road.
 
 ### The Consolidation (Era 3: ~300 years)
-- **Merchant Leagues Formed:** Tulpar trade confederations rivaled Dwarf banking houses
-- **Diplomatic Academies:** Established schools teaching negotiation, mediation, cultural translation
-- **Economic Powerhouses:** Some Tulpar clans became wealthiest families on Silk Road
-- **Political Representation:** First Tulpar council seats in major city-states
-- **"The Trading Centuries":** Tulpar perfected their reputation as economic masters
 
-### The Modern Era (Era 4-5: ~200 years to present)
-- **Established Power:** Tulpar are integral to Silk Road economy—not marginal survivors
-- **Diplomatic Specialists:** Known as "social lubricants" who facilitate difficult negotiations
-- **Cultural Bridges:** Tulpar translate not just languages but customs, expectations, unspoken rules
-- **Current Status:** Respected, powerful, indispensable—while carrying ancestral memory
+Tulpar trade confederations rivaled Kuhban banking houses. Diplomatic academies were established to teach negotiation, mediation, and cultural translation. Some Tulpar clans became the wealthiest families on the Silk Road. The first Tulpar council seats appeared in major city-states. This era is remembered as "the Trading Centuries" — when Tulpar perfected their reputation as economic masters.
+
+### The Modern Era
+
+Tulpar are now integral to the Silk Road economy, not marginal survivors. They are known as "social lubricants" — facilitators of difficult negotiations who translate not just languages but customs, expectations, and unspoken rules. They carry ancestral memory of the chains alongside real, present power.
 
 ---
 
@@ -80,217 +57,83 @@ Tulpar (Orcs) in Tarim-Shaiel are not the savage raiders of traditional fantasy.
 
 ### Clan-Based Identity
 
-**Primary Allegiance:** Clan over race. A Tulpar's clan identity tells their story—where they settled, who helped them, what they learned.
+**Primary allegiance:** Clan over ancestry. A Tulpar's clan identity tells their story — where they settled, who helped them, what they learned. Clan names reflect this: settlement-based ("Stoneback Clan," "Sandstrider Clan"), alliance-based ("Dao-Sworn," "Steppe-Brothers"), memorial-based ("Chainbreakers," "Iron-Remembers"), or trade-based ("Silk-Weavers," "Steel-Sellers").
 
-**Clan Naming Conventions:**
-- **Settlement-Based:** "Stoneback Clan" (settled in mountains), "Sandstrider Clan" (desert diaspora)
-- **Alliance-Based:** "Dao-Sworn" (learned from Chinese allies), "Steppe-Brothers" (sheltered by nomads)
-- **Memorial-Based:** "Chainbreakers" (commemorating liberation), "Iron-Remembers" (honoring captivity)
-- **Trade-Based:** "Silk-Weavers" (merchant clan), "Steel-Sellers" (weapon smiths)
-
-**Clan Diversity Principle:** No two Tulpar clans are identical. Each developed unique traditions based on their post-liberation experiences.
+No two Tulpar clans are identical. Each developed unique traditions based on their post-liberation experiences.
 
 ### Cosmopolitan Adaptation
 
 **Philosophy:** "We take what works. We honor where it came from."
 
-Tulpar are **culturally acquisitive** without being appropriative—they adopt practices, weapons, languages, and customs from peoples who helped them or whom they respected, but always acknowledge the source.
-
-**Examples:**
-- Persian diaspora clans speak Farsi, fight with shamshirs, observe some Persian customs
-- Mountain clans learned Afghan combat techniques, wear similar clothing, share bread-making traditions
-- Chinese settlement clans celebrate Lunar New Year alongside Tulpar remembrance days
+Tulpar are culturally acquisitive without being appropriative — they adopt practices, weapons, languages, and customs from peoples who helped them or whom they respected, but always acknowledge the source. Persian diaspora clans speak Farsi and fight with shamshirs. Mountain clans learned Afghan combat techniques. Chinese settlement clans celebrate Lunar New Year alongside Tulpar remembrance days.
 
 ### The Martial Tradition
 
-**Core Belief:** "Every blade has a story. Every story has a lesson."
+**Core belief:** "Every blade has a story. Every story has a lesson."
 
-**Weapon Eclecticism:** Tulpar are **weapon-agnostic**, seeing martial diversity as strength. A Tulpar warband carrying ten different weapon types is not disorganized—it's a statement of clan histories and hard-won knowledge.
+Tulpar are weapon-agnostic, seeing martial diversity as strength. A Tulpar warband carrying ten different weapon types is not disorganized — it is a statement of clan histories and hard-won knowledge. Young Tulpar learn multiple weapon styles; clan weapon-masters teach techniques from three to six different traditions. The "weapon-walk" custom sends young Tulpar on years-long journeys to learn fighting styles from other clans and cultures.
 
-**Training Philosophy:**
-- Young Tulpar learn multiple weapon styles
-- Clan weapon-masters teach techniques from 3-6 different traditions
-- "Weapon-walking" custom: young Tulpar travel to learn fighting styles from other clans/cultures
-
-**Martial Academies:**
-- Major Tulpar settlements maintain multi-style training grounds
-- Open to non-Tulpar (for fee or service)
-- Repository of comparative martial knowledge
-- **Famous Example:** "The Hundred Stances School" in [major city] teaches 12+ weapon traditions
-- **Modern reality:** Often paired with or overshadowed by diplomatic academies
-- **Youth trend:** More young Tulpar apprentice to Bondkeepers than Bladespeakers
+Major Tulpar settlements maintain multi-style training grounds open to non-Tulpar for fee or service. The famous "Hundred Stances School" teaches twelve or more weapon traditions. In modern times, these academies are often paired with or overshadowed by the diplomatic schools — more young Tulpar apprentice to Bondkeepers than Bladespeakers.
 
 ### Language and Literacy
 
-**Common Tongue Variants:** Most Tulpar speak multiple languages due to diaspora:
-- **Tulpari** (original language, preserved through oral tradition)
-- **Trade Common** (Silk Road lingua franca)
-- **Regional Language** (wherever clan settled)
+Most Tulpar speak multiple languages: Tulpari (the original language, preserved through oral tradition), Trade Common (the Silk Road lingua franca), and the regional language of wherever their clan settled. Literacy rates are higher than might be expected — many Tulpar learned to read during captivity or post-liberation through trade and contracts.
 
-**Literacy Rates:** Higher than might be expected—many Tulpar learned to read during captivity (record-keeping, communications) or post-liberation (trade, contracts, preserving history).
-
-**Written Records:** Tulpar maintain **Chain Chronicles**—written clan histories recording migration, allies, enemies, fallen, and learned wisdom. After 1,000 years, these chronicles are some of the most comprehensive historical records on the Silk Road, rivaling Khuban (Dwarf) archives in scope.
+**The Chain Chronicles:** Written clan histories recording migration, allies, enemies, fallen, and learned wisdom. After 1,000 years, these chronicles are some of the most comprehensive historical records on the Silk Road, rivaling Kuhban archives in scope.
 
 ---
 
-## THE TRADING CENTURIES: TULPAR ECONOMIC MASTERY
+## THE TRADING CENTURIES: ECONOMIC MASTERY
 
-### From Warriors to Merchants (Era 2-3)
+### From Warriors to Merchants
 
-**The Transition:**
-What began as survival—selling seized weapons, offering guard services—became mastery. Over 300-600 years (Era 2-3), Tulpar transformed from martial specialists into **economic powerhouses**.
+The transition was not sudden. Weapon diversity became market advantage — "any blade from any culture" was a niche no competitor could match. Cultural mediation became diplomatic services, as multilingual, multicultural Tulpar clans translated customs, not just words. Trade networks formalized into merchant leagues, with standardized contracts and credit systems honored across regions. Economic power eventually translated into political representation.
 
-**Key Developments:**
-1. **Weapon Diversity → Market Advantage** (Era 2, ~400-500 CE)
-   - Tulpar' multi-cultural weapon knowledge created unique merchant niche
-   - "Any blade from any culture"—competitors couldn't match variety
-   - First Tulpar weapon markets established in major trade cities
+### Modern Economic Role
 
-2. **Cultural Mediation → Diplomatic Services** (Era 2, ~500-600 CE)
-   - Tulpar' multilingual, multicultural clans could translate customs, not just words
-   - Hired as negotiators between hostile factions (trusted as neutral)
-   - "You want to trade with them? Ask a Tulpar—they understand both sides"
+**Trade mediation and brokerage:** Tulpar facilitate deals between parties who distrust each other. Multilingual, multicultural, and with a reputation for fairness, they are called in for major trade deals that other brokers cannot close.
 
-3. **Trade Networks → Merchant Leagues** (Era 3, ~700-900 CE)
-   - Tulpar clans formalized commercial alliances
-   - Established credit systems, standardized contracts
-   - Tulpar merchant houses opened in every major Silk Road city
+**Diplomatic services:** Tulpar negotiators end disputes that have dragged on for generations. They are known as social lubricants — people who understand what all parties actually want, not just what they say they want.
 
-4. **Economic Power → Political Influence** (Era 3, ~900-1000 CE)
-   - Wealthiest Tulpar families gained council seats, noble titles
-   - Tulpar merchant princes rivaled human/dwarf/goblin counterparts
-   - Some kingdoms appointed Tulpar trade ministers
+**Weapons and martial goods:** The most comprehensive weapon dealers on the Silk Road, with 1,000 years of accumulated expertise across cultures. Every major city has a Tulpar weapon quarter.
 
-### Modern Tulpar Economic Role (Era 4-5)
+**Intelligence and information:** Tulpar clan ties span continents. Everyone talks to their Tulpar trader. Market trends and political shifts are fair game; secrets that endanger individuals are not.
 
-**Primary Industries:**
+**Contract enforcement and arbitration:** Being banned from Tulpar trading networks is economic death for merchants. The threat is more effective than any court — and it is rarely an idle one.
 
-**1. Trade Mediation & Brokerage**
-- **What:** Facilitate deals between parties who distrust each other
-- **Why Tulpar Excel:** Multilingual, multicultural, reputation for fairness
-- **Scale:** Major trade deals (caravans, bulk goods, rare items) often use Tulpar brokers
-- **Fee Structure:** Percentage of deal value; both parties pay
+### Merchant Leagues
 
-**2. Diplomatic Services**
-- **What:** Negotiate treaties, settle disputes, mediate conflicts
-- **Why Tulpar Excel:** Understand multiple cultures' unspoken rules and expectations
-- **Reputation:** "Social lubricants"—make impossible negotiations possible
-- **Famous Examples:** Tulpar mediators ended century-long border disputes, prevented wars
+Loose confederations of allied Tulpar clans, organized regionally with no central authority. The Golden Chain League covers the western regions (luxury goods, diplomatic services). The Steppe Compact handles Central Asian caravan logistics. The Jade Road Brotherhood manages bulk goods in the east. The Southern Confederacy mediates the spice and textile trades.
 
-**3. Weapons & Martial Goods**
-- **What:** Still the most comprehensive weapon dealers on Silk Road
-- **Why Tulpar Excel:** 1,000 years of accumulated expertise across cultures
-- **Markets:** Every major city has Tulpar weapon quarter
-- **Services:** Sales, custom forging, repair, training, appraisal
+All leagues maintain shared ledgers of trustworthy and untrustworthy traders, standardized contracts, credit networks honored league-wide, and arbitration courts for commercial disputes.
 
-**4. Intelligence & Information**
-- **What:** Tulpar' extensive networks provide market intelligence, political news, rumors
-- **Why Tulpar Excel:** Clan ties span continents; everyone talks to their Tulpar trader
-- **Services:** "What's the real story?" premium information sales
-- **Ethics:** Tulpar don't sell secrets that endanger individuals—but market trends, political shifts? That's fair game
-
-**5. Contract Enforcement & Arbitration**
-- **What:** Third-party enforcement of trade agreements
-- **Why Tulpar Excel:** Reputation for impartiality; vast network means cheaters get blacklisted everywhere
-- **Mechanism:** Tulpar merchant leagues maintain shared ledgers of trustworthy/untrustworthy traders
-- **Power:** Being banned from Tulpar trading networks = economic death for merchants
-
-### Tulpar Merchant Leagues
-
-**Structure:**
-- Loose confederations of allied Tulpar clans
-- No central authority; consensus-based decision making
-- Regional leagues coordinate but remain autonomous
-
-**Major Leagues:**
-- **The Golden Chain League** (Persian/Western regions): Luxury goods, diplomatic services
-- **The Steppe Compact** (Central Asian regions): Caravan logistics, horse trading
-- **The Jade Road Brotherhood** (Eastern regions): Bulk goods, resource extraction deals
-- **The Southern Confederacy** (Indian subcontinent): Spice trade, textile mediation
-
-**Services Provided:**
-- Standardized contracts across regions
-- Credit networks (letters of credit honored league-wide)
-- Arbitration courts for commercial disputes
-- Shared intelligence on market conditions
-- Blacklist enforcement (untrustworthy traders banned)
-
-### "The Tulpar Always Gets Their Percentage"
-
-**Reputation:**
-Tulpar are known for **always getting paid**—not through violence, but through **economic leverage**.
-
-**How:**
-- Extensive networks mean non-payment gets you blacklisted everywhere
-- Tulpar traders won't work with known cheaters
-- Other merchants follow Tulpar lead ("If the Tulpar won't trade with them, neither will we")
-- Economic isolation more effective than legal action
-
-**Result:** 
-- Tulpar merchants almost never need to use force
-- Their reputation for fairness + ruthless blacklisting = voluntary compliance
-- "Cross a Tulpar trader once, regret it for life"
+**"The Tulpar always gets their percentage"** — not through violence, but through economic leverage. Non-payment gets you blacklisted everywhere. Other merchants follow the Tulpar lead. The reputation for fairness plus ruthless enforcement means voluntary compliance is the norm.
 
 ---
 
-## DIPLOMATIC ACADEMIES: THE ART OF NEGOTIATION
+## DIPLOMATIC ACADEMIES
 
 ### Philosophical Foundation
 
-**Core Principle:** "To negotiate well, you must understand what your opponent values—and what they fear to lose."
+**Core principle:** "To negotiate well, you must understand what your opponent values — and what they fear to lose."
 
-Tulpar diplomatic training emphasizes:
-- **Cultural intelligence:** Deep knowledge of multiple societies' customs, taboos, values
-- **Active listening:** Hearing what's NOT said (subtext, implications, fears)
-- **Strategic empathy:** Understanding perspectives without agreeing with them
-- **Creative problem-solving:** Finding solutions that give everyone something they need
+Tulpar diplomatic training emphasizes cultural intelligence (deep knowledge of multiple societies' customs and taboos), active listening (hearing what is not said), strategic empathy (understanding perspectives without agreeing with them), and creative problem-solving (finding solutions that give everyone something they need).
 
 ### Major Academies
 
-**The House of Broken Chains** (location TBD)
-- Premier Tulpar diplomatic academy
-- Trains negotiators, mediators, cultural translators
-- **Most graduates become Bondkeepers** for their clans or work as independent mediators
-- **Curriculum:** 3-5 year intensive program
-  - **Year 1:** Language immersion (students learn 3-4 languages)
-  - **Year 2:** Cultural studies (embed in different societies)
-  - **Year 3:** Negotiation theory and practice
-  - **Year 4-5:** Apprenticeship with master Bondkeepers
-- **Graduates:** Highly sought after by kingdoms, merchant houses, religious organizations
-- **Faculty:** Retired Bondkeepers from major clans
-- **Non-Tulpar Students:** Accepted but rare (expensive, rigorous, culturally challenging)
+**The House of Broken Chains:** The premier Tulpar diplomatic academy. Trains negotiators, mediators, and cultural translators through a three-to-five year intensive program: language immersion, cultural embed, negotiation theory, apprenticeship. Graduates are highly sought after by kingdoms, merchant houses, and religious organizations. Non-Tulpar students are accepted but rare — the program is expensive, rigorous, and culturally demanding.
 
-**The Speaking Stone Guild** (location TBD)
-- Specializes in arbitration and contract law
-- Trains judges, arbitrators, legal scholars
-- Maintains archives of precedent-setting commercial cases
-- Publishes annual legal commentaries (influential across Silk Road)
+**The Speaking Stone Guild:** Specializes in arbitration and contract law. Trains judges, arbitrators, and legal scholars. Maintains archives of precedent-setting commercial cases and publishes annual legal commentaries influential across the Silk Road.
 
-**Regional Clan Schools**
-- Most major Tulpar clans run smaller training programs
-- Focus on practical skills: bargaining, deal-making, reading people
-- Less prestigious but more accessible
-- "Every Tulpar child learns to negotiate before they learn to fight"
+**Regional clan schools:** Most major Tulpar clans run smaller programs focused on practical bargaining, deal-making, and reading people. Less prestigious, more accessible. "Every Tulpar child learns to negotiate before they learn to fight."
 
 ### Diplomatic Techniques
 
-**"The Third Cup" Principle:**
-- Never conclude serious negotiations in first meeting
-- First cup (meeting): Establish positions, build rapport
-- Second cup: Explore interests, test boundaries
-- Third cup: Close the deal, formalize agreements
-- **Rushing = Suspicion:** Anyone pushing for immediate agreement is hiding something
+**The Third Cup:** Never conclude serious negotiations at the first meeting. The first cup establishes positions and builds rapport. The second cup explores interests and tests boundaries. The third cup closes and formalizes. Anyone pushing for immediate agreement is hiding something.
 
-**"The Silent Offer":**
-- When parties are deadlocked, Tulpar mediator proposes solution
-- Both parties respond privately to mediator (not to each other)
-- If both accept, deal is done; if either rejects, mediator revises
-- **Saves face:** Parties never have to admit compromise publicly
+**The Silent Offer:** When parties are deadlocked, the Tulpar mediator proposes a solution privately to each side. If both accept, the deal is done. If either rejects, the mediator revises. Neither party ever has to admit compromise publicly.
 
-**"The Weighted Scale":**
-- When resources are scarce, Tulpar mediators help parties **value things differently**
-- Example: One party values prestige, other values practical control → split accordingly
-- **Key insight:** Most conflicts aren't zero-sum if you understand what people actually want
+**The Weighted Scale:** Most conflicts are not zero-sum if you understand what people actually want. One party values prestige; the other values practical control. Split accordingly.
 
 ---
 
@@ -298,347 +141,137 @@ Tulpar diplomatic training emphasizes:
 
 ### Clan Hierarchy
 
-**Clan Leader (Thrakmar/Thrakmara):** 
-- Elected position, not hereditary
-- Typically proven in BOTH martial and economic spheres (modern requirement)
-- Can be challenged through formal duel or clan vote
-- Serves until death, retirement, or removal
-- **Modern expectation:** Must demonstrate diplomatic skill, not just warrior prowess
+**Clan Leader (Thrakmar/Thrakmara):** Elected, not hereditary. Must demonstrate both martial and economic capability in the modern era. Can be challenged through formal duel or clan vote. Serves until death, retirement, or removal.
 
-**Bondkeeper:**
-- Manages clan's relationships with other clans, merchant leagues, foreign powers
-- Negotiates major contracts and trade agreements
-- Trains young Tulpar in bargaining, diplomacy, cultural intelligence
-- Maintains the clan's network of partnerships and alliances
-- **High status:** In prosperous clans, often MORE influential than Bladespeaker
-- **Symbolic role:** "Keeper of living chains" - bonds that connect clan to the world
-- Typically apprenticed for 10-20 years before taking the role
+**Bondkeeper:** Manages clan relationships with other clans, merchant leagues, and foreign powers. Negotiates major contracts. Trains young Tulpar in bargaining, diplomacy, and cultural intelligence. In prosperous clans, often more influential than the Bladespeaker. The symbolic "keeper of living chains" — the bonds that connect the clan to the world.
 
-**Weapon-Master (Bladespeaker):**
-- Teaches martial traditions
-- Preserves weapon histories
-- Often serves as war-leader in conflicts (when they occur)
-- High status, respected across clan boundaries
-- **Historical note:** Once most prestigious role; now shares status with Bondkeeper
+**Weapon-Master (Bladespeaker):** Teaches martial traditions, preserves weapon histories, serves as war-leader when conflicts arise. High status, respected across clan boundaries. Once the most prestigious role; now shares standing with the Bondkeeper.
 
-**Chain-Keeper (Remembrancer):**
-- Maintains oral and written histories (the Chain Chronicles)
-- Performs liberation anniversary ceremonies
-- Counsels on matters of tradition vs. adaptation
-- Ensures younger generations "remember where we came from"
-- **Paired role with Bondkeeper:** One keeps bonds of the past, one keeps bonds of the present
+**Chain-Keeper (Remembrancer):** Maintains oral and written histories. Performs liberation anniversary ceremonies. Counsels on tradition versus adaptation. Ensures younger generations know where they came from. The Bondkeeper keeps bonds of the present; the Remembrancer keeps bonds of the past.
 
-**Council of Elders:**
-- Advises Thrakmar/Thrakmara
-- Represents different clan families/factions
-- Settles internal disputes
-- **Modern composition:** Usually includes at least one former Bondkeeper and one former Bladespeaker
+**Council of Elders:** Advises the Thrakmar/Thrakmara, represents clan families and factions, settles internal disputes. Modern councils usually include at least one former Bondkeeper and one former Bladespeaker.
 
 ### Inter-Clan Relations
 
-**Generally Cooperative:** Tulpar recognize shared history, offer mutual aid, share weapon techniques, intermarry freely between clans.
-
-**Occasional Tensions:** 
-- **Assimilationist vs. Preservationist** debates (how much to adopt from host cultures)
-- **Settlement vs. Nomadic** lifestyle conflicts
-- **Remembrance vs. Forward-Looking** philosophical splits
-
-**Clan Gatherings (Every 10 years):**
-- Major inter-clan meetings
-- Share histories, settle disputes, arrange marriages
-- Weapon competitions and technique exchanges
-- "Remembrance Vigil" for those who died in captivity and chaos
+Tulpar generally cooperate — they recognize shared history, offer mutual aid, share weapon techniques, and intermarry freely. Tensions arise around the assimilationist versus preservationist debate, settlement versus nomadic lifestyle preferences, and competition for trade dominance within the merchant leagues. Major inter-clan gatherings occur every ten years for shared histories, dispute resolution, arranged marriages, weapon competitions, and a Remembrance Vigil for those who died in captivity and the chaos period.
 
 ### Family Structure
 
-**Biological Family First, Chosen Family Close Behind:**
-Tulpar honor direct lineage (parents, siblings, children) but extend kinship generously to:
-- Adopted clan members (non-Tulpar)
-- Long-term trade partners ("trade-kin")
-- Those who share struggles
-- Anyone who demonstrates reverence for Tulpar ways
+Biological family comes first, chosen family close behind. Tulpar extend kinship generously to adopted clan members, long-term trade partners, those who share struggles, and anyone who demonstrates reverence for Tulpar ways. Adopted children are treated identically to biological children. Orphans are automatically absorbed by the clan. "It takes a clan to raise a child."
 
-**Child-Rearing:** 
-- Communal within clan—children learn from multiple adults, not just parents
-- Adopted children treated identically to biological children
-- "It takes a clan to raise a child" (Tulpar proverb)
-- Orphans automatically adopted by clan (never abandoned)
-
-**Coming-of-Age (TBD - Needs Development):** 
-- **Approximate Age:** 16-18 (varies by clan)
-- **Trial Components:** Likely includes demonstration of clan skills (weapon proficiency OR trade expertise OR diplomatic ability)
-- **Choice:** Young Tulpar chooses their path (weapon-master, trader, craftsperson, mediator, etc.)
-- **Optional Journeys:** 
-  - **Weapon-Walk:** Travel to learn fighting styles from other clans/cultures (1-3 years)
-  - **Trade-Walk:** Apprentice with distant merchant houses (1-3 years)
-  - **Remembrance Pilgrimage:** Visit sites of historical significance to clan
+Coming-of-age typically occurs around sixteen to eighteen. Young Tulpar choose their path — weapon-master, trader, craftsperson, mediator — and may undertake a Weapon-Walk (travel to learn fighting styles from other clans), a Trade-Walk (apprenticeship with distant merchant houses), or a Remembrance Pilgrimage (visiting sites of historical significance).
 
 ---
 
-## RELIGIOUS & SPIRITUAL PRACTICES
+## RELIGIOUS AND SPIRITUAL PRACTICES
 
-### No Unified Tulpar Religion
+Tulpar have no unified religion. Different clans adopted different spiritual practices based on where they settled — some worship local deities, others practice regional folk religions, some maintain fragmentary pre-captivity animist traditions.
 
-**Diversity:** Different clans adopted different spiritual practices based on settlement regions:
-- Some worship local deities
-- Others practice Buddhism, Islam, or regional folk religions
-- Some maintain pre-captivity animist traditions (rare, fragmentary)
+**Ancestor veneration:** Nearly universal. Honor those who survived captivity, died fighting for freedom, or built new lives.
 
-### Common Spiritual Elements
+**Liberation Day:** Not a celebration — a solemn remembrance. Lighting of chains (symbolic breaking), recitation of the fallen, renewal of freedom oaths specific to each clan.
 
-**Ancestor Veneration:** Nearly universal across clans. Honor those who survived captivity, died fighting for freedom, or built new lives.
-
-**Liberation Day Observances:**
-- **Not a celebration**—a solemn remembrance
-- Lighting of chains (symbolic breaking)
-- Recitation of the fallen
-- Renewal of "freedom oaths" (clan-specific vows)
-
-**Memorial Weapons:**
-- Some Tulpar carry "Breaker's Chains" (weaponized shackles)
-- Mining picks, tools from captivity
-- Rarely used in combat—ceremonial/spiritual significance
-- "To remember the weight we carried, so we never forget why we're free"
+**Memorial weapons:** Some Tulpar carry "Breaker's Chains" (weaponized shackles), mining picks, or tools from the captivity era. Rarely used in combat — their significance is ceremonial. "To remember the weight we carried, so we never forget why we're free."
 
 ---
 
 ## ECONOMIC ROLES
 
-### Weapon Merchants & Smiths
+**Weapon merchants and smiths:** The most cosmopolitan weapon dealers on the Silk Road. Any blade, any culture, any style — sold, forged, repaired, appraised, or taught. "Need a blade? What style? We know them all."
 
-**Primary Reputation:** Tulpar are the **most cosmopolitan weapon dealers** on the Silk Road.
+**Caravan guards:** Multi-style combat training, familiarity with diverse threats, and a reputation for loyalty once contracted make Tulpar guards highly sought for Silk Road caravans, pilgrim escorts, and diplomatic missions.
 
-**Services:**
-- Sell/trade weapons from multiple cultural traditions
-- Custom-forge weapons in various styles
-- Repair/maintain diverse arsenal types
-- Teach weapon maintenance to buyers
+**Craftspeople and laborers:** Many Tulpar retain skills from the captivity era — mining, stonework, metalworking, construction, engineering. The relationship is complicated: these skills carry painful memories but provide livelihood. Most Tulpar prefer working for themselves.
 
-**Business Philosophy:** "Need a blade? What style? We know them all."
-
-### Caravan Guards
-
-**High Demand:** Tulpar guards valued for:
-- Multi-style combat training
-- Familiarity with diverse threats
-- Reputation for loyalty (once contracted)
-- Physical strength and endurance
-
-**Typical Contracts:** 
-- Silk Road merchant caravans
-- Pilgrim escorts
-- Diplomatic missions (neutral parties)
-
-### Craftspeople & Laborers
-
-**Legacy Skills:** Many Tulpar retain skills from captivity era:
-- Mining, stonework, metalworking
-- Construction, engineering
-- Textile work (some clans)
-
-**Complicated Relationship:** These skills carry painful memories but also provide livelihood. Most Tulpar prefer working **for themselves** now rather than for others.
-
-### Merchants & Traders
-
-**Growing Class:** Younger generations establishing trade networks:
-- Weapons and armor
-- Regional specialties from settlement areas
-- Cross-cultural trade facilitation
+**Merchants and traders:** Younger generations are establishing their own trade networks in weapons, regional specialties, and cross-cultural trade facilitation.
 
 ---
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-### Humans
-**Most Complex:** Humans were both captors and liberators, enemies and allies.
-- **Varies by Region:** Clans settled among sympathetic humans have good relations
-- **Tension Points:** Areas where Tulpar were enslaved still carry mutual distrust
-- **Current Status:** Case-by-case, clan-by-clan
+**Humans:** The most complex relationship. Humans were both captors and liberators, enemies and allies. Varies by region and clan history. The tension is real but not universal — case by case.
 
-### Dwarves
-**Generally Positive:** 
-- Shared respect for craftsmanship
-- Some trade partnerships (Tulpar weapon diversity + Dwarf engineering)
-- Mutual appreciation for "remembering where you came from"
+**Kuhban (Dwarves):** Generally positive. Shared respect for craftsmanship, some trade partnerships combining Tulpar weapon diversity with Kuhban engineering, and mutual appreciation for remembering where you came from.
 
-### Halflings
-**Friendly:** 
-- Halflings' welcoming nature appeals to scattered Tulpar diaspora
-- Trade relationships common
-- Some intermarriage (rare but accepted)
+**Rahban (Halflings):** Friendly. Halflings' welcoming nature appeals to scattered Tulpar diaspora. Trade relationships are common; some intermarriage, rare but accepted.
 
-### Katari
-**Respectful Distance:**
-- Tulpar admire Katari martial prowess
-- Limited interaction (different settlement patterns)
-- Occasional weapon technique exchanges
+**Vaghri (Katari):** Respectful distance. Tulpar admire Katari martial prowess; limited interaction due to different settlement patterns; occasional weapon technique exchanges.
 
-### Goblins
-**Kinship:** 
-- Both ancestries marginalized, scrappy, adaptive
-- Some alliance in certain regions
-- Shared "we do what works" pragmatism
+**Jivar (Goblins):** Kinship. Both ancestries marginalized, scrappy, adaptive. Some regional alliances, shared pragmatism.
 
-### Infernis
-**Complicated:**
-- Some Tulpar see Infernis as "branded like we were" (sympathetic)
-- Others wary of demonic associations
-- Varies by individual more than clan
+**Div-Born (Infernis):** Complicated. Some Tulpar see Div-Born as "branded like we were" — sympathetic. Others are wary of the demonic associations. Varies by individual more than clan.
 
-### Fauns, Firbolg, Giants
-**Neutral to Positive:**
-- Limited interaction due to settlement patterns
-- No historical baggage
-- Trade and occasional cooperation
+**Gavar (Firbolg), Pari-Kin (Fauns), Kalan (Giants):** Neutral to positive. Limited interaction due to settlement patterns, no historical baggage, trade and occasional cooperation.
 
-### Drakona
-**Wary Respect:**
-- Drakona's power reminds some Tulpar of powerful captors
-- Others admire their strength
-- Generally keep distance unless allied
+**Naga-Kin (Drakona):** Wary respect. Drakona's power reminds some Tulpar of powerful captors; others admire their strength. Generally keep distance unless allied.
 
 ---
 
 ## "FOUND FAMILY": TULPAR KINSHIP PHILOSOPHY
 
-### Core Principle
-
 **"Blood remembers, but choice honors."**
 
-Tulpar understand kinship as **concentric circles of belonging**:
-1. **Biological family** (innermost circle, honored first)
-2. **Clan family** (blood and adopted, treated as siblings)
-3. **Trade partners** (long-term business relationships become familial)
-4. **Those who share the weight** (anyone who understands hardship/struggle)
-5. **Those who demonstrate reverence** (respect Tulpar traditions, history, values)
+Tulpar understand kinship as concentric circles: biological family, clan family (blood and adopted), long-term trade partners who become familial, those who share the weight of hardship, and those who demonstrate reverence for Tulpar ways.
 
-**Generosity of Inclusion:**
-Tulpar are the **most welcoming people** for those who demonstrate:
-- **Need:** Refugees, outcasts, those fleeing persecution
-- **Reverence:** Respect for Tulpar culture, willingness to learn
-- **Shared circumstance:** Common struggles, parallel histories
-- **Proven loyalty:** Actions speak louder than blood
+Tulpar are among the most welcoming peoples for those who show need, reverence, shared circumstance, or proven loyalty. Non-Tulpar can be formally adopted through sponsorship by an existing member, a trial period of six months to two years, demonstrated commitment, a formal ceremony, and name-giving. Adopted members gain full clan protection, access to trade networks, a voice in clan decisions — and the obligation to support others and honor traditions.
 
-### How "Found Family" Works
-
-**Adoption Into Clan:**
-Non-Tulpar can be formally adopted into Tulpar clans through:
-1. **Sponsorship:** Existing clan member vouches for newcomer
-2. **Trial Period:** Newcomer lives with clan (6 months to 2 years)
-3. **Demonstration:** Newcomer proves commitment through actions
-4. **Ceremony:** Formal adoption rite (varies by clan)
-5. **Name-Giving:** Adopted member receives clan name
-
-**Rights & Responsibilities:**
-Adopted members gain:
-- Full clan protection and support
-- Access to clan trade networks
-- Voice in clan decisions
-- Obligation to support other clan members
-- Expected to honor clan traditions
-
-**Common Adoptees:**
-- War orphans sheltered during conflicts
-- Traders who married into Tulpar families
-- Refugees fleeing persecution
-- Former slaves freed by Tulpar
-- Outcasts from other societies
-
-**Example:** Half-Tulpar children of mixed marriages are **never** considered "lesser"—they're simply clan members. Same for humans, Rahban (halflings), Jiver (goblins), or anyone else adopted in.
-
-### "You Are What You Carry"
-
-**Tulpar Proverb Meaning:**
-Identity isn't just ancestry—it's what burdens you shoulder, what you protect, what you honor.
-
-**Practical Application:**
-- A human who fights to protect Tulpar children? Kin.
-- A Rahban who maintains the Chain Chronicles? Family.
-- A Kuhban who negotiates fairly in Tulpar interests? Honored as cousin.
-- Anyone who shares the weight of remembrance? Welcomed.
-
-**Contrast with Other Cultures:**
-Many societies guard membership jealously. Tulpar **want** to expand their family—more family = more strength, more perspectives, more survival.
+Half-Tulpar children of mixed marriages are never considered lesser. Same for anyone else adopted in. "You are what you carry" — identity is what burdens you shoulder, what you protect, what you honor.
 
 ---
 
-## CURRENT CHALLENGES & TENSIONS
+## CURRENT CHALLENGES AND TENSIONS
 
-### Identity Beyond Liberation
-- **40 generations removed** from captivity—how much should it define them?
-- **Elders:** "Remember the chains, or you'll wear them again"
-- **Youth:** "We are traders, diplomats, artists—not just survivors"
-- **Tension:** Honoring past vs. building future identity
+**Identity beyond liberation:** Forty generations removed from captivity — how much should it define them? Elders say "Remember the chains, or you'll wear them again." Youth say "We are traders, diplomats, artists — not just survivors." The tension between honoring the past and building a future identity is ongoing.
 
-### Economic Success vs. Cultural Memory
-- Wealthiest Tulpar families now rival nobility
-- **Risk:** Forgetting struggles as prosperity grows
-- **Counter-Measures:** Chain Chronicles taught in schools, Liberation Day observances mandatory
-- **Debate:** Is it offensive to get rich when ancestors died in chains? Or is it honoring their sacrifice?
+**Economic success versus cultural memory:** The wealthiest Tulpar families now rival nobility. Chain Chronicles are taught in schools; Liberation Day observances are mandatory. The debate continues: is it offensive to get rich when ancestors died in chains? Or is it honoring their sacrifice?
 
-### Internal Clan Politics
-- **40 generations** = complex family trees, old grudges, competing claims
-- Some clans ally; others compete for trade dominance
-- **Merchant League tensions:** Who gets best routes? Fairest contracts?
-- **Balance:** Competition drives excellence but can fracture unity
+**The "Tulpar Mafia" stereotype:** Outsiders fear the blacklist power. Accusations of monopolies, price-fixing, and favoritism follow successful Tulpar merchant houses. The Tulpar response: "We earned our position. Don't like it? Compete better." Some merchant houses do abuse power. Most don't.
 
-### The "Tulpar Mafia" Stereotype
-- Outsiders fear Tulpar blacklist power
-- "They control too much trade, have too much influence"
-- **Accusations:** Unfair monopolies, price-fixing, favoritism
-- **Tulpar Response:** "We earned our position. Don't like it? Compete better."
-- **Real Issue:** Some Tulpar merchant houses DO abuse power—but most don't
-
-### Assimilation Pressure
-- Young Tulpar in cosmopolitan cities adopting local customs fully
-- Some abandon Tulpari language, clan names, traditions
-- **"Chainless" Movement:** Minority of young Tulpar reject liberation narrative entirely
-  - "We weren't enslaved—our ancestors were. Stop guilt-tripping us."
-  - **Controversial:** Elders horrified; some youth sympathetic
-  - **Outcome:** Generational rift in some clans
+**Assimilation pressure:** Some young Tulpar in cosmopolitan cities fully adopt local customs, abandoning Tulpari language, clan names, and traditions. A minority "Chainless" movement rejects the liberation narrative entirely: "We weren't enslaved — our ancestors were." Controversial. Elders are horrified; some youth are sympathetic. The generational rift is real.
 
 ---
 
-## NOTABLE TULPAR NPCS (Seeds)
+## NOTABLE TULPAR (NPC Seeds)
 
-**Thrakmar Ironshaper** - Weapon-master (Bladespeaker) in [city], teaches 8 weapon styles, possible hero mentor
+**Thrakmar Ironshaper** — Weapon-master (Bladespeaker) in [city], teaches eight weapon styles, possible hero mentor.
 
-**Kera Chainkeeper** - Elderly Remembrancer writing definitive "Chain Chronicles," quest giver for lost clan histories
+**Kera Chainkeeper** — Elderly Remembrancer writing the definitive Chain Chronicles, quest giver for lost clan histories.
 
-**Vessa Goldweave** - Master Bondkeeper for the Golden Chain League, can open doors anywhere on Silk Road, potential patron/quest-giver
+**Vessa Goldweave** — Master Bondkeeper for the Golden Chain League, can open doors anywhere on the Silk Road, potential patron.
 
-**Dag the Blade-Seller** - Cosmopolitan merchant with connections across Silk Road, information broker (apprenticed Bondkeeper, chose independent path)
+**Dag the Blade-Seller** — Cosmopolitan merchant and information broker; apprenticed Bondkeeper who chose an independent path.
 
-**Morg Split-Clan** - Half-Tulpar, half-Human, navigating both identities, potential ally or rival
+**Morg Split-Clan** — Half-Tulpar, half-Human, navigating both identities, potential ally or rival.
 
 ---
 
 ## PLAYER CHARACTER HOOKS
 
-### Background Questions
-1. **Which clan are you from, and what's their signature weapon tradition?**
-2. **How does your clan remember the liberation—with pride, with sorrow, or both?**
-3. **What did you learn during your weapon-walk, and from whom?**
+### Questions for a Tulpar PC
 
-### Potential Character Concepts
-- Weapon-master seeking to learn a legendary lost style
-- Young Tulpar rejecting clan traditions, forging new identity
-- Blade-seller gathering weapons for mysterious purpose
-- Remembrancer searching for lost clan members
-- Mercenary guarding caravans while seeking something from the past
+1. **Which clan are you from, and what is their signature weapon tradition?** The clan tells your story. The weapon tradition tells what your ancestors learned, and from whom.
 
----
+2. **How does your clan remember the liberation — with pride, with sorrow, or both?** Every Tulpar carries this. The answer shapes how they see everything else.
 
-## NEXT STEPS
+3. **What did you learn during your weapon-walk or trade-walk, and from whom?** The journeys of young Tulpar produce most of the interesting encounters and debts that follow them into adulthood.
 
-1. Detail specific Tulpar clans with full cultural profiles
-2. Create Tulpar-specific NPCs for major settlements
-3. Develop "Breaker's Chain" and other memorial weapons mechanically
-4. Map Tulpar settlement patterns across Silk Road regions
-5. Create Tulpar-specific downtime moves (weapon-training, clan networking)
-6. Design Tulpar martial academy encounter/location
+### Character Concepts
+
+- **The weapon-master seeking a legendary lost style:** A technique that disappeared during the chaos period. Someone claims to have seen it practiced. The Tulpar wants to find it before the knowledge is gone.
+
+- **The young Tulpar rejecting clan traditions:** Not "Chainless" — something more complicated. They love their people and hate what they're being asked to become.
+
+- **The Bondkeeper with an impossible contract:** A commitment made in good faith that has become impossible to honor without betraying someone else. The Tulpar is still holding it anyway.
+
+- **The Remembrancer searching for lost clan members:** The Chain Chronicles have a gap. Someone survived the chaos period and was never accounted for. Their descendants, if any, don't know they have clan.
 
 ---
 
-**Version Control:** See `VERSIONS_orcs.md` for detailed change log  
-**Cross-References:** Liberation timeline (`/narrative/lore/liberation_aftermath.md`), Weapons (`/mechanics/weapons_silk_road.md`)
+## DEVELOPMENT NOTES
+
+- Named clans with full cultural profiles: TBD — at least two developed enough for NPC generation.
+- Named Tulpar settlements with weapon quarters: tie to `/world/` location files when regional work is done.
+- Breaker's Chain and memorial weapons: mechanical treatment in `/mechanics/`.
+- The Chainless movement: candidate for a named NPC or faction file.
+- GM secrets: what do Tulpar Chain Chronicles contain about the liberation era? What was witnessed that no one thought to ask about? Flag for `world/ancestries/gm_secrets/orcs_gm.md`.
+- Cross-references: Liberation timeline (`/narrative/lore/liberation_aftermath.md`), Weapons (`/mechanics/weapons_silk_road.md`).
