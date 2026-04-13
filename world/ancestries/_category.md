@@ -2,11 +2,10 @@
 title: Ancestries
 description: The peoples of Tarim-Shaiel
 published: true
-banner_left: TEST TEXT
-banner_right: TEST RIGHT TEXT
+banner_left: TARIM-SHAIEL * Ancestry
+banner_right: Lore
 jump_nav: true
 ---
-
 ## About Ancestries
 
 The world of Tarim-Shaiel is home to several distinct ancestries, each shaped by the land, the empire that once ruled it, and the thousand years of silence that followed.
