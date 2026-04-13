@@ -16,7 +16,7 @@ last_updated: 2026-04-07
 
 ## OVERVIEW
 
-![[daggerheart-ancestry-Vaghri.png|250]]
+![[daggerheart-ancestry-Vaghri.png|Vaghri (Katari)]]
 
 Vaghri are feline humanoids with retractable claws, vertical pupils, and triangular ears set high on the head. Their whiskers assist navigation in near-darkness and crowded spaces, and their ears can rotate nearly 180 degrees to track sound independently of their head position. Some Katari are more pronouncedly feline — muzzle, dense fur, tail — while others are nearer to humanoid with primarily feline eyes and ears. About half carry a tail. Their fur and skin patterns span the full range of felid colorings: solids, stripes, spots, marbling, calico.
 

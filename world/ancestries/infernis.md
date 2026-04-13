@@ -17,7 +17,7 @@ last_updated: 2026-04-07
 
 ## OVERVIEW
 
-![[daggerheart-ancestry-Div-Born.png]]
+![[daggerheart-ancestry-Div-Born.png|Div-Born]]
 
 Div-Born are humanoids with horns, pronounced canine teeth, and pointed ears. Their horns vary considerably — some have two or four, others a crown of many, some only one — and tend to grow asymmetrically in ways that Div-Born commonly emphasize through carving and ornamentation. Skin tones range from deep crimson to silver-ash to charcoal, with hair and horns following a similarly broad range of colors.
 
