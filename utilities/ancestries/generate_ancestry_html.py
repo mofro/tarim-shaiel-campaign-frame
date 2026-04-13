@@ -333,7 +333,10 @@ def build_ancestry_section(key: str, parsed: dict) -> str:
 
 def build_content(parsed_map: dict[str, dict]) -> tuple[str, str]:
     # Honour visibility: only public ancestries appear in the published HTML
-    order = [k for k, v in parsed_map.items() if v.get("visibility", "public") == "public"]
+    order = sorted(
+        [k for k, v in parsed_map.items() if v.get("visibility", "public") == "public"],
+        key=lambda k: parsed_map[k]["world_name"].lower(),
+    )
     jump_nav = build_jump_nav(order, parsed_map)
     parts = []
     for i, key in enumerate(order):
