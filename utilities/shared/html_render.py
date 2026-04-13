@@ -29,7 +29,8 @@ def render_wiki_embed(p: str) -> str:
         return ''
 
     path_part  = obs_m.group(1).strip()
-    alias_part = (obs_m.group(2) or '').strip()
+    # Obsidian allows multiple pipes: ![[file|alias|width]] — take first segment only
+    alias_part = (obs_m.group(2) or '').split('|')[0].strip()
     fname = Path(path_part).name
     ext   = Path(fname).suffix.lower()
 
@@ -149,6 +150,7 @@ def render_body(body: str, vault: 'Path', docs: 'Path') -> 'tuple[str, list[dict
     body = re.sub(r'(?<!!)\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', body)  # wikilinks w/ alias
     body = re.sub(r'(?<!!)\[\[([^\]]+)\]\]', r'\1', body)             # bare wikilinks
     body = re.sub(r'^>\s*\[!\w+\]\s*$', '', body, flags=re.MULTILINE) # callout markers
+    body = body.replace('\u200b', '')                                   # Obsidian zero-width spaces
     body = re.sub(r'\n{3,}', '\n\n', body)
     body = body.strip()
 
