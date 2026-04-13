@@ -889,17 +889,25 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
         '</div>\n'
     )
 
-    # Cover section
-    cover_html = (
-        '<div class="cover">\n'
-        f'  <div class="cover-image"{cover_style}></div>\n'
-        '  <div class="cover-gradient"></div>\n'
-        '  <div class="cover-content">\n'
-        f'    <div class="cover-title">{escape(label)}</div>\n'
-        f'    <div class="cover-subtitle">{escape(desc)}</div>\n'
-        '  </div>\n'
-        '</div>\n'
-    )
+    # Cover section — use image cover if available, otherwise steel no-cover-header
+    if cover_style:
+        cover_html = (
+            '<div class="cover">\n'
+            f'  <div class="cover-image"{cover_style}></div>\n'
+            '  <div class="cover-gradient"></div>\n'
+            '  <div class="cover-content">\n'
+            f'    <div class="cover-title">{escape(label)}</div>\n'
+            f'    <div class="cover-subtitle">{escape(desc)}</div>\n'
+            '  </div>\n'
+            '</div>\n'
+        )
+    else:
+        cover_html = (
+            '<div class="no-cover-header">\n'
+            f'  <div class="cover-title">{escape(label)}</div>\n'
+            + (f'  <div class="cover-subtitle">{escape(desc)}</div>\n' if desc else '')
+            + '</div>\n'
+        )
 
     # Banner
     banner_left = cfg.get('banner_left') or 'Category Index'
