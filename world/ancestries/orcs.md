@@ -10,12 +10,7 @@ created: 2026-02-13
 last_updated: 2026-04-12
 ---
 
-# Tulpar — Children of the Broken Chains
-
 *Daggerheart ancestry: Orcs. Foundation document — player-facing.*
-
-
----
 
 ## OVERVIEW
 
@@ -216,7 +211,3 @@ Tulpar understand kinship as concentric circles: biological family, clan family 
 Tulpar are among the most welcoming peoples for those who show need, reverence, shared circumstance, or proven loyalty. Non-Tulpar can be formally adopted through sponsorship by an existing member, a trial period of six months to two years, demonstrated commitment, a formal ceremony, and name-giving. Adopted members gain full clan protection, access to trade networks, a voice in clan decisions — and the obligation to support others and honor traditions.
 
 Half-Tulpar children of mixed marriages are never considered lesser. Same for anyone else adopted in. "You are what you carry" — identity is what burdens you shoulder, what you protect, what you honor.
-
-![[_orcs#DEVELOPMENT NOTES]]
-
-![[_orcs#PLAYER CHARACTER HOOKS]]

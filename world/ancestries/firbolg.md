@@ -14,11 +14,9 @@ last_updated: 2026-04-07
 
 *Daggerheart ancestry: Firbolg. Foundation document — player-facing.*
 
----
-
 ## OVERVIEW
 
-![[daggerheart-ancestry-Gavar.png|250]]
+![[daggerheart-ancestry-Gavar.png|Gavar (Firbolg)]]
 
 Gavar are bovine humanoids recognized by their broad frames, fur-covered bodies, and horns. Their faces range from humanoid with subtle caprine features to fully bull-headed; those with the fullest bovine aspect are called Minaurid within Gavar communities. Their fur runs in earthy tones — deep brown, black, cream, occasional ash — and their horns can be modest and swept-back or dramatically curved. On average, Gavar stand between 5 and 7 feet and are consistently strong regardless of age.
 
