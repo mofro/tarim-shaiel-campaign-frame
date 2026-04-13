@@ -231,6 +231,76 @@ CSS_BASE = """\
       .banner-rule { margin: 0 1.4rem; }
       .credits { padding: 1.6rem 1.4rem; }
     }
+
+    @media print {
+      /* ── Page margins ── */
+      @page { margin: 10mm; }
+
+      /* ── Strip all backgrounds and decoration ── */
+      *, *::before, *::after {
+        background: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      /* ── Show only .page-wrap ── */
+      body > *:not(.page-wrap) { display: none !important; }
+
+      .page-wrap {
+        max-width: none;
+        overflow: visible;
+      }
+
+      /* ── Hide navigation ── */
+      .back-nav, .jump-nav { display: none !important; }
+
+      /* ── Collapse cover — remove the reserved image height ── */
+      .cover {
+        max-height: none !important;
+        min-height: 0 !important;
+      }
+      .cover-image,
+      .cover-gradient {
+        display: none !important;
+      }
+      .cover-content {
+        padding: 1.5rem 2rem 1rem !important;
+      }
+
+      /* ── Darken light-on-dark text; preserve hue ── */
+      .cover-title    { color: #3a2a10 !important; }
+      .cover-subtitle { color: var(--gold) !important; }
+      .cover-content  { color: var(--ink) !important; }
+      .banner         { color: var(--steel) !important; border-top: 1px solid #999; border-bottom: 1px solid #999; }
+      .credits        { color: var(--ink) !important; opacity: 1 !important; border-top: 1px solid #ccc; }
+
+      /* ── Smart page breaks — never orphan a heading or header block ── */
+      h1, h2, h3, h4, h5, h6,
+      .ancestry-header {
+        page-break-after: avoid;
+        break-after: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *,
+      .ancestry-lore {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+
+      /* Hard wrapper: keeps header + lore together as one unbreakable unit */
+      .ancestry-entry {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      p, li, blockquote {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
 """
 
 
