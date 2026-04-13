@@ -570,7 +570,7 @@ _INDEX_CSS_LEGACY_UNUSED = """
     }
     .content {
       position: relative; z-index: 1;
-      padding: 0 3rem 3.5rem;
+      padding: 1rem 3rem;
     }
     .content h2 {
       font-family: 'Cinzel', serif;
@@ -787,7 +787,8 @@ _INDEX_CSS_LEGACY_UNUSED = """
     }
     @media (max-width: 640px) {
       .cover-title { font-size: 2.2rem; }
-      .cover-content, .content { padding: 1.8rem 1.4rem; }
+      .cover-content { padding: 1.8rem 1.4rem; }
+      .content { padding: 1rem 1.4rem; }
       .banner { padding: 0.5rem 1.4rem; }
       .banner-rule { margin: 0 1.4rem; }
       .footer { padding: 1.6rem 1.4rem; }
