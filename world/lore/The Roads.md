@@ -1,7 +1,7 @@
 ---
 title: The Roads
 project: TTRPG_Tarim_Shaiel
-type: narrative
+type: lore
 visibility: public
 status: canon
 created: 2026-03-21
@@ -15,7 +15,8 @@ content-start: 226
 banner-fade: -70
 ---
 ### Narrative Summary
-![[audio/Narration/The Road_A Fable.mp3|The Road_A Fable]]
+
+![[narrative/audio/The Road_A Fable.mp3|The Road_A Fable|The Roads - A Fable]]
 ​
 The roads were here before the empire.
 
