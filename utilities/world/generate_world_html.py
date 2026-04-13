@@ -242,7 +242,17 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
     if isinstance(tags, str):
         tags = [tags]
     tag_label = ', '.join(str(t) for t in tags) if tags else ''
-    cover_image = fm.get('lk_cover_image', '')
+
+    # --- Resolve cover image (lk_cover_image → banner → hero) ---
+    raw_cover = fm.get('lk_cover_image', '') or fm.get('banner', '') or fm.get('hero', '')
+    cover_image = ''
+    if raw_cover:
+        if raw_cover.startswith('http'):
+            cover_image = raw_cover
+        else:
+            cover_image = prepare_image(Path(raw_cover).name, VAULT_ROOT, DOCS_DIR) or ''
+    banner_x = fm.get('banner-x', 50)
+    banner_y = fm.get('banner-y', 50)
 
     prepare_embeds(body)   # copy vault assets to docs/ before rendering
 
@@ -294,7 +304,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
     if cover_image:
         header_html = (
             f'<div class="cover">\n'
-            f'  <div class="cover-image" style="background-image: url(\'{escape(cover_image)}\')"></div>\n'
+            f'  <div class="cover-image" style="background-image: url(\'{escape(cover_image)}\'); background-position: {banner_x}% {banner_y}%"></div>\n'
             f'  <div class="cover-gradient"></div>\n'
             f'  <div class="cover-content">\n'
             f'    <div class="cover-title">{escape(title)}</div>\n'
