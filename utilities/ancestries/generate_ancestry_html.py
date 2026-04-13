@@ -332,12 +332,14 @@ def build_ancestry_section(key: str, parsed: dict) -> str:
 
     return f"""\
     <div class="ancestry-section" id="{anchor}">
-      <div class="ancestry-header">
-        <span class="ancestry-name">{escape(world_name)}</span>
-        <span class="ancestry-dh-name">{escape(dh_name)}</span>
-      </div>
-      <div class="ancestry-lore">{figure_html}
-        {lore_html}
+      <div class="ancestry-entry">
+        <div class="ancestry-header">
+          <span class="ancestry-name">{escape(world_name)}</span>
+          <span class="ancestry-dh-name">{escape(dh_name)}</span>
+        </div>
+        <div class="ancestry-lore">{figure_html}
+          {lore_html}
+        </div>
       </div>
       <div class="feature-grid">{feature_boxes}
       </div>
