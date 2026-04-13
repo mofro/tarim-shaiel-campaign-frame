@@ -171,6 +171,16 @@ CSS_ANCESTRY = """\
       .lore-figure { float: none; max-width: 100%; margin: 0 0 1.5rem 0; }
     }
 
+    /* ---- Nav DH name parenthetical ---- */
+    .nav-dh-name {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.7em;
+      letter-spacing: 0.06em;
+      opacity: 0.6;
+      text-transform: none;
+      font-weight: 400;
+    }
+
     /* ---- Divider between ancestries ---- */
 
     .ancestry-divider {
@@ -279,7 +289,11 @@ def build_jump_nav(order: list[str], parsed_map: dict) -> str:
     ]
     for key in order:
         world_name = parsed_map[key]["world_name"]
-        items.append(f'  <li><a href="#{slug(world_name)}">{escape(world_name)}</a></li>')
+        dh_name    = parsed_map[key]["dh_name"]
+        label = escape(world_name)
+        if dh_name.lower() != world_name.lower():
+            label += f' <span class="nav-dh-name">({escape(dh_name)})</span>'
+        items.append(f'  <li><a href="#{slug(world_name)}">{label}</a></li>')
     items.append('  <li class="nav-divider"></li>')
     items.append('  <li style="list-style:none"><a href="#">&#8593; Top</a></li>')
     return '<div class="jump-nav">\n<ul>\n' + '\n'.join(items) + '\n</ul>\n</div>\n'
