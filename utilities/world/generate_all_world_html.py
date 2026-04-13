@@ -834,13 +834,6 @@ _CORE_DOCS = [
         'visibility': 'public',
     },
     {
-        'filename':   'the-roads.html',
-        'title':      'The Roads',
-        'meta':       'World Lore · Public',
-        'desc':       "The roads were here before the empire. A lore piece on the world's ancient trade routes and the silence that has returned to them.",
-        'visibility': 'public',
-    },
-    {
         'filename':   'campaign-frame.html',
         'title':      'Campaign Frame',
         'meta':       'Player-Facing · v2.0 · Daggerheart',
