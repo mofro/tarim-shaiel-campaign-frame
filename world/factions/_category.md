@@ -181,4 +181,5 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 ---
 
 ### On the Chain-Breakers Order
+
 Founded in the aftermath of the liberation by those who experienced the heroes' deeds but could not follow to the Celestial Peak. Multi-species but Orc-anchored. Theologically committed to the view that the liberation was incomplete — that the heroes will return to finish what was started — which makes them either prophets or seditionists depending on who is in the room. The Wizard's Scholar's Purge (~1175 CE) targeted them specifically, which tells you everything about how dangerous their institutional memory is. They hold fragments of the truth about the Gaes, the unfinished charge, and the Wizard's original intervention — not because they are scholars, but because they *were there*, and their oral tradition has kept the memory alive across 40 generations.
