@@ -34,7 +34,7 @@ from generate_world_html import render_timeline_html, build_myth_html
 sys.path.insert(0, str(HERE.parent))   # makes utilities/shared importable
 from shared.assets import prepare_image, prepare_audio_wiki
 from shared.frontmatter import parse_frontmatter
-from shared.html_render import render_wiki_embed, inline_md as shared_inline_md, render_body as shared_render_body
+from shared.html_render import render_wiki_embed, inline_md as shared_inline_md, render_body as shared_render_body, render_md_table
 
 # ── discovery config ──────────────────────────────────────────────────────────
 PIPELINE_TYPES = {'timeline', 'myth', 'lore'}
@@ -99,7 +99,7 @@ def inline_md(text: str) -> str:
     text = re.sub(r'\*{3}(.+?)\*{3}', r'<strong><em>\1</em></strong>', text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-    text = re.sub(r'_(.+?)_', r'<em>\1</em>', text)
+    text = re.sub(r'(?<!\w)_(.+?)_(?!\w)', r'<em>\1</em>', text)
     return text
 
 
@@ -200,7 +200,18 @@ def render_category_body(body: str, vault: Path, docs: Path) -> tuple[str, list[
         
         # Flush features if we hit non-feature content
         _flush_features()
-        
+
+        # Horizontal rule
+        if para in ('---', '***', '___'):
+            html_parts.append('<div class="divider"></div>\n')
+            continue
+
+        # Markdown table
+        tbl = render_md_table(para)
+        if tbl:
+            html_parts.append(tbl)
+            continue
+
         # Headers with jump nav anchors
         if para.startswith('## '):
             header_text = para[3:].strip()
