@@ -9,11 +9,7 @@ status: draft
 created: 2026-04-02
 last_updated: 2026-04-07
 ---
-# Div-Born — Children of the Outer Reaches
-
 *Daggerheart ancestry: Infernis. Foundation document — player-facing.*
-
----
 
 ## OVERVIEW
 
@@ -24,8 +20,6 @@ Div-Born are humanoids with horns, pronounced canine teeth, and pointed ears. Th
 The Div-Born carry lineage tracing to the beings of the Outer Reaches — the territories below the Warren — and are sometimes treated with wariness for this reason. Within Tarim-Shaiel, they have built long histories as merchants, negotiators, and contract-holders at the crossroads of competing interests. Most Div-Born are Tarim-Shaiel-born and raised, shaped more by the world around them than by distant ancestry.
 
 Their dread visage — a shift in appearance that surfaces involuntarily under strong emotion — is the feature people remark on most. It tends to emerge during grief, fear, or deep concentration. Most Div-Born find it more embarrassing than threatening. It is not aggression. It is the face beneath the face, briefly visible.
-
----
 
 ## HISTORICAL POSITION
 
@@ -46,8 +40,6 @@ The reputation for contract-holding and mediation that defines modern Div-Born c
 Div-Born are present in every major trading city in Tarim-Shaiel and in many smaller ones. Their concentration at crossroads — physical and political — is not accidental. The Div-Born understanding of their own role is that they belong at the places where different things meet. This is where their particular skills are most useful, and where their ancestry is least likely to be the most remarkable thing about them.
 
 **Core Identity:** "We were born at a crossing. We know how to stand where two things pull at once."
-
----
 
 ## CULTURAL CHARACTERISTICS
 
@@ -75,8 +67,6 @@ Div-Born horns are sites of significant cultural expression. Because horns grow 
 
 Removing or damaging a Div-Born's horn ornamentation without consent is treated as a serious violation. The horns are not decoration. They are record.
 
----
-
 ## ECONOMIC AND SOCIAL ROLE
 
 **Primary roles in Tarim-Shaiel:** Commercial brokerage, contract arbitration, diplomatic mediation, information trade, crossroads governance.
@@ -86,8 +76,6 @@ Removing or damaging a Div-Born's horn ornamentation without consent is treated 
 **Contract arbitration:** When trade agreements fail or are disputed, Div-Born arbitrators are among the first called. Their reputation for holding to explicit terms — and their disinclination toward favoritism — makes them effective in roles where other peoples' loyalties would be questioned.
 
 **Information:** Div-Born networks span political boundaries in ways that most single-polity organizations cannot match. Information moves through Div-Born channels that exist outside normal diplomatic structures. This is valued, and occasionally feared.
-
----
 
 ## FEATURES IN THE WORLD
 
@@ -99,8 +87,6 @@ Removing or damaging a Div-Born's horn ornamentation without consent is treated 
 
 **The contract sense:** Some Div-Born describe an intuitive awareness of when an agreement is being held or broken — a resonance with the terms of explicit commitments. This is not universal, but it appears often enough in Div-Born communities that it is accepted as a genuine if inconsistent trait of the lineage.
 
----
-
 ## RELATIONS WITH OTHER ANCESTRIES
 
 **Orcs:** Productive alignment. Both peoples built their modern identity in the aftermath of the liberation by making themselves useful at the points of friction between other groups. Orc diplomatic academies and Div-Born crossroads communities overlap and sometimes compete for the same mediating roles, but the relationship is more collaborative than rivalrous. Each respects what the other built.
@@ -110,8 +96,6 @@ Removing or damaging a Div-Born's horn ornamentation without consent is treated 
 **Gavar:** Mutual respect for the weight of a spoken commitment. Gavar and Div-Born both treat explicit agreements as binding in ways that go beyond legal enforcement. This shared understanding creates reliable working relationships, particularly in contract contexts.
 
 **Khavar:** An interesting pairing. Div-Born who work in mediation and the Khavar who serve as death-witnesses share a professional relationship with difficult truths — things that are real but unwelcome, that have to be said clearly regardless of the audience's preferences. There is a quiet mutual recognition between communities that occupy these roles.
-
----
 
 ## PLAYER CHARACTER HOOKS
 
@@ -130,7 +114,3 @@ Removing or damaging a Div-Born's horn ornamentation without consent is treated 
 - **The one who went to look:** A Div-Born who decided to find out what the Outer Reaches actually are — not through family stories, but directly. They came back. What they found has not made things simpler.
 
 - **The arbitrator with a debt:** Div-Born arbitrators are trusted to be neutral, but they are still people. One has a debt — not financial, not legal, something older — to someone who is now a party in a dispute they have been asked to arbitrate.
-
----
-
-![[_infernis#DEVELOPMENT NOTES]]

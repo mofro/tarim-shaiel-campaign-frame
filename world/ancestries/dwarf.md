@@ -9,8 +9,6 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-# Kuhban
-
 *Daggerheart ancestry: Dwarves. Foundation document — player-facing.*
 
 ## OVERVIEW
@@ -29,9 +27,5 @@ Their longevity — up to 250 years — means that an elder Kuhban may carry dir
 
 **Increased Fortitude:** Kuhban physical constitution includes a capacity for deliberate resistance that goes beyond their frame. A dwarf who decides to absorb something rather than avoid it can reduce the damage through sheer accumulated hardness. Among people who have fought alongside Kuhban, this is considered one of their defining qualities.
 
----
-
----
-
-*Foundation document pending. Full lore to be developed when this ancestry enters play.*
-*Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*
+> *Foundation document pending. Full lore to be developed when this ancestry enters play.*
+> *Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*

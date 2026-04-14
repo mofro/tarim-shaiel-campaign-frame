@@ -9,8 +9,6 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-# Serenvar
-
 *Daggerheart ancestry: Elves. Foundation document — player-facing.*
 
 ## OVERVIEW
@@ -29,9 +27,33 @@ Serenvar in Tarim-Shaiel are distributed across every region, with notable conce
 
 **Celestial Trance:** Serenvar do not sleep — they enter a trance that achieves the same restoration in a fraction of the time, and from which they emerge with a sharpness that has made their night watches legendary. The trance also gives them a quality of reflection unavailable to ancestries that lose consciousness entirely.
 
----
+## HISTORICAL CONTEXT
 
----
+tbd
 
-*Foundation document pending. Full lore to be developed when this ancestry enters play.*
-*Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*
+## CULTURAL CHARACTERISTICS
+
+tbd
+
+## SOCIAL STRUCTURE
+
+tbd
+
+## SPIRITUAL PRACTICES
+
+tbd
+
+## ECONOMIC ROLES
+
+tbd
+
+## RELATIONS WITH OTHER ANCESTRIES
+
+tbd
+
+## PLAYER CHARACTER HOOKS
+
+tbd
+
+> *Foundation document pending. Full lore to be developed when this ancestry enters play.*
+> *Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*

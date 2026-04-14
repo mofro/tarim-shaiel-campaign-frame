@@ -25,18 +25,6 @@ visibility: gm_secrets
 
 **Morg Split-Clan** — Half-Tulpar, half-Human, navigating both identities, potential ally or rival.
 
----
-
-## PLAYER CHARACTER HOOKS
-
-### Questions for a Tulpar PC
-
-1. **Which clan are you from, and what is their signature weapon tradition?** The clan tells your story. The weapon tradition tells what your ancestors learned, and from whom.
-
-2. **How does your clan remember the liberation — with pride, with sorrow, or both?** Every Tulpar carries this. The answer shapes how they see everything else.
-
-3. **What did you learn during your weapon-walk or trade-walk, and from whom?** The journeys of young Tulpar produce most of the interesting encounters and debts that follow them into adulthood.
-
 ### Character Concepts
 
 - **The weapon-master seeking a legendary lost style:** A technique that disappeared during the chaos period. Someone claims to have seen it practiced. The Tulpar wants to find it before the knowledge is gone.

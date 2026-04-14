@@ -9,9 +9,6 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-
-# Vaghri
-
 *Daggerheart ancestry: Katarina. Foundation document — player-facing.*
 
 ## OVERVIEW
@@ -30,9 +27,6 @@ They have a reputation for pride that is not entirely inaccurate. Vaghri do not 
 
 **Retracting Claws:** Vaghri retractable claws are part of how they engage with the world at close range. Deployed in contact, they can create a vulnerability in an opponent that wasn't there before — a disruption precise enough to change how that opponent is able to defend themselves in the moments that follow.
 
----
 
----
-
-*Foundation document pending. Full lore to be developed when this ancestry enters play.*
-*Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*
+> *Foundation document pending. Full lore to be developed when this ancestry enters play.*
+> *Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*

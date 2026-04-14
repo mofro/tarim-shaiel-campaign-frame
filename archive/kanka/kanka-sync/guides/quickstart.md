@@ -265,4 +265,4 @@ tail -f kanka-sync.log
 
 **You're all set! Happy syncing!** 🚀
 
-[[INDEX|← Back to Documentation Index]]
+[[world/Index|← Back to Documentation Index]]

@@ -10,11 +10,7 @@ created: 2026-04-02
 last_updated: 2026-04-07
 ---
 
-# Vanara — The Scholar-Warriors of the High Passes
-
 *Daggerheart ancestry: Simiah. Foundation document — player-facing.*
-
----
 
 ## OVERVIEW
 
@@ -25,8 +21,6 @@ Vanara are primate folk found across Tarim-Shaiel, ranging in build from compact
 Vanara communities are most commonly found along high mountain passes and pilgrimage routes, where they have served for generations as guides, teachers, and guardians. They are known throughout Tarim-Shaiel as scholar-warriors — people who treat the disciplined body and the studied text as the same instrument. Their traditions of devotion are their most recognizable feature: when a Vanara commits to a cause or a person, that commitment is understood as binding.
 
 Their pride is the counterweight to this loyalty. A perceived slight lands differently on a Vanara than on most — not because they react immediately, but because they don't forget. They rarely pursue vengeance openly. They wait, with a patience that can unsettle people who were hoping the matter had passed.
-
----
 
 ## HISTORICAL POSITION
 
@@ -47,8 +41,6 @@ Vanara martial academies took in students from liberated peoples during this era
 As Tarim-Shaiel stabilized, Vanara communities expanded their role from route-guardians to institutional knowledge-holders. The major mountain academies grew in prestige; Vanara scholars became sought-after teachers in lowland cities as well as highland passes. The modern Vanara are found everywhere learning is valued — but their cultural center of gravity remains the high places.
 
 **Core Identity:** "The body that cannot climb cannot read. The mind that cannot read has nowhere to climb."
-
----
 
 ## CULTURAL CHARACTERISTICS
 
@@ -76,8 +68,6 @@ Vanara are not merely humanoids who happen to have prehensile feet and optional 
 
 This is most visible in Vanara martial traditions, which were developed for bodies with four or five potential grip points rather than two. Vanara fighting styles are not easily replicated by other ancestries for this reason.
 
----
-
 ## ECONOMIC AND SOCIAL ROLE
 
 **Primary roles in Tarim-Shaiel:** Route guidance and safety, scholarly instruction, martial training, mediation at mountain crossroads, archival work at major pilgrimage sites.
@@ -88,8 +78,6 @@ This is most visible in Vanara martial traditions, which were developed for bodi
 
 **Trade:** Vanara are not primarily merchants, but the mountain routes they manage are economically significant. A Vanara guide's guarantee that a pass is safe carries real market value — caravans pay premium rates for Vanara escort through difficult terrain.
 
----
-
 ## FEATURES IN THE WORLD
 
 *What Daggerheart's Simiah mechanics mean inside Tarim-Shaiel — no game-system references.*
@@ -99,8 +87,6 @@ This is most visible in Vanara martial traditions, which were developed for bodi
 **The devotion bond:** Vanara can form a commitment to a person that sharpens their performance when that person is at risk. Within Vanara culture this is understood as the body expressing what the spirit has already decided. It is not consciously activated — it is a consequence of what a Vanara is when they have truly committed to someone.
 
 **The pride wound:** A genuine slight to a Vanara's honor — particularly one that undermines their competence, their loyalty, or their word — activates something that Vanara themselves describe as a narrowing of the world. They become less careful, more direct, and occasionally more dangerous. The cultural pressure to respond with patience rather than immediacy is strong, but it is not always sufficient.
-
----
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
@@ -113,8 +99,6 @@ This is most visible in Vanara martial traditions, which were developed for bodi
 **Tadbir:** Mutual curiosity. The Tadbir relationship to purpose — carrying an original function across centuries — resonates with Vanara ideas about devotion. The practical collaboration is less obvious, but Vanara scholars and Tadbir have worked together at several major archives.
 
 **Dwarves:** *[NEEDS REFINEMENT — see Development Notes]*  A significant relationship that requires dedicated treatment. Dwarves hold the interior of the mountain; Vanara hold the surface routes. Complementary niches with real friction over who speaks for the mountain itself.
-
----
 
 ## PLAYER CHARACTER HOOKS
 
@@ -133,15 +117,3 @@ This is most visible in Vanara martial traditions, which were developed for bodi
 - **The devoted, late:** A Vanara whose commitment bond was to someone who died. The bond didn't end. They are not sure what to do with what they still carry.
 
 - **The student who was failed by a teacher:** Vanara academic culture produces excellent scholars and occasionally produces people who were betrayed by an institution they trusted completely. This Vanara knows the difference between the ideal and the reality, and is still deciding what that knowledge obliges them to do.
-
----
-
-## DEVELOPMENT NOTES
-
-- **[NEEDS REFINEMENT] Dwarven relationship:** Surface/interior mountain complementarity needs full treatment — friction over mountain "ownership," what each people has learned from the other, archival craft exchange (Dwarven stone-record depth → Vanara route-knowledge breadth), named locations where their territories overlap. Coordinate with Dwarf foundation document when written.
-- **[NEEDS REFINEMENT] Celestial lineage (Option A selected):** All Vanara carry mythic inheritance from transcendent beings — expressed differently between mountain communities (disciplined, systematized through academies) and arboreal cousins (wilder, more immediate, no less real). The academies are an attempt to codify what arboreal Vanara simply *are*. Neither expression is more authentic. Needs: named arboreal communities, relationship between mountain and arboreal Vanara (respectful distance? active tension?), how the celestial inheritance manifests in-world.
-- **[NEEDS GM SECRETS FILE]** Vanara scholars as liberation-era witnesses: what their archives may contain about the Heroes, Warren disturbances, Held Breath precursor activity. What was lost in scholar purges and who ordered them. File: `world/ancestries/gm_secrets/simiah_gm.md`.
-- Specific mountain pass communities: TBD — tie to `/world/` locations when regional files are developed.
-- Named academies: placeholder — at least one major and one minor, with distinct scholarly traditions.
-- Liberation era named Vanara: candidate for NPC seeds when `/characters/` NPCs are developed.
-- Vanara martial tradition specifics: coordinate with `/mechanics/` weapons work.

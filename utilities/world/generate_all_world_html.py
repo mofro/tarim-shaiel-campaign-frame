@@ -837,9 +837,9 @@ _CORE_DOCS = [
     {
         'filename':   'sessions.html',
         'title':      'Sessions',
-        'meta':       'Game Narrative · Public',
+        'meta':       'Game Narrative · Ongoing Chronicle · Daggerheart',
         'desc':       "The chronicle of your campaign sessions. A shared document for players and GMs to reflect on the story so far.",
-        'visibility': 'public',
+        'visibility': 'gm_secrets',
     },
     {
         'filename':   'campaign-frame.html',
@@ -847,13 +847,6 @@ _CORE_DOCS = [
         'meta':       'Player-Facing · v2.0 · Daggerheart',
         'desc':       'The pitch, themes, principles, and session zero questions. Everything your players need before character creation.',
         'visibility': 'public',
-    },
-    {
-        'filename':   'nianhao-the-divine-arc.html',
-        'title':      'Campaign Timeline',
-        'meta':       'Player-Facing · v2.0 · Daggerheart',
-        'desc':       'The chronicle of the world timeline. Major Epochs and Events are documented here.',
-        'visibility': 'gm_secrets',
     },
     {
         'filename':   'peoples-of-tarim-shaiel.html',
@@ -877,12 +870,15 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
     # Generate jump nav if enabled in frontmatter
     jump_nav_html = ''
     if cfg.get('jump_nav') and len(jump_nav_items) >= 2:
-        nav_items = []
+        nav_items = [
+            '  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>',
+            '  <li class="nav-divider"></li>',
+        ]
         for item in jump_nav_items:
-            nav_items.append(f'  <li><a href=\"#{item["anchor"]}\">{escape(item["text"])}</a></li>')
-        nav_items.append('  <li class=\"nav-divider\"></li>')
-        nav_items.append('  <li style=\"list-style:none\"><a href=\"#\">&#8593; Top</a></li>')
-        jump_nav_html = '<div class=\"jump-nav\">\n<ul>\n' + '\n'.join(nav_items) + '\n</ul>\n</div>\n'
+            nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
+        nav_items.append('  <li class="nav-divider"></li>')
+        nav_items.append('  <li style="list-style:none"><a href="#">&#8593; Top</a></li>')
+        jump_nav_html = '<div class="jump-nav">\n<ul>\n' + '\n'.join(nav_items) + '\n</ul>\n</div>\n'
 
     # Cover image (optional)
     cover_style = ''

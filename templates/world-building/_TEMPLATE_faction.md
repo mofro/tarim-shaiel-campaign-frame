@@ -1,6 +1,8 @@
 ---
 title:
-type: faction
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets  # gm_secrets | public
 faction_type:           # confederation | council | guild | enclave | network | empire | cadre | infrastructure
 region:                 # Central Asian Hubs | Eastern Gateway | Tarim Basin | Mountain Passes | The Steppe | Elven Highlands | all regions
 visible_control: false  # true if this faction is the public face of power

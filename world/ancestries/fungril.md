@@ -2,19 +2,14 @@
 title: Khavar — Keepers of the Recent Dead
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: gm_secrets
+visibility: public
 daggerheart_name: Fungril
 published: true
 status: draft
 created: 2026-04-02
 last_updated: 2026-04-07
 ---
-
-# Khavar — Keepers of the Recent Dead
-
 *Daggerheart ancestry: Fungril. Foundation document — player-facing.*
-
----
 
 ## OVERVIEW
 
@@ -25,8 +20,6 @@ Khavar are humanoid in form, with skin toned in the colors of earth and old wood
 Khavar can communicate with others of their ancestry across any distance through a mycelial network — a biological connection to a shared ancestor-web that pre-dates most written records in Tarim-Shaiel. This connection also gives them access to the memories of the recent dead: by touching a corpse, they can draw out a memory tied to a specific emotion or sensation. Khavar have served for centuries as death-witnesses, grave-tenders, and keepers of what was lost — records that exist nowhere else.
 
 They are sought out for counsel about the dead and about the past. They are generally good at neither performing grief nor pretending they don't feel it. Their care, when offered, is not warm in any conventional sense. It is simply very present.
-
----
 
 ## HISTORICAL POSITION
 
@@ -51,8 +44,6 @@ Modern Khavar occupy a social role that is valued and uncomfortable in roughly e
 Khavar communities are not isolated; they are embedded in the societies around them in practical ways, holding graves and records and the specific knowledge of what was lost. But the embedding is professional more often than intimate, except in communities with long Khavar histories.
 
 **Core Identity:** "We do not carry the dead. We carry what the dead could not carry themselves."
-
----
 
 ## CULTURAL CHARACTERISTICS
 
@@ -82,8 +73,6 @@ Khavar maintain graves and burial sites across Tarim-Shaiel with a consistency t
 
 The practical effect is that Khavar-maintained graves are among the best-preserved historical sites in Tarim-Shaiel, and Khavar who have tended a site for generations are its best historians.
 
----
-
 ## ECONOMIC AND SOCIAL ROLE
 
 **Primary roles in Tarim-Shaiel:** Death-witnessing, grave-tending, recovery of lost memory from the recent dead, archival consultation, inter-community communication through the ancestor-web.
@@ -93,8 +82,6 @@ The practical effect is that Khavar-maintained graves are among the best-preserv
 **Archive consultation:** Because Khavar can hold memories recovered from the dead across their long lifespan, a Khavar who has witnessed many deaths is a living archive of things that were never written down. They are consulted for inheritance disputes, historical research, and cases where living testimony about the dead is needed.
 
 **Communication network:** The ancestor-web can carry information across distance in a way that other communication systems cannot. Khavar communities have used this cautiously as a communication service — cautiously, because what passes through the network affects all connected Khavar, not just the intended recipients. Emergency communication is one thing; routine message traffic is another.
-
----
 
 ## FEATURES IN THE WORLD
 
@@ -106,8 +93,6 @@ The practical effect is that Khavar-maintained graves are among the best-preserv
 
 **The carried weight:** Recovered memories do not simply pass through a Khavar and disappear. They are held. The Khavar carries something of the dead person afterward. The practice of releasing held memories — passing them on to the ancestor-web, or to the people who needed them, or simply allowing them to fade — is among the most important skills in Khavar death-witnessing tradition.
 
----
-
 ## RELATIONS WITH OTHER ANCESTRIES
 
 **Orcs:** Among the deepest relationships in Tarim-Shaiel. Orc Chain Chronicles and Khavar death-witnessing served the same populations during the liberation — one preserving the living story, the other preserving what the dead could not carry. Some of the most important entries in major Orc clan histories were recovered through Khavar witnessing after battle. The relationship is old and carries genuine weight on both sides.
@@ -117,8 +102,6 @@ The practical effect is that Khavar-maintained graves are among the best-preserv
 **Tadbir:** Complementary archival roles. What Khavar hold is what living people could not bring themselves to write down; what Tadbir hold is what was recorded precisely. Together they cover different portions of the historical record. The communities have a professional respect for each other that occasionally tips into genuine collaboration.
 
 **Pari-Kin:** An unusual affinity rooted in a shared relationship to what settled cultures cannot easily hold. Pari-Kin and Khavar both maintain knowledge that does not fit conventional archives — one spatial and cyclical, one carried in bodies and mycelium. Communities that have developed working relationships tend to produce historical knowledge neither holds alone.
-
----
 
 ## PLAYER CHARACTER HOOKS
 
@@ -138,12 +121,3 @@ The practical effect is that Khavar-maintained graves are among the best-preserv
 
 - **The cut-off:** A Khavar who was separated from the ancestor-web through some event or circumstance. They can still function. They are discovering what they are when they are not also everyone else. It is stranger and more clarifying than they expected.
 
----
-
-## DEVELOPMENT NOTES
-
-- The ancestor-web's age and nature: cosmological implications are significant. If the ancestor-web pre-dates the liberation by a long margin, it may have recorded something of the Heroes. What would a Khavar who could access that layer of the network find? Flag for `world/ancestries/gm_secrets/fungril_gm.md` — high priority.
-- The Long Listening: candidate for a dedicated historical document — the Khavar experience of the liberation era as primary source.
-- Named Khavar communities and grave sites: TBD — tie to `/world/` location files. At least one major site that has been continuously maintained for the full thousand years since the liberation.
-- The Warren and the ancestor-web: relationship between these two networks is cosmologically interesting and potentially significant. Does the Warren interact with the ancestor-web? Does the ancestor-web predate the Warren's current form? Coordinate with cosmological architecture.
-- Scholar purge connection: if scholar purges occurred, Khavar death-witnesses may hold memories from scholars who were killed. Flag for GM secrets and Wizard motivation development once Decision 4 is resolved.

@@ -8,7 +8,4 @@ status: stub
 created: 2026-04-05
 last_updated: 2026-04-07
 ---
-
-# Faerie
-
 *Daggerheart ancestry: Faerie. Foundation document — pending.*

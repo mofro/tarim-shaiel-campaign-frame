@@ -107,4 +107,4 @@ graph TD
 
 - Full cosmological decisions → [[../../narrative/STORY_ARC_SYNTHESIS]]
 - Concepts index → [[../concepts/Index]]
-- Factions index (divine section) → [[../factions/Index]]
+- Factions index (divine section) → [[world/factions/_category]]

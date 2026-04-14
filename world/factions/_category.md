@@ -1,14 +1,15 @@
 ---
 title: Factions Index
 project: TTRPG_Tarim_Shaiel
-type: entity_index
-entity_type: faction
+entity_type: factions
+visibility: gm_secrets
 status: active
 created: 2026-03-10
-last_updated: 2026-03-10
+last_updated: 2026-04-13
+published: true
+jump_nav: true
 ---
-
-# Factions Index
+## Factions Index
 
 Master registry of all named factions in Tarim-Shaiel. Each row represents a linkable entity. Column values are the canonical strings for use in frontmatter `factions:` fields across location and event files.
 

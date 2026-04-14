@@ -9,9 +9,6 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-
-# Rahban
-
 *Daggerheart ancestry: Halflings. Foundation document — player-facing.*
 
 ## OVERVIEW
@@ -30,9 +27,5 @@ Rahban communities are generally close-knit and intentional. They form strong bo
 
 **Internal Compass:** Halflings are magnetically attuned to their world in a way that means they do not get lost. This is not metaphor. Their internal compass functions regardless of weather, terrain, or how long it has been since they last knew where they were. To a Rahban, this seems basic. To their traveling companions, it is frequently invaluable.
 
----
-
----
-
-*Foundation document pending. Full lore to be developed when this ancestry enters play.*
-*Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*
+> *Foundation document pending. Full lore to be developed when this ancestry enters play.*
+> *Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*

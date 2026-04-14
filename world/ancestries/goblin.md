@@ -9,8 +9,6 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-# Jivar
-
 *Daggerheart ancestry: Goblins. Foundation document — player-facing.*
 
 ## OVERVIEW
@@ -29,9 +27,6 @@ Jivar are found everywhere in Tarim-Shaiel, with particular density in cities, m
 
 **Danger Sense:** Jivar are extremely difficult to sneak up on. Their ears rotate independently, their eyes function well in conditions where most ancestries are effectively blind, and they have developed the habit of reading a situation for threat without appearing to do so. An attack that was supposed to be a surprise often isn't.
 
----
 
----
-
-*Foundation document pending. Full lore to be developed when this ancestry enters play.*
-*Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*
+> *Foundation document pending. Full lore to be developed when this ancestry enters play.*
+> *Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*

@@ -91,4 +91,4 @@ graph LR
 - Steppe clan sub-factions (8 named clans) are folded under `Orc Steppe Confederations` until individually named
 - Subcontinent factions (Lotus Thrones, Eternal Courts, Houses of the Monsoon, Clans of the Roof) omitted — `color` status, not yet in play
 - Divine/Cosmic factions (Celestial Court, Held Breath, etc.) → see [[cosmological-architecture]]
-- Source data: [[../factions/Index]]
+- Source data: [[world/factions/_category]]

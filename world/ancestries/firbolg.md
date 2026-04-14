@@ -10,22 +10,17 @@ status: draft
 created: 2026-04-02
 last_updated: 2026-04-07
 ---
-
-# Gavar — Keepers of the Threshold
-
 *Daggerheart ancestry: Firbolg. Foundation document — player-facing.*
 
 ## OVERVIEW
 
-![[daggerheart-ancestry-Gavar.png|Gavar (Firbolg)]]
+![[daggerheart-ancestry-Gavar.png|Gavar (Firbolg)|250]]
 
 Gavar are bovine humanoids recognized by their broad frames, fur-covered bodies, and horns. Their faces range from humanoid with subtle caprine features to fully bull-headed; those with the fullest bovine aspect are called Minaurid within Gavar communities. Their fur runs in earthy tones — deep brown, black, cream, occasional ash — and their horns can be modest and swept-back or dramatically curved. On average, Gavar stand between 5 and 7 feet and are consistently strong regardless of age.
 
 Gavar communities are found throughout Tarim-Shaiel at thresholds: crossroads, river fords, city gates, mountain passes. They have kept these places for generations and are associated with oaths, agricultural contracts, and the marking of seasons. Their presence at a boundary is generally understood as a guarantee that the boundary will be respected.
 
 They are not quick to commit. They are equally not quick to change direction once committed. This makes them among the most reliable people in Tarim-Shaiel when they give their word — and occasionally immovable when they have decided they disagree with something. Their charges, in the literal physical sense, are legendary.
-
----
 
 ## HISTORICAL POSITION
 
@@ -46,8 +41,6 @@ This was not effortless. Some Gavar communities were pressured by former imperia
 Modern Gavar communities remain anchored to their thresholds but are not isolated at them. Major Gavar families hold significant economic weight through their control of crossing fees, agricultural contracts, and the various services a reliable threshold-keeper can provide. The Minaurid — those with the fullest bovine aspect — occupy a particular position of cultural authority within most Gavar communities, though this is contested in some regions.
 
 **Core Identity:** "The crossing does not care who you were when you arrived. It only asks whether you will hold your word at the other side."
-
----
 
 ## CULTURAL CHARACTERISTICS
 
@@ -75,8 +68,6 @@ Gavar communities mark the agricultural calendar with ceremonies that are among 
 
 Non-Gavar who attend these ceremonies are welcome in most communities. They are asked to be present rather than to understand.
 
----
-
 ## ECONOMIC AND SOCIAL ROLE
 
 **Primary roles in Tarim-Shaiel:** Threshold management, crossing fees and services, agricultural contract-holding, seasonal ceremony, oath-witnessing.
@@ -86,8 +77,6 @@ Non-Gavar who attend these ceremonies are welcome in most communities. They are 
 **Oath-witnessing:** When significant agreements are made in regions with established Gavar communities, it is common practice to have a Gavar elder present as witness. A Gavar-witnessed oath carries weight in most courts in Tarim-Shaiel, not as legal mechanism but as social fact: breaking an oath made before a Gavar witness will be remembered, and the Gavar community will know.
 
 **Agricultural contracts:** Gavar families hold the contracts for planting rights, water access, and harvest sharing across significant portions of Tarim-Shaiel's agricultural zones. These relationships are often multi-generational, predating current polities.
-
----
 
 ## FEATURES IN THE WORLD
 
@@ -99,8 +88,6 @@ Non-Gavar who attend these ceremonies are welcome in most communities. They are 
 
 **Speech of the land:** Some Gavar describe a capacity to communicate with the land they are committed to — to receive something from the threshold that tells them about its condition, its history, what has passed through it. This is not universally reported and is not well understood even within Gavar communities. It manifests most clearly at places where a Gavar has kept threshold for a long time.
 
----
-
 ## RELATIONS WITH OTHER ANCESTRIES
 
 **Vanara:** Natural partners at mountain thresholds. Both peoples understand guardianship as an obligation rather than a commercial arrangement. The working division — Gavar hold the gates, Vanara hold the roads — has evolved over centuries at specific shared sites. There is genuine mutual respect, and occasional genuine disagreement about where one community's responsibility ends and the other's begins.
@@ -110,8 +97,6 @@ Non-Gavar who attend these ceremonies are welcome in most communities. They are 
 **Humans:** Varied by region. In agricultural zones where Gavar families have held contracts for generations, the relationships with local human communities are old and layered. In cities, Gavar are more unusual presences — functional but less culturally embedded. The city Gavar tends to be someone who left a threshold, for reasons that are always their own.
 
 **Div-Born:** Mutual respect for the weight of spoken commitment. When both a Gavar and a Div-Born say they will do something, the people around them tend to believe it. This shared credibility creates natural working relationships in contexts where reliable parties are needed.
-
----
 
 ## PLAYER CHARACTER HOOKS
 
@@ -130,14 +115,3 @@ Non-Gavar who attend these ceremonies are welcome in most communities. They are 
 - **The one who chose wrong during the liberation:** A Gavar from a family that closed its threshold during the liberation under imperial pressure. That history follows them. They have decided what they think of it. Not everyone they meet has to agree.
 
 - **The Minaurid who left the ceremonial role:** A Gavar whose full bovine aspect marked them for community authority they didn't want, or didn't want the way it was offered. They left the threshold that expected that of them. They are still working out who they are when nobody is looking at them as a symbol.
-
----
-
-## DEVELOPMENT NOTES
-
-- Named threshold communities: TBD — at least two major crossings with distinct Gavar traditions; tie to `/world/` location files.
-- The liberation division: which communities held their covenants and which didn't is significant historical material — could generate named NPC families and ongoing tensions.
-- Agricultural contract specifics: coordinate with world economic structure when developed.
-- Seasonal ceremony forms: at least one detailed ceremony worth writing — the planting blessing or the harvest close. Candidate for a public-facing ritual document.
-- GM secrets: what do Gavar threshold-keepers know about what has passed through their crossings over a thousand years? The liberation heroes may have crossed Gavar thresholds. Flag for `world/ancestries/gm_secrets/firbolg_gm.md`.
-- The Minaurid debate: internal Gavar politics around the bovine-aspect authority tradition is underdeveloped — worth a dedicated section when the file is expanded.

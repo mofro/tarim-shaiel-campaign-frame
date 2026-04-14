@@ -159,17 +159,17 @@ Their longevity — up to 250 years — means that an elder Kuhban may carry dir
 
 ## TULPAR (Orcs)
 
-Orcs are recognizable by their square features, prominent lower tusks, and pointed ears. Their skin tones run through greens, blues, pinks, and grays, and their hair tends toward strong color and significant volume. Tusks vary in size and continue to grow throughout a lifespan of approximately 125 years; most Orcs decorate them with meaningful ornamentation — metal bands, carved symbols, or tokens that mark significant events.
+Tulpar are recognizable by their square features, prominent lower tusks, and pointed ears. Their skin tones run through greens, blues, pinks, and grays, and their hair tends toward strong color and significant volume. Tusks vary in size and continue to grow throughout a lifespan of approximately 125 years; most Tulpar decorate them with meaningful ornamentation — metal bands, carved symbols, or tokens that mark significant events.
 
-In Tarim-Shaiel, Orcs are among the most economically and diplomatically significant peoples in the known world. Over a thousand years, the Orc clans transformed from a recently-liberated people navigating chaos into the master negotiators and trade brokers of the age. Orc merchant leagues operate across every region; Orc diplomatic academies train negotiators who can make possible what other parties have declared impossible.
+In Tarim-Shaiel, Tulpar are among the most economically and diplomatically significant peoples in the known world. Over a thousand years, the Tulpar clans transformed from a recently-liberated people navigating chaos into the master negotiators and trade brokers of the age. Tulpar merchant leagues operate across every region; Tulpar diplomatic academies train negotiators who can make possible what other parties have declared impossible.
 
-Orc identity centers on clan over ancestry. A clan is defined by shared history and commitment, not by birth; people of any ancestry who have earned place within a clan carry full Orc clan rights. The proverb most associated with them captures the logic: "You are what you carry."
+Tulpar identity centers on clan over ancestry. A clan is defined by shared history and commitment, not by birth; people of any ancestry who have earned place within a clan carry full Tulpar clan rights. The proverb most associated with them captures the logic: "You are what you carry."
 
 ### Ancestry Features
 
-**Sturdy:** When an Orc is down to their last reserves, something in the way they carry themselves makes the next blow harder to land cleanly. Experienced fighters describe it as the body becoming harder to read when it has nothing left to spare. The Orc proverb applies: you are what you carry, and what they carry, at the end, is the determination not to go down easily.
+**Sturdy:** When an Tulpar is down to their last reserves, something in the way they carry themselves makes the next blow harder to land cleanly. Experienced fighters describe it as the body becoming harder to read when it has nothing left to spare. The Tulpar proverb applies: you are what you carry, and what they carry, at the end, is the determination not to go down easily.
 
-**Tusks:** Orc tusks grow continuously throughout their lives and are decorated with meaningful ornamentation — metal bands, carved symbols, tokens that mark significant commitments. In contact range, they are also weapons. An Orc who chooses to use them has made a statement beyond the damage itself.
+**Tusks:** Tulpar tusks grow continuously throughout their lives and are decorated with meaningful ornamentation — metal bands, carved symbols, tokens that mark significant commitments. In contact range, they are also weapons. An Tulpar who chooses to use them has made a statement beyond the damage itself.
 
 ---
 

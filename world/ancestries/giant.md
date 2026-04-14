@@ -9,8 +9,6 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-# Kalan
-
 *Daggerheart ancestry: Giants. Foundation document — player-facing.*
 
 ## OVERVIEW
@@ -29,9 +27,5 @@ Kalan are found throughout Tarim-Shaiel, in every kind of community, and have be
 
 **Reach:** Kalan have wide frames and elongated arms that give them a reach that can be startling at close quarters. What other ancestries can only touch by moving, a Kalan can touch from where they stand. In practice, this means that the distance a Kalan considers 'close' is further than most people expect.
 
----
-
----
-
-*Foundation document pending. Full lore to be developed when this ancestry enters play.*
-*Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*
+> *Foundation document pending. Full lore to be developed when this ancestry enters play.*
+> *Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*

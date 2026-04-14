@@ -9,12 +9,7 @@ status: draft
 created: 2026-04-02
 last_updated: 2026-04-07
 ---
-
-# Tadbir — The Intended Minds
-
 *Daggerheart ancestry: Clank. Foundation document — player-facing.*
-
----
 
 ## OVERVIEW
 
@@ -25,8 +20,6 @@ Tadbir are mechanical beings built from brass, copper, carved wood, stone, and o
 The Tadbir tradition in Tarim-Shaiel traces to the great artificer schools — craftspeople who held that a sufficiently precise mechanism, filled with a sufficiently precise intention, could sustain a living mind. A Tadbir's body can last indefinitely with proper maintenance and replacement parts. Their minds are another matter. The animating force that sustains their thought loses potency over time, and the oldest Tadbir have developed a notable economy of focus — holding onto what matters most because they can no longer afford to hold onto everything.
 
 Many Tadbir still carry the original purpose for which they were made, even when that purpose is centuries obsolete. Whether to honor that purpose or set it down is among the most personal questions in their lives.
-
----
 
 ## HISTORICAL POSITION
 
@@ -49,8 +42,6 @@ Modern Tadbir are present throughout Tarim-Shaiel in roles that draw on their pa
 The artificer schools still exist, though the philosophy has evolved. The question is no longer whether a Tadbir is minded. The question is what obligations that creates — for the makers and for the made.
 
 **Core Identity:** "I was made with a purpose. I have decided what that means."
-
----
 
 ## CULTURAL CHARACTERISTICS
 
@@ -80,8 +71,6 @@ Every Tadbir carries the signs of their making — the patterns, calligraphy, an
 
 Some Tadbir add to their marks over their lifetime — recording significant events, commitments, changes in purpose. Others leave the original marks unaltered as a point of principle. The choice is personal and usually deliberate.
 
----
-
 ## ECONOMIC AND SOCIAL ROLE
 
 **Primary roles in Tarim-Shaiel:** Archival work, precision craftsmanship, long-term institutional memory, calculation and record-keeping, specialist functions requiring inhuman consistency.
@@ -91,8 +80,6 @@ Some Tadbir add to their marks over their lifetime — recording significant eve
 **Craft:** Tadbir craftspeople can hold tolerances and maintain consistency across work periods in ways that biological artisans cannot. This makes them valuable in precision industries — instrument-making, fine metalwork, the construction of mechanisms.
 
 **Institutional continuity:** Polities that have survived significant political disruption often find that the most reliable institutional memory they have is in a Tadbir who served across several administrations. This creates a structural role for elder Tadbir in governance that is not always comfortable for the governing parties but is difficult to replace.
-
----
 
 ## FEATURES IN THE WORLD
 
@@ -104,8 +91,6 @@ Some Tadbir add to their marks over their lifetime — recording significant eve
 
 **The mind's limit:** As the animating force diminishes, Tadbir develop what their communities call the narrowing — a gradual reduction in the range of things they can hold simultaneously. This is not dementia; it is more like increasing selectivity. An ancient Tadbir with a narrowed mind may be more focused than they have ever been. They have simply lost the ability to be distracted by everything else.
 
----
-
 ## RELATIONS WITH OTHER ANCESTRIES
 
 **Vanara:** Mutual respect built around archives and long memory. Vanara scholarly traditions and Tadbir living records complement each other — the Vanara hold the analytical and pedagogical frameworks; the Tadbir hold the raw historical material. Several major Tarim-Shaiel archives run as genuine collaborations between the two communities.
@@ -114,7 +99,7 @@ Some Tadbir add to their marks over their lifetime — recording significant eve
 
 **Khavar:** An unexpected alignment. Both Tadbir and Khavar serve as keepers of what would otherwise be lost — the Tadbir through mechanical memory, the Khavar through their connection to the recent dead. They do not overlap in function, but they share a professional understanding of what it means to be a repository for things that matter to others.
 
-**Orcs:** Orc Chain Chronicles and Tadbir living memory occasionally conflict, and occasionally corroborate. The relationship is not uniformly comfortable — Orc clan histories are narratively shaped in ways that Tadbir records are not, and discrepancies create friction. But both communities take historical record seriously, which is a foundation.
+**Tulpar (Orcs):** Tulpar Chain Chronicles and Tadbir living memory occasionally conflict, and occasionally corroborate. The relationship is not uniformly comfortable — Tulpar clan histories are narratively shaped in ways that Tadbir records are not, and discrepancies create friction. But both communities take historical record seriously, which is a foundation.
 
 ---
 
@@ -135,13 +120,3 @@ Some Tadbir add to their marks over their lifetime — recording significant eve
 - **The recently made:** A Tadbir built within living memory, still young by Tadbir standards, discovering what their original purpose means to them before the narrowing begins and the question becomes harder to hold. The oldest Tadbir in their community find them both hopeful and difficult to be around.
 
 - **The one who chose to forget:** A Tadbir who deliberately released memories that were damaging them. The release was real. What they let go is gone. They are living with the shape of the absence.
-
----
-
-## DEVELOPMENT NOTES
-
-- Named artificer schools: at least two distinct traditions with different philosophical approaches to the making of minds. One that recognized Tadbir personhood early; one that did not and has complicated legacy.
-- Liberation era Tadbir status questions: the legal ambiguity around Tadbir as property vs. persons during the liberation is rich material. Which polities resolved it and how? Flag for DECISION_LOG when significant choices are made.
-- The narrowing in detail: what does late-stage narrowing actually look like in practice? Candidate for a short prose piece — an ancient Tadbir in conversation.
-- GM secrets: Tadbir who were present during the liberation era may hold records of the Heroes' deeds that no one has thought to ask about. The economy of mind means they may have retained specific things others lost. Flag for `world/ancestries/gm_secrets/clank_gm.md`.
-- Relationship to the Warren: do Tadbir interact with the Warren differently than biological beings? The animating force that sustains Tadbir thought — what is it, cosmologically? Coordinate with cosmological architecture.

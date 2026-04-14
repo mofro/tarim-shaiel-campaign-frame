@@ -1,6 +1,14 @@
 ---
 visibility: gm_secrets
 ---
+## CURRENT CHALLENGES AND TENSIONS
+
+## NOTABLE INFERNIS (NPC Seeds)
+
+## PLAYER CHARACTER 
+
+### Character Concepts
+
 ## DEVELOPMENT NOTES
 
 **Specific Div lineages:** which beings from the Outer Reaches are ancestral to Div-Born communities in Tarim-Shaiel? Persian Div taxonomy (Aeshma, Nasu, Azi) as possible models — each with distinct characteristics that might manifest differently in descendants.

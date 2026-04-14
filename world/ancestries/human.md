@@ -9,9 +9,6 @@ published: true
 created: 2026-04-07
 last_updated: 2026-04-07
 ---
-
-# Human
-
 *Daggerheart ancestry: Human. Foundation document — player-facing.*
 
 ## Overview
@@ -30,9 +27,6 @@ Humans carry their experiences in the way they move. A human who has trained at 
 
 **Adaptability:** Humans adjust to new climates and conditions with a speed that other ancestries find remarkable. A human who has lived five years somewhere tends to look and move like someone who belongs there. When a method fails, they do not insist on it — they find another way, and they do it faster than most.
 
----
 
----
-
-*Foundation document pending. Full lore to be developed when this ancestry enters play.*
-*Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*
+> *Foundation document pending. Full lore to be developed when this ancestry enters play.*
+> *Description sourced from `PEOPLES_OF_TARIM_SHAIEL.md`.*

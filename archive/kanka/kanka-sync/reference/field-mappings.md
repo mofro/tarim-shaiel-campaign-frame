@@ -355,4 +355,4 @@ images: ["img1.jpg", "img2.jpg"]
 
 ---
 
-[[INDEX|← Back to Documentation Index]]
+[[world/Index|← Back to Documentation Index]]

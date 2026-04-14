@@ -581,4 +581,4 @@ If something breaks:
 
 ---
 
-[[utilities/kanka-sync/INDEX|← Kanka Sync Docs]] | [[INDEX|← Vault Index]]
+[[utilities/kanka-sync/INDEX|← Kanka Sync Docs]] | [[archive/kanka/kanka-sync/INDEX|← Vault Index]]

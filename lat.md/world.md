@@ -40,7 +40,7 @@ Additional (dungeons/landmarks/waypoints): [[world/locations/alak-mor.md]] · [[
 ## Faction Landscape
 - Visible factions in location frontmatter: `factions_visible:`
 - Hidden factions: `factions_hidden:` (GM layer only)
-- Faction index: [[world/factions/Index.md]] — individual faction files TBD
+- Faction index: [[world/factions/_category]] — individual faction files TBD
 - Active political players overview: [[world/content/CAMPAIGN_PRESENT_FACTIONS.md]]
 
 ## Geospatial Data

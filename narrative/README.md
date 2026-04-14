@@ -206,7 +206,7 @@ This directory contains the narrative foundation of Tarim-Shaiel:
 ## Related Project Files
 
 **Outside narrative/ directory:**
-- [[INDEX]] - Project root index
+- [[world/Index]] - Project root index
 - [[TODO]] - Overall project task tracking
 - [[DECISION_LOG]] - Major project decisions
 - [[ARCHITECTURAL_DECISIONS]] - System design choices

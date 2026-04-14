@@ -9,7 +9,6 @@ published: true
 created: 2026-02-13
 last_updated: 2026-04-12
 ---
-
 *Daggerheart ancestry: Orcs. Foundation document — player-facing.*
 
 ## OVERVIEW
@@ -21,8 +20,6 @@ Tulpar (Orcs) are not the savage raiders of traditional fantasy. They are a peop
 **Core Identity:** "We remember where we came from. We choose where we're going."
 
 **Modern Reputation:** "Need a trade deal? Ask a Tulpar. Need a negotiator? Hire a Tulpar. Need someone who understands everyone? That's a Tulpar."
-
----
 
 ## HISTORICAL CONTEXT
 
@@ -45,8 +42,6 @@ Tulpar trade confederations rivaled Kuhban banking houses. Diplomatic academies 
 ### The Modern Era
 
 Tulpar are now integral to the Silk Road economy, not marginal survivors. They are known as "social lubricants" — facilitators of difficult negotiations who translate not just languages but customs, expectations, and unspoken rules. They carry ancestral memory of the chains alongside real, present power.
-
----
 
 ## CULTURAL CHARACTERISTICS
 
@@ -76,8 +71,6 @@ Most Tulpar speak multiple languages: Tulpari (the original language, preserved 
 
 **The Chain Chronicles:** Written clan histories recording migration, allies, enemies, fallen, and learned wisdom. After 1,000 years, these chronicles are some of the most comprehensive historical records on the Silk Road, rivaling Kuhban archives in scope.
 
----
-
 ## THE TRADING CENTURIES: ECONOMIC MASTERY
 
 ### From Warriors to Merchants
@@ -104,8 +97,6 @@ All leagues maintain shared ledgers of trustworthy and untrustworthy traders, st
 
 **"The Tulpar always gets their percentage"** — not through violence, but through economic leverage. Non-payment gets you blacklisted everywhere. Other merchants follow the Tulpar lead. The reputation for fairness plus ruthless enforcement means voluntary compliance is the norm.
 
----
-
 ## DIPLOMATIC ACADEMIES
 
 ### Philosophical Foundation
@@ -129,8 +120,6 @@ Tulpar diplomatic training emphasizes cultural intelligence (deep knowledge of m
 **The Silent Offer:** When parties are deadlocked, the Tulpar mediator proposes a solution privately to each side. If both accept, the deal is done. If either rejects, the mediator revises. Neither party ever has to admit compromise publicly.
 
 **The Weighted Scale:** Most conflicts are not zero-sum if you understand what people actually want. One party values prestige; the other values practical control. Split accordingly.
-
----
 
 ## SOCIAL STRUCTURE
 
@@ -156,8 +145,6 @@ Biological family comes first, chosen family close behind. Tulpar extend kinship
 
 Coming-of-age typically occurs around sixteen to eighteen. Young Tulpar choose their path — weapon-master, trader, craftsperson, mediator — and may undertake a Weapon-Walk (travel to learn fighting styles from other clans), a Trade-Walk (apprenticeship with distant merchant houses), or a Remembrance Pilgrimage (visiting sites of historical significance).
 
----
-
 ## RELIGIOUS AND SPIRITUAL PRACTICES
 
 Tulpar have no unified religion. Different clans adopted different spiritual practices based on where they settled — some worship local deities, others practice regional folk religions, some maintain fragmentary pre-captivity animist traditions.
@@ -168,8 +155,6 @@ Tulpar have no unified religion. Different clans adopted different spiritual pra
 
 **Memorial weapons:** Some Tulpar carry "Breaker's Chains" (weaponized shackles), mining picks, or tools from the captivity era. Rarely used in combat — their significance is ceremonial. "To remember the weight we carried, so we never forget why we're free."
 
----
-
 ## ECONOMIC ROLES
 
 **Weapon merchants and smiths:** The most cosmopolitan weapon dealers on the Silk Road. Any blade, any culture, any style — sold, forged, repaired, appraised, or taught. "Need a blade? What style? We know them all."
@@ -179,8 +164,6 @@ Tulpar have no unified religion. Different clans adopted different spiritual pra
 **Craftspeople and laborers:** Many Tulpar retain skills from the captivity era — mining, stonework, metalworking, construction, engineering. The relationship is complicated: these skills carry painful memories but provide livelihood. Most Tulpar prefer working for themselves.
 
 **Merchants and traders:** Younger generations are establishing their own trade networks in weapons, regional specialties, and cross-cultural trade facilitation.
-
----
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
@@ -200,8 +183,6 @@ Tulpar have no unified religion. Different clans adopted different spiritual pra
 
 **Naga-Kin (Drakona):** Wary respect. Drakona's power reminds some Tulpar of powerful captors; others admire their strength. Generally keep distance unless allied.
 
----
-
 ## "FOUND FAMILY": TULPAR KINSHIP PHILOSOPHY
 
 **"Blood remembers, but choice honors."**
@@ -211,3 +192,13 @@ Tulpar understand kinship as concentric circles: biological family, clan family 
 Tulpar are among the most welcoming peoples for those who show need, reverence, shared circumstance, or proven loyalty. Non-Tulpar can be formally adopted through sponsorship by an existing member, a trial period of six months to two years, demonstrated commitment, a formal ceremony, and name-giving. Adopted members gain full clan protection, access to trade networks, a voice in clan decisions — and the obligation to support others and honor traditions.
 
 Half-Tulpar children of mixed marriages are never considered lesser. Same for anyone else adopted in. "You are what you carry" — identity is what burdens you shoulder, what you protect, what you honor.
+
+## PLAYER CHARACTER HOOKS
+
+### Questions for a Tulpar PC
+
+1. **Which clan are you from, and what is their signature weapon tradition?** The clan tells your story. The weapon tradition tells what your ancestors learned, and from whom.
+
+2. **How does your clan remember the liberation — with pride, with sorrow, or both?** Every Tulpar carries this. The answer shapes how they see everything else.
+
+3. **What did you learn during your weapon-walk or trade-walk, and from whom?** The journeys of young Tulpar produce most of the interesting encounters and debts that follow them into adulthood.
