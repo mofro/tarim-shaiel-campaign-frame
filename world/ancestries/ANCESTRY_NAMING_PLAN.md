@@ -5,7 +5,7 @@ type: world_building / implementation_plan
 visibility: gm_only
 status: approved_pending_implementation
 created: 2026-04-03
-last_updated: 2026-04-07
+last_updated: 2026-04-14
 ---
 
 # Ancestry Naming Plan — Tarim-Shaiel
@@ -116,6 +116,6 @@ last_updated: 2026-04-07
 
 - [x] Names agreed
 - [x] `narrative/gm_secrets/ANCESTRY_SECRET_NAMES.md` created
-- [ ] `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` updated
-- [ ] `world/content/CULTURAL_FRAMEWORK.md` updated
-- [ ] Audio folder renames (optional)
+- [x] `world/ancestries/PEOPLES_OF_TARIM_SHAIEL.md` updated
+- [x] `world/content/CULTURAL_FRAMEWORK.md` updated
+- [ ] Audio folder renames (optional — deferred, not blocking)
