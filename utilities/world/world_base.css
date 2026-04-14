@@ -281,9 +281,11 @@
     .table-wrap {
       overflow-x: auto;
       margin: 1.2rem 0 1.4rem;
+      -webkit-overflow-scrolling: touch;
     }
     .md-table {
-      width: 100%;
+      width: max-content;
+      min-width: 100%;
       border-collapse: collapse;
       font-size: 0.9rem;
       line-height: 1.5;
@@ -310,8 +312,8 @@
     .md-table tr:hover td { background: rgba(184,146,44,0.06); }
 
     @media (max-width: 640px) {
-      .md-table { font-size: 0.82rem; }
-      .md-table th, .md-table td { padding: 0.35rem 0.45rem; }
+      .md-table { font-size: 0.8rem; }
+      .md-table th, .md-table td { padding: 0.3rem 0.4rem; }
     }
 
     /* --- Audio player --- */
