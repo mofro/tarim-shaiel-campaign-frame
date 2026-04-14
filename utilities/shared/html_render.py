@@ -117,6 +117,46 @@ def render_prose(body: str) -> str:
 
     return html
 
+def render_md_table(para: str) -> str:
+    """Render a markdown table paragraph block as an HTML <table>.
+
+    Expects a multi-line block where the first line is the header row,
+    the second line is the separator (|---|---| pattern), and subsequent
+    lines are data rows.  Returns an empty string if the block is not a
+    recognisable table.
+    """
+    lines = [l.strip() for l in para.splitlines() if l.strip()]
+    # Need at least header + separator
+    if len(lines) < 2:
+        return ''
+    if not (lines[0].startswith('|') and lines[1].startswith('|')):
+        return ''
+    # Second line must be a separator: |---|  |:---:| etc.
+    if not re.match(r'^\|[\s\-:|]+\|', lines[1]):
+        return ''
+
+    def _parse_cells(line: str) -> list[str]:
+        return [cell.strip() for cell in line.strip('|').split('|')]
+
+    header_cells = _parse_cells(lines[0])
+    # lines[1] is the separator — skip it
+    data_lines = lines[2:]
+
+    thead = (
+        '<thead><tr>'
+        + ''.join(f'<th>{inline_md(c)}</th>' for c in header_cells)
+        + '</tr></thead>'
+    )
+    tbody_rows = [
+        '<tr>' + ''.join(f'<td>{inline_md(c)}</td>' for c in _parse_cells(l)) + '</tr>'
+        for l in data_lines
+        if l.startswith('|')
+    ]
+    tbody = '<tbody>' + ''.join(tbody_rows) + '</tbody>'
+
+    return f'<div class="table-wrap"><table class="md-table">{thead}{tbody}</table></div>\n'
+
+
 def _slug_anchor(text: str) -> str:
     """Convert a header string to a URL-safe anchor id."""
     return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
@@ -221,6 +261,17 @@ def render_body(body: str, vault: 'Path', docs: 'Path') -> 'tuple[str, list[dict
             text = para[4:].strip()
             anchor = _slug_anchor(text)
             html_parts.append(f'<h3 id="{anchor}">{inline_md(text)}</h3>\n')
+            continue
+
+        # Horizontal rule
+        if para in ('---', '***', '___'):
+            html_parts.append('<div class="divider"></div>\n')
+            continue
+
+        # Markdown table
+        tbl = render_md_table(para)
+        if tbl:
+            html_parts.append(tbl)
             continue
 
         # Callout

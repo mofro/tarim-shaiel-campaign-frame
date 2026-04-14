@@ -277,6 +277,43 @@
       border-top: 1px solid var(--rule); line-height: 1.4;
     }
 
+    /* --- Markdown tables --- */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.2rem 0 1.4rem;
+    }
+    .md-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .md-table th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--steel);
+      background: var(--parchment2);
+      padding: 0.55rem 0.7rem;
+      border-bottom: 2px solid var(--rule);
+      text-align: left;
+      white-space: nowrap;
+    }
+    .md-table td {
+      padding: 0.45rem 0.7rem;
+      border-bottom: 1px solid rgba(184,146,44,0.18);
+      vertical-align: top;
+    }
+    .md-table tr:last-child td { border-bottom: none; }
+    .md-table tr:hover td { background: rgba(184,146,44,0.06); }
+
+    @media (max-width: 640px) {
+      .md-table { font-size: 0.82rem; }
+      .md-table th, .md-table td { padding: 0.35rem 0.45rem; }
+    }
+
     /* --- Audio player --- */
     .audio-player {
       margin: 2.4rem 0; padding: 1.1rem 1.4rem 1.2rem;
