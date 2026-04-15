@@ -1,6 +1,6 @@
 ---
 title: Nightwalker
-parent-class: rogue
+parent-page: rogue
 project: TTRPG_Tarim_Shaiel
 type: character_framework
 visibility: gm_secrets

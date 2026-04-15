@@ -1,6 +1,6 @@
 ---
 title: Elemental Origin
-parent-class: sorcerer
+parent-page: sorcerer
 project: TTRPG_Tarim_Shaiel
 type: character_framework
 visibility: gm_secrets

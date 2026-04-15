@@ -1,6 +1,6 @@
 ---
 title: Winged Sentinel
-parent-class: seraph
+parent-page: seraph
 project: TTRPG_Tarim_Shaiel
 type: character_framework
 visibility: gm_secrets

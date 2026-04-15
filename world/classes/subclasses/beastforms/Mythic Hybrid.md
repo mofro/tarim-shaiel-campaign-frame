@@ -1,11 +1,24 @@
-# Mythic Hybrid
+---
+title: Mythic Hybrid
+parent-page: druid
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 **_Tier 4_** _(Chimera, Cockatrice, Manticore, etc.)_
 
 - **Trait Bonus:** Strength +3
 - **Evasion Bonus:** Evasion +2
 - **Attack:** Strength Melee d12+10 phy
-- **Advantages:** <no value>
 
 ### FEATURES
 

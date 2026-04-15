@@ -1,6 +1,6 @@
 ---
 title: Troubadour
-parent-class: bard
+parent-page: bard
 project: TTRPG_Tarim_Shaiel
 type: character_framework
 visibility: gm_secrets

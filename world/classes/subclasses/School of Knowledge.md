@@ -1,6 +1,6 @@
 ---
 title: School of Knowledge
-parent-class: wizard
+parent-page: wizard
 project: TTRPG_Tarim_Shaiel
 type: character_framework
 visibility: gm_secrets

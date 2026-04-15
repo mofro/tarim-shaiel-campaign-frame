@@ -1,6 +1,6 @@
 ---
 title: School of War
-parent-class: wizard
+parent-page: wizard
 project: TTRPG_Tarim_Shaiel
 type: character_framework
 visibility: gm_secrets

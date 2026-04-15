@@ -1,6 +1,6 @@
 ---
 title: Call of the Brave
-parent-class: warrior
+parent-page: warrior
 project: TTRPG_Tarim_Shaiel
 type: character_framework
 visibility: gm_secrets

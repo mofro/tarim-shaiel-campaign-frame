@@ -286,7 +286,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
     back_nav_html = ''
     back_href = ''
     back_label = ''
-    parent_class = str(fm.get('parent-class', '')).strip()
+    parent_class = str(fm.get('parent-page', '') or fm.get('parent-class', '')).strip()
     if parent_class:
         parent_slug = re.sub(r'[^\w\-]', '-', parent_class.lower().replace(' ', '-'))
         parent_slug = re.sub(r'-+', '-', parent_slug).strip('-')
