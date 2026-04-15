@@ -120,7 +120,7 @@ Options B and C are recommended for development (per prior session notes). This 
 
 ## References
 
-- Index: [[_category]]
+- Index: [[world/factions/_category]]
 - Legacy faction: [[human-imperial-remnants]]
 - Related decision: Wizard awareness/motivation (Options A/B/C) — see `lat.md/decisions.md`
-- Design note source: [[_category]] § Historical Factions
+- Design note source: [[world/factions/_category]] § Historical Factions
