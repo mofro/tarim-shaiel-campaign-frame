@@ -8,6 +8,7 @@ published: true
 status: draft
 created: 2026-04-02
 last_updated: 2026-04-07
+description: Djinn Children - or merely misunderstood?
 ---
 *Daggerheart ancestry: Infernis. Foundation document — player-facing.*
 

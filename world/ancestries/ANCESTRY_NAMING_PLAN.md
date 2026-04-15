@@ -39,10 +39,10 @@ last_updated: 2026-04-14
 
 #### ELVES
 
-| Layer | Name | Notes |
-|---|---|---|
-| Trade name (common) | *Serenvar* | Persian: "those who have stillness." What everyone calls them. Player-facing canon. |
-| Sacred self-name | *Yulduzir* | Turkic *yulduz* (star) + ancient Iranian nominal *-ir*. "Star-people." Ancient, self-given, rarely shared. Players may eventually hear this from Elven NPCs directly. |
+| Layer               | Name       | Notes                                                                                                                                                                 |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Trade name (common) | *Serenvar* | Persian: "those who have stillness." What everyone calls them. Player-facing canon.                                                                                   |
+| Sacred self-name    | *Yulduzir* | Turkic *yulduz* (star) + ancient Iranian nominal *-ir*. "Star-people." Ancient, self-given, rarely shared. Players may eventually hear this from Elven NPCs directly. |
 
 **Elf Regional Nicknames**
 
