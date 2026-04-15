@@ -1,4 +1,18 @@
-# Winged Sentinel
+---
+title: Winged Sentinel
+parent-class: seraph
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Winged Sentinel if you want to take flight and strike crushing blows from the sky.
 

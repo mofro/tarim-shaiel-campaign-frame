@@ -1,4 +1,18 @@
-# Warden of the Elements
+---
+title: Warden of the Elements
+parent-class: druid
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Warden of the Elements if you want to embody the natural elements of the wild.
 

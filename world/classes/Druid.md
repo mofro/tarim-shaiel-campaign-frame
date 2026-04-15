@@ -59,39 +59,39 @@ Beastform categories are divided by tier. Each entry includes the following deta
 
 #### TIER 1
 
-- [Agile Scout](Agile%20Scout.md)
-- [Household Friend](Household%20Friend.md)
-- [Nimble Grazer](Nimble%20Grazer.md)
-- [Pack Predator](Pack%20Predator.md)
-- [Aquatic Scout](Aquatic%20Scout.md)
-- [Stalking Arachnid](Stalking%20Arachnid.md)
+- [Agile Scout](world/classes/subclasses/beastforms/Agile Scout.md)
+- [Household Friend](world/classes/subclasses/beastforms/Household Friend.md)
+- [Nimble Grazer](world/classes/subclasses/beastforms/Nimble Grazer.md)
+- [Pack Predator](world/classes/subclasses/beastforms/Pack Predator.md)
+- [Aquatic Scout](world/classes/subclasses/beastforms/Aquatic Scout.md)
+- [Stalking Arachnid](world/classes/subclasses/beastforms/Stalking Arachnid.md)
 
 #### TIER 2
 
-- [Armored Sentry](Armored%20Sentry.md)
-- [Powerful Beast](Powerful%20Beast.md)
-- [Mighty Strider](Mighty%20Strider.md)
-- [Striking Serpent](Striking%20Serpent.md)
-- [Pouncing Predator](Pouncing%20Predator.md)
-- [Winged Beast](Winged%20Beast.md)
+- [Armored Sentry](world/classes/subclasses/beastforms/Armored Sentry.md)
+- [Powerful Beast](world/classes/subclasses/beastforms/Powerful Beast.md)
+- [Mighty Strider](world/classes/subclasses/beastforms/Mighty Strider.md)
+- [Striking Serpent](world/classes/subclasses/beastforms/Striking Serpent.md)
+- [Pouncing Predator](world/classes/subclasses/beastforms/Pouncing Predator.md)
+- [Winged Beast](world/classes/subclasses/beastforms/Winged Beast.md)
 
 #### TIER 3
 
-- [Great Predator](Great%20Predator.md)
-- [Mighty Lizard](Mighty%20Lizard.md)
-- [Great Winged Beast](Great%20Winged%20Beast.md)
-- [Aquatic Predator](Aquatic%20Predator.md)
-- [Legendary Beast](Legendary%20Beast.md)
-- [Legendary Hybrid](Legendary%20Hybrid.md)
+- [Great Predator](world/classes/subclasses/beastforms/Great Predator.md)
+- [Mighty Lizard](world/classes/subclasses/beastforms/Mighty Lizard.md)
+- [Great Winged Beast](world/classes/subclasses/beastforms/Great Winged Beast.md)
+- [Aquatic Predator](world/classes/subclasses/beastforms/Aquatic Predator.md)
+- [Legendary Beast](world/classes/subclasses/beastforms/Legendary Beast.md)
+- [Legendary Hybrid](world/classes/subclasses/beastforms/Legendary Hybrid.md)
 
 #### TIER 4
 
-- [Massive Behemoth](Massive%20Behemoth.md)
-- [Terrible Lizard](Terrible%20Lizard.md)
-- [Mythic Aerial Hunter](Mythic%20Aerial%20Hunter.md)
-- [Epic Aquatic Beast](Epic%20Aquatic%20Beast.md)
-- [Mythic Beast](Mythic%20Beast.md)
-- [Mythic Hybrid](Mythic%20Hybrid.md)
+- [Massive Behemoth](world/classes/subclasses/beastforms/Massive Behemoth.md)
+- [Terrible Lizard](world/classes/subclasses/beastforms/Terrible Lizard.md)
+- [Mythic Aerial Hunter](world/classes/subclasses/beastforms/Mythic Aerial Hunter.md)
+- [Epic Aquatic Beast](world/classes/subclasses/beastforms/Epic Aquatic Beast.md)
+- [Mythic Beast](world/classes/subclasses/beastforms/Mythic Beast.md)
+- [Mythic Hybrid](world/classes/subclasses/beastforms/Mythic Hybrid.md)
 
 ### SUBCLASSES
 

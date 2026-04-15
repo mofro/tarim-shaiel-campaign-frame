@@ -1,4 +1,18 @@
-# Syndicate
+---
+title: Syndicate
+parent-class: rogue
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Syndicate if you want to have a web of contacts everywhere you go.
 

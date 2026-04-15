@@ -1,4 +1,18 @@
-# Wordsmith
+---
+title: Wordsmith
+parent-class: bard
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Wordsmith if you want to use clever wordplay and captivate crowds.
 

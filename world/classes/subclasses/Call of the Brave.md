@@ -1,4 +1,18 @@
-# Call of the Brave
+---
+title: Call of the Brave
+parent-class: warrior
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Call of the Brave if you want to use the might of your enemies to fuel your own power.
 

@@ -1,4 +1,18 @@
-# Warden of Renewal
+---
+title: Warden of Renewal
+parent-class: druid
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 _Play the Warden of Renewal if you want to use powerful magic to heal your party._
 

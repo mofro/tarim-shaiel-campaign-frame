@@ -1,4 +1,18 @@
-# Wayfinder
+---
+title: Wayfinder
+parent-class: ranger
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Wayfinder if you want to hunt your prey and strike with deadly force.
 

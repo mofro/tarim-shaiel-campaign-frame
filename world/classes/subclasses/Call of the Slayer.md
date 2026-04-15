@@ -1,4 +1,18 @@
-# Call of the Slayer
+---
+title: Call of the Slayer
+parent-class: warrior
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Call of the Slayer if you want to strike down adversaries with immense force.
 

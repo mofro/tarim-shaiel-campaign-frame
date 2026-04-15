@@ -1,4 +1,18 @@
-# Primal Origin
+---
+title: Primal Origin
+parent-class: sorcerer
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Primal Origin if you want to extend the versatility of your spells in powerful ways.
 

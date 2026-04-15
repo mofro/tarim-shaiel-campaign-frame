@@ -1,4 +1,18 @@
-# Vengeance
+---
+title: Vengeance
+parent-class: guardian
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Vengeance if you want to strike down enemies who harm you or your allies.
 

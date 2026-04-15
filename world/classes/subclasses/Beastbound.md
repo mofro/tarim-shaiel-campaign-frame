@@ -1,4 +1,18 @@
-# Beastbound
+---
+title: Beastbound
+parent-class: ranger
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Beastbound if you want to form a deep bond with an animal ally.
 

@@ -1,4 +1,18 @@
-# Nightwalker
+---
+title: Nightwalker
+parent-class: rogue
+project: TTRPG_Tarim_Shaiel
+type: character_framework
+visibility: gm_secrets
+status: canon
+created: 2026-04-14
+last_updated: 2026-04-14
+tags:
+  - daggerheart
+  - daggerheart-srd
+  - pc
+  - reference
+---
 
 Play the Nightwalker if you want to manipulate shadows to maneuver through the environment.
 
