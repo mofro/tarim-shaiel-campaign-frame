@@ -239,8 +239,8 @@ def render_body(body: str, vault: 'Path', docs: 'Path') -> 'tuple[str, list[dict
             )
             continue
 
-        # Feature box: **Feature Name:** description text
-        feat = re.match(r'^\*\*(.+?):\*\*\s*(.+)', para, re.DOTALL)
+        # Feature box: **Name:** text  OR  **_Name:_** text  (bold-italic name variant)
+        feat = re.match(r'^\*\*_?(.+?):_?\*\*\s*(.+)', para, re.DOTALL)
         if feat:
             feature_buffer.append((feat.group(1).strip(), feat.group(2).strip()))
             continue

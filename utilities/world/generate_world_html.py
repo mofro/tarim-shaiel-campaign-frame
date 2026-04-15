@@ -324,7 +324,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
         )
 
     # --- Banner (frontmatter-overridable) ---
-    doc_type_label = str(fm.get('type', 'lore')).capitalize()
+    doc_type_label = str(fm.get('type', 'lore')).replace('_', ' ').title()
     banner_left  = fm.get('banner_left',  'Tarim-Shaiel')
     banner_right = fm.get('banner_right', doc_type_label)
     banner_html = (
