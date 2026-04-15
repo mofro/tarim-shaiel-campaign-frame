@@ -9,16 +9,32 @@ import re
 from html import escape as html_escape
 
 
+def _md_link_sub(m: 're.Match') -> str:
+    """Replacement function for markdown link [text](url) patterns.
+
+    Converts .md paths to slug.html using spaces→underscores convention.
+    Non-.md URLs are passed through unchanged.
+    """
+    link_text = m.group(1)
+    href = m.group(2)
+    if href.endswith('.md'):
+        stem = href.rsplit('/', 1)[-1][:-3]          # filename without extension
+        href = stem.lower().replace(' ', '_') + '.html'
+    return f'<a href="{href}">{link_text}</a>'
+
+
 def inline_md(text: str) -> str:
-    """Convert inline markdown to HTML (bold, italic, bold-italic).
+    """Convert inline markdown to HTML (bold, italic, bold-italic, links).
 
     HTML-escapes the input first so caller does not need to pre-escape.
+    Handles (in order): bold-italic, bold, italic, markdown links [t](url).
     """
     text = html_escape(text)
     text = re.sub(r'\*{3}(.+?)\*{3}', r'<strong><em>\1</em></strong>', text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
     text = re.sub(r'(?<!\w)_(.+?)_(?!\w)', r'<em>\1</em>', text)
+    text = re.sub(r'\[([^\]]*)\]\(([^)]+)\)', _md_link_sub, text)
     return text
 
 
