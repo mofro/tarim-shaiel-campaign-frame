@@ -875,6 +875,12 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
     # Render body content as HTML with jump nav support
     body_html, jump_nav_items = render_category_body(body, vault, docs)
     
+    # Collect doc-card items into jump nav before building nav HTML
+    sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
+    if cfg.get('jump_nav'):
+        jump_nav_items += [{'text': d['title'], 'anchor': _slug(d['title']), 'level': 2}
+                           for d in sorted_docs]
+
     # Generate jump nav if enabled in frontmatter
     jump_nav_html = ''
     if cfg.get('jump_nav') and len(jump_nav_items) >= 2:
@@ -897,11 +903,6 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
             cover_x = cfg.get('cover-x') or cfg.get('cover_x') or '50'
             cover_y = cfg.get('cover-y') or cfg.get('cover_y') or '4'
             cover_style = f' style="background-image: url({url}); background-position: center {escape(str(cover_y))}%;"'
-
-    sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
-    if cfg.get('jump_nav'):
-        jump_nav_items += [{'text': d['title'], 'anchor': _slug(d['title']), 'level': 2}
-                           for d in sorted_docs]
     cards_html  = ''.join(
         _card_html(
             d['filename'], d['title'], _meta_line(d), _auto_desc(d),
