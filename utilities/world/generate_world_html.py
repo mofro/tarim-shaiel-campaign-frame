@@ -282,12 +282,24 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
         content_html = epigraph_html + content_html
 
     # --- Back navigation ---
+    # If frontmatter has parent-class, link to parent page; otherwise link to category.
     back_nav_html = ''
-    if folder:
-        cat_label = folder.replace('-', ' ').replace('_', ' ').title()
+    back_href = ''
+    back_label = ''
+    parent_class = str(fm.get('parent-class', '')).strip()
+    if parent_class:
+        parent_slug = re.sub(r'[^\w\-]', '-', parent_class.lower().replace(' ', '-'))
+        parent_slug = re.sub(r'-+', '-', parent_slug).strip('-')
+        back_href  = f'{parent_slug}.html'
+        back_label = parent_class.replace('-', ' ').replace('_', ' ').title()
+    elif folder:
+        cat_label  = folder.replace('-', ' ').replace('_', ' ').title()
+        back_href  = f'category-{escape(folder)}.html'
+        back_label = cat_label
+    if back_href:
         back_nav_html = (
             f'<div class="back-nav">'
-            f'<a href="category-{escape(folder)}.html">&larr; {escape(cat_label)}</a>'
+            f'<a href="{back_href}">&larr; {escape(back_label)}</a>'
             f'</div>\n'
         )
 
@@ -295,8 +307,8 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
     jump_nav_html = ''
     if len(jump_nav_items) >= 2 and (fm.get('jump_nav', True) is not False):
         nav_items = []
-        if folder:
-            nav_items.append(f'  <li style="list-style:none"><a href="category-{escape(folder)}.html">&larr; {escape(cat_label)}</a></li>')
+        if back_href:
+            nav_items.append(f'  <li style="list-style:none"><a href="{back_href}">&larr; {escape(back_label)}</a></li>')
             nav_items.append('  <li class="nav-divider"></li>')
         for item in jump_nav_items:
             nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
