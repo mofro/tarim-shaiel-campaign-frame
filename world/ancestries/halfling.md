@@ -8,6 +8,7 @@ daggerheart_name: Halfling
 published: true
 created: 2026-04-07
 last_updated: 2026-04-07
+description: " (Daggerheart: Halfling)"
 ---
 *Daggerheart ancestry: Halflings. Foundation document — player-facing.*
 

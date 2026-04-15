@@ -8,6 +8,7 @@ daggerheart_name: Dwarf
 published: true
 created: 2026-04-07
 last_updated: 2026-04-07
+description: " (Daggerheart: Dwarf)"
 ---
 *Daggerheart ancestry: Dwarves. Foundation document — player-facing.*
 

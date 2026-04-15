@@ -8,6 +8,7 @@ daggerheart_name: Elf
 published: true
 created: 2026-04-07
 last_updated: 2026-04-07
+description: " (Daggerheart: Elf)"
 ---
 *Daggerheart ancestry: Elves. Foundation document — player-facing.*
 

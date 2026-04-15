@@ -8,6 +8,7 @@ daggerheart_name: Giant
 published: true
 created: 2026-04-07
 last_updated: 2026-04-07
+description: " (Daggerheart: Giant)"
 ---
 *Daggerheart ancestry: Giants. Foundation document — player-facing.*
 

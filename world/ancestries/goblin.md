@@ -8,6 +8,7 @@ daggerheart_name: Goblin
 published: true
 created: 2026-04-07
 last_updated: 2026-04-07
+description: " (Daggerheart: Goblin)"
 ---
 *Daggerheart ancestry: Goblins. Foundation document — player-facing.*
 

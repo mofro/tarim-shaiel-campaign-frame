@@ -3,7 +3,7 @@ title: Gavar — Keepers of the Threshold
 project: TTRPG_Tarim_Shaiel
 type: lore
 visibility: public
-description: Lore of the Gavar People, their customs and history
+description: "Lore of the Gavar People, their customs and history  (Daggerheart: Firbolg)"
 daggerheart_name: Firbolg
 published: true
 status: draft

@@ -8,6 +8,7 @@ daggerheart_name: Orc
 published: true
 created: 2026-02-13
 last_updated: 2026-04-12
+description: " (Daggerheart: Orcs)"
 ---
 *Daggerheart ancestry: Orcs. Foundation document — player-facing.*
 
