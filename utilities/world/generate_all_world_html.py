@@ -155,9 +155,6 @@ def render_category_body(body: str, vault: Path, docs: Path) -> tuple[str, list[
     
     feature_buffer = []  # Accumulate feature boxes
     
-    def _slug(text: str) -> str:
-        return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
-    
     def _flush_features():
         """Output accumulated feature boxes as a grid."""
         nonlocal feature_buffer
@@ -391,9 +388,8 @@ def discover_sources(vault: Path) -> dict[str, list[Path]]:
     return buckets
 
 
-def _slug(src: Path) -> str:
-    s = re.sub(r'[^\w\-]', '-', src.stem.lower().replace(' ', '-'))
-    return re.sub(r'-+', '-', s).strip('-')
+def _slug(text: str) -> str:
+    return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
 
 
 # ── generation ────────────────────────────────────────────────────────────────
@@ -442,7 +438,7 @@ def generate_all(
             # Normalize visibility for badge logic (prefer gm_secrets if present for GM badge)
             visibility = 'gm_secrets' if 'gm_secrets' in vis_list else vis_list[0] if vis_list else 'gm_secrets'
 
-            slug     = _slug(src)
+            slug     = _slug(src.stem)
             out_path = docs / f'{slug}.html'
             rel      = src.relative_to(vault)
 
@@ -810,8 +806,9 @@ _INDEX_CSS_LEGACY_UNUSED = """
 def _card_html(filename: str, title: str, meta: str, desc: str, gm: bool = False) -> str:
     gm_badge = '<span class="gm-badge">GM</span>' if gm else ''
     extra    = ' gm-secrets' if gm else ''
+    anchor   = _slug(title)
     return (
-        f'    <a class="doc-card{extra}" href="{escape(filename)}">\n'
+        f'    <a id="{anchor}" class="doc-card{extra}" href="{escape(filename)}">\n'
         f'      <div class="doc-title">{escape(title)}{gm_badge}</div>\n'
         f'      <div class="doc-meta">{escape(meta)}</div>\n'
         f'      <div class="doc-desc">{escape(desc)}</div>\n'
@@ -902,6 +899,9 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
             cover_style = f' style="background-image: url({url}); background-position: center {escape(str(cover_y))}%;"'
 
     sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
+    if cfg.get('jump_nav'):
+        jump_nav_items += [{'text': d['title'], 'anchor': _slug(d['title']), 'level': 2}
+                           for d in sorted_docs]
     cards_html  = ''.join(
         _card_html(
             d['filename'], d['title'], _meta_line(d), _auto_desc(d),
