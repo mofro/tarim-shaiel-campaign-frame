@@ -1,14 +1,16 @@
 ---
 title: Historical Events Index
+description: The History of Tarim Shaiel
 project: TTRPG_Tarim_Shaiel
-type: entity_index
-entity_type: event
-status: active
+type: lore
+published: true
+visibility: gm_secrets
+banner_left: TARIM-SHAIEL * Lore
+banner_right: Lore
 created: 2026-03-10
 last_updated: 2026-04-01
+jump_nav: true
 ---
-
-# Historical Events Index
 
 Master registry of named historical events — pivot points in the 1,000-year arc. These are the nodes that connect eras, factions, and concepts into a causal chain. Each is a linkable entity.
 

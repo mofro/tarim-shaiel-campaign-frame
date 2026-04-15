@@ -107,6 +107,6 @@ The **Sacrifice (Era 1)** and the **Expulsion (Era 5)** are separated by 1,000 y
 
 ## Sources
 
-- Events index → [[../events/Index]]
+- Events index → [[world/events/_category]]
 - Full timeline → [[../../world/content/HISTORICAL_TIMELINE]]
 - Cosmological context → [[cosmological-architecture]]

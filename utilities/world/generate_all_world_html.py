@@ -37,7 +37,7 @@ from shared.frontmatter import parse_frontmatter
 from shared.html_render import render_wiki_embed, inline_md as shared_inline_md, render_body as shared_render_body, render_md_table
 
 # ── discovery config ──────────────────────────────────────────────────────────
-PIPELINE_TYPES = {'timeline', 'myth', 'lore', 'character_framework'}
+PIPELINE_TYPES = {'timeline', 'myth', 'lore', 'event', 'character_framework'}
 
 # Directories to search (relative to vault root)
 SCAN_ROOTS = ['world', 'narrative']

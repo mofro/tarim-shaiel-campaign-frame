@@ -3,7 +3,7 @@ title: Night of Falling Stars
 project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
-content_type: event
+type: event
 visibility: gm_secrets
 status: draft
 created: 2026-03-22
