@@ -9,6 +9,7 @@ banner_left: TARIM-SHAIEL * Lore
 banner_right: Weapon
 created: 2026-04-15
 last_updated: 2026-04-15
+parent-page: category-weapons
 ---
 
 **Tier 3:** Primary_ _Physical_ _Weapon_

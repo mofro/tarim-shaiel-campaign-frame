@@ -5,4 +5,5 @@ banner_left: TARIM-SHAIEL * Lore
 banner_right: Weapons
 jump_nav: true
 published: true
+type: lore
 ---
