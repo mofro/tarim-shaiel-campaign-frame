@@ -4,7 +4,7 @@ description: Improved weapons of Tarim-Shaiel.
 banner_left: TARIM-SHAIEL * Lore
 banner_right: Improved Weapons
 jump_nav: true
-published: true
+published: false
 parent-page: category-weapons
 ---
 Improved!
