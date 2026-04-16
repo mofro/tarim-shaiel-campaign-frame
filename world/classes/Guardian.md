@@ -20,7 +20,7 @@ tags:
 ---
 The title of guardian represents an array of martial professions, speaking more to their moral compass and unshakeable fortitude than the means by which they fight. While many guardians join groups of militants for either a country or cause, they're more likely to follow those few they truly care for, majority be damned. Guardians are known for fighting with remarkable ferocity even against overwhelming odds, defending their cohort above all else. Woe betide those who harm the ally of a guardian, as the guardian will answer this injury in kind.
 
-- **DOMAINS -** [Valor](Valor.md) & [Blade](Blade.md)
+- **DOMAINS -** [Valor](references/daggerheart-srd/domains/Valor.md) & [Blade](references/daggerheart-srd/domains/Blade.md)
 - **STARTING EVASION -** 9
 - **STARTING HIT POINTS -** 7
 - **CLASS ITEMS -** A totem from your mentor or a secret key

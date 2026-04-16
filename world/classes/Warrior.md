@@ -20,7 +20,7 @@ tags:
 ---
 Becoming a warrior requires years, often a lifetime, of training and dedication to the mastery of weapons and violence. While many who seek to fight hone only their strength, warriors understand the importance of an agile body and mind, making them some of the most sought-after fighters across the realms. Frequently, warriors find employment within an army, a band of mercenaries, or even a royal guard, but their potential is wasted in any position where they cannot continue to improve and expand their skills. Warriors are known to have a favored weapon; to come between them and their blade would be a grievous mistake.
 
-- **DOMAINS -** [Blade](Blade.md) & [Bone](Bone.md)
+- **DOMAINS -** [Blade](references/daggerheart-srd/domains/Blade.md) & [Bone](references/daggerheart-srd/domains/Bone.md)
 - **STARTING EVASION -** 11
 - **STARTING HIT POINTS -** 6
 - **CLASS ITEMS -** The drawing of a lover or a sharpening stone

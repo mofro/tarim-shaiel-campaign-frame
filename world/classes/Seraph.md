@@ -20,7 +20,7 @@ tags:
 ---
 Seraphs are divine fighters and healers imbued with sacred purpose. A wide array of deities exist within the realms, and thus numerous kinds of seraphs are appointed by these gods. Their ethos traditionally aligns with the domain or goals of their god, such as defending the weak, exacting vengeance, protecting a land or artifact, or upholding a particular faith. Some seraphs ally themselves with an army or locale, much to the satisfaction of their rulers, but other crusaders fight in opposition to the follies of the Mortal Realm. It is better to be a seraph's ally than their enemy, as they are terrifying foes to those who defy their purpose.
 
-- **DOMAINS -** [Splendor](Splendor.md) & [Valor](Valor.md)
+- **DOMAINS -** [Splendor](references/daggerheart-srd/domains/Splendor.md) & [Valor](references/daggerheart-srd/domains/Valor.md)
 - **STARTING EVASION -** 9
 - **STARTING HIT POINTS -** 7
 - **CLASS ITEMS -** A bundle of offerings or a sigil of your god
