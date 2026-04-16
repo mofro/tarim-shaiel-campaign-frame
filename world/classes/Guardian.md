@@ -2,7 +2,7 @@
 title: Guardian
 project: TTRPG_Tarim_Shaiel
 type: character_framework
-visibility: public
+visibility: public | gm_secrets
 domains:
   - valor
   - blade

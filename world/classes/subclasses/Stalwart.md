@@ -3,7 +3,7 @@ title: Stalwart
 parent-page: guardian
 project: TTRPG_Tarim_Shaiel
 type: character_framework
-visibility: public
+visibility: gm_secrets
 status: canon
 created: 2026-04-14
 last_updated: 2026-04-14
