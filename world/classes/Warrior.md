@@ -2,7 +2,7 @@
 title: Warrior
 project: TTRPG_Tarim_Shaiel
 type: character_framework
-visibility: public | gm_secrets
+visibility: gm_secrets
 domains:
   - blade
   - bone
