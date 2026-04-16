@@ -9,6 +9,8 @@ banner_left: TARIM-SHAIEL * Lore
 banner_right: Weapon
 created: 2026-04-15
 last_updated: 2026-04-15
+parent-page: Small Dagger
+section: weapons
 ---
 
 **Tier 2:** Secondary_ _Physical_ _Weapon_

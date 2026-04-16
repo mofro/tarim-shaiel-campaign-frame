@@ -68,11 +68,24 @@ def _category_label(folder: str) -> str:
 # ── category config helpers ───────────────────────────────────────────────────
 
 def _find_folder_path(vault: Path, folder: str) -> Path | None:
-    """Return the filesystem path of a named folder under any SCAN_ROOT."""
+    """Return the filesystem path of a named folder under any SCAN_ROOT.
+
+    Searches top-level first (fast path), then falls back to a recursive
+    search so nested folders like world/weapons/advanced/ are found.
+    """
+    # Fast path: top-level match (preserves existing behaviour)
     for root_name in SCAN_ROOTS:
         p = vault / root_name / folder
         if p.is_dir():
             return p
+    # Recursive fallback for nested folders (e.g. world/weapons/advanced)
+    for root_name in SCAN_ROOTS:
+        root = vault / root_name
+        if root.exists():
+            for candidate in sorted(root.rglob('*')):
+                if candidate.is_dir() and candidate.name == folder:
+                    return candidate
+    # Vault-root fallback
     p = vault / folder
     return p if p.is_dir() else None
 
@@ -376,8 +389,9 @@ def discover_sources(vault: Path) -> dict[str, list[Path]]:
                 continue
             m = re.search(r'^type:\s*(\w+)', head, re.MULTILINE)
             if m and m.group(1).lower() in PIPELINE_TYPES:
-                # TODO: section: frontmatter override — folder = fm.get('section') or src.parent.name
-                folder = md.parent.name
+                # section: frontmatter overrides the bucket (decouples category from directory)
+                section_m = re.search(r'^section:\s*["\']?([^\s"\'#\n]+)', head, re.MULTILINE)
+                folder = section_m.group(1).strip() if section_m else md.parent.name
                 buckets.setdefault(folder, []).append(md)
     # Apply _category.md suppression
     suppressed = [f for f in list(buckets.keys())
