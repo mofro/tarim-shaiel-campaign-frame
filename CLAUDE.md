@@ -177,6 +177,14 @@ Examples:
 
 This is expected behaviour — not an error. Do not attempt to override it.
 
+**Harness isolation — HARD RULE (never violate):**
+The harness runs in an isolated virtual environment. The user has NO access to:
+- Files generated or modified inside the harness filesystem
+- Services (HTTP servers, dev servers, previews) started inside the harness
+- Any output that exists only in the harness environment
+
+**Do NOT declare a task "done" or ask the user to "preview" or "verify" results until the work exists in an external environment the user can actually reach** — meaning: committed and pushed to the remote branch on GitHub, or described in a GitHub Issue/PR the user can read. A successful local run, a passing curl, or a running local server inside the harness proves nothing to the user. State what was done and where it lives on GitHub; let the user decide when to pull and verify locally.
+
 **Long-lived branch inflation — process trap:** The harness assigns one `claude/*` branch per session and locks it for that session's lifetime. All commits land on that branch. If the branch is not rebased onto `main` after each PR merge, subsequent sessions accumulate "ghost" commits — prior session commits that are already in `main` but still appear as ahead on the branch. This inflates commit counts and makes PRs look larger than they are.
 
 **Fix at the start of each session:**
