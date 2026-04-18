@@ -4,7 +4,6 @@ description: Legendary weapons of Tarim-Shaiel.
 banner_left: TARIM-SHAIEL * Lore
 banner_right: Legendary Weapons
 jump_nav: true
-published: false
-parent-page: category-weapons
+parent: weapons
 ---
 Legendary

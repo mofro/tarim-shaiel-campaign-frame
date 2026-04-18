@@ -48,6 +48,32 @@
       border-color: var(--crimson);
     }
 
+    /* --- Subcategory navigation cards --- */
+    .subcategory-card {
+      border: 2px solid var(--gold); border-radius: 4px; padding: 20px 28px;
+      margin-bottom: 14px; text-decoration: none; display: block;
+      background: rgba(184,146,44,0.06); position: relative;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .subcategory-card:hover { border-color: var(--gold-light); background: rgba(184,146,44,0.12); }
+    .subcategory-title {
+      font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .subcategory-desc {
+      font-size: 15px; color: rgba(26,18,8,0.7); margin-bottom: 6px;
+    }
+    .subcategory-count {
+      font-family: 'Inconsolata', monospace; font-size: 11px;
+      color: rgba(26,18,8,0.5); text-transform: uppercase; letter-spacing: 0.12em;
+    }
+    .subcategory-arrow {
+      position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+      color: var(--gold); font-size: 22px; opacity: 0.7;
+      transition: opacity 0.2s, right 0.2s;
+    }
+    .subcategory-card:hover .subcategory-arrow { opacity: 1; right: 18px; }
+
     /* --- Category sections (index page) --- */
     .cat-section {
       margin-top: 2.8rem;
