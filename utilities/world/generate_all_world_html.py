@@ -940,12 +940,13 @@ def generate_category_page(
     # Render body content as HTML with jump nav support
     body_html, jump_nav_items = render_category_body(body, vault, docs)
 
-    # Prepend subcategory entries before doc-card entries in jump nav
+    # Prepend subcategory entries (tagged) before doc-card entries in jump nav
+    subcat_nav_items = []
     if cfg.get('jump_nav') and children:
         for child in sorted(children):
             child_cfg, _ = _read_category_config(vault, child)
             child_label  = child_cfg.get('title') or _category_label(child)
-            jump_nav_items.append({'text': child_label, 'anchor': _slug(child_label), 'level': 2})
+            subcat_nav_items.append({'text': child_label, 'anchor': _slug(child_label), 'level': 2})
 
     # Collect doc-card items into jump nav before building nav HTML
     sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
@@ -962,7 +963,8 @@ def generate_category_page(
 
     # Generate jump nav if enabled in frontmatter
     jump_nav_html = ''
-    if cfg.get('jump_nav') and len(jump_nav_items) >= 2:
+    all_nav_items = subcat_nav_items + jump_nav_items
+    if cfg.get('jump_nav') and len(all_nav_items) >= 2:
         if parent_bucket:
             back_link = (
                 f'  <li style="list-style:none">'
@@ -971,6 +973,10 @@ def generate_category_page(
         else:
             back_link = '  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>'
         nav_items = [back_link, '  <li class="nav-divider"></li>']
+        for item in subcat_nav_items:
+            nav_items.append(f'  <li class="nav-subcategory"><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
+        if subcat_nav_items and jump_nav_items:
+            nav_items.append('  <li class="nav-divider"></li>')
         for item in jump_nav_items:
             nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
         nav_items.append('  <li class="nav-divider"></li>')
