@@ -234,6 +234,8 @@
     .jump-nav a { color: var(--gold); text-decoration: none; transition: color 0.15s; }
     .jump-nav a:hover { color: var(--gold-light); }
     .jump-nav .nav-divider { list-style: none; border-top: 1px solid rgba(184,146,44,0.3); margin: 0.5rem 0; padding: 0; }
+    .jump-nav .nav-subcategory { list-style: none; }
+    .jump-nav .nav-subcategory a { color: var(--gold-light); font-weight: 600; letter-spacing: 0.06em; }
 
     @media (max-width: 640px) {
       body { flex-direction: column; justify-content: flex-start; }
