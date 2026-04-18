@@ -402,6 +402,30 @@ def discover_sources(vault: Path) -> dict[str, list[Path]]:
     return buckets
 
 
+def _build_subcategory_map(
+    vault: Path, buckets: dict
+) -> tuple[dict[str, list[str]], set[str]]:
+    """Return (parent→[children], subcategory_set) from _category.md parent: fields.
+
+    Only records relationships where the declared parent is a known bucket —
+    dangling parent: references are silently ignored. Depth limited to 1 level;
+    a subcategory that itself declares parent: is skipped with a warning.
+    """
+    parent_map: dict[str, list[str]] = {}
+    subcategory_set: set[str] = set()
+    for folder in buckets:
+        fm, _ = _read_category_config(vault, folder)
+        parent = str(fm.get('parent', '')).strip()
+        if not parent or parent not in buckets:
+            continue
+        if parent in subcategory_set:
+            print(f'  WARNING: "{folder}" declares parent: "{parent}" but "{parent}" is already a subcategory — skipping (max depth 1)')
+            continue
+        parent_map.setdefault(parent, []).append(folder)
+        subcategory_set.add(folder)
+    return parent_map, subcategory_set
+
+
 def _slug(text: str) -> str:
     return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
 
@@ -831,6 +855,26 @@ def _card_html(filename: str, title: str, meta: str, desc: str, gm: bool = False
     )
 
 
+def _subcategory_card_html(
+    folder: str, vault: Path, grouped_docs: dict[str, list[dict]]
+) -> str:
+    """Render a navigation card for a subcategory, with anchor for jump-nav."""
+    cfg, _ = _read_category_config(vault, folder)
+    title  = cfg.get('title') or _category_label(folder)
+    desc   = cfg.get('description') or ''
+    count  = len(grouped_docs.get(folder, []))
+    plural = 's' if count != 1 else ''
+    anchor = _slug(title)
+    return (
+        f'    <a id="{anchor}" class="subcategory-card" href="category-{escape(folder)}.html">\n'
+        f'      <div class="subcategory-title">{escape(title)}</div>\n'
+        + (f'      <div class="subcategory-desc">{escape(desc)}</div>\n' if desc else '')
+        + f'      <div class="subcategory-count">{count} document{plural}</div>\n'
+        f'      <div class="subcategory-arrow">&#8594;</div>\n'
+        f'    </a>\n'
+    )
+
+
 def _meta_line(doc: dict) -> str:
     parts = [doc['type'].capitalize()]
     if doc['calendar']:
@@ -880,28 +924,53 @@ _CORE_DOCS = [
 ]
 
 
-def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: list[dict]) -> int:
+def generate_category_page(
+    docs: Path, vault: Path, folder: str, folder_docs: list[dict],
+    subcategory_map: dict[str, list[str]] | None = None,
+    parent_bucket: str | None = None,
+    grouped_docs: dict[str, list[dict]] | None = None,
+) -> int:
     """Write docs/category-{folder}.html. Returns count of docs rendered."""
     cfg, body = _read_category_config(vault, folder)
     label = cfg.get('title') or _category_label(folder)
     desc  = cfg.get('description') or CATEGORY_DESCRIPTIONS.get(folder, '')
-    
+
+    children = (subcategory_map or {}).get(folder, [])
+
     # Render body content as HTML with jump nav support
     body_html, jump_nav_items = render_category_body(body, vault, docs)
-    
+
+    # Prepend subcategory entries before doc-card entries in jump nav
+    if cfg.get('jump_nav') and children:
+        for child in sorted(children):
+            child_cfg, _ = _read_category_config(vault, child)
+            child_label  = child_cfg.get('title') or _category_label(child)
+            jump_nav_items.append({'text': child_label, 'anchor': _slug(child_label), 'level': 2})
+
     # Collect doc-card items into jump nav before building nav HTML
     sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
     if cfg.get('jump_nav'):
         jump_nav_items += [{'text': d['title'], 'anchor': _slug(d['title']), 'level': 2}
                            for d in sorted_docs]
 
+    # Resolve parent label for back-nav and jump-nav
+    if parent_bucket:
+        parent_cfg, _ = _read_category_config(vault, parent_bucket)
+        parent_label  = parent_cfg.get('title') or _category_label(parent_bucket)
+    else:
+        parent_label = None
+
     # Generate jump nav if enabled in frontmatter
     jump_nav_html = ''
     if cfg.get('jump_nav') and len(jump_nav_items) >= 2:
-        nav_items = [
-            '  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>',
-            '  <li class="nav-divider"></li>',
-        ]
+        if parent_bucket:
+            back_link = (
+                f'  <li style="list-style:none">'
+                f'<a href="category-{escape(parent_bucket)}.html">&larr; {escape(parent_label)}</a></li>'
+            )
+        else:
+            back_link = '  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>'
+        nav_items = [back_link, '  <li class="nav-divider"></li>']
         for item in jump_nav_items:
             nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
         nav_items.append('  <li class="nav-divider"></li>')
@@ -927,11 +996,29 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
     count = len(sorted_docs)
 
     # Back navigation
-    back_nav_html = (
-        '<div class="back-nav">\n'
-        '  <a href="index.html">← Campaign Documents</a>\n'
-        '</div>\n'
-    )
+    if parent_bucket:
+        back_nav_html = (
+            '<div class="back-nav">\n'
+            f'  <a href="category-{escape(parent_bucket)}.html">\u2190 {escape(parent_label)}</a>\n'
+            '</div>\n'
+        )
+    else:
+        back_nav_html = (
+            '<div class="back-nav">\n'
+            '  <a href="index.html">← Campaign Documents</a>\n'
+            '</div>\n'
+        )
+
+    # Subcategory cards section
+    subcats_html = ''
+    if children and grouped_docs:
+        subcats_html = (
+            '    <div class="section-label">Subcategories</div>\n'
+            + ''.join(
+                _subcategory_card_html(child, vault, grouped_docs)
+                for child in sorted(children)
+            )
+        )
 
     # Cover section — use image cover if available, otherwise steel no-cover-header
     if cover_style:
@@ -964,6 +1051,10 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
         '<div class="banner-rule"></div>\n'
     )
 
+    items_section = ''
+    if count > 0:
+        items_section = f'    <div class="section-label">{escape(label)} ({count})</div>\n{cards_html}'
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -984,8 +1075,8 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
 
   <div class="content">
 {body_html}
-    <div class="section-label">{escape(label)} ({count})</div>
-{cards_html}
+{subcats_html}
+{items_section}
   </div>
 
   <div class="footer">
@@ -1000,7 +1091,11 @@ def generate_category_page(docs: Path, vault: Path, folder: str, folder_docs: li
     return count
 
 
-def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path | None = None, public_only: bool = False) -> None:
+def generate_index(
+    docs: Path, grouped_docs: dict[str, list[dict]], vault: Path | None = None,
+    public_only: bool = False,
+    subcategory_set: set[str] | None = None,
+) -> None:
     """Write docs/index.html listing core docs with hero and category sections."""
     config = _read_site_config(vault) if vault else {}
     hero_html = _hero_html(config, vault, docs) if config else ''
@@ -1020,15 +1115,17 @@ def generate_index(docs: Path, grouped_docs: dict[str, list[dict]], vault: Path 
         for d in visible_core
     )
 
+    top_level_folders = {f for f in grouped_docs if f not in (subcategory_set or set())}
     categories_html = ''
     if grouped_docs:
-        sorted_folders = sorted(grouped_docs.keys(), key=_category_label)
+        sorted_folders = sorted(top_level_folders, key=_category_label)
         categories_html = ''.join(
             _category_section_html(folder, grouped_docs[folder], vault, public_only)
             for folder in sorted_folders
         )
 
-    total = len(visible_core) + sum(len(v) for v in grouped_docs.values())
+    top_level_docs = {f: v for f, v in grouped_docs.items() if f in top_level_folders}
+    total = len(visible_core) + sum(len(v) for v in top_level_docs.values())
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1090,6 +1187,7 @@ def main() -> None:
     print('Scanning for pipeline sources...')
 
     grouped_sources = discover_sources(vault)
+    subcategory_map, subcategory_set = _build_subcategory_map(vault, grouped_sources)
     grouped_docs    = generate_all(vault, docs, grouped_sources=grouped_sources,
                                    dry_run=args.dry_run, public_only=args.public)
     total = sum(len(v) for v in grouped_docs.values())
@@ -1097,11 +1195,22 @@ def main() -> None:
 
     if not args.dry_run:
         for folder, folder_docs in sorted(grouped_docs.items()):
-            count = generate_category_page(docs, vault, folder, folder_docs)
+            parent_bucket = next(
+                (p for p, children in subcategory_map.items() if folder in children),
+                None,
+            )
+            count = generate_category_page(
+                docs, vault, folder, folder_docs,
+                subcategory_map=subcategory_map,
+                parent_bucket=parent_bucket,
+                grouped_docs=grouped_docs,
+            )
             print(f'  Category: {folder} ({count} doc(s)) → docs/category-{folder}.html')
-        generate_index(docs, grouped_docs, vault=vault, public_only=args.public)
+        generate_index(docs, grouped_docs, vault=vault, public_only=args.public,
+                       subcategory_set=subcategory_set)
         visible_core_count = len([d for d in _CORE_DOCS if not args.public or 'public' in d.get('visibility', 'gm_secrets')])
-        print(f'Index: docs/index.html ({visible_core_count} core + {len(grouped_docs)} categories)')
+        top_level_count = len(grouped_docs) - len(subcategory_set)
+        print(f'Index: docs/index.html ({visible_core_count} core + {top_level_count} categories, {len(subcategory_set)} subcategories suppressed)')
 
 
 if __name__ == '__main__':
