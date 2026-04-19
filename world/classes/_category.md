@@ -4,7 +4,7 @@ description: Class descriptions for Tarim Shaiel
 published: true
 banner_left: TARIM-SHAIEL * Character Creation
 banner_right: Classes
-jump_nav: TRUE
+jump_nav: true
 ---
 ## Player Classes
 
