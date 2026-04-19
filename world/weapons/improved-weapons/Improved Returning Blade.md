@@ -10,6 +10,7 @@ banner_right: Weapon
 created: 2026-04-15
 last_updated: 2026-04-15
 range: Close
+tier: 2
 ---
 
 **Tier 2:** Primary_ _Magical_ _Weapon_

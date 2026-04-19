@@ -10,6 +10,7 @@ banner_right: Weapon
 created: 2026-04-15
 last_updated: 2026-04-15
 range: Far
+tier: 3
 ---
 
 **Tier 3:** Primary_ _Physical_ _Weapon_

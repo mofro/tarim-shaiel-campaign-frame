@@ -511,6 +511,7 @@ def generate_all(
                 'description': fm.get('description', ''),
                 'filename':    f'{slug}.html',
                 'range':       str(fm.get('range') or '').strip(),
+                'tier':        str(fm.get('tier') or '').strip(),
             })
 
     return grouped
