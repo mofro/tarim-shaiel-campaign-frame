@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Signature Move
 
 **_Level 5_** _Bone Ability._ **_Recall Cost_** _1._

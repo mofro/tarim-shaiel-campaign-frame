@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Glyph of Nightfall
 
 **_Level 4_** _Midnight Spell._ **_Recall Cost_** _1._

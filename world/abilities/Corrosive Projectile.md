@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Corrosive Projectile
 
 **_Level 3_** _Sage Spell._ **_Recall Cost_** _1._

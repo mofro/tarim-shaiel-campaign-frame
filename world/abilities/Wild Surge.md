@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Wild Surge
 
 **_Level 7_** _Sage Spell._ **_Recall Cost_** _2._

@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Blade-Touched
 
 **_Level 7_** _Blade Ability._ **_Recall Cost_** _1._

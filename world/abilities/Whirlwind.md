@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Whirlwind
 
 **_Level 1_** _Blade Ability._ **_Recall Cost_** _0._

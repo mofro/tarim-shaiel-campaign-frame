@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Healing Hands
 
 **_Level 2_** _Splendor Spell._ **_Recall Cost_** _1._

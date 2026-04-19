@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Book of Exota
 
 **_Level 4_** _Codex Grimoire._ **_Recall Cost_** _3._

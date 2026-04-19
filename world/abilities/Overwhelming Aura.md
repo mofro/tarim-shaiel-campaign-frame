@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Overwhelming Aura
 
 **_Level 9_** _Splendor Spell._ **_Recall Cost_** _2._

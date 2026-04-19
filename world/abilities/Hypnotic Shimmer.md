@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Hypnotic Shimmer
 
 **_Level 3_** _Grace Spell._ **_Recall Cost_** _1._

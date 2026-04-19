@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Full Surge
 
 **_Level 8_** _Valor Ability._ **_Recall Cost_** _1._

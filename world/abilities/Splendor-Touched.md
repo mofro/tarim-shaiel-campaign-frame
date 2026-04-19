@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Splendor-Touched
 
 **_Level 7_** _Splendor Ability._ **_Recall Cost_** _2._

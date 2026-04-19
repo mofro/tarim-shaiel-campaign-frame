@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Book of Korvax
 
 **_Level 3_** _Codex Grimoire._ **_Recall Cost_** _2._

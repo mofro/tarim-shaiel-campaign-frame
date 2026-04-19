@@ -12,6 +12,7 @@ tags:
   - daggerheart-srd
   - pc
   - reference
+tier: 4
 ---
 
 **_Tier 4_** _(Elephant, Mammoth, Rhinoceros, etc.)_

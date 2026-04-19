@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Mass Disguise
 
 **_Level 6_** _Midnight Spell._ **_Recall Cost_** _0._

@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Frenzy
 
 **_Level 8_** _Blade Ability._ **_Recall Cost_** _3._

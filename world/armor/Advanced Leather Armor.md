@@ -1,3 +1,6 @@
+---
+tier: 3
+---
 # Advanced Leather Armor
 
 **_Tier 3_** _Armor_

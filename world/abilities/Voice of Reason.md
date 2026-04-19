@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Voice of Reason
 
 **_Level 3_** _Splendor Ability._ **_Recall Cost_** _1._

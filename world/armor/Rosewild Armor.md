@@ -1,3 +1,6 @@
+---
+tier: 2
+---
 # Rosewild Armor
 
 **_Tier 2_** _Armor_

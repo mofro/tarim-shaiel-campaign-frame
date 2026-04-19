@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Reaper's Strike
 
 **_Level 9_** _Blade Ability._ **_Recall Cost_** _3._

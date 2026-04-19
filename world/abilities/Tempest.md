@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Tempest
 
 **_Level 10_** _Sage Spell._ **_Recall Cost_** _2._

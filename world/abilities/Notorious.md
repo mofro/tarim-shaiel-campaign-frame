@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Notorious
 
 **_Level 10_** _Grace Ability._ **_Recall Cost_** _0._

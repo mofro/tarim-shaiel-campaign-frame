@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Inspirational Words
 
 **_Level 1_** _Grace Ability._ **_Recall Cost_** _1._

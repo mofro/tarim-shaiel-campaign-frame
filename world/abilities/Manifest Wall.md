@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Manifest Wall
 
 **_Level 5_** _Codex Spell._ **_Recall Cost_** _2._

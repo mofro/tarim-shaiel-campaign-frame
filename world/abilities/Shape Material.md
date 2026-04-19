@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Shape Material
 
 **_Level 5_** _Splendor Spell._ **_Recall Cost_** _1._

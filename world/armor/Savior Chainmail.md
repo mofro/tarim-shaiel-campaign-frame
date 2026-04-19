@@ -1,3 +1,6 @@
+---
+tier: 4
+---
 # Savior Chainmail
 
 **_Tier 4_** _Armor_

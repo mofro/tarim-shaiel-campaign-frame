@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Earthquake
 
 **_Level 9_** _Arcana Spell._ **_Recall Cost_** _2._

@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Reckless
 
 **_Level 2_** _Blade Ability._ **_Recall Cost_** _1._

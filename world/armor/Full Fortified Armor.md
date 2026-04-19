@@ -1,3 +1,6 @@
+---
+tier: 4
+---
 # Full Fortified Armor
 
 **_Tier 4_** _Armor_

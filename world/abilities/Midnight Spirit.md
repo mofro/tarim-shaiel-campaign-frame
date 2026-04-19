@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Midnight Spirit
 
 **_Level 2_** _Midnight Spell._ **_Recall Cost_** _1._

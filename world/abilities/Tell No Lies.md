@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Tell No Lies
 
 **_Level 2_** _Grace Spell._ **_Recall Cost_** _1._

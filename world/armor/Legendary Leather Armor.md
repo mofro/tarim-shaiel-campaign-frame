@@ -1,3 +1,6 @@
+---
+tier: 4
+---
 # Legendary Leather Armor
 
 **_Tier 4_** _Armor_

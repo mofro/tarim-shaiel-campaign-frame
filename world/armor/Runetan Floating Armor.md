@@ -1,3 +1,6 @@
+---
+tier: 2
+---
 # Runetan Floating Armor
 
 **_Tier 2_** _Armor_

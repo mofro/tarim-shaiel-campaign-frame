@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Rain of Blades
 
 **_Level 1_** _Midnight Spell._ **_Recall Cost_** _1._

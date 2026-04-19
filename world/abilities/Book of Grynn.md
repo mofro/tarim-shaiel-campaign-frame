@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Book of Grynn
 
 **_Level 4_** _Codex Grimoire._ **_Recall Cost_** _2._

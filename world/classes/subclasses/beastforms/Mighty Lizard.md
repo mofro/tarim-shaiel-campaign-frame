@@ -12,6 +12,7 @@ tags:
   - daggerheart-srd
   - pc
   - reference
+tier: 3
 ---
 
 **_Tier 3_** _(Alligator, Crocodile, Gila Monster, etc.)_

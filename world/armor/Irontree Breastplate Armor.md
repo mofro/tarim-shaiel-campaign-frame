@@ -1,3 +1,6 @@
+---
+tier: 2
+---
 # IronTree Breastplate Armor
 
 **_Tier 2_** _Armor_

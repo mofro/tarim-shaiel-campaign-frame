@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Resurrection
 
 **_Level 10_** _Splendor Spell._ **_Recall Cost_** _2._

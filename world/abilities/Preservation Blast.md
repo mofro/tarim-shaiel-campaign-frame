@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Preservation Blast
 
 **_Level 4_** _Arcana Spell._ **_Recall Cost_** _2._

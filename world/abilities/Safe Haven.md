@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Safe Haven
 
 **_Level 8_** _Codex Spell._ **_Recall Cost_** _3._

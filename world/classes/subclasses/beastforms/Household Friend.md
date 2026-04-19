@@ -12,6 +12,7 @@ tags:
   - daggerheart-srd
   - pc
   - reference
+tier: 1
 ---
 
 **_Tier 1_** _(Cat, Dog, Rabbit, etc.)_

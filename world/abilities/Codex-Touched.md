@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Codex-Touched
 
 **_Level 7_** _Codex Ability._ **_Recall Cost_** _2._

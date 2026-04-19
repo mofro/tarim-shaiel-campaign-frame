@@ -1,3 +1,6 @@
+---
+tier: 1
+---
 # Leather Armor
 
 **_Tier 1_** _Armor_

@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Splintering Strike
 
 **_Level 9_** _Bone Ability._ **_Recall Cost_** _3._

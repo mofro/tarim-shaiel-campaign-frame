@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Rune Ward
 
 **_Level 1_** _Arcana Spell._ **_Recall Cost_** _0._

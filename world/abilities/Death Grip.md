@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Death Grip
 
 **_Level 4_** _Sage Spell._ **_Recall Cost_** _1._

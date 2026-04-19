@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Conjure Swarm
 
 **_Level 2_** _Sage Spell._ **_Recall Cost_** _1._

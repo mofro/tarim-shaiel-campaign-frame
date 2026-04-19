@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Floating Eye
 
 **_Level 2_** _Arcana Spell._ **_Recall Cost_** _0._

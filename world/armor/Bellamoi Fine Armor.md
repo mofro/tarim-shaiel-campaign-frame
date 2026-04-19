@@ -1,3 +1,6 @@
+---
+tier: 3
+---
 # Bellamoi Fine Armor
 
 **_Tier 3_** _Armor_

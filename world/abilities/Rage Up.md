@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Rage Up
 
 **_Level 6_** _Blade Ability._ **_Recall Cost_** _1._

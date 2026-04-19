@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Banish
 
 **_Level 6_** _Codex Spell._ **_Recall Cost_** _0._

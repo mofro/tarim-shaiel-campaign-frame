@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Gore and Glory
 
 **_Level 9_** _Blade Ability._ **_Recall Cost_** _2._

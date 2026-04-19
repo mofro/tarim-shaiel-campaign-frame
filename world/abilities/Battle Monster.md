@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Battle Monster
 
 **_Level 10_** _Blade Ability._ **_Recall Cost_** _0._

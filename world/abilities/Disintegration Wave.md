@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Disintegration Wave
 
 **_Level 9_** _Codex Spell._ **_Recall Cost_** _4._

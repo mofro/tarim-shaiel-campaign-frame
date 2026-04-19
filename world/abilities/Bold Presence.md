@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Bold Presence
 
 **_Level 2_** _Valor Ability._ **_Recall Cost_** _0._

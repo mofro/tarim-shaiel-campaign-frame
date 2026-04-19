@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Fortified Armor
 
 **_Level 4_** _Blade Ability._ **_Recall Cost_** _0._

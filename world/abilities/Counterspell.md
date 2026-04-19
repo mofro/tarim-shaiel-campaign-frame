@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Counterspell
 
 **_Level 3_** _Arcana Spell._ **_Recall Cost_** _2._

@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Transcendent Union
 
 **_Level 10_** _Codex Spell._ **_Recall Cost_** _1._

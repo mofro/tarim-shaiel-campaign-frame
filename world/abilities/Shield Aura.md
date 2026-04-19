@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Shield Aura
 
 **_Level 8_** _Splendor Spell._ **_Recall Cost_** _2._

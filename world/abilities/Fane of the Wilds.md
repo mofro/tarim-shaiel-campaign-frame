@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Fane of the Wilds
 
 **_Level 9_** _Sage Ability._ **_Recall Cost_** _2._

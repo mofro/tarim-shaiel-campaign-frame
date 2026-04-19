@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Book of Illiat
 
 **_Level 1_** _Codex Grimoire._ **_Recall Cost_** _2._

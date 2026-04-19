@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Blink Out
 
 **_Level 4_** _Arcana Spell._ **_Recall Cost_** _1._

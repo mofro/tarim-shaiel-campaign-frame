@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Body Basher
 
 **_Level 2_** _Valor Ability._ **_Recall Cost_** _1._

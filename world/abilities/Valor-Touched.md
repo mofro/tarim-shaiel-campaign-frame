@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Valor-Touched
 
 **_Level 7_** _Valor Ability._ **_Recall Cost_** _1._

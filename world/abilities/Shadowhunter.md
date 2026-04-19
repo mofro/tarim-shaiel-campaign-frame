@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Shadowhunter
 
 **_Level 8_** _Midnight Ability._ **_Recall Cost_** _2._

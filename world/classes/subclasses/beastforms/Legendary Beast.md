@@ -12,6 +12,7 @@ tags:
   - daggerheart-srd
   - pc
   - reference
+tier: 3
 ---
 
 **_Tier 3_** _(Upgraded Tier 1 Options)_

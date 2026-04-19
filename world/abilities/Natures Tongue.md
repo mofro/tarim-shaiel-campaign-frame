@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Nature's Tongue
 
 **_Level 1_** _Sage Ability._ **_Recall Cost_** _0._

@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Shrug It Off
 
 **_Level 7_** _Valor Ability._ **_Recall Cost_** _1._

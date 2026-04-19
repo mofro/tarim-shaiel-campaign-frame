@@ -1,3 +1,6 @@
+---
+tier: 3
+---
 # Monett's Cloak
 
 **_Tier 3_** _Armor_

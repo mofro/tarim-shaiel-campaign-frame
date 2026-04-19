@@ -1,3 +1,6 @@
+---
+tier: 4
+---
 # Dunamis Silkchain
 
 **_Tier 4_** _Armor_

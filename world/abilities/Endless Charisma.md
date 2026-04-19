@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Endless Charisma
 
 **_Level 7_** _Grace Ability._ **_Recall Cost_** _1._

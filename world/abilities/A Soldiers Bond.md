@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # A Soldier's Bond
 
 **_Level 2_** _Blade Ability._ **_Recall Cost_** _1._

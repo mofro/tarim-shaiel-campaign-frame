@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Soothing Speech
 
 **_Level 4_** _Grace Ability._ **_Recall Cost_** _1._
