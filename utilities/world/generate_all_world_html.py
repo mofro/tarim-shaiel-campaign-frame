@@ -991,21 +991,26 @@ def generate_category_page(
                            for d in sorted_docs]
 
     # Resolve parent label for back-nav and jump-nav
+    # back_href / back_label in _category.md override the auto-computed link
+    back_href_override  = str(cfg.get('back_href', '')).strip()
+    back_label_override = str(cfg.get('back_label', '')).strip()
     if parent_bucket:
         parent_cfg, _ = _read_category_config(vault, parent_bucket)
         parent_label  = parent_cfg.get('title') or _category_label(parent_bucket)
     else:
         parent_label = None
 
+    def _back_link_li(label: str, href: str) -> str:
+        return f'  <li style="list-style:none"><a href="{escape(href)}">&larr; {escape(label)}</a></li>'
+
     # Generate jump nav if enabled in frontmatter
     jump_nav_html = ''
     all_nav_items = subcat_nav_items + jump_nav_items
     if cfg.get('jump_nav') and len(all_nav_items) >= 2:
-        if parent_bucket:
-            back_link = (
-                f'  <li style="list-style:none">'
-                f'<a href="category-{escape(parent_bucket)}.html">&larr; {escape(parent_label)}</a></li>'
-            )
+        if back_href_override:
+            back_link = _back_link_li(back_label_override or 'Back', back_href_override)
+        elif parent_bucket:
+            back_link = _back_link_li(parent_label, f'category-{parent_bucket}.html')
         else:
             back_link = '  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>'
         nav_items = [back_link, '  <li class="nav-divider"></li>']
@@ -1045,7 +1050,13 @@ def generate_category_page(
     count = len(sorted_docs)
 
     # Back navigation
-    if parent_bucket:
+    if back_href_override:
+        back_nav_html = (
+            '<div class="back-nav">\n'
+            f'  <a href="{escape(back_href_override)}">← {escape(back_label_override or "Back")}</a>\n'
+            '</div>\n'
+        )
+    elif parent_bucket:
         back_nav_html = (
             '<div class="back-nav">\n'
             f'  <a href="category-{escape(parent_bucket)}.html">\u2190 {escape(parent_label)}</a>\n'
