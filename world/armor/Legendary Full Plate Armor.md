@@ -1,3 +1,6 @@
+---
+tier: 4
+---
 # Legendary Full Plate Armor
 
 **_Tier 4_** _Armor_

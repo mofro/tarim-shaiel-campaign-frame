@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Encore
 
 **_Level 10_** _Grace Spell._ **_Recall Cost_** _1._

@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Healing Field
 
 **_Level 4_** _Sage Spell._ **_Recall Cost_** _2._

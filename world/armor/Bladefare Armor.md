@@ -1,3 +1,6 @@
+---
+tier: 3
+---
 # Bladefare Armor
 
 **_Tier 3_** _Armor_

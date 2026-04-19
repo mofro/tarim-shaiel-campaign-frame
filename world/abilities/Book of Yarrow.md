@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Book of Yarrow
 
 **_Level 10_** _Codex Grimoire._ **_Recall Cost_** _2._

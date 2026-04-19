@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Adjust Reality
 
 **_Level 10_** _Arcana Spell._ **_Recall Cost_** _1._

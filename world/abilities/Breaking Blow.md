@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Breaking Blow
 
 **_Level 8_** _Bone Ability._ **_Recall Cost_** _3._

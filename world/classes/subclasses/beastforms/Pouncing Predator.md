@@ -12,6 +12,7 @@ tags:
   - daggerheart-srd
   - pc
   - reference
+tier: 2
 ---
 
 **_Tier 2_** _(Cheetah, Lion, Panther, etc.)_

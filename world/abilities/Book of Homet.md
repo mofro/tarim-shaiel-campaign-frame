@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Book of Homet
 
 **_Level 7_** _Codex Grimoire._ **_Recall Cost_** _0._

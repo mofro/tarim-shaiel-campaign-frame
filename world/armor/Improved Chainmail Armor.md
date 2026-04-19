@@ -1,3 +1,6 @@
+---
+tier: 2
+---
 # Improved Chainmail Armor
 
 **_Tier 2_** _Armor_

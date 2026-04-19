@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Support Tank
 
 **_Level 4_** _Valor Ability._ **_Recall Cost_** _2._

@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Divination
 
 **_Level 4_** _Splendor Spell._ **_Recall Cost_** _1._

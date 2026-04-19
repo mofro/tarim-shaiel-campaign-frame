@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Invigoration
 
 **_Level 10_** _Splendor Spell._ **_Recall Cost_** _3._

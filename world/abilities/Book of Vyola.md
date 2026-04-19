@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Book of Vyola
 
 **_Level 8_** _Codex Grimoire._ **_Recall Cost_** _2._

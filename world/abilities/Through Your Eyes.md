@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Through Your Eyes
 
 **_Level 4_** _Grace Spell._ **_Recall Cost_** _1._

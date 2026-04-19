@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Gifted Tracker
 
 **_Level 1_** _Sage Ability._ **_Recall Cost_** _0._

@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Deft Maneuvers
 
 **_Level 1_** _Bone Ability._ **_Recall Cost_** _0._

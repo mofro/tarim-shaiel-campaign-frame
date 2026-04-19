@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Champion's Edge
 
 **_Level 5_** _Blade Ability._ **_Recall Cost_** _1._

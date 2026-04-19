@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Redirect
 
 **_Level 4_** _Bone Ability._ **_Recall Cost_** _1._

@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Brace
 
 **_Level 3_** _Bone Ability._ **_Recall Cost_** _1._

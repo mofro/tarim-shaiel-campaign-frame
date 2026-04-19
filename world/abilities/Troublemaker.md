@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Troublemaker
 
 **_Level 2_** _Grace Ability._ **_Recall Cost_** _2._

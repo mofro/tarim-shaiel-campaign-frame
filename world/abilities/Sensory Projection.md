@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Sensory Projection
 
 **_Level 9_** _Arcana Spell._ **_Recall Cost_** _0._

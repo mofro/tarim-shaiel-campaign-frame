@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Never Upstaged
 
 **_Level 6_** _Grace Ability._ **_Recall Cost_** _2._

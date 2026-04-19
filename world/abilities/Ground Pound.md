@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Ground Pound
 
 **_Level 8_** _Valor Ability._ **_Recall Cost_** _2._

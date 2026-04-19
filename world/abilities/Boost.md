@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Boost
 
 **_Level 4_** _Bone Ability._ **_Recall Cost_** _1._

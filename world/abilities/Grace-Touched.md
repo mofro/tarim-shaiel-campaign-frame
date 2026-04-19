@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Grace-Touched
 
 **_Level 7_** _Grace Ability._ **_Recall Cost_** _2._

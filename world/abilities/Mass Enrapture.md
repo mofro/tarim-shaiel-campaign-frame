@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Mass Enrapture
 
 **_Level 8_** _Grace Spell._ **_Recall Cost_** _3._

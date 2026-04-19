@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Telekinesis
 
 **_Level 6_** _Arcana Spell._ **_Recall Cost_** _0._

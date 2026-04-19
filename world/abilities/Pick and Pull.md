@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Pick and Pull
 
 **_Level 1_** _Midnight Ability._ **_Recall Cost_** _0._

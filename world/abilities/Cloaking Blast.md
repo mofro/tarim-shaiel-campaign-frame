@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Cloaking Blast
 
 **_Level 7_** _Arcana Spell._ **_Recall Cost_** _2._

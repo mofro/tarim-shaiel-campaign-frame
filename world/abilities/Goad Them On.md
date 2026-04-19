@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Goad Them on
 
 **_Level 4_** _Valor Ability._ **_Recall Cost_** _1._

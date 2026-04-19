@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Swift Step
 
 **_Level 10_** _Bone Ability._ **_Recall Cost_** _2._

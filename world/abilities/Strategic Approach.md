@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Strategic Approach
 
 **_Level 2_** _Bone Ability._ **_Recall Cost_** _1._

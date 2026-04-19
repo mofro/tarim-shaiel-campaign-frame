@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Reassurance
 
 **_Level 1_** _Splendor Ability._ **_Recall Cost_** _0._

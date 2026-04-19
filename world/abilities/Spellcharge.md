@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Spellcharge
 
 **_Level 8_** _Midnight Spell._ **_Recall Cost_** _1._

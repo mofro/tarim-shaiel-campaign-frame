@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Uncanny Disguise
 
 **_Level 1_** _Midnight Spell._ **_Recall Cost_** _0._

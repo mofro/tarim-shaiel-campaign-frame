@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Book of Vagras
 
 **_Level 2_** _Codex Grimoire._ **_Recall Cost_** _2._

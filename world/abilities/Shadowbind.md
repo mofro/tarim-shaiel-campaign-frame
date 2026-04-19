@@ -1,3 +1,6 @@
+---
+level: 2
+---
 # Shadowbind
 
 **_Level 2_** _Midnight Spell._ **_Recall Cost_** _0._

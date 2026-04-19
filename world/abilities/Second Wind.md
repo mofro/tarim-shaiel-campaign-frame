@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Second Wind
 
 **_Level 3_** _Splendor Ability._ **_Recall Cost_** _2._

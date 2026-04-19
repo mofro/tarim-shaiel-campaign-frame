@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Sigil of Retribution
 
 **_Level 6_** _Codex Spell._ **_Recall Cost_** _2._

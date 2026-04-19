@@ -1,3 +1,6 @@
+---
+tier: 2
+---
 # Tyris Soft Armor
 
 **_Tier 2_** _Armor_

@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Share the Burden
 
 **_Level 6_** _Grace Spell._ **_Recall Cost_** _0._

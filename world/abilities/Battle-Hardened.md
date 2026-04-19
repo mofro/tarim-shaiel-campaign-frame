@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Battle-Hardened
 
 **_Level 6_** _Blade Ability._ **_Recall Cost_** _2._

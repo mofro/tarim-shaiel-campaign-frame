@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Wild Fortress
 
 **_Level 5_** _Sage Spell._ **_Recall Cost_** _1._

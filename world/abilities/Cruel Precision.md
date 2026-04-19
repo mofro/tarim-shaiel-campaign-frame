@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Cruel Precision
 
 **_Level 7_** _Bone Ability._ **_Recall Cost_** _1._

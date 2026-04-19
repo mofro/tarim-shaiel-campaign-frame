@@ -1,3 +1,6 @@
+---
+level: 10
+---
 # Eclipse
 
 **_Level 10_** _Midnight Spell._ **_Recall Cost_** _2._

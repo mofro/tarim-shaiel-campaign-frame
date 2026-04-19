@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Salvation Beam
 
 **_Level 9_** _Splendor Spell._ **_Recall Cost_** _2._

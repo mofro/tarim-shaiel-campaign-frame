@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Armorer
 
 **_Level 5_** _Valor Ability._ **_Recall Cost_** _1._

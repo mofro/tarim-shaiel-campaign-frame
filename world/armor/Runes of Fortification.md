@@ -1,3 +1,6 @@
+---
+tier: 3
+---
 # Runes of Fortification
 
 **_Tier 3_** _Armor_

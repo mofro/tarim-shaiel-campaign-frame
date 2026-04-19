@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Not Good Enough
 
 **_Level 1_** _Blade Ability._ **_Recall Cost_** _1._

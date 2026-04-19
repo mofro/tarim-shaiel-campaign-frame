@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Critical Inspiration
 
 **_Level 3_** _Valor Ability._ **_Recall Cost_** _1._

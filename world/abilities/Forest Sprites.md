@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Forest Sprites
 
 **_Level 8_** _Sage Spell._ **_Recall Cost_** _2._

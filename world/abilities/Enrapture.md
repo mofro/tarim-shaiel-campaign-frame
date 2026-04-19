@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Enrapture
 
 **_Level 1_** _Grace Spell._ **_Recall Cost_** _0._

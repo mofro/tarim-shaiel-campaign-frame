@@ -1,3 +1,6 @@
+---
+tier: 1
+---
 # Gambeson Armor
 
 **_Tier 1_** _Armor_

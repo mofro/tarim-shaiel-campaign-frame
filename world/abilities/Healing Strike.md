@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Healing Strike
 
 **_Level 7_** _Splendor Spell._ **_Recall Cost_** _1._

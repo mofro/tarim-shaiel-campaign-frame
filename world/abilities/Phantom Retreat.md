@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Phantom Retreat
 
 **_Level 5_** _Midnight Spell._ **_Recall Cost_** _2._

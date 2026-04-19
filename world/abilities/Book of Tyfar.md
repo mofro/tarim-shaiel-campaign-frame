@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Book of Tyfar
 
 **_Level 1_** _Codex Grimoire._ **_Recall Cost_** _2._

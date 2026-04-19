@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Midnight-Touched
 
 **_Level 7_** _Midnight Ability._ **_Recall Cost_** _2._

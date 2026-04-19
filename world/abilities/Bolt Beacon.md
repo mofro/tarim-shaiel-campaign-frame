@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Bolt Beacon
 
 **_Level 1_** _Splendor Spell._ **_Recall Cost_** _1._

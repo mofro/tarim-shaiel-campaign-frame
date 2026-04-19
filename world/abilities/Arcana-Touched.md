@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Arcana-Touched
 
 **_Level 7_** _Arcana Ability._ **_Recall Cost_** _2._

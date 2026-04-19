@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Rise Up
 
 **_Level 6_** _Valor Ability._ **_Recall Cost_** _2._

@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Arcane Reflection
 
 **_Level 8_** _Arcana Spell._ **_Recall Cost_** _1._

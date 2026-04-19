@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Deft Deceiver
 
 **_Level 1_** _Grace Ability._ **_Recall Cost_** _0._

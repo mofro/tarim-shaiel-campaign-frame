@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Forager
 
 **_Level 6_** _Sage Ability._ **_Recall Cost_** _1._

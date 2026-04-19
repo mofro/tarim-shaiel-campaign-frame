@@ -1,3 +1,6 @@
+---
+level: 3
+---
 # Versatile Fighter
 
 **_Level 3_** _Blade Ability._ **_Recall Cost_** _1._

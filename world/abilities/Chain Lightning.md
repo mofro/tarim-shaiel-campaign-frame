@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Chain Lightning
 
 **_Level 5_** _Arcana Spell._ **_Recall Cost_** _1._

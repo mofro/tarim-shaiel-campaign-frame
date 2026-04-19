@@ -1,3 +1,6 @@
+---
+level: 1
+---
 # Unleash Chaos
 
 **_Level 1_** _Arcana Spell._ **_Recall Cost_** _1._

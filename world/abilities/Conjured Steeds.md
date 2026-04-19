@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Conjured Steeds
 
 **_Level 6_** _Sage Spell._ **_Recall Cost_** _0._

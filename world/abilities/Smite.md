@@ -1,3 +1,6 @@
+---
+level: 5
+---
 # Smite
 
 **_Level 5_** _Splendor Spell._ **_Recall Cost_** _2._

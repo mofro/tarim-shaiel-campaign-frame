@@ -1,3 +1,6 @@
+---
+level: 8
+---
 # Wrangle
 
 **_Level 8_** _Bone Ability._ **_Recall Cost_** _1._

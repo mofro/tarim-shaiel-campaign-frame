@@ -1,3 +1,6 @@
+---
+level: 4
+---
 # Stealth Expertise
 
 **_Level 4_** _Midnight Ability._ **_Recall Cost_** _0._

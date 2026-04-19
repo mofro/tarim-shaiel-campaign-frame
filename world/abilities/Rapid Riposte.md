@@ -1,3 +1,6 @@
+---
+level: 6
+---
 # Rapid Riposte
 
 **_Level 6_** _Bone Ability._ **_Recall Cost_** _0._

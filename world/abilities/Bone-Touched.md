@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Bone-Touched
 
 **_Level 7_** _Bone Ability._ **_Recall Cost_** _2._

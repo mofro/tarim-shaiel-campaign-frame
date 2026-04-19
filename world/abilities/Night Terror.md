@@ -1,3 +1,6 @@
+---
+level: 9
+---
 # Night Terror
 
 **_Level 9_** _Midnight Spell._ **_Recall Cost_** _2._

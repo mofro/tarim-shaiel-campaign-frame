@@ -1,3 +1,6 @@
+---
+level: 7
+---
 # Sage-Touched
 
 **_Level 7_** _Sage Ability._ **_Recall Cost_** _2._
