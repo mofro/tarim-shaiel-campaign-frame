@@ -10,6 +10,7 @@ banner_right: Weapon
 created: 2026-04-15
 last_updated: 2026-04-15
 range: Melee
+tier: 2
 ---
 
 **Tier 2:** Secondary_ _Physical_ _Weapon_
