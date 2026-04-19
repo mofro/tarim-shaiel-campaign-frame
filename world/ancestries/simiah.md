@@ -15,7 +15,7 @@ description: " (Daggerheart: Simiah)"
 
 ## OVERVIEW
 
-![[daggerheart-ancestry-Vanra.png|250]]
+![[daggerheart-ancestry-Vanra.png|Vanra|250]]
 
 Vanara are primate folk found across Tarim-Shaiel, ranging in build from compact and quick-moving to broad-shouldered and deliberate. Their coats span from jet black to deep amber to a gold that catches light readily. All Vanara have prehensile feet nearly as dexterous as their hands, and roughly half have a fully grasping tail as well.
 

@@ -9,12 +9,13 @@ published: true
 created: 2026-02-13
 last_updated: 2026-04-12
 description: " (Daggerheart: Orcs)"
+aliases:
 ---
 *Daggerheart ancestry: Orcs. Foundation document — player-facing.*
 
 ## OVERVIEW
 
-![[daggerheart-ancestry-Tulpar.png|Tulpar (Orcs)]]
+![[daggerheart-ancestry-Tulpar.png|Tulpar (Orcs)|250]]
 
 Tulpar (Orcs) are not the savage raiders of traditional fantasy. They are a people defined by hard-won freedom, cosmopolitan diversity, and economic mastery. After 1,000 years of liberation from enslavement — roughly forty generations — Tulpar culture has evolved from survival to prosperity. Modern Tulpar are respected as master traders, diplomatic mediators, and cultural bridges across the Silk Road, while never forgetting the chains they once wore.
 

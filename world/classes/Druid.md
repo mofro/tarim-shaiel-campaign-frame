@@ -9,6 +9,7 @@ domains:
 sub-classes:
   - warden-of-the-elements
   - warden-of-renewal
+  - beastforms
 status: canon
 created: 2026-04-14
 last_updated: 2026-04-14
@@ -65,7 +66,7 @@ Beastform categories are divided by tier. Each entry includes the following deta
 - [Pack Predator](world/classes/subclasses/beastforms/Pack Predator.md)
 - [Aquatic Scout](world/classes/subclasses/beastforms/Aquatic Scout.md)
 - [Stalking Arachnid](world/classes/subclasses/beastforms/Stalking Arachnid.md)
-
+[[world/classes/subclasses/beastforms/Agile Scout]]
 #### TIER 2
 
 - [Armored Sentry](world/classes/subclasses/beastforms/Armored Sentry.md)

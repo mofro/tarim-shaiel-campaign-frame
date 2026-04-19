@@ -8,7 +8,7 @@ jump_nav: TRUE
 ---
 ## Player Classes
 
-Players in the world Tarim-Shaiel have choices as to how they express themselves. One of the more direct and methods is by choosing a character path, oftewn described as "classes".
+Players in the world Tarim-Shaiel have choices as to how they express themselves. One of the more direct and methods is by choosing a character path, often described as "classes".
 
 > **Note for Players:** This section collects list of available class definitions as they are expressed in the base Daggerheart game (with, perhaps, a few surprises)...
 

@@ -12,6 +12,7 @@ tags:
   - daggerheart-srd
   - pc
   - reference
+tier: 3
 ---
 
 **_Tier 3_** _(Dolphin, Orca, Shark, etc.)_
