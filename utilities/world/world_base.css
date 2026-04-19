@@ -236,6 +236,11 @@
     .jump-nav .nav-divider { list-style: none; border-top: 1px solid rgba(184,146,44,0.3); margin: 0.5rem 0; padding: 0; }
     .jump-nav .nav-subcategory { list-style: none; }
     .jump-nav .nav-subcategory a { color: var(--gold-light); font-weight: 600; letter-spacing: 0.06em; }
+    .jump-nav .nav-group-label {
+      list-style: none; font-family: 'Cinzel', serif; font-size: 0.68rem;
+      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--parchment2); padding: 0.2rem 0 0.1rem; cursor: default;
+    }
 
     @media (max-width: 640px) {
       body { flex-direction: column; justify-content: flex-start; }

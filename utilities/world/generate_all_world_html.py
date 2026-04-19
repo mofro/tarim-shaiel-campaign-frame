@@ -430,6 +430,19 @@ def _slug(text: str) -> str:
     return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
 
 
+def _parse_list_field(value) -> list[str]:
+    """Normalize a frontmatter field that should be a list.
+
+    Handles pyyaml-parsed lists and comma-separated string fallback (e.g.
+    '[Melee, Close, Far]' from the regex parser).
+    """
+    if isinstance(value, list):
+        return [str(v).strip() for v in value]
+    if not value:
+        return []
+    return [item.strip() for item in str(value).strip().strip('[]').split(',') if item.strip()]
+
+
 # ── generation ────────────────────────────────────────────────────────────────
 
 def generate_all(
@@ -497,6 +510,7 @@ def generate_all(
                 'calendar':    fm.get('calendar', ''),
                 'description': fm.get('description', ''),
                 'filename':    f'{slug}.html',
+                'range':       str(fm.get('range') or '').strip(),
             })
 
     return grouped
@@ -948,9 +962,28 @@ def generate_category_page(
             child_label  = child_cfg.get('title') or _category_label(child)
             subcat_nav_items.append({'text': child_label, 'anchor': _slug(child_label), 'level': 2})
 
-    # Collect doc-card items into jump nav before building nav HTML
+    # Collect doc-card items into jump nav (flat or grouped)
     sorted_docs = sorted(folder_docs, key=lambda d: d['title'].lower())
-    if cfg.get('jump_nav'):
+    group_by_field = str(cfg.get('jump_nav_group_by') or '').strip()
+
+    if cfg.get('jump_nav') and group_by_field:
+        group_order = _parse_list_field(cfg.get('jump_nav_group_order', []))
+        groups: dict[str, list] = {}
+        for d in sorted_docs:
+            gval = str(d.get(group_by_field) or '').strip()
+            groups.setdefault(gval, []).append(d)
+
+        def _gkey(g: str) -> tuple:
+            try:
+                return (0, group_order.index(g))
+            except ValueError:
+                return (1, g.lower())
+
+        for gname in sorted(groups, key=_gkey):
+            jump_nav_items.append({'text': gname, 'anchor': None, 'level': 'group_label'})
+            for d in groups[gname]:
+                jump_nav_items.append({'text': d['title'], 'anchor': _slug(d['title']), 'level': 2})
+    elif cfg.get('jump_nav'):
         jump_nav_items += [{'text': d['title'], 'anchor': _slug(d['title']), 'level': 2}
                            for d in sorted_docs]
 
@@ -977,8 +1010,15 @@ def generate_category_page(
             nav_items.append(f'  <li class="nav-subcategory"><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
         if subcat_nav_items and jump_nav_items:
             nav_items.append('  <li class="nav-divider"></li>')
+        first_group = True
         for item in jump_nav_items:
-            nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
+            if item.get('level') == 'group_label':
+                if not first_group or subcat_nav_items:
+                    nav_items.append('  <li class="nav-divider"></li>')
+                nav_items.append(f'  <li class="nav-group-label">{escape(item["text"])}</li>')
+                first_group = False
+            else:
+                nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
         nav_items.append('  <li class="nav-divider"></li>')
         nav_items.append('  <li style="list-style:none"><a href="#">&#8593; Top</a></li>')
         jump_nav_html = '<div class="jump-nav">\n<ul>\n' + '\n'.join(nav_items) + '\n</ul>\n</div>\n'
