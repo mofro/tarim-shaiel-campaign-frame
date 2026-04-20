@@ -1,6 +1,16 @@
 ---
+title: "Spellcharge"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 8
+domain: midnight
+parent-page: midnight
 ---
+
 # Spellcharge
 
 **_Level 8_** _Midnight Spell._ **_Recall Cost_** _1._

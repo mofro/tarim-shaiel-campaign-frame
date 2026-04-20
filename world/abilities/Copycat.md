@@ -1,6 +1,16 @@
 ---
+title: "Copycat"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 9
+domain: grace
+parent-page: grace
 ---
+
 # Copycat
 
 **_Level 9_** _Grace Spell._ **_Recall Cost_** _3._

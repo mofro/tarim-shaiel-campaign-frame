@@ -1,3 +1,13 @@
+---
+title: Blade
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
+---
+
 # Blade
 
 Blade is the domain of **weapon mastery.** Whether by steel, bow, or perhaps a more specialized arm, those who follow this path have the skill to cut short the lives of others. Wielders of Blade dedicate themselves to achieving inexorable power over death. The Blade domain can be accessed by the **Guardian** and **Warrior** classes.
@@ -6,13 +16,13 @@ Blade is the domain of **weapon mastery.** Whether by steel, bow, or perhaps a m
 
 | **Level** | **Option 1** | **Option 2** | **Option 3** |
 | :-------: | ------------ | ------------ | ------------ |
-| **1** | [Get Back Up](references/daggerheart-srd/abilities/Get%20Back%20Up.md) | [Not Good Enough](references/daggerheart-srd/abilities/Not%20Good%20Enough.md) | [Whirlwind](references/daggerheart-srd/abilities/Whirlwind.md) |
-| **2** | [A Soldier's Bond](references/daggerheart-srd/abilities/A%20Soldiers%20Bond.md) | [Reckless](references/daggerheart-srd/abilities/Reckless.md) | — |
-| **3** | [Scramble](references/daggerheart-srd/abilities/Scramble.md) | [Versatile Fighter](references/daggerheart-srd/abilities/Versatile%20Fighter.md) | — |
-| **4** | [Deadly Focus](references/daggerheart-srd/abilities/Deadly%20Focus.md) | [Fortified Armor](references/daggerheart-srd/abilities/Fortified%20Armor.md) | — |
-| **5** | [Champion's Edge](references/daggerheart-srd/abilities/Champions%20Edge.md) | [Vitality](references/daggerheart-srd/abilities/Vitality.md) | — |
-| **6** | [Battle-Hardened](references/daggerheart-srd/abilities/Battle-Hardened.md) | [Rage Up](references/daggerheart-srd/abilities/Rage%20Up.md) | — |
-| **7** | [Blade-Touched](references/daggerheart-srd/abilities/Blade-Touched.md) | [Glancing Blow](references/daggerheart-srd/abilities/Glancing%20Blow.md) | — |
-| **8** | [Battle Cry](references/daggerheart-srd/abilities/Battle%20Cry.md) | [Frenzy](references/daggerheart-srd/abilities/Frenzy.md) | — |
-| **9** | [Gore and Glory](references/daggerheart-srd/abilities/Gore%20and%20Glory.md) | [Reaper's Strike](references/daggerheart-srd/abilities/Reapers%20Strike.md) | — |
-| **10** | [Battle Monster](references/daggerheart-srd/abilities/Battle%20Monster.md) | [Onslaught](references/daggerheart-srd/abilities/Onslaught.md) | — |
+| **1** | [Get Back Up](world/abilities/Get Back Up.md) | [Not Good Enough](world/abilities/Not Good Enough.md) | [Whirlwind](world/abilities/Whirlwind.md) |
+| **2** | [A Soldier's Bond](world/abilities/A Soldiers Bond.md) | [Reckless](world/abilities/Reckless.md) | — |
+| **3** | [Scramble](world/abilities/Scramble.md) | [Versatile Fighter](world/abilities/Versatile Fighter.md) | — |
+| **4** | [Deadly Focus](world/abilities/Deadly Focus.md) | [Fortified Armor](world/abilities/Fortified Armor.md) | — |
+| **5** | [Champion's Edge](world/abilities/Champions Edge.md) | [Vitality](world/abilities/Vitality.md) | — |
+| **6** | [Battle-Hardened](world/abilities/Battle-Hardened.md) | [Rage Up](world/abilities/Rage Up.md) | — |
+| **7** | [Blade-Touched](world/abilities/Blade-Touched.md) | [Glancing Blow](world/abilities/Glancing Blow.md) | — |
+| **8** | [Battle Cry](world/abilities/Battle Cry.md) | [Frenzy](world/abilities/Frenzy.md) | — |
+| **9** | [Gore and Glory](world/abilities/Gore and Glory.md) | [Reaper's Strike](world/abilities/Reapers Strike.md) | — |
+| **10** | [Battle Monster](world/abilities/Battle Monster.md) | [Onslaught](world/abilities/Onslaught.md) | — |

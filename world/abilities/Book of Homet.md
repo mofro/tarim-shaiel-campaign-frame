@@ -1,6 +1,16 @@
 ---
+title: "Book of Homet"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
+domain: codex
+parent-page: codex
 level: 7
 ---
+
 # Book of Homet
 
 **_Level 7_** _Codex Grimoire._ **_Recall Cost_** _0._

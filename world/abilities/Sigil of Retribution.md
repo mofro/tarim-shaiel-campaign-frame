@@ -1,6 +1,16 @@
 ---
+title: "Sigil of Retribution"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 6
+domain: codex
+parent-page: codex
 ---
+
 # Sigil of Retribution
 
 **_Level 6_** _Codex Spell._ **_Recall Cost_** _2._

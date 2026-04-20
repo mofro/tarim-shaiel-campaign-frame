@@ -1,6 +1,16 @@
 ---
+title: "Full Surge"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 8
+domain: valor
+parent-page: valor
 ---
+
 # Full Surge
 
 **_Level 8_** _Valor Ability._ **_Recall Cost_** _1._

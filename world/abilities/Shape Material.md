@@ -1,6 +1,16 @@
 ---
+title: "Shape Material"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 5
+domain: splendor
+parent-page: splendor
 ---
+
 # Shape Material
 
 **_Level 5_** _Splendor Spell._ **_Recall Cost_** _1._

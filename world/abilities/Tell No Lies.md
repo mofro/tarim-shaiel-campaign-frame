@@ -1,6 +1,16 @@
 ---
+title: "Tell No Lies"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 2
+domain: grace
+parent-page: grace
 ---
+
 # Tell No Lies
 
 **_Level 2_** _Grace Spell._ **_Recall Cost_** _1._
