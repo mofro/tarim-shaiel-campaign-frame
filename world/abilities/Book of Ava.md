@@ -1,6 +1,16 @@
 ---
+title: "Book of Ava"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
+domain: codex
+parent-page: codex
 level: 1
 ---
+
 # Book of Ava
 
 **_Level 1_** _Codex Grimoire._ **_Recall Cost_** _2._

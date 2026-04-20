@@ -1,6 +1,16 @@
 ---
+title: "Support Tank"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 4
+domain: valor
+parent-page: valor
 ---
+
 # Support Tank
 
 **_Level 4_** _Valor Ability._ **_Recall Cost_** _2._

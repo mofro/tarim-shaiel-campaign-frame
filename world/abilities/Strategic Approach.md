@@ -1,6 +1,16 @@
 ---
+title: "Strategic Approach"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 2
+domain: bone
+parent-page: bone
 ---
+
 # Strategic Approach
 
 **_Level 2_** _Bone Ability._ **_Recall Cost_** _1._

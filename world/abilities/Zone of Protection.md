@@ -1,6 +1,16 @@
 ---
+title: "Zone of Protection"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 6
+domain: splendor
+parent-page: splendor
 ---
+
 # Zone of Protection
 
 **_Level 6_** _Splendor Spell._ **_Recall Cost_** _2._

@@ -1,3 +1,13 @@
+---
+title: Valor
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
+---
+
 # Valor
 
 Valor is the domain of **protection**. Whether through attack or defense, those who choose this discipline channel formidable strength to protect their allies in battle. Valor oﬀers great power to those who raise their shields in defense of others. The Valor domain can be accessed by the **Guardian** and **Seraph** classes.
@@ -55,13 +65,13 @@ If a domain card restricts how often it can be used, you can track such limits w
 
 | **Level** | **Option 1** | **Option 2** | **Option 3** |
 | :-------: | ------------ | ------------ | ------------ |
-| **1** | [Bare Bones](references/daggerheart-srd/abilities/Bare%20Bones.md) | [Forceful Push](references/daggerheart-srd/abilities/Forceful%20Push.md) | [I Am Your Shield](references/daggerheart-srd/abilities/I%20Am%20Your%20Shield.md) |
-| **2** | [Body Basher](references/daggerheart-srd/abilities/Body%20Basher.md) | [Bold Presence](references/daggerheart-srd/abilities/Bold%20Presence.md) | — |
-| **3** | [Critical Inspiration](references/daggerheart-srd/abilities/Critical%20Inspiration.md) | [Lean on Me](references/daggerheart-srd/abilities/Lean%20on%20Me.md) | — |
-| **4** | [Goad Them On](references/daggerheart-srd/abilities/Goad%20Them%20On.md) | [Support Tank](references/daggerheart-srd/abilities/Support%20Tank.md) | — |
-| **5** | [Armorer](references/daggerheart-srd/abilities/Armorer.md) | [Rousing Strike](references/daggerheart-srd/abilities/Rousing%20Strike.md) | — |
-| **6** | [Inevitable](references/daggerheart-srd/abilities/Inevitable.md) | [Rise Up](references/daggerheart-srd/abilities/Rise%20Up.md) | — |
-| **7** | [Shrug It Off](references/daggerheart-srd/abilities/Shrug%20It%20Off.md) | [Valor-Touched](references/daggerheart-srd/abilities/Valor-Touched.md) | — |
-| **8** | [Full Surge](references/daggerheart-srd/abilities/Full%20Surge.md) | [Ground Pound](references/daggerheart-srd/abilities/Ground%20Pound.md) | — |
-| **9** | [Hold the Line](references/daggerheart-srd/abilities/Hold%20the%20Line.md) | [Lead by Example](references/daggerheart-srd/abilities/Lead%20by%20Example.md) | — |
-| **10** | [Unbreakable](references/daggerheart-srd/abilities/Unbreakable.md) | [Unyielding Armor](references/daggerheart-srd/abilities/Unyielding%20Armor.md) | — |
+| **1** | [Bare Bones](world/abilities/Bare Bones.md) | [Forceful Push](world/abilities/Forceful Push.md) | [I Am Your Shield](world/abilities/I Am Your Shield.md) |
+| **2** | [Body Basher](world/abilities/Body Basher.md) | [Bold Presence](world/abilities/Bold Presence.md) | — |
+| **3** | [Critical Inspiration](world/abilities/Critical Inspiration.md) | [Lean on Me](world/abilities/Lean on Me.md) | — |
+| **4** | [Goad Them On](world/abilities/Goad Them On.md) | [Support Tank](world/abilities/Support Tank.md) | — |
+| **5** | [Armorer](world/abilities/Armorer.md) | [Rousing Strike](world/abilities/Rousing Strike.md) | — |
+| **6** | [Inevitable](world/abilities/Inevitable.md) | [Rise Up](world/abilities/Rise Up.md) | — |
+| **7** | [Shrug It Off](world/abilities/Shrug It Off.md) | [Valor-Touched](world/abilities/Valor-Touched.md) | — |
+| **8** | [Full Surge](world/abilities/Full Surge.md) | [Ground Pound](world/abilities/Ground Pound.md) | — |
+| **9** | [Hold the Line](world/abilities/Hold the Line.md) | [Lead by Example](world/abilities/Lead by Example.md) | — |
+| **10** | [Unbreakable](world/abilities/Unbreakable.md) | [Unyielding Armor](world/abilities/Unyielding Armor.md) | — |

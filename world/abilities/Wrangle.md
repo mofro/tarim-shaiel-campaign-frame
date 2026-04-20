@@ -1,6 +1,16 @@
 ---
+title: "Wrangle"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 8
+domain: bone
+parent-page: bone
 ---
+
 # Wrangle
 
 **_Level 8_** _Bone Ability._ **_Recall Cost_** _1._

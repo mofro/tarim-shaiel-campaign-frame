@@ -1,6 +1,16 @@
 ---
+title: "Never Upstaged"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 6
+domain: grace
+parent-page: grace
 ---
+
 # Never Upstaged
 
 **_Level 6_** _Grace Ability._ **_Recall Cost_** _2._

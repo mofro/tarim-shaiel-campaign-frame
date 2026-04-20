@@ -1,6 +1,16 @@
 ---
+title: "Safe Haven"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 8
+domain: codex
+parent-page: codex
 ---
+
 # Safe Haven
 
 **_Level 8_** _Codex Spell._ **_Recall Cost_** _3._

@@ -1,6 +1,16 @@
 ---
+title: "Conjured Steeds"
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-04-20
+last_updated: 2026-04-20
 level: 6
+domain: sage
+parent-page: sage
 ---
+
 # Conjured Steeds
 
 **_Level 6_** _Sage Spell._ **_Recall Cost_** _0._
