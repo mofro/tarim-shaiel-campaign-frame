@@ -19,7 +19,7 @@ def _md_link_sub(m: 're.Match') -> str:
     href = m.group(2)
     if href.endswith('.md'):
         stem = href.rsplit('/', 1)[-1][:-3]          # filename without extension
-        href = stem.lower().replace(' ', '_') + '.html'
+        href = re.sub(r'[^\w\-]+', '-', stem.lower()).strip('-') + '.html'
     return f'<a href="{href}">{link_text}</a>'
 
 
