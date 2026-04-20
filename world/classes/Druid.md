@@ -12,7 +12,7 @@ sub-classes:
   - beastforms
 status: canon
 created: 2026-04-14
-last_updated: 2026-04-14
+last_updated: 2026-04-20
 tags:
   - daggerheart
   - daggerheart-srd
@@ -21,7 +21,7 @@ tags:
 ---
 Becoming a druid is more than an occupation; it's a calling for those who wish to learn from and protect the magic of the wilderness. While one might underestimate a gentle druid who practices the often-quiet work of cultivating flora, druids who channel the untamed forces of nature are terrifying to behold. Druids cultivate their abilities in small groups, often connected by a specific ethos or locale, but some choose to work alone. Through years of study and dedication, druids can learn to transform into beasts and shape nature itself.
 
-- **DOMAINS -** [Sage](references/daggerheart-srd/domains/Sage.md) & [Arcana](references/daggerheart-srd/domains/Arcana.md)
+- **DOMAINS -** [Sage](world/domains/Sage.md) & [Arcana](world/domains/Arcana.md)
 - **STARTING EVASION -** 10
 - **STARTING HIT POINTS -** 6
 - **CLASS ITEMS -** A small bag of rocks and bones or a strange pendant found in the dirt
@@ -58,41 +58,7 @@ Beastform categories are divided by tier. Each entry includes the following deta
 
 ### BEASTFORMS
 
-#### TIER 1
-
-- [Agile Scout](world/classes/subclasses/beastforms/Agile Scout.md)
-- [Household Friend](world/classes/subclasses/beastforms/Household Friend.md)
-- [Nimble Grazer](world/classes/subclasses/beastforms/Nimble Grazer.md)
-- [Pack Predator](world/classes/subclasses/beastforms/Pack Predator.md)
-- [Aquatic Scout](world/classes/subclasses/beastforms/Aquatic Scout.md)
-- [Stalking Arachnid](world/classes/subclasses/beastforms/Stalking Arachnid.md)
-[[world/classes/subclasses/beastforms/Agile Scout]]
-#### TIER 2
-
-- [Armored Sentry](world/classes/subclasses/beastforms/Armored Sentry.md)
-- [Powerful Beast](world/classes/subclasses/beastforms/Powerful Beast.md)
-- [Mighty Strider](world/classes/subclasses/beastforms/Mighty Strider.md)
-- [Striking Serpent](world/classes/subclasses/beastforms/Striking Serpent.md)
-- [Pouncing Predator](world/classes/subclasses/beastforms/Pouncing Predator.md)
-- [Winged Beast](world/classes/subclasses/beastforms/Winged Beast.md)
-
-#### TIER 3
-
-- [Great Predator](world/classes/subclasses/beastforms/Great Predator.md)
-- [Mighty Lizard](world/classes/subclasses/beastforms/Mighty Lizard.md)
-- [Great Winged Beast](world/classes/subclasses/beastforms/Great Winged Beast.md)
-- [Aquatic Predator](world/classes/subclasses/beastforms/Aquatic Predator.md)
-- [Legendary Beast](world/classes/subclasses/beastforms/Legendary Beast.md)
-- [Legendary Hybrid](world/classes/subclasses/beastforms/Legendary Hybrid.md)
-
-#### TIER 4
-
-- [Massive Behemoth](world/classes/subclasses/beastforms/Massive Behemoth.md)
-- [Terrible Lizard](world/classes/subclasses/beastforms/Terrible Lizard.md)
-- [Mythic Aerial Hunter](world/classes/subclasses/beastforms/Mythic Aerial Hunter.md)
-- [Epic Aquatic Beast](world/classes/subclasses/beastforms/Epic Aquatic Beast.md)
-- [Mythic Beast](world/classes/subclasses/beastforms/Mythic Beast.md)
-- [Mythic Hybrid](world/classes/subclasses/beastforms/Mythic Hybrid.md)
+See **[Beastforms](category-beastforms.html)** for all twenty-four available forms, organized by tier.
 
 ### SUBCLASSES
 
