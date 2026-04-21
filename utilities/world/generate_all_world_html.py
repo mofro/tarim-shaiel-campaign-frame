@@ -545,7 +545,7 @@ _INDEX_CSS_LEGACY_UNUSED = """
     html { scroll-behavior: smooth; }
     body {
       background: #1a1208;
-      background-image: url('images/paper-texture-top-view-2.jpg');
+      background-image: url('/images/paper-texture-top-view-2.jpg');
       font-family: 'EB Garamond', Georgia, serif;
       font-size: 17px; line-height: 1.72; color: var(--ink);
       display: flex; align-items: flex-start; justify-content: center;

@@ -190,7 +190,7 @@ def render_myth_para(line: str) -> str:
         ext   = Path(fname).suffix.lower()
         if ext in _AUDIO_EXTS:
             from html import escape as _esc
-            src   = _esc(f'audio/{fname}')
+            src   = _esc(f'/audio/{fname}')
             label = _esc(alias_part or Path(fname).stem.replace('-', ' ').replace('_', ' ').title())
             return (
                 f'<div class="audio-player">\n'
@@ -201,7 +201,7 @@ def render_myth_para(line: str) -> str:
             )
         else:
             from html import escape as _esc
-            src = _esc(f'images/{fname}')
+            src = _esc(f'/images/{fname}')
             alt = _esc(alias_part or fname.rsplit('.', 1)[0])
             return (
                 f'<figure class="lore-figure">\n'
