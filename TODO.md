@@ -27,6 +27,7 @@ banner-y: 37
 - 🗒️ **Backlog added (2026-04-07):** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization, LK sync docs, click-through to event pages. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
 - 🆕 **Filed (2026-04-14):** Faction file stubs — 16 P1–P3 faction files to create from `_category.md` registry; 3 deferred pending #42, #43, Decision #11. [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144)
 - 🗒️ **Backlog added (2026-04-13):** HTML generation pipeline refactor — consolidate shared utilities, eliminate `_Generator` boilerplate + CSS token drift across 6 scripts (~5,300 lines). 5 stages, independently deployable. [#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138)
+- 🗒️ **Backlog added (2026-04-21):** DASHBOARD.md schema + generator refactor — separate health panel (Quick Summary, Player Status, Critical Path, overrides) from TODO.md into a 40-line structured file; six regex extractors replaced with YAML readers; `SECTION_DOMAIN_HEADERS` expanded with Daggerheart + world keywords; TODO.md PROJECT HEALTH section removed. [#166](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/166)
 - 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
@@ -427,6 +428,20 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 - [ ] **Stage 5:** Generator factory — eliminate `_Generator` boilerplate copy-paste from all scripts
 
 **Estimated effort:** ~3–4 sessions (each stage independently deployable; does not affect Netlify/GitHub Actions/Obsidian Shell Commands)
+
+---
+
+### 10. DASHBOARD.md Schema + Generator Refactor 🆕 NOT STARTED ([#166](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/166))
+**Domain:** `utilities/dashboard/`
+**Description:** Extract the health panel from TODO.md into a structured 40-line `DASHBOARD.md` (YAML frontmatter + Markdown Quick Summary). Six fragile regex extractors in `generate_dashboard.py` replaced with YAML readers. `SECTION_DOMAIN_HEADERS` expanded with missing world + Daggerheart mechanics keywords. TODO.md PROJECT HEALTH section removed.
+
+- [ ] **Phase 1:** Create `DASHBOARD.md` at vault root — migrate Quick Summary, critical_path, players, domain_overrides from TODO.md PROJECT HEALTH
+- [ ] **Phase 2:** Refactor generator — `parse_dashboard_md()`; replace six extractors; graceful fallback if file missing
+- [ ] **Phase 3:** Trim `TODO.md` — remove PROJECT HEALTH section; replace with single pointer line
+- [ ] **Phase 4:** Expand `SECTION_DOMAIN_HEADERS` — add `factions`, `events`, `locations`, `regions`, `domains`, `abilities`, `classes`, `subclasses`, `armor`
+- [ ] **Phase 5:** Update `lat.md/subagent-context.md` — add DASHBOARD.md as session-start read target; update `last_updated`
+
+**Estimated effort:** ~1–2 sessions
 
 ---
 
