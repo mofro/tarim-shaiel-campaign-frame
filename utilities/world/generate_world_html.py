@@ -294,7 +294,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
         back_label = parent_class.replace('-', ' ').replace('_', ' ').title()
     elif folder:
         cat_label  = folder.replace('-', ' ').replace('_', ' ').title()
-        back_href  = f'category-{escape(folder)}.html'
+        back_href  = f'../category-{escape(folder)}.html'
         back_label = cat_label
     if back_href:
         back_nav_html = (
