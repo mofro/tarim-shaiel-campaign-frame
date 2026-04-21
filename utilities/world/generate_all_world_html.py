@@ -1146,6 +1146,20 @@ def generate_category_page(
   </div>
 
 </div>
+
+<script>
+(function () {{
+  var a = document.querySelector('.back-nav a');
+  if (!a) return;
+  if (history.length > 1 && document.referrer &&
+      document.referrer.indexOf(location.hostname) !== -1) {{
+    a.addEventListener('click', function (e) {{
+      e.preventDefault();
+      history.back();
+    }});
+  }}
+}})();
+</script>
 </body>
 </html>
 """
