@@ -301,7 +301,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None, back_prefix:
     if back_href:
         back_nav_html = (
             f'<div class="back-nav">'
-            f'<a href="{back_href}">&larr; {escape(back_label)}</a>'
+            f'<a href="{back_href}">&larr; Back</a>'
             f'</div>\n'
         )
 
@@ -310,7 +310,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None, back_prefix:
     if len(jump_nav_items) >= 2 and (fm.get('jump_nav', True) is not False):
         nav_items = []
         if back_href:
-            nav_items.append(f'  <li style="list-style:none"><a href="{back_href}">&larr; {escape(back_label)}</a></li>')
+            nav_items.append(f'  <li style="list-style:none"><a href="{back_href}">&larr; Back</a></li>')
             nav_items.append('  <li class="nav-divider"></li>')
         for item in jump_nav_items:
             nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
@@ -1322,7 +1322,7 @@ def render_timeline_html(fm: dict, body: str, folder: str | None = None, back_pr
         back_href = f'{back_prefix}category-{escape(folder)}.html'
         back_nav_html = (
             f'<div class="back-nav">'
-            f'<a href="{back_href}">&larr; {escape(cat_label)}</a>'
+            f'<a href="{back_href}">&larr; Back</a>'
             f'</div>\n'
         )
 
