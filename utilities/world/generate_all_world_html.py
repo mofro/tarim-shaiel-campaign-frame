@@ -65,6 +65,23 @@ def _category_label(folder: str) -> str:
     return CATEGORY_DISPLAY_NAMES.get(folder, folder.replace('_', ' ').title())
 
 
+def _output_subfolder(src: Path, vault: Path) -> str:
+    """Return the docs-relative output path for a source file.
+
+    Computes the full path relative to the scan root so nested vault
+    structures are mirrored in docs/ (e.g. 'weapons/advanced-weapons').
+    Falls back to the immediate parent name if src is not under any SCAN_ROOT.
+    """
+    for root_name in SCAN_ROOTS:
+        root = vault / root_name
+        try:
+            parts = src.parent.relative_to(root).parts
+            return '/'.join(parts) if parts else src.parent.name
+        except ValueError:
+            continue
+    return src.parent.name
+
+
 # ── category config helpers ───────────────────────────────────────────────────
 
 def _find_folder_path(vault: Path, folder: str) -> Path | None:
@@ -489,18 +506,20 @@ def generate_all(
             # Normalize visibility for badge logic (prefer gm_secrets if present for GM badge)
             visibility = 'gm_secrets' if 'gm_secrets' in vis_list else vis_list[0] if vis_list else 'gm_secrets'
 
-            slug     = _slug(src.stem)
-            out_path = docs / folder / f'{slug}.html'
-            rel      = src.relative_to(vault)
+            slug        = _slug(src.stem)
+            subfolder   = _output_subfolder(src, vault)
+            out_path    = docs / subfolder / f'{slug}.html'
+            back_prefix = '../' * len(Path(subfolder).parts)
+            rel         = src.relative_to(vault)
 
-            print(f'  {doc_type:8}  {rel}  →  docs/{folder}/{slug}.html')
+            print(f'  {doc_type:8}  {rel}  →  docs/{subfolder}/{slug}.html')
 
             if not dry_run:
                 if doc_type == 'timeline':
-                    html = render_timeline_html(fm, body, folder=folder)
+                    html = render_timeline_html(fm, body, folder=folder, back_prefix=back_prefix)
                 else:
-                    html = build_myth_html(fm, body, folder=folder)
-                (docs / folder).mkdir(parents=True, exist_ok=True)
+                    html = build_myth_html(fm, body, folder=folder, back_prefix=back_prefix)
+                (docs / subfolder).mkdir(parents=True, exist_ok=True)
                 out_path.write_text(html, encoding='utf-8')
 
             grouped.setdefault(folder, []).append({
@@ -509,7 +528,7 @@ def generate_all(
                 'visibility':  visibility,   # 'gm_secrets' if untagged (safe default)
                 'calendar':    fm.get('calendar', ''),
                 'description': fm.get('description', ''),
-                'filename':    f'{folder}/{slug}.html',
+                'filename':    f'{subfolder}/{slug}.html',
                 'range':       str(fm.get('range') or '').strip(),
                 'tier':        str(fm.get('tier') or '').strip(),
             })
