@@ -40,7 +40,7 @@ references/
 
 # Workflow and build artifacts
 docs/*.html
-docs/*/*.html
+docs/**/*.html
 
 # External tool integration (not source content)
 moulinette/
