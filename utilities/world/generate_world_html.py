@@ -1078,7 +1078,7 @@ drawTLStemTimeline('all');
     return container_html + script_html
 
 
-def render_timeline_html(fm: dict, body: str) -> str:
+def render_timeline_html(fm: dict, body: str, folder: str | None = None) -> str:
     title    = fm.get('title', 'Timeline')
     calendar = fm.get('calendar', '')
 
@@ -1314,6 +1314,16 @@ def render_timeline_html(fm: dict, body: str) -> str:
         + f'<div class="tl-list-wrap">\n{rows_html}\n</div>\n'
     )
 
+    back_nav_html = ''
+    if folder:
+        cat_label = folder.replace('-', ' ').replace('_', ' ').title()
+        back_href = f'../category-{escape(folder)}.html'
+        back_nav_html = (
+            f'<div class="back-nav">'
+            f'<a href="{back_href}">&larr; {escape(cat_label)}</a>'
+            f'</div>\n'
+        )
+
     return _html_wrapper(
         title=title,
         css=CSS_BASE + CSS_TIMELINE,
@@ -1321,6 +1331,7 @@ def render_timeline_html(fm: dict, body: str) -> str:
         banner_html=banner_html,
         content_html=content_html,
         extra_head='<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>\n',
+        back_nav_html=back_nav_html,
     )
 
 
