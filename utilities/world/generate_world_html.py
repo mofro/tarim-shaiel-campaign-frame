@@ -226,14 +226,16 @@ def render_myth_section(title: str, content: str) -> str:
     )
 
 
-def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
+def build_myth_html(fm: dict, body: str, folder: str | None = None, back_prefix: str = '../') -> str:
     """Build a styled HTML page for a lore/myth document.
 
     Args:
-        fm:     Parsed frontmatter dict.
-        body:   Raw markdown body text.
-        folder: Parent folder name (e.g. 'ancestries') used to generate
-                back-navigation breadcrumb. Pass None to omit.
+        fm:          Parsed frontmatter dict.
+        body:        Raw markdown body text.
+        folder:      Category key (e.g. 'advanced-weapons') for back-nav label
+                     and category page link. Pass None to omit back-nav.
+        back_prefix: Path prefix to reach docs/ root from the output file's
+                     directory (e.g. '../' for one level, '../../' for two).
     """
     from shared.html_render import render_body as _render_body
 
@@ -294,7 +296,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None) -> str:
         back_label = parent_class.replace('-', ' ').replace('_', ' ').title()
     elif folder:
         cat_label  = folder.replace('-', ' ').replace('_', ' ').title()
-        back_href  = f'../category-{escape(folder)}.html'
+        back_href  = f'{back_prefix}category-{escape(folder)}.html'
         back_label = cat_label
     if back_href:
         back_nav_html = (
@@ -1078,7 +1080,7 @@ drawTLStemTimeline('all');
     return container_html + script_html
 
 
-def render_timeline_html(fm: dict, body: str, folder: str | None = None) -> str:
+def render_timeline_html(fm: dict, body: str, folder: str | None = None, back_prefix: str = '../') -> str:
     title    = fm.get('title', 'Timeline')
     calendar = fm.get('calendar', '')
 
@@ -1317,7 +1319,7 @@ def render_timeline_html(fm: dict, body: str, folder: str | None = None) -> str:
     back_nav_html = ''
     if folder:
         cat_label = folder.replace('-', ' ').replace('_', ' ').title()
-        back_href = f'../category-{escape(folder)}.html'
+        back_href = f'{back_prefix}category-{escape(folder)}.html'
         back_nav_html = (
             f'<div class="back-nav">'
             f'<a href="{back_href}">&larr; {escape(cat_label)}</a>'
