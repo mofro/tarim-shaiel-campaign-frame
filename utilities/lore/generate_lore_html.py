@@ -2,7 +2,7 @@
 """
 Tarim-Shaiel Lore HTML Generator
 ==================================
-Generic generator: reads any lore .md file → docs/<slug>.html
+Generic generator: reads any lore .md file → docs/<folder>/<slug>.html
 
 Outputs a player-facing HTML artifact in the same visual style as the
 campaign-frame document (cover section, parchment design system, same fonts).
@@ -55,7 +55,7 @@ CSS_LORE = """\
 
     body {
       background: #1a1208;
-      background-image: url('images/paper-texture-top-view-2.jpg');
+      background-image: url('/images/paper-texture-top-view-2.jpg');
       font-family: 'EB Garamond', Georgia, serif;
       font-size: 18px;
       line-height: 1.85;
@@ -194,7 +194,7 @@ def main() -> None:
     )
     parser.add_argument(
         '--out', default=None,
-        help='Output HTML path (default: docs/<slug>.html derived from title)'
+        help='Output HTML path (default: docs/<source-folder>/<slug>.html derived from source path)'
     )
     args = parser.parse_args()
 
@@ -228,7 +228,8 @@ def main() -> None:
         out = Path(args.out)
     else:
         slug = slugify(title)
-        out = DOCS_DIR / f'{slug}.html'
+        folder = src.parent.name
+        out = DOCS_DIR / folder / f'{slug}.html'
 
     html = build_html(title, description, body, date_str, audio_url=audio_url, audio_title=audio_title)
 
