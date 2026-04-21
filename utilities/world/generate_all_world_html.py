@@ -1151,13 +1151,15 @@ def generate_category_page(
 (function () {{
   var a = document.querySelector('.back-nav a');
   if (!a) return;
-  if (history.length > 1 && document.referrer &&
-      document.referrer.indexOf(location.hostname) !== -1) {{
-    a.addEventListener('click', function (e) {{
-      e.preventDefault();
+  a.addEventListener('click', function (e) {{
+    e.preventDefault();
+    if (history.length > 1 && document.referrer &&
+        document.referrer.indexOf(location.hostname) !== -1) {{
       history.back();
-    }});
-  }}
+    }} else {{
+      location.replace(a.href);
+    }}
+  }});
 }})();
 </script>
 </body>
