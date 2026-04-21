@@ -29,6 +29,7 @@ banner-y: 37
 - 🗒️ **Backlog added (2026-04-13):** HTML generation pipeline refactor — consolidate shared utilities, eliminate `_Generator` boilerplate + CSS token drift across 6 scripts (~5,300 lines). 5 stages, independently deployable. [#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138)
 - 🗒️ **Backlog added (2026-04-21):** DASHBOARD.md schema + generator refactor — separate health panel (Quick Summary, Player Status, Critical Path, overrides) from TODO.md into a 40-line structured file; six regex extractors replaced with YAML readers; `SECTION_DOMAIN_HEADERS` expanded with Daggerheart + world keywords; TODO.md PROJECT HEALTH section removed. [#166](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/166)
 - 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
+- 🗒️ **Backlog added (2026-04-21):** `docs/` output hierarchy restructure — move per-document HTML into `/world`-matching subdirectories (`docs/mythology/`, `docs/timelines/`, etc.); fixes ~500-file flat directory; asset paths require root-relative switch. [#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168)
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to `archive/charms/`; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to `BACKLOG.md`
@@ -388,6 +389,21 @@ without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands in
 - [x] Ancestry image support: `![[filename]]` in per-ancestry file body → floated `<figure class="lore-figure">`; `VANARA.png` live
 - [x] Ancestry visibility gating: `visibility: gm_secrets` in per-ancestry frontmatter excludes from public HTML; GALAPA, RIBBET, FAERIE, NAGA-KIN gated; stub files created
 - [x] `.gitignore` fixed: `images/*` + `!images/people/ancestries/` so ancestry portraits are committable
+
+---
+
+### 8. docs/ Output Hierarchy Restructure 🆕 NOT STARTED ([#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168))
+**Domain:** `utilities/`
+**Description:** `docs/` currently outputs ~500 HTML files flat alongside asset subdirectories. Restructure so per-document HTML files land in subdirectories matching the `/world` source hierarchy (`docs/mythology/`, `docs/timelines/`, `docs/locations/`, etc.). Category index pages (`category-*.html`) and core docs stay flat at the `docs/` root. Asset URL paths require a root-relative switch (`/images/...`, `/assets/...`) to resolve correctly from subdirectory depth on Netlify.
+
+- [ ] Audit all four CSS files (`world_base.css`, `world_myth.css`, `world_timeline.css`, `world_category.css`) for `url()` image references
+- [ ] `utilities/shared/assets.py`: `prepare_image()` → return `/images/{name}`; `prepare_audio_wiki()` → `/audio/{name}`
+- [ ] Update any CSS `url()` references found above to root-relative paths
+- [ ] `utilities/world/generate_all_world_html.py`: change output path to `docs/{folder}/{slug}.html`; update `'filename'` field in grouped metadata to `{folder}/{slug}.html`; update print statement
+- [ ] `utilities/world/generate_world_html.py`: back-nav `back_href` → `../category-{folder}.html`
+- [ ] Dry-run verify (`--dry-run` flag); full build; spot-check one subdirectory page in browser
+
+**Estimated effort:** ~1 session
 
 ---
 
