@@ -42,7 +42,7 @@ def _resolve_image_url(url: str) -> str:
     if m:
         local = Path('docs/assets') / m.group(1)
         if local.exists():
-            return f'assets/{m.group(1)}'
+            return f'/assets/{m.group(1)}'
     return url
 
 try:
