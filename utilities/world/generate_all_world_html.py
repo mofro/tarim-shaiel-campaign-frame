@@ -497,7 +497,7 @@ def generate_all(
 
             if not dry_run:
                 if doc_type == 'timeline':
-                    html = render_timeline_html(fm, body)
+                    html = render_timeline_html(fm, body, folder=folder)
                 else:
                     html = build_myth_html(fm, body, folder=folder)
                 (docs / folder).mkdir(parents=True, exist_ok=True)
