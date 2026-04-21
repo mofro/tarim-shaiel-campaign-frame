@@ -1151,13 +1151,19 @@ def generate_category_page(
 (function () {{
   var a = document.querySelector('.back-nav a');
   if (!a) return;
+  var arrivedViaFallback = sessionStorage.getItem('back-nav-hop') === '1';
+  sessionStorage.removeItem('back-nav-hop');
+  var useHistoryBack = !arrivedViaFallback &&
+                       history.length > 1 &&
+                       document.referrer &&
+                       document.referrer.indexOf(location.hostname) !== -1;
   a.addEventListener('click', function (e) {{
     e.preventDefault();
-    if (history.length > 1 && document.referrer &&
-        document.referrer.indexOf(location.hostname) !== -1) {{
+    if (useHistoryBack) {{
       history.back();
     }} else {{
-      location.replace(a.href);
+      sessionStorage.setItem('back-nav-hop', '1');
+      location.href = a.href;
     }}
   }});
 }})();
