@@ -35,7 +35,7 @@ def render_wiki_embed(p: str) -> str:
     ext   = Path(fname).suffix.lower()
 
     if ext in AUDIO_EXTS:
-        src   = escape(f'audio/{fname}')
+        src   = escape(f'/audio/{fname}')
         label = escape(alias_part if alias_part else
                        Path(fname).stem.replace('-', ' ').replace('_', ' ').title())
         mime  = AUDIO_MIME.get(ext, 'audio/mpeg')
@@ -48,7 +48,7 @@ def render_wiki_embed(p: str) -> str:
             f'    </div>\n'
         )
     else:
-        src = escape(f'images/{fname}')
+        src = escape(f'/images/{fname}')
         alt = escape(alias_part if alias_part else fname.rsplit('.', 1)[0])
         return (
             f'    <figure class="lore-figure">\n'
