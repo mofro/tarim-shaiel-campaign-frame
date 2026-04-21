@@ -34,27 +34,27 @@ def prepare_image(fname: str, vault_root: Path, docs_dir: Path) -> str | None:
         # First check if file already exists in docs
         if dest.exists():
             log(LogLevel.INFO, f'Image already exists in docs: {dest}')
-            return f'images/{fname}'
-        
+            return f'/images/{fname}'
+
         # Search for image in vault
         src = find_in_vault(fname, vault_root)
         if src is None:
             log(LogLevel.WARNING, f'Image not found in vault: {fname!r}')
             return None
-        
+
         # Verify source file integrity before copying
         if not verify_file_integrity(src):
             return handle_asset_error("verify source image", fname, AssetNotFoundError(f"Source file verification failed: {src}"), fail_silently=True)
-        
+
         # Copy from vault to docs
         shutil.copy2(src, dest)
         log(LogLevel.INFO, f'Copied image', {"src": str(src), "dest": str(dest)})
-        
+
         # Verify the copied file
         if not verify_file_integrity(dest):
             return handle_asset_error("verify copied image", fname, AssetCopyError(f"Destination file verification failed: {dest}"), fail_silently=True)
-        
-        return f'images/{fname}'
+
+        return f'/images/{fname}'
     
     except Exception as e:
         return handle_asset_error("prepare image", fname, e, fail_silently=True)
@@ -78,7 +78,7 @@ def prepare_audio(audio_field: str, vault_root: Path, docs_dir: Path) -> str | N
         if candidate.is_file():
             rel = candidate.relative_to(docs_dir)
             print(f'  [audio] Found in docs/: {candidate}')
-            return str(rel).replace('\\', '/')
+            return '/' + str(rel).replace('\\', '/')
 
     # 2. Try vault-relative path → copy to docs/audio/
     src = Path(audio_field)
@@ -90,7 +90,7 @@ def prepare_audio(audio_field: str, vault_root: Path, docs_dir: Path) -> str | N
         dest = dest_dir / fname
         shutil.copy2(src, dest)
         print(f'  [audio] Copied to {dest}')
-        return f'audio/{fname}'
+        return f'/audio/{fname}'
 
     # 3. Fail silently
     print(f'  [audio] Not found, skipping player: {audio_field}')
@@ -117,7 +117,7 @@ def prepare_audio_wiki(fname: str, vault_root: Path, docs_dir: Path) -> str | No
                 print(f'  [audio] Copied {candidate} → {dest}')
             else:
                 print(f'  [audio] Already at {dest}')
-            return f'audio/{fname}'
+            return f'/audio/{fname}'
 
     # 2. Search vault by filename
     src = find_in_vault(fname, vault_root)
@@ -125,7 +125,7 @@ def prepare_audio_wiki(fname: str, vault_root: Path, docs_dir: Path) -> str | No
         dest_dir.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dest)
         print(f'  [audio] Copied {src} → {dest}')
-        return f'audio/{fname}'
+        return f'/audio/{fname}'
 
     # 3. Fail silently
     print(f'  [audio] WARNING: {fname!r} not found in docs/ or vault')

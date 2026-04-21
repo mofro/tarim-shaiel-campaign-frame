@@ -490,17 +490,17 @@ def generate_all(
             visibility = 'gm_secrets' if 'gm_secrets' in vis_list else vis_list[0] if vis_list else 'gm_secrets'
 
             slug     = _slug(src.stem)
-            out_path = docs / f'{slug}.html'
+            out_path = docs / folder / f'{slug}.html'
             rel      = src.relative_to(vault)
 
-            print(f'  {doc_type:8}  {rel}  →  docs/{slug}.html')
+            print(f'  {doc_type:8}  {rel}  →  docs/{folder}/{slug}.html')
 
             if not dry_run:
                 if doc_type == 'timeline':
                     html = render_timeline_html(fm, body)
                 else:
                     html = build_myth_html(fm, body, folder=folder)
-                docs.mkdir(parents=True, exist_ok=True)
+                (docs / folder).mkdir(parents=True, exist_ok=True)
                 out_path.write_text(html, encoding='utf-8')
 
             grouped.setdefault(folder, []).append({
@@ -509,7 +509,7 @@ def generate_all(
                 'visibility':  visibility,   # 'gm_secrets' if untagged (safe default)
                 'calendar':    fm.get('calendar', ''),
                 'description': fm.get('description', ''),
-                'filename':    f'{slug}.html',
+                'filename':    f'{folder}/{slug}.html',
                 'range':       str(fm.get('range') or '').strip(),
                 'tier':        str(fm.get('tier') or '').strip(),
             })
