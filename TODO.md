@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-04-11
+last_updated: 2026-04-21
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -15,7 +15,7 @@ banner-y: 37
 
 ## PROJECT HEALTH
 
-**Last Updated:** 2026-04-11
+**Last Updated:** 2026-04-21
 **Critical Path:** Resolve cosmological architecture → Complete Session 0 scenarios → Resolve Campaign Frame → Playtest
 
 **Quick Summary:**
@@ -25,6 +25,8 @@ banner-y: 37
 - ✅ **Completed (2026-04-11):** `lat.md/` AI navigation layer — 6 dense, path-forward orientation files (`cosmology`, `session0`, `characters`, `world`, `mechanics`, `decisions`) + CLAUDE.md Quick Navigation table. [#121](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/121)
 - ✅ **Completed (2026-04-11):** CLAUDE.md audit + subagent context block — created `lat.md/subagent-context.md` (portable 83-line constraint block for spawned agents); CLAUDE.md slimmed 258→174 lines; stale Wizard constraint corrected; `.meta/` consolidated as archive directory; subagent-context maintenance rule added to Working Conventions. [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128)
 - 🗒️ **Backlog added (2026-04-07):** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization, LK sync docs, click-through to event pages. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
+- 🆕 **Filed (2026-04-14):** Faction file stubs — 16 P1–P3 faction files to create from `_category.md` registry; 3 deferred pending #42, #43, Decision #11. [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144)
+- 🗒️ **Backlog added (2026-04-13):** HTML generation pipeline refactor — consolidate shared utilities, eliminate `_Generator` boilerplate + CSS token drift across 6 scripts (~5,300 lines). 5 stages, independently deployable. [#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138)
 - 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
 - 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
 - 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
@@ -396,6 +398,35 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 - [x] **Configure Command 2: "Full Pipeline (Local)"** — palette + hotkey (`Cmd+Shift+B`); runs all generators; opens `docs/index.html`
 - [x] **Configure Command 3: "Open Local Preview"** — palette convenience command
 - [x] **Connect Netlify site** — `netlify.toml` is in repo; site needs to be linked at netlify.com (one-time setup)
+
+---
+
+### 8. Faction File Stubs 🆕 NOT STARTED ([#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144))
+**Domain:** `world/factions/`
+**Description:** Create 16 P1–P3 faction stub files from the data already in `world/factions/_category.md`. Three P1 factions deferred pending prerequisite issues.
+
+- [ ] **P1 (unlocked, 3 files):** `lich-cadre.md`, `the-wizard.md`, `chain-breakers-order.md` — richest stubs from existing canon data
+- [ ] **P2 (4 files):** `orc-confederation-samarkand.md`, `eastern-gateway-council.md`, `merchant-guilds.md`, `eastern-imperial-dominion.md`
+- [ ] **P3 (9 files):** `dwarven-mountain-confederations.md`, `dwarven-tarim-authority.md`, `human-tarim-councils.md`, `human-imperial-remnants.md`, `orc-steppe-confederations.md`, `goblin-free-cities.md`, `peoples-of-the-nine-roads.md`, `gnome-guilds.md`, `jade-coast-realms.md`
+- [ ] **Update `lat.md/world.md`** — change "individual faction files TBD" → reflect 16 stubs + 3 deferred
+- [ ] **Update `lat.md/subagent-context.md`** `last_updated` (per subagent-context maintenance rule)
+- [ ] **Deferred (blocked):** `elven-highland-enclaves.md` ([#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43)), `scholars-remnant.md` ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42)), `celestial-court.md` (Decision #11)
+
+**Estimated effort:** ~1 session
+
+---
+
+### 9. HTML Generation Pipeline Refactor 🆕 NOT STARTED ([#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138))
+**Domain:** `utilities/`
+**Description:** Consolidate ~5,300 lines across 7 generator scripts. Eliminate duplicated `inline_md()`, `parse_frontmatter()`, CSS design tokens, and `_Generator` boilerplate. Dashboard and campaign frame generators remain bespoke (valid component pattern sources only).
+
+- [ ] **Stage 1:** Extract shared HTML component library (`html_render.py`) — audio, figure, callout, jump-nav, banner builders
+- [ ] **Stage 2:** Unify CSS — single `:root` token block; per-generator overrides only; eliminate cross-file drift
+- [ ] **Stage 3:** Migrate `generate_world_html.py` + `generate_all_world_html.py` — use `build_page()` + shared imports; remove local reimplementations
+- [ ] **Stage 4:** Migrate `generate_campaign_frame.py`, `generate_lore_html.py`, `generate_ancestry_html.py`
+- [ ] **Stage 5:** Generator factory — eliminate `_Generator` boilerplate copy-paste from all scripts
+
+**Estimated effort:** ~3–4 sessions (each stage independently deployable; does not affect Netlify/GitHub Actions/Obsidian Shell Commands)
 
 ---
 
