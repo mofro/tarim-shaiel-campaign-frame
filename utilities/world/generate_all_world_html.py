@@ -335,7 +335,13 @@ def _hero_html(config: dict, vault: Path, docs: Path) -> str:
     )
 
 
-def _category_section_html(folder: str, folder_docs: list[dict], vault: Path, public_only: bool) -> str:
+def _category_section_html(
+    folder: str,
+    folder_docs: list[dict],
+    vault: Path,
+    public_only: bool,
+    gm_mode: bool = False,
+) -> str:
     cfg, _ = _read_category_config(vault, folder)  # body not needed for inline preview
     label = cfg.get('title') or _category_label(folder)
     desc = cfg.get('description') or CATEGORY_DESCRIPTIONS.get(folder, '')
@@ -349,10 +355,12 @@ def _category_section_html(folder: str, folder_docs: list[dict], vault: Path, pu
 
     items_html = ''
     for d in inline_docs:
-        badge = ' <span class="gm-badge">GM</span>' if d['visibility'] == 'gm_secrets' else ''
-        extra = ' gm-secrets' if d['visibility'] == 'gm_secrets' else ''
+        is_gm = d['visibility'] == 'gm_secrets'
+        gm_badge  = ' <span class="gm-badge">GM ONLY</span>'  if (gm_mode and is_gm)  else (' <span class="gm-badge">GM</span>' if is_gm else '')
+        pub_badge = ' <span class="pub-badge">PUBLIC</span>'  if (gm_mode and not is_gm) else ''
+        extra = ' gm-secrets' if is_gm else (' public-doc' if gm_mode else '')
         items_html += (
-            f"      <a class=\"inline-doc-item{extra}\" href=\"{escape(d['filename'])}\">{escape(d['title'])}{badge}</a>\n"
+            f"      <a class=\"inline-doc-item{extra}\" href=\"{escape(d['filename'])}\">{escape(d['title'])}{gm_badge}{pub_badge}</a>\n"
         )
 
     remainder_html = ''
@@ -466,15 +474,15 @@ def generate_all(
     vault: Path, docs: Path,
     dry_run: bool = False,
     public_only: bool = False,
+    gm_mode: bool = False,
     grouped_sources: dict[str, list[Path]] | None = None,
 ) -> dict[str, list[dict]]:
     """Generate HTML for every discovered source. Returns docs grouped by folder.
 
     Args:
-        public_only: When True, only generate docs explicitly tagged
-                     visibility: public (fails closed — missing/other → skipped).
-        grouped_sources: Pre-computed discover_sources() result. If None, calls
-                         discover_sources() internally (preserves backward compat).
+        public_only:     When True, only generate visibility: public docs (fails closed).
+        gm_mode:         When True, include all docs with visual GM markers.
+        grouped_sources: Pre-computed discover_sources() result; calls internally if None.
     """
     if grouped_sources is None:
         grouped_sources = discover_sources(vault)
@@ -516,9 +524,11 @@ def generate_all(
 
             if not dry_run:
                 if doc_type == 'timeline':
-                    html = render_timeline_html(fm, body, folder=folder, back_prefix=back_prefix)
+                    html = render_timeline_html(fm, body, folder=folder,
+                                                back_prefix=back_prefix, gm_mode=gm_mode)
                 else:
-                    html = build_myth_html(fm, body, folder=folder, back_prefix=back_prefix)
+                    html = build_myth_html(fm, body, folder=folder,
+                                           back_prefix=back_prefix, gm_mode=gm_mode)
                 (docs / subfolder).mkdir(parents=True, exist_ok=True)
                 out_path.write_text(html, encoding='utf-8')
 
@@ -551,6 +561,42 @@ _INDEX_CSS = (
     (_CSS_DIR / "world_base.css").read_text(encoding="utf-8") +
     (_CSS_DIR / "world_category.css").read_text(encoding="utf-8")
 )
+
+# GM-mode additions: banner, enhanced card/badge styles, public-doc tint
+_GM_INDEX_CSS = """
+    .gm-mode-banner {
+      background: var(--crimson); color: #f5edd8;
+      font-family: 'Inconsolata', monospace; font-size: 11px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      text-align: center; padding: 6px 1rem;
+    }
+    .doc-card.gm-secrets {
+      background: rgba(122,31,31,0.06) !important;
+      border-left: 4px solid var(--crimson) !important;
+    }
+    .doc-card.gm-secrets:hover { background: rgba(122,31,31,0.10) !important; }
+    .doc-card.public-doc { border-left: 4px solid rgba(184,146,44,0.5); }
+    .pub-badge {
+      background: rgba(184,146,44,0.15); color: var(--gold);
+      border: 1px solid rgba(184,146,44,0.4);
+      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 100px; margin-left: 6px;
+      font-family: 'Inconsolata', monospace; vertical-align: middle;
+    }
+    .inline-doc-item.public-doc { border-color: rgba(184,146,44,0.3); }
+"""
+
+_GM_GUARD_SCRIPT_INDEX = """\
+<script src="https://cdn.jsdelivr.net/npm/netlify-identity-widget@1/build/netlify-identity-widget.js"></script>
+<script>
+(function () {
+  netlifyIdentity.init();
+  netlifyIdentity.on('init', function (user) {
+    if (!user) { window.location.replace('login.html'); }
+  });
+})();
+</script>
+"""
 
 # ── Legacy inline CSS kept as dead reference only — DO NOT USE ────────────────
 _INDEX_CSS_LEGACY_UNUSED = """
@@ -875,13 +921,21 @@ _INDEX_CSS_LEGACY_UNUSED = """
 """  # end _INDEX_CSS_LEGACY_UNUSED
 
 
-def _card_html(filename: str, title: str, meta: str, desc: str, gm: bool = False) -> str:
-    gm_badge = '<span class="gm-badge">GM</span>' if gm else ''
-    extra    = ' gm-secrets' if gm else ''
-    anchor   = _slug(title)
+def _card_html(
+    filename: str,
+    title: str,
+    meta: str,
+    desc: str,
+    gm: bool = False,
+    gm_mode: bool = False,
+) -> str:
+    gm_badge  = f'<span class="gm-badge">{"GM ONLY" if gm_mode else "GM"}</span>' if gm else ''
+    pub_badge = '<span class="pub-badge">PUBLIC</span>' if (gm_mode and not gm) else ''
+    extra     = ' gm-secrets' if gm else (' public-doc' if gm_mode else '')
+    anchor    = _slug(title)
     return (
         f'    <a id="{anchor}" class="doc-card{extra}" href="{escape(filename)}">\n'
-        f'      <div class="doc-title">{escape(title)}{gm_badge}</div>\n'
+        f'      <div class="doc-title">{escape(title)}{gm_badge}{pub_badge}</div>\n'
         f'      <div class="doc-meta">{escape(meta)}</div>\n'
         f'      <div class="doc-desc">{escape(desc)}</div>\n'
         f'      <div class="doc-card-arrow">&#8594;</div>\n'
@@ -1191,11 +1245,15 @@ def generate_category_page(
 def generate_index(
     docs: Path, grouped_docs: dict[str, list[dict]], vault: Path | None = None,
     public_only: bool = False,
+    gm_mode: bool = False,
     subcategory_set: set[str] | None = None,
 ) -> None:
     """Write docs/index.html listing core docs with hero and category sections."""
     config = _read_site_config(vault) if vault else {}
     hero_html = _hero_html(config, vault, docs) if config else ''
+
+    gm_mode_banner = ('<div class="gm-mode-banner">GM VIEW — PRIVILEGED ARCHIVE</div>\n'
+                      if gm_mode else '')
 
     # Banner for index page
     banner_html = (
@@ -1206,9 +1264,14 @@ def generate_index(
         '<div class="banner-rule"></div>\n'
     )
 
-    visible_core = [d for d in _CORE_DOCS if not public_only or 'public' in d.get('visibility', 'gm_secrets')]
+    # In GM mode show all core docs (including gm_secrets); otherwise filter by public_only
+    visible_core = [
+        d for d in _CORE_DOCS
+        if gm_mode or (not public_only or 'public' in d.get('visibility', 'gm_secrets'))
+    ]
     core_html = ''.join(
-        _card_html(d['filename'], d['title'], d['meta'], d['desc'])
+        _card_html(d['filename'], d['title'], d['meta'], d['desc'],
+                   gm=(d.get('visibility') == 'gm_secrets'), gm_mode=gm_mode)
         for d in visible_core
     )
 
@@ -1217,12 +1280,16 @@ def generate_index(
     if grouped_docs:
         sorted_folders = sorted(top_level_folders, key=_category_label)
         categories_html = ''.join(
-            _category_section_html(folder, grouped_docs[folder], vault, public_only)
+            _category_section_html(folder, grouped_docs[folder], vault, public_only,
+                                   gm_mode=gm_mode)
             for folder in sorted_folders
         )
 
     top_level_docs = {f: v for f, v in grouped_docs.items() if f in top_level_folders}
     total = len(visible_core) + sum(len(v) for v in top_level_docs.values())
+
+    gm_css = _GM_INDEX_CSS if gm_mode else ''
+    gm_guard = (_GM_GUARD_SCRIPT_INDEX if gm_mode else '')
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1232,13 +1299,13 @@ def generate_index(
   <title>Tarim Shaiel - Campaign Lore</title>
   <!-- AUTO-GENERATED by utilities/world/generate_all_world_html.py - do not hand-edit -->
   <link rel="icon" href="{_FAVICON}">
-  <style>{_INDEX_CSS}  </style>
+  <style>{_INDEX_CSS}{gm_css}  </style>
 </head>
 <body>
 
-<div class="page-wrap">
+{gm_guard}<div class="page-wrap">
 
-{hero_html}
+{gm_mode_banner}{hero_html}
 {banner_html}
 
   <div class="content">
@@ -1313,14 +1380,24 @@ def main() -> None:
         help='Public-only mode: only generate/index docs with explicit visibility: public. '
              'Use for Netlify/CI deployments. Fails closed — missing or gm_secrets → skipped.',
     )
+    parser.add_argument(
+        '--gm', action='store_true',
+        help='GM mode: include all docs with visual GM markers and Netlify Identity auth guard.',
+    )
     args = parser.parse_args()
 
-    vault = Path(args.vault) if args.vault else Path(__file__).parent.parent.parent
-    docs  = vault / 'docs'
+    if args.public and args.gm:
+        sys.exit('ERROR: --public and --gm are mutually exclusive.')
+
+    gm_mode = args.gm
+    vault   = Path(args.vault) if args.vault else Path(__file__).parent.parent.parent
+    docs    = vault / 'docs'
 
     print(f'Vault: {vault}')
     if args.public:
         print('Mode: PUBLIC (visibility: public only — fails closed)')
+    elif gm_mode:
+        print('Mode: GM (all docs, GM markers + auth guard injected)')
     else:
         print('Mode: LOCAL (all docs including gm_secrets)')
     print('Scanning for pipeline sources...')
@@ -1328,7 +1405,8 @@ def main() -> None:
     grouped_sources = discover_sources(vault)
     subcategory_map, subcategory_set = _build_subcategory_map(vault, grouped_sources)
     grouped_docs    = generate_all(vault, docs, grouped_sources=grouped_sources,
-                                   dry_run=args.dry_run, public_only=args.public)
+                                   dry_run=args.dry_run, public_only=args.public,
+                                   gm_mode=gm_mode)
     total = sum(len(v) for v in grouped_docs.values())
     print(f'Generated {total} world document(s) across {len(grouped_docs)} categories.')
 
@@ -1346,8 +1424,9 @@ def main() -> None:
             )
             print(f'  Category: {folder} ({count} doc(s)) → docs/category-{folder}.html')
         generate_index(docs, grouped_docs, vault=vault, public_only=args.public,
-                       subcategory_set=subcategory_set)
-        visible_core_count = len([d for d in _CORE_DOCS if not args.public or 'public' in d.get('visibility', 'gm_secrets')])
+                       gm_mode=gm_mode, subcategory_set=subcategory_set)
+        visible_core_count = len([d for d in _CORE_DOCS
+                                   if gm_mode or (not args.public or 'public' in d.get('visibility', 'gm_secrets'))])
         top_level_count = len(grouped_docs) - len(subcategory_set)
         print(f'Index: docs/index.html ({visible_core_count} core + {top_level_count} categories, {len(subcategory_set)} subcategories suppressed)')
         generate_404(docs)

@@ -418,3 +418,46 @@
         break-inside: avoid;
       }
     }
+
+    /* ── GM component styles (Tier 1 / 2 / 3) ─────────────────────────────── */
+    /* Tier 1: inline redaction */
+    .gm-redacted {
+      background: var(--ink); color: var(--ink);
+      user-select: none; border-radius: 2px;
+      padding: 0 4px; letter-spacing: -0.05em;
+    }
+    .gm-inline {
+      background: rgba(122,31,31,0.12); color: var(--crimson);
+      border-bottom: 1px solid rgba(122,31,31,0.4);
+      padding: 0 2px; border-radius: 2px;
+    }
+
+    /* Tier 2: GM-only callout block */
+    .gm-callout {
+      border-left: 3px solid var(--crimson);
+      background: rgba(122,31,31,0.06);
+      padding: 0.8rem 1rem 0.8rem 1.2rem;
+      margin: 1.2rem 0;
+    }
+    .gm-callout::before {
+      content: "GM ONLY";
+      display: block;
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em;
+      color: var(--crimson); margin-bottom: 0.5rem;
+    }
+
+    /* Tier 3: GM prose block (file transclusion) */
+    .gm-block {
+      border: 1px solid rgba(122,31,31,0.3);
+      border-left: 4px solid var(--crimson);
+      background: rgba(122,31,31,0.04);
+      padding: 1rem 1.2rem; margin: 1.5rem 0;
+    }
+    .gm-block::before {
+      content: "↓ GM CONTENT";
+      display: block;
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      color: rgba(122,31,31,0.5); margin-bottom: 0.8rem;
+    }

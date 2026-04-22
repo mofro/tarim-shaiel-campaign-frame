@@ -34,6 +34,7 @@ The LegendKeeper pipeline (generate_lk_json, generate_lk_markdown) is
 handled separately by utilities/legendkeeper-pipeline/publish.py.
 """
 
+import os
 import sys
 import argparse
 from pathlib import Path
@@ -90,6 +91,8 @@ def _run_one(name: str, generator, args: argparse.Namespace) -> int:
     elif name == "world-all":
         if args.public:
             argv = ["--public"]
+        elif args.gm:
+            argv = ["--gm"]
         if args.out:
             argv += ["--out", args.out]
 
@@ -109,6 +112,8 @@ def _cmd_list(registry: dict) -> int:
 
 
 def _cmd_run(names: list[str], registry: dict, args: argparse.Namespace) -> int:
+    if args.gm:
+        os.environ['TS_GM_MODE'] = '1'
     failed = []
     for name in names:
         if name not in registry:
@@ -153,6 +158,10 @@ def main() -> int:
     parser.add_argument(
         "--public", action="store_true",
         help="Pass --public to world-all (omit GM content)"
+    )
+    parser.add_argument(
+        "--gm", action="store_true",
+        help="GM mode: include all docs with GM markers + auth guard; sets TS_GM_MODE=1"
     )
 
     args = parser.parse_args()

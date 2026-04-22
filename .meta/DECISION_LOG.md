@@ -515,3 +515,35 @@ Post-implementation baseline test — 3 parallel Explore agents with `lat.md/sub
 | "What are the locked decisions?" | 908 lines / 9 inv | **59 lines / 1 file** | `.meta/` never opened ✅ |
 | "What happened in previous sessions?" | 1,307 lines / 6 inv | **282 lines / 4 files** | `transcripts/` never opened ✅ |
 | "Write a Warrior archetype description" | 1,423 lines / 9 inv | **198 lines / 2 files** | Routed via `lat.md/characters.md` first; constraints applied correctly ✅ |
+
+
+## Decision 15 — Account-Based GM Gatekeeping Architecture
+
+**Date:** 2026-04-22
+**Domain:** Publishing infrastructure
+**Status:** 🔒 LOCKED
+
+**Decision:** Two-deploy architecture (public unchanged; new GM deploy with Netlify Identity, invite-only) plus a three-tier component markdown system for intra-page GM content.
+
+**Architecture:**
+- Public deploy: `build.py all --public` — unchanged, no auth, `gm_secrets` files never generated
+- GM deploy: `build.py all --gm` — all content, Netlify Identity auth guard injected into every page, `TS_GM_MODE=1` env var set
+- Second Netlify site points at same repo; build command overridden to use `netlify-gm.toml`
+
+**Three-tier component system (all build-time, nothing in DOM):**
+- Tier 1 `{gm:text}`: inline — public → `██████` bar; GM → crimson underline span
+- Tier 2 `> [!gm-only]`: callout block — public → stripped; GM → crimson callout
+- Tier 3 `![[gm_secrets/filename]]`: .md transclusion — public → stripped; GM → rendered block
+
+**Key files:**
+- `netlify-gm.toml` — second deploy config
+- `docs/login.html` — Netlify Identity login page
+- `GM_AUTHORING.md` — authoring reference
+- `utilities/build.py` — `--gm` flag + `TS_GM_MODE=1`
+- `utilities/shared/md_utils.py` — Tier 1 in `inline_md()`
+- `utilities/shared/html_render.py` — Tier 2 in `render_body()`, Tier 3 in `render_wiki_embed()`
+- `utilities/world/generate_world_html.py` — `gm_mode` param, per-page banners, auth guard
+- `utilities/world/generate_all_world_html.py` — `--gm` flag, badge CSS, index call chain
+- `utilities/shared/page_shell.py` — auth guard + GM banner for lore/ancestry pages
+
+**GitHub Issue:** #176

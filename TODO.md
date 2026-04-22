@@ -24,11 +24,19 @@ _Project health tracked in [DASHBOARD.md](DASHBOARD.md)_
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
 
 ### 2026-04-22
-- Designed account-based GM gatekeeping system — filed [#176](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/176)
-  - Architecture: two Netlify deploys (public unchanged; new GM deploy with Netlify Identity, invite-only)
-  - Three-tier component markdown system: Tier 1 `{gm:text}` inline redaction, Tier 2 `> [!gm-only]` callout, Tier 3 `![[gm_secrets/file]]` `.md` transclusion — all build-time, nothing in DOM
-  - `GM_AUTHORING.md` authoring reference planned at repo root
-  - Branch: `claude/account-based-gatekeeping-0alHN`; implementation pending
+- Implemented account-based GM gatekeeping — [#176](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/176) ✅
+  - `netlify-gm.toml` — second deploy config (`build.py all --gm`)
+  - `docs/login.html` — parchment-styled Netlify Identity login page
+  - Tier 1: `{gm:text}` inline redaction in `md_utils.py::inline_md()`
+  - Tier 2: `> [!gm-only]` callout in `html_render.py::render_body()`
+  - Tier 3: `![[gm_secrets/...]]` transclusion in `html_render.py::render_wiki_embed()`
+  - Per-page GM/public banners + auth guard in `generate_world_html.py`
+  - `generate_all_world_html.py`: `--gm` flag, badge CSS, full call chain
+  - `build.py`: `--gm` flag sets `TS_GM_MODE=1` env var
+  - `page_shell.py`: auth guard injection for lore/ancestry pages
+  - `GM_AUTHORING.md` reference doc + `CLAUDE.md` pointer
+  - Decision 15 logged; world_base.css extended with GM component CSS
+  - **Remaining:** manual Netlify second-site setup (user action)
 
 ### 2026-04-11 (continued, session 2)
 - Implemented [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128): CLAUDE.md audit + subagent context block
@@ -449,22 +457,22 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
 ---
 
-### 11. Account-Based GM Gatekeeping 🆕 NOT STARTED ([#176](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/176))
+### 11. Account-Based GM Gatekeeping ✅ COMPLETE ([#176](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/176))
 **Domain:** `utilities/` + `docs/`
 **Description:** Second Netlify deploy (`build.py all --gm`) gated by Netlify Identity (invite-only). GM sees all content including `gm_secrets` pages, each visually marked. Three-tier component markdown system for intra-page GM content (inline redaction, callout blocks, file transclusion) — all build-time, nothing in the DOM.
 
-- [ ] Create `netlify-gm.toml` — second deploy config
-- [ ] Create `docs/login.html` — parchment-styled Netlify Identity login page
-- [ ] `utilities/shared/md_utils.py` — Tier 1: `{gm:text}` inline redaction in `inline_md()`
-- [ ] `utilities/shared/html_render.py` — Tier 2: `> [!gm-only]` callout + Tier 3: `![[gm_secrets/file]]` `.md` transclusion
-- [ ] `utilities/world/generate_world_html.py` — `gm_mode` param, per-page banners, thread `vault`+`gm_mode` through render chain
-- [ ] `utilities/shared/page_shell.py` — auth guard injection via `TS_GM_MODE` env var
-- [ ] `utilities/world/generate_all_world_html.py` — `--gm` flag, gating logic, badge CSS, full call chain
-- [ ] `utilities/build.py` — `--gm` flag + set `TS_GM_MODE=1`
-- [ ] Create `GM_AUTHORING.md` (repo root) + one-line pointer in `CLAUDE.md`
-- [ ] Manual Netlify setup (user): create second site, enable Identity, invite-only, invite your email
+- [x] Create `netlify-gm.toml` — second deploy config
+- [x] Create `docs/login.html` — parchment-styled Netlify Identity login page
+- [x] `utilities/shared/md_utils.py` — Tier 1: `{gm:text}` inline redaction in `inline_md()`
+- [x] `utilities/shared/html_render.py` — Tier 2: `> [!gm-only]` callout + Tier 3: `![[gm_secrets/file]]` `.md` transclusion
+- [x] `utilities/world/generate_world_html.py` — `gm_mode` param, per-page banners, thread `vault`+`gm_mode` through render chain
+- [x] `utilities/shared/page_shell.py` — auth guard injection via `TS_GM_MODE` env var
+- [x] `utilities/world/generate_all_world_html.py` — `--gm` flag, gating logic, badge CSS, full call chain
+- [x] `utilities/build.py` — `--gm` flag + set `TS_GM_MODE=1`
+- [x] Create `GM_AUTHORING.md` (repo root) + one-line pointer in `CLAUDE.md`
+- [ ] **Manual Netlify setup (user):** create second site, enable Identity, invite-only, invite your email
 
-**Estimated effort:** ~1 session (pipeline) + manual Netlify setup
+**Completed:** 2026-04-22
 
 ---
 

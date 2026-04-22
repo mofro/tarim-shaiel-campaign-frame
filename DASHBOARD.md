@@ -48,6 +48,7 @@ blockers:
 - 🆕 **Filed (2026-04-14):** Faction file stubs — 16 P1–P3 faction files to create from _category.md registry; 3 deferred pending #42, #43, Decision #11. [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144)
 - 🗒️ **Backlog:** HTML generation pipeline refactor — consolidate shared utilities, eliminate _Generator boilerplate + CSS token drift across 6 scripts. [#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138)
 - 🗒️ **Backlog:** docs/ output hierarchy restructure — move per-document HTML into subdirectories; fixes ~500-file flat directory. [#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168)
+- ✅ **Completed (2026-04-22):** Account-based GM gatekeeping — `build.py all --gm`, Netlify Identity auth guard, three-tier markdown gating (Tier 1/2/3), `docs/login.html`, `GM_AUTHORING.md`. Remaining: manual Netlify second-site setup. [#176](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/176)
 - 🗒️ **Backlog:** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
 - 🗒️ **Backlog:** Dashboard completion % from GitHub Issues — tie domain percentages to issue open/closed state. [#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)
 - 🗒️ **Backlog:** Template frontmatter reconciliation — align templates/world-building/ files with CLAUDE.md spec

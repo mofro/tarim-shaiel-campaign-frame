@@ -16,6 +16,7 @@ Usage:
     python generate_world_html.py source.md --open     # open in browser after generating
 """
 
+import os
 import re
 import json
 import argparse
@@ -226,7 +227,13 @@ def render_myth_section(title: str, content: str) -> str:
     )
 
 
-def build_myth_html(fm: dict, body: str, folder: str | None = None, back_prefix: str = '../') -> str:
+def build_myth_html(
+    fm: dict,
+    body: str,
+    folder: str | None = None,
+    back_prefix: str = '../',
+    gm_mode: bool = False,
+) -> str:
     """Build a styled HTML page for a lore/myth document.
 
     Args:
@@ -236,6 +243,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None, back_prefix:
                      and category page link. Pass None to omit back-nav.
         back_prefix: Path prefix to reach docs/ root from the output file's
                      directory (e.g. '../' for one level, '../../' for two).
+        gm_mode:     When True, render GM banners and pass gm_mode to render_body.
     """
     from shared.html_render import render_body as _render_body
 
@@ -279,7 +287,7 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None, back_prefix:
         body = body.replace(non_empty_pre[0], '', 1).strip()
 
     # Render full body with component support (images, features, jump nav, headers)
-    content_html, jump_nav_items = _render_body(body, VAULT_ROOT, DOCS_DIR)
+    content_html, jump_nav_items = _render_body(body, VAULT_ROOT, DOCS_DIR, gm_mode=gm_mode)
     if epigraph_html:
         content_html = epigraph_html + content_html
 
@@ -349,6 +357,20 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None, back_prefix:
         f'<div class="banner-rule"></div>\n'
     )
 
+    # Per-page GM/public indicator banner (GM build only)
+    gm_banner_html = ''
+    page_extra_class = ''
+    if gm_mode:
+        vis_raw = fm.get('visibility', 'gm_secrets')
+        is_gm_secret = 'gm_secrets' in (str(vis_raw) if not isinstance(vis_raw, list)
+                                         else ' '.join(str(v) for v in vis_raw))
+        if is_gm_secret:
+            gm_banner_html = '<div class="gm-page-banner">✦ GM EYES ONLY · RESTRICTED ✦</div>\n'
+            page_extra_class = ' gm-secret-page'
+        else:
+            gm_banner_html = '<div class="public-page-banner">PLAYER-VISIBLE · PUBLIC DOCUMENT</div>\n'
+            page_extra_class = ' public-page'
+
     return _html_wrapper(
         title=title,
         css=CSS_BASE + CSS_MYTH,
@@ -357,6 +379,9 @@ def build_myth_html(fm: dict, body: str, folder: str | None = None, back_prefix:
         banner_html=banner_html,
         content_html=content_html,
         jump_nav_html=jump_nav_html,
+        gm_banner_html=gm_banner_html,
+        page_extra_class=page_extra_class,
+        gm_mode=gm_mode,
     )
 
 
@@ -1080,7 +1105,13 @@ drawTLStemTimeline('all');
     return container_html + script_html
 
 
-def render_timeline_html(fm: dict, body: str, folder: str | None = None, back_prefix: str = '../') -> str:
+def render_timeline_html(
+    fm: dict,
+    body: str,
+    folder: str | None = None,
+    back_prefix: str = '../',
+    gm_mode: bool = False,
+) -> str:
     title    = fm.get('title', 'Timeline')
     calendar = fm.get('calendar', '')
 
@@ -1326,6 +1357,20 @@ def render_timeline_html(fm: dict, body: str, folder: str | None = None, back_pr
             f'</div>\n'
         )
 
+    # Per-page GM banner (GM build only — timelines are always public for now)
+    gm_banner_html = ''
+    page_extra_class = ''
+    if gm_mode:
+        vis_raw = fm.get('visibility', 'gm_secrets')
+        is_gm_secret = 'gm_secrets' in (str(vis_raw) if not isinstance(vis_raw, list)
+                                         else ' '.join(str(v) for v in vis_raw))
+        if is_gm_secret:
+            gm_banner_html = '<div class="gm-page-banner">✦ GM EYES ONLY · RESTRICTED ✦</div>\n'
+            page_extra_class = ' gm-secret-page'
+        else:
+            gm_banner_html = '<div class="public-page-banner">PLAYER-VISIBLE · PUBLIC DOCUMENT</div>\n'
+            page_extra_class = ' public-page'
+
     return _html_wrapper(
         title=title,
         css=CSS_BASE + CSS_TIMELINE,
@@ -1334,12 +1379,46 @@ def render_timeline_html(fm: dict, body: str, folder: str | None = None, back_pr
         content_html=content_html,
         extra_head='<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>\n',
         back_nav_html=back_nav_html,
+        gm_banner_html=gm_banner_html,
+        page_extra_class=page_extra_class,
+        gm_mode=gm_mode,
     )
 
 
 # ---------------------------------------------------------------------------
 # HTML wrapper
 # ---------------------------------------------------------------------------
+
+_GM_GUARD_SCRIPT = """\
+<script src="https://cdn.jsdelivr.net/npm/netlify-identity-widget@1/build/netlify-identity-widget.js"></script>
+<script>
+(function () {
+  netlifyIdentity.init();
+  netlifyIdentity.on('init', function (user) {
+    if (!user) { window.location.replace('login.html'); }
+  });
+})();
+</script>
+"""
+
+_GM_PAGE_CSS = """\
+    .gm-page-banner {
+      background: var(--crimson); color: #f5edd8;
+      font-family: 'Inconsolata', monospace; font-size: 11px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      text-align: center; padding: 8px 1rem;
+    }
+    .public-page-banner {
+      background: rgba(184,146,44,0.18); color: var(--gold);
+      border: 1px solid rgba(184,146,44,0.35);
+      font-family: 'Inconsolata', monospace; font-size: 11px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      text-align: center; padding: 6px 1rem;
+    }
+    .page-wrap.gm-secret-page { border-top: 4px solid var(--crimson); }
+    .page-wrap.public-page     { border-top: 4px solid rgba(184,146,44,0.5); }
+"""
+
 
 def _html_wrapper(
     title: str,
@@ -1350,7 +1429,12 @@ def _html_wrapper(
     extra_head: str = '',
     back_nav_html: str = '',
     jump_nav_html: str = '',
+    gm_banner_html: str = '',
+    page_extra_class: str = '',
+    gm_mode: bool = False,
 ) -> str:
+    guard = _GM_GUARD_SCRIPT if gm_mode else ''
+    page_css = (css + _GM_PAGE_CSS) if gm_mode else css
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1359,13 +1443,13 @@ def _html_wrapper(
   <title>{escape(title)} &mdash; Tarim-Shaiel</title>
   <link rel="icon" href="{FAVICON}">
   <!-- AUTO-GENERATED by utilities/world/generate_world_html.py — do not hand-edit -->
-  {extra_head}<style>{css}  </style>
+  {extra_head}<style>{page_css}  </style>
 </head>
 <body>
 
-{jump_nav_html}<div class="page-wrap">
+{guard}{jump_nav_html}<div class="page-wrap{page_extra_class}">
 
-{back_nav_html}{header_html}
+{gm_banner_html}{back_nav_html}{header_html}
 {banner_html}
 
   <div class="content">
