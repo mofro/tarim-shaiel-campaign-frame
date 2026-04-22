@@ -1,0 +1,3 @@
+[build]
+  command = "python utilities/build.py all --gm"
+  publish = "docs"

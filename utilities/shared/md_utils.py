@@ -5,6 +5,7 @@ Inline markdown conversion plus Obsidian-specific sanitizers.
 Used by all generators that process Obsidian .md source files.
 """
 
+import os
 import re
 from html import escape as html_escape
 
@@ -27,9 +28,17 @@ def inline_md(text: str) -> str:
     """Convert inline markdown to HTML (bold, italic, bold-italic, links).
 
     HTML-escapes the input first so caller does not need to pre-escape.
-    Handles (in order): bold-italic, bold, italic, markdown links [t](url).
+    Handles (in order): {gm:text} redaction, bold-italic, bold, italic, markdown links.
     """
     text = html_escape(text)
+    # Tier 1 GM inline redaction: {gm:text} → crimson span (GM) or black bar (public)
+    _gm = os.environ.get('TS_GM_MODE') == '1'
+    text = re.sub(
+        r'\{gm:([^}]+)\}',
+        lambda m: (f'<span class="gm-inline">{m.group(1)}</span>'
+                   if _gm else '<span class="gm-redacted">██████</span>'),
+        text,
+    )
     text = re.sub(r'\*{3}(.+?)\*{3}', r'<strong><em>\1</em></strong>', text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)

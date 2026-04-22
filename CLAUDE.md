@@ -61,6 +61,7 @@ last_updated: YYYY-MM-DD
 - `visibility: gm_secrets` = GM-only; `visibility: public` = player-facing; `visibility: internal` = operational/navigational infrastructure (never player-facing, never published; e.g. `lat.md/` files)
 - `status: canon` = locked/authoritative; do not change without explicit direction
 - Template filenames are prefixed `_TEMPLATE_`
+- GM markdown conventions (inline redaction `{gm:text}`, block callouts `> [!gm-only]`, file transclusion `![[gm_secrets/...]]`): see `GM_AUTHORING.md`
 
 ### File Persistence Rule
 Write to filesystem if: source-of-truth doc, referenced across conversations, Lore Keeper needs to track it, session artifact, decision log entry.

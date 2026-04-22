@@ -18,6 +18,7 @@ Each generator supplies:
   - generator_name : appears in the <!-- AUTO-GENERATED --> comment
 """
 
+import os
 from html import escape as html_escape
 
 FAVICON_SVG = (
@@ -305,6 +306,31 @@ CSS_BASE = """\
 
 
 # ---------------------------------------------------------------------------
+# Auth guard script (injected into GM-build pages via TS_GM_MODE env var)
+# ---------------------------------------------------------------------------
+
+_GM_GUARD_SCRIPT = """\
+<script src="https://cdn.jsdelivr.net/npm/netlify-identity-widget@1/build/netlify-identity-widget.js"></script>
+<script>
+(function () {
+  netlifyIdentity.init();
+  netlifyIdentity.on('init', function (user) {
+    if (!user) { window.location.replace('login.html'); }
+  });
+})();
+</script>
+"""
+
+_GM_BANNER_CSS = """\
+    .gm-mode-top-banner {
+      background: var(--crimson); color: #f5edd8;
+      font-family: 'Cinzel', serif; font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      text-align: center; padding: 6px 1rem;
+    }
+"""
+
+# ---------------------------------------------------------------------------
 # Page shell
 # ---------------------------------------------------------------------------
 
@@ -340,7 +366,10 @@ def build_page(
     banner_right_esc = html_escape(banner_right)
     cover_url_esc = html_escape(cover_image_url, quote=True)
 
-    css = CSS_BASE + css_extra
+    _gm = os.environ.get('TS_GM_MODE') == '1'
+    guard_html   = _GM_GUARD_SCRIPT if _gm else ''
+    gm_banner_html = '<div class="gm-mode-top-banner">GM VIEW — PRIVILEGED ARCHIVE</div>\n' if _gm else ''
+    css = CSS_BASE + (_GM_BANNER_CSS if _gm else '') + css_extra
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -354,7 +383,8 @@ def build_page(
 </head>
 <body>
 
-{jump_nav_html}<div class="page-wrap">
+{guard_html}{jump_nav_html}<div class="page-wrap">
+{gm_banner_html}
 
   <!-- BACK NAV -->
   <div class="back-nav">

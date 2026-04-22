@@ -10,6 +10,7 @@ Depends on: shared.md_utils.inline_md
 import re
 from pathlib import Path
 from html import escape
+from typing import Optional
 
 from shared.md_utils import inline_md
 
@@ -18,21 +19,42 @@ AUDIO_MIME  = {'.mp3': 'audio/mpeg', '.ogg': 'audio/ogg', '.wav': 'audio/wav',
                '.m4a': 'audio/mp4',  '.flac': 'audio/flac', '.aac': 'audio/aac'}
 
 
-def render_wiki_embed(p: str) -> str:
+def render_wiki_embed(
+    p: str,
+    vault: Optional[Path] = None,
+    gm_mode: bool = False,
+) -> str:
     """Render a single Obsidian wiki-embed paragraph (![[...]]) to HTML.
 
-    Returns an audio player div for audio files, or a figure block for images.
-    Returns an empty string if `p` is not a wiki-embed pattern.
+    Returns an audio player div for audio files, a figure for images, or a GM
+    prose block for ![[gm_secrets/...]] embeds.  Returns '' if not a wiki-embed.
+
+    Tier 3 logic:
+      - path contains 'gm_secrets/': public → '' (stripped); GM → rendered block
+      - .md or extensionless with gm_secrets/ prefix → prose transclusion
     """
     obs_m = re.match(r'^!\[\[([^\]|]+)(?:\|([^\]]*))?\]\]$', p)
     if not obs_m:
         return ''
 
     path_part  = obs_m.group(1).strip()
-    # Obsidian allows multiple pipes: ![[file|alias|width]] — take first segment only
     alias_part = (obs_m.group(2) or '').split('|')[0].strip()
     fname = Path(path_part).name
     ext   = Path(fname).suffix.lower()
+
+    # Tier 3: gm_secrets/ prose transclusion
+    if 'gm_secrets/' in path_part.replace('\\', '/'):
+        if not gm_mode or vault is None:
+            return ''
+        fname_md = fname if ext == '.md' else fname + '.md'
+        matches  = list(vault.rglob(fname_md))
+        if not matches:
+            return f'<div class="gm-block"><em>⚠ GM embed not found: {escape(fname_md)}</em></div>\n'
+        raw = matches[0].read_text(encoding='utf-8')
+        # Strip frontmatter inline (avoid circular import with shared.frontmatter)
+        raw_body = re.sub(r'^---\n.*?\n---\n', '', raw, flags=re.DOTALL).strip()
+        body_html, _ = render_body(raw_body, vault, vault / 'docs', gm_mode=gm_mode)
+        return f'<div class="gm-block">{body_html}</div>\n'
 
     if ext in AUDIO_EXTS:
         src   = escape(f'/audio/{fname}')
@@ -162,21 +184,28 @@ def _slug_anchor(text: str) -> str:
     return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
 
 
-def render_body(body: str, vault: 'Path', docs: 'Path') -> 'tuple[str, list[dict]]':
+def render_body(
+    body: str,
+    vault: 'Path',
+    docs: 'Path',
+    gm_mode: bool = False,
+) -> 'tuple[str, list[dict]]':
     """Render a full Markdown body to HTML with component support.
 
     Handles (in priority order):
-      ![[file|caption]]  → lore-figure or audio-player (via render_wiki_embed)
-      ![alt](path)       → lore-figure
-      **Name:** text     → feature-box (accumulated into feature-grid)
-      ## heading         → <h2 id=...>  (jump nav level 2)
-      ### heading        → <h3 id=...>  (jump nav level 3)
-      > text             → callout div
-      - item / * item    → <ul>
-      anything else      → <p>
+      ![[gm_secrets/f]] → GM prose block (Tier 3) or stripped (public)
+      ![[file|caption]] → lore-figure or audio-player (via render_wiki_embed)
+      ![alt](path)      → lore-figure
+      > [!gm-only]      → GM callout block (Tier 2) or stripped (public)
+      **Name:** text    → feature-box (accumulated into feature-grid)
+      ## heading        → <h2 id=...>  (jump nav level 2)
+      ### heading       → <h3 id=...>  (jump nav level 3)
+      > text            → callout div
+      - item / * item   → <ul>
+      anything else     → <p>
 
     Strips: frontmatter, Obsidian %% comments, wikilinks (preserving ![[]] embeds),
-    Obsidian callout markers.
+    Obsidian callout markers (except [!gm-only] which is handled by Tier 2).
 
     Returns: (html_string, jump_nav_items)
       jump_nav_items = [{'text': str, 'anchor': str, 'level': int}, ...]
@@ -218,8 +247,21 @@ def render_body(body: str, vault: 'Path', docs: 'Path') -> 'tuple[str, list[dict
         feature_buffer = []
 
     for para in paragraphs:
-        # Wiki-embed: ![[file|caption|width]] → figure or audio
-        wiki_html = render_wiki_embed(para)
+        # Tier 2: GM-only callout block > [!gm-only]
+        # The preprocessing regex (^>\s*\[!\w+\]\s*$) leaves [!gm-only] intact because
+        # \w+ does not match across hyphens, so the marker survives to here.
+        if re.match(r'^>\s*\[!gm-only\]', para):
+            _flush_features()
+            lines = para.splitlines()
+            inner_lines = [re.sub(r'^>\s?', '', ln) for ln in lines[1:]]
+            inner = '\n'.join(inner_lines).strip()
+            if gm_mode:
+                html_parts.append(f'<div class="gm-callout">{inline_md(inner)}</div>\n')
+            # public: strip entirely — GM content never reaches the DOM
+            continue
+
+        # Wiki-embed: ![[file|caption|width]] → figure, audio, or GM prose block
+        wiki_html = render_wiki_embed(para, vault=vault, gm_mode=gm_mode)
         if wiki_html:
             _flush_features()
             html_parts.append(wiki_html)
