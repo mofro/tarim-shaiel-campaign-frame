@@ -107,7 +107,8 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 
 | File | Purpose |
 |---|---|
-| `TODO.md` | Active work, blockers, project health — source of truth for session priorities |
+| `TODO.md` | Active checklist + session log — source of truth for task state |
+| `DASHBOARD.md` | Project health panel — critical path, player status, quick summary, blockers |
 | `narrative/sessions/00_session0/` | Session 0 awakening scenario files |
 | `templates/tarim-shaiel-campaign-frame-v2.md` | Primary player-facing campaign frame |
 | `utilities/dashboard/generate_dashboard.py` | Project health dashboard script |
@@ -127,7 +128,7 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 ## Working Conventions
 
 - **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.
-- **TODO.md is the session anchor.** Start each session by reading it. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work.
+- **TODO.md + DASHBOARD.md are the session anchors.** Start each session by reading both. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work. Update `DASHBOARD.md` when overall project state changes (critical path, player status, quick summary, blockers); update `TODO.md` when tasks change.
 - **Update `last_updated` frontmatter** when editing any persistent file.
 - **Append an entry to `.meta/DECISION_LOG.md`** for any significant design choice — include date, decision, rationale, and lock status. (Write only; do not read the archive.)
 - **Batch minor inconsistencies** rather than interrupting mid-flow; surface them in a summary.
