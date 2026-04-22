@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-04-11
+last_updated: 2026-04-22
 ---
 
 > _Derived from CLAUDE.md and `lat.md/` files — update in the same commit when those change. Inject into spawned agent prompts; this file is not automatically read by any session._
@@ -16,6 +16,10 @@ The following contain no canonical content. Do not open them under any circumsta
 - `.meta/` directory — human audit trail only; all canonical content is summarized in `lat.md/` files
 - `transcripts/` — 12 historical session logs; no design decisions
 - `world/Index.md`, `world/factions/Index.md`, `characters/Index.md` — Dataview queries, not Claude-readable
+
+## Session-Start Reads
+
+At session start, read in order: `TODO.md` (active checklist + session log), `DASHBOARD.md` (health panel — critical path, player status, quick summary, blockers). Then read relevant `lat.md/` files for the session's domain before beginning work.
 
 ## Navigation
 

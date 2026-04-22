@@ -2,7 +2,7 @@
 """
 Tarim-Shaiel Dashboard Generator
 =================================
-Parses TODO.md and generates docs/dashboard.html
+Parses TODO.md (checkbox counts) and DASHBOARD.md (health panel) to generate docs/dashboard.html.
 
 Usage:
     python generate_dashboard.py
@@ -34,9 +34,10 @@ SCRIPT_DIR  = Path(__file__).parent
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.config import ProjectConfig
 
-VAULT_ROOT  = ProjectConfig.vault_root
-TODO_PATH   = VAULT_ROOT / "TODO.md"
-OUTPUT_PATH = VAULT_ROOT / "docs" / "dashboard.html"
+VAULT_ROOT      = ProjectConfig.vault_root
+TODO_PATH       = VAULT_ROOT / "TODO.md"
+DASHBOARD_PATH  = VAULT_ROOT / "DASHBOARD.md"
+OUTPUT_PATH     = VAULT_ROOT / "docs" / "dashboard.html"
 
 # ---------------------------------------------------------------------------
 # Domain keyword detection
@@ -127,36 +128,113 @@ class DashboardData:
     player_status: dict = field(default_factory=dict)
 
 # ---------------------------------------------------------------------------
-# Progress Tracking override parser
-# Reads manually-curated percentages from the Progress Tracking section and
-# uses them to override checkbox-computed values for that domain.
+# DASHBOARD.md reader
+# Replaces six regex-based extractors. Reads YAML frontmatter + Quick Summary
+# body from DASHBOARD.md. Falls back to sensible defaults if file is missing.
 # ---------------------------------------------------------------------------
-PROGRESS_RE = re.compile(r"\*\*([^*]+):\*\*\s*(\d+)%", re.IGNORECASE)
-LABEL_TO_DOMAIN = {
-    "story": "narrative", "narrative": "narrative",
-    "world": "world", "world-building": "world",
-    "game mechanics": "mechanics", "mechanics": "mechanics",
-    "infrastructure": "infra", "infra": "infra",
-    "cosmolog": "cosmology",
-}
+_SUMMARY_STATUS_MAP = [
+    ("✅",  "done"),      # ✅
+    ("\U0001f504", "active"), # 🔄
+    ("⚠",  "blocked"),   # ⚠
+    ("\U0001f195", "info"),   # 🆕
+    ("\U0001f5c3", "info"),   # 🗃️
+    ("\U0001f5d2", "info"),   # 🗒️
+    ("- [x]",   "done"),
+    ("- [ ]",   "pending"),
+]
 
-def extract_manual_overrides(todo_text: str) -> dict[str, int]:
-    overrides: dict[str, int] = {}
-    in_progress = False
-    for line in todo_text.splitlines():
-        if re.search(r"##.*PROGRESS TRACKING", line, re.IGNORECASE):
-            in_progress = True
-        elif in_progress and line.startswith("## "):
+def parse_dashboard_md() -> dict:
+    """Parse DASHBOARD.md and return structured health-panel data.
+
+    Keys returned: last_updated, critical_path, players, domain_overrides,
+    blockers, quick_summary.
+    """
+    if not DASHBOARD_PATH.exists():
+        print(f"WARNING: {DASHBOARD_PATH} not found — health panel will use defaults. "
+              "Create DASHBOARD.md to resolve this.")
+        return {
+            "last_updated":     date.today().strftime("%B %d, %Y"),
+            "critical_path":    ["Complete Session 0 scenarios", "Resolve Campaign Frame", "Playtest"],
+            "players":          {"summary": "", "archetypes": []},
+            "domain_overrides": {},
+            "blockers":         ["No active blockers detected"],
+            "quick_summary":    [],
+        }
+
+    from shared.frontmatter import parse_frontmatter
+    text = DASHBOARD_PATH.read_text(encoding="utf-8")
+    fm, body = parse_frontmatter(text)
+
+    # last_updated
+    raw_date = fm.get("last_updated", "")
+    try:
+        parsed_date = datetime.strptime(str(raw_date), "%Y-%m-%d")
+        last_updated = parsed_date.strftime("%B %d, %Y")
+    except (ValueError, TypeError):
+        last_updated = date.today().strftime("%B %d, %Y")
+
+    # critical_path
+    critical_path = fm.get("critical_path") or []
+    if isinstance(critical_path, str):
+        critical_path = [s.strip() for s in re.split(r"→|->", critical_path) if s.strip()]
+
+    # players
+    players_fm = fm.get("players") or {}
+    committed  = players_fm.get("committed", 0)
+    total      = players_fm.get("total", 0)
+    archetypes = [
+        {"name": a["name"], "status": a.get("status", "pending")}
+        for a in (players_fm.get("archetypes") or [])
+        if isinstance(a, dict)
+    ]
+    player_status = {
+        "summary":    f"{committed}/{total} committed" if (committed or total) else "",
+        "archetypes": archetypes,
+    }
+
+    # domain_overrides
+    overrides_fm    = fm.get("domain_overrides") or {}
+    domain_overrides = {k: int(v) for k, v in overrides_fm.items() if v is not None}
+
+    # blockers
+    blockers_raw = fm.get("blockers") or []
+    blockers     = [str(b) for b in blockers_raw if b] if blockers_raw else ["No active blockers detected"]
+
+    # quick_summary — scan body for ## Quick Summary bullets
+    quick_summary: list[dict] = []
+    in_summary = False
+    for line in body.splitlines():
+        if re.match(r"^## Quick Summary", line, re.IGNORECASE):
+            in_summary = True
+            continue
+        if in_summary and line.startswith("## "):
             break
-        if in_progress:
-            for m in PROGRESS_RE.finditer(line):
-                label = m.group(1).strip().lower()
-                pct   = int(m.group(2))
-                for key, domain in LABEL_TO_DOMAIN.items():
-                    if key in label:
-                        overrides[domain] = pct
-                        break
-    return overrides
+        if in_summary:
+            stripped = line.strip()
+            if not stripped:
+                continue
+            if not stripped.startswith("-"):
+                break
+            item_text = stripped.lstrip("- ").strip()
+            item_text = re.sub(r"^\[[xX ]\]\s*", "", item_text)
+            item_text = re.sub(r"\*\*([^*]+)\*\*", r"\1", item_text)
+            item_text = re.sub(r"`[^`]+`", "", item_text).strip()
+            status = "info"
+            for marker, s in _SUMMARY_STATUS_MAP:
+                if marker in stripped:
+                    status = s
+                    break
+            display = item_text[:240] + ("…" if len(item_text) > 240 else "")
+            quick_summary.append({"text": display, "status": status})
+
+    return {
+        "last_updated":     last_updated,
+        "critical_path":    critical_path,
+        "players":          player_status,
+        "domain_overrides": domain_overrides,
+        "blockers":         blockers,
+        "quick_summary":    quick_summary,
+    }
 
 # ---------------------------------------------------------------------------
 # Checkbox counter per domain
@@ -168,9 +246,13 @@ SECTION_DOMAIN_HEADERS: dict[str, str] = {
     "awakening": "narrative", "lore": "narrative", "liberation": "narrative",
     "charm": "mechanics", "tool": "mechanics", "campaign frame": "mechanics",
     "mechanics": "mechanics", "archetype": "mechanics",
+    "domains":    "mechanics", "abilities":  "mechanics", "classes":    "mechanics",
+    "subclasses": "mechanics", "armor":      "mechanics",
     "world": "world", "geographic": "world", "ancestry": "world",
-    "location": "world", "orc": "world", "myth": "world", "silk road": "world",
-    "npc": "world", "culture": "world",
+    "location": "world", "locations": "world", "orc": "world", "myth": "world",
+    "silk road": "world", "npc": "world", "culture": "world",
+    "faction": "world", "factions": "world", "events": "world",
+    "regions": "world",
     "kanka": "infra", "obsidian": "infra", "infrastructure": "infra",
     "geojson": "infra", "documentation": "infra", "sync": "infra",
 }
@@ -230,20 +312,6 @@ def compute_readiness(domain_pcts: dict[str, int]) -> int:
     return round(sum(domain_pcts.get(d, 0) * w for d, w in DOMAIN_WEIGHTS.items()))
 
 # ---------------------------------------------------------------------------
-# Blocker extraction
-# ---------------------------------------------------------------------------
-BLOCKER_PATTERNS = [
-    (r"Campaign Frame.*?Archetypes|Classes vs",     "\u26d4 Campaign Frame: Classes vs. Archetypes decision required"),
-]
-
-def extract_blockers(todo_text: str) -> list[str]:
-    found = []
-    for pattern, label in BLOCKER_PATTERNS:
-        if re.search(pattern, todo_text, re.IGNORECASE):
-            found.append(label)
-    return found or ["No active blockers detected"]
-
-# ---------------------------------------------------------------------------
 # Recent sessions — reads from ## SESSION LOG, ### Session YYYY-MM-DD entries
 # ---------------------------------------------------------------------------
 SESSION_LOG_RE = re.compile(
@@ -277,121 +345,9 @@ def extract_recent_sessions(todo_text: str) -> list[dict]:
 # ---------------------------------------------------------------------------
 # Metadata
 # ---------------------------------------------------------------------------
-def extract_last_updated(todo_text: str) -> str:
-    m = re.search(r"last_updated:\s*(\d{4}-\d{2}-\d{2})", todo_text)
-    if m:
-        # Parse the date and format nicely
-        from datetime import datetime as dt
-        date_str = m.group(1)
-        try:
-            parsed = dt.strptime(date_str, "%Y-%m-%d")
-            return parsed.strftime("%B %d, %Y")
-        except ValueError:
-            return date_str  # fallback
-    m = re.search(r"\*\*Last Updated:\*\*\s*(\d{4}-\d{2}-\d{2})", todo_text)
-    if m:
-        date_str = m.group(1)
-        try:
-            parsed = dt.strptime(date_str, "%Y-%m-%d")
-            return parsed.strftime("%B %d, %Y")
-        except ValueError:
-            return date_str
-    return date.today().strftime("%B %d, %Y")
-
 def extract_generation_time() -> str:
     return datetime.now().strftime("%B %d, %Y at %I:%M %p")
 
-def extract_critical_path(todo_text: str) -> list[str]:
-    m = re.search(r"\*\*Critical Path:\*\*\s*(.+?)(?:\n|$)", todo_text)
-    if m:
-        return [s.strip() for s in re.split(r"\u2192|->", m.group(1)) if s.strip()]
-    return [
-        "Cosmological architecture decisions",
-        "Complete Session 0 scenarios",
-        "Resolve Campaign Frame",
-        "Build Charm library",
-        "Playtest",
-    ]
-
-# ---------------------------------------------------------------------------
-# Quick Summary extractor — parses **Quick Summary:** bullets from PROJECT HEALTH
-# ---------------------------------------------------------------------------
-QUICK_SUMMARY_STATUS_MAP = [
-    ("\u2705",  "done"),     # ✅
-    ("\U0001f504", "active"),  # 🔄
-    ("\u26a0",  "blocked"),  # ⚠ (also ⚠️)
-    ("\U0001f195", "info"),  # 🆕
-    ("\U0001f5c3", "info"),  # 🗃️
-    ("- [x]",   "done"),
-    ("- [ ]",   "pending"),
-]
-
-def extract_quick_summary(todo_text: str) -> list[dict]:
-    items: list[dict] = []
-    in_health = False
-    in_summary = False
-    for line in todo_text.splitlines():
-        if re.match(r"^## PROJECT HEALTH", line, re.IGNORECASE):
-            in_health = True
-            continue
-        if in_health and line.startswith("## "):
-            break
-        if in_health and "**Quick Summary:**" in line:
-            in_summary = True
-            continue
-        if in_summary:
-            stripped = line.strip()
-            if not stripped:
-                continue
-            # Stop when we hit a non-list line that isn't blank (e.g. **Players:**)
-            if not stripped.startswith("-"):
-                break
-            text = stripped.lstrip("- ").strip()
-            # Strip checkbox markers
-            text = re.sub(r"^\[[xX ]\]\s*", "", text)
-            # Clean markdown bold
-            text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
-            # Strip backtick code spans and trailing link references
-            text = re.sub(r"`[^`]+`", "", text).strip()
-            status = "info"
-            for marker, s in QUICK_SUMMARY_STATUS_MAP:
-                if marker in stripped:
-                    status = s
-                    break
-            # Truncate long lines for display
-            display = text[:240] + ("…" if len(text) > 240 else "")
-            items.append({"text": display, "status": status})
-    return items
-
-# ---------------------------------------------------------------------------
-# Player Status extractor — parses **Players:** line from PROJECT HEALTH
-# ---------------------------------------------------------------------------
-def extract_player_status(todo_text: str) -> dict:
-    m = re.search(r"\*\*Players:\*\*\s*(.+?)(?:\n|$)", todo_text)
-    if not m:
-        return {"summary": "", "archetypes": []}
-    raw = m.group(1).strip()
-
-    # Count: "1/6 committed"
-    count_m = re.search(r"(\d+)/(\d+)\s+\w+", raw)
-    summary = f"{count_m.group(1)}/{count_m.group(2)} committed" if count_m else ""
-
-    # Archetype list — after the em-dash: "Warrior ✅ | Breaker / Bridge / Seeker / Sacrificer / Visionary ⏳"
-    archetypes: list[dict] = []
-    after_dash = re.search(r"[—\-]\s*(.+)$", raw)
-    if after_dash:
-        segment = after_dash.group(1)
-        for part in re.split(r"\s*/\s*|\s*\|\s*", segment):
-            part = part.strip()
-            if not part:
-                continue
-            if "\u2705" in part:   # ✅
-                archetypes.append({"name": part.replace("\u2705", "").strip(), "status": "committed"})
-            elif "\u23f3" in part: # ⏳
-                archetypes.append({"name": part.replace("\u23f3", "").strip(), "status": "pending"})
-            else:
-                archetypes.append({"name": part.strip(), "status": "pending"})
-    return {"summary": summary, "archetypes": archetypes}
 
 # ---------------------------------------------------------------------------
 # TODO section parser
@@ -830,7 +786,7 @@ def render_html(data: DashboardData) -> str:
         <div class="header-subtitle">State of the world as of {data.generation_time}</div>
       </div>
       <div class="header-meta">
-        <div class="last-updated">TODO.md last updated: {data.last_updated}</div>
+        <div class="last-updated">Dashboard last updated: {data.last_updated}</div>
         <div class="last-updated" style="margin-top:4px">Dun-Kharan caravan departs at dawn</div>
       </div>
     </div>
@@ -966,20 +922,21 @@ def main():
     print(f"Reading {todo_path.name} ...")
     txt = todo_path.read_text(encoding="utf-8")
 
-    overrides   = extract_manual_overrides(txt)
+    dashboard   = parse_dashboard_md()
+    overrides   = dashboard["domain_overrides"]
     domain_pcts = compute_domain_pcts(txt, overrides)
     readiness   = compute_readiness(domain_pcts)
     data = DashboardData(
-        last_updated    = extract_last_updated(txt),
+        last_updated    = dashboard["last_updated"],
         generation_time = extract_generation_time(),
         readiness       = readiness,
         domain_pcts     = domain_pcts,
-        critical_path   = extract_critical_path(txt),
-        blockers        = extract_blockers(txt),
+        critical_path   = dashboard["critical_path"],
+        blockers        = dashboard["blockers"],
         recent_sessions = extract_recent_sessions(txt),
         sections        = parse_todo_sections(txt),
-        quick_summary   = extract_quick_summary(txt),
-        player_status   = extract_player_status(txt),
+        quick_summary   = dashboard["quick_summary"],
+        player_status   = dashboard["players"],
     )
 
     if args.json:
@@ -994,7 +951,7 @@ def main():
     print(f"\nDashboard -> {out_path}")
     print(f"  Readiness : {readiness}%")
     for d, pct in domain_pcts.items():
-        src = " (override)" if d in overrides else ""
+        src = " (override)" if d in dashboard["domain_overrides"] else ""
         print(f"  {d:12s}: {pct}%{src}")
     print(f"  Sections  : {len(data.sections)}")
     print(f"  Blockers  : {len(data.blockers)}")

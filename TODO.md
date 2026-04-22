@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-04-21
+last_updated: 2026-04-22
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -15,26 +15,7 @@ banner-y: 37
 
 ## PROJECT HEALTH
 
-**Last Updated:** 2026-04-21
-**Critical Path:** Resolve cosmological architecture → Complete Session 0 scenarios → Resolve Campaign Frame → Playtest
-
-**Quick Summary:**
-- [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, **Orc cultural framework**, **Silk Road weapons**, **Cosmological architecture (all 8 decisions locked 2026-03-17)**, **World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10)**, **Preliminary world diagrams (2026-03-13)**, **HTML publishing pipeline + Netlify deployment (2026-03-15)**, **Visibility gating + Obsidian Shell Commands integration (2026-03-17)**
-- 🔄 **Active work:** Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
-- ~~⚠️ **Blockers:** liberation_aftermath.md rewrite (Warren disturbance framing — see DECISION_LOG 2026-03-08)~~ ✅ **Resolved 2026-04-05** — v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)
-- ✅ **Completed (2026-04-11):** `lat.md/` AI navigation layer — 6 dense, path-forward orientation files (`cosmology`, `session0`, `characters`, `world`, `mechanics`, `decisions`) + CLAUDE.md Quick Navigation table. [#121](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/121)
-- ✅ **Completed (2026-04-11):** CLAUDE.md audit + subagent context block — created `lat.md/subagent-context.md` (portable 83-line constraint block for spawned agents); CLAUDE.md slimmed 258→174 lines; stale Wizard constraint corrected; `.meta/` consolidated as archive directory; subagent-context maintenance rule added to Working Conventions. [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128)
-- 🗒️ **Backlog added (2026-04-07):** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization, LK sync docs, click-through to event pages. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
-- 🆕 **Filed (2026-04-14):** Faction file stubs — 16 P1–P3 faction files to create from `_category.md` registry; 3 deferred pending #42, #43, Decision #11. [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144)
-- 🗒️ **Backlog added (2026-04-13):** HTML generation pipeline refactor — consolidate shared utilities, eliminate `_Generator` boilerplate + CSS token drift across 6 scripts (~5,300 lines). 5 stages, independently deployable. [#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138)
-- 🗒️ **Backlog added (2026-04-21):** DASHBOARD.md schema + generator refactor — separate health panel (Quick Summary, Player Status, Critical Path, overrides) from TODO.md into a 40-line structured file; six regex extractors replaced with YAML readers; `SECTION_DOMAIN_HEADERS` expanded with Daggerheart + world keywords; TODO.md PROJECT HEALTH section removed. [#166](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/166)
-- 🗒️ **Backlog added (2026-03-26):** Dashboard completion % from GitHub Issues — explore tying domain/section completion percentages to GitHub issue open/closed state (in addition to TODO.md checkbox counts). Requires GitHub API call during dashboard generation. Low priority; investigate after hook infrastructure ([#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)) is live.
-- 🗒️ **Backlog added (2026-04-21):** `docs/` output hierarchy restructure — move per-document HTML into `/world`-matching subdirectories (`docs/mythology/`, `docs/timelines/`, etc.); fixes ~500-file flat directory; asset paths require root-relative switch. [#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168)
-- 🗒️ **Backlog added (2026-03-21):** Template frontmatter reconciliation — `templates/world-building/` files use non-canonical fields (`type: concept`, `classification:` instead of `visibility:`, etc.); needs pass to align with CLAUDE.md spec
-- 🆕 **Infrastructure complete (2026-03-15–17):** LegendKeeper dual-path pipeline, HTML generator (timeline + myth), Calendar Era labels (HJ/HB), batch runner + auto-generated index, Netlify deploy, GitHub Actions, visibility gating (fails-closed `--public`), Obsidian Shell Commands setup, **LK ↔ Markdown round-trip complete (`.lk` import/export + reverse converter, 2026-03-17)**
-- 🗃️ **Charm system deferred (2026-03-13):** Archived to `archive/charms/`; Daggerheart base used for now; Charm reference audit + remaining cleanup moved to `BACKLOG.md`
-
-**Players:** 1/6 committed — Warrior ✅ | Breaker / Bridge / Seeker / Sacrificer / Visionary / Trickster / Crafter / Sentinel / Healer ⏳
+_Project health tracked in [DASHBOARD.md](DASHBOARD.md)_
 
 ---
 
