@@ -96,8 +96,8 @@ CSS_BASE = """\
       text-transform: uppercase;
       position: -webkit-sticky;
       position: sticky;
-      top: 100px;
-      max-height: calc(100vh - 100px);
+      top: 50px;
+      max-height: 36rem;
       overflow-y: auto;
       background-color: rgb(26, 18, 8);
       min-width: -webkit-fit-content;
