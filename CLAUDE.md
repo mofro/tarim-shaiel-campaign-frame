@@ -128,7 +128,9 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 ## Working Conventions
 
 - **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.
-- **TODO.md + DASHBOARD.md are the session anchors.** Start each session by reading both. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work. Update `DASHBOARD.md` when overall project state changes (critical path, player status, quick summary, blockers); update `TODO.md` when tasks change.
+- **TODO.md + DASHBOARD.md are the session anchors.** Start each session by reading both. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work.
+  - Update **`DASHBOARD.md`** when overall project state changes: player commits/drops, critical path shifts, blockers appear or clear, Quick Summary bullets need adding or resolving. Edit the YAML frontmatter fields (`players:`, `critical_path:`, `blockers:`, `domain_overrides:`) or the `## Quick Summary` bullet list directly.
+  - Update **`TODO.md`** when tasks change: check off items, add new work items to ACTIVE/NEAR-TERM/BACKLOG sections, append session log entries. `TODO.md` is a pure checklist + session log — the PROJECT HEALTH block no longer exists there.
 - **Update `last_updated` frontmatter** when editing any persistent file.
 - **Append an entry to `.meta/DECISION_LOG.md`** for any significant design choice — include date, decision, rationale, and lock status. (Write only; do not read the archive.)
 - **Batch minor inconsistencies** rather than interrupting mid-flow; surface them in a summary.
