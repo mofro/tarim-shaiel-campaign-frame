@@ -1,3 +1,3 @@
 [build]
-  command   = "python utilities/dashboard/generate_dashboard.py && python utilities/campaign_frame/generate_campaign_frame.py && python utilities/ancestries/generate_ancestry_html.py && python utilities/world/generate_all_world_html.py --public"
+  command   = "if [ \"$TS_GM_MODE\" = '1' ]; then python utilities/build.py all --gm; else python utilities/build.py all --public; fi"
   publish   = "docs"
