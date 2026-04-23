@@ -1395,7 +1395,7 @@ _GM_GUARD_SCRIPT = """\
 (function () {
   netlifyIdentity.init();
   netlifyIdentity.on('init', function (user) {
-    if (!user) { window.location.replace('login.html'); }
+    if (!user) { window.location.replace('login.html' + window.location.hash); }
   });
 })();
 </script>
