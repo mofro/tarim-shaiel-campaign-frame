@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GM Access — Tarim-Shaiel</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='10' fill='%231a1208'/><polygon points='50,6 56.9,33.4 81.1,18.9 66.6,43.1 94,50 66.6,56.9 81.1,81.1 56.9,66.6 50,94 43.1,66.6 18.9,81.1 33.4,56.9 6,50 33.4,43.1 18.9,18.9 43.1,33.4' fill='%23b8922c'/></svg>">
+  <script src="https://cdn.jsdelivr.net/npm/netlify-identity-widget@1/build/netlify-identity-widget.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inconsolata:wght@400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1208;
+      --parchment: #f5edd8;
+      --gold:      #b8922c;
+      --gold-light:#d4a843;
+      --crimson:   #7a1f1f;
+      --steel:     #3c4a5a;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--ink);
+      background-image:
+        radial-gradient(ellipse at 50% 30%, rgba(122,31,31,0.18) 0%, transparent 65%);
+      font-family: 'EB Garamond', Georgia, serif;
+      color: var(--parchment);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-wrap {
+      width: 420px;
+      max-width: 94vw;
+      padding: 3rem 2.8rem 2.6rem;
+      background: rgba(245,237,216,0.035);
+      border: 1px solid rgba(184,146,44,0.22);
+      border-radius: 4px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 80px rgba(0,0,0,0.6);
+    }
+
+    /* Eyes-only stamp */
+    .stamp {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.4rem;
+      font-family: 'Inconsolata', monospace;
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(122,31,31,0.35);
+      transform: rotate(12deg);
+      user-select: none;
+    }
+
+    /* Wax seal SVG */
+    .seal {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.8rem;
+      display: block;
+      filter: drop-shadow(0 2px 12px rgba(122,31,31,0.45));
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #f5e6c0;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+      margin-bottom: 0.3rem;
+    }
+
+    .subtitle {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(184,146,44,0.6);
+      margin-bottom: 2.2rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(184,146,44,0.3), transparent);
+      margin: 0 auto 2rem;
+      width: 80%;
+    }
+
+    .auth-btn {
+      display: inline-block;
+      padding: 0.75rem 2.4rem;
+      background: transparent;
+      border: 1px solid rgba(184,146,44,0.5);
+      border-radius: 2px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .auth-btn:hover {
+      background: rgba(184,146,44,0.1);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .notice {
+      margin-top: 1.8rem;
+      font-size: 0.82rem;
+      color: rgba(245,237,216,0.3);
+      line-height: 1.6;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="stamp">Eyes Only</div>
+
+  <!-- Wax seal: reuse the favicon star-polygon design, crimson fill -->
+  <svg class="seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" rx="50" fill="#3a0e0e"/>
+    <polygon
+      points="50,6 56.9,33.4 81.1,18.9 66.6,43.1 94,50 66.6,56.9 81.1,81.1 56.9,66.6 50,94 43.1,66.6 18.9,81.1 33.4,56.9 6,50 33.4,43.1 18.9,18.9 43.1,33.4"
+      fill="#7a1f1f"/>
+  </svg>
+
+  <h1>GM Access</h1>
+  <div class="subtitle">Tarim-Shaiel &middot; Restricted Archive</div>
+  <div class="divider"></div>
+
+  <button class="auth-btn" id="login-btn">Authenticate</button>
+
+  <p class="notice">
+    Authorised personnel only.<br>
+    Player-facing content is available at the public site.
+  </p>
+</div>
+
+<script>
+(function () {
+  netlifyIdentity.init();
+
+  // Already authenticated → go straight to index
+  netlifyIdentity.on('init', function (user) {
+    if (user) {
+      window.location.replace('index.html');
+    }
+  });
+
+  // Successful login → close modal + redirect
+  netlifyIdentity.on('login', function () {
+    netlifyIdentity.close();
+    window.location.replace('index.html');
+  });
+
+  document.getElementById('login-btn').addEventListener('click', function () {
+    netlifyIdentity.open('login');
+  });
+})();
+</script>
+</body>
+</html>

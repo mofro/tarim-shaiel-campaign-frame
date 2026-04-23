@@ -41,6 +41,7 @@ references/
 # Workflow and build artifacts
 docs/*.html
 docs/**/*.html
+!docs/login.html
 
 # External tool integration (not source content)
 moulinette/
