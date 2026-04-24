@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-04-22
+last_updated: 2026-04-24
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -470,9 +470,9 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 - [x] `utilities/world/generate_all_world_html.py` — `--gm` flag, gating logic, badge CSS, full call chain
 - [x] `utilities/build.py` — `--gm` flag + set `TS_GM_MODE=1`
 - [x] Create `GM_AUTHORING.md` (repo root) + one-line pointer in `CLAUDE.md`
-- [ ] **Manual Netlify setup (user):** create second site, enable Identity, invite-only, invite your email
+- [x] **Manual Netlify setup (user):** create second site, enable Identity, invite-only, invite your email — `tarim-shaiel-gm` live ✅
 
-**Completed:** 2026-04-22
+**Completed:** 2026-04-22 (Netlify manual setup confirmed 2026-04-24)
 
 ---
 
