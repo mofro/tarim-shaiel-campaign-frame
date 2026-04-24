@@ -9,7 +9,7 @@ last_updated: 2026-04-24
 
 # Tarim-Shaiel
 
-**A Daggerheart campaign set in a post-imperial Silk Road world (~1450s CE).** Heroes are 1,000-year-old legendary champions who earned paradise, failed to recognize their unfinished work, and have been expelled to discover what they left undone. The Wizard is the primary antagonist; the true endgame threat is a set of liminal consciousnesses — the Held Breath — whose awakening the heroes must prevent.
+**A Daggerheart campaign set in a post-imperial world** where heroes awaken to confront the remnants of a fallen empire, navigate emerging power dynamics, and discover their role in shaping the future.
 
 ---
 
