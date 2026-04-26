@@ -1,0 +1,46 @@
+/* --- GM Banner CSS (from page_shell.py _GM_BANNER_CSS) --- */
+.gm-mode-top-banner {
+  background: var(--crimson); color: #f5edd8;
+  font-family: 'Cinzel', serif; font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  text-align: center; padding: 6px 1rem;
+}
+
+/* --- GM Page CSS (from generate_world_html.py _GM_PAGE_CSS) --- */
+.gm-page-banner {
+  background: var(--crimson); color: #f5edd8;
+  font-family: 'Inconsolata', monospace; font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  text-align: center; padding: 8px 1rem;
+}
+.public-page-banner {
+  background: rgba(184,146,44,0.18); color: var(--gold);
+  border: 1px solid rgba(184,146,44,0.35);
+  font-family: 'Inconsolata', monospace; font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  text-align: center; padding: 6px 1rem;
+}
+.page-wrap.gm-secret-page { border-top: 4px solid var(--crimson); }
+.page-wrap.public-page     { border-top: 4px solid rgba(184,146,44,0.5); }
+
+/* --- GM Index CSS (from generate_all_world_html.py _GM_INDEX_CSS) --- */
+.gm-mode-banner {
+  background: var(--crimson); color: #f5edd8;
+  font-family: 'Inconsolata', monospace; font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  text-align: center; padding: 6px 1rem;
+}
+.doc-card.gm-secrets {
+  background: rgba(122,31,31,0.06) !important;
+  border-left: 4px solid var(--crimson) !important;
+}
+.doc-card.gm-secrets:hover { background: rgba(122,31,31,0.10) !important; }
+.doc-card.public-doc { border-left: 4px solid rgba(184,146,44,0.5); }
+.pub-badge {
+  background: rgba(184,146,44,0.15); color: var(--gold);
+  border: 1px solid rgba(184,146,44,0.4);
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 100px; margin-left: 6px;
+  font-family: 'Inconsolata', monospace; vertical-align: middle;
+}
+.inline-doc-item.public-doc { border-color: rgba(184,146,44,0.3); }

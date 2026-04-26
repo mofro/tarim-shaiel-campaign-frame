@@ -14,9 +14,9 @@
       border: 1px solid var(--rule); border-radius: 3px; padding: 24px 28px;
       margin-bottom: 16px; text-decoration: none; display: block;
       transition: border-color 0.2s, background 0.2s;
-      background: var(--parchment); position: relative;
+      background: var(--paper); position: relative;
     }
-    .doc-card:hover { border-color: var(--gold); background: var(--parchment2); }
+    .doc-card:hover { border-color: var(--gold); background: var(--cream); }
     .doc-card-arrow {
       position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
       color: var(--gold); font-size: 20px; opacity: 0.5;
@@ -55,7 +55,7 @@
       background: rgba(184,146,44,0.06); position: relative;
       transition: border-color 0.2s, background 0.2s;
     }
-    .subcategory-card:hover { border-color: var(--gold-light); background: rgba(184,146,44,0.12); }
+    .subcategory-card:hover { border-color: var(--gold-lt); background: rgba(184,146,44,0.12); }
     .subcategory-title {
       font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700;
       color: var(--ink); margin-bottom: 4px;
