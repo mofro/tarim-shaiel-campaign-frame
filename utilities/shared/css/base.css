@@ -1,0 +1,252 @@
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body { display: flex; align-items: flex-start; justify-content: center; }
+
+    .page-wrap {
+      max-width: 860px;
+      margin: 0;
+      background: var(--paper);
+      box-shadow: 0 0 80px rgba(0,0,0,0.75);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+    }
+
+    .cover {
+      position: relative;
+      max-height: 32rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    /* --- Jump navigation --- */
+    .jump-nav {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem 0.5rem;
+      border-bottom: 1px solid var(--rule);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 50px;
+      max-height: 36rem;
+      overflow-y: auto;
+      background-color: rgb(26, 18, 8);
+      min-width: -webkit-fit-content;
+      min-width: fit-content;
+      max-inline-size: 22%;
+    }
+    .jump-nav ul { list-style-type: bengali; padding-left: 1.2rem; }
+    .jump-nav a { color: var(--gold); text-decoration: none; transition: color 0.15s; }
+    .jump-nav a:hover { color: var(--gold-lt); }
+    .jump-nav .nav-divider { list-style: none; border-top: 1px solid rgba(184,146,44,0.3); margin: 0.5rem 0; padding: 0; }
+
+    @media (max-width: 640px) {
+      body { flex-direction: column; justify-content: flex-start; }
+      .jump-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        max-inline-size: 100%;
+        width: 100%;
+        border-bottom: 1px solid var(--rule);
+        padding: 0.5rem 1rem;
+        overflow-y: visible;
+        max-height: none;
+      }
+      .jump-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem 1rem;
+        padding-left: 0;
+        list-style: none;
+      }
+    }
+
+    .cover-image {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center 4%;
+      z-index: 0;
+    }
+
+    .cover-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(26,18,8,0.08) 0%, rgba(26,18,8,0.55) 55%, rgba(26,18,8,0.92) 100%);
+      z-index: 1;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem 3rem 3rem;
+      color: var(--paper);
+    }
+
+    .cover-title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+      color: #f5e6c0;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+      margin-bottom: 0.15rem;
+    }
+
+    .cover-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+    }
+
+    .banner {
+      background: var(--steel);
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 3rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .banner-rule {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 3rem;
+    }
+
+    .back-nav {
+      background: #111008;
+      padding: 0.5rem 3rem;
+      border-bottom: 1px solid rgba(184,146,44,0.2);
+    }
+
+    .back-nav a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(184,146,44,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-nav a:hover { color: var(--gold); }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 2rem 0;
+    }
+
+    .credits {
+      background: var(--steel);
+      color: rgba(245,237,216,0.55);
+      padding: 2rem 3rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 19px; }
+      .cover-title { font-size: 2.2rem; }
+      .cover-content { padding: 1.8rem 1.4rem; }
+      .content { padding: 1rem 1.4rem; }
+      .banner { padding: 0.5rem 1.4rem; }
+      .banner-rule { margin: 0 1.4rem; }
+      .credits { padding: 1.6rem 1.4rem; }
+    }
+
+    @media print {
+      /* ── Page margins ── */
+      @page { margin: 10mm; }
+
+      /* ── Strip all backgrounds and decoration ── */
+      *, *::before, *::after {
+        background: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      /* ── Show only .page-wrap ── */
+      body > *:not(.page-wrap) { display: none !important; }
+
+      .page-wrap {
+        max-width: none;
+        overflow: visible;
+      }
+
+      /* ── Hide navigation ── */
+      .back-nav, .jump-nav { display: none !important; }
+
+      /* ── Collapse cover — remove the reserved image height ── */
+      .cover {
+        max-height: none !important;
+        min-height: 0 !important;
+      }
+      .cover-image,
+      .cover-gradient {
+        display: none !important;
+      }
+      .cover-content {
+        padding: 1.5rem 2rem 1rem !important;
+      }
+
+      /* ── Darken light-on-dark text; preserve hue ── */
+      .cover-title    { color: #3a2a10 !important; }
+      .cover-subtitle { color: var(--gold) !important; }
+      .cover-content  { color: var(--ink) !important; }
+      .banner         { color: var(--steel) !important; border-top: 1px solid #999; border-bottom: 1px solid #999; }
+      .credits        { color: var(--ink) !important; opacity: 1 !important; border-top: 1px solid #ccc; }
+
+      /* ── Smart page breaks — never orphan a heading or header block ── */
+      h1, h2, h3, h4, h5, h6,
+      .ancestry-header {
+        page-break-after: avoid;
+        break-after: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *,
+      .ancestry-lore {
+        page-break-before: avoid;
+        break-before: avoid;
+      }
+
+      /* Hard wrapper: keeps header + lore together as one unbreakable unit */
+      .ancestry-entry {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      p, li, blockquote {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }

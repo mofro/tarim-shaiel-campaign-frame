@@ -1,0 +1,16 @@
+:root {
+  --ink:      #0e0b08;
+  --paper:    #f2ead8;
+  --cream:    #e8dcc8;
+  --gold:     #b8892a;
+  --gold-lt:  #d4a94a;
+  --crimson:  #7a1f1f;
+  --steel:    #3c4a5a;
+  --muted:    #9a8e7a;
+  --rule:     rgba(184,137,42,0.4);
+  --shadow:   rgba(14,11,8,0.15);
+  --dark-bg:  #0e0b08;
+  --dark-mid: #1c1710;
+  --dark-sur: #2a2218;
+  --dark-brd: #3a3020;
+}
