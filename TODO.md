@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-04-24
+last_updated: 2026-04-30
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -22,6 +22,13 @@ _Project health tracked in [DASHBOARD.md](DASHBOARD.md)_
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-04-30
+- HTML publishing pipeline: CSS extraction + Jinja2 template layer — [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/183) Phase 0–2a ✅
+  - **Phase 0:** Decision 16 CSS token map locked; `jinja2>=3.1.6` added to `requirements.txt`; `utilities/shared/css/tokens.css` created with canonical 15-token map
+  - **Phase 1 (PR #187):** All CSS extracted from Python string constants to `utilities/shared/css/*.css` files; generators switch from `<style>` inlining to `<link>` tags; `_copy_css()` step added to `build.py`; `.gitignore` updated for `docs/assets/`
+  - **Phase 2a (PR #188):** Jinja2 environment + `render_page()` in `utilities/shared/renderer.py`; template tree: `base.html`, `pages/ancestry.html`, `pages/lore.html`, `partials/ancestry-card.html`; ancestry and lore generators stripped of all HTML-building functions; both generators verified producing correct output
+  - **Remaining on #183:** Phase 2b (campaign frame), Phase 2c (world generators — needs `render_body_structured()`), Phase 2d (dashboard), Phase 3 (theme variants)
 
 ### 2026-04-22
 - Implemented account-based GM gatekeeping — [#176](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/176) ✅

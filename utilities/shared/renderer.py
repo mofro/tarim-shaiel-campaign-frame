@@ -46,5 +46,6 @@ def render_page(template_name: str, **context) -> str:
     context.setdefault('gm_guard_script', _GM_GUARD_SCRIPT)
     context.setdefault('gm_mode', False)
     context.setdefault('extra_css', [])
+    context.setdefault('use_base_css', True)
     tmpl = env.get_template(template_name)
     return tmpl.render(**context)

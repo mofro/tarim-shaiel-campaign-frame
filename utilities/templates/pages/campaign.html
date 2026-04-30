@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block cover_extra %}
+{% if concept %}<div class="cover-concept"><em>{{ concept }}</em></div>{% endif %}
+{% endblock %}
+
+{% block content %}
+{% for block in content_blocks %}
+{{ block | safe }}
+{% endfor %}
+{% endblock %}
+
+{% block credits %}
+    <div>Tarim Shaiel &middot; Campaign Frame {{ version }} &middot; Daggerheart &middot; March 2026</div>
+    <div class="dpcr-notice">
+      This product includes material from the Daggerheart System Reference Document 1.0,
+      &copy; Critical Role, LLC, under the terms of the Darrington Press Community Gaming License.
+      More at <a href="https://www.daggerheart.com">daggerheart.com</a>.
+    </div>
+{% endblock %}
