@@ -16,7 +16,6 @@ import re
 import sys
 import argparse
 from pathlib import Path
-from html import escape
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -29,8 +28,8 @@ DOCS_DIR    = VAULT_ROOT / "docs"
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.frontmatter import parse_frontmatter
 from shared.assets import prepare_image, prepare_audio, prepare_audio_wiki
-from shared.html_render import render_prose, AUDIO_EXTS
-from shared.page_shell import build_page
+from shared.html_render import render_prose, AUDIO_EXTS, AUDIO_MIME
+from shared.renderer import render_page
 
 COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 
@@ -48,55 +47,9 @@ def slugify(title: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# CSS is now linked externally via page_shell.build_page(extra_css=('page-lore',))
+# CSS is now linked externally via render_page(extra_css=['page-lore'])
 # Source: utilities/shared/css/page-lore.css
 # ---------------------------------------------------------------------------
-
-
-# ---------------------------------------------------------------------------
-# Full page assembly
-# ---------------------------------------------------------------------------
-
-def build_html(title: str, description: str, body: str, date_str: str,
-               audio_url: str, audio_title: str | None = None) -> str:
-    prose_html = render_prose(body)
-    title_esc = escape(title)
-    desc_esc = escape(description) if description else ''
-
-    content_html = ''
-    if audio_url:
-        audio_title_esc = escape(audio_title) if audio_title else ''
-        audio_url_esc = escape(audio_url)
-        content_html += (
-            f'\n    <div class="audio-player">\n'
-            f'      <div class="audio-player-label">{audio_title_esc}</div>\n'
-            f'      <audio controls preload="metadata">\n'
-            f'        <source src="{audio_url_esc}" type="audio/mpeg" />\n'
-            f'      </audio>\n'
-            f'    </div>\n'
-        )
-
-    if desc_esc:
-        content_html += f'\n    <div class="divider"></div>\n    <p><em>{desc_esc}</em></p>\n    <div class="divider"></div>\n'
-
-    content_html += prose_html
-
-    credits_html = (
-        f'    Tarim-Shaiel &middot; World Lore &middot; '
-        f'{title_esc} &middot; {escape(date_str)}\n'
-    )
-
-    return build_page(
-        title=title,
-        cover_subtitle='World Lore · Tarim-Shaiel',
-        banner_left='World Lore',
-        banner_right=f'{title} · Tarim-Shaiel',
-        content_html=content_html,
-        credits_html=credits_html,
-        cover_image_url=COVER_IMAGE_URL,
-        extra_css=('page-lore',),
-        generator_name='utilities/lore/generate_lore_html.py',
-    )
 
 
 # ---------------------------------------------------------------------------
@@ -135,6 +88,12 @@ def main() -> None:
 
     audio_url = prepare_audio(audio_field, VAULT_ROOT, DOCS_DIR) if audio_field else None
 
+    # Determine audio MIME type from file extension
+    audio_mime = 'audio/mpeg'  # default
+    if audio_field:
+        ext = Path(audio_field).suffix.lower()
+        audio_mime = AUDIO_MIME.get(ext, 'audio/mpeg')
+
     # Pre-copy assets referenced via Obsidian ![[...]] syntax
     for m in re.finditer(r'!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]', body):
         fname = Path(m.group(1).strip()).name
@@ -143,6 +102,8 @@ def main() -> None:
         else:
             prepare_image(fname, VAULT_ROOT, DOCS_DIR)
 
+    body_html = render_prose(body)
+
     if args.out:
         out = Path(args.out)
     else:
@@ -150,7 +111,22 @@ def main() -> None:
         folder = src.parent.name
         out = DOCS_DIR / folder / f'{slug}.html'
 
-    html = build_html(title, description, body, date_str, audio_url=audio_url, audio_title=audio_title)
+    html = render_page(
+        'pages/lore.html',
+        title=title,
+        cover_subtitle='World Lore · Tarim-Shaiel',
+        banner_left='World Lore',
+        banner_right=f'{title} · Tarim-Shaiel',
+        cover_image_url=COVER_IMAGE_URL,
+        extra_css=['page-lore'],
+        generator_name='utilities/lore/generate_lore_html.py',
+        audio_url=audio_url,
+        audio_title=audio_title,
+        audio_mime=audio_mime,
+        description=description,
+        body_html=body_html,
+        date_str=date_str,
+    )
 
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding='utf-8')

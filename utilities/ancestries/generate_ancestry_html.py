@@ -22,7 +22,6 @@ import re
 import sys
 import argparse
 from pathlib import Path
-from html import escape
 
 SCRIPT_DIR   = Path(__file__).parent
 VAULT_ROOT   = SCRIPT_DIR.parent.parent
@@ -32,8 +31,8 @@ ANCESTRY_DIR = VAULT_ROOT / "world" / "ancestries"
 OUTPUT_PATH  = DOCS_DIR / "peoples-of-tarim-shaiel.html"
 
 sys.path.insert(0, str(SCRIPT_DIR.parent))
-from shared.page_shell import build_page
 from shared.assets import prepare_image
+from shared.renderer import render_page
 
 COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 
@@ -48,7 +47,7 @@ COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 # Rendering order follows document order in that file.
 
 # ---------------------------------------------------------------------------
-# CSS is now linked externally via page_shell.build_page(extra_css=('page-ancestry',))
+# CSS is now linked externally via render_page(extra_css=['page-ancestry'])
 # Source: utilities/shared/css/page-ancestry.css
 # ---------------------------------------------------------------------------
 
@@ -60,10 +59,12 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
     """Parse the source markdown into structured ancestry data.
 
     Returns:
-        {HEADING_KEY: {"lore": str, "features": [{"name": str, "flavor": str}]}}
+        {HEADING_KEY: {"lore": str, "lore_paras": list[str],
+                       "features": [{"name": str, "flavor": str}]}}
 
     HEADING_KEY is the uppercase name from the ## heading, e.g. 'VANARA'.
-    lore is the prose paragraphs before ### Ancestry Features.
+    lore is the prose text before ### Ancestry Features (kept for compat).
+    lore_paras is lore split into a list of paragraph strings.
     features is a list of {name, flavor} dicts parsed from **Name:** blocks.
     """
     raw = path.read_text(encoding="utf-8")
@@ -107,6 +108,7 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
             "world_name": world_name,
             "dh_name":    dh_name,
             "lore":       lore_text,
+            "lore_paras": [p.strip() for p in lore_text.split('\n\n') if p.strip()],
             "features":   features,
             "visibility": "public",  # overwritten by main() from per-ancestry file
             "image_url":  None,      # overwritten by main() from per-ancestry file
@@ -115,107 +117,8 @@ def parse_peoples_md(path: Path) -> dict[str, dict]:
     return result
 
 
-# ---------------------------------------------------------------------------
-# HTML rendering helpers
-# ---------------------------------------------------------------------------
-
-def paragraphs_html(text: str) -> str:
-    """Convert blank-line-separated plain text into <p> tags."""
-    paras = re.split(r'\n{2,}', text.strip())
-    parts = []
-    for p in paras:
-        p = p.strip()
-        if p:
-            parts.append(f"<p>{escape(p)}</p>")
-    return "\n".join(parts)
-
-
 def slug(name: str) -> str:
     return re.sub(r'\s+', '-', name.lower())
-
-
-# ---------------------------------------------------------------------------
-# Page assembly
-# ---------------------------------------------------------------------------
-
-def build_jump_nav(order: list[str], parsed_map: dict) -> str:
-    items = [
-        '  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>',
-        '  <li class="nav-divider"></li>',
-    ]
-    for key in order:
-        world_name = parsed_map[key]["world_name"]
-        dh_name    = parsed_map[key]["dh_name"]
-        label = escape(world_name)
-        if dh_name.lower() != world_name.lower():
-            label += f' <span class="nav-dh-name">({escape(dh_name)})</span>'
-        items.append(f'  <li><a href="#{slug(world_name)}">{label}</a></li>')
-    items.append('  <li class="nav-divider"></li>')
-    items.append('  <li style="list-style:none"><a href="#">&#8593; Top</a></li>')
-    return '<div class="jump-nav">\n<ul>\n' + '\n'.join(items) + '\n</ul>\n</div>\n'
-
-
-def build_ancestry_section(key: str, parsed: dict) -> str:
-    world_name = parsed["world_name"]
-    dh_name    = parsed["dh_name"]
-    features   = parsed.get("features", [])
-    lore_text  = parsed.get("lore", "")
-    anchor     = slug(world_name)
-
-    if not features:
-        print(f"  WARNING: no ### Ancestry Features found for {key}")
-
-    image_url  = parsed.get("image_url")
-    lore_html  = paragraphs_html(lore_text)
-
-    figure_html = ""
-    if image_url:
-        figure_html = (
-            f'\n        <figure class="lore-figure">'
-            f'\n          <img src="{escape(image_url)}" alt="">'
-            f'\n          <figcaption>{escape(world_name)}</figcaption>'
-            f'\n        </figure>'
-        )
-
-    feature_boxes = ""
-    for feat in features:
-        feature_boxes += (
-            f'\n          <div class="feature-box">'
-            f'\n            <div class="feature-name">{escape(feat["name"])}</div>'
-            f'\n            <p>{escape(feat["flavor"])}</p>'
-            f"\n          </div>"
-        )
-
-    return f"""\
-    <div class="ancestry-section" id="{anchor}">
-      <div class="ancestry-entry">
-        <div class="ancestry-header">
-          <span class="ancestry-name">{escape(world_name)}</span>
-          <span class="ancestry-dh-name">{escape(dh_name)}</span>
-        </div>
-        <div class="ancestry-lore">{figure_html}
-          {lore_html}
-        </div>
-      </div>
-      <div class="feature-grid">{feature_boxes}
-      </div>
-    </div>
-"""
-
-
-def build_content(parsed_map: dict[str, dict]) -> tuple[str, str]:
-    # Honour visibility: only public ancestries appear in the published HTML
-    order = sorted(
-        [k for k, v in parsed_map.items() if v.get("visibility", "public") == "public"],
-        key=lambda k: parsed_map[k]["world_name"].lower(),
-    )
-    jump_nav = build_jump_nav(order, parsed_map)
-    parts = []
-    for i, key in enumerate(order):
-        parts.append(build_ancestry_section(key, parsed_map[key]))
-        if i < len(order) - 1:
-            parts.append('    <div class="ancestry-divider"></div>\n')
-    return jump_nav, "".join(parts)
 
 
 # ---------------------------------------------------------------------------
@@ -292,32 +195,43 @@ def main() -> None:
         if meta["image_fname"]:
             data["image_url"] = prepare_image(meta["image_fname"], VAULT_ROOT, DOCS_DIR)
 
-    jump_nav_html, content_html = build_content(parsed_map)
-
-    credits_html = (
-        "    Tarim-Shaiel &middot; Ancestry Guide &middot; "
-        "Peoples of Tarim-Shaiel &middot; 2026\n"
+    ancestries = sorted(
+        [
+            {
+                "world_name": v["world_name"],
+                "dh_name":    v["dh_name"],
+                "anchor":     slug(v["world_name"]),
+                "lore_paras": v["lore_paras"],
+                "features":   v["features"],
+                "image_url":  v.get("image_url"),
+            }
+            for v in parsed_map.values()
+            if v.get("visibility", "public") == "public"
+        ],
+        key=lambda a: a["world_name"].lower(),
     )
 
-    html = build_page(
+    for a in ancestries:
+        if not a["features"]:
+            print(f"  WARNING: no ### Ancestry Features found for {a['world_name']}")
+
+    html = render_page(
+        "pages/ancestry.html",
         title="Peoples of Tarim-Shaiel",
         cover_subtitle="Ancestries of the Known World",
         banner_left="Ancestry Guide",
         banner_right="Peoples of Tarim-Shaiel · Daggerheart",
-        content_html=content_html,
-        credits_html=credits_html,
         cover_image_url=COVER_IMAGE_URL,
-        extra_css=('page-ancestry',),
+        extra_css=["page-ancestry"],
         generator_name="utilities/ancestries/generate_ancestry_html.py",
-        jump_nav_html=jump_nav_html,
+        ancestries=ancestries,
     )
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
-    published = sum(1 for v in parsed_map.values() if v.get("visibility", "public") == "public")
-    skipped   = len(parsed_map) - published
+    skipped = len(parsed_map) - len(ancestries)
     print(f"Generated: {out_path}")
-    print(f"  Ancestries: {published} published" + (f", {skipped} skipped (gm_secrets)" if skipped else ""))
+    print(f"  Ancestries: {len(ancestries)} published" + (f", {skipped} skipped (gm_secrets)" if skipped else ""))
 
 
 if __name__ == "__main__":

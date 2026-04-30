@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block jump_nav %}
+<div class="jump-nav">
+<ul>
+  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>
+  <li class="nav-divider"></li>
+  {% for a in ancestries %}
+  <li>
+    <a href="#{{ a.anchor }}">{{ a.world_name }}{% if a.dh_name != a.world_name %} <span class="nav-dh-name">({{ a.dh_name }})</span>{% endif %}</a>
+  </li>
+  {% endfor %}
+  <li class="nav-divider"></li>
+  <li style="list-style:none"><a href="#">&#8593; Top</a></li>
+</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+{% for a in ancestries %}
+  {% include "partials/ancestry-card.html" %}
+  {% if not loop.last %}
+    <div class="ancestry-divider"></div>
+  {% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block credits %}
+    Tarim-Shaiel &middot; Ancestry Guide &middot; Peoples of Tarim-Shaiel &middot; 2026
+{% endblock %}

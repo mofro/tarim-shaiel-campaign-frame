@@ -1,0 +1,29 @@
+<div class="ancestry-section" id="{{ a.anchor }}">
+  <div class="ancestry-entry">
+    <div class="ancestry-header">
+      <span class="ancestry-name">{{ a.world_name }}</span>
+      <span class="ancestry-dh-name">{{ a.dh_name }}</span>
+    </div>
+    <div class="ancestry-lore">
+      {% if a.image_url %}
+      <figure class="lore-figure">
+        <img src="{{ a.image_url | e }}" alt="">
+        <figcaption>{{ a.world_name }}</figcaption>
+      </figure>
+      {% endif %}
+      {% for para in a.lore_paras %}
+      <p>{{ para }}</p>
+      {% endfor %}
+    </div>
+  </div>
+  {% if a.features %}
+  <div class="feature-grid">
+    {% for feat in a.features %}
+    <div class="feature-box">
+      <div class="feature-name">{{ feat.name }}</div>
+      <p>{{ feat.flavor }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
