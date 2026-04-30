@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if audio_url %}
+<div class="audio-player">
+  <div class="audio-player-label">{{ audio_title }}</div>
+  <audio controls preload="metadata">
+    <source src="{{ audio_url | e }}" type="{{ audio_mime }}">
+  </audio>
+</div>
+{% endif %}
+
+{% if description %}
+<div class="divider"></div>
+<p><em>{{ description }}</em></p>
+<div class="divider"></div>
+{% endif %}
+
+{{ body_html | safe }}
+{% endblock %}
+
+{% block credits %}
+    Tarim-Shaiel &middot; World Lore &middot; {{ title }} &middot; {{ date_str }}
+{% endblock %}
