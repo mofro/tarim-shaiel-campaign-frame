@@ -556,35 +556,11 @@ _FAVICON = (
     "18.9,18.9 43.1,33.4' fill='%23b8922c'/></svg>"
 )
 
-_CSS_DIR = Path(__file__).parent
-_INDEX_CSS = (
-    (_CSS_DIR / "world_base.css").read_text(encoding="utf-8") +
-    (_CSS_DIR / "world_category.css").read_text(encoding="utf-8")
-)
-
-# GM-mode additions: banner, enhanced card/badge styles, public-doc tint
-_GM_INDEX_CSS = """
-    .gm-mode-banner {
-      background: var(--crimson); color: #f5edd8;
-      font-family: 'Inconsolata', monospace; font-size: 11px;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      text-align: center; padding: 6px 1rem;
-    }
-    .doc-card.gm-secrets {
-      background: rgba(122,31,31,0.06) !important;
-      border-left: 4px solid var(--crimson) !important;
-    }
-    .doc-card.gm-secrets:hover { background: rgba(122,31,31,0.10) !important; }
-    .doc-card.public-doc { border-left: 4px solid rgba(184,146,44,0.5); }
-    .pub-badge {
-      background: rgba(184,146,44,0.15); color: var(--gold);
-      border: 1px solid rgba(184,146,44,0.4);
-      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-      padding: 2px 7px; border-radius: 100px; margin-left: 6px;
-      font-family: 'Inconsolata', monospace; vertical-align: middle;
-    }
-    .inline-doc-item.public-doc { border-color: rgba(184,146,44,0.3); }
-"""
+# CSS is now served as linked external files from /assets/css/ (copied at
+# build time by build.py's _copy_css() step).
+# world-base.css     — shared base layout and typography
+# world-category.css — category page / index card styles
+# gm.css             — GM-mode banners and badge styles (linked when gm_mode=True)
 
 _GM_GUARD_SCRIPT_INDEX = """\
 <script src="https://cdn.jsdelivr.net/npm/netlify-identity-widget@1/build/netlify-identity-widget.js"></script>
@@ -598,327 +574,7 @@ _GM_GUARD_SCRIPT_INDEX = """\
 </script>
 """
 
-# ── Legacy inline CSS kept as dead reference only — DO NOT USE ────────────────
-_INDEX_CSS_LEGACY_UNUSED = """
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inconsolata:wght@400;500&display=swap');
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #1a1208; --parchment: #f5edd8; --parchment2: #ede0c4;
-      --gold: #b8922c; --gold-light: #d4a843; --crimson: #7a1f1f;
-      --steel: #3c4a5a; --rule: rgba(184,146,44,0.4); --shadow: rgba(26,18,8,0.15);
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      background: #1a1208;
-      background-image: url('/images/paper-texture-top-view-2.jpg');
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 17px; line-height: 1.72; color: var(--ink);
-      display: flex; align-items: flex-start; justify-content: center;
-    }
-    .page-wrap {
-      max-width: 860px; margin: 0;
-      background: var(--parchment);
-      box-shadow: 0 0 80px rgba(0,0,0,0.75);
-      position: relative; overflow: hidden;
-    }
-    .page-wrap::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0; opacity: 0.45;
-    }
-    .back-nav {
-      background: #111008;
-      padding: 0.5rem 3rem;
-      border-bottom: 1px solid rgba(184,146,44,0.2);
-    }
-    .back-nav a {
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(184,146,44,0.6);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .back-nav a:hover { color: var(--gold); }
-    .cover {
-      position: relative; min-height: 280px;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      overflow: hidden;
-    }
-    .cover-image {
-      position: absolute; inset: 0;
-      background-size: cover;
-      background-position: center;
-      z-index: 0;
-    }
-    .cover-gradient {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(26,18,8,0.08) 0%, rgba(26,18,8,0.55) 55%, rgba(26,18,8,0.92) 100%);
-      z-index: 1;
-    }
-    .cover-content {
-      position: relative; z-index: 2;
-      padding: 2.5rem 3rem 3rem;
-      color: var(--parchment);
-    }
-    .cover-title {
-      font-family: 'Cinzel', serif;
-      font-size: 2.8rem; font-weight: 700;
-      letter-spacing: 0.06em; line-height: 1.1;
-      color: #f5e6c0;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
-      margin-bottom: 0.15rem;
-    }
-    .cover-subtitle {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem; font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-    }
-    .banner {
-      background: var(--steel);
-      color: var(--parchment);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.5rem 3rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .banner-rule {
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      margin: 0 3rem;
-    }
-    .content {
-      position: relative; z-index: 1;
-      padding: 1rem 3rem;
-    }
-    .content h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.45rem; font-weight: 600;
-      color: var(--crimson);
-      letter-spacing: 0.04em;
-      margin: 2.4rem 0 0.8rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 2px solid var(--rule);
-    }
-    .content h2:first-child { margin-top: 2.8rem; }
-    .content h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem; font-weight: 600;
-      color: var(--steel);
-      letter-spacing: 0.04em;
-      margin: 1.8rem 0 0.6rem;
-    }
-    .content p {
-      margin-bottom: 1em;
-      line-height: 1.72;
-    }
-    .content p:last-child { margin-bottom: 0; }
-    .content ul {
-      margin: 0.8em 0;
-      padding-left: 2em;
-    }
-    .content li {
-      margin-bottom: 0.4em;
-      line-height: 1.6;
-    }
-    .content .callout {
-      background: var(--parchment2);
-      border-left: 3px solid var(--gold);
-      border-radius: 2px;
-      padding: 0.9rem 1.1rem;
-      margin: 1.1rem 0;
-      font-size: 0.97rem;
-    }
-    .content .callout strong { color: var(--steel); }
-    .jump-nav {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 1rem 0.5rem 1rem 0.5rem;
-      border-bottom: 1px solid var(--rule);
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      position: -webkit-sticky;
-      position: sticky;
-      top: 280px;
-      background-color: rgb(26, 18, 8);
-      min-width: -webkit-fit-content;
-      min-width: fit-content;
-      max-inline-size: 22%;
-    }
-    .jump-nav ul { list-style-type: bengali; padding-left: 1.2rem; }
-    .jump-nav a {
-      color: var(--gold);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .jump-nav a:hover { color: var(--gold-light); }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.9rem;
-      margin-top: 1.3rem;
-    }
-    .feature-box {
-      background: var(--parchment2);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      padding: 0.95rem 1.1rem 1rem;
-      box-shadow: inset 0 1px 4px rgba(26,18,8,0.06);
-    }
-    .feature-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.76rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--steel);
-      margin-bottom: 0.45rem;
-    }
-    .feature-box p {
-      margin: 0;
-      font-size: 0.97rem;
-      line-height: 1.6;
-    }
-    .lore-figure {
-      float: right;
-      margin: 0.4rem 0 1.6rem 2rem;
-      max-width: 240px;
-      clear: right;
-    }
-    .lore-figure img {
-      width: 100%;
-      display: block;
-      border: 1px solid var(--rule);
-      box-shadow: 4px 6px 18px var(--shadow);
-      border-radius: 1rem;
-    }
-    .lore-figure figcaption {
-      font-size: 0.8rem;
-      font-style: italic;
-      color: var(--steel);
-      text-align: center;
-      margin-top: 0.45rem;
-      padding-top: 0.35rem;
-      border-top: 1px solid var(--rule);
-      line-height: 1.4;
-    }
-    .section-label {
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); margin: 2.2rem 0 1.2rem;
-    }
-    .doc-card {
-      border: 1px solid var(--rule); border-radius: 3px; padding: 24px 28px;
-      margin-bottom: 16px; text-decoration: none; display: block;
-      transition: border-color 0.2s, background 0.2s;
-      background: var(--parchment); position: relative;
-    }
-    .doc-card:hover { border-color: var(--gold); background: var(--parchment2); }
-    .doc-card-arrow {
-      position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
-      color: var(--gold); font-size: 20px; opacity: 0.5;
-      transition: opacity 0.2s, right 0.2s;
-    }
-    .doc-card:hover .doc-card-arrow { opacity: 1; right: 20px; }
-    .doc-title {
-      font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600;
-      color: var(--crimson); margin-bottom: 5px;
-    }
-    .doc-meta {
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      color: rgba(26,18,8,0.45); letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 8px;
-    }
-    .doc-desc { font-size: 15px; color: rgba(26,18,8,0.65); font-style: italic; }
-    .gm-badge {
-      background: #7a1f1f; color: #f5edd8; font-size: 10px;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 2px 7px; border-radius: 100px; margin-left: 8px;
-      font-family: 'Inconsolata', monospace; vertical-align: middle;
-    }
-    .doc-card.gm-secrets {
-      background: rgba(122,31,31,0.04);
-      border-color: rgba(122,31,31,0.25);
-    }
-    .doc-card.gm-secrets:hover {
-      background: rgba(122,31,31,0.08);
-      border-color: var(--crimson);
-    }
-    .cat-section {
-      margin-top: 2.8rem;
-      padding: 28px 26px 22px;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      background: rgba(245,237,216,0.95);
-    }
-    .cat-section-header {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 1rem; margin-bottom: 14px;
-    }
-    .cat-section-title {
-      font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600;
-      color: var(--ink); margin-bottom: 4px;
-    }
-    .cat-section-meta {
-      font-family: 'Inconsolata', monospace; font-size: 11px;
-      color: rgba(26,18,8,0.6); text-transform: uppercase; letter-spacing: 0.14em;
-    }
-    .cat-section-desc {
-      font-size: 0.95rem; color: rgba(26,18,8,0.75); margin-bottom: 16px;
-    }
-    .see-all {
-      font-family: 'Cinzel', serif; font-size: 0.95rem;
-      color: var(--gold); text-decoration: none; white-space: nowrap;
-    }
-    .see-all:hover { text-decoration: underline; }
-    .inline-doc-list {
-      display: flex; flex-wrap: wrap; gap: 10px 12px;
-    }
-    .inline-doc-item {
-      display: inline-flex; align-items: center;
-      padding: 10px 14px; border-radius: 999px;
-      background: rgba(26,18,8,0.08); color: var(--ink);
-      text-decoration: none; font-size: 0.95rem;
-      transition: background 0.2s, border-color 0.2s;
-      border: 1px solid transparent;
-    }
-    .inline-doc-item:hover { background: rgba(26,18,8,0.12); }
-    .inline-doc-item.gm-secrets {
-      border-color: rgba(122,31,31,0.25);
-      background: rgba(122,31,31,0.06);
-    }
-    .inline-doc-more {
-      align-self: center; font-family: 'Inconsolata', monospace;
-      font-size: 0.9rem; color: rgba(26,18,8,0.6);
-      padding: 10px 14px; border-radius: 999px;
-      background: rgba(26,18,8,0.04);
-    }
-    .footer {
-      background: #1a1208;
-      padding: 1.6rem 3rem;
-      border-top: 1px solid rgba(184,146,44,0.3);
-    }
-    .footer-text {
-      font-family: 'Inconsolata', monospace; font-size: 11px;
-      color: rgba(245,237,216,0.3); letter-spacing: 0.1em;
-    }
-    @media (max-width: 640px) {
-      .cover-title { font-size: 2.2rem; }
-      .cover-content { padding: 1.8rem 1.4rem; }
-      .content { padding: 1rem 1.4rem; }
-      .banner { padding: 0.5rem 1.4rem; }
-      .banner-rule { margin: 0 1.4rem; }
-      .footer { padding: 1.6rem 1.4rem; }
-    }
-"""  # end _INDEX_CSS_LEGACY_UNUSED
+# (Legacy inline CSS removed — content is in utilities/shared/css/ files)
 
 
 def _card_html(
@@ -1198,7 +854,10 @@ def generate_category_page(
   <title>{escape(label)} - Tarim-Shaiel</title>
   <!-- AUTO-GENERATED by utilities/world/generate_all_world_html.py - do not hand-edit -->
   <link rel="icon" href="{_FAVICON}">
-  <style>{_INDEX_CSS}  </style>
+  <script>(function(){{var t=localStorage.getItem('ts-theme');if(t)document.documentElement.setAttribute('data-theme',t);}})()</script>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/world-base.css">
+  <link rel="stylesheet" href="/assets/css/world-category.css">
 </head>
 <body>
 
@@ -1288,8 +947,8 @@ def generate_index(
     top_level_docs = {f: v for f, v in grouped_docs.items() if f in top_level_folders}
     total = len(visible_core) + sum(len(v) for v in top_level_docs.values())
 
-    gm_css = _GM_INDEX_CSS if gm_mode else ''
     gm_guard = (_GM_GUARD_SCRIPT_INDEX if gm_mode else '')
+    gm_link  = '  <link rel="stylesheet" href="/assets/css/gm.css">' if gm_mode else ''
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1299,7 +958,11 @@ def generate_index(
   <title>Tarim Shaiel - Campaign Lore</title>
   <!-- AUTO-GENERATED by utilities/world/generate_all_world_html.py - do not hand-edit -->
   <link rel="icon" href="{_FAVICON}">
-  <style>{_INDEX_CSS}{gm_css}  </style>
+  <script>(function(){{var t=localStorage.getItem('ts-theme');if(t)document.documentElement.setAttribute('data-theme',t);}})()</script>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/world-base.css">
+  <link rel="stylesheet" href="/assets/css/world-category.css">
+{gm_link}
 </head>
 <body>
 
@@ -1336,7 +999,10 @@ def generate_404(docs: Path) -> None:
   <title>404 - Not Found - Tarim-Shaiel</title>
   <!-- AUTO-GENERATED by utilities/world/generate_all_world_html.py - do not hand-edit -->
   <link rel="icon" href="{_FAVICON}">
-  <style>{_INDEX_CSS}  </style>
+  <script>(function(){{var t=localStorage.getItem('ts-theme');if(t)document.documentElement.setAttribute('data-theme',t);}})()</script>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/world-base.css">
+  <link rel="stylesheet" href="/assets/css/world-category.css">
 </head>
 <body>
 <div class="page-wrap">
@@ -1348,10 +1014,10 @@ def generate_404(docs: Path) -> None:
 
   <div class="content" style="text-align:center;padding:4rem 2rem;">
     <h1 style="font-family:'Cinzel',serif;color:var(--gold);font-size:3rem;margin-bottom:0.5rem;">404</h1>
-    <p style="font-family:'Cinzel',serif;color:var(--parchment);font-size:1.1rem;margin-bottom:2rem;">
+    <p style="font-family:'Cinzel',serif;color:var(--paper);font-size:1.1rem;margin-bottom:2rem;">
       This page has been lost to the Warren.
     </p>
-    <a href="index.html" style="font-family:'Cinzel',serif;color:var(--gold-light);font-size:0.9rem;letter-spacing:0.08em;">
+    <a href="index.html" style="font-family:'Cinzel',serif;color:var(--gold-lt);font-size:0.9rem;letter-spacing:0.08em;">
       \u2190 Return to Campaign Documents
     </a>
   </div>

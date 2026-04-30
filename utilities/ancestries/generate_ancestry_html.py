@@ -48,153 +48,9 @@ COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
 # Rendering order follows document order in that file.
 
 # ---------------------------------------------------------------------------
-# CSS (extends CSS_BASE from page_shell)
+# CSS is now linked externally via page_shell.build_page(extra_css=('page-ancestry',))
+# Source: utilities/shared/css/page-ancestry.css
 # ---------------------------------------------------------------------------
-
-CSS_ANCESTRY = """\
-
-    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&display=swap');
-
-    body {
-      background: #1a1208;
-      background-image: url('/images/paper-texture-top-view-2.jpg');
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 17px;
-      line-height: 1.72;
-      color: var(--ink);
-    }
-
-    .cover { min-height: 280px; }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      padding: 1rem 3rem;
-    }
-
-    /* ---- Ancestry section ---- */
-
-    .ancestry-section { scroll-margin-top: 1.5rem; }
-
-    .ancestry-header { margin-bottom: 1.1rem; }
-
-    .ancestry-name {
-      display: block;
-      font-family: 'Cinzel', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--crimson);
-      letter-spacing: 0.04em;
-      line-height: 1.15;
-    }
-
-    .ancestry-dh-name {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.76rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--steel);
-      opacity: 0.75;
-    }
-
-    .ancestry-lore p {
-      margin-bottom: 0.85rem;
-      font-size: 1.02rem;
-    }
-
-    .ancestry-lore p:last-child { margin-bottom: 0; }
-
-    /* ---- Feature boxes ---- */
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.9rem;
-      margin-top: 1.3rem;
-    }
-
-    .feature-box {
-      background: var(--parchment2);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      padding: 0.95rem 1.1rem 1rem;
-      box-shadow: inset 0 1px 4px rgba(26,18,8,0.06);
-    }
-
-    .feature-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.76rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--steel);
-      margin-bottom: 0.45rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .feature-box p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* ---- Ancestry image figure ---- */
-
-    .lore-figure {
-      float: right;
-      margin: 0.4rem 0 1.6rem 2rem;
-      max-width: 240px;
-      clear: right;
-    }
-
-    .lore-figure img {
-      width: 100%;
-      display: block;
-      border: 1px solid var(--rule);
-      box-shadow: 4px 6px 18px var(--shadow);
-      border-radius: 1rem;
-    }
-
-    .lore-figure figcaption {
-      font-size: 0.8rem;
-      font-style: italic;
-      color: var(--steel);
-      text-align: center;
-      margin-top: 0.45rem;
-      padding-top: 0.35rem;
-      border-top: 1px solid var(--rule);
-      line-height: 1.4;
-    }
-
-    @media (max-width: 640px) {
-      .lore-figure { float: none; max-width: 100%; margin: 0 0 1.5rem 0; }
-    }
-
-    /* ---- Nav DH name parenthetical ---- */
-    .nav-dh-name {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.7em;
-      letter-spacing: 0.06em;
-      color: floralwhite;
-      text-transform: none;
-      font-weight: 400;
-    }
-
-    /* ---- Divider between ancestries ---- */
-
-    .ancestry-divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--rule), transparent);
-      margin: 2.4rem 0;
-    }
-
-    @media (max-width: 640px) {
-      .content { padding: 1rem 1.4rem; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .jump-nav { gap: 0.4rem 0.9rem; }
-    }
-"""
 
 # ---------------------------------------------------------------------------
 # Parse PEOPLES_OF_TARIM_SHAIEL.md
@@ -451,7 +307,7 @@ def main() -> None:
         content_html=content_html,
         credits_html=credits_html,
         cover_image_url=COVER_IMAGE_URL,
-        css_extra=CSS_ANCESTRY,
+        extra_css=('page-ancestry',),
         generator_name="utilities/ancestries/generate_ancestry_html.py",
         jump_nav_html=jump_nav_html,
     )

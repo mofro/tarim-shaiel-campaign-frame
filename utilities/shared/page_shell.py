@@ -1,14 +1,11 @@
 """
-Shared HTML page shell and CSS base for Tarim-Shaiel generators.
+Shared HTML page shell for Tarim-Shaiel generators.
 
 Provides:
-  CSS_BASE    — shared design-system CSS (custom properties, cover, banner,
-                back-nav, credits, responsive rules)
   build_page  — full HTML page with cover / banner / content / credits scaffold
 
 Each generator supplies:
-  - css_extra      : type-specific CSS (body background, content padding,
-                     section-specific rules)
+  - extra_css      : tuple of CSS file stems to link (e.g. ('page-ancestry',))
   - cover_image_url: URL for the cover background image
   - cover_subtitle : subtitle text rendered below the title in the cover
   - banner_left    : left-side banner label (e.g. "World Lore")
@@ -16,6 +13,12 @@ Each generator supplies:
   - content_html   : the rendered body HTML inserted into .content
   - credits_html   : HTML inserted into the .credits footer
   - generator_name : appears in the <!-- AUTO-GENERATED --> comment
+
+CSS is served as linked external files from /assets/css/:
+  tokens.css   — design-system custom properties (Decision 16 token map)
+  base.css     — shared layout, typography, cover, banner, responsive rules
+  <stem>.css   — per-page-type rules (supplied via extra_css parameter)
+  gm.css       — GM-mode banners (linked only when TS_GM_MODE=1)
 """
 
 import os
@@ -29,281 +32,6 @@ FAVICON_SVG = (
     "81.1,81.1 56.9,66.6 50,94 43.1,66.6 18.9,81.1 33.4,56.9 6,50 "
     "33.4,43.1 18.9,18.9 43.1,33.4' fill='%23b8922c'/></svg>"
 )
-
-# ---------------------------------------------------------------------------
-# Shared CSS base for page_shell consumers (generate_lore_html, generate_ancestry_html).
-# Note: generate_world_html.py and generate_all_world_html.py load
-# utilities/world/world_base.css directly — this CSS is for the lore/ancestry
-# page type which uses cover sections with different styling needs.
-# ---------------------------------------------------------------------------
-
-CSS_BASE = """\
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink:        #1a1208;
-      --parchment:  #f5edd8;
-      --parchment2: #ede0c4;
-      --gold:       #b8922c;
-      --gold-light: #d4a843;
-      --crimson:    #7a1f1f;
-      --steel:      #3c4a5a;
-      --rule:       rgba(184,146,44,0.4);
-      --shadow:     rgba(26,18,8,0.15);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body { display: flex; align-items: flex-start; justify-content: center; }
-
-    .page-wrap {
-      max-width: 860px;
-      margin: 0;
-      background: var(--parchment);
-      box-shadow: 0 0 80px rgba(0,0,0,0.75);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-wrap::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.45;
-    }
-
-    .cover {
-      position: relative;
-      max-height: 32rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-    }
-
-    /* --- Jump navigation --- */
-    .jump-nav {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 1rem 0.5rem;
-      border-bottom: 1px solid var(--rule);
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      position: -webkit-sticky;
-      position: sticky;
-      top: 50px;
-      max-height: 36rem;
-      overflow-y: auto;
-      background-color: rgb(26, 18, 8);
-      min-width: -webkit-fit-content;
-      min-width: fit-content;
-      max-inline-size: 22%;
-    }
-    .jump-nav ul { list-style-type: bengali; padding-left: 1.2rem; }
-    .jump-nav a { color: var(--gold); text-decoration: none; transition: color 0.15s; }
-    .jump-nav a:hover { color: var(--gold-light); }
-    .jump-nav .nav-divider { list-style: none; border-top: 1px solid rgba(184,146,44,0.3); margin: 0.5rem 0; padding: 0; }
-
-    @media (max-width: 640px) {
-      body { flex-direction: column; justify-content: flex-start; }
-      .jump-nav {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        max-inline-size: 100%;
-        width: 100%;
-        border-bottom: 1px solid var(--rule);
-        padding: 0.5rem 1rem;
-        overflow-y: visible;
-        max-height: none;
-      }
-      .jump-nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.3rem 1rem;
-        padding-left: 0;
-        list-style: none;
-      }
-    }
-
-    .cover-image {
-      position: absolute; inset: 0;
-      background-size: cover;
-      background-position: center 4%;
-      z-index: 0;
-    }
-
-    .cover-gradient {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(26,18,8,0.08) 0%, rgba(26,18,8,0.55) 55%, rgba(26,18,8,0.92) 100%);
-      z-index: 1;
-    }
-
-    .cover-content {
-      position: relative;
-      z-index: 2;
-      padding: 2.5rem 3rem 3rem;
-      color: var(--parchment);
-    }
-
-    .cover-title {
-      font-family: 'Cinzel', serif;
-      font-size: 3.2rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      line-height: 1.1;
-      color: #f5e6c0;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
-      margin-bottom: 0.15rem;
-    }
-
-    .cover-subtitle {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-    }
-
-    .banner {
-      background: var(--steel);
-      color: var(--parchment);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 3rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .banner-rule {
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      margin: 0 3rem;
-    }
-
-    .back-nav {
-      background: #111008;
-      padding: 0.5rem 3rem;
-      border-bottom: 1px solid rgba(184,146,44,0.2);
-    }
-
-    .back-nav a {
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(184,146,44,0.6);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .back-nav a:hover { color: var(--gold); }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      margin: 2rem 0;
-    }
-
-    .credits {
-      background: var(--steel);
-      color: rgba(245,237,216,0.55);
-      padding: 2rem 3rem;
-      font-size: 0.88rem;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 640px) {
-      body { font-size: 19px; }
-      .cover-title { font-size: 2.2rem; }
-      .cover-content { padding: 1.8rem 1.4rem; }
-      .content { padding: 1rem 1.4rem; }
-      .banner { padding: 0.5rem 1.4rem; }
-      .banner-rule { margin: 0 1.4rem; }
-      .credits { padding: 1.6rem 1.4rem; }
-    }
-
-    @media print {
-      /* ── Page margins ── */
-      @page { margin: 10mm; }
-
-      /* ── Strip all backgrounds and decoration ── */
-      *, *::before, *::after {
-        background: transparent !important;
-        background-image: none !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-      }
-
-      /* ── Show only .page-wrap ── */
-      body > *:not(.page-wrap) { display: none !important; }
-
-      .page-wrap {
-        max-width: none;
-        overflow: visible;
-      }
-
-      /* ── Hide navigation ── */
-      .back-nav, .jump-nav { display: none !important; }
-
-      /* ── Collapse cover — remove the reserved image height ── */
-      .cover {
-        max-height: none !important;
-        min-height: 0 !important;
-      }
-      .cover-image,
-      .cover-gradient {
-        display: none !important;
-      }
-      .cover-content {
-        padding: 1.5rem 2rem 1rem !important;
-      }
-
-      /* ── Darken light-on-dark text; preserve hue ── */
-      .cover-title    { color: #3a2a10 !important; }
-      .cover-subtitle { color: var(--gold) !important; }
-      .cover-content  { color: var(--ink) !important; }
-      .banner         { color: var(--steel) !important; border-top: 1px solid #999; border-bottom: 1px solid #999; }
-      .credits        { color: var(--ink) !important; opacity: 1 !important; border-top: 1px solid #ccc; }
-
-      /* ── Smart page breaks — never orphan a heading or header block ── */
-      h1, h2, h3, h4, h5, h6,
-      .ancestry-header {
-        page-break-after: avoid;
-        break-after: avoid;
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
-
-      h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *,
-      .ancestry-lore {
-        page-break-before: avoid;
-        break-before: avoid;
-      }
-
-      /* Hard wrapper: keeps header + lore together as one unbreakable unit */
-      .ancestry-entry {
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
-
-      p, li, blockquote {
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
-    }
-"""
-
 
 # ---------------------------------------------------------------------------
 # Auth guard script (injected into GM-build pages via TS_GM_MODE env var)
@@ -321,15 +49,6 @@ _GM_GUARD_SCRIPT = """\
 </script>
 """
 
-_GM_BANNER_CSS = """\
-    .gm-mode-top-banner {
-      background: var(--crimson); color: #f5edd8;
-      font-family: 'Cinzel', serif; font-size: 10px;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      text-align: center; padding: 6px 1rem;
-    }
-"""
-
 # ---------------------------------------------------------------------------
 # Page shell
 # ---------------------------------------------------------------------------
@@ -342,11 +61,14 @@ def build_page(
     content_html: str,
     credits_html: str,
     cover_image_url: str,
-    css_extra: str = '',
+    extra_css: tuple = (),
     generator_name: str = 'utilities',
     jump_nav_html: str = '',
 ) -> str:
     """Assemble a complete HTML page using the shared Tarim-Shaiel design system.
+
+    CSS is served as linked external files from /assets/css/ (copied at build
+    time by build.py's _copy_css() step).
 
     Parameters
     ----------
@@ -357,7 +79,8 @@ def build_page(
     content_html   : Pre-rendered HTML inserted into .content
     credits_html   : HTML inserted into .credits footer
     cover_image_url: URL for .cover-image background
-    css_extra      : Additional CSS appended after CSS_BASE (generator-specific rules)
+    extra_css      : Tuple of CSS file stems to link after base.css
+                     (e.g. ('page-ancestry',) → /assets/css/page-ancestry.css)
     generator_name : Appears in the AUTO-GENERATED comment
     """
     title_esc = html_escape(title)
@@ -369,7 +92,12 @@ def build_page(
     _gm = os.environ.get('TS_GM_MODE') == '1'
     guard_html   = _GM_GUARD_SCRIPT if _gm else ''
     gm_banner_html = '<div class="gm-mode-top-banner">GM VIEW — PRIVILEGED ARCHIVE</div>\n' if _gm else ''
-    css = CSS_BASE + (_GM_BANNER_CSS if _gm else '') + css_extra
+
+    extra_link_tags = ''.join(
+        f'  <link rel="stylesheet" href="/assets/css/{stem}.css">\n'
+        for stem in extra_css
+    )
+    gm_link_tag = '  <link rel="stylesheet" href="/assets/css/gm.css">\n' if _gm else ''
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -379,8 +107,10 @@ def build_page(
   <title>{title_esc} &mdash; Tarim-Shaiel</title>
   <link rel="icon" href="{FAVICON_SVG}">
   <!-- AUTO-GENERATED by {generator_name} — do not hand-edit -->
-  <style>{css}  </style>
-</head>
+  <script>(function(){{var t=localStorage.getItem('ts-theme');if(t)document.documentElement.setAttribute('data-theme',t);}})()</script>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+{extra_link_tags}{gm_link_tag}</head>
 <body>
 
 {guard_html}{jump_nav_html}<div class="page-wrap">

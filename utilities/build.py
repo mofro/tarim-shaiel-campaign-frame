@@ -32,6 +32,10 @@ Registered generators (in pipeline order):
 
 The LegendKeeper pipeline (generate_lk_json, generate_lk_markdown) is
 handled separately by utilities/legendkeeper-pipeline/publish.py.
+
+Build pipeline:
+    1. _copy_css()  — copies utilities/shared/css/*.css → docs/assets/css/
+    2. Run requested generators in order
 """
 
 import os
@@ -111,7 +115,18 @@ def _cmd_list(registry: dict) -> int:
     return 0
 
 
+def _copy_css() -> None:
+    """Copy all *.css from utilities/shared/css/ to docs/assets/css/."""
+    import shutil
+    src = SCRIPT_DIR / "shared" / "css"
+    dst = VAULT_ROOT / "docs" / "assets" / "css"
+    dst.mkdir(parents=True, exist_ok=True)
+    for f in src.glob("*.css"):
+        shutil.copy2(f, dst / f.name)
+
+
 def _cmd_run(names: list[str], registry: dict, args: argparse.Namespace) -> int:
+    _copy_css()
     if args.gm:
         os.environ['TS_GM_MODE'] = '1'
     failed = []

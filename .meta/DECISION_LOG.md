@@ -547,3 +547,49 @@ Post-implementation baseline test — 3 parallel Explore agents with `lat.md/sub
 - `utilities/shared/page_shell.py` — auth guard + GM banner for lore/ancestry pages
 
 **GitHub Issue:** #176
+
+---
+
+## Decision 16 — CSS Token Vocabulary (Phase 0, #183)
+**Date:** 2026-04-26
+**Domain:** Infrastructure / utilities
+**Status:** LOCKED
+**Issue:** [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/183)
+
+### Context
+Phase 0 prerequisite for #183 (CSS extraction + Jinja2 template layer). Canonical token map locked before any CSS file changes begin.
+
+### Canonical Token Map
+
+| Token | Current hex | New hex | Change |
+|---|---|---|---|
+| `--ink` | `#1a1208` | `#0e0b08` | hex shift (darker) |
+| `--paper` *(was `--parchment`)* | `#f5edd8` | `#f2ead8` | rename + hex shift |
+| `--cream` *(was `--parchment2`)* | `#ede0c4` | `#e8dcc8` | rename + hex shift |
+| `--gold` | `#b8922c` | `#b8892a` | hex shift |
+| `--gold-lt` *(was `--gold-light`)* | `#d4a843` | `#d4a94a` | rename + hex shift |
+| `--crimson` | `#7a1f1f` | `#7a1f1f` | carry forward (no archive equivalent) |
+| `--steel` | `#3c4a5a` | `#3c4a5a` | carry forward (no archive equivalent) |
+| `--rule` | `rgba(184,146,44,0.4)` | `rgba(184,137,42,0.4)` | derived; updated to new --gold RGB |
+| `--shadow` | `rgba(26,18,8,0.15)` | `rgba(14,11,8,0.15)` | derived; updated to new --ink RGB |
+| `--muted` *(new)* | — | `#9a8e7a` | net-new from design archive |
+| `--dark-bg` *(new)* | — | `#0e0b08` | dark theme; same as new --ink |
+| `--dark-mid` *(new)* | — | `#1c1710` | dark theme |
+| `--dark-sur` *(new)* | — | `#2a2218` | dark theme |
+| `--dark-brd` *(new)* | — | `#3a3020` | dark theme |
+
+### Token Sources
+- Current system: `page_shell.py::CSS_BASE`, `world_base.css`, `campaign_frame.css` (identical `:root` blocks)
+- Design archive: `design/Tarim-Shaiel Redesign.html` lines 17–28
+- `world_myth.css`, `world_category.css`, `world_timeline.css` consume tokens from `world_base.css` (no `:root` defined locally)
+- `generate_ancestry_html.py::CSS_ANCESTRY`, `generate_lore_html.py::CSS_LORE` consume tokens from `page_shell.py::CSS_BASE`
+
+### Rationale
+- `--parchment`/`--parchment2` renamed to `--paper`/`--cream` to match design archive semantics and eliminate ambiguity
+- `--gold-light` → `--gold-lt` for consistency with archive's terse naming convention
+- `--crimson` and `--steel` have no direct archive equivalents but are load-bearing in the current system; carry forward unchanged
+- Dark theme tokens (`--dark-*`) are net-new; enable Phase 3 theme variants
+- Phase 1 CSS extraction may NOT begin until this entry is committed
+
+### Jinja2 Dependency
+Added `jinja2>=3.1.6` to `requirements.txt` (Phase 0 deliverable; Jinja2 3.1.6 already transitively installed).

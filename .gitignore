@@ -30,6 +30,7 @@ images/*
 !images/paper-texture-top-view-2.jpg
 !images/people/ancestries/
 docs/images/
+docs/assets/
 /audio/
 !narrative/audio/The Road_A Fable.mp3
 references/

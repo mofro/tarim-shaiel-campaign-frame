@@ -3,18 +3,6 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --ink:        #1a1208;
-      --parchment:  #f5edd8;
-      --parchment2: #ede0c4;
-      --gold:       #b8922c;
-      --gold-light: #d4a843;
-      --crimson:    #7a1f1f;
-      --steel:      #3c4a5a;
-      --rule:       rgba(184,146,44,0.4);
-      --shadow:     rgba(26,18,8,0.15);
-    }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -29,7 +17,7 @@
     .page-wrap {
       max-width: 860px;
       margin: 0 auto;
-      background: var(--parchment);
+      background: var(--paper);
       box-shadow: 0 0 80px rgba(0,0,0,0.75);
       position: relative;
       overflow: hidden;
@@ -55,7 +43,6 @@
 
     .cover-image {
       position: absolute; inset: 0;
-      background-image: url('%(cover_image_url)s');
       background-size: cover;
       background-position: center 4%;
       z-index: 0;
@@ -71,7 +58,7 @@
       position: relative;
       z-index: 2;
       padding: 2.5rem 3rem 3rem;
-      color: var(--parchment);
+      color: var(--paper);
     }
 
     .cover-title {
@@ -91,7 +78,7 @@
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--gold-light);
+      color: var(--gold-lt);
       margin-bottom: 1.4rem;
     }
 
@@ -105,7 +92,7 @@
 
     .banner {
       background: var(--steel);
-      color: var(--parchment);
+      color: var(--paper);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -225,7 +212,7 @@
     .theme p { margin-bottom: 0; font-size: 0.97rem; }
 
     .callout {
-      background: var(--parchment2);
+      background: var(--cream);
       border-left: 3px solid var(--gold);
       border-radius: 2px;
       padding: 0.9rem 1.1rem;
@@ -295,7 +282,7 @@
       line-height: 1.6;
     }
 
-    .credits a { color: var(--gold-light); }
+    .credits a { color: var(--gold-lt); }
 
     .dpcr-notice {
       border-top: 1px solid rgba(245,237,216,0.2);
