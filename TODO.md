@@ -23,6 +23,13 @@ _Project health tracked in [DASHBOARD.md](DASHBOARD.md)_
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
 
+### 2026-05-01 (session 3)
+- #183 Phase 2d: dashboard generator migrated to Jinja2 ✅
+  - `page-dashboard.css` created — all inline styles extracted; `gauge_css` dynamic rules replaced with static selector rules
+  - `pages/dashboard.html` created — standalone template (no base.html extends); linked CSS; JS inline
+  - `render_html()` f-string removed; calls `render_page('pages/dashboard.html', ...)` instead
+  - Full build verified; `generate_dashboard.py` −290 lines (net)
+
 ### 2026-05-01 (session 2)
 - #183 Phase 2c: world generators migrated to Jinja2 ✅
   - `base.html` extended with `{% block extra_head %}`, `{% block page_gm_banner %}`, `{% block back_nav %}`, `{% block cover %}`; `page_class` variable on page-wrap
@@ -46,7 +53,7 @@ _What happened this session. Newest first. Trim to last 3 sessions; older entrie
   - **Phase 0:** Decision 16 CSS token map locked; `jinja2>=3.1.6` added to `requirements.txt`; `utilities/shared/css/tokens.css` created with canonical 15-token map
   - **Phase 1 (PR #187):** All CSS extracted from Python string constants to `utilities/shared/css/*.css` files; generators switch from `<style>` inlining to `<link>` tags; `_copy_css()` step added to `build.py`; `.gitignore` updated for `docs/assets/`
   - **Phase 2a (PR #188):** Jinja2 environment + `render_page()` in `utilities/shared/renderer.py`; template tree: `base.html`, `pages/ancestry.html`, `pages/lore.html`, `partials/ancestry-card.html`; ancestry and lore generators stripped of all HTML-building functions; both generators verified producing correct output
-  - **Remaining on #183:** Phase 2d (dashboard), Phase 3 (theme variants)
+  - **Remaining on #183:** Phase 3 (theme variants)
 
 ### 2026-04-22
 - Implemented account-based GM gatekeeping — [#176](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/176) ✅
