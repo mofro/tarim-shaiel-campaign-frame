@@ -7,7 +7,7 @@
       font-family: 'EB Garamond', Georgia, serif;
       font-size: 17px;
       line-height: 1.72;
-      color: var(--ink);
+      color: var(--fg);
     }
 
     .cover { min-height: 280px; }
@@ -60,7 +60,7 @@
     }
 
     .feature-box {
-      background: var(--cream);
+      background: var(--surface);
       border: 1px solid var(--rule);
       border-radius: 2px;
       padding: 0.95rem 1.1rem 1rem;
