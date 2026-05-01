@@ -166,6 +166,57 @@ body { background:#111008; background-image: url('/images/paper-texture-top-view
 }
 
 /* =====================================================
+   DARK THEME
+   Activated via [data-theme="dark"] or prefers-color-scheme.
+   ===================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8dcc8; --parchment: #0e0b08; --parchment2: #1c1710;
+    --parchment3: #2a2218; --rule: rgba(184,146,44,0.25); --shadow: rgba(0,0,0,0.4);
+  }
+}
+[data-theme="dark"] {
+  --ink: #e8dcc8; --parchment: #0e0b08; --parchment2: #1c1710;
+  --parchment3: #2a2218; --rule: rgba(184,146,44,0.25); --shadow: rgba(0,0,0,0.4);
+}
+[data-theme="light"] {
+  --ink: #1a1208; --parchment: #f5edd8; --parchment2: #ede0c4;
+  --parchment3: #e4d5b0; --rule: rgba(184,146,44,0.35); --shadow: rgba(26,18,8,0.12);
+}
+/* Elements with hardcoded rgba(26,18,8,...) — remap for dark mode */
+[data-theme="dark"] .domain-gauge-label,
+[data-theme="dark"] .domain-gauge-pct,
+[data-theme="dark"] .health-note,
+[data-theme="dark"] .filter-label,
+[data-theme="dark"] .critical-path,
+[data-theme="dark"] .session-summary,
+[data-theme="dark"] .summary-item,
+[data-theme="dark"] .section-count,
+[data-theme="dark"] .section-chevron,
+[data-theme="dark"] .todo-note,
+[data-theme="dark"] .todo-effort,
+[data-theme="dark"] .last-updated { color: rgba(232,220,200,0.55); }
+[data-theme="dark"] .filter-btn { color: rgba(232,220,200,0.6); background: var(--parchment2); }
+[data-theme="dark"] .filter-btn.active { background: var(--gold-lt, #d4a94a); color: #0e0b08; border-color: var(--gold-lt, #d4a94a); }
+[data-theme="dark"] .todo-checkbox { background: var(--parchment); }
+[data-theme="dark"] .todo-text.done-text { color: rgba(232,220,200,0.35); }
+[data-theme="dark"] .progress-bar-wrap { background: rgba(232,220,200,0.12); }
+[data-theme="dark"] .section-header:hover { background: rgba(184,146,44,0.08); }
+[data-theme="dark"] .todo-item:hover { background: rgba(184,146,44,0.06); }
+[data-theme="dark"] .obs-link { color: rgba(232,220,200,0.6); background: rgba(232,220,200,0.06); border-color: rgba(232,220,200,0.15); }
+[data-theme="dark"] .obs-link:hover { color: var(--parchment); background: rgba(232,220,200,0.12); }
+@media (prefers-color-scheme: dark) {
+  .domain-gauge-label, .domain-gauge-pct, .health-note, .filter-label,
+  .critical-path, .session-summary, .summary-item, .section-count,
+  .section-chevron, .todo-note, .todo-effort, .last-updated { color: rgba(232,220,200,0.55); }
+  .filter-btn { color: rgba(232,220,200,0.6); background: var(--parchment2); }
+  .filter-btn.active { background: var(--gold-lt, #d4a94a); color: #0e0b08; border-color: var(--gold-lt, #d4a94a); }
+  .todo-checkbox { background: var(--parchment); }
+  .todo-text.done-text { color: rgba(232,220,200,0.35); }
+  .progress-bar-wrap { background: rgba(232,220,200,0.12); }
+}
+
+/* =====================================================
    STYLE_OVERRIDES
    Add your CSS overrides here. Document in SKILL.md.
    ===================================================== */

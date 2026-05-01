@@ -9,7 +9,7 @@
     .page-wrap {
       max-width: 860px;
       margin: 0;
-      background: var(--paper);
+      background: var(--bg);
       box-shadow: 0 0 80px rgba(0,0,0,0.75);
       position: relative;
       overflow: hidden;

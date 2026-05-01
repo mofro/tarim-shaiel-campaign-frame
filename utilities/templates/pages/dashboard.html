@@ -134,5 +134,7 @@
   }
   applyFilters();
 </script>
+<button class="theme-toggle" onclick="(function(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');h.setAttribute('data-theme',cur==='dark'?'light':'dark');localStorage.setItem('ts-theme',h.getAttribute('data-theme'));})()" title="Toggle light/dark theme">◑</button>
+
 </body>
 </html>

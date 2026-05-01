@@ -11,13 +11,13 @@
       font-family: 'EB Garamond', Georgia, serif;
       font-size: 17px;
       line-height: 1.72;
-      color: var(--ink);
+      color: var(--fg);
     }
 
     .page-wrap {
       max-width: 860px;
       margin: 0 auto;
-      background: var(--paper);
+      background: var(--bg);
       box-shadow: 0 0 80px rgba(0,0,0,0.75);
       position: relative;
       overflow: hidden;
@@ -212,7 +212,7 @@
     .theme p { margin-bottom: 0; font-size: 0.97rem; }
 
     .callout {
-      background: var(--cream);
+      background: var(--surface);
       border-left: 3px solid var(--gold);
       border-radius: 2px;
       padding: 0.9rem 1.1rem;
