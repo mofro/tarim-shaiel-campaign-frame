@@ -1,0 +1,14 @@
+{% extends "pages/world.html" %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+{% endblock %}
+
+{% block cover %}
+{{ header_html | safe }}
+<div class="banner">
+  <span>{{ banner_left }}</span>
+  <span>{{ banner_right }}</span>
+</div>
+<div class="banner-rule"></div>
+{% endblock %}
