@@ -243,6 +243,7 @@ def build_myth_html(
         gm_mode:     When True, render GM banners and pass gm_mode to render_body.
     """
     from shared.html_render import render_body as _render_body
+    from shared.renderer import render_page as _render_page
 
     title = fm.get('title', 'Untitled')
     tags = fm.get('tags', [])
@@ -290,7 +291,6 @@ def build_myth_html(
 
     # --- Back navigation ---
     # If frontmatter has parent-class, link to parent page; otherwise link to category.
-    back_nav_html = ''
     back_href = ''
     back_label = ''
     parent_class = str(fm.get('parent-page', '') or fm.get('parent-class', '')).strip()
@@ -303,82 +303,50 @@ def build_myth_html(
         cat_label  = folder.replace('-', ' ').replace('_', ' ').title()
         back_href  = f'{back_prefix}category-{escape(folder)}.html'
         back_label = cat_label
-    if back_href:
-        back_nav_html = (
-            f'<div class="back-nav">'
-            f'<a href="{back_href}">&larr; Back</a>'
-            f'</div>\n'
-        )
 
     # --- Jump navigation (shown when 2+ sections exist, opt-out with jump_nav: false) ---
-    jump_nav_html = ''
+    nav_items = []
     if len(jump_nav_items) >= 2 and (fm.get('jump_nav', True) is not False):
-        nav_items = []
-        if back_href:
-            nav_items.append(f'  <li style="list-style:none"><a href="{back_href}">&larr; Back</a></li>')
-            nav_items.append('  <li class="nav-divider"></li>')
-        for item in jump_nav_items:
-            nav_items.append(f'  <li><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
-        nav_items.append('  <li class="nav-divider"></li>')
-        nav_items.append('  <li style="list-style:none"><a href="#">&#8593; Top</a></li>')
-        jump_nav_html = '<div class="jump-nav">\n<ul>\n' + '\n'.join(nav_items) + '\n</ul>\n</div>\n'
+        nav_items = jump_nav_items
 
-    # --- Cover / header ---
-    if cover_image:
-        header_html = (
-            f'<div class="cover">\n'
-            f'  <div class="cover-image" style="background-image: url(\'{escape(cover_image)}\'); background-position: {banner_x}% {banner_y}%"></div>\n'
-            f'  <div class="cover-gradient"></div>\n'
-            f'  <div class="cover-content">\n'
-            f'    <div class="cover-title">{escape(title)}</div>\n'
-            + (f'    <div class="cover-tag">{escape(tag_label)}</div>\n' if tag_label else '')
-            + f'  </div>\n</div>\n'
-        )
-    else:
-        header_html = (
-            f'<div class="no-cover-header">\n'
-            f'  <div class="cover-title">{escape(title)}</div>\n'
-            + (f'  <div class="cover-tag">{escape(tag_label)}</div>\n' if tag_label else '')
-            + f'</div>\n'
-        )
-
-    # --- Banner (frontmatter-overridable) ---
+    # --- Banner labels (frontmatter-overridable) ---
     doc_type_label = str(fm.get('type', 'lore')).replace('_', ' ').title()
     banner_left  = fm.get('banner_left',  'Tarim-Shaiel')
     banner_right = fm.get('banner_right', doc_type_label)
-    banner_html = (
-        f'<div class="banner">'
-        f'<span>{escape(str(banner_left))}</span>'
-        f'<span>{escape(str(banner_right))}</span>'
-        f'</div>\n'
-        f'<div class="banner-rule"></div>\n'
-    )
 
-    # Per-page GM/public indicator banner (GM build only)
-    gm_banner_html = ''
-    page_extra_class = ''
+    # --- Per-page GM/public indicator banner (GM build only) ---
+    gm_page_banner_html = ''
+    page_class = ''
     if gm_mode:
         vis_raw = fm.get('visibility', 'gm_secrets')
         is_gm_secret = 'gm_secrets' in (str(vis_raw) if not isinstance(vis_raw, list)
                                          else ' '.join(str(v) for v in vis_raw))
         if is_gm_secret:
-            gm_banner_html = '<div class="gm-page-banner">✦ GM EYES ONLY · RESTRICTED ✦</div>\n'
-            page_extra_class = ' gm-secret-page'
+            gm_page_banner_html = '<div class="gm-page-banner">✦ GM EYES ONLY · RESTRICTED ✦</div>\n'
+            page_class = ' gm-secret-page'
         else:
-            gm_banner_html = '<div class="public-page-banner">PLAYER-VISIBLE · PUBLIC DOCUMENT</div>\n'
-            page_extra_class = ' public-page'
+            gm_page_banner_html = '<div class="public-page-banner">PLAYER-VISIBLE · PUBLIC DOCUMENT</div>\n'
+            page_class = ' public-page'
 
-    return _html_wrapper(
+    return _render_page(
+        'pages/world.html',
         title=title,
-        css_files=('world-myth',),
-        back_nav_html=back_nav_html,
-        header_html=header_html,
-        banner_html=banner_html,
+        generator_name='utilities/world/generate_world_html.py',
+        extra_css=['world-base', 'world-myth'],
+        use_base_css=False,
+        cover_image_url=cover_image,
+        banner_x=banner_x,
+        banner_y=banner_y,
+        tag_label=tag_label,
+        banner_left=str(banner_left),
+        banner_right=str(banner_right),
+        back_href=back_href,
+        back_label=back_label,
+        jump_nav_items=nav_items,
         content_html=content_html,
-        jump_nav_html=jump_nav_html,
-        gm_banner_html=gm_banner_html,
-        page_extra_class=page_extra_class,
         gm_mode=gm_mode,
+        gm_page_banner_html=gm_page_banner_html,
+        page_class=page_class,
     )
 
 
@@ -1344,128 +1312,45 @@ def render_timeline_html(
         + f'<div class="tl-list-wrap">\n{rows_html}\n</div>\n'
     )
 
-    back_nav_html = ''
+    back_href = ''
+    back_label = ''
     if folder:
         cat_label = folder.replace('-', ' ').replace('_', ' ').title()
-        back_href = f'{back_prefix}category-{escape(folder)}.html'
-        back_nav_html = (
-            f'<div class="back-nav">'
-            f'<a href="{back_href}">&larr; Back</a>'
-            f'</div>\n'
-        )
+        back_href  = f'{back_prefix}category-{escape(folder)}.html'
+        back_label = cat_label
 
     # Per-page GM banner (GM build only — timelines are always public for now)
-    gm_banner_html = ''
-    page_extra_class = ''
+    gm_page_banner_html = ''
+    page_class = ''
     if gm_mode:
         vis_raw = fm.get('visibility', 'gm_secrets')
         is_gm_secret = 'gm_secrets' in (str(vis_raw) if not isinstance(vis_raw, list)
                                          else ' '.join(str(v) for v in vis_raw))
         if is_gm_secret:
-            gm_banner_html = '<div class="gm-page-banner">✦ GM EYES ONLY · RESTRICTED ✦</div>\n'
-            page_extra_class = ' gm-secret-page'
+            gm_page_banner_html = '<div class="gm-page-banner">✦ GM EYES ONLY · RESTRICTED ✦</div>\n'
+            page_class = ' gm-secret-page'
         else:
-            gm_banner_html = '<div class="public-page-banner">PLAYER-VISIBLE · PUBLIC DOCUMENT</div>\n'
-            page_extra_class = ' public-page'
+            gm_page_banner_html = '<div class="public-page-banner">PLAYER-VISIBLE · PUBLIC DOCUMENT</div>\n'
+            page_class = ' public-page'
 
-    return _html_wrapper(
+    from shared.renderer import render_page as _render_page
+    return _render_page(
+        'pages/world-timeline.html',
         title=title,
-        css_files=('world-timeline',),
+        generator_name='utilities/world/generate_world_html.py',
+        extra_css=['world-base', 'world-timeline'],
+        use_base_css=False,
         header_html=header_html,
-        banner_html=banner_html,
+        banner_left='Tarim-Shaiel',
+        banner_right='Timeline',
         content_html=content_html,
-        extra_head='<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>\n',
-        back_nav_html=back_nav_html,
-        gm_banner_html=gm_banner_html,
-        page_extra_class=page_extra_class,
+        back_href=back_href,
+        back_label=back_label,
         gm_mode=gm_mode,
+        gm_page_banner_html=gm_page_banner_html,
+        page_class=page_class,
     )
 
-
-# ---------------------------------------------------------------------------
-# HTML wrapper
-# ---------------------------------------------------------------------------
-
-_GM_GUARD_SCRIPT = """\
-<script src="https://cdn.jsdelivr.net/npm/netlify-identity-widget@1/build/netlify-identity-widget.js"></script>
-<script>
-(function () {
-  netlifyIdentity.init();
-  netlifyIdentity.on('init', function (user) {
-    if (!user) { window.location.replace('login.html' + window.location.hash); }
-  });
-})();
-</script>
-"""
-
-# GM page CSS is now in utilities/shared/css/gm.css (linked externally when gm_mode=True)
-
-
-def _html_wrapper(
-    title: str,
-    css_files: tuple = (),
-    header_html: str = '',
-    banner_html: str = '',
-    content_html: str = '',
-    extra_head: str = '',
-    back_nav_html: str = '',
-    jump_nav_html: str = '',
-    gm_banner_html: str = '',
-    page_extra_class: str = '',
-    gm_mode: bool = False,
-) -> str:
-    guard = _GM_GUARD_SCRIPT if gm_mode else ''
-    extra_css_links = ''.join(
-        f'  <link rel="stylesheet" href="/assets/css/{stem}.css">\n'
-        for stem in css_files
-    )
-    gm_link = '  <link rel="stylesheet" href="/assets/css/gm.css">\n' if gm_mode else ''
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{escape(title)} &mdash; Tarim-Shaiel</title>
-  <link rel="icon" href="{FAVICON}">
-  <!-- AUTO-GENERATED by utilities/world/generate_world_html.py — do not hand-edit -->
-  {extra_head}
-  <script>(function(){{var t=localStorage.getItem('ts-theme');if(t)document.documentElement.setAttribute('data-theme',t);}})()</script>
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/world-base.css">
-{extra_css_links}{gm_link}</head>
-<body>
-
-{guard}{jump_nav_html}<div class="page-wrap{page_extra_class}">
-
-{gm_banner_html}{back_nav_html}{header_html}
-{banner_html}
-
-  <div class="content">
-{content_html}
-  </div>
-
-  <div class="credits">Tarim-Shaiel &middot; Daggerheart Campaign &middot; 2026</div>
-
-</div>
-
-<script>
-(function () {{
-  var a = document.querySelector('.back-nav a');
-  if (!a) return;
-  a.addEventListener('click', function (e) {{
-    e.preventDefault();
-    if (history.length > 1 && document.referrer &&
-        document.referrer.indexOf(location.hostname) !== -1) {{
-      history.back();
-    }} else {{
-      location.replace(a.href);
-    }}
-  }});
-}})();
-</script>
-</body>
-</html>
-"""
 
 
 # ---------------------------------------------------------------------------

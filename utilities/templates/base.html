@@ -18,20 +18,25 @@
   {% if gm_mode %}
   <link rel="stylesheet" href="/assets/css/gm.css">
   {% endif %}
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
 
 {% if gm_mode %}{{ gm_guard_script | safe }}{% endif %}
 {% block jump_nav %}{% endblock %}
-<div class="page-wrap">
+<div class="page-wrap{{ page_class | default('') }}">
 {% if gm_mode %}<div class="gm-mode-top-banner">GM VIEW — PRIVILEGED ARCHIVE</div>{% endif %}
+{% block page_gm_banner %}{% endblock %}
 
   <!-- BACK NAV -->
+  {% block back_nav %}
   <div class="back-nav">
     <a href="index.html">&#8592; Campaign Documents</a>
   </div>
+  {% endblock %}
 
   <!-- COVER -->
+  {% block cover %}
   <div class="cover">
     <div class="cover-image" style="background-image: url('{{ cover_image_url | e }}');"></div>
     <div class="cover-gradient"></div>
@@ -47,6 +52,7 @@
     <span>{{ banner_right }}</span>
   </div>
   <div class="banner-rule"></div>
+  {% endblock %}
 
   <!-- MAIN CONTENT -->
   <div class="content">
