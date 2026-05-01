@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-04-11
+last_updated: 2026-04-30
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -40,7 +40,8 @@ Additional (dungeons/landmarks/waypoints): [[world/locations/alak-mor.md]] · [[
 ## Faction Landscape
 - Visible factions in location frontmatter: `factions_visible:`
 - Hidden factions: `factions_hidden:` (GM layer only)
-- Faction index: [[world/factions/_category]] — individual faction files TBD
+- Faction index: [[world/factions/_category]] — 16 stub files created (P1–P3); 3 deferred: elven-highland-enclaves (#43), scholars-remnant (#42), celestial-court (Decision #11)
+- Individual faction files: [[world/factions/lich-cadre.md]] · [[world/factions/the-wizard.md]] · [[world/factions/chain-breakers-order.md]] · [[world/factions/orc-confederation-samarkand.md]] · [[world/factions/eastern-gateway-council.md]] · [[world/factions/merchant-guilds.md]] · [[world/factions/eastern-imperial-dominion.md]] · [[world/factions/dwarven-mountain-confederations.md]] · [[world/factions/dwarven-tarim-authority.md]] · [[world/factions/human-tarim-councils.md]] · [[world/factions/human-imperial-remnants.md]] · [[world/factions/orc-steppe-confederations.md]] · [[world/factions/goblin-free-cities.md]] · [[world/factions/peoples-of-the-nine-roads.md]] · [[world/factions/gnome-guilds.md]] · [[world/factions/jade-coast-realms.md]]
 - Active political players overview: [[world/content/CAMPAIGN_PRESENT_FACTIONS.md]]
 
 ## Geospatial Data

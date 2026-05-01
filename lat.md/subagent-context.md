@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-04-22
+last_updated: 2026-04-30
 ---
 
 > _Derived from CLAUDE.md and `lat.md/` files — update in the same commit when those change. Inject into spawned agent prompts; this file is not automatically read by any session._
