@@ -24,6 +24,9 @@ _Project health tracked in [DASHBOARD.md](DASHBOARD.md)_
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
 
 ### 2026-05-01 (session 3)
+- #183 closed — all phases shipped ✅; follow-on issues filed:
+  - [#197](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/197) Dark mode visual review — contrast/readability audit, badge pastels, crimson headings, hardcoded rgba values
+  - [#198](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/198) `html_render.py` structured-dict refactor — ~140 lines Python HTML eliminated; rendering moves to Jinja2 macro
 - #183 Phase 3: dark/light theme layer ✅ (PR #195)
   - `tokens.css`: `--bg`/`--fg`/`--surface` semantic vars + `@media (prefers-color-scheme: dark)` + `[data-theme]` overrides; `.theme-toggle` button CSS
   - `base.css`, `page-campaign.css`, `world-base.css`: `.page-wrap { background: var(--bg) }`
