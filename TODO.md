@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-04-30
+last_updated: 2026-05-01
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -22,6 +22,17 @@ _Project health tracked in [DASHBOARD.md](DASHBOARD.md)_
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-05-01
+- Faction stubs: 16 P1–P3 faction files created in `world/factions/` — [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144) ✅ (PR #191)
+  - P1 rich stubs: `lich-cadre.md`, `the-wizard.md`, `chain-breakers-order.md`
+  - P2 with overview + relationships: `orc-confederation-samarkand`, `eastern-gateway-council`, `merchant-guilds`, `eastern-imperial-dominion`
+  - P3 minimal stubs: 9 remaining P3 factions
+  - `lat.md/world.md` updated; 3 deferred (elven-highland-enclaves, scholars-remnant, celestial-court)
+- CI fix: Node.js 24 opt-in + `pip install -r requirements.txt` (was only installing pyyaml, missing jinja2) — PR #190 ✅
+- #183 Phase 2b: campaign frame generator migrated to Jinja2 — PR #189 ✅
+  - `base.html` extended with `{% block cover_extra %}` + conditional `base.css` + `{% block extra_css %}`
+  - `pages/campaign.html` created; `build_html()` f-string removed from generator
 
 ### 2026-04-30
 - HTML publishing pipeline: CSS extraction + Jinja2 template layer — [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/183) Phase 0–2a ✅

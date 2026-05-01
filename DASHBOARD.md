@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-04-30
+last_updated: 2026-05-01
 
 critical_path:
   - Resolve cosmological architecture
@@ -48,6 +48,8 @@ blockers:
 - 🆕 **Filed (2026-04-14):** Faction file stubs — 16 P1–P3 faction files to create from _category.md registry; 3 deferred pending #42, #43, Decision #11. [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144)
 - 🗒️ **Backlog:** HTML generation pipeline refactor — consolidate shared utilities, eliminate _Generator boilerplate + CSS token drift across 6 scripts. [#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138)
 - 🗒️ **Backlog:** docs/ output hierarchy restructure — move per-document HTML into subdirectories; fixes ~500-file flat directory. [#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168)
+- ✅ **Completed (2026-05-01):** Faction stubs — 16 P1–P3 files created; 3 deferred pending #42, #43, Decision #11. [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144)
+- ✅ **Completed (2026-05-01):** Phase 2b Jinja2 — campaign frame generator migrated; `base.html` extended with cover_extra + conditional base.css hooks. [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/183) (PR #189)
 - ✅ **Completed (2026-04-30):** CSS extraction + Jinja2 template layer Phase 0–2a — tokens.css + linked CSS files (PR #187); renderer.py + base/ancestry/lore templates; ancestry + lore generators are now pure data-extraction. [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/183)
 - ✅ **Completed (2026-04-22):** Account-based GM gatekeeping — `build.py all --gm`, Netlify Identity auth guard, three-tier markdown gating (Tier 1/2/3), `docs/login.html`, `GM_AUTHORING.md`. Remaining: manual Netlify second-site setup. [#176](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/176)
 - 🗒️ **Backlog:** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
