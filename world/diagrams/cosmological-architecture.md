@@ -1,7 +1,10 @@
 ---
 title: Cosmological Architecture Diagram
 project: TTRPG_Tarim_Shaiel
-type: diagram
+domain: world
+doc_type: substrate
+content_type: reference
+visibility: gm_secrets
 diagram_type: cosmological-layers
 status: draft
 created: 2026-03-10
