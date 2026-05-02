@@ -20,6 +20,7 @@
       flex: 1;
       background: var(--bg);
       position: relative;
+      overflow-x: clip;
     }
 
     .page-wrap::before {

@@ -890,7 +890,7 @@ def generate_category_page(
         f'{_ph_meta}\n'
         f'</div>'
     )
-    _body_open  = ('<div class="sidebar-layout">\n<nav class="sidebar-nav">\n'
+    _body_open  = ('<div class="sidebar-layout">\n<nav class="sidebar-nav" id="sidebar-nav">\n'
                    f'      {_sidebar_items_html}\n</nav>\n<div class="content">'
                    if _has_sidebar else '<div class="content">')
     _body_close = '</div></div>' if _has_sidebar else '</div>'
@@ -923,6 +923,7 @@ def generate_category_page(
 </nav>
 <div class="page-wrap">
 {_page_header_html}
+{'<button class="sidebar-toggle" onclick="toggleSidebar()" title="Toggle navigation">&#9776;</button><div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>' if _has_sidebar else ''}
 {_body_open}
 {body_html}
 {subcats_html}
@@ -935,6 +936,7 @@ def generate_category_page(
 
 </div>
 
+{'<script>function toggleSidebar(){{var nav=document.getElementById("sidebar-nav");var ov=document.getElementById("sidebar-overlay");nav.classList.toggle("open");ov.classList.toggle("open");}}</script>' if _has_sidebar else ''}
 <button class="theme-toggle" onclick="(function(){{var h=document.documentElement;var cur=h.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');h.setAttribute('data-theme',cur==='dark'?'light':'dark');localStorage.setItem('ts-theme',h.getAttribute('data-theme'));}})()" title="Toggle light/dark theme">&#9681;</button>
 </body>
 </html>

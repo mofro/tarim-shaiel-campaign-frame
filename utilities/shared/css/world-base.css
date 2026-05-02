@@ -21,7 +21,8 @@
       flex: 1;
       background: var(--bg);
       position: relative;
-      overflow: visible;
+      overflow-x: clip;
+      overflow-y: visible;
     }
 
     .page-wrap::before {
