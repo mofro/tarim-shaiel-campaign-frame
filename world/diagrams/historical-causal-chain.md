@@ -1,7 +1,10 @@
 ---
 title: Historical Causal Chain
 project: TTRPG_Tarim_Shaiel
-type: diagram
+domain: world
+doc_type: substrate
+content_type: reference
+visibility: gm_secrets
 diagram_type: causal-timeline
 status: draft
 created: 2026-03-10

@@ -1,9 +1,11 @@
 ---
 title: Concepts & Forces Index
 project: TTRPG_Tarim_Shaiel
-type: entity_index
-entity_type: concept
-status: active
+domain: world
+doc_type: operational
+content_type: index
+visibility: internal
+status: draft
 created: 2026-03-10
 last_updated: 2026-03-10
 ---
