@@ -1,7 +1,11 @@
 ---
 # ── REQUIRED ──────────────────────────────────────────────────────────────────
+title:                      # Same as name — for Schema C compatibility
 name:                       # Canonical name — e.g. "The Village of Hush (Social)"
-type: environment
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: template
+content_type: environment
 created:
 last_updated:
 
@@ -26,8 +30,8 @@ impulses:
 potential_adversaries: []
 
 # ── STATUS ────────────────────────────────────────────────────────────────────
-status:                     # canon | draft | tbd
-classification: public      # public | gm-only
+status:                     # canon | draft | review | deprecated
+visibility: public          # public | gm_secrets
 
 tags:
   -                         # player-visible | gm-only

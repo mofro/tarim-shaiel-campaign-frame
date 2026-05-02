@@ -1,5 +1,15 @@
 ---
 # Session Tracking Template
+# Schema C — Decision 17
+project: TTRPG_Tarim_Shaiel
+domain: narrative
+doc_type: template
+content_type: session
+visibility: gm_secrets
+status: draft
+created:
+last_updated:
+tags: []
 
 ## Session Metadata
 date: 
@@ -14,7 +24,8 @@ narrative_developments:
 
 ## Character Progression
 character_advancements: 
-new_charms_discovered: 
+vestiges_encountered: 
+memory_fragments_surfaced: 
 tier_progression_moments: 
 
 ## R/H/K Collective Insights

@@ -1,6 +1,7 @@
 ---
 name: 
 type: 
+status: deprecated
 is_private: false
 
 # Optional attributes
