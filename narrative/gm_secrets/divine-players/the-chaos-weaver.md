@@ -1,11 +1,12 @@
 ---
 title: The Chaos Weaver
 project: TTRPG_Tarim_Shaiel
+type: lore
 domain: narrative
 doc_type: canon
 content_type: divine_environment
 visibility: gm_secrets
-status: draft
+status: canon
 created: 2026-05-02
 last_updated: 2026-05-02
 cosmological_layer: Pre-cosmic
