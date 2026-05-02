@@ -44,24 +44,39 @@ Two named personas are active in this project. Honor them in appropriate context
 ## File Conventions
 
 ### Frontmatter (Required for all persistent files)
+
+**Schema C** (Decision 17, 2026-05-02) — `type:` is replaced by three focused fields.
+
 ```yaml
 ---
-title: [Document title]
+title:
 project: TTRPG_Tarim_Shaiel
-type: [world_building|narrative|mechanics|character|reference|template|operational]
+domain: [world|narrative|mechanics|characters|templates|references|utilities|archive]
+doc_type: [canon|draft|substrate|template|entity_index|design_decision|gm_secrets|operational]
+content_type: [event|faction|location|region|landmark|poi|concept|archetype|npc|lore|mythology|ancestry|environment|timeline|session|campaign_frame|index|reference]
 visibility: [public|gm_secrets|internal]
 status: [draft|review|canon|deprecated]
 created: YYYY-MM-DD
 last_updated: YYYY-MM-DD
+tags: []
 ---
 ```
 
 ### Key conventions
 - `/gm_secrets/` subdirectory exists in each domain for player-invisible content
-- `visibility: gm_secrets` = GM-only; `visibility: public` = player-facing; `visibility: internal` = operational/navigational infrastructure (never player-facing, never published; e.g. `lat.md/` files)
+- `visibility: public` = player-facing; `visibility: gm_secrets` = GM-only; `visibility: internal` = operational/navigational infrastructure (never published; e.g. `lat.md/` files)
 - `status: canon` = locked/authoritative; do not change without explicit direction
 - Template filenames are prefixed `_TEMPLATE_`
 - GM markdown conventions (inline redaction `{gm:text}`, block callouts `> [!gm-only]`, file transclusion `![[gm_secrets/...]]`): see `GM_AUTHORING.md`
+
+### Extension fields (preserve during migration — do not remove)
+- **Location:** `elevation`, `location`, `mapmarker`, `fantasy_name`, `resources`, `factions` + geographic fields
+- **Ancestry:** `daggerheart_name` (Tarim-Shaiel name → Daggerheart mechanical ancestry)
+- **Faction:** `faction_type`, `region`, `visible_control`, `hidden_control`, `rivals`, `controls`, `narrative_weight`
+- **Weapon:** `range`, `tier`, `banner_left`, `banner_right`
+- **Event:** `timeline_date`, `timeline_ref`
+- **`published:`** — generator-pipeline flag; controls HTML inclusion independently of GM-gating; do not fold into `visibility:`
+- **`_category.md` files** — operational navigation files; Schema C migration not required; use `doc_type: operational` if frontmatter is ever added
 
 ### File Persistence Rule
 Write to filesystem if: source-of-truth doc, referenced across conversations, Lore Keeper needs to track it, session artifact, decision log entry.
