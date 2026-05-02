@@ -1,8 +1,14 @@
 ---
+title: The Anvil-Sunder Switchbacks
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: A punishing alternate high route of tight switchbacks and exposed ridgelines.
 fantasy_name: The Anvil-Sunder Switchbacks
-is_private: false
 last_updated: 2025-12-13
 location:
 - 40.50249308507127

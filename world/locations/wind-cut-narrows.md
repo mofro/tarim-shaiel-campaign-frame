@@ -1,9 +1,15 @@
 ---
+title: The Wind-Cut Narrows
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: A canyon pinch-point where the road compresses into a single file—ideal
   for tolls, patrols, and ambushes.
 fantasy_name: The Wind-Cut Narrows
-is_private: false
 last_updated: 2025-12-13
 location:
 - 40.33

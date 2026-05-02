@@ -1,4 +1,11 @@
 ---
+title: Miran
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: A waypoint on the southern desert route. An ancient settlement with ruins
   of Buddhist temples.
@@ -7,7 +14,6 @@ factions:
 - Oasis Guardians
 fantasy_name: Miran
 historical_basis: Tarim Basin - Ancient oasis settlement on southern route
-is_private: false
 last_updated: 2025-12-13
 location:
 - 40.52

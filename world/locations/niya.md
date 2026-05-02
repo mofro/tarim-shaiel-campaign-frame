@@ -1,4 +1,11 @@
 ---
+title: Niya
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: Ancient oasis ruins on the southern route. Archaeological treasures hidden
   in the sands await discovery.
@@ -7,7 +14,6 @@ factions:
 - Desert Guardians
 fantasy_name: Niya
 historical_basis: Tarim Basin - Ancient oasis settlement with archaeological significance
-is_private: false
 last_updated: 2025-12-13
 location:
 - 37.07

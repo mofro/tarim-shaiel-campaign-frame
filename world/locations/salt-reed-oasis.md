@@ -1,9 +1,15 @@
 ---
+title: Salt-Reed Oasis
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: location
+visibility: public
+status: draft
 created: 2025-12-13
 description: A reliable water stop at the edge of a brutal stretch; reeds and salt
   flats mark it from afar.
 fantasy_name: Salt-Reed Oasis
-is_private: false
 last_updated: 2025-12-13
 location:
 - 39.554

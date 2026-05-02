@@ -1,4 +1,11 @@
 ---
+title: Chang'an
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: location
+visibility: public
+status: draft
 created: 2025-12-13
 cultural_notes: Massive fortified city; destination of all Silk Road merchants; center
   of Chinese power and culture
@@ -11,7 +18,6 @@ factions:
 - Buddhist Communities
 fantasy_name: Chang'an
 historical_basis: Central China - Han and Tang dynasty capitals; major imperial center
-is_private: false
 last_updated: 2025-12-13
 location:
 - 34.34

@@ -1,4 +1,10 @@
 ---
+title: Jade Gate
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: location
+status: draft
 created: 2025-12-13
 description: The western gateway to imperial China. A heavily fortified checkpoint
   where all merchants are inspected and taxed.
@@ -7,7 +13,6 @@ factions:
 - Imperial Guard Post
 fantasy_name: Jade Gate
 historical_basis: Gansu Corridor - Western border of imperial Chinese territory
-is_private: false
 last_updated: 2025-12-13
 location:
 - 40.339

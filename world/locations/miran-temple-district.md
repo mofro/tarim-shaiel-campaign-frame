@@ -1,9 +1,15 @@
 ---
+title: Miran Temple District
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: Ruined temple compounds and broken statuary beyond Miran's waypoint;
   haunted by wind and sand.
 fantasy_name: Miran Temple District
-is_private: false
 last_updated: 2025-12-13
 location:
 - 40.47

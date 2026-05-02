@@ -1,4 +1,11 @@
 ---
+title: Endere
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: An isolated waypoint on the southern route through harsh desert.
 elevation: 1000
@@ -6,7 +13,6 @@ factions:
 - Desert Survivors
 fantasy_name: Endere
 historical_basis: Tarim Basin - Remote southern route waypoint
-is_private: false
 last_updated: 2025-12-13
 location:
 - 36.21

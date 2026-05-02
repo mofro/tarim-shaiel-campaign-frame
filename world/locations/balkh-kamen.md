@@ -1,8 +1,14 @@
 ---
+title: Balkh-Kamen
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: landmark
+visibility: public
+status: draft
 created: 2026-01-05
 description: Stone Mirror of the Central Tarimhighlands
 fantasy_name: Balkh-Kamen
-is_private: false
 last_updated: 2026-01-05
 location:
 - 46.5

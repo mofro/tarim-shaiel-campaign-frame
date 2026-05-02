@@ -1,9 +1,15 @@
 ---
+title: The Buried Lens
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: landmark
+visibility: public
+status: draft
 created: 2025-12-13
 description: A half-excavated relic site where glassy strata and strange echoes suggest
   buried ancient works.
 fantasy_name: The Buried Lens
-is_private: false
 last_updated: 2025-12-13
 location:
 - 41.4
