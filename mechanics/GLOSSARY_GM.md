@@ -1,11 +1,13 @@
 ---
 title: GM Glossary — Tarim-Shaiel
 project: TTRPG_Tarim_Shaiel
-type: reference
+domain: mechanics
+doc_type: canon
+content_type: reference
 visibility: gm_secrets
 status: draft
 created: 2026-03-20
-last_updated: 2026-03-24
+last_updated: 2026-05-02
 ---
 
 # GM Glossary — Tarim-Shaiel

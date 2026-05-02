@@ -1,11 +1,13 @@
 ---
 title: Player Glossary — Tarim-Shaiel
 project: TTRPG_Tarim_Shaiel
-type: reference
+domain: world
+doc_type: canon
+content_type: reference
 visibility: public
 status: draft
 created: 2026-03-20
-last_updated: 2026-03-24
+last_updated: 2026-05-02
 ---
 
 # Player Glossary — Tarim-Shaiel
