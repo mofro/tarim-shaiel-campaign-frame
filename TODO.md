@@ -493,17 +493,15 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
 ---
 
-### 10. DASHBOARD.md Schema + Generator Refactor 🆕 NOT STARTED ([#166](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/166))
+### 10. DASHBOARD.md Schema + Generator Refactor ✅ DONE ([#166](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/166))
+**Completed:** 2026-04-22
 **Domain:** `utilities/dashboard/`
-**Description:** Extract the health panel from TODO.md into a structured 40-line `DASHBOARD.md` (YAML frontmatter + Markdown Quick Summary). Six fragile regex extractors in `generate_dashboard.py` replaced with YAML readers. `SECTION_DOMAIN_HEADERS` expanded with missing world + Daggerheart mechanics keywords. TODO.md PROJECT HEALTH section removed.
 
-- [ ] **Phase 1:** Create `DASHBOARD.md` at vault root — migrate Quick Summary, critical_path, players, domain_overrides from TODO.md PROJECT HEALTH
-- [ ] **Phase 2:** Refactor generator — `parse_dashboard_md()`; replace six extractors; graceful fallback if file missing
-- [ ] **Phase 3:** Trim `TODO.md` — remove PROJECT HEALTH section; replace with single pointer line
-- [ ] **Phase 4:** Expand `SECTION_DOMAIN_HEADERS` — add `factions`, `events`, `locations`, `regions`, `domains`, `abilities`, `classes`, `subclasses`, `armor`
-- [ ] **Phase 5:** Update `lat.md/subagent-context.md` — add DASHBOARD.md as session-start read target; update `last_updated`
-
-**Estimated effort:** ~1–2 sessions
+- [x] **Phase 1:** `DASHBOARD.md` created — YAML frontmatter + Quick Summary; health panel separated from TODO.md
+- [x] **Phase 2:** Generator refactored — `parse_dashboard_md()`; six regex extractors replaced with YAML readers
+- [x] **Phase 3:** `TODO.md` PROJECT HEALTH section removed; single pointer line added
+- [x] **Phase 4:** `SECTION_DOMAIN_HEADERS` expanded
+- [x] **Phase 5:** `lat.md/subagent-context.md` updated
 
 ---
 
