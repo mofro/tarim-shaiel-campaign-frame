@@ -134,10 +134,14 @@ def generate_weapon_markdown(data: Dict) -> str:
     
     # Build frontmatter
     frontmatter = f"""---
-kanka_type: item
-is_private: false
+title: {data['name']}
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: lore
+visibility: gm_secrets
+status: draft
 name: {data['name']}
-type: weapon
 tags: [tier-{data['tier']}, weapon, daggerheart-srd]
 weapon_tier: {data['tier']}
 weapon_type: {data['weapon_type']}
@@ -179,10 +183,14 @@ def generate_armor_markdown(data: Dict) -> str:
     
     # Build frontmatter
     frontmatter = f"""---
-kanka_type: item
-is_private: false
+title: {data['name']}
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: lore
+visibility: gm_secrets
+status: draft
 name: {data['name']}
-type: armor
 tags: [tier-{data['tier']}, armor, daggerheart-srd]
 armor_tier: {data['tier']}"""
     

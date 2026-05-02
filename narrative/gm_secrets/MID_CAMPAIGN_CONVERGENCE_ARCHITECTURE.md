@@ -1,7 +1,9 @@
 ---
 title: Mid-Campaign Convergence Point Architecture
 project: TTRPG_Tarim_Shaiel
-type: narrative
+domain: narrative
+doc_type: canon
+content_type: campaign_frame
 visibility: gm_secrets
 status: canon
 created: 2026-03-21

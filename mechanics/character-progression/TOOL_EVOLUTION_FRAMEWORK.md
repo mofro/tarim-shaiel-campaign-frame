@@ -1,3 +1,15 @@
+---
+title: Tool Evolution Framework
+project: TTRPG_Tarim_Shaiel
+domain: mechanics
+doc_type: canon
+content_type: concept
+visibility: gm_secrets
+status: draft
+created: 2026-01-11
+last_updated: 2026-01-11
+---
+
 # TOOL EVOLUTION FRAMEWORK
 
 **Date:** 2026-01-11  

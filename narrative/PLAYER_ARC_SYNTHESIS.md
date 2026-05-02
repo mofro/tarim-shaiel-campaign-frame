@@ -1,9 +1,11 @@
 ---
 title: Player Archetype Synthesis — Methods, Doubts & Expansion
 project: TTRPG_Tarim_Shaiel
-type: narrative_development
-status: SPECULATIVE_DRAFT
-classification: DM_WORKING_DOCUMENT
+domain: narrative
+doc_type: draft
+content_type: concept
+visibility: gm_secrets
+status: draft
 created: 2026-02-13
 last_updated: 2026-02-13
 related_documents:

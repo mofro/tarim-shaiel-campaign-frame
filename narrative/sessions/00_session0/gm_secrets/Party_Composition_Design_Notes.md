@@ -1,12 +1,13 @@
 ---
 title: "Party Composition & Player Accommodation — Design Notes"
 project: TTRPG_Tarim_Shaiel
-type: design_planning
-status: working_draft
-classification: GM_PLANNING
+domain: narrative
+doc_type: gm_secrets
+content_type: session
+visibility: gm_secrets
+status: draft
 created: 2026-02-13
-updated: 2026-02-13
-related_documents:
+last_updated: 2026-02-13
   - Session_0_Awakening_Design_Notes.md
   - Sessions_Structure.md
   - CORE_CAMPAIGN_NARRATIVE.md

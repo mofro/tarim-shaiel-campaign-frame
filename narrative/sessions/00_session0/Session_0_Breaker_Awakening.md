@@ -1,4 +1,13 @@
 ---
+title: Session 0 Breaker Archetype Awakening
+project: TTRPG_Tarim_Shaiel
+domain: narrative
+doc_type: canon
+content_type: session
+visibility: gm_secrets
+status: draft
+created: 2025-01-21
+last_updated: 2025-01-21
 banner: images/places/Screencaps/terrain_color_map.png
 ---
 # Session 0: Breaker Awakening

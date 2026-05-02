@@ -1,7 +1,9 @@
 ---
 title: The Divine Players
 project: TTRPG_Tarim_Shaiel
-type: narrative
+domain: narrative
+doc_type: canon
+content_type: concept
 visibility: gm_secrets
 status: canon
 created: 2026-03-19

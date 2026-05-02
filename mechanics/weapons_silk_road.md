@@ -1,3 +1,15 @@
+---
+title: Tarim-Shaiel Weapons — Silk Road Arsenal
+project: TTRPG_Tarim_Shaiel
+domain: mechanics
+doc_type: canon
+content_type: reference
+visibility: gm_secrets
+status: draft
+created: 2026-01-01
+last_updated: 2026-01-01
+---
+
 # Tarim-Shaiel Weapons - Silk Road Arsenal
 
 **Status:** Draft v1.0  

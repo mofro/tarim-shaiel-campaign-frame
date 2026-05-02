@@ -1,9 +1,11 @@
 ---
 title: Session 0 Seeker Awakening - Version History
 project: TTRPG_Tarim_Shaiel
-type: version_tracking
-scenario: Session_0_Seeker_Awakening
-status: active
+domain: narrative
+doc_type: draft
+content_type: session
+visibility: gm_secrets
+status: draft
 created: 2025-01-19
 ---
 

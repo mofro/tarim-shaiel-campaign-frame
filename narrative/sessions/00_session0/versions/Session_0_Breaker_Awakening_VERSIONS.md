@@ -1,3 +1,14 @@
+---
+title: Session 0 Breaker Awakening — Version History
+domain: narrative
+doc_type: draft
+content_type: session
+visibility: gm_secrets
+status: draft
+created: 2025-01-21
+last_updated: 2025-01-21
+---
+
 # Session 0: Breaker Awakening - VERSION HISTORY
 
 This document tracks all versions and iterations of the Breaker awakening scenario, including rationale for changes, prose refinements, and structural decisions.

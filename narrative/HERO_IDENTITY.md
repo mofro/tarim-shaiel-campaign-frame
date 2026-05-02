@@ -1,3 +1,14 @@
+---
+title: Hero Identity & Cosmological Foundation
+domain: narrative
+doc_type: canon
+content_type: concept
+visibility: gm_secrets
+status: canon
+created: 2026-03-17
+last_updated: 2026-03-17
+---
+
 # HERO HEAVEN: HERO IDENTITY & COSMOLOGICAL FOUNDATION
 
 **Purpose:** Define who heroes ARE fundamentally, establishing design assumptions for all mechanical and narrative decisions.

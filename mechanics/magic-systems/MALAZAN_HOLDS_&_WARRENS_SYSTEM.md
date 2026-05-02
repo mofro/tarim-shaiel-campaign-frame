@@ -1,3 +1,15 @@
+---
+title: The Malazan Magic System — Holds and Warrens Reference
+project: TTRPG_Tarim_Shaiel
+domain: mechanics
+doc_type: substrate
+content_type: reference
+visibility: gm_secrets
+status: draft
+created: 2026-01-01
+last_updated: 2026-01-01
+---
+
 # The Malazan Magic System
 
 ## An overview of the Holds and Warrens

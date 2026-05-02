@@ -2,7 +2,9 @@
 banner: images/elements/mofro_An_ultra-realistic_documentary_image_of_a_gathering_of__42d4d882-cf48-4b51-ab53-d785ba01f626_2.gif
 title: The Liberation and Its Aftermath — Orc Timeline
 project: TTRPG_Tarim_Shaiel
-type: world_building
+domain: narrative
+doc_type: canon
+content_type: lore
 visibility: public
 status: draft
 created: 2026-02-11

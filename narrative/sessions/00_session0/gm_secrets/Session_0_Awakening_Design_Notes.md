@@ -1,12 +1,13 @@
 ---
 title: "Session 0: Awakening Design Notes — Timing, Order & Scenario Architecture"
 project: TTRPG_Tarim_Shaiel
-type: design_planning
-status: working_draft
-classification: GM_PLANNING
+domain: narrative
+doc_type: gm_secrets
+content_type: session
+visibility: gm_secrets
+status: draft
 created: 2026-02-11
-updated: 2026-03-20
-related_documents:
+last_updated: 2026-03-20
   - Sessions_Structure.md
   - Session_0_Introduction.md
   - Session_0_Warrior_Awakening.md

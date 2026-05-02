@@ -1,10 +1,13 @@
 ---
 title: Story Skeleton
 project: TTRPG_Tarim_Shaiel
-type: story_framework
-status: skeleton
+domain: narrative
+doc_type: draft
+content_type: campaign_frame
+visibility: gm_secrets
+status: draft
 created: 2025-12-05
-updated: 2025-12-05T15:27:45-05:00
+last_updated: 2025-12-05
 ---
 
 

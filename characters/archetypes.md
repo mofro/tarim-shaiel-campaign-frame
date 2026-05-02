@@ -1,10 +1,13 @@
 ---
 title: Player Character Archetypes
 project: TTRPG_Tarim_Shaiel
-type: character_framework
-status: skeleton
+domain: characters
+doc_type: canon
+content_type: archetype
+visibility: gm_secrets
+status: draft
 created: 2025-12-05
-updated: 2025-12-05T15:25:41-05:00
+last_updated: 2026-05-02
 ---
 
 # Player Character Archetypes: Five Modes of Heroism

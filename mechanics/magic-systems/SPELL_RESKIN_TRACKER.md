@@ -1,3 +1,15 @@
+---
+title: Daggerheart Spell Reskin Tracker
+project: TTRPG_Tarim_Shaiel
+domain: mechanics
+doc_type: canon
+content_type: reference
+visibility: gm_secrets
+status: draft
+created: 2026-01-01
+last_updated: 2026-01-01
+---
+
 # DAGGERHEART SPELL RESKIN TRACKER
 
 **Purpose:** Track alternative names for Daggerheart Domain spells/abilities that have been adapted for Tarim-Shaiel's Silk Road setting.

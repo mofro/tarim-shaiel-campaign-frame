@@ -1,3 +1,14 @@
+---
+title: Story Skeleton
+domain: narrative
+doc_type: draft
+content_type: campaign_frame
+visibility: gm_secrets
+status: draft
+created: 2025-12-05
+last_updated: 2025-12-05
+---
+
 # Tarim-Shaiel - Story Skeleton
 
 ## Core Concept

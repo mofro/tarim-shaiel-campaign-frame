@@ -1,3 +1,14 @@
+---
+title: Breaker Awakening — Planning Notes
+domain: narrative
+doc_type: draft
+content_type: session
+visibility: gm_secrets
+status: draft
+created: 2025-01-19
+last_updated: 2025-01-19
+---
+
 # Breaker Awakening - Conversation Planning Notes
 **Date:** 2025-01-19
 **Status:** Planning phase
