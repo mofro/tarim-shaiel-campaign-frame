@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-04-30
+last_updated: 2026-05-02
 ---
 
 > _Derived from CLAUDE.md and `lat.md/` files — update in the same commit when those change. Inject into spawned agent prompts; this file is not automatically read by any session._
@@ -60,23 +60,27 @@ Target register: Erikson-grade density. Benchmark: Session 0 Warrior Awakening v
 - Sensory-first: disorientation → context-building → trust challenge → restrained power moment
 - Specific over generic; earned grimness over cheap darkness
 
-## File Conventions
+## File Conventions (Schema C — Decision 17)
 
 All persistent files require frontmatter:
 ```yaml
 ---
-title: [Document title]
+title:
 project: TTRPG_Tarim_Shaiel
-type: [world_building|narrative|mechanics|character|reference|template|operational]
+domain: [world|narrative|mechanics|characters|templates|references|utilities|archive]
+doc_type: [canon|draft|substrate|template|entity_index|design_decision|gm_secrets|operational]
+content_type: [event|faction|location|region|landmark|poi|concept|archetype|npc|lore|mythology|ancestry|environment|timeline|session|campaign_frame|index|reference]
 visibility: [public|gm_secrets|internal]
 status: [draft|review|canon|deprecated]
 created: YYYY-MM-DD
 last_updated: YYYY-MM-DD
+tags: []
 ---
 ```
-- `visibility: gm_secrets` = GM-only; `visibility: public` = player-facing; `visibility: internal` = infrastructure (never published)
+- `visibility: public` = player-facing; `visibility: gm_secrets` = GM-only; `visibility: internal` = infrastructure (never published)
 - `status: canon` = locked; do not change without explicit direction
 - Update `last_updated` whenever editing a persistent file
+- Extension fields (preserve, don't remove): location geographic fields; `daggerheart_name:` (ancestry); faction fields (`faction_type:`, `rivals:`, etc.); weapon fields (`range:`, `tier:`, `banner_left/right:`); `published:` (generator pipeline flag — distinct from visibility)
 
 ## Persona Cues
 

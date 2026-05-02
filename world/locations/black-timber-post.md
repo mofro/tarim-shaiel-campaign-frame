@@ -1,9 +1,15 @@
 ---
+title: Black-Timber Post
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: Fortified overnight station with stables and a small shrine; a safe stop
   when the weather turns.
 fantasy_name: Black-Timber Post
-is_private: false
 last_updated: 2025-12-13
 location:
 - 41.05

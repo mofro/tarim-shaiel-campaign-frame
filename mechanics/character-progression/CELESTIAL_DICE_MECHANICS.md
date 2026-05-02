@@ -1,3 +1,15 @@
+---
+title: Celestial Dice Mechanics
+project: TTRPG_Tarim_Shaiel
+domain: mechanics
+doc_type: canon
+content_type: concept
+visibility: gm_secrets
+status: draft
+created: 2026-02-09
+last_updated: 2026-02-09
+---
+
 # CELESTIAL DICE MECHANICS
 
 **Last Updated:** 2026-02-09 (updated to 4-tier Daggerheart system)

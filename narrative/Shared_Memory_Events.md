@@ -1,7 +1,9 @@
 ---
 title: Shared Memory Events — Interaction Trigger Architecture
 project: TTRPG_Tarim_Shaiel
-type: narrative
+domain: narrative
+doc_type: canon
+content_type: concept
 visibility: gm_secrets
 status: draft
 created: 2025-12-23

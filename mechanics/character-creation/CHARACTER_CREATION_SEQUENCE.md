@@ -1,3 +1,15 @@
+---
+title: Character Creation Sequence
+project: TTRPG_Tarim_Shaiel
+domain: mechanics
+doc_type: canon
+content_type: concept
+visibility: gm_secrets
+status: draft
+created: 2026-01-11
+last_updated: 2026-01-11
+---
+
 # CHARACTER CREATION SEQUENCE
 
 **Date:** 2026-01-11  

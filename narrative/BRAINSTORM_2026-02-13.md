@@ -1,3 +1,14 @@
+---
+title: Extemporaneous Worldbuilding Notes — 2026-02-13
+domain: narrative
+doc_type: draft
+content_type: lore
+visibility: gm_secrets
+status: draft
+created: 2026-02-13
+last_updated: 2026-02-13
+---
+
 # Extemporaneous Worldbuilding Notes - 2026-02-13
 
 **Status:** ACTIVE BRAINSTORMING  

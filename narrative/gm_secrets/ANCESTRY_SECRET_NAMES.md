@@ -1,8 +1,10 @@
 ---
 title: Ancestry Secret Names — GM Reference
 project: TTRPG_Tarim_Shaiel
-type: gm_secrets
-visibility: gm_only
+domain: narrative
+doc_type: gm_secrets
+content_type: lore
+visibility: gm_secrets
 status: canon
 created: 2026-04-07
 last_updated: 2026-04-07

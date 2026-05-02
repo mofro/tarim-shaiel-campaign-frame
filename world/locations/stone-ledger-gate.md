@@ -1,9 +1,15 @@
 ---
+title: The Stone Ledger Gate
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: A controlled high pass where weights, measures, and cargo manifests are
   certified before crossing.
 fantasy_name: The Stone Ledger Gate
-is_private: false
 last_updated: 2025-12-13
 location:
 - 40.4

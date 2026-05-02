@@ -1,4 +1,11 @@
 ---
+title: Cherchen
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: A waypoint on the southern route between eastern and western Taklamakan
   sections.
@@ -7,7 +14,6 @@ factions:
 - Oasis Settlers
 fantasy_name: Cherchen
 historical_basis: Tarim Basin - Oasis waypoint on southern corridor
-is_private: false
 last_updated: 2025-12-13
 location:
 - 38.14

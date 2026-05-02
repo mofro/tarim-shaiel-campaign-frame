@@ -1,13 +1,16 @@
 ---
 title: Session 0 Warrior Archetype Awakening
 project: TTRPG_Tarim_Shaiel
-type: scenario_runsheet
+domain: narrative
+doc_type: canon
+content_type: session
+visibility: gm_secrets
 archetype: Warrior
 class: "Warrior (tool form: iron blade with wrapped bone grip)"
 location: Refugee camp (ravine/drainage depression)
-status: v2_complete
+status: canon
 created: 2025-01-14
-updated: 2026-02-19
+last_updated: 2026-02-19
 version: 2
 banner: images/people/PCs/mofro_she_glances_to_the_horizon_and_back_--ar_5877_--video_1_2f3f09bb-ada1-4314-9252-f8c4c806b3c8_0.gif
 banner-x: 51

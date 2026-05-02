@@ -1,11 +1,17 @@
 ---
+title: Kashgar
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: location
+visibility: public
+status: draft
 created: 2025-12-13
 description: Westernmost major Chinese city; crossroads of cultures and trade.
 elevation: 1289
 factions:
 - Tarim Basin Traders
 fantasy_name: Kashgar
-is_private: false
 last_updated: 2025-12-13
 location:
 - 39.4666

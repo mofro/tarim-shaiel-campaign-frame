@@ -1,9 +1,15 @@
 ---
+title: Yumen Waystation (Outer)
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: Overflow staging post for caravans approaching the Jade Gate; paperwork,
   inspections, and remounts.
 fantasy_name: Yumen Waystation (Outer)
-is_private: false
 last_updated: 2025-12-13
 location:
 - 40.42

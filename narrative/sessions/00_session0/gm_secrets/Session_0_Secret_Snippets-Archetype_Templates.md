@@ -1,8 +1,11 @@
 ---
 title: Session 0 Secret Snippets - Archetype Templates
 project: TTRPG_Tarim_Shaiel
-type: narrative_framework
-status: template_ready_for_population
+domain: narrative
+doc_type: gm_secrets
+content_type: session
+visibility: gm_secrets
+status: draft
 created: 2025-12-23
 ---
 

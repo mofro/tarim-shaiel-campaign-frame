@@ -1,15 +1,20 @@
 ---
 title:
-type: event
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: template
+content_type: event
 event_type:             # military | political | magical | cosmological | social | personal
 era:                    # Era 0–5 (see events/Index.md for era labels)
 approx_date:            # e.g. "~250 CE equivalent"
+timeline_date:          # optional — machine-readable date for timeline queries
+timeline_ref:           # optional — canonical reference label (e.g. "Era2-Scattering")
 cause: []               # canonical entity names (factions, concepts, events)
 effect: []              # canonical entity names
 key_actors: []          # canonical faction/character names
 narrative_weight:       # very-high | high | medium | low
-status:                 # canon | draft | proposed | tbd
-classification:         # public | gm-only
+visibility:             # public | gm_secrets
+status:                 # canon | draft | review | deprecated
 created:
 last_updated:
 tags:

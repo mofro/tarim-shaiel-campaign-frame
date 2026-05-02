@@ -1,4 +1,11 @@
 ---
+title: Kucha
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: landmark
+visibility: public
+status: draft
 created: 2025-12-13
 cultural_notes: Kizil Caves nearby contain thousands of Buddhist artworks and sculptures
 description: A major Buddhist center with magnificent Kizil Caves nearby. A place
@@ -8,7 +15,6 @@ factions:
 - Buddhist Monastic Community
 fantasy_name: Kucha
 historical_basis: Tarim Basin - Buddhist state; major monasteries and artistic center
-is_private: false
 last_updated: 2025-12-13
 location:
 - 41.73

@@ -1,4 +1,11 @@
 ---
+title: Bukhara
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: location
+visibility: public
+status: draft
 created: 2025-12-13
 cultural_notes: Fifth-largest city historically; center of trade and religion
 description: Center of Islamic scholarship and trade. A major city of Sogdiana with
@@ -9,7 +16,6 @@ factions:
 fantasy_name: Bukhara
 historical_basis: Sogdania - Zoroastrian→Islamic; survived Mongol destruction and
   revived
-is_private: false
 last_updated: 2025-12-13
 location:
 - 39.77

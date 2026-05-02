@@ -593,3 +593,63 @@ Phase 0 prerequisite for #183 (CSS extraction + Jinja2 template layer). Canonica
 
 ### Jinja2 Dependency
 Added `jinja2>=3.1.6` to `requirements.txt` (Phase 0 deliverable; Jinja2 3.1.6 already transitively installed).
+
+---
+
+## Decision 17 — Schema C: Canonical Frontmatter
+
+**Date:** 2026-05-02
+**Status:** LOCKED
+**Issue:** [#77](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/77)
+
+### Context
+
+The vault accumulated three competing frontmatter schemas across ~200+ active files. The old single `type:` field conflated domain, doc_type, and content_type. Visibility was signalled four different ways (`visibility:`, `classification:`, `is_private:`, and via tags). Schema C resolves both problems before a vault-wide migration pass.
+
+Proof-of-concept files written 2026-03-22: `world/events/scholars-purge.md`, `world/events/silent-flowering.md`, `world/historical-parallels.md`.
+
+Post-issue audit (2026-05-02) identified five gaps not captured in the original issue spec — incorporated here before the spec is locked.
+
+### Canonical Block
+
+```yaml
+title:
+project: TTRPG_Tarim_Shaiel
+domain: [world|narrative|mechanics|characters|templates|references|utilities|archive]
+doc_type: [canon|draft|substrate|template|entity_index|design_decision|gm_secrets|operational]
+content_type: [event|faction|location|region|landmark|poi|concept|archetype|npc|lore|mythology|ancestry|environment|timeline|session|campaign_frame|index|reference]
+visibility: [public|gm_secrets|internal]
+status: [draft|review|canon|deprecated]
+created: YYYY-MM-DD
+last_updated: YYYY-MM-DD
+tags: []
+```
+
+### Extension Fields (preserved during migration, not replaced)
+
+| File class | Extension fields |
+|---|---|
+| Location | `elevation`, `location`, `mapmarker`, `fantasy_name`, `resources`, `factions` + geographic fields |
+| Ancestry | `daggerheart_name` — maps Tarim-Shaiel name to Daggerheart mechanical ancestry name |
+| Faction | `faction_type`, `region`, `visible_control`, `hidden_control`, `rivals`, `controls`, `narrative_weight` |
+| Weapon | `range`, `tier`, `banner_left`, `banner_right` |
+| Event | `timeline_date`, `timeline_ref` |
+
+### `published:` Field
+
+Generator-pipeline flag distinct from `visibility:`. Used by ancestry and weapon generators to control HTML inclusion independently of GM-gating (a file can be `visibility: public` but `published: false` to suppress it from HTML output). Retain as-is on files that carry it; do not fold into `visibility:`.
+
+### `_category.md` Files
+
+Operational navigation files used by generators for category grouping and `jump_nav`. Out of scope for Schema C migration — no canonical frontmatter required. If frontmatter is ever added, use `doc_type: operational`.
+
+### `visibility: internal`
+
+Third visibility value for operational/navigational infrastructure files that are never player-facing and never published (e.g. `lat.md/` index files). Added to those files before this decision was locked; formally canonised here.
+
+### Rationale
+
+- Enables Obsidian DataView queries across all domains
+- Single `visibility:` field replaces four competing signals
+- Extension field pattern (established by location files) applied consistently to ancestries, factions, and weapons
+- `published:` retained as a distinct generator-layer concern rather than conflated with content visibility

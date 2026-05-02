@@ -1,7 +1,11 @@
 ---
 # ── REQUIRED ──────────────────────────────────────────────────────────────────
+title:                      # Same as name — for Schema C compatibility
 name:                       # Canonical name (used in all wikilinks)
-type: landmark
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: template
+content_type: landmark
 created:
 last_updated:
 
@@ -29,8 +33,8 @@ narrative_weight:           # very-high | high | medium | low
 campaign_arcs: []
 
 # ── STATUS ────────────────────────────────────────────────────────────────────
-status:                     # canon | draft | tbd
-visibility: public          # public | secret
+status:                     # canon | draft | review | deprecated
+visibility: public          # public | gm_secrets
 danger_level:               # 1–5 (1 = safe, 5 = existential)
 
 tags:

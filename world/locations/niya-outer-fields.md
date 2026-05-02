@@ -1,9 +1,15 @@
 ---
+title: Niya Outer Fields
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: Collapsed irrigation lines and wind-buried walls on the approach to Niya;
   easy to miss in a sandstorm.
 fantasy_name: Niya Outer Fields
-is_private: false
 last_updated: 2025-12-13
 location:
 - 37.12

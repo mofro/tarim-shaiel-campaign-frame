@@ -1,9 +1,13 @@
 ---
 title: Characters Directory Index
 project: TTRPG_Tarim_Shaiel
-type: directory_index
-purpose: Dynamic navigation for character development resources
+domain: characters
+doc_type: operational
+content_type: index
+visibility: internal
+status: draft
 created: 2026-01-28
+last_updated: 2026-05-02
 ---
 
 # Characters Directory

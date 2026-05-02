@@ -1,4 +1,10 @@
 ---
+title: Dun-Kharan
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
 cultural_composition:
 - Diverse Heroic Exiles
 - Transitional Community
@@ -22,7 +28,6 @@ geo:
 governance:
   decision_mechanism: Collective Heroic Vote
   type: Emergent Consensus
-is_private: false
 last_updated: 2026-01-05
 maintained_by: Lore Keeper
 name: Dun-Kharan

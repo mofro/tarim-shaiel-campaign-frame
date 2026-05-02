@@ -1,3 +1,14 @@
+---
+title: Divine Names Across Cultures
+domain: narrative
+doc_type: canon
+content_type: lore
+visibility: gm_secrets
+status: canon
+created: 2026-03-19
+last_updated: 2026-03-19
+---
+
 # Divine Names Across Cultures
 
 ---

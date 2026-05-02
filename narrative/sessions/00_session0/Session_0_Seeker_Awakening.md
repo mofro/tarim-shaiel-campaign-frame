@@ -1,14 +1,17 @@
 ---
 title: Session 0 Seeker Archetype Awakening
 project: TTRPG_Tarim_Shaiel
-type: scenario_runsheet
+domain: narrative
+doc_type: canon
+content_type: session
+visibility: gm_secrets
 archetype: Seeker
 class: Seeker
 tool_form: tome, compass, or astrolabe
 location: Desert wasteland
-status: alignment_memories_complete
+status: canon
 created: 2025-01-15
-updated: 2026-02-19
+last_updated: 2026-02-19
 version: 0.4
 banner: images/places/1012721.png
 ---

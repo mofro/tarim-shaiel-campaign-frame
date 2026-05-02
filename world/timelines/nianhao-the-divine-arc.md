@@ -1,12 +1,14 @@
 ---
 title: "Nianhao - The Divine Arc"
 project: TTRPG_Tarim_Shaiel
-type: timeline
+domain: world
+doc_type: canon
+content_type: timeline
 tags: [timeline, history]
 visibility: gm_secrets
 status: draft
 created: 2026-03-16
-last_updated: 2026-04-06
+last_updated: 2026-05-02
 calendar: Menology of Epochs
 ---
 

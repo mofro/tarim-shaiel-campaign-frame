@@ -1,4 +1,11 @@
 ---
+title: Yarkand
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: poi
+visibility: public
+status: draft
 created: 2025-12-13
 description: A major waypoint where the southern and northern routes converge. A hub
   of trade and communication.
@@ -7,7 +14,6 @@ factions:
 - Southern Route Merchants
 fantasy_name: Yarkand
 historical_basis: Tarim Basin - Convergence point of major trade routes
-is_private: false
 last_updated: 2025-12-13
 location:
 - 38.417

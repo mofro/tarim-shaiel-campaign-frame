@@ -2,7 +2,9 @@
 title: Advanced Wand
 description: The History of Tarim Shaiel
 project: TTRPG_Tarim_Shaiel
-type: lore
+domain: world
+doc_type: canon
+content_type: lore
 published: true
 visibility: gm_secrets
 banner_left: TARIM-SHAIEL * Lore

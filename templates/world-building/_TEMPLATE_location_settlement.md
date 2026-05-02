@@ -1,8 +1,13 @@
 ---
 # ── REQUIRED ──────────────────────────────────────────────────────────────────
+title:                      # Same as name — for Schema C compatibility
 name:                       # Canonical fantasy name (used in all wikilinks)
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: template
+content_type: location
 location: [lat, long]       # WGS84 array format — MUST be array, not string
-type: city                  # city | town | village | waystation | caravanserai | fortress | port
+settlement_type: city       # city | town | village | waystation | caravanserai | fortress | port
 created:
 last_updated:
 
@@ -16,7 +21,6 @@ fantasy_name:               # If the canonical name differs from what appears on
 
 # ── IDENTITY ──────────────────────────────────────────────────────────────────
 known_for:                  # One phrase — what every traveler knows about this place
-settlement_type:            # city | town | village | waystation | caravanserai | fortress | port
 
 # ── POLITICAL ─────────────────────────────────────────────────────────────────
 # Canonical wikilinks from world/factions/Index.md — NOT free text
@@ -43,9 +47,8 @@ contains_poi: []            # e.g. [[../locations/clover's-tavern]], [[../locati
 environment_file:           # [[../environments/settlement-name-social]] — link to Environment file
 
 # ── STATUS ────────────────────────────────────────────────────────────────────
-visibility: public          # public | secret
-status:                     # canon | draft | tbd
-is_private: false
+visibility: public          # public | gm_secrets
+status:                     # canon | draft | review | deprecated
 
 tags:
   - player-visible          # player-visible | gm-only | secret

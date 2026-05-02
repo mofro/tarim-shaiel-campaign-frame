@@ -1,8 +1,11 @@
 ---
 title: Silk Road Myth Analysis — World Analog Source Material
 project: TTRPG_Tarim_Shaiel
-type: world-building-reference
-status: active-research
+domain: narrative
+doc_type: substrate
+content_type: reference
+visibility: gm_secrets
+status: draft
 created: 2026-03-05
 last_updated: 2026-03-05
 tags:

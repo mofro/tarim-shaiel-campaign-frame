@@ -1,11 +1,13 @@
 ---
 title: The Wizard and Lich Cadre [CLASSIFIED - DM ONLY]
 project: TTRPG_Tarim_Shaiel
-type: campaign_secrets
-status: planned
+domain: narrative
+doc_type: gm_secrets
+content_type: concept
+visibility: gm_secrets
+status: draft
 created: 2026-02-05
 last_updated: 2026-02-19
-classification: DM_ONLY
 ---
 
 # The Wizard and Lich Cadre [CLASSIFIED - DM ONLY]

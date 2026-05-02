@@ -1,7 +1,14 @@
 ---
-name: ""
-type: ""
-is_private: false
+title: Julian — Narrator
+name: "Julian"
+project: TTRPG_Tarim_Shaiel
+domain: characters
+doc_type: canon
+content_type: npc
+visibility: gm_secrets
+status: draft
+created: 2026-01-01
+last_updated: 2026-05-02
 tags:
   - adversary
 origin: ""

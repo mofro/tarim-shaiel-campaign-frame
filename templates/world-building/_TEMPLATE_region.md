@@ -1,7 +1,11 @@
 ---
 # ── REQUIRED ──────────────────────────────────────────────────────────────────
+title:                      # Same as name — for Schema C compatibility
 name:                       # Canonical region name (used in all wikilinks)
-type: region
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: template
+content_type: region
 created:
 last_updated:
 
@@ -26,8 +30,8 @@ narrative_weight:           # very-high | high | medium | low
 campaign_arcs: []
 
 # ── STATUS ────────────────────────────────────────────────────────────────────
-status:                     # canon | draft | tbd
-visibility: public          # public | secret
+status:                     # canon | draft | review | deprecated
+visibility: public          # public | gm_secrets
 
 tags:
   -                         # player-visible | gm-only

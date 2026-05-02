@@ -1,8 +1,14 @@
 ---
+title: Isyk-Zhel
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: landmark
+visibility: public
+status: draft
 created: 2026-01-05
 description: Warm Winds of the Mountain Realm
 fantasy_name: Isyk-Zhel
-is_private: false
 last_updated: 2026-01-05
 location:
 - 42.4

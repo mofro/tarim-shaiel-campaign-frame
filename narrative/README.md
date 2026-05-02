@@ -1,11 +1,13 @@
 ---
 title: Narrative Directory Index
 project: TTRPG_Tarim_Shaiel
-type: directory_index
-purpose: Dynamic navigation for narrative and story resources
+domain: narrative
+doc_type: operational
+content_type: index
+visibility: internal
 created: 2025-01-21
-updated: 2026-01-28
-status: active
+last_updated: 2026-01-28
+status: draft
 ---
 # Narrative Directory Index
 

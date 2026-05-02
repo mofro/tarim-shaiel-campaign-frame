@@ -1,3 +1,14 @@
+---
+title: What This Campaign Is
+domain: narrative
+doc_type: canon
+content_type: campaign_frame
+visibility: gm_secrets
+status: canon
+created: 2026-03-01
+last_updated: 2026-03-01
+---
+
 # WHAT_THIS_CAMPAIGN_IS
 ## A summary take...
 

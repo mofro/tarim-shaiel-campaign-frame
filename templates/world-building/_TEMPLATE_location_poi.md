@@ -1,7 +1,11 @@
 ---
 # ── REQUIRED ──────────────────────────────────────────────────────────────────
+title:                      # Same as name — for Schema C compatibility
 name:                       # Canonical name (used in all wikilinks)
-type: poi
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: template
+content_type: poi
 created:
 last_updated:
 
@@ -26,7 +30,7 @@ formerly:                   # What this was before its current state (ruins, tra
 current_state:              # active | abandoned | ruined | sealed | contested | unknown
 
 # ── CLASSIFICATION ────────────────────────────────────────────────────────────
-visibility: public          # public | secret
+visibility: public          # public | gm_secrets
 danger_level:               # 1–5 — optional, omit for non-threatening sub-elements
 narrative_weight:           # very-high | high | medium | low
 
@@ -39,8 +43,7 @@ factions_seeking: []        # Factions who want this but don't have it
 concepts_related: []        # Canonical concept wikilinks — e.g. [[../concepts/mythic-ecosystem]]
 
 # ── STATUS ────────────────────────────────────────────────────────────────────
-status:                     # canon | draft | tbd
-is_private: false
+status:                     # canon | draft | review | deprecated
 
 tags:
   -                         # player-visible | gm-only | secret

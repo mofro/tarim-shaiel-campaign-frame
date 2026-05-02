@@ -1,4 +1,11 @@
 ---
+title: Balkh
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: canon
+content_type: location
+visibility: public
+status: draft
 created: 2025-12-13
 cultural_notes: Major oasis hub before destruction; one of the 'great cities' of the
   ancient Silk Road
@@ -10,7 +17,6 @@ factions:
 fantasy_name: Balkh
 historical_basis: Bactria - Destroyed by Genghis Khan (1220s); never rebuilt to former
   glory
-is_private: false
 last_updated: 2025-12-13
 location:
 - 36.76

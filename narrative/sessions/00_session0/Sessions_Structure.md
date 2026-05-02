@@ -1,10 +1,13 @@
 ---
 title: Sessions Structure - Opening Campaign Architecture
 project: TTRPG_Tarim_Shaiel
-type: narrative_framework
-status: locked_structure
+domain: narrative
+doc_type: canon
+content_type: session
+visibility: gm_secrets
+status: canon
 created: 2024-12-23
-updated: 2025-01-21
+last_updated: 2025-01-21
 banner: images/places/248421.jpg
 ---
 

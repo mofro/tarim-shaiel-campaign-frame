@@ -1,14 +1,13 @@
 ---
 title: "Session 0: Introduction — Tarim-Shaiel Campaign Frame"
 project: TTRPG_Tarim_Shaiel
-type: session_introduction
-session_number: "0"
-status: draft_v0.1
-audience: player_facing + gm_reference
-narrative_focus: Introduction to the World
+domain: narrative
+doc_type: canon
+content_type: session
+visibility: public
+status: draft
 created: 2026-02-11
-updated: 2026-03-24
-related_documents:
+last_updated: 2026-03-24
   - Sessions_Structure.md
   - CORE_CAMPAIGN_NARRATIVE.md
   - HERO_IDENTITY.md

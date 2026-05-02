@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2026-03-17
-last_updated: 2026-03-17
+last_updated: 2026-05-02
 ---
 
 # Backlog — Deferred & Future Work
@@ -239,7 +239,7 @@ _Pre-Act 2 design work — not blocking Session 0 but must be resolved before mi
 
 ### Documentation & Infrastructure
 
-- [ ] **Frontmatter schema redesign for DataView compatibility** (~1 session) ⚠️ ARCHITECTURAL
+- [x] **Frontmatter schema redesign for DataView compatibility** — Schema C locked, Decision 17 [#77](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/77)
   - **Problem:** At least 3 competing frontmatter schemas in active use; visibility handled 4 different ways (`visibility:` field, `is_private:` boolean, `classification:` field, `[player-visible]` tag); `type:` conflates domain + doc_type + content_type into one overloaded field
   - **Goal:** Single agreed schema that enables Obsidian DataView queries across all files
   - **Proposed schema:** Split `type` into `domain:` + `doc_type:` + `content_type:`; consolidate all visibility signals into single `visibility:` field; standardize `tags:` for cross-cutting concerns (analog-X, region-X, archetype-X, campaign-arc-X)

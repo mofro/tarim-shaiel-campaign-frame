@@ -1,7 +1,10 @@
 ---
 title: Core Campaign Narrative Architecture
 project: TTRPG_Tarim_Shaiel
-type: campaign_foundation
+domain: narrative
+doc_type: canon
+content_type: campaign_frame
+visibility: gm_secrets
 status: canon
 created: 2025-12-14
 last_updated: 2026-02-19

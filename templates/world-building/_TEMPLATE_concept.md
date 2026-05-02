@@ -1,6 +1,9 @@
 ---
 title:
-type: concept
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: template
+content_type: concept
 category:               # place | force | system | mechanism | entity
 controlled_by: []       # canonical faction/character names (if applicable)
 threatens: []           # canonical entity names
@@ -8,8 +11,8 @@ threatened_by: []       # canonical entity names
 related_factions: []    # canonical faction names
 related_events: []      # canonical event names
 narrative_weight:       # very-high | high | medium | low
-status:                 # canon | draft | proposed | tbd
-classification:         # public | gm-only
+visibility:             # public | gm_secrets
+status:                 # canon | draft | review | deprecated
 created:
 last_updated:
 tags:

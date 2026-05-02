@@ -1,9 +1,13 @@
 ---
 title: Mechanics Directory Index
 project: TTRPG_Tarim_Shaiel
-type: directory_index
-purpose: Dynamic navigation for game mechanics and systems
+domain: mechanics
+doc_type: operational
+content_type: index
+visibility: internal
+status: draft
 created: 2026-01-28
+last_updated: 2026-05-02
 ---
 
 # Mechanics Directory

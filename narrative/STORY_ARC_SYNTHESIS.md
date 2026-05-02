@@ -1,9 +1,11 @@
 ---
 title: Story Arc Synthesis - Working Document
 project: TTRPG_Tarim_Shaiel
-type: narrative_development
-status: SPECULATIVE_DRAFT
-classification: DM_WORKING_DOCUMENT
+domain: narrative
+doc_type: draft
+content_type: campaign_frame
+visibility: gm_secrets
+status: draft
 created: 2026-02-09
 last_updated: 2026-02-09
 banner: images/places/1249702.jpg
