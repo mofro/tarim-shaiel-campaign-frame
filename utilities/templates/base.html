@@ -31,18 +31,13 @@
 <!-- SITE NAV -->
 {% block site_nav %}
 <nav class="site-nav">
-  {% if back_href %}
-    <a class="site-nav-back" href="{{ back_href | e }}">&#8592; {{ back_label | default('Campaign Documents') }}</a>
-    <div style="flex:1"></div>
-    <span class="site-nav-wordmark">TARIM-SHAIEL</span>
-  {% else %}
-    <div class="site-nav-wordmark">TARIM-SHAIEL <span class="dot">&middot;</span><span class="sub">DAGGERHEART</span></div>
-    <div class="site-nav-links">
-      <a href="/campaign-frame.html">Campaign Frame</a>
-      <a href="/peoples-of-tarim-shaiel.html">Peoples</a>
-      <a href="/world-index.html">World</a>
-    </div>
-  {% endif %}
+  <a class="site-nav-wordmark" href="/index.html">TARIM-SHAIEL <span class="dot">&middot;</span><span class="sub">DAGGERHEART</span></a>
+  <div class="site-nav-links">
+    <a href="/index.html">Home</a>
+    <a href="/campaign-frame.html">Campaign Frame</a>
+    <a href="/peoples-of-tarim-shaiel.html">Peoples</a>
+    <a href="/world-index.html">World Index</a>
+  </div>
 </nav>
 {% endblock %}
 

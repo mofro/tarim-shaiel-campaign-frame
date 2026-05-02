@@ -1,13 +1,5 @@
 {% extends "base.html" %}
 
-{% block site_nav %}
-<nav class="site-nav">
-  <a class="site-nav-back" href="index.html">&#8592; Campaign Documents</a>
-  <div style="flex:1"></div>
-  <span class="site-nav-wordmark">TARIM-SHAIEL</span>
-</nav>
-{% endblock %}
-
 {% block page_header %}
 <div class="page-header{% if cover_image_url %} page-header--hero{% endif %}"{% if cover_image_url %} style="--cover-img: url('{{ cover_image_url | e }}')"{% endif %}>
   <div class="page-header-eyebrow">Player-Facing Document</div>

@@ -844,7 +844,10 @@ def generate_category_page(
 
     items_section = ''
     if count > 0:
-        items_section = f'    <div class="section-label">{escape(label)} ({count})</div>\n{cards_html}'
+        items_section = (
+            f'    <div class="section-label">{escape(label)} ({count})</div>\n'
+            f'    <div class="doc-cards-grid">\n{cards_html}    </div>\n'
+        )
 
     # New design helpers ─────────────────────────────────────────────────────
     if back_href_override:
@@ -912,9 +915,13 @@ def generate_category_page(
 <body>
 
 <nav class="site-nav">
-  <a class="site-nav-back" href="{_nav_back_href}">&#8592; {_nav_back_label}</a>
-  <div style="flex:1"></div>
-  <span class="site-nav-wordmark">TARIM-SHAIEL</span>
+  <a class="site-nav-wordmark" href="/index.html">TARIM-SHAIEL <span class="dot">&middot;</span><span class="sub">DAGGERHEART</span></a>
+  <div class="site-nav-links">
+    <a href="/index.html">Home</a>
+    <a href="/campaign-frame.html">Campaign Frame</a>
+    <a href="/peoples-of-tarim-shaiel.html">Peoples</a>
+    <a href="/world-index.html">World Index</a>
+  </div>
 </nav>
 <div class="page-wrap">
 {_page_header_html}

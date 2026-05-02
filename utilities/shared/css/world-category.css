@@ -1,145 +1,169 @@
 
-    /* --- Category page content area (overrides world_base .content padding) --- */
+    /* --- Category page content area --- */
     .content {
-      padding: 1rem 3rem;
+      padding: 2rem 3rem;
+    }
+
+    /* --- Section label above card groups --- */
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 2.2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* --- Two-column grid wrapper for doc cards --- */
+    .doc-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
 
     /* --- Document cards (individual doc links) --- */
-    .section-label {
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold); margin: 2.2rem 0 1.2rem;
-    }
     .doc-card {
-      border: 1px solid var(--rule); border-radius: 3px; padding: 24px 28px;
-      margin-bottom: 16px; text-decoration: none; display: block;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 20px 24px;
+      text-decoration: none;
+      display: block;
+      background: var(--surface);
+      position: relative;
       transition: border-color 0.2s, background 0.2s;
-      background: var(--paper); position: relative;
     }
-    .doc-card:hover { border-color: var(--gold); background: var(--cream); }
+    .doc-card:hover { border-color: var(--gold); }
     .doc-card-arrow {
-      position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
-      color: var(--gold); font-size: 20px; opacity: 0.5;
+      position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+      color: var(--gold); font-size: 18px; opacity: 0.45;
       transition: opacity 0.2s, right 0.2s;
     }
-    .doc-card:hover .doc-card-arrow { opacity: 1; right: 20px; }
+    .doc-card:hover .doc-card-arrow { opacity: 1; right: 16px; }
     .doc-title {
-      font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600;
-      color: var(--crimson); margin-bottom: 5px;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 4px;
     }
     .doc-meta {
-      font-family: 'Inconsolata', monospace; font-size: 12px;
-      color: rgba(26,18,8,0.45); letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
     }
-    .doc-desc { font-size: 15px; color: rgba(26,18,8,0.65); font-style: italic; }
+    .doc-desc {
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.5;
+    }
     .gm-badge {
-      background: #7a1f1f; color: #f5edd8; font-size: 10px;
+      background: var(--crimson); color: var(--paper); font-size: 9px;
       letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 2px 7px; border-radius: 100px; margin-left: 8px;
-      font-family: 'Inconsolata', monospace; vertical-align: middle;
+      padding: 2px 6px; border-radius: 100px; margin-left: 6px;
+      font-family: 'Cinzel', serif; vertical-align: middle;
     }
     .doc-card.gm-secrets {
-      background: rgba(122,31,31,0.04);
-      border-color: rgba(122,31,31,0.25);
+      border-color: rgba(122,31,31,0.3);
     }
     .doc-card.gm-secrets:hover {
-      background: rgba(122,31,31,0.08);
       border-color: var(--crimson);
     }
 
     /* --- Subcategory navigation cards --- */
     .subcategory-card {
-      border: 2px solid var(--gold); border-radius: 4px; padding: 20px 28px;
-      margin-bottom: 14px; text-decoration: none; display: block;
-      background: rgba(184,146,44,0.06); position: relative;
+      border: 1px solid var(--gold); border-radius: 3px; padding: 20px 28px;
+      margin-bottom: 12px; text-decoration: none; display: block;
+      background: var(--surface); position: relative;
       transition: border-color 0.2s, background 0.2s;
     }
-    .subcategory-card:hover { border-color: var(--gold-lt); background: rgba(184,146,44,0.12); }
+    .subcategory-card:hover { border-color: var(--gold-lt); }
     .subcategory-title {
-      font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700;
-      color: var(--ink); margin-bottom: 4px;
+      font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600;
+      color: var(--fg); margin-bottom: 4px;
     }
     .subcategory-desc {
-      font-size: 15px; color: rgba(26,18,8,0.7); margin-bottom: 6px;
+      font-size: 15px; color: var(--muted); margin-bottom: 6px;
     }
     .subcategory-count {
-      font-family: 'Inconsolata', monospace; font-size: 11px;
-      color: rgba(26,18,8,0.5); text-transform: uppercase; letter-spacing: 0.12em;
+      font-family: 'Cinzel', serif; font-size: 10px;
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em;
     }
     .subcategory-arrow {
       position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
-      color: var(--gold); font-size: 22px; opacity: 0.7;
+      color: var(--gold); font-size: 20px; opacity: 0.6;
       transition: opacity 0.2s, right 0.2s;
     }
     .subcategory-card:hover .subcategory-arrow { opacity: 1; right: 18px; }
 
-    /* --- Category sections (index page) --- */
+    /* --- Category sections (world index page) --- */
     .cat-section {
-      margin-top: 2.8rem;
-      padding: 28px 26px 22px;
+      margin-top: 2rem;
+      padding: 24px;
       border: 1px solid var(--rule);
-      border-radius: 4px;
-      background: rgba(245,237,216,0.95);
+      border-radius: 3px;
+      background: var(--surface);
     }
     .cat-section-header {
       display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 1rem; margin-bottom: 14px;
+      gap: 1rem; margin-bottom: 12px;
     }
     .cat-section-title {
-      font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 600;
-      color: var(--ink); margin-bottom: 4px;
+      font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600;
+      color: var(--fg); margin-bottom: 4px;
     }
     .cat-section-meta {
-      font-family: 'Inconsolata', monospace; font-size: 11px;
-      color: rgba(26,18,8,0.6); text-transform: uppercase; letter-spacing: 0.14em;
+      font-family: 'Cinzel', serif; font-size: 10px;
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em;
     }
     .cat-section-desc {
-      font-size: 0.95rem; color: rgba(26,18,8,0.75); margin-bottom: 16px;
+      font-size: 0.92rem; color: var(--muted); margin-bottom: 14px;
     }
     .see-all {
-      font-family: 'Cinzel', serif; font-size: 0.95rem;
+      font-family: 'Cinzel', serif; font-size: 0.9rem;
       color: var(--gold); text-decoration: none; white-space: nowrap;
     }
-    .see-all:hover { text-decoration: underline; }
+    .see-all:hover { color: var(--gold-lt); }
     .inline-doc-list {
-      display: flex; flex-wrap: wrap; gap: 10px 12px;
+      display: flex; flex-wrap: wrap; gap: 8px 10px;
     }
     .inline-doc-item {
       display: inline-flex; align-items: center;
-      padding: 10px 14px; border-radius: 999px;
-      background: rgba(26,18,8,0.08); color: var(--ink);
-      text-decoration: none; font-size: 0.95rem;
+      padding: 8px 14px; border-radius: 999px;
+      background: var(--bg); color: var(--fg);
+      text-decoration: none; font-size: 0.9rem;
       transition: background 0.2s, border-color 0.2s;
-      border: 1px solid transparent;
+      border: 1px solid var(--rule);
     }
-    .inline-doc-item:hover { background: rgba(26,18,8,0.12); }
+    .inline-doc-item:hover { border-color: var(--gold); color: var(--gold); }
     .inline-doc-item.gm-secrets {
-      border-color: rgba(122,31,31,0.25);
-      background: rgba(122,31,31,0.06);
+      border-color: rgba(122,31,31,0.3);
     }
     .inline-doc-more {
-      align-self: center; font-family: 'Inconsolata', monospace;
-      font-size: 0.9rem; color: rgba(26,18,8,0.6);
-      padding: 10px 14px; border-radius: 999px;
-      background: rgba(26,18,8,0.04);
+      align-self: center; font-family: 'Cinzel', serif;
+      font-size: 0.85rem; color: var(--muted);
+      padding: 8px 14px;
     }
 
     /* --- Index footer --- */
     .footer {
-      background: #1a1208;
-      padding: 1.6rem 3rem;
-      border-top: 1px solid rgba(184,146,44,0.3);
+      background: var(--dark-bg);
+      padding: 1.4rem 3rem;
+      border-top: 1px solid var(--rule);
     }
     .footer-text {
-      font-family: 'Inconsolata', monospace; font-size: 11px;
-      color: rgba(245,237,216,0.3); letter-spacing: 0.1em;
+      font-family: 'Cinzel', serif; font-size: 10px;
+      color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
     }
 
+    @media (max-width: 900px) {
+      .doc-cards-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 640px) {
-      .cover-title { font-size: 2.2rem; }
-      .cover-content { padding: 1.8rem 1.4rem; }
-      .content { padding: 1rem 1.4rem; }
-      .banner { padding: 0.5rem 1.4rem; }
-      .banner-rule { margin: 0 1.4rem; }
+      .content { padding: 1rem 1.2rem; }
     }
