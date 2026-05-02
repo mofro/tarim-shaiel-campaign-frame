@@ -58,6 +58,6 @@ blockers:
 - 🗒️ **Backlog:** Dark mode visual review — contrast/readability audit; badge pastels, crimson headings, page-card/body separation, hardcoded rgba values across all page CSS. [#197](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/197)
 - 🗒️ **Backlog:** `html_render.py` structured-dict refactor — return component dicts instead of HTML strings; Jinja2 macro renders prose; eliminates last ~140 lines of Python HTML assembly. [#198](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/198)
 - 🗒️ **Backlog:** Nianhao D3 timeline phase 2 — content import, GM-tunable influence scores, cross-view interaction, mobile optimization. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)
-- 🗒️ **Backlog:** Dashboard completion % from GitHub Issues — tie domain percentages to issue open/closed state. [#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)
+- ✅ **Completed (2026-04-24):** Claude Code hooks — `SessionStart` rebase sync + `Stop` workflow_dispatch pipeline trigger; `.claude/settings.local.json` + `hooks/stop.sh` created locally. [#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)
 - ✅ **Completed (2026-05-02):** Schema C vault migration — all 5 phases; Decision 17 locked; 300+ files migrated from type: to domain/doc_type/content_type; is_private: removed; classification: removed. [#77](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/77)
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to archive/charms/; Daggerheart base used for now
