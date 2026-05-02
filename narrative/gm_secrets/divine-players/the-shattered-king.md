@@ -15,6 +15,7 @@ tags:
   - divine-player
   - warren
   - confrontable
+type: lore
 ---
 
 # The Shattered King

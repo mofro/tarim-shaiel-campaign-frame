@@ -15,6 +15,7 @@ tags:
   - divine-player
   - celestial
   - non-confrontable
+type: lore
 ---
 
 # The Memory-Keeper

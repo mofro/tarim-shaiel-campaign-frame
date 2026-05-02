@@ -15,6 +15,7 @@ tags:
   - divine-player
   - celestial-adjacent
   - confrontable
+type: lore
 ---
 
 # The Jade Illusionist

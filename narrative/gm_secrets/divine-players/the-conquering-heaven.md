@@ -15,6 +15,7 @@ tags:
   - divine-player
   - celestial
   - confrontable
+type: lore
 ---
 
 # The Conquering Heaven
