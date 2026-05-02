@@ -909,7 +909,6 @@ def generate_category_page(
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/comp-nav.css">
   <link rel="stylesheet" href="/assets/css/comp-sidebar.css">
-  <link rel="stylesheet" href="/assets/css/world-base.css">
   <link rel="stylesheet" href="/assets/css/world-category.css">
 </head>
 <body>

@@ -1,21 +1,33 @@
 
     body {
-      background: #1a1208;
-      background-image: url('/images/paper-texture-top-view-2.jpg');
-      font-family: 'EB Garamond', Georgia, serif;
       font-size: 18px;
       line-height: 1.85;
-      color: var(--fg);
     }
-
-    .cover { min-height: 300px; }
 
     .content {
       position: relative;
       z-index: 1;
-      padding: 1rem 3rem;
-      max-width: 680px;
-      margin: 0 auto;
+      padding: 2rem 4rem;
+      max-width: 780px;
+    }
+
+    .content h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.04em;
+      margin: 2.4rem 0 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .content h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.04em;
+      margin: 1.6rem 0 0.5rem;
     }
 
     p { margin-bottom: 1.3em; font-size: 1.08rem; }
