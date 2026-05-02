@@ -413,7 +413,9 @@ def discover_sources(vault: Path) -> dict[str, list[Path]]:
             except Exception:
                 continue
             m = re.search(r'^type:\s*(\w+)', head, re.MULTILINE)
-            if m and m.group(1).lower() in PIPELINE_TYPES:
+            ct = re.search(r'^content_type:\s*(\w+)', head, re.MULTILINE)
+            type_val = (m.group(1) if m else '') or (ct.group(1) if ct else '')
+            if type_val.lower() in PIPELINE_TYPES:
                 # section: frontmatter overrides the bucket (decouples category from directory)
                 section_m = re.search(r'^section:\s*["\']?([^\s"\'#\n]+)', head, re.MULTILINE)
                 folder = section_m.group(1).strip() if section_m else md.parent.name
@@ -493,7 +495,7 @@ def generate_all(
         for src in sources:
             raw = src.read_text(encoding='utf-8')
             fm, body = parse_frontmatter(raw)
-            doc_type = fm.get('type', '').lower()
+            doc_type = (fm.get('type') or fm.get('content_type') or '').lower()
             if doc_type not in PIPELINE_TYPES:
                 continue
 
