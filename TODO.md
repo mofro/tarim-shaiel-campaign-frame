@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2025-12-14
-last_updated: 2026-05-01
+last_updated: 2026-05-02
 backlog: BACKLOG.md
 banner: images/places/248420.jpg
 banner-x: 51
@@ -22,6 +22,15 @@ _Project health tracked in [DASHBOARD.md](DASHBOARD.md)_
 
 ## SESSION LOG
 _What happened this session. Newest first. Trim to last 3 sessions; older entries go to archive._
+
+### 2026-05-02
+- [#77](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/77) Schema C vault migration — all 5 phases complete ✅
+  - Phase 1: Decision 17 locked; CLAUDE.md + metadata_template.md + BACKLOG.md updated
+  - Phase 2: Templates — 3 archived, 1 deprecated, session_template fixed, 8 _TEMPLATE_ files migrated, 5 new templates created, Index.md rewritten
+  - Phase 3: Event proof-of-concept files confirmed; transitional world/mechanics files migrated; generator verified clean (no classification:/is_private: reads)
+  - Phase 4: 31 narrative files, 8 mechanics files, 4 character files, 192 weapon files migrated; srd-equipment-converter.py output template fixed
+  - Phase 5: 37 legacy location files — Schema C prepended, is_private: removed, content_type derived from mapmarker
+  - lat.md/world.md + subagent-context.md updated with weapons map and Schema C
 
 ### 2026-05-01 (session 3)
 - #183 closed — all phases shipped ✅; follow-on issues filed:
