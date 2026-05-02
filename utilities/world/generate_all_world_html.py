@@ -846,6 +846,53 @@ def generate_category_page(
     if count > 0:
         items_section = f'    <div class="section-label">{escape(label)} ({count})</div>\n{cards_html}'
 
+    # New design helpers ─────────────────────────────────────────────────────
+    if back_href_override:
+        _nav_back_href  = escape(back_href_override)
+        _nav_back_label = escape(back_label_override or 'Back')
+    elif parent_bucket:
+        _nav_back_href  = escape(f'category-{parent_bucket}.html')
+        _nav_back_label = escape(parent_label or 'Back')
+    else:
+        _nav_back_href  = 'index.html'
+        _nav_back_label = 'Campaign Documents'
+
+    _has_sidebar = bool(cfg.get('jump_nav') and len(all_nav_items) >= 2)
+    _sidebar_items_html = ''
+    if _has_sidebar:
+        _parts = []
+        for _item in all_nav_items:
+            if _item.get('level') == 'group_label':
+                _parts.append(f'<div class="nav-divider"></div>'
+                               f'<div class="sidebar-nav-heading">{escape(_item["text"])}</div>')
+            elif _item.get('anchor'):
+                _parts.append(f'<a href="#{_item["anchor"]}">{escape(_item["text"])}</a>')
+        _parts.append('<div class="nav-divider"></div>'
+                      '<a class="sidebar-nav-top" href="#">&#8593; Top</a>')
+        _sidebar_items_html = '\n      '.join(_parts)
+
+    _ph_extra = ''
+    if cover_style:
+        # cover_style already has style="background-image: url(...)…"
+        _ph_class = 'page-header page-header--hero'
+        _ph_attr  = cover_style.replace('background-image', 'background-image')  # keep as-is; inline wins over CSS var
+    else:
+        _ph_class = 'page-header'
+        _ph_attr  = ''
+    _ph_meta = f'  <div class="page-header-meta">{escape(desc)}</div>' if desc else ''
+    _page_header_html = (
+        f'<div class="{_ph_class}"{_ph_attr}>\n'
+        f'  <div class="page-header-eyebrow">Category Index</div>\n'
+        f'  <h1>{escape(label)}</h1>\n'
+        f'{_ph_meta}\n'
+        f'</div>'
+    )
+    _body_open  = ('<div class="sidebar-layout">\n<nav class="sidebar-nav">\n'
+                   f'      {_sidebar_items_html}\n</nav>\n<div class="content">'
+                   if _has_sidebar else '<div class="content">')
+    _body_close = '</div></div>' if _has_sidebar else '</div>'
+    # ────────────────────────────────────────────────────────────────────────
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -856,22 +903,26 @@ def generate_category_page(
   <link rel="icon" href="{_FAVICON}">
   <script>(function(){{var t=localStorage.getItem('ts-theme');if(t)document.documentElement.setAttribute('data-theme',t);}})()</script>
   <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/comp-nav.css">
+  <link rel="stylesheet" href="/assets/css/comp-sidebar.css">
   <link rel="stylesheet" href="/assets/css/world-base.css">
   <link rel="stylesheet" href="/assets/css/world-category.css">
 </head>
 <body>
 
-{jump_nav_html}<div class="page-wrap">
-
-{back_nav_html}
-{cover_html}
-{banner_html}
-
-  <div class="content">
+<nav class="site-nav">
+  <a class="site-nav-back" href="{_nav_back_href}">&#8592; {_nav_back_label}</a>
+  <div style="flex:1"></div>
+  <span class="site-nav-wordmark">TARIM-SHAIEL</span>
+</nav>
+<div class="page-wrap">
+{_page_header_html}
+{_body_open}
 {body_html}
 {subcats_html}
 {items_section}
-  </div>
+{_body_close}
 
   <div class="footer">
     <div class="footer-text">AUTO-GENERATED - DO NOT HAND-EDIT - {count} DOCUMENTS - SOURCE: GITHUB MAIN BRANCH</div>
@@ -879,21 +930,7 @@ def generate_category_page(
 
 </div>
 
-<script>
-(function () {{
-  var a = document.querySelector('.back-nav a');
-  if (!a) return;
-  a.addEventListener('click', function (e) {{
-    e.preventDefault();
-    if (history.length > 1 && document.referrer &&
-        document.referrer.indexOf(location.hostname) !== -1) {{
-      history.back();
-    }} else {{
-      location.replace(a.href);
-    }}
-  }});
-}})();
-</script>
+<button class="theme-toggle" onclick="(function(){{var h=document.documentElement;var cur=h.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');h.setAttribute('data-theme',cur==='dark'?'light':'dark');localStorage.setItem('ts-theme',h.getAttribute('data-theme'));}})()" title="Toggle light/dark theme">&#9681;</button>
 </body>
 </html>
 """

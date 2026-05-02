@@ -61,8 +61,7 @@
 
   <!-- BODY: sidebar layout if jump_nav_items present, otherwise plain content -->
   {% block body_layout %}
-  {% if jump_nav_items %}
-  <div class="sidebar-layout">
+  {% if jump_nav_items %}<div class="sidebar-layout">
     <nav class="sidebar-nav">
       {% if sidebar_heading %}<div class="sidebar-nav-heading">{{ sidebar_heading }}</div>{% endif %}
       {% for item in jump_nav_items %}
@@ -70,15 +69,10 @@
       {% endfor %}
       <div class="nav-divider"></div>
       <a class="sidebar-nav-top" href="#">&#8593; Top</a>
-    </nav>
-    <div class="content">{{ self.content() }}</div>
-  </div>
-  {% else %}
-  <div class="content">{{ self.content() }}</div>
-  {% endif %}
+    </nav>{% endif %}
+  <div class="content">{% block content %}{% endblock %}</div>
+  {% if jump_nav_items %}</div>{% endif %}
   {% endblock %}
-
-{% block content %}{% endblock %}
 
   <!-- FOOTER -->
   <div class="credits">

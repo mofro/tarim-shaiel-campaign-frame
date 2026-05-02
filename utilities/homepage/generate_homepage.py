@@ -60,18 +60,11 @@ def main(argv=None) -> int:
         for a in ANCESTRY_NAMES
     ]
 
-    jump_nav_items = [
-        {"anchor": "documents", "text": "Documents"},
-        {"anchor": "peoples", "text": "Peoples"},
-    ]
-
     html = render_page(
         "pages/homepage.html",
         title="Tarim-Shaiel",
         cover_subtitle="A Daggerheart Campaign",
         eyebrow="Campaign Hub",
-        sidebar_heading="On this page",
-        jump_nav_items=jump_nav_items,
         extra_css=["page-index"],
         generator_name="utilities/homepage/generate_homepage.py",
         featured_docs=FEATURED_DOCS,
