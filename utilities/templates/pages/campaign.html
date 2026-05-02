@@ -10,9 +10,21 @@
 {% endblock %}
 
 {% block content %}
+{% if at_a_glance_html %}
+<div class="campaign-two-col">
+  <div class="campaign-main">
+    {% for block in content_blocks %}{{ block | safe }}{% endfor %}
+  </div>
+  <aside class="campaign-aside">
+    <div class="campaign-glance-label">At a Glance</div>
+    {{ at_a_glance_html | safe }}
+  </aside>
+</div>
+{% else %}
 {% for block in content_blocks %}
 {{ block | safe }}
 {% endfor %}
+{% endif %}
 {% endblock %}
 
 {% block credits %}

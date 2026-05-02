@@ -504,8 +504,6 @@ def main() -> None:
     content_blocks = []
 
     at_a_glance = render_at_a_glance(sections.get('At a Glance', ''))
-    if at_a_glance:
-        content_blocks.append(at_a_glance)
     if 'The Pitch' in sections:
         content_blocks.append(render_pitch(sections['The Pitch']))
     if 'Tone & Feel' in sections:
@@ -547,6 +545,7 @@ def main() -> None:
         concept=concept,
         version=version,
         content_blocks=content_blocks,
+        at_a_glance_html=at_a_glance,
     )
 
     out.parent.mkdir(parents=True, exist_ok=True)

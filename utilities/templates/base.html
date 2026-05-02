@@ -55,8 +55,11 @@
 
   <!-- BODY: sidebar layout if jump_nav_items present, otherwise plain content -->
   {% block body_layout %}
-  {% if jump_nav_items %}<div class="sidebar-layout">
-    <nav class="sidebar-nav">
+  {% if jump_nav_items %}
+  <button class="sidebar-toggle" onclick="toggleSidebar()" title="Toggle navigation">&#9776;</button>
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+  <div class="sidebar-layout">
+    <nav class="sidebar-nav" id="sidebar-nav">
       {% if sidebar_heading %}<div class="sidebar-nav-heading">{{ sidebar_heading }}</div>{% endif %}
       {% for item in jump_nav_items %}
       <a href="#{{ item.anchor }}">{{ item.text }}</a>
@@ -75,6 +78,16 @@
 
 </div><!-- /page-wrap -->
 
+{% if jump_nav_items %}
+<script>
+function toggleSidebar() {
+  var nav = document.getElementById('sidebar-nav');
+  var overlay = document.getElementById('sidebar-overlay');
+  nav.classList.toggle('open');
+  overlay.classList.toggle('open');
+}
+</script>
+{% endif %}
 <button class="theme-toggle" onclick="(function(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');h.setAttribute('data-theme',cur==='dark'?'light':'dark');localStorage.setItem('ts-theme',h.getAttribute('data-theme'));})()" title="Toggle light/dark theme">&#9681;</button>
 
 </body>

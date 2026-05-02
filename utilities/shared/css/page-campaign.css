@@ -168,6 +168,33 @@
       opacity: 0.75;
     }
 
+    .campaign-two-col {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0;
+      align-items: start;
+    }
+    .campaign-aside {
+      position: sticky;
+      top: 80px;
+      padding: 1.5rem 1.5rem 1.5rem 0;
+    }
+    .campaign-glance-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    @media (max-width: 860px) {
+      .campaign-two-col { grid-template-columns: 1fr; }
+      .campaign-aside { position: static; padding: 0 0 1.5rem 0; }
+    }
+
     @media (max-width: 640px) {
       .content { padding: 1rem 1.4rem; }
       .two-col { grid-template-columns: 1fr; gap: 0; }
