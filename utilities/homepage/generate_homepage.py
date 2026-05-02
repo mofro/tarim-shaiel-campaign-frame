@@ -46,7 +46,6 @@ WORLD_CATEGORIES = [
     {"tag": "Character Creation", "title": "Classes", "sub": "Character archetypes and their advancement paths.", "href": "/category-classes.html"},
     {"tag": "Character Creation", "title": "Domains", "sub": "Domain cards and domain-specific rules.", "href": "/category-domains.html"},
     {"tag": "World", "title": "Factions", "sub": "Powers, guilds, and political bodies of Tarim-Shaiel.", "href": "/category-factions.html"},
-    {"tag": "World", "title": "World Index", "sub": "All world documents: lore, myths, timelines, and more.", "href": "/world-index.html"},
     {"tag": "Game Master", "title": "Dashboard", "sub": "Project health, TODO tracker, and session log.", "href": "/dashboard.html"},
 ]
 

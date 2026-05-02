@@ -920,7 +920,6 @@ def generate_category_page(
     <a href="/index.html">Home</a>
     <a href="/campaign-frame.html">Campaign Frame</a>
     <a href="/peoples-of-tarim-shaiel.html">Peoples</a>
-    <a href="/world-index.html">World Index</a>
   </div>
 </nav>
 <div class="page-wrap">
