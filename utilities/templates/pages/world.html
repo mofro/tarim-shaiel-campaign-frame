@@ -2,58 +2,30 @@
 
 {% block extra_head %}{% endblock %}
 
-{% block jump_nav %}
-{% if jump_nav_items and jump_nav_items | length >= 2 %}
-<div class="jump-nav">
-<ul>
-  {% if back_href %}
-  <li style="list-style:none"><a href="{{ back_href | e }}">&larr; Back</a></li>
-  <li class="nav-divider"></li>
-  {% endif %}
-  {% for item in jump_nav_items %}
-  <li><a href="#{{ item.anchor }}">{{ item.text }}</a></li>
-  {% endfor %}
-  <li class="nav-divider"></li>
-  <li style="list-style:none"><a href="#">&#8593; Top</a></li>
-</ul>
-</div>
-{% endif %}
+{% block site_nav %}
+<nav class="site-nav">
+  <a class="site-nav-back" href="{{ back_href | default('index.html') | e }}">&#8592; {{ back_label | default('Campaign Documents') }}</a>
+  <div style="flex:1"></div>
+  <span class="site-nav-wordmark">TARIM-SHAIEL</span>
+</nav>
 {% endblock %}
 
 {% block page_gm_banner %}
 {% if gm_page_banner_html %}{{ gm_page_banner_html | safe }}{% endif %}
 {% endblock %}
 
-{% block back_nav %}
-{% if back_href %}
-<div class="back-nav">
-  <a href="{{ back_href | e }}">&larr; {{ back_label }}</a>
-</div>
-{% endif %}
-{% endblock %}
-
-{% block cover %}
+{% block page_header %}
 {% if cover_image_url %}
-<div class="cover">
-  <div class="cover-image" style="background-image: url('{{ cover_image_url | e }}'); background-position: {{ banner_x | default(50) }}% {{ banner_y | default(50) }}%"></div>
-  <div class="cover-gradient"></div>
-  <div class="cover-content">
-    <div class="cover-title">{{ title }}</div>
-    {% if tag_label %}<div class="cover-tag">{{ tag_label }}</div>{% endif %}
-  </div>
+<div class="page-header page-header--hero" style="--cover-img: url('{{ cover_image_url | e }}'); background-position: {{ banner_x | default(50) }}% {{ banner_y | default(50) }}%">
+  {% if tag_label %}<div class="page-header-eyebrow">{{ tag_label }}</div>{% endif %}
+  <h1>{{ title }}</h1>
 </div>
 {% else %}
-<div class="no-cover-header">
-  <div class="cover-title">{{ title }}</div>
-  {% if tag_label %}<div class="cover-tag">{{ tag_label }}</div>{% endif %}
+<div class="page-header">
+  {% if tag_label %}<div class="page-header-eyebrow">{{ tag_label }}</div>{% endif %}
+  <h1>{{ title }}</h1>
 </div>
 {% endif %}
-
-<div class="banner">
-  <span>{{ banner_left }}</span>
-  <span>{{ banner_right }}</span>
-</div>
-<div class="banner-rule"></div>
 {% endblock %}
 
 {% block content %}

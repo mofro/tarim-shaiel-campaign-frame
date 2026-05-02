@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   {% if use_base_css %}
   <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/comp-nav.css">
+  <link rel="stylesheet" href="/assets/css/comp-sidebar.css">
+  <link rel="stylesheet" href="/assets/css/comp-card.css">
   {% endif %}
   {% for stem in extra_css %}
   <link rel="stylesheet" href="/assets/css/{{ stem }}.css">
@@ -23,41 +26,59 @@
 <body>
 
 {% if gm_mode %}{{ gm_guard_script | safe }}{% endif %}
-{% block jump_nav %}{% endblock %}
-<div class="page-wrap{{ page_class | default('') }}">
-{% if gm_mode %}<div class="gm-mode-top-banner">GM VIEW — PRIVILEGED ARCHIVE</div>{% endif %}
 {% block page_gm_banner %}{% endblock %}
 
-  <!-- BACK NAV -->
-  {% block back_nav %}
-  <div class="back-nav">
-    <a href="index.html">&#8592; Campaign Documents</a>
-  </div>
-  {% endblock %}
-
-  <!-- COVER -->
-  {% block cover %}
-  <div class="cover">
-    <div class="cover-image" style="background-image: url('{{ cover_image_url | e }}');"></div>
-    <div class="cover-gradient"></div>
-    <div class="cover-content">
-      <div class="cover-title">{{ title }}</div>
-      <div class="cover-subtitle">{{ cover_subtitle }}</div>
-      {% block cover_extra %}{% endblock %}
+<!-- SITE NAV -->
+{% block site_nav %}
+<nav class="site-nav">
+  {% if back_href %}
+    <a class="site-nav-back" href="{{ back_href | e }}">&#8592; {{ back_label | default('Campaign Documents') }}</a>
+    <div style="flex:1"></div>
+    <span class="site-nav-wordmark">TARIM-SHAIEL</span>
+  {% else %}
+    <div class="site-nav-wordmark">TARIM-SHAIEL <span class="dot">&middot;</span><span class="sub">DAGGERHEART</span></div>
+    <div class="site-nav-links">
+      <a href="/campaign-frame.html">Campaign Frame</a>
+      <a href="/peoples-of-tarim-shaiel.html">Peoples</a>
+      <a href="/world-index.html">World</a>
     </div>
-  </div>
+  {% endif %}
+</nav>
+{% endblock %}
 
-  <div class="banner">
-    <span>{{ banner_left }}</span>
-    <span>{{ banner_right }}</span>
+{% if gm_mode %}<div class="gm-mode-top-banner">GM VIEW — PRIVILEGED ARCHIVE</div>{% endif %}
+
+<div class="page-wrap{{ page_class | default('') }}">
+
+  <!-- PAGE HEADER -->
+  {% block page_header %}
+  <div class="page-header{% if cover_image_url %} page-header--hero{% endif %}"{% if cover_image_url %} style="--cover-img: url('{{ cover_image_url | e }}')"{% endif %}>
+    {% if eyebrow %}<div class="page-header-eyebrow">{{ eyebrow }}</div>{% endif %}
+    <h1>{{ title }}</h1>
+    {% if cover_subtitle %}<div class="page-header-meta">{{ cover_subtitle }}</div>{% endif %}
   </div>
-  <div class="banner-rule"></div>
   {% endblock %}
 
-  <!-- MAIN CONTENT -->
-  <div class="content">
+  <!-- BODY: sidebar layout if jump_nav_items present, otherwise plain content -->
+  {% block body_layout %}
+  {% if jump_nav_items %}
+  <div class="sidebar-layout">
+    <nav class="sidebar-nav">
+      {% if sidebar_heading %}<div class="sidebar-nav-heading">{{ sidebar_heading }}</div>{% endif %}
+      {% for item in jump_nav_items %}
+      <a href="#{{ item.anchor }}">{{ item.text }}</a>
+      {% endfor %}
+      <div class="nav-divider"></div>
+      <a class="sidebar-nav-top" href="#">&#8593; Top</a>
+    </nav>
+    <div class="content">{{ self.content() }}</div>
+  </div>
+  {% else %}
+  <div class="content">{{ self.content() }}</div>
+  {% endif %}
+  {% endblock %}
+
 {% block content %}{% endblock %}
-  </div><!-- /content -->
 
   <!-- FOOTER -->
   <div class="credits">
@@ -66,7 +87,7 @@
 
 </div><!-- /page-wrap -->
 
-<button class="theme-toggle" onclick="(function(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');h.setAttribute('data-theme',cur==='dark'?'light':'dark');localStorage.setItem('ts-theme',h.getAttribute('data-theme'));})()" title="Toggle light/dark theme">◑</button>
+<button class="theme-toggle" onclick="(function(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');h.setAttribute('data-theme',cur==='dark'?'light':'dark');localStorage.setItem('ts-theme',h.getAttribute('data-theme'));})()" title="Toggle light/dark theme">&#9681;</button>
 
 </body>
 </html>

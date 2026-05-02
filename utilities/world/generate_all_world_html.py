@@ -985,7 +985,7 @@ def generate_index(
 </body>
 </html>
 """
-    (docs / 'index.html').write_text(html, encoding='utf-8')
+    (docs / 'world-index.html').write_text(html, encoding='utf-8')
 
 
 # ── 404 page ──────────────────────────────────────────────────────────────────
@@ -1094,7 +1094,7 @@ def main() -> None:
         visible_core_count = len([d for d in _CORE_DOCS
                                    if gm_mode or (not args.public or 'public' in d.get('visibility', 'gm_secrets'))])
         top_level_count = len(grouped_docs) - len(subcategory_set)
-        print(f'Index: docs/index.html ({visible_core_count} core + {top_level_count} categories, {len(subcategory_set)} subcategories suppressed)')
+        print(f'Index: docs/world-index.html ({visible_core_count} core + {top_level_count} categories, {len(subcategory_set)} subcategories suppressed)')
         generate_404(docs)
         print('404: docs/404.html')
 

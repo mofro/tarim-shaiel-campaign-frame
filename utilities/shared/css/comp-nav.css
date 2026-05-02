@@ -1,0 +1,55 @@
+/* ── Site-wide top nav bar — used on every page ── */
+.site-nav {
+  height: 60px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--dark-brd);
+  padding: 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.site-nav-wordmark {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: var(--cream);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-nav-wordmark .dot { color: var(--gold); margin: 0 8px; }
+.site-nav-wordmark .sub { color: var(--muted); font-size: 12px; }
+
+.site-nav-links {
+  display: flex;
+  gap: 32px;
+}
+.site-nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-nav-links a:hover { color: var(--gold); }
+
+.site-nav-back {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-nav-back:hover { color: var(--gold-lt); }
+
+@media (max-width: 640px) {
+  .site-nav { padding: 0 20px; }
+  .site-nav-links { display: none; }
+}

@@ -1,0 +1,53 @@
+/* ── Homepage / index layout ── */
+
+.index-hero {
+  padding: 80px 64px 56px;
+  border-bottom: 1px solid var(--rule);
+}
+.index-hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.index-hero .tagline {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.index-section {
+  padding: 48px 64px;
+  border-bottom: 1px solid var(--rule);
+}
+.index-section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.index-ancestry-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .index-hero { padding: 48px 24px 40px; }
+  .index-hero h1 { font-size: 2.2rem; }
+  .index-section { padding: 40px 24px; }
+  .index-grid { grid-template-columns: 1fr; }
+}
