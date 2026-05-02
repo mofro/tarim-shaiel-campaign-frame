@@ -464,18 +464,18 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
 ---
 
-### 8. Faction File Stubs 🆕 NOT STARTED ([#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144))
+### 8. Faction File Stubs ✅ DONE 2026-05-01 ([#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144))
 **Domain:** `world/factions/`
 **Description:** Create 16 P1–P3 faction stub files from the data already in `world/factions/_category.md`. Three P1 factions deferred pending prerequisite issues.
 
-- [ ] **P1 (unlocked, 3 files):** `lich-cadre.md`, `the-wizard.md`, `chain-breakers-order.md` — richest stubs from existing canon data
-- [ ] **P2 (4 files):** `orc-confederation-samarkand.md`, `eastern-gateway-council.md`, `merchant-guilds.md`, `eastern-imperial-dominion.md`
-- [ ] **P3 (9 files):** `dwarven-mountain-confederations.md`, `dwarven-tarim-authority.md`, `human-tarim-councils.md`, `human-imperial-remnants.md`, `orc-steppe-confederations.md`, `goblin-free-cities.md`, `peoples-of-the-nine-roads.md`, `gnome-guilds.md`, `jade-coast-realms.md`
-- [ ] **Update `lat.md/world.md`** — change "individual faction files TBD" → reflect 16 stubs + 3 deferred
-- [ ] **Update `lat.md/subagent-context.md`** `last_updated` (per subagent-context maintenance rule)
+- [x] **P1 (unlocked, 3 files):** `lich-cadre.md`, `the-wizard.md`, `chain-breakers-order.md` — richest stubs from existing canon data
+- [x] **P2 (4 files):** `orc-confederation-samarkand.md`, `eastern-gateway-council.md`, `merchant-guilds.md`, `eastern-imperial-dominion.md`
+- [x] **P3 (9 files):** `dwarven-mountain-confederations.md`, `dwarven-tarim-authority.md`, `human-tarim-councils.md`, `human-imperial-remnants.md`, `orc-steppe-confederations.md`, `goblin-free-cities.md`, `peoples-of-the-nine-roads.md`, `gnome-guilds.md`, `jade-coast-realms.md`
+- [x] **Update `lat.md/world.md`** — change "individual faction files TBD" → reflect 16 stubs + 3 deferred
+- [x] **Update `lat.md/subagent-context.md`** `last_updated` (per subagent-context maintenance rule)
 - [ ] **Deferred (blocked):** `elven-highland-enclaves.md` ([#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43)), `scholars-remnant.md` ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42)), `celestial-court.md` (Decision #11)
 
-**Estimated effort:** ~1 session
+**Completed:** 16 stubs created (PR #191); 3 deferred pending #42, #43, Decision #11.
 
 ---
 
