@@ -8,7 +8,7 @@ visibility: gm_secrets
 diagram_type: cosmological-layers
 status: draft
 created: 2026-03-10
-last_updated: 2026-03-10
+last_updated: 2026-05-02
 source: narrative/STORY_ARC_SYNTHESIS.md, world/factions/Index.md, world/concepts/Index.md
 ---
 
@@ -20,9 +20,17 @@ source: narrative/STORY_ARC_SYNTHESIS.md, world/factions/Index.md, world/concept
 graph TD
 
     subgraph CELESTIAL["✨  CELESTIAL LAYER  —  Hero Heaven / Celestial Peak"]
-        CC["⚠️ Celestial Court<br/>(issues charges; nature TBD)"]
+        CC["Celestial Court<br/>(distributed structure:<br/>Sky-Father = foundation;<br/>Weighmaster = accounting;<br/>Conquering Heaven = military)"]
+        SKY["The Sky-Father<br/>(structural foundation;<br/>balance-keeper at remove;<br/>never direct)"]
+        WM["The Weighmaster<br/>(celestial ledger;<br/>cosmic accounting;<br/>deals in exchanges)"]
+        CH["The Conquering Heaven<br/>(storms + territorial power;<br/>patron-conditional;<br/>strategic own-agenda)"]
+        JI["The Jade Illusionist<br/>(Celestial-adjacent;<br/>prefers mortal world;<br/>trickster / spectator)"]
+        MK["The Memory-Keeper<br/>(world's memory;<br/>rooted in mortal history;<br/>accessed through ritual)"]
         CP["Celestial Peak<br/>/ Hero Heaven<br/>(sanctuary + pressure regulator)"]
         HEROES["The Heroes<br/>(returned after 1,000 years;<br/>carry celestial memory)"]
+        SKY -->|"structural<br/>foundation of"| CC
+        WM -->|"accounting<br/>function of"| CC
+        CH -->|"military-territorial<br/>expression of"| CC
         CC -->|"issues charge to"| HEROES
         CP -->|"reward"| HEROES
     end
@@ -47,8 +55,10 @@ graph TD
 
     subgraph BENEATH["🔴  BENEATH EVERYTHING  —  Pre-Cosmic"]
         HB["The Held Breath<br/>(dormant liminal consciousnesses;<br/>not awake; not negotiable;<br/>horror is their weight)"]
-        ELDER["⚠️ Elder Gods<br/>(speculative; may be<br/>the Held Breath's architects;<br/>may predate the ecosystem)"]
-        HB -.->|"may be shaped<br/>or preceded by"| ELDER
+        CW["The Chaos Weaver<br/>(formlessness-principle;<br/>predates the ecosystem;<br/>manifests as condition, not character)"]
+        SK["The Shattered King<br/>(Warren-deep; lord of endings;<br/>occupies exhausted-energy margins;<br/>welcomes boundary dissolution)"]
+        CW -.->|"adjacent to;<br/>distinct from"| HB
+        SK -->|"occupies boundary<br/>of Warren and"| HB
     end
 
     %% ── CROSS-LAYER CONNECTIONS ──────────────────────────────────────
@@ -81,12 +91,11 @@ graph TD
     classDef mechanism fill:#4e342e,color:#fff,stroke:#a1887f,stroke-dasharray:4 2
     classDef pending fill:#455a64,color:#fff,stroke:#90a4ae,stroke-dasharray:6 3
 
-    class CC,CP,HEROES celestial
+    class CC,CP,HEROES,SKY,WM,CH,JI,MK celestial
     class THRESHOLD,GREAT_WALL,ELV mortal
-    class WN,NECRO,LICH,WIZ warren
-    class HB beneath
+    class WN,NECRO,LICH,WIZ,SK warren
+    class HB,CW beneath
     class GAES,BINDING mechanism
-    class ELDER,CC pending
 ```
 
 ---
@@ -100,11 +109,14 @@ graph TD
 | Warrens | Magical infrastructure, necromantic inversion, Lich-Legion | Inverted from within; straining outward |
 | Pre-cosmic | The Held Breath | Inert unless disturbed; irreversible if woken |
 
+## Resolved Design Questions
+
+- ✅ **Celestial Court** (resolved 2026-03-19) — Distributed structure: the Sky-Father as structural foundation (the system expresses his will), the Weighmaster as its accounting function (celestial ledger), and the Conquering Heaven as its military-territorial expression. Not a governing body with a vote; a cosmological structure with distinct players whose interests partially overlap. See [[narrative/gm_secrets/DIVINE_PLAYERS]].
+- ✅ **Elder Gods** (resolved 2026-03-19) — The "Elder Gods" category resolves into two distinct pre-cosmic entities: the Chaos Weaver (formlessness-principle the ecosystem was built to contain) and the Held Breath (dormant liminal consciousnesses). There is no separate Elder Gods category; the Shattered King occupies the Warren-deep/pre-cosmic boundary. See [[narrative/gm_secrets/DIVINE_PLAYERS]].
+
 ## Open Design Questions
 
-- ⚠️ **Celestial Court** — governing body, impersonal accounting system, or distributed ecosystem will? See [[../../TODO]] → Divine & Cosmic Factions
-- ⚠️ **Elder Gods** — same as the Elder Civilization? Architects of the ecosystem? Or something else entirely?
-- ⚠️ **Warren Intelligences** — do the Warrens have agenda, or are they pure infrastructure? Decision affects Act 3
+- ⚠️ **Warren Intelligences** — do the Warrens have agenda, or are they pure infrastructure? The R/H/K reframing implies something is on the other end of that relationship. Decision affects Act III design. See [[../../TODO]].
 
 ## Sources
 

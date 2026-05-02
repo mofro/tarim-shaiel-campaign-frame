@@ -5,7 +5,7 @@ entity_type: factions
 visibility: gm_secrets
 status: active
 created: 2026-03-10
-last_updated: 2026-04-13
+last_updated: 2026-05-02
 published: true
 jump_nav: true
 ---
@@ -94,7 +94,7 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 |------|------|-----|-----------|-----------------|--------|
 | [[elder-civilization\|The Elder Civilization(s)]] | unknown — builders or predecessors | Pre-Era 0 (before ~200 CE) | Someone built the Warrens infrastructure; the Great Wall predates the Empire; Binding Magic came from somewhere | very-high | speculative |
 | [[pre-empire-peoples\|Pre-Imperial Peoples]] | cultural predecessor | Pre-Era 0 | The Human Empire had to grow from something; what were the predecessor polities before it consolidated? | medium | speculative |
-| [[elder-gods\|The Elder Gods]] | divine — nature unknown | Pre-Era 0 or cosmological | Referenced in brainstorm; relationship to Warrens, Held Breath, and Celestial Court unknown; may not be "gods" in any familiar sense | very-high | speculative |
+| [[elder-gods\|The Elder Gods]] | divine — resolved; see Divine & Cosmic Powers section | Pre-Era 0 or cosmological | Superseded by canonical divine player entries (2026-03-19); the "Elder Gods" category resolves into the Chaos Weaver (pre-cosmic), the Held Breath (pre-cosmic), and the seven named divine players | very-high | draft |
 
 > **Design note:** The prehistory layer connects directly to the cosmological architecture. The Held Breath entities are older than the Empire. Binding Magic implies someone understood Warren-channel mechanics before the Empire weaponized it. The Great Wall implies someone built cosmological infrastructure at scale. Whether the "Elder Civilization" and "Elder Gods" are the same thing, related things, or separate threads is an open question — and probably one of the campaign's deepest mysteries.
 
@@ -104,17 +104,21 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 
 *These entities operate at a scale above political factions but have agendas, exert pressure, and can be rivals — which makes them factions in the structural sense even if players will never negotiate with them directly. Each is a force the heroes must reckon with, not just a backdrop.*
 
+*Seven canonical divine players are defined in [[narrative/gm_secrets/DIVINE_PLAYERS]] (canon, 2026-03-19). Individual entity files are in `narrative/gm_secrets/divine-players/`. The entries below reflect the canonical state; the speculative entries for Elder Gods and Warren Intelligences have been resolved through that document.*
+
 | name | type | agenda | opposes | allied_with | known_by | narrative_weight | status |
 |------|------|--------|---------|------------|---------|-----------------|--------|
-| [[celestial-court\|The Celestial Court]] | divine institution | Maintain the charge system; ensure heroes complete what they are sent to do; regulate Celestial Peak access | the-wizard (disrupts the system), lich-cadre | the-heroes (theoretically) | elven-highland-enclaves (partially), the-heroes (fragmentary memory) | very-high | draft |
+| [[celestial-court\|The Celestial Court]] | divine institution — distributed; the Sky-Father is its structural foundation, the Weighmaster its accounting function, the Conquering Heaven its military expression | Maintain the charge system; ensure heroes complete what they are sent to do; regulate Celestial Peak access | the-wizard (disrupts the system), lich-cadre | the-heroes (theoretically) | elven-highland-enclaves (partially), the-heroes (fragmentary memory) | very-high | draft |
 | [[held-breath\|The Held Breath]] | pre-cosmic force | None — not conscious; simply *is*; the pressure of dormant liminal consciousnesses | everything, if disturbed | — | elven-highland-enclaves (with dread), chain-breakers-order (oral tradition fragments) | very-high | proposed |
-| [[warren-intelligences\|The Warren Intelligences]] | quasi-sentient infrastructure | Unclear — possibly self-preservation; possibly something older; possibly they serve the Held Breath without knowing it | necromantic-energy (inverts their flow) | elven-highland-enclaves (partial understanding) | elven-highland-enclaves, scholars-remnant (fragments) | high | speculative |
-| [[ancestor-spirits\|The Ancestor Spirits]] | cultural-divine | Preserve Orc memory; guide descendants; maintain connection to liberation epic; some may carry fragments of the original charge event | the-wizard (suppresses memory), lich-cadre | orc-steppe-confederations, orc-confederation-samarkand, chain-breakers-order | orcs (veneration practice), chain-breakers-order | high | draft |
-| [[elder-gods\|The Elder Gods]] | divine — nature entirely unknown | Unknown; may predate the Mythic Ecosystem; may be the Held Breath's original architects; may be the reason the Elves withdrew | unknown | unknown | elven-highland-enclaves (they know *something*), elder-civilization (lost knowledge) | very-high | speculative |
+| [[warren-intelligences\|The Warren Intelligences]] | quasi-sentient infrastructure | Unclear — possibly self-preservation; possibly something older; possibly they serve the Held Breath without knowing it | necromantic-energy (inverts their flow) | elven-highland-enclaves (partial understanding) | elven-highland-enclaves, scholars-remnant (fragments) | high | draft |
+| [[ancestor-spirits\|The Ancestor Spirits]] | cultural-divine — channel to the Memory-Keeper for those who practice correctly | Preserve Orc memory; guide descendants; maintain connection to liberation epic; some carry fragments of the original charge event via Memory-Keeper archive | the-wizard (suppresses memory), lich-cadre | orc-steppe-confederations, orc-confederation-samarkand, chain-breakers-order | orcs (veneration practice), chain-breakers-order | high | draft |
+| [[elder-gods\|The Elder Gods]] | resolved — see note below | — | — | — | — | very-high | draft |
 
-> **Design decision required: What IS the Celestial Court?** The heroes were *sent* on their charge by something. They were *rewarded* with Hero Heaven by something. They were *expelled* by something (or someone exploited a mechanism). Is the Celestial Court a governing body of divine beings? The Mythic Ecosystem expressing itself as will? An impersonal bureaucratic structure (the Svarga-as-accounting framing from SILK_ROAD_MYTH_ANALYSIS)? This decision shapes whether the heroes have a divine patron, a cosmic employer, or simply a system they were once part of and are now locked out of.
+> **Celestial Court resolved (2026-03-19):** The Celestial Court is not a single governing body. It is a distributed structure: the Sky-Father as the structural foundation (the system expresses his will), the Weighmaster as its accounting function (the celestial ledger), and the Conquering Heaven as its military-territorial expression. These are distinct divine players with distinct interests, not a unified institution. The heroes were sent by this structure and expelled when the Gaes was exploited. They do not have a single patron; they have a cosmological system they were once part of. See [[narrative/gm_secrets/DIVINE_PLAYERS]] for full entries.
 
-> **Design decision required: Warren Intelligences — sentient or not?** If the Warrens have agendas, the campaign's third act deepens enormously. If they don't, they remain infrastructure. The R/H/K reframing (tools express Warren allegiance) implies *something* is on the other end of that relationship. This doesn't need to be resolved now, but should be flagged before mid-campaign design.
+> **Elder Gods resolved (2026-03-19):** The "Elder Gods" entry in the speculative section referred to two distinct things that should not be collapsed. (1) The pre-cosmic layer entities: the Chaos Weaver (the formlessness-principle the ecosystem was built to contain) and the Held Breath (dormant liminal consciousnesses). These are not gods in any familiar sense — they predate the concept. (2) The seven divine players of the Celestial and Warren layers, which have now been fully defined. There are no Elder Gods as a separate category; the speculative entry is superseded by the canonical divine player entries. See [[narrative/gm_secrets/DIVINE_PLAYERS]].
+
+> **Warren Intelligences — design decision still open:** The R/H/K reframing (tools express Warren allegiance) implies *something* is on the other end of that relationship. Status updated to `draft` given the canonical divine player work; resolution still required before mid-campaign design. See [[../../TODO]] for active flag.
 
 ---
 
