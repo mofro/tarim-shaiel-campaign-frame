@@ -11,8 +11,10 @@ VAULT_ROOT = UTILITIES_DIR.parent
 DOCS_DIR = VAULT_ROOT / "docs"
 
 sys.path.insert(0, str(UTILITIES_DIR))
+sys.path.insert(0, str(UTILITIES_DIR / "world"))
 
 from shared.renderer import render_page
+from shared.frontmatter import parse_frontmatter
 
 FEATURED_DOCS = [
     {
@@ -33,21 +35,14 @@ FEATURED_DOCS = [
         "sub": "History, factions, and the shape of the known world.",
         "href": "/lore/the-roads.html",
     },
-    {
-        "tag": "World Index",
-        "title": "World Documents",
-        "sub": "Locations, factions, myths, and timelines.",
-        "href": "/world-index.html",
-    },
 ]
 
-WORLD_CATEGORIES = [
-    {"tag": "Mechanics", "title": "Abilities", "sub": "Active and passive abilities across all classes.", "href": "/category-abilities.html"},
-    {"tag": "Character Creation", "title": "Classes", "sub": "Character archetypes and their advancement paths.", "href": "/category-classes.html"},
-    {"tag": "Character Creation", "title": "Domains", "sub": "Domain cards and domain-specific rules.", "href": "/category-domains.html"},
-    {"tag": "World", "title": "Factions", "sub": "Powers, guilds, and political bodies of Tarim-Shaiel.", "href": "/category-factions.html"},
-    {"tag": "Game Master", "title": "Dashboard", "sub": "Project health, TODO tracker, and session log.", "href": "/dashboard.html"},
-]
+# Categories suppressed from the homepage (subcategories, GM-only, or low-value index noise)
+SUPPRESS_FROM_HOME = {
+    "advanced-weapons", "improved-weapons", "legendary-weapons",
+    "magical-weapons", "powder-weapons", "special-weapons",
+    "gm_secrets", "narrative", "events", "timelines",
+}
 
 ANCESTRY_NAMES = [
     "Div-Born", "Gavar", "Human", "Jivar", "Kalan", "Khavar",
@@ -60,6 +55,31 @@ def _ancestry_anchor(name: str) -> str:
     return name.lower().replace(" ", "-").replace("'", "")
 
 
+def _build_world_categories() -> list[dict]:
+    """Dynamically build category cards from _category.md files in the vault."""
+    from generate_all_world_html import _read_category_config, _category_label, discover_sources
+
+    buckets = discover_sources(VAULT_ROOT)
+    categories = []
+    for folder in sorted(buckets):
+        if folder in SUPPRESS_FROM_HOME:
+            continue
+        cfg, _ = _read_category_config(VAULT_ROOT, folder)
+        if cfg.get("published") is False:
+            continue
+        title = cfg.get("title") or _category_label(folder)
+        desc = cfg.get("description") or ""
+        tag = cfg.get("tag") or cfg.get("banner_left") or "World"
+        count = len(buckets[folder])
+        categories.append({
+            "tag": f"{tag} · {count} docs",
+            "title": title,
+            "sub": desc,
+            "href": f"/category-{folder}.html",
+        })
+    return categories
+
+
 def main(argv=None) -> int:
     out = DOCS_DIR / "index.html"
 
@@ -67,6 +87,8 @@ def main(argv=None) -> int:
         {"name": a, "anchor": _ancestry_anchor(a)}
         for a in ANCESTRY_NAMES
     ]
+
+    world_categories = _build_world_categories()
 
     html = render_page(
         "pages/homepage.html",
@@ -76,7 +98,7 @@ def main(argv=None) -> int:
         extra_css=["page-index"],
         generator_name="utilities/homepage/generate_homepage.py",
         featured_docs=FEATURED_DOCS,
-        world_categories=WORLD_CATEGORIES,
+        world_categories=world_categories,
         ancestry_links=ancestry_links,
     )
 
