@@ -10,6 +10,10 @@
       align-items: stretch;
       min-height: 100vh;
       background: var(--bg);
+      color: var(--fg);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.72;
     }
 
     .page-wrap {

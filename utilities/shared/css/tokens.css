@@ -20,10 +20,10 @@
   --surface: var(--cream);
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: var(--dark-bg); --fg: var(--cream); --surface: var(--dark-sur); }
+  :root { --bg: var(--dark-bg); --fg: var(--cream); --surface: var(--dark-sur); --crimson: #c44040; }
 }
-[data-theme="dark"]  { --bg: var(--dark-bg); --fg: var(--cream); --surface: var(--dark-sur); }
-[data-theme="light"] { --bg: var(--paper);   --fg: var(--ink);   --surface: var(--cream); }
+[data-theme="dark"]  { --bg: var(--dark-bg); --fg: var(--cream); --surface: var(--dark-sur); --crimson: #c44040; }
+[data-theme="light"] { --bg: var(--paper);   --fg: var(--ink);   --surface: var(--cream);   --crimson: #7a1f1f; }
 
 /* Theme toggle button (all pages) */
 .theme-toggle {

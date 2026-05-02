@@ -41,6 +41,15 @@ FEATURED_DOCS = [
     },
 ]
 
+WORLD_CATEGORIES = [
+    {"tag": "Mechanics", "title": "Abilities", "sub": "Active and passive abilities across all classes.", "href": "/category-abilities.html"},
+    {"tag": "Character Creation", "title": "Classes", "sub": "Character archetypes and their advancement paths.", "href": "/category-classes.html"},
+    {"tag": "Character Creation", "title": "Domains", "sub": "Domain cards and domain-specific rules.", "href": "/category-domains.html"},
+    {"tag": "World", "title": "Factions", "sub": "Powers, guilds, and political bodies of Tarim-Shaiel.", "href": "/category-factions.html"},
+    {"tag": "World", "title": "World Index", "sub": "All world documents: lore, myths, timelines, and more.", "href": "/world-index.html"},
+    {"tag": "Game Master", "title": "Dashboard", "sub": "Project health, TODO tracker, and session log.", "href": "/dashboard.html"},
+]
+
 ANCESTRY_NAMES = [
     "Div-Born", "Gavar", "Human", "Jivar", "Kalan", "Khavar",
     "Kuhban", "Pari-Kin", "Rahban", "Serenvar", "Tadbir",
@@ -68,6 +77,7 @@ def main(argv=None) -> int:
         extra_css=["page-index"],
         generator_name="utilities/homepage/generate_homepage.py",
         featured_docs=FEATURED_DOCS,
+        world_categories=WORLD_CATEGORIES,
         ancestry_links=ancestry_links,
     )
 

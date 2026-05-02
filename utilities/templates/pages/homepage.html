@@ -23,6 +23,20 @@
   </div>
 </div>
 
+<div class="index-section" id="world">
+  <div class="index-section-label">World Categories</div>
+  <div class="index-grid">
+    {% for cat in world_categories %}
+    <a class="doc-card" href="{{ cat.href | e }}">
+      <div class="doc-card-tag">{{ cat.tag }}</div>
+      <div class="doc-card-title">{{ cat.title }}</div>
+      <div class="doc-card-sub">{{ cat.sub }}</div>
+      <span class="doc-card-arrow">&#8594;</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
 <div class="index-section" id="peoples">
   <div class="index-section-label">Peoples of Tarim-Shaiel</div>
   <div class="index-ancestry-grid">
