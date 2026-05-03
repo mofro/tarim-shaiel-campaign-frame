@@ -55,11 +55,11 @@ def _ancestry_anchor(name: str) -> str:
     return name.lower().replace(" ", "-").replace("'", "")
 
 
-def _build_world_categories() -> list[dict]:
+def _build_world_categories(gm_mode: bool = False) -> list[dict]:
     """Dynamically build category cards from _category.md files in the vault."""
     from generate_all_world_html import _read_category_config, _category_label, discover_sources
 
-    buckets = discover_sources(VAULT_ROOT, gm_mode=False)
+    buckets = discover_sources(VAULT_ROOT, gm_mode=gm_mode)
     categories = []
     for folder in sorted(buckets):
         if folder in SUPPRESS_FROM_HOME:
@@ -81,6 +81,8 @@ def _build_world_categories() -> list[dict]:
 
 
 def main(argv=None) -> int:
+    import os
+    gm_mode = os.environ.get('TS_GM_MODE') == '1'
     out = DOCS_DIR / "index.html"
 
     ancestry_links = [
@@ -88,7 +90,7 @@ def main(argv=None) -> int:
         for a in ANCESTRY_NAMES
     ]
 
-    world_categories = _build_world_categories()
+    world_categories = _build_world_categories(gm_mode=gm_mode)
 
     html = render_page(
         "pages/homepage.html",
