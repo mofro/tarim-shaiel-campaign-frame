@@ -40,7 +40,7 @@ def doc(doc_id: str, content_nodes: list, name: str = "Main") -> dict:
         "isFirst": True,
         "transforms": [],
         "sources": [],
-        "presentation": None,
+        "presentation": {"documentType": "page"},
         "content": {
             "type": "doc",
             "content": content_nodes,

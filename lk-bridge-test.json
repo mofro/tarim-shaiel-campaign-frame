@@ -1,7 +1,7 @@
 {
   "version": 1,
   "exportId": "tstexprt",
-  "exportedAt": "2026-05-03T23:18:18.009Z",
+  "exportedAt": "2026-05-03T23:32:21.231Z",
   "resources": [
     {
       "schemaVersion": 1,
@@ -30,8 +30,8 @@
         {
           "id": "tstdoc01",
           "pos": "Q",
-          "createdAt": "2026-05-03T23:18:18.009Z",
-          "updatedAt": "2026-05-03T23:18:18.009Z",
+          "createdAt": "2026-05-03T23:32:21.231Z",
+          "updatedAt": "2026-05-03T23:32:21.231Z",
           "locatorId": "document:tstdoc01",
           "name": "Main",
           "type": "page",
@@ -40,7 +40,9 @@
           "isFirst": true,
           "transforms": [],
           "sources": [],
-          "presentation": null,
+          "presentation": {
+            "documentType": "page"
+          },
           "content": {
             "type": "doc",
             "content": [
@@ -148,8 +150,8 @@
         {
           "id": "tstdoc02",
           "pos": "Q",
-          "createdAt": "2026-05-03T23:18:18.009Z",
-          "updatedAt": "2026-05-03T23:18:18.009Z",
+          "createdAt": "2026-05-03T23:32:21.231Z",
+          "updatedAt": "2026-05-03T23:32:21.231Z",
           "locatorId": "document:tstdoc02",
           "name": "Main",
           "type": "page",
@@ -158,7 +160,9 @@
           "isFirst": true,
           "transforms": [],
           "sources": [],
-          "presentation": null,
+          "presentation": {
+            "documentType": "page"
+          },
           "content": {
             "type": "doc",
             "content": [
@@ -239,8 +243,8 @@
         {
           "id": "tstdoc03",
           "pos": "Q",
-          "createdAt": "2026-05-03T23:18:18.009Z",
-          "updatedAt": "2026-05-03T23:18:18.009Z",
+          "createdAt": "2026-05-03T23:32:21.231Z",
+          "updatedAt": "2026-05-03T23:32:21.231Z",
           "locatorId": "document:tstdoc03",
           "name": "Main",
           "type": "page",
@@ -249,7 +253,9 @@
           "isFirst": true,
           "transforms": [],
           "sources": [],
-          "presentation": null,
+          "presentation": {
+            "documentType": "page"
+          },
           "content": {
             "type": "doc",
             "content": [
@@ -318,5 +324,5 @@
   ],
   "calendars": [],
   "resourceCount": 3,
-  "hash": "2136a0d31c014a2f6ca46ce50378787d7afd8e519f029e41c9d50d0522847700"
+  "hash": "07e4601361288a281e7ff4087b8945a55e08d0c1519f04e519f834262fa9d9c2"
 }
