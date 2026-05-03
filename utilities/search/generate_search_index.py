@@ -17,7 +17,6 @@ import re
 import sys
 import argparse
 from pathlib import Path
-from urllib.parse import quote
 
 SCRIPT_DIR = Path(__file__).parent
 VAULT_ROOT = SCRIPT_DIR.parent.parent
@@ -43,10 +42,35 @@ ENTITY_TYPES = {
 
 BODY_MAX_CHARS = 500
 
+# Scan roots that the world generator knows about (mirrors SCAN_ROOTS in generate_all_world_html.py)
+_WORLD_SCAN_ROOTS = {"world", "narrative"}
+
 
 # ---------------------------------------------------------------------------
 # Text utilities
 # ---------------------------------------------------------------------------
+
+def _slug(text: str) -> str:
+    """Mirror generate_all_world_html._slug(): lowercase, non-word chars → hyphens."""
+    return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
+
+
+def _output_subfolder(path: Path) -> str:
+    """Mirror generate_all_world_html._output_subfolder().
+
+    Returns the docs-relative subdirectory for a source file by stripping
+    the scan root from the source parent path.
+    """
+    for root_name in _WORLD_SCAN_ROOTS:
+        root = VAULT_ROOT / root_name
+        try:
+            parts = path.parent.relative_to(root).parts
+            return '/'.join(parts) if parts else path.parent.name
+        except ValueError:
+            continue
+    # For paths outside world/narrative (e.g. characters/), strip top-level folder
+    rel_parts = path.relative_to(VAULT_ROOT).parts
+    return '/'.join(rel_parts[1:-1]) if len(rel_parts) > 2 else path.parent.name
 
 def _strip_obsidian(text: str) -> str:
     """Convert Obsidian-flavoured Markdown to plain indexable text."""
@@ -77,20 +101,20 @@ def _strip_obsidian(text: str) -> str:
 def _compute_url(path: Path) -> str:
     """Compute the site-relative URL for a source .md file.
 
-    Strips the top-level domain folder (world/, narrative/, characters/)
-    so that world/locations/kucha.md → /locations/kucha.html.
+    Mirrors generate_all_world_html.py's output path logic:
+      - subfolder via _output_subfolder() (strips scan root from parent)
+      - filename via _slug(stem) (lowercase, non-word → hyphens)
+
+    Examples:
+      world/locations/kucha.md          → /locations/kucha.html
+      world/ancestries/PEOPLES_OF_...md → /ancestries/peoples-of-....html
+      narrative/lore/The Roads.md       → /lore/the-roads.html
     """
-    rel = path.relative_to(VAULT_ROOT)
-    parts = list(rel.parts)
-    # Drop the first component (world/, narrative/, etc.)
-    if len(parts) > 1:
-        parts = parts[1:]
-    # Percent-encode each segment (safe chars: letters, digits, hyphen, underscore, dot)
-    encoded = [quote(p, safe="-_.~") for p in parts]
-    url_path = "/".join(encoded)
-    # Swap extension
-    url_path = re.sub(r'\.md$', '.html', url_path, flags=re.IGNORECASE)
-    return "/" + url_path
+    subfolder = _output_subfolder(path)
+    slug = _slug(path.stem)
+    if subfolder:
+        return f"/{subfolder}/{slug}.html"
+    return f"/{slug}.html"
 
 
 def _make_id(path: Path) -> str:
