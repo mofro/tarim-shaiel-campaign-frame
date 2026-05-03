@@ -5,7 +5,7 @@ project: TTRPG_Tarim_Shaiel
 domain: narrative
 doc_type: canon
 content_type: lore
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-02-11
 last_updated: 2026-04-05
