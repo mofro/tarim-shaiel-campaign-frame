@@ -32,7 +32,7 @@
   display: block;
   padding: 6px 24px;
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--muted);
   text-decoration: none;
@@ -65,7 +65,7 @@
 .sidebar-toggle {
   display: none;
   position: fixed;
-  bottom: 4rem;
+  top: 100px;
   left: 1rem;
   z-index: 200;
   width: 38px;

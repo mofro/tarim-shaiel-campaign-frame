@@ -755,7 +755,7 @@ def generate_category_page(
         elif parent_bucket:
             back_link = _back_link_li(parent_label, f'category-{parent_bucket}.html')
         else:
-            back_link = '  <li style="list-style:none"><a href="index.html">&larr; Campaign Documents</a></li>'
+            back_link = '  <li style="list-style:none"><a href="index.html">&larr; Home</a></li>'
         nav_items = [back_link, '  <li class="nav-divider"></li>']
         for item in subcat_nav_items:
             nav_items.append(f'  <li class="nav-subcategory"><a href="#{item["anchor"]}">{escape(item["text"])}</a></li>')
@@ -810,7 +810,7 @@ def generate_category_page(
     else:
         back_nav_html = (
             '<div class="back-nav">\n'
-            '  <a href="index.html">← Campaign Documents</a>\n'
+            '  <a href="index.html">← Home</a>\n'
             '</div>\n'
         )
 
@@ -874,7 +874,7 @@ def generate_category_page(
         _nav_back_label = parent_label or 'Back'
     else:
         _nav_back_href  = 'index.html'
-        _nav_back_label = 'Campaign Documents'
+        _nav_back_label = 'Home'
 
     _has_sidebar = bool(cfg.get('jump_nav') and len(all_nav_items) >= 2)
 
@@ -921,7 +921,7 @@ def generate_index(
     # Banner for index page
     banner_html = (
         '<div class="banner">\n'
-        '<span>Campaign Documents</span>\n'
+        '<span>Home</span>\n'
         '<span>Tarim-Shaiel · Daggerheart</span>\n'
         '</div>\n'
         '<div class="banner-rule"></div>\n'
@@ -1022,7 +1022,7 @@ def generate_404(docs: Path) -> None:
       This page has been lost to the Warren.
     </p>
     <a href="index.html" style="font-family:'Cinzel',serif;color:var(--gold-lt);font-size:0.9rem;letter-spacing:0.08em;">
-      \u2190 Return to Campaign Documents
+      \u2190 Return to Home
     </a>
   </div>
 
