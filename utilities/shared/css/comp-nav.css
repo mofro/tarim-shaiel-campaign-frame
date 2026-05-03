@@ -51,7 +51,67 @@
 }
 .site-nav-back:hover { color: var(--gold-lt); }
 
+/* Mobile site-nav toggle — hidden on desktop */
+.site-nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+/* Mobile nav drawer */
+.site-nav-drawer {
+  display: none;
+  flex-direction: column;
+  background: var(--ink);
+  border-bottom: 1px solid var(--dark-brd);
+  padding: 8px 20px 16px;
+  position: sticky;
+  top: 60px;
+  z-index: 99;
+}
+.site-nav-drawer.open { display: flex; }
+.site-nav-drawer a {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--dark-brd);
+  transition: color 0.15s;
+}
+.site-nav-drawer a:last-child { border-bottom: none; }
+.site-nav-drawer a:hover { color: var(--gold); }
+
 @media (max-width: 640px) {
   .site-nav { padding: 0 20px; }
   .site-nav-links { display: none; }
+  .site-nav-mobile-toggle { display: block; }
+}
+
+/* Dedicated back strip — sits between nav and page header */
+.page-back-strip {
+  padding: 9px 64px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.page-back-strip a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.page-back-strip a:hover { color: var(--gold); }
+
+@media (max-width: 640px) {
+  .page-back-strip { padding: 9px 20px; }
 }

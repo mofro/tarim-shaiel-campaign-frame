@@ -226,7 +226,7 @@ def main() -> None:
         cover_subtitle="Ancestries of the Known World",
         eyebrow="Ancestry Guide",
         back_href="index.html",
-        back_label="Campaign Documents",
+        back_label="Home",
         sidebar_heading="Peoples",
         jump_nav_items=jump_nav_items,
         cover_image_url=COVER_IMAGE_URL,

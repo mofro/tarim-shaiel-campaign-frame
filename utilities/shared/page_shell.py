@@ -118,7 +118,7 @@ def build_page(
 
   <!-- BACK NAV -->
   <div class="back-nav">
-    <a href="index.html">&#8592; Campaign Documents</a>
+    <a href="index.html">&#8592; Home</a>
   </div>
 
   <!-- COVER -->

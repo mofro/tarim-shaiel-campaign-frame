@@ -33,13 +33,23 @@
 <nav class="site-nav">
   <a class="site-nav-wordmark" href="/index.html"><span class="wm-title">TARIM-SHAIEL</span><span class="wm-sub">DAGGERHEART</span></a>
   <div class="site-nav-links">
-    {% if back_href %}<a class="site-nav-back" href="{{ back_href | e }}">&#8592; {{ back_label | default('Back') }}</a>{% endif %}
     <a href="/campaign-frame.html">Campaign Frame</a>
     <a href="/peoples-of-tarim-shaiel.html">Peoples</a>
     <a href="/search.html" title="Search">&#x2315; Search</a>
   </div>
+  <button class="site-nav-mobile-toggle" onclick="(function(){var d=document.getElementById('site-nav-drawer');d.classList.toggle('open');})()" title="Menu">&#9776;</button>
 </nav>
+<div class="site-nav-drawer" id="site-nav-drawer">
+  <a href="/index.html">Home</a>
+  <a href="/campaign-frame.html">Campaign Frame</a>
+  <a href="/peoples-of-tarim-shaiel.html">Peoples</a>
+  <a href="/search.html">&#x2315; Search</a>
+</div>
 {% endblock %}
+
+{% if back_href %}
+<div class="page-back-strip"><a href="{{ back_href | e }}">&#8592; {{ back_label | default('Back') }}</a></div>
+{% endif %}
 
 {% if gm_mode %}<div class="gm-mode-top-banner">GM VIEW — PRIVILEGED ARCHIVE</div>{% endif %}
 
