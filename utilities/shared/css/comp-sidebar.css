@@ -65,7 +65,7 @@
 .sidebar-toggle {
   display: none;
   position: fixed;
-  top: 68px;
+  top: 100px;
   left: 1rem;
   z-index: 200;
   width: 38px;
