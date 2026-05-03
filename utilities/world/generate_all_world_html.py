@@ -430,12 +430,13 @@ def discover_sources(vault: Path, gm_mode: bool = False) -> dict[str, list[Path]
                 section_m = re.search(r'^section:\s*["\']?([^\s"\'#\n]+)', head, re.MULTILINE)
                 folder = section_m.group(1).strip() if section_m else md.parent.name
                 buckets.setdefault(folder, []).append(md)
-    # Apply _category.md suppression
-    suppressed = [f for f in list(buckets.keys())
-                  if _read_category_config(vault, f)[0].get('published') is False]
-    for folder in suppressed:
-        print(f'  SUPPRESS  category "{folder}" (published: false in _category.md)')
-        del buckets[folder]
+    # Apply _category.md suppression (public builds only — GM mode sees everything)
+    if not gm_mode:
+        suppressed = [f for f in list(buckets.keys())
+                      if _read_category_config(vault, f)[0].get('published') is False]
+        for folder in suppressed:
+            print(f'  SUPPRESS  category "{folder}" (published: false in _category.md)')
+            del buckets[folder]
     return buckets
 
 
