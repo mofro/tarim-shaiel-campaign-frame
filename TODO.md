@@ -438,18 +438,18 @@ without breaking existing Netlify, GitHub Actions, or Obsidian Shell Commands in
 
 ---
 
-### 8. docs/ Output Hierarchy Restructure 🆕 NOT STARTED ([#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168))
+### 8. docs/ Output Hierarchy Restructure ✅ DONE 2026-04-21 ([#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168))
 **Domain:** `utilities/`
 **Description:** `docs/` currently outputs ~500 HTML files flat alongside asset subdirectories. Restructure so per-document HTML files land in subdirectories matching the `/world` source hierarchy (`docs/mythology/`, `docs/timelines/`, `docs/locations/`, etc.). Category index pages (`category-*.html`) and core docs stay flat at the `docs/` root. Asset URL paths require a root-relative switch (`/images/...`, `/assets/...`) to resolve correctly from subdirectory depth on Netlify.
 
-- [ ] Audit all four CSS files (`world_base.css`, `world_myth.css`, `world_timeline.css`, `world_category.css`) for `url()` image references
-- [ ] `utilities/shared/assets.py`: `prepare_image()` → return `/images/{name}`; `prepare_audio_wiki()` → `/audio/{name}`
-- [ ] Update any CSS `url()` references found above to root-relative paths
-- [ ] `utilities/world/generate_all_world_html.py`: change output path to `docs/{folder}/{slug}.html`; update `'filename'` field in grouped metadata to `{folder}/{slug}.html`; update print statement
-- [ ] `utilities/world/generate_world_html.py`: back-nav `back_href` → `../category-{folder}.html`
-- [ ] Dry-run verify (`--dry-run` flag); full build; spot-check one subdirectory page in browser
+- [x] Audit all four CSS files (`world_base.css`, `world_myth.css`, `world_timeline.css`, `world_category.css`) for `url()` image references
+- [x] `utilities/shared/assets.py`: `prepare_image()` → return `/images/{name}`; `prepare_audio_wiki()` → `/audio/{name}`
+- [x] Update any CSS `url()` references found above to root-relative paths
+- [x] `utilities/world/generate_all_world_html.py`: change output path to `docs/{folder}/{slug}.html`; update `'filename'` field in grouped metadata to `{folder}/{slug}.html`; update print statement
+- [x] `utilities/world/generate_world_html.py`: back-nav `back_href` → `../category-{folder}.html`
+- [x] Dry-run verify (`--dry-run` flag); full build; spot-check one subdirectory page in browser
 
-**Estimated effort:** ~1 session
+**Completed:** Issue closed 2026-04-21.
 
 ---
 
@@ -464,32 +464,31 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
 ---
 
-### 8. Faction File Stubs 🆕 NOT STARTED ([#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144))
+### 8. Faction File Stubs ✅ DONE 2026-05-01 ([#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144))
 **Domain:** `world/factions/`
 **Description:** Create 16 P1–P3 faction stub files from the data already in `world/factions/_category.md`. Three P1 factions deferred pending prerequisite issues.
 
-- [ ] **P1 (unlocked, 3 files):** `lich-cadre.md`, `the-wizard.md`, `chain-breakers-order.md` — richest stubs from existing canon data
-- [ ] **P2 (4 files):** `orc-confederation-samarkand.md`, `eastern-gateway-council.md`, `merchant-guilds.md`, `eastern-imperial-dominion.md`
-- [ ] **P3 (9 files):** `dwarven-mountain-confederations.md`, `dwarven-tarim-authority.md`, `human-tarim-councils.md`, `human-imperial-remnants.md`, `orc-steppe-confederations.md`, `goblin-free-cities.md`, `peoples-of-the-nine-roads.md`, `gnome-guilds.md`, `jade-coast-realms.md`
-- [ ] **Update `lat.md/world.md`** — change "individual faction files TBD" → reflect 16 stubs + 3 deferred
-- [ ] **Update `lat.md/subagent-context.md`** `last_updated` (per subagent-context maintenance rule)
+- [x] **P1 (unlocked, 3 files):** `lich-cadre.md`, `the-wizard.md`, `chain-breakers-order.md` — richest stubs from existing canon data
+- [x] **P2 (4 files):** `orc-confederation-samarkand.md`, `eastern-gateway-council.md`, `merchant-guilds.md`, `eastern-imperial-dominion.md`
+- [x] **P3 (9 files):** `dwarven-mountain-confederations.md`, `dwarven-tarim-authority.md`, `human-tarim-councils.md`, `human-imperial-remnants.md`, `orc-steppe-confederations.md`, `goblin-free-cities.md`, `peoples-of-the-nine-roads.md`, `gnome-guilds.md`, `jade-coast-realms.md`
+- [x] **Update `lat.md/world.md`** — change "individual faction files TBD" → reflect 16 stubs + 3 deferred
+- [x] **Update `lat.md/subagent-context.md`** `last_updated` (per subagent-context maintenance rule)
 - [ ] **Deferred (blocked):** `elven-highland-enclaves.md` ([#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43)), `scholars-remnant.md` ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42)), `celestial-court.md` (Decision #11)
 
-**Estimated effort:** ~1 session
+**Completed:** 16 stubs created (PR #191); 3 deferred pending #42, #43, Decision #11.
 
 ---
 
-### 9. HTML Generation Pipeline Refactor 🆕 NOT STARTED ([#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138))
+### 9. HTML Generation Pipeline Refactor ✅ SUPERSEDED by #183 ([#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138))
 **Domain:** `utilities/`
-**Description:** Consolidate ~5,300 lines across 7 generator scripts. Eliminate duplicated `inline_md()`, `parse_frontmatter()`, CSS design tokens, and `_Generator` boilerplate. Dashboard and campaign frame generators remain bespoke (valid component pattern sources only).
+**Description:** Superseded by #183 (CSS extraction + Jinja2 template layer). Phases 0–2b of #183 delivered CSS unification (Stage 2) and generator migration (Stages 3–4). Stage 5 (`_Generator` boilerplate) deferred — not worth addressing before Jinja2 migration completes.
 
-- [ ] **Stage 1:** Extract shared HTML component library (`html_render.py`) — audio, figure, callout, jump-nav, banner builders
-- [ ] **Stage 2:** Unify CSS — single `:root` token block; per-generator overrides only; eliminate cross-file drift
-- [ ] **Stage 3:** Migrate `generate_world_html.py` + `generate_all_world_html.py` — use `build_page()` + shared imports; remove local reimplementations
-- [ ] **Stage 4:** Migrate `generate_campaign_frame.py`, `generate_lore_html.py`, `generate_ancestry_html.py`
-- [ ] **Stage 5:** Generator factory — eliminate `_Generator` boilerplate copy-paste from all scripts
+- [x] **Stage 2:** CSS unified via `tokens.css` + per-page CSS files (Phase 0–2a of #183)
+- [x] **Stage 3:** `generate_world_html.py` + `generate_all_world_html.py` migrated (Phase 2c of #183)
+- [x] **Stage 4:** `generate_campaign_frame.py`, `generate_lore_html.py`, `generate_ancestry_html.py` migrated (Phase 2b/2d of #183)
+- [ ] **Stage 5:** Generator factory / `_Generator` boilerplate — deferred (tracked in #198)
 
-**Estimated effort:** ~3–4 sessions (each stage independently deployable; does not affect Netlify/GitHub Actions/Obsidian Shell Commands)
+**Closed:** 2026-05-01 as not_planned (work subsumed by #183).
 
 ---
 
