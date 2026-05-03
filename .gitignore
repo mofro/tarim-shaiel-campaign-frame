@@ -44,6 +44,7 @@ references/
 docs/*.html
 docs/**/*.html
 !docs/login.html
+docs/search-index.json
 
 # External tool integration (not source content)
 moulinette/
