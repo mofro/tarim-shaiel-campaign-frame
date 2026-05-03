@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 
 {% block page_header %}
-<div class="page-header index-hero-header">
-  <div class="page-header-eyebrow">{{ eyebrow }}</div>
+<div class="index-hero">
+  <div class="index-hero-tag">Campaign Lore &middot; Daggerheart</div>
   <h1>{{ title }}</h1>
-  <div class="page-header-meta">{{ cover_subtitle }}</div>
+  <p class="index-tagline">What do you do when the world is very certain who you are &mdash; and you&rsquo;re not?</p>
+  <div class="index-gold-rule"><span class="index-gold-rule-mark">✦</span></div>
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="index-section" id="documents">
-  <div class="index-section-label">Campaign Documents</div>
+  <div class="index-section-label">Core Documents</div>
   <div class="index-grid">
     {% for doc in featured_docs %}
     <a class="doc-card" href="{{ doc.href | e }}">
@@ -23,8 +24,9 @@
   </div>
 </div>
 
+{% if world_categories %}
 <div class="index-section" id="world">
-  <div class="index-section-label">World Categories</div>
+  <div class="index-section-label">World</div>
   <div class="index-grid">
     {% for cat in world_categories %}
     <a class="doc-card" href="{{ cat.href | e }}">
@@ -36,9 +38,13 @@
     {% endfor %}
   </div>
 </div>
+{% endif %}
 
 <div class="index-section" id="peoples">
-  <div class="index-section-label">Peoples of Tarim-Shaiel</div>
+  <div class="index-peoples-header">
+    <div class="index-section-label">The Peoples &middot; {{ ancestry_links | length }} Ancestries</div>
+    <a class="index-see-all" href="/peoples-of-tarim-shaiel.html">See all &#8594;</a>
+  </div>
   <div class="index-ancestry-grid">
     {% for a in ancestry_links %}
     <a class="ancestry-pill" href="/peoples-of-tarim-shaiel.html#{{ a.anchor | e }}">{{ a.name }}</a>
