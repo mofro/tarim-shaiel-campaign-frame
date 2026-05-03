@@ -1,0 +1,59 @@
+/* ── Reusable doc card — homepage + category index ── */
+.doc-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 28px;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.doc-card:hover { border-color: var(--gold); background: rgba(184,137,42,0.04); }
+
+.doc-card-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.doc-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 6px;
+}
+.doc-card-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.doc-card-arrow {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 18px;
+  opacity: 0.4;
+  transition: opacity 0.2s, right 0.2s;
+}
+.doc-card:hover .doc-card-arrow { opacity: 1; right: 18px; }
+
+/* Ancestry name pill — homepage ancestry grid */
+.ancestry-pill {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  padding: 5px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.ancestry-pill:hover { color: var(--gold-lt); border-color: var(--gold); }

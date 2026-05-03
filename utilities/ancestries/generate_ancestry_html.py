@@ -215,12 +215,20 @@ def main() -> None:
         if not a["features"]:
             print(f"  WARNING: no ### Ancestry Features found for {a['world_name']}")
 
+    jump_nav_items = [
+        {"anchor": a["anchor"], "text": a["world_name"]}
+        for a in ancestries
+    ]
+
     html = render_page(
         "pages/ancestry.html",
         title="Peoples of Tarim-Shaiel",
         cover_subtitle="Ancestries of the Known World",
-        banner_left="Ancestry Guide",
-        banner_right="Peoples of Tarim-Shaiel · Daggerheart",
+        eyebrow="Ancestry Guide",
+        back_href="index.html",
+        back_label="Campaign Documents",
+        sidebar_heading="Peoples",
+        jump_nav_items=jump_nav_items,
         cover_image_url=COVER_IMAGE_URL,
         extra_css=["page-ancestry"],
         generator_name="utilities/ancestries/generate_ancestry_html.py",

@@ -59,6 +59,7 @@ LORE_DEFAULT_SOURCE = VAULT_ROOT / "narrative" / "lore" / "The Roads.md"
 # ---------------------------------------------------------------------------
 
 def _load_registry() -> dict:
+    from homepage.generate_homepage import generator as homepage
     from dashboard.generate_dashboard import generator as dashboard
     from campaign_frame.generate_campaign_frame import generator as campaign_frame
     from lore.generate_lore_html import generator as lore
@@ -67,7 +68,7 @@ def _load_registry() -> dict:
     from world.generate_all_world_html import generator as world_all
 
     return {
-        g.name: g for g in [dashboard, campaign_frame, lore, ancestry, world, world_all]
+        g.name: g for g in [homepage, dashboard, campaign_frame, lore, ancestry, world, world_all]
     }
 
 # ---------------------------------------------------------------------------

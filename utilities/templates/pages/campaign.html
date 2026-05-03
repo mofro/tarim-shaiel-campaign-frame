@@ -1,13 +1,30 @@
 {% extends "base.html" %}
 
-{% block cover_extra %}
-{% if concept %}<div class="cover-concept"><em>{{ concept }}</em></div>{% endif %}
+{% block page_header %}
+<div class="page-header{% if cover_image_url %} page-header--hero{% endif %}"{% if cover_image_url %} style="--cover-img: url('{{ cover_image_url | e }}')"{% endif %}>
+  <div class="page-header-eyebrow">Player-Facing Document</div>
+  <h1>{{ title }}</h1>
+  <div class="page-header-meta">{{ cover_subtitle }}</div>
+  {% if concept %}<div class="cover-concept"><em>{{ concept }}</em></div>{% endif %}
+</div>
 {% endblock %}
 
 {% block content %}
+{% if at_a_glance_html %}
+<div class="campaign-two-col">
+  <div class="campaign-main">
+    {% for block in content_blocks %}{{ block | safe }}{% endfor %}
+  </div>
+  <aside class="campaign-aside">
+    <div class="campaign-glance-label">At a Glance</div>
+    {{ at_a_glance_html | safe }}
+  </aside>
+</div>
+{% else %}
 {% for block in content_blocks %}
 {{ block | safe }}
 {% endfor %}
+{% endif %}
 {% endblock %}
 
 {% block credits %}

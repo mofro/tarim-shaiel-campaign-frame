@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block page_header %}
+<div class="page-header{% if cover_image_url %} page-header--hero{% endif %}"{% if cover_image_url %} style="--cover-img: url('{{ cover_image_url | e }}')"{% endif %}>
+  <div class="page-header-eyebrow">World Lore</div>
+  <h1>{{ title }}</h1>
+  <div class="page-header-meta">{{ date_str }}</div>
+</div>
+{% endblock %}
+
 {% block content %}
 {% if audio_url %}
 <div class="audio-player">

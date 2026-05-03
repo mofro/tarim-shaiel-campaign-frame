@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+<div class="page-header index-hero-header">
+  <div class="page-header-eyebrow">{{ eyebrow }}</div>
+  <h1>{{ title }}</h1>
+  <div class="page-header-meta">{{ cover_subtitle }}</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="index-section" id="documents">
+  <div class="index-section-label">Campaign Documents</div>
+  <div class="index-grid">
+    {% for doc in featured_docs %}
+    <a class="doc-card" href="{{ doc.href | e }}">
+      <div class="doc-card-tag">{{ doc.tag }}</div>
+      <div class="doc-card-title">{{ doc.title }}</div>
+      <div class="doc-card-sub">{{ doc.sub }}</div>
+      <span class="doc-card-arrow">&#8594;</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="index-section" id="world">
+  <div class="index-section-label">World Categories</div>
+  <div class="index-grid">
+    {% for cat in world_categories %}
+    <a class="doc-card" href="{{ cat.href | e }}">
+      <div class="doc-card-tag">{{ cat.tag }}</div>
+      <div class="doc-card-title">{{ cat.title }}</div>
+      <div class="doc-card-sub">{{ cat.sub }}</div>
+      <span class="doc-card-arrow">&#8594;</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="index-section" id="peoples">
+  <div class="index-section-label">Peoples of Tarim-Shaiel</div>
+  <div class="index-ancestry-grid">
+    {% for a in ancestry_links %}
+    <a class="ancestry-pill" href="/peoples-of-tarim-shaiel.html#{{ a.anchor | e }}">{{ a.name }}</a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block credits %}
+    Tarim-Shaiel &middot; Daggerheart Campaign &middot; 2026
+{% endblock %}
