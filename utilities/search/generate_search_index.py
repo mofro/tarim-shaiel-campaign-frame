@@ -29,7 +29,7 @@ from shared.frontmatter import parse_frontmatter
 SEARCH_ROOTS = ["world", "narrative", "characters", "mechanics"]
 
 # Path segments that disqualify a file from indexing
-SKIP_SEGMENTS = {"lat.md", ".meta", "transcripts", "archive"}
+SKIP_SEGMENTS = {"lat.md", ".meta", "transcripts", "archive", "gm_secrets"}
 
 # Filename patterns that disqualify a file
 SKIP_FILENAME_PREFIXES = ("_TEMPLATE_",)
