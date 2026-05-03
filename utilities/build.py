@@ -11,6 +11,7 @@ Usage:
     python utilities/build.py campaign-frame
     python utilities/build.py ancestry lore
     python utilities/build.py lore --source narrative/lore/The Roads.md
+    python utilities/build.py search-index search
 
 Commands:
     list            Print all registered generators with their descriptions
@@ -19,14 +20,17 @@ Commands:
 
 Options:
     --source PATH   Source file for generators that require one (lore, world)
-    --public        Pass --public to world-all (omit GM-only content)
+    --public        Pass --public to world-all and search-index (omit GM-only content)
     --out PATH      Override output path for a single generator
 
 Registered generators (in pipeline order):
+    homepage        Site homepage
     dashboard       Project health dashboard from TODO.md
     campaign-frame  Campaign frame HTML
     lore            Styled lore HTML (requires --source or uses default)
     ancestry        Peoples of Tarim-Shaiel ancestry page
+    search-index    Search index JSON (docs/search-index.json)
+    search          Search UI page (docs/search.html)
     world           Single world/myth/timeline doc (requires --source)
     world-all       Batch all world docs + index
 
@@ -35,7 +39,9 @@ handled separately by utilities/legendkeeper-pipeline/publish.py.
 
 Build pipeline:
     1. _copy_css()  — copies utilities/shared/css/*.css → docs/assets/css/
-    2. Run requested generators in order
+    2. _copy_js()   — copies utilities/shared/js/*.js  → docs/assets/js/
+                      (downloads lunr.min.js on first run if not present)
+    3. Run requested generators in order
 """
 
 import os
@@ -64,11 +70,16 @@ def _load_registry() -> dict:
     from campaign_frame.generate_campaign_frame import generator as campaign_frame
     from lore.generate_lore_html import generator as lore
     from ancestries.generate_ancestry_html import generator as ancestry
+    from search.generate_search_index import generator as search_index
+    from search.generate_search_html import generator as search
     from world.generate_world_html import generator as world
     from world.generate_all_world_html import generator as world_all
 
     return {
-        g.name: g for g in [homepage, dashboard, campaign_frame, lore, ancestry, world, world_all]
+        g.name: g for g in [
+            homepage, dashboard, campaign_frame, lore, ancestry,
+            search_index, search, world, world_all,
+        ]
     }
 
 # ---------------------------------------------------------------------------
@@ -92,6 +103,12 @@ def _run_one(name: str, generator, args: argparse.Namespace) -> int:
         argv = [args.source]
         if args.out:
             argv += ["--out", args.out]
+
+    elif name in ("search-index", "search"):
+        if args.public:
+            argv = ["--public"]
+        elif args.gm:
+            argv = ["--gm"]
 
     elif name == "world-all":
         if args.public:
@@ -126,8 +143,42 @@ def _copy_css() -> None:
         shutil.copy2(f, dst / f.name)
 
 
+def _download_lunr(dest: Path) -> None:
+    """Download lunr.min.js from CDN into utilities/shared/js/."""
+    import urllib.request
+    url = "https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"
+    print(f"  Downloading lunr.min.js from CDN → {dest.name}")
+    try:
+        urllib.request.urlretrieve(url, dest)
+        print(f"  lunr.min.js downloaded ({dest.stat().st_size} bytes)")
+    except Exception as e:
+        print(f"  WARNING: Could not download lunr.min.js: {e}", file=sys.stderr)
+        print(f"  Search page will use CDN fallback. Vendor manually to remove CDN dependency.",
+              file=sys.stderr)
+
+
+def _copy_js() -> None:
+    """Copy all *.js from utilities/shared/js/ to docs/assets/js/.
+
+    Downloads lunr.min.js on first run if not already vendored.
+    """
+    import shutil
+    src = SCRIPT_DIR / "shared" / "js"
+    src.mkdir(parents=True, exist_ok=True)
+    dst = VAULT_ROOT / "docs" / "assets" / "js"
+    dst.mkdir(parents=True, exist_ok=True)
+
+    lunr_src = src / "lunr.min.js"
+    if not lunr_src.exists():
+        _download_lunr(lunr_src)
+
+    for f in src.glob("*.js"):
+        shutil.copy2(f, dst / f.name)
+
+
 def _cmd_run(names: list[str], registry: dict, args: argparse.Namespace) -> int:
     _copy_css()
+    _copy_js()
     if args.gm:
         os.environ['TS_GM_MODE'] = '1'
     failed = []

@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<script src="/assets/js/lunr.min.js"></script>
+<script>
+/* CDN fallback if vendored file missing */
+if (typeof lunr === 'undefined') {
+  document.write('<scr'+'ipt src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"><\/scr'+'ipt>');
+}
+</script>
+{% endblock %}
+
+{% block page_header %}
+<div class="page-header">
+  <div class="page-header-eyebrow">Tarim-Shaiel</div>
+  <h1>Search</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="search-wrap">
+
+  <form class="search-form" id="search-form" role="search" onsubmit="return false;">
+    <input
+      class="search-input"
+      id="search-input"
+      type="search"
+      placeholder="Search locations, factions, lore&hellip;"
+      autocomplete="off"
+      aria-label="Search"
+    />
+    <button class="search-btn" type="submit" aria-label="Submit search">Search</button>
+  </form>
+
+  <div id="search-status" class="search-status" aria-live="polite"></div>
+  <div id="search-results" class="search-results" role="region" aria-label="Search results"></div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var INDEX_URL = '/search-index.json';
+  var LUNR_CDN  = 'https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js';
+
+  var _docs   = null;   // raw records array
+  var _idx    = null;   // built lunr index
+  var _docMap = {};     // id → record
+
+  /* ── Helpers ── */
+
+  function esc(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function highlight(text, terms) {
+    if (!terms || !terms.length || !text) return esc(text);
+    var escaped = esc(text);
+    terms.forEach(function (term) {
+      var re = new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      escaped = escaped.replace(re, '<mark>$1</mark>');
+    });
+    return escaped;
+  }
+
+  function badgeHtml(contentType) {
+    if (!contentType) return '';
+    return '<span class="search-badge">' + esc(contentType.replace(/-/g, ' ')) + '</span>';
+  }
+
+  function renderEntityCard(doc, terms) {
+    var meta = [];
+    if (doc.region) meta.push(esc(doc.region));
+    if (doc.summary) meta.push(highlight(doc.summary, terms));
+    else if (doc.body) meta.push(highlight(doc.body.slice(0, 180), terms));
+
+    return [
+      '<a class="search-entity-card doc-card" href="' + esc(doc.url) + '">',
+        badgeHtml(doc.content_type),
+        '<div class="doc-card-title">' + highlight(doc.title, terms) + '</div>',
+        meta.length ? '<div class="doc-card-sub">' + meta.join(' &middot; ') + '</div>' : '',
+        '<span class="doc-card-arrow">&#8594;</span>',
+      '</a>',
+    ].join('');
+  }
+
+  function renderStandardResult(doc, terms) {
+    var snippet = doc.summary || doc.body || '';
+    return [
+      '<div class="search-result">',
+        '<div class="search-result-header">',
+          '<a class="search-result-title" href="' + esc(doc.url) + '">' + highlight(doc.title, terms) + '</a>',
+          badgeHtml(doc.content_type),
+        '</div>',
+        snippet ? '<p class="search-result-snippet">' + highlight(snippet.slice(0, 240), terms) + '</p>' : '',
+      '</div>',
+    ].join('');
+  }
+
+  /* ── Index build ── */
+
+  function buildIndex(docs) {
+    return lunr(function () {
+      this.ref('id');
+      this.field('title',   { boost: 10 });
+      this.field('summary', { boost: 5 });
+      this.field('body',    { boost: 1 });
+      this.field('tags',    { boost: 3 });
+      this.field('region',  { boost: 2 });
+      this.metadataWhitelist = ['position'];
+
+      var self = this;
+      docs.forEach(function (doc) {
+        self.add({
+          id:      doc.id,
+          title:   doc.title || '',
+          summary: (doc.summary || '') + ' ' + (doc.description || ''),
+          body:    doc.body || '',
+          tags:    Array.isArray(doc.tags) ? doc.tags.join(' ') : '',
+          region:  doc.region || '',
+        });
+      });
+    });
+  }
+
+  /* ── Search & render ── */
+
+  function doSearch(query) {
+    var status  = document.getElementById('search-status');
+    var results = document.getElementById('search-results');
+
+    if (!query || !query.trim()) {
+      status.textContent = '';
+      results.innerHTML  = '';
+      return;
+    }
+
+    if (!_idx) {
+      status.textContent = 'Index not loaded yet — please try again.';
+      return;
+    }
+
+    var raw;
+    try {
+      raw = _idx.search(query);
+    } catch (e) {
+      /* Lunr throws on malformed query strings */
+      try { raw = _idx.search(query + '*'); } catch (e2) { raw = []; }
+    }
+
+    /* Extract matched terms for highlighting */
+    var terms = [];
+    raw.forEach(function (r) {
+      Object.keys(r.matchData.metadata).forEach(function (t) { terms.push(t); });
+    });
+
+    if (!raw.length) {
+      status.textContent = 'No results for “' + esc(query) + '”.';
+      results.innerHTML  = '';
+      return;
+    }
+
+    status.textContent = raw.length + ' result' + (raw.length === 1 ? '' : 's') + ' for “' + esc(query) + '”';
+
+    var html = raw.map(function (r) {
+      var doc = _docMap[r.ref];
+      if (!doc) return '';
+      return doc.entity ? renderEntityCard(doc, terms) : renderStandardResult(doc, terms);
+    }).join('');
+
+    results.innerHTML = html;
+  }
+
+  /* ── URL param sync ── */
+
+  function getQueryParam() {
+    var params = new URLSearchParams(window.location.search);
+    return params.get('q') || '';
+  }
+
+  function setQueryParam(q) {
+    var url = new URL(window.location.href);
+    if (q) { url.searchParams.set('q', q); }
+    else   { url.searchParams.delete('q'); }
+    history.replaceState(null, '', url.toString());
+  }
+
+  /* ── Initialisation ── */
+
+  function init() {
+    fetch(INDEX_URL)
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (docs) {
+        _docs = docs;
+        docs.forEach(function (d) { _docMap[d.id] = d; });
+        _idx = buildIndex(docs);
+
+        var initialQ = getQueryParam();
+        if (initialQ) {
+          var input = document.getElementById('search-input');
+          if (input) input.value = initialQ;
+          doSearch(initialQ);
+        }
+      })
+      .catch(function (err) {
+        document.getElementById('search-status').textContent =
+          'Search index unavailable. Run ‘python utilities/build.py search-index’ to generate it.';
+        console.error('Search index load error:', err);
+      });
+
+    var input = document.getElementById('search-input');
+    var form  = document.getElementById('search-form');
+
+    function onSearch() {
+      var q = (input.value || '').trim();
+      setQueryParam(q);
+      doSearch(q);
+    }
+
+    form.addEventListener('submit', onSearch);
+    input.addEventListener('input', function () {
+      clearTimeout(input._debounce);
+      input._debounce = setTimeout(onSearch, 220);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+{% endblock %}
+
+{% block credits %}
+    Tarim-Shaiel &middot; Search &middot; 2026
+{% endblock %}

@@ -1,0 +1,173 @@
+/* ── Search page — page-search.css ── */
+
+.search-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+/* ── Search form ── */
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.search-input {
+  flex: 1;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 17px;
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 10px 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.search-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(184,137,42,0.15);
+}
+.search-input::placeholder { color: var(--muted); }
+
+.search-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 2px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.search-btn:hover { background: var(--gold-lt); }
+
+/* ── Status line ── */
+.search-status {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+  min-height: 1.4em;
+}
+
+/* ── Results container ── */
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Content-type badge ── */
+.search-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ── Entity card — elevated result for locations, factions, etc. ── */
+.search-entity-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 24px 28px;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+.search-entity-card:hover {
+  border-color: var(--gold);
+  background: rgba(184,137,42,0.04);
+}
+.search-entity-card .doc-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 5px;
+}
+.search-entity-card .doc-card-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.search-entity-card .doc-card-arrow {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 18px;
+  opacity: 0.4;
+  transition: opacity 0.2s, right 0.2s;
+}
+.search-entity-card:hover .doc-card-arrow { opacity: 1; right: 18px; }
+
+/* ── Standard result ── */
+.search-result {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 16px;
+}
+.search-result:last-child { border-bottom: none; }
+
+.search-result-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.search-result-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.search-result-title:hover { color: var(--gold); }
+
+/* Override badge display inline for standard results */
+.search-result .search-badge {
+  display: inline;
+  margin-bottom: 0;
+  font-size: 9px;
+}
+
+.search-result-snippet {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Highlight ── */
+mark {
+  background: rgba(184,137,42,0.22);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .search-wrap { padding: 32px 20px 60px; }
+  .search-form { flex-direction: column; }
+  .search-btn { width: 100%; }
+  .search-entity-card .doc-card-arrow { display: none; }
+}
