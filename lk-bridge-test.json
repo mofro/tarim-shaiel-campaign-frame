@@ -1,0 +1,322 @@
+{
+  "version": 1,
+  "exportId": "tstexprt",
+  "exportedAt": "2026-05-03T23:18:18.009Z",
+  "resources": [
+    {
+      "schemaVersion": 1,
+      "aliases": [],
+      "banner": {
+        "enabled": false,
+        "url": "",
+        "yPosition": 50
+      },
+      "createdBy": "",
+      "iconColor": "#FFFFFF",
+      "iconGlyph": "fas fa-book",
+      "iconShape": "pin-icon",
+      "id": "tstpar01",
+      "isHidden": false,
+      "isLocked": false,
+      "name": "LK Bridge Test: Hub",
+      "parentId": "",
+      "pos": "A",
+      "properties": [],
+      "showPropertyBar": false,
+      "tags": [
+        "test"
+      ],
+      "documents": [
+        {
+          "id": "tstdoc01",
+          "pos": "Q",
+          "createdAt": "2026-05-03T23:18:18.009Z",
+          "updatedAt": "2026-05-03T23:18:18.009Z",
+          "locatorId": "document:tstdoc01",
+          "name": "Main",
+          "type": "page",
+          "isHidden": false,
+          "isFullWidth": false,
+          "isFirst": true,
+          "transforms": [],
+          "sources": [],
+          "presentation": null,
+          "content": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 1
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "LK Bridge Test: Hub"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Test hub. Child pages: "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "tstcld01",
+                      "text": "LK Bridge Test: Cold Scene",
+                      "alias": "",
+                      "accessLevel": "",
+                      "userType": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "tstcld02",
+                      "text": "LK Bridge Test: Approach",
+                      "alias": "",
+                      "accessLevel": "",
+                      "userType": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "bodiedExtension",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-secret",
+                  "parameters": {
+                    "extensionTitle": "Secret"
+                  },
+                  "layout": "default"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "GM secret in hub. If this survives import/export, block-secret blocks work."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "aliases": [],
+      "banner": {
+        "enabled": false,
+        "url": "",
+        "yPosition": 50
+      },
+      "createdBy": "",
+      "iconColor": "#FFFFFF",
+      "iconGlyph": "fas fa-book",
+      "iconShape": "pin-icon",
+      "id": "tstcld01",
+      "isHidden": false,
+      "isLocked": false,
+      "name": "LK Bridge Test: Cold Scene",
+      "parentId": "tstpar01",
+      "pos": "B",
+      "properties": [],
+      "showPropertyBar": false,
+      "tags": [
+        "scene",
+        "test"
+      ],
+      "documents": [
+        {
+          "id": "tstdoc02",
+          "pos": "Q",
+          "createdAt": "2026-05-03T23:18:18.009Z",
+          "updatedAt": "2026-05-03T23:18:18.009Z",
+          "locatorId": "document:tstdoc02",
+          "name": "Main",
+          "type": "page",
+          "isHidden": false,
+          "isFullWidth": false,
+          "isFirst": true,
+          "transforms": [],
+          "sources": [],
+          "presentation": null,
+          "content": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 1
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "LK Bridge Test: Cold Scene"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Cold comes first. Child of "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "tstpar01",
+                      "text": "LK Bridge Test: Hub",
+                      "alias": "",
+                      "accessLevel": "",
+                      "userType": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "This page is clean — no secret block. Tests that plain content survives round-trip."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "aliases": [],
+      "banner": {
+        "enabled": false,
+        "url": "",
+        "yPosition": 50
+      },
+      "createdBy": "",
+      "iconColor": "#FFFFFF",
+      "iconGlyph": "fas fa-book",
+      "iconShape": "pin-icon",
+      "id": "tstcld02",
+      "isHidden": false,
+      "isLocked": false,
+      "name": "LK Bridge Test: Approach",
+      "parentId": "tstpar01",
+      "pos": "C",
+      "properties": [],
+      "showPropertyBar": false,
+      "tags": [
+        "scene",
+        "test"
+      ],
+      "documents": [
+        {
+          "id": "tstdoc03",
+          "pos": "Q",
+          "createdAt": "2026-05-03T23:18:18.009Z",
+          "updatedAt": "2026-05-03T23:18:18.009Z",
+          "locatorId": "document:tstdoc03",
+          "name": "Main",
+          "type": "page",
+          "isHidden": false,
+          "isFullWidth": false,
+          "isFirst": true,
+          "transforms": [],
+          "sources": [],
+          "presentation": null,
+          "content": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 1
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "LK Bridge Test: Approach"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "The approach. Child of "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "tstpar01",
+                      "text": "LK Bridge Test: Hub",
+                      "alias": "",
+                      "accessLevel": "",
+                      "userType": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "bodiedExtension",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-secret",
+                  "parameters": {
+                    "extensionTitle": "Secret"
+                  },
+                  "layout": "default"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "GM secret in Approach. Tests secret blocks in child pages."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "calendars": [],
+  "resourceCount": 3,
+  "hash": "2136a0d31c014a2f6ca46ce50378787d7afd8e519f029e41c9d50d0522847700"
+}
