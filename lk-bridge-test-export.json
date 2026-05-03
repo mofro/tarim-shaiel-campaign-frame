@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "exportId": "bsdipcjz",
+  "exportedAt": "2026-05-03T23:38:03.104Z",
+  "resources": [
+    {
+      "schemaVersion": 1,
+      "aliases": [],
+      "banner": {
+        "enabled": false,
+        "url": "",
+        "yPosition": 50
+      },
+      "createdBy": "",
+      "documents": [
+        {
+          "id": "k32h0vrp",
+          "pos": "Q",
+          "createdAt": "2026-05-03T23:36:16.589Z",
+          "updatedAt": "2026-05-03T23:36:16.589Z",
+          "locatorId": "document:k32h0vrp",
+          "name": "Main",
+          "type": "page",
+          "isHidden": false,
+          "isFullWidth": false,
+          "isFirst": true,
+          "transforms": [],
+          "sources": [],
+          "presentation": {
+            "documentType": "page"
+          },
+          "content": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 1
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "LK Bridge Test: Hub"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Test hub. Child pages: "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "zdut9nhr",
+                      "text": "LK Bridge Test: Cold Scene",
+                      "alias": "",
+                      "accessLevel": "",
+                      "userType": "",
+                      "documentId": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " and "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "vh71b68z",
+                      "text": "LK Bridge Test: Approach",
+                      "alias": "",
+                      "accessLevel": "",
+                      "userType": "",
+                      "documentId": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "bodiedExtension",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-secret",
+                  "parameters": {
+                    "extensionTitle": "Secret"
+                  },
+                  "layout": "default"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "GM secret in hub. If this survives import/export, block-secret blocks work."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "paragraph"
+              }
+            ]
+          }
+        }
+      ],
+      "iconColor": "#FFFFFF",
+      "iconGlyph": "fas fa-book",
+      "iconShape": "pin-icon",
+      "id": "og9r929r",
+      "isHidden": false,
+      "isLocked": false,
+      "name": "LK Bridge Test: Hub",
+      "pos": "A",
+      "properties": [],
+      "showPropertyBar": false,
+      "tags": [
+        "test"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "aliases": [],
+      "banner": {
+        "enabled": false,
+        "url": "",
+        "yPosition": 50
+      },
+      "createdBy": "",
+      "documents": [
+        {
+          "id": "r76i0tap",
+          "pos": "Q",
+          "createdAt": "2026-05-03T23:36:16.592Z",
+          "updatedAt": "2026-05-03T23:36:16.592Z",
+          "locatorId": "document:r76i0tap",
+          "name": "Main",
+          "type": "page",
+          "isHidden": false,
+          "isFullWidth": false,
+          "isFirst": true,
+          "transforms": [],
+          "sources": [],
+          "presentation": {
+            "documentType": "page"
+          },
+          "content": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 1
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "LK Bridge Test: Approach"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "The approach. Child of "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "og9r929r",
+                      "text": "LK Bridge Test: Hub",
+                      "alias": "",
+                      "accessLevel": "",
+                      "userType": "",
+                      "documentId": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "bodiedExtension",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-secret",
+                  "parameters": {
+                    "extensionTitle": "Secret"
+                  },
+                  "layout": "default"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "GM secret in Approach. Tests secret blocks in child pages."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "paragraph"
+              }
+            ]
+          }
+        }
+      ],
+      "iconColor": "#FFFFFF",
+      "iconGlyph": "fas fa-book",
+      "iconShape": "pin-icon",
+      "id": "vh71b68z",
+      "isHidden": false,
+      "isLocked": false,
+      "name": "LK Bridge Test: Approach",
+      "parentId": "og9r929r",
+      "pos": "C",
+      "properties": [],
+      "showPropertyBar": false,
+      "tags": [
+        "scene",
+        "test"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "aliases": [],
+      "banner": {
+        "enabled": false,
+        "url": "",
+        "yPosition": 50
+      },
+      "createdBy": "",
+      "documents": [
+        {
+          "id": "jgi17gps",
+          "pos": "Q",
+          "createdAt": "2026-05-03T23:36:16.591Z",
+          "updatedAt": "2026-05-03T23:36:16.591Z",
+          "locatorId": "document:jgi17gps",
+          "name": "Main",
+          "type": "page",
+          "isHidden": false,
+          "isFullWidth": false,
+          "isFirst": true,
+          "transforms": [],
+          "sources": [],
+          "presentation": {
+            "documentType": "page"
+          },
+          "content": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 1
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "LK Bridge Test: Cold Scene"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Cold comes first. Child of "
+                  },
+                  {
+                    "type": "mention",
+                    "attrs": {
+                      "id": "og9r929r",
+                      "text": "LK Bridge Test: Hub",
+                      "alias": "",
+                      "accessLevel": "",
+                      "userType": "",
+                      "documentId": ""
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "This page is clean — no secret block. Tests that plain content survives round-trip."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "iconColor": "#FFFFFF",
+      "iconGlyph": "fas fa-book",
+      "iconShape": "pin-icon",
+      "id": "zdut9nhr",
+      "isHidden": false,
+      "isLocked": false,
+      "name": "LK Bridge Test: Cold Scene",
+      "parentId": "og9r929r",
+      "pos": "B",
+      "properties": [],
+      "showPropertyBar": false,
+      "tags": [
+        "scene",
+        "test"
+      ]
+    }
+  ],
+  "calendars": [],
+  "resourceCount": 3,
+  "hash": "3ae70a2692a90a79dd11d4337581bbdddf6d58763207347d2388b8e83d1f19fa"
+}
