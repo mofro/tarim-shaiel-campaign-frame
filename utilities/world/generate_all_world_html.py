@@ -398,8 +398,12 @@ def _should_skip(path: Path, vault: Path) -> bool:
     return False
 
 
-def discover_sources(vault: Path) -> dict[str, list[Path]]:
-    """Return all .md files under SCAN_ROOTS bucketed by parent folder name."""
+def discover_sources(vault: Path, gm_mode: bool = False) -> dict[str, list[Path]]:
+    """Return all .md files under SCAN_ROOTS bucketed by parent folder name.
+
+    When gm_mode=False (public build), docs with visibility: gm_secrets are
+    excluded at discovery time so they never appear in any category or index.
+    """
     buckets: dict[str, list[Path]] = {}
     for root_name in SCAN_ROOTS:
         root = vault / root_name
@@ -412,6 +416,12 @@ def discover_sources(vault: Path) -> dict[str, list[Path]]:
                 head = md.read_text(encoding='utf-8')[:600]
             except Exception:
                 continue
+            # Filter gm_secrets docs on public builds (fail-closed: missing = gm_secrets)
+            if not gm_mode:
+                vis_m = re.search(r'^visibility:\s*(\S+)', head, re.MULTILINE)
+                vis = vis_m.group(1).lower().strip('"\' ') if vis_m else 'gm_secrets'
+                if vis == 'gm_secrets':
+                    continue
             m = re.search(r'^type:\s*(\w+)', head, re.MULTILINE)
             ct = re.search(r'^content_type:\s*(\w+)', head, re.MULTILINE)
             type_val = (m.group(1) if m else '') or (ct.group(1) if ct else '')
@@ -487,7 +497,7 @@ def generate_all(
         grouped_sources: Pre-computed discover_sources() result; calls internally if None.
     """
     if grouped_sources is None:
-        grouped_sources = discover_sources(vault)
+        grouped_sources = discover_sources(vault, gm_mode=gm_mode)
 
     grouped: dict[str, list[dict]] = {}
 
@@ -1061,7 +1071,7 @@ def main() -> None:
         print('Mode: LOCAL (all docs including gm_secrets)')
     print('Scanning for pipeline sources...')
 
-    grouped_sources = discover_sources(vault)
+    grouped_sources = discover_sources(vault, gm_mode=gm_mode)
     subcategory_map, subcategory_set = _build_subcategory_map(vault, grouped_sources)
     grouped_docs    = generate_all(vault, docs, grouped_sources=grouped_sources,
                                    dry_run=args.dry_run, public_only=args.public,

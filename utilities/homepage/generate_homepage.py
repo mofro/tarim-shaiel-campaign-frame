@@ -59,7 +59,7 @@ def _build_world_categories() -> list[dict]:
     """Dynamically build category cards from _category.md files in the vault."""
     from generate_all_world_html import _read_category_config, _category_label, discover_sources
 
-    buckets = discover_sources(VAULT_ROOT)
+    buckets = discover_sources(VAULT_ROOT, gm_mode=False)
     categories = []
     for folder in sorted(buckets):
         if folder in SUPPRESS_FROM_HOME:
