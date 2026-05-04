@@ -1,6 +1,7 @@
 ---
 title: Tashkent
 project: TTRPG_Tarim_Shaiel
+parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
@@ -10,7 +11,7 @@ created: 2025-12-13
 cultural_notes: Largest city in Central Asia; major agricultural and trade center
 description: The largest city in Central Asia. Known as the 'Stone City' for its fortifications.
 elevation: 440
-factions:
+factions_visible:
 - Central Asian Trade Union
 fantasy_name: Tashkent
 historical_basis: Fergana Valley - Turkic origin; Islamic conversion; Mongol conquest

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLcE=" crossorigin=""></script>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/assets/css/world-map.css">
+{% endblock %}
+
+{% block page_gm_banner %}
+{% if gm_page_banner_html %}{{ gm_page_banner_html | safe }}{% endif %}
+{% endblock %}
+
+{% block page_header %}
+<div class="page-header page-header--world">
+  <div class="page-header-eyebrow">World Map</div>
+  <h1>Tarim-Shaiel</h1>
+  <p class="world-header__subtitle">The Silk Road, ~1450s CE — a post-imperial crossroads of peoples, faiths, and trade.</p>
+</div>
+{% endblock %}
+
+{% block site_nav_active %}world{% endblock %}
+
+{% block content %}
+<div class="world-home-body">
+
+  <!-- Full interactive map -->
+  <div class="world-map-panel" id="world-map-container">
+    {{ world_map_html | safe }}
+  </div>
+
+  <!-- Region index -->
+  <section class="world-regions-section">
+    <h2>Regions</h2>
+    <div class="region-card-grid">
+    {% for region in regions %}
+      <a class="region-card region-card--{{ region.faction_weight }}" href="/locations/regions/{{ region.slug }}.html">
+        <div class="region-card__title">{{ region.title }}</div>
+        <div class="region-card__stats">
+          <span>{{ region.location_count }} location{% if region.location_count != 1 %}s{% endif %}</span>
+          <span class="region-card__ancestry">{{ region.primary_ancestry | title }}</span>
+        </div>
+      </a>
+    {% endfor %}
+    </div>
+  </section>
+
+  <!-- All locations A–Z -->
+  <section class="world-all-locations">
+    <h2>All Locations</h2>
+    <div class="location-az-grid">
+    {% for loc in all_locations %}
+      <a class="location-az-item location-az-item--{{ loc.location_type }}" href="/locations/{{ loc.slug }}.html">
+        <span class="location-az-item__title">{{ loc.title }}</span>
+        <span class="location-az-item__type">{{ loc.location_type_label }}</span>
+      </a>
+    {% endfor %}
+    </div>
+  </section>
+
+</div>
+{% endblock %}
+
+{% block credits %}
+    Tarim-Shaiel &middot; Daggerheart Campaign &middot; 2026
+{% endblock %}

@@ -1,0 +1,139 @@
+/* world-map.css — World home page & full Leaflet map styles */
+
+/* ---------------------------------------------------------------------------
+ * Page header
+ * ------------------------------------------------------------------------- */
+.page-header--world { padding: 2rem 1.5rem 1.25rem; text-align: center; }
+.world-header__subtitle {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0.5rem auto 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Full world map
+ * ------------------------------------------------------------------------- */
+.world-map-panel {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+#world-map {
+  height: 520px;
+  width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+/* Leaflet popup overrides */
+.leaflet-popup-content-wrapper {
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.leaflet-popup-tip { background: var(--bg); }
+.leaflet-popup-content { margin: 0.6rem 0.8rem; font-family: 'EB Garamond', serif; font-size: 0.95rem; }
+.leaflet-popup-content strong { font-family: 'Cinzel', serif; font-size: 0.85rem; display: block; color: var(--gold); }
+.leaflet-popup-content a { color: var(--steel); }
+
+/* ---------------------------------------------------------------------------
+ * Region card grid
+ * ------------------------------------------------------------------------- */
+.world-regions-section h2,
+.world-all-locations h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.region-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.region-card {
+  display: block;
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: border-color 0.15s, background 0.15s;
+}
+.region-card:hover {
+  border-color: var(--gold);
+  background: rgba(184,137,42,0.06);
+}
+.region-card--high  { border-left: 3px solid var(--crimson); }
+.region-card--medium { border-left: 3px solid var(--gold); }
+.region-card--low   { border-left: 3px solid var(--muted); }
+
+.region-card__title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.region-card__stats {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: 'Inconsolata', monospace;
+}
+.region-card__ancestry { color: var(--steel); }
+
+/* ---------------------------------------------------------------------------
+ * All-locations A-Z grid
+ * ------------------------------------------------------------------------- */
+.location-az-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.location-az-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.4rem 0.6rem;
+  text-decoration: none;
+  color: var(--fg);
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: border-color 0.1s, background 0.1s;
+}
+.location-az-item:hover {
+  border-color: var(--rule);
+  background: var(--surface);
+}
+.location-az-item__title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+}
+.location-az-item__type {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
+.location-az-item--city .location-az-item__title { font-weight: 600; }
+.location-az-item--dungeon .location-az-item__title { color: var(--crimson); }
+.location-az-item--sacred-site .location-az-item__title { color: var(--steel); }

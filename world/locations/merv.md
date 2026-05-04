@@ -1,6 +1,7 @@
 ---
 title: Merv (Mary)
 project: TTRPG_Tarim_Shaiel
+parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
@@ -11,7 +12,7 @@ cultural_notes: '''Ruined Silk Road city'' - archaeological significance'
 description: Once a great oasis city, destroyed by Genghis Khan's son. Now rebuilt
   as Mary, a smaller settlement.
 elevation: 218
-factions:
+factions_visible:
 - Turkmen Locals
 fantasy_name: Merv (Mary)
 historical_basis: Margiana - Destroyed by Mongol invasion; rebuilt as smaller settlement

@@ -1,6 +1,7 @@
 ---
 title: Maralbashi
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
@@ -10,7 +11,7 @@ created: 2025-12-13
 description: A waypoint at the base of mountain passes. Guides here help merchants
   navigate the treacherous western mountain crossing.
 elevation: 1000
-factions:
+factions_visible:
 - Mountain Guides
 fantasy_name: Maralbashi
 historical_basis: Tarim Basin - Mountain gateway on northern route

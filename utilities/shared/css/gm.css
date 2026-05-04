@@ -44,3 +44,29 @@
   font-family: 'Inconsolata', monospace; vertical-align: middle;
 }
 .inline-doc-item.public-doc { border-color: rgba(184,146,44,0.3); }
+
+/* --- GM Revealed Content (gm_revealed: [id] frontmatter — build-time promotion) --- */
+/* Block was GM-only; campaign progression has made it player-visible. */
+.revealed-content {
+  background: rgba(184,137,42,0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 4px 4px 0;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  color: var(--fg);
+}
+.gm-callout--revealed {
+  position: relative;
+}
+.gm-callout--revealed::before {
+  content: "revealed";
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+}

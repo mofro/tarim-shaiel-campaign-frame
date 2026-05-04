@@ -1,6 +1,7 @@
 ---
 title: Kashkar
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
@@ -9,7 +10,7 @@ status: draft
 created: 2025-12-13
 description: Westernmost major trade city; crossroads of cultures and journey origins.
 elevation: 1289
-factions:
+factions_visible:
 - Tarim Basin Traders
 fantasy_name: Kashkar
 last_updated: 2026-01-05

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLcE=" crossorigin=""></script>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/assets/css/world-region.css">
+{% endblock %}
+
+{% block page_gm_banner %}
+{% if gm_page_banner_html %}{{ gm_page_banner_html | safe }}{% endif %}
+{% endblock %}
+
+{% block page_header %}
+<div class="page-header page-header--region">
+  <div class="region-header__meta">
+    <span class="region-header__eyebrow">Region</span>
+  </div>
+  <h1>{{ title }}</h1>
+  <div class="region-header__stats">
+    <span class="stat-badge">{{ location_count }} location{% if location_count != 1 %}s{% endif %}</span>
+    <span class="stat-badge stat-badge--ancestry">{{ primary_ancestry | title }}</span>
+    <span class="stat-badge stat-badge--faction-weight stat-badge--{{ faction_weight }}">{{ faction_weight | title }} activity</span>
+  </div>
+</div>
+{% endblock %}
+
+{% block site_nav_active %}locations{% endblock %}
+
+{% block content %}
+<div class="region-body">
+
+  {% if region_map_html %}
+  <div class="region-map-panel">
+    {{ region_map_html | safe }}
+  </div>
+  {% endif %}
+
+  <div class="region-prose">
+    {{ content_html | safe }}
+  </div>
+
+  {% if locations %}
+  <section class="region-locations">
+    <h2>Locations</h2>
+    <div class="location-card-grid">
+    {% for loc in locations %}
+      <a class="location-card location-card--{{ loc.location_type }}" href="/locations/{{ loc.slug }}.html">
+        <div class="location-card__type">{{ loc.location_type_label }}</div>
+        <div class="location-card__title">{{ loc.title }}</div>
+        {% if loc.description %}<div class="location-card__desc">{{ loc.description }}</div>{% endif %}
+        {{ loc.danger_pips_html | safe }}
+      </a>
+    {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block credits %}
+    <a href="/world.html">World Map</a> &middot;
+    Tarim-Shaiel &middot; Daggerheart Campaign &middot; 2026
+{% endblock %}

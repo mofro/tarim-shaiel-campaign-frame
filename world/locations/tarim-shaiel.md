@@ -1,6 +1,7 @@
 ---
 title: Tarim-Shaiel
 project: TTRPG_Tarim_Shaiel
+parent_region: null
 domain: world
 doc_type: canon
 content_type: landmark

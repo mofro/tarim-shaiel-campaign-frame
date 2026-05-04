@@ -653,3 +653,19 @@ Third visibility value for operational/navigational infrastructure files that ar
 - Single `visibility:` field replaces four competing signals
 - Extension field pattern (established by location files) applied consistently to ancestries, factions, and weapons
 - `published:` retained as a distinct generator-layer concern rather than conflated with content visibility
+
+---
+
+## Decision 18 — Locations HTML Generator Architecture
+Date: 2026-05-04
+Domain: Pipeline
+Status: locked after first successful build
+
+Dedicated `utilities/locations/` module separate from `generate_all_world_html.py`. Output: 33 location detail pages, 7 region index pages, `docs/world.html` world home. Full Leaflet maps (ESRI satellite + Carto labels, no API key).
+
+`gm_revealed` mechanic: optional `id=` attribute on `[!gm-only]` callout blocks; list of revealed IDs in location frontmatter; build-time promotion to `.revealed-content.gm-callout--revealed` — no JS toggle, no re-deploy.
+
+7 region source files created in `world/regions/`. 3 of 7 have GeoJSON polygon backing (tarim-basin, eastern-gateway, central-asia); 4 are content-only stubs.
+
+Normalization script (`utilities/world/normalize_locations.py`) applied to all 37 location files: added `parent_region`, `visibility`, `status`; renamed `factions → factions_visible`.
+

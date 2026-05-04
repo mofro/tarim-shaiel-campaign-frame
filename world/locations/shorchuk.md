@@ -1,6 +1,7 @@
 ---
 title: Shorchuk
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
@@ -10,7 +11,7 @@ created: 2025-12-13
 description: A waypoint on the northern route where merchants rest before mountain
   passages.
 elevation: 1050
-factions:
+factions_visible:
 - Route Keepers
 fantasy_name: Shorchuk
 historical_basis: Tarim Basin - Northern route waypoint
@@ -27,7 +28,6 @@ tags:
 - campaign-arc-northern-route
 - type-route-node
 type: route-node
----
 
 ```leaflet
 id: location-shorchuk
