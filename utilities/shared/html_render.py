@@ -300,6 +300,10 @@ def render_body(
         # Flush features before non-feature content
         _flush_features()
 
+        # H1 header — strip; page template owns the <h1> from frontmatter title
+        if para.startswith('# ') and not para.startswith('## '):
+            continue
+
         # H2 header
         if para.startswith('## '):
             text = para[3:].strip()

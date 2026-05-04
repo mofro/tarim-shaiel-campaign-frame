@@ -83,6 +83,17 @@ def _load_geojson(path: Path) -> dict | None:
         return None
 
 
+def _filter_geojson_public(geojson: dict | None) -> dict | None:
+    """Remove features with visibility:secret for public builds."""
+    if not geojson:
+        return geojson
+    public_features = [
+        f for f in geojson.get('features', [])
+        if f.get('properties', {}).get('visibility') != 'secret'
+    ]
+    return {**geojson, 'features': public_features}
+
+
 # ---------------------------------------------------------------------------
 # World home map
 # ---------------------------------------------------------------------------
@@ -326,6 +337,9 @@ def generate(
     locs_gj   = _load_geojson(_LOCATIONS_GEOJSON)
     routes_gj = _load_geojson(_ROUTES_GEOJSON)
     regions_gj = _load_geojson(_REGIONS_GEOJSON)
+
+    if public_only:
+        locs_gj = _filter_geojson_public(locs_gj)
 
     print(f"  Loaded {len(locations)} locations, {len(regions)} regions")
 
