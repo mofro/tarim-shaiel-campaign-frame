@@ -91,6 +91,17 @@
   background: var(--surface);
 }
 
+.map-attribution {
+  font-family: 'Inconsolata', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: right;
+  margin-top: 3px;
+  margin-bottom: 0.75rem;
+}
+.map-attribution a { color: var(--muted); }
+.map-attribution a:hover { color: var(--gold); }
+
 .mini-map--no-coords {
   display: flex;
   align-items: center;
