@@ -31,7 +31,8 @@ images/*
 !images/people/ancestries/
 docs/images/
 docs/assets/
-/audio/
+audio/
+narrative/audio/
 !narrative/audio/The Road_A Fable.mp3
 references/
 
