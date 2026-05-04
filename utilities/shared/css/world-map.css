@@ -29,6 +29,18 @@
   background: var(--surface);
 }
 
+/* Static attribution line shown below maps where attributionControl is off */
+.map-attribution {
+  font-family: 'Inconsolata', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: right;
+  margin-top: 3px;
+  margin-bottom: 0.5rem;
+}
+.map-attribution a { color: var(--muted); }
+.map-attribution a:hover { color: var(--gold); }
+
 /* Leaflet popup overrides */
 .leaflet-popup-content-wrapper {
   background: var(--bg);

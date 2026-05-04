@@ -123,15 +123,38 @@ def render_resources(resources: list[str]) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Leaflet mini-map
+# Leaflet tile configuration — single source of truth for both mini-maps
+# and the full world map in generate_locations_html.py
 # ---------------------------------------------------------------------------
 
-_LEAFLET_TILE_SATELLITE = (
+# ESRI World Imagery: free for non-commercial use, no API key required.
+# Uses {z}/{y}/{x} ordering (ESRI's scheme, not standard {z}/{x}/{y}).
+TILE_SATELLITE_URL = (
     "https://server.arcgisonline.com/ArcGIS/rest/services/"
     "World_Imagery/MapServer/tile/{z}/{y}/{x}"
 )
-_LEAFLET_TILE_LABELS = (
+TILE_SATELLITE_ATTR = (
+    "&copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, "
+    "Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+)
+
+# Carto Voyager Labels Only: free for open/personal use, no API key required.
+# {r} is Leaflet's retina placeholder → '@2x' with detectRetina:true, else ''.
+TILE_LABELS_URL = (
     "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png"
+)
+TILE_LABELS_ATTR = (
+    "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> "
+    "contributors &copy; <a href=\"https://carto.com/attributions\">CARTO</a>"
+)
+
+# Combined attribution string for static map credit divs
+MAP_ATTRIBUTION_HTML = (
+    f'<div class="map-attribution">'
+    f'Imagery &copy; Esri | Labels &copy; '
+    f'<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a> / '
+    f'<a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'
+    f'</div>'
 )
 
 
@@ -144,6 +167,8 @@ def render_mini_map(
     """Render a Leaflet mini-map div for a single location.
 
     Inlines GeoJSON data as JavaScript variables to avoid cross-origin issues.
+    Attribution control is suppressed on the small fixed map; a static credit
+    line is appended below instead.
     """
     if loc['lat'] is None or loc['lon'] is None:
         return '<div class="mini-map mini-map--no-coords"><p>No coordinates available.</p></div>\n'
@@ -171,6 +196,7 @@ def render_mini_map(
         )
 
     return f"""<div class="mini-map" id="{map_id}"></div>
+{MAP_ATTRIBUTION_HTML}
 <script>
 (function() {{
   {layers_js}
@@ -184,8 +210,8 @@ def render_mini_map(
     doubleClickZoom: false,
     touchZoom: false
   }});
-  L.tileLayer('{_LEAFLET_TILE_SATELLITE}', {{maxZoom: 18}}).addTo(map);
-  L.tileLayer('{_LEAFLET_TILE_LABELS}', {{maxZoom: 18, subdomains: 'abcd'}}).addTo(map);
+  L.tileLayer('{TILE_SATELLITE_URL}', {{maxZoom: 18, attribution: '{TILE_SATELLITE_ATTR}'}}).addTo(map);
+  L.tileLayer('{TILE_LABELS_URL}', {{maxZoom: 18, subdomains: 'abcd', detectRetina: true, attribution: '{TILE_LABELS_ATTR}'}}).addTo(map);
   {geojson_layers}
   L.circleMarker([{lat}, {lon}], {{radius: 8, color: '#7a1f1f', weight: 3, fillColor: '#f5edd8', fillOpacity: 1}}).addTo(map);
 }})();

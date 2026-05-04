@@ -44,6 +44,11 @@ from locations.location_components import (
     render_mini_map,
     render_xref_stub,
     _TYPE_LABELS,
+    TILE_SATELLITE_URL,
+    TILE_SATELLITE_ATTR,
+    TILE_LABELS_URL,
+    TILE_LABELS_ATTR,
+    MAP_ATTRIBUTION_HTML,
 )
 from shared.renderer import render_page
 from shared.html_render import render_body
@@ -62,6 +67,8 @@ _GM_PAGE_BANNER = (
     '</div>\n'
 )
 
+# Tile URL constants are defined in location_components.py and imported above.
+
 # ---------------------------------------------------------------------------
 # GeoJSON loading
 # ---------------------------------------------------------------------------
@@ -79,14 +86,6 @@ def _load_geojson(path: Path) -> dict | None:
 # ---------------------------------------------------------------------------
 # World home map
 # ---------------------------------------------------------------------------
-
-_LEAFLET_TILE_SATELLITE = (
-    "https://server.arcgisonline.com/ArcGIS/rest/services/"
-    "World_Imagery/MapServer/tile/{z}/{y}/{x}"
-)
-_LEAFLET_TILE_LABELS = (
-    "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png"
-)
 
 
 def _build_world_map_html(
@@ -141,6 +140,7 @@ L.geoJSON(_locGJ, {
 """
 
     return f"""<div id="world-map"></div>
+{MAP_ATTRIBUTION_HTML}
 <script>
 (function() {{
   {layers_js}{popup_js}
@@ -148,10 +148,10 @@ L.geoJSON(_locGJ, {
     center: [40.0, 75.0],
     zoom: 5,
     zoomControl: true,
-    attributionControl: false
+    attributionControl: true
   }});
-  L.tileLayer('{_LEAFLET_TILE_SATELLITE}', {{maxZoom: 18}}).addTo(map);
-  L.tileLayer('{_LEAFLET_TILE_LABELS}', {{maxZoom: 18, subdomains: 'abcd'}}).addTo(map);
+  L.tileLayer('{TILE_SATELLITE_URL}', {{maxZoom: 18, attribution: '{TILE_SATELLITE_ATTR}'}}).addTo(map);
+  L.tileLayer('{TILE_LABELS_URL}', {{maxZoom: 18, subdomains: 'abcd', detectRetina: true, attribution: '{TILE_LABELS_ATTR}'}}).addTo(map);
   {geojson_layers}
 }})();
 </script>
