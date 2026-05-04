@@ -8,6 +8,7 @@ created: 2026-03-10
 last_updated: 2026-05-04
 published: true
 jump_nav: true
+type: lore
 ---
 ## Locations
 
