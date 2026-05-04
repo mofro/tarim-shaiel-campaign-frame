@@ -528,7 +528,12 @@ _Manual one-time setup steps for Obsidian Shell Commands integration + Netlify._
 
 ### Critical Blockers
 
-1. ~~**Campaign Frame: Class/archetype mapping**~~ ✅ RESOLVED 2026-03-13
+1. **LK Bridge: Bi-directional Obsidian ↔ LegendKeeper pipeline** ([#213](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/213))
+   - Blocked on LegendKeeper API (confirmed on their roadmap; no ETA)
+   - Full schema research complete; round-trip test done; architecture designed — see issue for all findings
+   - Resume immediately when LK API ships
+
+2. ~~**Campaign Frame: Class/archetype mapping**~~ ✅ RESOLVED 2026-03-13
    - v2 document uses "approach" framing; all Daggerheart classes open; no prescriptive mapping needed
 
 ### Secondary Decisions
