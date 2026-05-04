@@ -1,6 +1,7 @@
 ---
 title: Chang'an
 project: TTRPG_Tarim_Shaiel
+parent_region: eastern-terminus
 domain: world
 doc_type: canon
 content_type: location
@@ -12,7 +13,7 @@ cultural_notes: Massive fortified city; destination of all Silk Road merchants; 
 description: The eastern terminus of the Silk Road. An imperial capital with 12-mile
   walls built in 1370. Where merchants complete their epic journeys.
 elevation: 402
-factions:
+factions_visible:
 - Imperial Government
 - Merchant Guilds
 - Buddhist Communities

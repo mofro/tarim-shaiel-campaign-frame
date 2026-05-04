@@ -1,6 +1,7 @@
 ---
 title: Khotan
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
@@ -11,7 +12,7 @@ cultural_notes: Jade production center; world-renowned for craftsmanship
 description: The jade capital of the Silk Road. A mountain kingdom that converted
   from Buddhism to Islam, but jade remains its lifeblood.
 elevation: 1300
-factions:
+factions_visible:
 - Jade Merchants Guild
 - Buddhist Monastic Order
 fantasy_name: Khotan

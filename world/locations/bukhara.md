@@ -1,6 +1,7 @@
 ---
 title: Bukhara
 project: TTRPG_Tarim_Shaiel
+parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
@@ -11,7 +12,7 @@ cultural_notes: Fifth-largest city historically; center of trade and religion
 description: Center of Islamic scholarship and trade. A major city of Sogdiana with
   140+ architectural monuments.
 elevation: 219
-factions:
+factions_visible:
 - Islamic Scholarly Network
 fantasy_name: Bukhara
 historical_basis: Sogdania - Zoroastrian→Islamic; survived Mongol destruction and

@@ -1,0 +1,1 @@
+"Locations HTML generator package."

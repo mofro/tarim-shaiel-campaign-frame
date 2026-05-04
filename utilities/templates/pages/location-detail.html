@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLcE=" crossorigin=""></script>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/assets/css/world-location.css">
+{% endblock %}
+
+{% block page_gm_banner %}
+{% if gm_page_banner_html %}{{ gm_page_banner_html | safe }}{% endif %}
+{% endblock %}
+
+{% block page_header %}
+<div class="page-header page-header--location{% if visibility == 'secret' %} page-header--secret{% endif %}">
+  <div class="location-header__meta">
+    {% if visibility == 'secret' %}<span class="secret-badge">Secret</span>{% endif %}
+    <span class="location-header__type">{{ location_type_label }}</span>
+  </div>
+  <h1>{{ title }}</h1>
+  {% if fantasy_name and fantasy_name != title %}<div class="location-header__fantasy-name">{{ fantasy_name }}</div>{% endif %}
+  {% if stats_row_html %}{{ stats_row_html | safe }}{% endif %}
+  {% if danger_pips_html %}{{ danger_pips_html | safe }}{% endif %}
+</div>
+{% endblock %}
+
+{% block site_nav_active %}locations{% endblock %}
+
+{% block content %}
+<div class="location-body">
+
+  {% if mini_map_html %}
+  <div class="location-map-panel">
+    {{ mini_map_html | safe }}
+  </div>
+  {% endif %}
+
+  {% if description %}
+  <p class="location-description">{{ description }}</p>
+  {% endif %}
+
+  <div class="location-prose">
+    {{ content_html | safe }}
+  </div>
+
+  {% if faction_table_html %}
+  <div class="location-factions">
+    {{ faction_table_html | safe }}
+  </div>
+  {% endif %}
+
+  {% if resources_html %}
+  <div class="location-resources">
+    <h3 class="resources-heading">Resources</h3>
+    {{ resources_html | safe }}
+  </div>
+  {% endif %}
+
+  {% if xref_html %}
+  <div class="location-xrefs">
+    {{ xref_html | safe }}
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block credits %}
+    <a href="/world.html">World Map</a> &middot;
+    {% if region_title %}<a href="/locations/regions/{{ region_slug }}.html">{{ region_title }}</a> &middot; {% endif %}
+    Tarim-Shaiel &middot; Daggerheart Campaign &middot; 2026
+{% endblock %}

@@ -1,6 +1,7 @@
 ---
 title: Charklik
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
@@ -9,7 +10,7 @@ status: draft
 created: 2025-12-13
 description: A waypoint on the southern route between desert sections.
 elevation: 800
-factions:
+factions_visible:
 - Oasis Keepers
 fantasy_name: Charklik
 historical_basis: Tarim Basin - Oasis waypoint

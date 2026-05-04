@@ -1,6 +1,7 @@
 ---
 title: Balkh-Kamen
 project: TTRPG_Tarim_Shaiel
+parent_region: steppe-confederations
 domain: world
 doc_type: canon
 content_type: landmark

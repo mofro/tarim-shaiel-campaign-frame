@@ -1,6 +1,7 @@
 ---
 title: Samarqandh
 project: TTRPG_Tarim_Shaiel
+parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
@@ -9,7 +10,7 @@ status: draft
 created: 2025-12-13
 description: A major hub on the Silk Road, known for its bazaars and monumental architecture.
 elevation: 700
-factions:
+factions_visible:
 - Sogdian Merchants Guild
 fantasy_name: Samarqandh
 last_updated: 2025-12-13

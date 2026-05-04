@@ -1,6 +1,7 @@
 ---
 title: Dunhuang
 project: TTRPG_Tarim_Shaiel
+parent_region: eastern-gateway
 domain: world
 doc_type: canon
 content_type: location
@@ -10,7 +11,7 @@ created: 2025-12-13
 description: Gateway to China; home to the Mogao Caves with thousands of Buddhist
   artworks spanning centuries.
 elevation: 1140
-factions:
+factions_visible:
 - Buddhist Monastic Order
 fantasy_name: Dunhuang
 last_updated: 2025-12-13

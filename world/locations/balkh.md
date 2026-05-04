@@ -1,6 +1,7 @@
 ---
 title: Balkh
 project: TTRPG_Tarim_Shaiel
+parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
@@ -12,7 +13,7 @@ cultural_notes: Major oasis hub before destruction; one of the 'great cities' of
 description: Once the 'Mother of Cities,' Balkh was destroyed by Genghis Khan and
   never fully recovered. Now a haunting reminder of past glory.
 elevation: 366
-factions:
+factions_visible:
 - Afghan Remnant Authority
 fantasy_name: Balkh
 historical_basis: Bactria - Destroyed by Genghis Khan (1220s); never rebuilt to former

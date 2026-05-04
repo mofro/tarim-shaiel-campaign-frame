@@ -1,6 +1,7 @@
 ---
 title: The Wind-Cut Narrows
 project: TTRPG_Tarim_Shaiel
+parent_region: eastern-gateway
 domain: world
 doc_type: canon
 content_type: poi

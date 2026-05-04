@@ -1,6 +1,7 @@
 ---
 title: Cherchen
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
@@ -10,7 +11,7 @@ created: 2025-12-13
 description: A waypoint on the southern route between eastern and western Taklamakan
   sections.
 elevation: 900
-factions:
+factions_visible:
 - Oasis Settlers
 fantasy_name: Cherchen
 historical_basis: Tarim Basin - Oasis waypoint on southern corridor

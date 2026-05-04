@@ -189,6 +189,7 @@ def render_body(
     vault: 'Path',
     docs: 'Path',
     gm_mode: bool = False,
+    revealed_ids: 'set[str] | None' = None,
 ) -> 'tuple[str, list[dict]]':
     """Render a full Markdown body to HTML with component support.
 
@@ -247,17 +248,26 @@ def render_body(
         feature_buffer = []
 
     for para in paragraphs:
-        # Tier 2: GM-only callout block > [!gm-only]
+        # Tier 2: GM-only callout block > [!gm-only] or > [!gm-only id=some-id]
         # The preprocessing regex (^>\s*\[!\w+\]\s*$) leaves [!gm-only] intact because
         # \w+ does not match across hyphens, so the marker survives to here.
-        if re.match(r'^>\s*\[!gm-only\]', para):
+        # Optional id= attribute enables build-time promotion via gm_revealed frontmatter.
+        gm_marker = re.match(r'^>\s*\[!gm-only(?:\s+id=([^\]\s]+))?\]', para)
+        if gm_marker:
             _flush_features()
+            block_id = gm_marker.group(1)  # None if no id= attribute
             lines = para.splitlines()
             inner_lines = [re.sub(r'^>\s?', '', ln) for ln in lines[1:]]
             inner = '\n'.join(inner_lines).strip()
-            if gm_mode:
-                html_parts.append(f'<div class="gm-callout">{inline_md(inner)}</div>\n')
-            # public: strip entirely — GM content never reaches the DOM
+            # Revealed block: promoted to player-visible `.revealed-content` regardless of gm_mode
+            if block_id and revealed_ids is not None and block_id in revealed_ids:
+                html_parts.append(
+                    f'<div class="revealed-content gm-callout--revealed">{inline_md(inner)}</div>\n'
+                )
+            elif gm_mode:
+                css_cls = f'gm-callout gm-callout--id-{block_id}' if block_id else 'gm-callout'
+                html_parts.append(f'<div class="{css_cls}">{inline_md(inner)}</div>\n')
+            # public + unrevealed: strip entirely — GM content never reaches the DOM
             continue
 
         # Wiki-embed: ![[file|caption|width]] → figure, audio, or GM prose block

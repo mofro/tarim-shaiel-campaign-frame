@@ -1,6 +1,7 @@
 ---
 title: Turfan Depression
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
@@ -10,7 +11,7 @@ created: 2025-12-13
 description: An oasis in a depression, protected from harsh desert winds. Known for
   cultivation of grapes and wine production.
 elevation: -154
-factions:
+factions_visible:
 - Oasis Settlers
 fantasy_name: Turfan Depression
 historical_basis: Tarim Basin - Oasis settlement in depression; known for agriculture

@@ -1,6 +1,7 @@
 ---
 title: Aksu
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
@@ -10,7 +11,7 @@ created: 2025-12-13
 description: A waypoint on the northern route. An oasis providing critical supplies
   for westbound merchants.
 elevation: 1141
-factions:
+factions_visible:
 - Merchants & Caravanners
 fantasy_name: Aksu
 historical_basis: Tarim Basin - Oasis waypoint on northern corridor

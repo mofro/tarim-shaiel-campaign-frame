@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-05-02
+last_updated: 2026-05-04
 ---
 
 > _Derived from CLAUDE.md and `lat.md/` files — update in the same commit when those change. Inject into spawned agent prompts; this file is not automatically read by any session._
@@ -31,6 +31,7 @@ Read the relevant `lat.md/` file before diving into domain content — one read 
 | Session 0 design, awakenings, flashbacks, memory events | [[lat.md/session0]] | Session 0 work, pacing, scenario status |
 | Archetypes, tools system, surrendered-layer, identity | [[lat.md/characters]] | Archetype description constraints, tools-as-divine-marks, identity mechanics |
 | Locations, regions, factions, geography | [[lat.md/world]] | Any world / location / faction question |
+| Locations HTML generator, GM reveal mechanic, slug→region map | [[lat.md/locations]] | Any locations build / generator / gm_revealed question |
 | Daggerheart integration, current mechanics, Wrongness | [[lat.md/mechanics]] | Rules questions, mechanical identity |
 | All locked decisions + hard constraints (summary) | [[lat.md/decisions]] | Verifying lock status before any design work |
 
