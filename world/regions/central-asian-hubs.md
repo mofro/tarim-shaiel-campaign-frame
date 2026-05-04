@@ -15,7 +15,7 @@ tags:
   - sogdiana
 geojson_id: region_central_asia
 bounds:
-  sw: [37.0, 56.0]
+  sw: [36.0, 56.0]
   ne: [42.5, 70.0]
 location_count: 5
 primary_ancestry: human

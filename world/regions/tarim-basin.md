@@ -15,7 +15,7 @@ tags:
 geojson_id: region_tarim_basin
 bounds:
   sw: [36.0, 73.0]
-  ne: [42.5, 95.0]
+  ne: [43.5, 95.0]
 location_count: 11
 primary_ancestry: mixed
 faction_weight: high
