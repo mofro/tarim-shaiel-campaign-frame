@@ -1,5 +1,5 @@
 ---
-title: Factions Index
+title: Factions
 project: TTRPG_Tarim_Shaiel
 entity_type: factions
 visibility: gm_secrets

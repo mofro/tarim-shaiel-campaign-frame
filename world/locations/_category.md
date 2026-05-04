@@ -1,11 +1,11 @@
 ---
-title: Factions Index
+title: Locations
 project: TTRPG_Tarim_Shaiel
-entity_type: factions
+entity_type: locations
 visibility: gm_secrets
 status: active
 created: 2026-03-10
-last_updated: 2026-05-02
+last_updated: 2026-05-04
 published: true
 jump_nav: true
 ---
