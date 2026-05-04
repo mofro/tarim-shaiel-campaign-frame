@@ -98,19 +98,29 @@ def _strip_obsidian(text: str) -> str:
     return text.strip()
 
 
+_SUBFOLDER_OVERRIDES: dict[str, str] = {
+    # world/regions/ → locations generator outputs to docs/locations/regions/
+    "regions": "locations/regions",
+}
+
+
 def _compute_url(path: Path) -> str:
     """Compute the site-relative URL for a source .md file.
 
-    Mirrors generate_all_world_html.py's output path logic:
+    Mirrors each generator's output path logic:
       - subfolder via _output_subfolder() (strips scan root from parent)
       - filename via _slug(stem) (lowercase, non-word → hyphens)
+      - _SUBFOLDER_OVERRIDES remaps subfolders whose output path differs from
+        the simple strip-scan-root rule (e.g. world/regions/ → locations/regions/)
 
     Examples:
       world/locations/kucha.md          → /locations/kucha.html
+      world/regions/tarim-basin.md      → /locations/regions/tarim-basin.html
       world/ancestries/PEOPLES_OF_...md → /ancestries/peoples-of-....html
       narrative/lore/The Roads.md       → /lore/the-roads.html
     """
     subfolder = _output_subfolder(path)
+    subfolder = _SUBFOLDER_OVERRIDES.get(subfolder, subfolder)
     slug = _slug(path.stem)
     if subfolder:
         return f"/{subfolder}/{slug}.html"

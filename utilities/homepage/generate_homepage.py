@@ -35,6 +35,12 @@ FEATURED_DOCS = [
         "sub": "History, factions, and the shape of the known world.",
         "href": "/lore/the-roads.html",
     },
+    {
+        "tag": "Interactive Map · 6 Regions",
+        "title": "World Map",
+        "sub": "Locations, regions, and the Silk Road trade network.",
+        "href": "/world.html",
+    },
 ]
 
 # Categories suppressed from the homepage (subcategories, GM-only, or low-value index noise)
