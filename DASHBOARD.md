@@ -16,16 +16,16 @@ players:
   committed: 3
   total: 6
   archetypes:
-    - {name: Warrior,    status: committed,    player: Lisa}
-    - {name: Breaker,    status: committed,    player: Erik}
-    - {name: Bridge,     status: pending,    player: Bruce?}
-    - {name: Seeker,     status: pending,    player: }
-    - {name: Sacrificer, status: pending,    player: Bruce?}
-    - {name: Visionary,  status: pending,    player: }
-    - {name: Trickster,  status: pending,    player: }
-    - {name: Crafter,    status: pending,    player: }
-    - {name: Sentinel,   status: committed,    player: Arno}
-    - {name: Healer,     status: pending,    player: }
+    - {name: Warrior,    status: committed,    player: "Lisa"}
+    - {name: Breaker,    status: committed,    player: "Erik"}
+    - {name: Bridge,     status: pending,    player: "Bruce?"}
+    - {name: Seeker,     status: pending,    player: ""}
+    - {name: Sacrificer, status: pending,    player: "Bruce?"}
+    - {name: Visionary,  status: pending,    player: ""}
+    - {name: Trickster,  status: pending,    player: ""}
+    - {name: Crafter,    status: pending,    player: ""}
+    - {name: Sentinel,   status: committed,    player: "Arno"}
+    - {name: Healer,     status: pending,    player: ""}
 
 domain_overrides:
   # Uncomment + set a value to manually pin a domain's percentage.
