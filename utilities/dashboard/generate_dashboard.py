@@ -183,7 +183,7 @@ def parse_dashboard_md() -> dict:
     committed  = players_fm.get("committed", 0)
     total      = players_fm.get("total", 0)
     archetypes = [
-        {"name": a["name"], "status": a.get("status", "pending")}
+        {"name": a["name"], "status": a.get("status", "pending"), "player": a.get("player", "")}
         for a in (players_fm.get("archetypes") or [])
         if isinstance(a, dict)
     ]
