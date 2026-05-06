@@ -183,7 +183,7 @@ def parse_dashboard_md() -> dict:
     committed  = players_fm.get("committed", 0)
     total      = players_fm.get("total", 0)
     archetypes = [
-        {"name": a["name"], "status": a.get("status", "pending")}
+        {"name": a["name"], "status": a.get("status", "pending"), "player": a.get("player", "")}
         for a in (players_fm.get("archetypes") or [])
         if isinstance(a, dict)
     ]
@@ -570,7 +570,9 @@ def _summary_panel_html(quick_summary: list[dict], player_status: dict) -> str:
     archetypes_html = ""
     for a in player_status.get("archetypes", []):
         cls = a.get("status", "unknown")
-        archetypes_html += f'<span class="archetype-chip {cls}">{a["name"]}</span>'
+        player = a.get("player", "").strip()
+        display = f'{a["name"]} - {player}' if player else a["name"]
+        archetypes_html += f'<span class="archetype-chip {cls}">{display}</span>'
     chips = f'<div class="archetype-chips">{archetypes_html}</div>' if archetypes_html else ""
     count_display = player_status.get("summary", "")
     player_col = (f'<div class="summary-col">'

@@ -1,15 +1,37 @@
 {
   "hooks": {
-    "PreToolUse": [
+    "PreCompact": [
       {
-        "matcher": "Bash",
         "hooks": [
           {
-            "type": "command",
-            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then git fetch origin main --quiet 2>/dev/null && git rebase origin/main --quiet 2>/dev/null || { echo '{\"continue\": false, \"stopReason\": \"Auto-rebase onto origin/main failed — resolve conflicts before pushing.\"}'; exit 1; }; fi",
-            "statusMessage": "Rebasing onto origin/main before push..."
+            "command": "bd prime",
+            "type": "command"
           }
-        ]
+        ],
+        "matcher": ""
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then git fetch origin main --quiet 2\u003e/dev/null \u0026\u0026 git rebase origin/main --quiet 2\u003e/dev/null || { echo '{\"continue\": false, \"stopReason\": \"Auto-rebase onto origin/main failed — resolve conflicts before pushing.\"}'; exit 1; }; fi",
+            "statusMessage": "Rebasing onto origin/main before push...",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bd prime",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
       }
     ]
   }

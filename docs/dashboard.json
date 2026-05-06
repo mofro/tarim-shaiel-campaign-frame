@@ -1,0 +1,2141 @@
+{
+  "last_updated": "May 02, 2026",
+  "generation_time": "May 04, 2026 at 08:54 PM",
+  "readiness": 80,
+  "domain_pcts": {
+    "narrative": 50,
+    "mechanics": 95,
+    "world": 97,
+    "infra": 96,
+    "cosmology": 71
+  },
+  "critical_path": [],
+  "blockers": [
+    "No active blockers detected"
+  ],
+  "recent_sessions": [],
+  "sections": [
+    {
+      "status": "active",
+      "title": "Active Work",
+      "subtitle": "In progress now",
+      "groups": [
+        {
+          "title": "Critical Decisions (Must resolve before anything below becomes canon)",
+          "domain": "cosmology",
+          "items": [
+            {
+              "text": "Define the Mythic Ecosystem \u2014 Confirmed: multi-dimensional biome. Warrens as distinct dimensional spaces. Power draws power. Affinities not interchangeable. Threshold = porous container. See DECISION_LOG.md 2026-03-08.",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Define the Sleeping Entity \u2014 Confirmed: multiple liminal consciousnesses at celestial scale, held in suspension by cosmological equilibrium (\"Held Breath\"). Not a singular geological force. See DECISION_LOG.md 2026-03-08.",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decide the Entity's Nature \u2014 Confirmed: dormant liminal consciousnesses, not purely mindless, not negotiable (not awake enough). Horror is their weight. Threat is awakening, not containment breach. See DECISION_LOG.md 2026-03-08.",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decide the Wizard's Awareness \u2014 LOCKED 2026-03-17. B+C: knows about the ecosystem risks (tragic hubris), AND the entity's 1,000-year subtle influence seeded his overconfidence. He is overconfident and unaware of the true risk \u2014 convinced he is the one person who understands the situation well enough to act. He is wrong in the specific way that matters.",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decide: Do Heroes' Charms Strain the Ecosystem? \u2014 Confirmed: yes, scaled by tier, expressed as beacon not immediate cost. R/H/K reframed as Warren allegiance. Tools = endgame cosmological interface. See DECISION_LOG.md 2026-03-08.",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Define the Liberation's Ecosystem Side Effects \u2014 Confirmed: NOT ecosystem damage. Liberation = massive beacon event \u2192 Warren ripples \u2192 drew attention of entities with agendas. Incomplete charge = reckon with what was woken/whose plans were crossed. Player doubt drama intact. See DECISION_LOG.md 2026-03-08.",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Define Threshold as Ecosystem Node \u2014 Confirmed: Hero Heaven adjacent to (not a) Warren. Threshold = concentrated ecosystem wiring. Breach = immediate, unmistakable consequences (not slow accumulation). See DECISION_LOG.md 2026-03-08.",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Define Three-Layer Revelation Structure \u2014 Confirmed: Layer 1 (stop Wizard) \u2192 Layer 2 (breach causes immediate cosmological break) \u2192 Layer 3 (reckon with liberation disturbance + Held Breath). Tools are the endgame interface. See DECISION_LOG.md 2026-03-08.",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Stakeholder Knowledge Distribution (Must resolve for mid-campaign planning)",
+          "domain": "cosmology",
+          "items": [
+            {
+              "text": "Map High Elf awareness \u2014 They understand the ecosystem, withdrew because of cosmological fear, possess preventive (not restorative) knowledge. This answers the Elven cosmology question: not \"celestial refugees\" but \"cosmologically literate beings who retreated from a fault line.\" \u2192 `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map Dwarven archivist awareness \u2014 Chronicle of Ages contains empirical evidence of ecosystem degradation (disappearance patterns, magical anomaly data). They have data but need theory. \u2192 `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map Orcish shamanic degradation \u2014 Ancestor communication becoming unreliable as ecosystem symptom. Ancient epic songs contain literal descriptions of the entity. Liberation side effects woven into their traditions. \u2192 `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map human scholar suppression \u2014 Scholar's Purge (~1175 CE) was Wizard eliminating researchers. Surviving scholars are scattered, hunted, hold practical fragments. \u2192 `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`",
+              "done": true,
+              "blocked": false,
+              "note": "\u26a0\ufe0f Reconcile model (2026-03-22): \"Wizard eliminating researchers\" implies annihilation. world/events/scholars-purge.md now adopts Byzantine dispersal model (knowledge scattered, not destroyed). Decide: did the Wizard orchestrate dispersal deliberately, or was scattering an unintended side effect? Resolve before stub is promoted to canon.",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map Goblin/Halfling observational network \u2014 Trade disruptions, dead zones, charm failures = best continent-wide empirical dataset of ecosystem degradation. They don't know what their data means. \u2192 `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Design the information synthesis puzzle \u2014 Heroes as the only beings who can assemble distributed knowledge from all cultures. This is a core campaign mechanic, not just plot. \u2192 Section 1 of `narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Follow-up From DIVINE_PLAYERS.md (2026-03-19)",
+          "domain": "cosmology",
+          "items": [
+            {
+              "text": "Update `world/factions/Index.md` ([#41](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/41)) \u2014 supersede the speculative \"Divine & Cosmic Powers\" entries with the seven canonical divine players from `narrative/gm_secrets/DIVINE_PLAYERS.md`",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Update `world/diagrams/cosmological-architecture.md` ([#41](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/41)) \u2014 resolve two \u26a0\ufe0f pending nodes (Celestial Court nature + Elder Gods) using the locked divine player entries",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create individual entity files for all seven divine players ([#41](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/41)) \u2014 templates now in `templates/world-building/`. Suggested split: Adversary template (`_TEMPLATE_divine_adversary.md`) \u2192 The Weighmaster, The Shattered King, The Jade Illusionist, The Conquering Heaven; Environment template (`_TEMPLATE_divine_environment.md`) \u2192 The Sky-Father, The Chaos Weaver, The Memory-Keeper. All files are `visibility: gm_secrets`; file in `narrative/gm_secrets/divine-players/` (create directory).",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Event Stubs  From 2026-03-22 Session",
+          "domain": "cosmology",
+          "items": [
+            {
+              "text": "Flesh out `world/events/scholars-purge.md` ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42)) \u2014 resolve open questions (who enacted it; annihilation vs. dispersal; Wizard's role); link from `world/events/Index.md`; gates `scholars-remnant` faction file",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Flesh out `world/events/silent-flowering.md` ([#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43)) \u2014 resolve open questions (the Zheng He moment; the Japan-equivalent faction; what \"The Whispered Warning\" 1048 HB saw); link from `world/events/Index.md`; gates `elven-highland-enclaves` faction file",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Flesh out `world/events/night-of-falling-stars.md` ([#44](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/44)) \u2014 resolve open questions (what the Elf Watchers saw; Whispered Warning content; Wizard's relationship \u2014 his Long Preparation begins 698 HB, *before* 1048 HB; clarify causal direction); link from `world/events/Index.md`",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Link all three stubs from `world/events/Index.md` ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42), [#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43), [#44](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/44)) \u2014 scholars-purge, silent-flowering, night-of-falling-stars; done 2026-04-01",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Player-Facing Sections",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Concept / At a Glance",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "The Pitch",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Tone & Feel / Themes / Touchstones",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Overview (player-facing, ~1 page)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Heritage & Classes (\"approach\" framing; all classes open)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Player Principles (5 written)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "GM Principles (6 written)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Session Zero Questions (7 questions + Lines & Veils)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "GM-Facing Sections  STUBS ONLY (writing required)",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Distinctions ([#45](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/45)) (~1-2 sessions) \u2014 draw from existing locked material:",
+              "done": false,
+              "blocked": false,
+              "note": "How the Warrens, Holds, and unreliable magic actually work (cosmological architecture) The Heroic Age, the thousand-year gap, and what the characters actually are The empire and its successor factions \u2014 the full picture (not player-facing) The antagonist, the Lich-Legion, the Celestial Peak, the Fallen Companion, the Gaes",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Inciting Incident ([#46](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/46)) (~1 session) \u2014 creative writing task, no direct source exists yet:",
+              "done": false,
+              "blocked": false,
+              "note": "The specific awakening circumstances: location, first witness, opening situation Three-element structure: situation / objective / hooks keyed to character approaches Must preserve secrets while making the opening scene executable",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Custom Mechanics: Vestiges / Memory Fragments / The Wrongness ([#47](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/47)) (~1 session) \u2014 translate locked decisions into campaign frame voice:",
+              "done": false,
+              "blocked": false,
+              "note": "Vestiges = Tools; R-H-K (Resist/Hunger/Know) behavioral framework Memory Fragments = Know behavior as a subsystem; how fragments surface and what they cost The Wrongness = ecosystem strain / beacon effect / Warren inversion as players experience it",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Campaign Map ([#48](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/48)) (~1 session) \u2014 player-facing version of existing geographic framework:",
+              "done": false,
+              "blocked": false,
+              "note": "Eight regions named and placed; post-imperial political shape Space left for table co-creation contributions",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "3. Session 0 Completion  IN PROGRESS",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Seeker tome/bow discrepancy ([#49](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/49)) \u2014 TOOL_EVOLUTION_FRAMEWORK Stage 0 lists bow; written awakening uses tome. Reconcile before Character Creation doc is finalized.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Sentinel tool ([#50](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/50)) \u2014 existing stub: recording device (epistemic/witness); framework proposal: cracked lantern (doxastic/vigilance). Different design logic. Creative decision required.",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Breaker Awakening Scenario ([#51](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/51)) (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Rewrite Segment 5 per revised single-path architecture (leave the hammer \u2014 see Design Notes) Write Segments 6-8 (Snippet, Rescue, Convergence) Tool: crude hammer \u2014 surrendered layer: ontological (identity through destruction); voice: comforts, \"I'm right here\"",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Sacrificer Awakening Scenario ([#52](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/52)) (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "8-segment structure (woven into Act 2 convergence, not standalone) Resolve open situation question: what currency of sacrifice? what relationship? what forces the confrontation? Tool: balance scale with one pan missing \u2014 surrendered layer: volitional (right to refuse); voice: offers cost with perfect clarity Secret snippet trigger moment",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Visionary Awakening Scenario ([#53](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/53)) (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "8-segment structure (fast/explosive \u2014 15-20 min target) \u26a0\ufe0f Tool conflict: existing notes say \"tarot deck\"; framework proposes obsidian disk (polished, divination mirror). Resolve before writing. Surrendered layer: perceptual (right to look away); voice: shows \u2014 silent, directional, layers visions over present Secret snippet trigger moment",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Bridge Awakening Scenario ([#54](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/54)) (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "8-segment structure (dialogue-driven, 20-25 min target) \u26a0\ufe0f Tool conflict: existing notes say \"voice/conviction tool\"; framework proposes knotted silk cord. Resolve before writing. (May be complementary: seal = social proof, cord = tool proper.) Surrendered layer: relational (right to have a side); voice: aches \u2014 weight of never landing Secret snippet trigger moment",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Trickster awakening \u2014 framework: shaved coin / authenticating layer / mirrors hero's own voice",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Crafter awakening \u2014 framework: worn whetstone / receptive layer / *\"one more pass\"*",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Sentinel awakening \u2014 framework: TBD (see open question above) / doxastic layer / vigilance-without-trust",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Healer awakening \u2014 framework: bone needle + silk thread / restorative layer / insists toward next wound",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "*(Keeper awakening \u2014 not in expanded player list but stub exists in Design Notes)*",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Populate Shared_Memory_Events.md ([#55](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/55)) (~1-2 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "5 thematic events (framework defined) Event 1: The Warrior's Choice (method of engagement) Event 2: The Question of Sight (knowledge vs. trust vs. truth) Event 3: The Weight of Choice (action vs. consequence) Event 4: Aspirations Undone (victory's unintended consequences) Event 5: The Wizard's Shadow (false certainty about threat) Each event: 400-600 word sensory scene + canonical truths revealed",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Write Actual Secret Snippets ([#56](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/56)) (~1 session for core 6; expanded 4 deferred)",
+              "done": false,
+              "blocked": false,
+              "note": "6 core archetype snippets (priority); 4 expanded snippets when scenarios are written Sensory + emotional register (not explanatory) Tied to awakening scenario trigger moments \u2014 each snippet surfaces: \"you've faced this choice before\" Creates player-to-character investment",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create Session_0_GM_NOTES.md ([#57](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/57)) (~1-2 sessions)",
+              "done": false,
+              "blocked": false,
+              "note": "Detailed execution guide Atmospheric details, NPC quick-refs, pacing cues Scenario-specific GM guidance for all six awakenings Convergence orchestration techniques",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Finalize PLAYER_PITCH_AND_PRINCIPLES.md ([#58](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/58)) (~1 session)",
+              "done": false,
+              "blocked": false,
+              "note": "Both versions: transparent (GM reference) + less-transparent (player-facing) 6 core archetype descriptions (priority) + 4 expanded (Trickster, Crafter, Sentinel, Healer) when ready Player principles (4-6 guidelines) \u26a0\ufe0f All descriptions must be present-tense psychological framing only \u2014 no hints of fallen godhood or past power",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "5. Cyclical Year Calendar  NOT STARTED ([#59](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/59))",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Determine cycle structure \u2014 12-year animal cycle? 60-year stem-branch cycle? Hybrid? Decide what maps cleanly to the setting's cosmological logic (Warrens, celestial forces, Held Breath periodicity)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Name the cycle units \u2014 names drawn from in-world traditions, not real-world direct translations; cross-reference the major competing religious/mystical traditions for resonance",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map to HJ/HB era system \u2014 integrate with existing Calendar Eras so cycle year labels can appear alongside era dates in timelines and in-world documents",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File to `world/calendar-cycles.md` (new file, `visibility: public`); add reference in `world/` index",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "6. Warren Index  NOT STARTED ([#60](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/60))",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Define Warren taxonomy \u2014 power vs. affinity; inhabited vs. uninhabited; accessible vs. sealed",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Map divine players to Warrens \u2014 assign each of the seven canonical divine players (from `narrative/gm_secrets/DIVINE_PLAYERS.md`) to their home Warren or sphere of influence",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Design abstract/conceptual Warrens \u2014 death, memory, transformation, hunger, silence, etc. \u2014 at minimum those with mechanical/narrative relevance to the heroes' tools and the Held Breath",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Flag Warrens with tool resonance \u2014 which Warrens connect to specific hero archetypes or tool evolution stages (endgame cosmological interface)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File public scaffold to `world/cosmology/warrens.md` (new file, `visibility: public`); GM detail layer at `narrative/gm_secrets/warrens-gm.md`; link from `world/diagrams/cosmological-architecture.md`",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "7. Python Toolset Refactor",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Stage 1 \u2705: `utilities/shared/config.py` \u2014 `ProjectConfig` dataclass; logger renamed `\"tarim_shaiel_generators\"`; adopted in `generate_campaign_frame.py` + `generate_dashboard.py`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stage 2 \u2705: Extract embedded CSS \u2014 `utilities/campaign_frame/campaign_frame.css` and `utilities/world/world_{base,myth,timeline}.css`; generators read CSS at runtime, HTML output verified identical",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stage 3 \u2705: `utilities/shared/base_generator.py` \u2014 `Generator` protocol; thin `_Generator` wrapper + `generator` singleton appended to all 6 generators; all verified standalone and via `wrapper.run()`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stage 4 \u2705: `utilities/build.py` \u2014 unified CLI dispatcher; `build.py list`, `build.py all [--public]`, `build.py <name>`; mirrors Netlify pipeline order; `world` excluded from `all` (requires --source)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stage 5 \u2705: Fix `generate_ancestry_html.py` \u2014 removed hardcoded `ANCESTRY_DATA`/`ANCESTRY_ORDER`; `parse_peoples_md()` derives names + order from source MD; renders all 18 ancestries",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Moved `generate_world_html.py`, `generate_all_world_html.py`, and CSS files out of `legendkeeper-pipeline/` into new `utilities/world/` \u2014 `legendkeeper-pipeline/` now contains only the 5 LK-specific tools",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Dashboard housekeeping: renamed \"Hero Heaven\" \u2192 \"Tarim-Shaiel\" in `generate_dashboard.py` docstring; stratified `SKILL.md` for Claude Code vs Chat/Cowork contexts",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`shared/frontmatter.py` fix: YAML parse failure now falls back to regex rather than silently returning `{}`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`CLAUDE.md` updated: long-lived branch inflation trap documented with fix procedure",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Ancestry image support: `![[filename]]` in per-ancestry file body \u2192 floated `<figure class=\"lore-figure\">`; `VANARA.png` live",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Ancestry visibility gating: `visibility: gm_secrets` in per-ancestry frontmatter excludes from public HTML; GALAPA, RIBBET, FAERIE, NAGA-KIN gated; stub files created",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`.gitignore` fixed: `images/*` + `!images/people/ancestries/` so ancestry portraits are committable",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "8. docs/ Output Hierarchy Restructure  DONE 2026-04-21 ([#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168))",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Audit all four CSS files (`world_base.css`, `world_myth.css`, `world_timeline.css`, `world_category.css`) for `url()` image references",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/shared/assets.py`: `prepare_image()` \u2192 return `/images/{name}`; `prepare_audio_wiki()` \u2192 `/audio/{name}`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Update any CSS `url()` references found above to root-relative paths",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/world/generate_all_world_html.py`: change output path to `docs/{folder}/{slug}.html`; update `'filename'` field in grouped metadata to `{folder}/{slug}.html`; update print statement",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/world/generate_world_html.py`: back-nav `back_href` \u2192 `../category-{folder}.html`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Dry-run verify (`--dry-run` flag); full build; spot-check one subdirectory page in browser",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "4. Publishing Infrastructure Setup",
+          "domain": "infra",
+          "items": [
+            {
+              "text": "Install Shell Commands plugin in Obsidian (Settings \u2192 Community Plugins \u2192 \"Shell Commands\")",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Configure Command 1: \"Regenerate HTML Preview\" \u2014 on-save event (`world/` + `narrative/` folder filter); opens browser; reference: `utilities/shell-commands-config.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Configure Command 2: \"Full Pipeline (Local)\" \u2014 palette + hotkey (`Cmd+Shift+B`); runs all generators; opens `docs/index.html`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Configure Command 3: \"Open Local Preview\" \u2014 palette convenience command",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Connect Netlify site \u2014 `netlify.toml` is in repo; site needs to be linked at netlify.com (one-time setup)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "8. Faction File Stubs  DONE 2026-05-01 ([#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144))",
+          "domain": "world",
+          "items": [
+            {
+              "text": "P1 (unlocked, 3 files): `lich-cadre.md`, `the-wizard.md`, `chain-breakers-order.md` \u2014 richest stubs from existing canon data",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "P2 (4 files): `orc-confederation-samarkand.md`, `eastern-gateway-council.md`, `merchant-guilds.md`, `eastern-imperial-dominion.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "P3 (9 files): `dwarven-mountain-confederations.md`, `dwarven-tarim-authority.md`, `human-tarim-councils.md`, `human-imperial-remnants.md`, `orc-steppe-confederations.md`, `goblin-free-cities.md`, `peoples-of-the-nine-roads.md`, `gnome-guilds.md`, `jade-coast-realms.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Update `lat.md/world.md` \u2014 change \"individual faction files TBD\" \u2192 reflect 16 stubs + 3 deferred",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Update `lat.md/subagent-context.md` `last_updated` (per subagent-context maintenance rule)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Deferred (blocked): `elven-highland-enclaves.md` ([#43](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/43)), `scholars-remnant.md` ([#42](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/42)), `celestial-court.md` (Decision #11)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "9. HTML Generation Pipeline Refactor  SUPERSEDED by #183 ([#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138))",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Stage 2: CSS unified via `tokens.css` + per-page CSS files (Phase 0\u20132a of #183)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stage 3: `generate_world_html.py` + `generate_all_world_html.py` migrated (Phase 2c of #183)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stage 4: `generate_campaign_frame.py`, `generate_lore_html.py`, `generate_ancestry_html.py` migrated (Phase 2b/2d of #183)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stage 5: Generator factory / `_Generator` boilerplate \u2014 deferred (tracked in #198)",
+              "done": false,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "10. DASHBOARD.md Schema + Generator Refactor  DONE ([#166](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/166))",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Phase 1: `DASHBOARD.md` created \u2014 YAML frontmatter + Quick Summary; health panel separated from TODO.md",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Phase 2: Generator refactored \u2014 `parse_dashboard_md()`; six regex extractors replaced with YAML readers",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Phase 3: `TODO.md` PROJECT HEALTH section removed; single pointer line added",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Phase 4: `SECTION_DOMAIN_HEADERS` expanded",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Phase 5: `lat.md/subagent-context.md` updated",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "11. Account-Based GM Gatekeeping",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Create `netlify-gm.toml` \u2014 second deploy config",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create `docs/login.html` \u2014 parchment-styled Netlify Identity login page",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/shared/md_utils.py` \u2014 Tier 1: `{gm:text}` inline redaction in `inline_md()`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/shared/html_render.py` \u2014 Tier 2: `> [!gm-only]` callout + Tier 3: `![[gm_secrets/file]]` `.md` transclusion",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/world/generate_world_html.py` \u2014 `gm_mode` param, per-page banners, thread `vault`+`gm_mode` through render chain",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/shared/page_shell.py` \u2014 auth guard injection via `TS_GM_MODE` env var",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/world/generate_all_world_html.py` \u2014 `--gm` flag, gating logic, badge CSS, full call chain",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`utilities/build.py` \u2014 `--gm` flag + set `TS_GM_MODE=1`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Create `GM_AUTHORING.md` (repo root) + one-line pointer in `CLAUDE.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Manual Netlify setup (user): create second site, enable Identity, invite-only, invite your email \u2014 `tarim-shaiel-gm` live \u2705",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "status": "blocked",
+      "title": "Blocked \u2014 Decisions Required",
+      "subtitle": "Decisions needed",
+      "groups": [
+        {
+          "title": "Critical Blockers",
+          "domain": "general",
+          "items": [
+            {
+              "text": "LK Bridge: Bi-directional Obsidian \u2194 LegendKeeper pipeline",
+              "done": false,
+              "blocked": true,
+              "note": "Blocked on LegendKeeper API (confirmed on their roadmap; no ETA) Full schema research complete; round-trip test done; architecture designed \u2014 see issue for all findings Resume immediately when LK API ships v2 document uses \"approach\" framing; all Daggerheart classes open; no prescriptive mapping needed",
+              "effort": "",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "status": "done",
+      "title": "Completed Assets",
+      "subtitle": "Locked & verified",
+      "groups": [
+        {
+          "title": "Core Campaign Structure",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Core Campaign Structure",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/narrative/CORE_CAMPAIGN_NARRATIVE.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hero Heaven cosmology (earned reward, premature expulsion)\\[EDITORIAL NOTE] - Is it (e.g., magic system, god hierarchy)?",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Six archetype-specific self-doubt frameworks (Breaker, Bridge, Seeker, Sacrificer, Warrior, Visionary)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Tool mechanics (Resist/Hunger/Know framework)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Campaign arc structure (3 acts)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "The Wizard's catalyst role (not final boss)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Ghost of fallen companion (ambiguous guide)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Core campaign questions and themes",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Session 0 Architecture",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Session 0 Architecture",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/Sessions_Structure.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/gm_secrets/Session_0_Secret_Snippets-Archetype_Templates.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/Shared_Memory_Events.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/Shared_Memory_Narrative_Template.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/PLAYER_ARC_SYNTHESIS.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/gm_secrets/Session_0_Awakening_Design_Notes.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "8-segment awakening structure (4.5-5 hours verified executable)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hybrid parallel + sequential pacing (Bridge+Seeker, Warrior+Sacrificer parallel; Breaker sequential)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Secret snippet architecture (god-tier moments during individual awakenings)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Four-axis flashback trigger system",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Event-centric shared memory design (5 thematic events framework)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Player pitch (less-transparent version preserving mystery)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Six archetype descriptions (no past-leakage)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Awakening Scenarios",
+          "domain": "narrative",
+          "items": [
+            {
+              "text": "Awakening Scenarios",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/Session_0_Warrior_Awakening.md` + versions/",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/Session_0_Seeker_Awakening.md` + versions/",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "`/narrative/sessions/00_session0/Session_0_Breaker_Awakening.md` + versions/",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Weapons & Equipment",
+          "domain": "world",
+          "items": [
+            {
+              "text": "File: `/mechanics/weapons_silk_road.md`",
+              "done": true,
+              "blocked": false,
+              "note": "50+ weapons from Jerusalem to Changzhou Daggerheart mechanics (SRD-compliant damage/tags) Enhancement potential flags (16 Mythic Candidates) NPC archetype pairings (10+ combat/cultural roles) Ancestry weapon affinities (all 12+ ancestries) Tier scaling guidance (Tier 1-4) Cultural notes and regional availability",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Ancestry Documentation ORC",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Ancestry Documentation ORC",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/world/ancestries/orcs.md`",
+              "done": true,
+              "blocked": false,
+              "note": "Corrected 1,000-year timeline (40 generations post-liberation) Historical context (5 Eras from captivity to present) Cultural characteristics (clan diversity, cosmopolitan adaptation) The Trading Centuries (~3,000 words on economic transformation) Diplomatic Academies (~1,500 words on negotiation mastery) Found Family Philosophy (~1,200 words on kinship expansion) Social hierarchy including Bondkeeper role (trade/diplomatic leader) Orc Merchant Leagues (4 regional leagues detailed) Religious/spiritual practices (no unified religion, ancestor veneration) Economic roles (5 primary industries) Relations with other ancestries Modern challenges (identity beyond liberation, wealth vs. memory, etc.) NPC seeds and PC hooks",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Supporting Files:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": [
+                [
+                  "ORCS_REVISION_SUMMARY",
+                  "/world/ancestries/ORCS_REVISION_SUMMARY.md"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "World Entity Infrastructure",
+          "domain": "world",
+          "items": [
+            {
+              "text": "World Entity Infrastructure",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Entity Index Files  CREATED",
+          "domain": "world",
+          "items": [
+            {
+              "text": "File: `/world/factions/Index.md`",
+              "done": true,
+              "blocked": false,
+              "note": "12 present-day factions + 1 historical (Human Empire) + 2 individuals-as-factions (The Wizard, Fallen Teammate) Columns: name | type | region | visible_control | hidden_control | rivals | controls | narrative_weight | status Canonical wikilink names established \u2014 all future files should reference these",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/world/events/Index.md`",
+              "done": true,
+              "blocked": false,
+              "note": "11 historical events in causal chain order (Era 0\u20135) + 2 anticipated future events Columns: name | era | approx_date | type | cause | effect | key_actors | narrative_weight | status",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/world/concepts/Index.md`",
+              "done": true,
+              "blocked": false,
+              "note": "13 world concepts across 3 layers: cosmological / magical mechanisms / named forces Includes both canon and proposed items (from STORY_ARC_SYNTHESIS, pending canonization)",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Entity Templates  CREATED",
+          "domain": "world",
+          "items": [
+            {
+              "text": "File: `templates/world-building/_TEMPLATE_faction.md` \u2014 Faction individual file template",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `templates/world-building/_TEMPLATE_event.md` \u2014 Historical event individual file template",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `templates/world-building/_TEMPLATE_concept.md` \u2014 Concept/force individual file template",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Location Hierarchy Templates  REBUILT/CREATED",
+          "domain": "world",
+          "items": [
+            {
+              "text": "File: `templates/world-building/_TEMPLATE_region.md` \u2014 REBUILT (full rewrite)",
+              "done": true,
+              "blocked": false,
+              "note": "Distinctions section (3 named qualities + \"You might encounter\" bullets) GM Principles section (named tonal directives) Faction fields: factions_dominant / factions_present / factions_hidden as canonical wikilinks contains_landmarks / contains_settlements / contains_poi inventory fields Era-by-era Historical Context + Campaign Relevance + Ecosystem status",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `templates/world-building/_TEMPLATE_landmark.md` \u2014 NEW",
+              "done": true,
+              "blocked": false,
+              "note": "Traversable container entity (between Region and Settlement/POI in hierarchy) Own Distinctions section (landmark-scale atmospheric qualities) Denizens section (what inhabits the landmark itself, distinct from factions) contains_poi + transclusion slots for sub-elements",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `templates/world-building/_TEMPLATE_environment.md` \u2014 NEW (Daggerheart-faithful)",
+              "done": true,
+              "blocked": false,
+              "note": "Mechanical encounter layer: env_type / tier (1\u20134) / difficulty (8\u201318) / impulses Features: Passive / Action / Reaction / Spend Fear structure Embedded GM questions on every feature Skill Challenges + Group Action Option sections",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `templates/world-building/_TEMPLATE_location_settlement.md` \u2014 UPDATED",
+              "done": true,
+              "blocked": false,
+              "note": "known_for one-liner (replaces Distinctions at settlement level) factions_visible / factions_hidden / factions_present as canonical wikilinks Rules/Norms/Customs section contains_poi + transclusion slots (![[poi-filename]]) for sub-elements environment_file link",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `templates/world-building/_TEMPLATE_location_poi.md` \u2014 REBUILT (unified template)",
+              "done": true,
+              "blocked": false,
+              "note": "Single template handles both standalone POIs (with coordinates) and sub-element POIs (without) parent: field for sub-elements of Settlements or Landmarks parent_region: field for standalone POIs location: [lat, long] optional \u2014 present when POI warrants its own map pin concept: one-liner replaces Distinctions at POI level Leaflet block present with removal comment for sub-elements",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "World-Building GEOGRAPHIC FOUNDATION",
+          "domain": "world",
+          "items": [
+            {
+              "text": "World-Building GEOGRAPHIC FOUNDATION",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Geographic Framework",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Geographic Framework",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "6 major regions defined (Skamarketh, Tarim Basin, Eastern Gateway, Mountain Passes, Steppe, Elven Highlands)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "37 locations with coordinates (22 created as individual notes, 15 more in regions.json)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Complete fantasy naming system with linguistic formulas per faction",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Ancient geographic features named (Taklamehr, Sky-Pass/Tian-Khor, Kunlain, Am-Darkath, Syrghar, Yuraneil)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Regional faction controllers and power dynamics",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Cultural/political framework (Empire \u2192 Chaos \u2192 Stabilization \u2192 Present eras)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Timeline (History)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Major events",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Location Infrastructure",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Location Infrastructure",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Location: `/world/locations/` (37 markdown files)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Status: Infrastructure complete, content population ongoing",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Features:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Obsidian Leaflet integration working",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "7 marker types configured (city, ruins, pass, waystation, oasis, sacred-site, mystery)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "OpenTopoMap tiles verified",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Schema documented in LOCATION_NOTE_SCHEMA.md",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Game Mechanics ARCHITECTURE",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Game Mechanics ARCHITECTURE",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Charm System",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Charm System",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/mechanics/character-progression/charms/CHARM_SYSTEM_ANALYSIS.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Decision: Option C - Exalted-Lite (Hope + Fatigue Points hybrid)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Status: Architecture locked, ready for implementation",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Details:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "3-tier progression (Foundation/Specialization/Mastery)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hybrid resources: FP (tactical, from Health) + Hope (strategic, from duality dice)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Conversion formulas: 1-3m \u2192 2 FP OR 1 Hope (Tier 1); 4-6m \u2192 3 FP OR 1 Hope + 1 Will (Tier 2); 7-10m \u2192 2-3 Hope (Tier 3)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Complete 194-charm Exalted reference document created",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Charm template created (`CHARM_TEMPLATE.md`)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Charm accessibility matrix created",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Tool Progression",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Tool Progression",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Status: 4-stage progression defined",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Stages:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "1. Crude tools: Standard Daggerheart rolls",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "2. Blessed tools: Narrative advantage only",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "3. Awakened tools: 2d12 Hope (keep highest) \u2014 celestial dice",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "4. Legendary tools: Additional effects TBD",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Integration: Works with Resist/Hunger/Know framework",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Daggerheart Integration  TEMPLATES CREATED",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Location: `/templates/`",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Status: Domain-aligned templates complete",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Contents:",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Character sheet templates",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Session tracking templates",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Archetype-to-domain mapping",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Adversary templates",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Environment templates",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Resource Management",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Hybrid System: Hope (strategic) + Fatigue Points (tactical)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "FP derived from Health stat, recovers with rest",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hope gained from duality dice + narrative choices + tier bonuses",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Will as rare high-stakes resource",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Charm Activation",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Model: Exalted-Lite with Daggerheart foundation",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Costs: 2-3 FP OR 1-3 Hope (tier-dependent)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Types: Simple, Supplemental, Reflexive",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Simplification: No combat keyword complexity from Exalted",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Tool Mechanics",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Framework: Resist/Hunger/Know (narrative-based, guideline-focused)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Resist: Tool refuses certain actions (protective or restrictive?)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hunger: Tool calls for use/restoration (genuine or manipulation?)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Know: Tool reveals fragmentary memories (truth or interpretation?)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Progression: 4-stage celestial dice advantage system",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Integration: Works with Charm system and duality dice",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Conflict Resolution",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Foundation: Daggerheart's duality dice (Hope/Fear d12s)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Hope Generation: Feeds Charm system",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Fear Complication: Affects tool usage (specific mechanics TBD)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Character Identity",
+          "domain": "mechanics",
+          "items": [
+            {
+              "text": "Archetypes: 6 core (Breaker, Bridge, Seeker, Sacrificer, Warrior, Visionary) + 4 expanded optional (Trickster, Crafter, Sentinel, Healer) \u2014 Surrendered-Layer Framework covers all 10 (2026-03-20)",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Domain Alignment: Maps to Daggerheart domains",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Starting State: Crude tools + tier 1 foundation Charms",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        },
+        {
+          "title": "Preliminary World Diagrams",
+          "domain": "world",
+          "items": [
+            {
+              "text": "Preliminary World Diagrams",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/world/diagrams/faction-web.md`",
+              "done": true,
+              "blocked": false,
+              "note": "Mermaid graph LR \u2014 faction relationship web Nodes colour-coded by narrative weight (very-high / high / medium-high / medium) Edge types: rivals <-->, hidden control -.->, active opposition --> Elven Highland Enclaves with three dotted \"whispers in eastern courts\" lines",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/world/diagrams/cosmological-architecture.md`",
+              "done": true,
+              "blocked": false,
+              "note": "Mermaid graph TD \u2014 four-layer cosmological stack (Celestial \u2192 Mortal \u2192 Warrens \u2192 Pre-Cosmic) Floating mechanism nodes (Gaes, Binding Magic) bridging layers Pending design decisions shown in grey dashed style Causal chain: Lich-Legion strain \u2192 Warren inversion \u2192 Threshold targeting \u2192 Held Breath stirs",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "File: `/world/diagrams/historical-causal-chain.md`",
+              "done": true,
+              "blocked": false,
+              "note": "Mermaid flowchart TD \u2014 era-coloured nodes, Era 0\u20135 + Campaign Present + 2 anticipated futures Long dotted line: The Sacrifice (Era 1) \u2192 The Expulsion (Era 5), 1,000 years dormant",
+              "effort": "",
+              "links": []
+            },
+            {
+              "text": "Fix: All three diagrams updated: `\\n` \u2192 `<br/>` in node/edge labels for Obsidian Mermaid compatibility",
+              "done": true,
+              "blocked": false,
+              "note": "",
+              "effort": "",
+              "links": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quick_summary": [
+    {
+      "text": "Core complete: Campaign narrative, world geography, fantasy naming, charm architecture, Orc cultural framework, Silk Road weapons, Cosmological architecture (all 8 decisions locked 2026-03-17), World entity infrastructure (factions/events/c\u2026",
+      "status": "done"
+    },
+    {
+      "text": "\ud83d\udd04 Active work: Session 0 scenarios (3/6 core done; expanded 4 have design framework only), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes",
+      "status": "active"
+    },
+    {
+      "text": "\u2705 Resolved (2026-04-05): liberation_aftermath.md rewrite \u2014 v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-04-11): lat.md/ AI navigation layer \u2014 6 dense, path-forward orientation files + CLAUDE.md Quick Navigation table. [#121](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/121)",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-04-11): CLAUDE.md audit + subagent context block \u2014 created lat.md/subagent-context.md; CLAUDE.md slimmed 258\u2192174 lines; stale Wizard constraint corrected. [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/\u2026",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-04-22): DASHBOARD.md schema + generator refactor \u2014 health panel separated from TODO.md; six regex extractors replaced with YAML readers; SECTION_DOMAIN_HEADERS expanded. [#166](https://github.com/mofro/tarim-shaiel-campaig\u2026",
+      "status": "done"
+    },
+    {
+      "text": "\ud83c\udd95 Filed (2026-04-14): Faction file stubs \u2014 16 P1\u2013P3 faction files to create from _category.md registry; 3 deferred pending #42, #43, Decision #11. [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144)",
+      "status": "info"
+    },
+    {
+      "text": "\u2705 Closed (2026-05-01, superseded): HTML generation pipeline refactor \u2014 subsumed by #183 Jinja2 migration; CSS unified, generators migrated; Stage 5 deferred to #198. [#138](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/138)",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-04-21): docs/ output hierarchy restructure \u2014 per-document HTML moved into subdirectories; root-relative asset paths; ~500-file flat directory resolved. [#168](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/168\u2026",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-05-01): Faction stubs \u2014 16 P1\u2013P3 files created; 3 deferred pending #42, #43, Decision #11. [#144](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/144)",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-05-01): Phase 2d Jinja2 \u2014 dashboard generator migrated;  +  created;  f-string removed. [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/183)",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-05-01): Phase 3 Jinja2 \u2014 dark/light theme layer; // semantic vars in ; page CSS files use semantic vars;  +  overrides; floating  toggle button on all pages. [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issu\u2026",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-05-01): Phase 2c Jinja2 \u2014 world generators migrated;  extended with extra_head/page_gm_banner/back_nav/cover blocks;  +  created;  removed. [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/183)",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-05-01): Phase 2b Jinja2 \u2014 campaign frame generator migrated;  extended with cover_extra + conditional base.css hooks. [#183](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/183) (PR #189)",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-04-30): CSS extraction + Jinja2 template layer Phase 0\u20132a \u2014 tokens.css + linked CSS files (PR #187); renderer.py + base/ancestry/lore templates; ancestry + lore generators are now pure data-extraction. [#183](https://githu\u2026",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-04-22): Account-based GM gatekeeping \u2014 , Netlify Identity auth guard, three-tier markdown gating (Tier 1/2/3), , . Remaining: manual Netlify second-site setup. [#176](https://github.com/mofro/tarim-shaiel-campaign-frame/is\u2026",
+      "status": "done"
+    },
+    {
+      "text": "\ud83d\uddd2\ufe0f Backlog: Dark mode visual review \u2014 contrast/readability audit; badge pastels, crimson headings, page-card/body separation, hardcoded rgba values across all page CSS. [#197](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/197)",
+      "status": "info"
+    },
+    {
+      "text": "\ud83d\uddd2\ufe0f Backlog:  structured-dict refactor \u2014 return component dicts instead of HTML strings; Jinja2 macro renders prose; eliminates last ~140 lines of Python HTML assembly. [#198](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/198)",
+      "status": "info"
+    },
+    {
+      "text": "\ud83d\uddd2\ufe0f Backlog: Nianhao D3 timeline phase 2 \u2014 content import, GM-tunable influence scores, cross-view interaction, mobile optimization. [#116](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/116)",
+      "status": "info"
+    },
+    {
+      "text": "\u2705 Completed (2026-04-24): Claude Code hooks \u2014  rebase sync +  workflow_dispatch pipeline trigger;  +  created locally. [#40](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/40)",
+      "status": "done"
+    },
+    {
+      "text": "\u2705 Completed (2026-05-02): Schema C vault migration \u2014 all 5 phases; Decision 17 locked; 300+ files migrated from type: to domain/doc_type/content_type; is_private: removed; classification: removed. [#77](https://github.com/mofro/tarim-shaiel\u2026",
+      "status": "done"
+    },
+    {
+      "text": "\ud83d\uddc3\ufe0f Charm system deferred (2026-03-13): Archived to archive/charms/; Daggerheart base used for now",
+      "status": "info"
+    }
+  ],
+  "player_status": {
+    "summary": "",
+    "archetypes": []
+  }
+}

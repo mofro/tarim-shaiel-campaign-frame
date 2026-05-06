@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "HeroHeaven",
+  "project_id": "d6fc0605-7aaf-4261-81ee-90878831dff7"
+}
