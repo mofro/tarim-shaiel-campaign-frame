@@ -35,6 +35,7 @@ audio/
 narrative/audio/
 !narrative/audio/The Road_A Fable.mp3
 references/
+bd/
 
 # Binary file types (tracked text data like .geojson/.kml is fine)
 *.pdf
