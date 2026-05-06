@@ -49,3 +49,8 @@ docs/search-index.json
 
 # External tool integration (not source content)
 moulinette/
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
