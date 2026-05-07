@@ -7,7 +7,7 @@ content_type: concept
 visibility: gm_secrets
 status: draft
 created: 2026-02-13
-last_updated: 2026-02-13
+last_updated: 2026-05-07
 related_documents:
   - CORE_CAMPAIGN_NARRATIVE.md
   - HERO_IDENTITY.md
@@ -21,8 +21,8 @@ banner-y: 30
 
 # Player Archetype Synthesis
 
-⚠️ **WORKING DOCUMENT — NOT YET CANON**
-This document synthesizes the established six archetypes with proposed expansions. Items marked [ESTABLISHED] are canonical (documented in CORE_CAMPAIGN_NARRATIVE.md). Items marked [PROPOSED] are under development and require Mo's approval before integration.
+⚠️ **WORKING DOCUMENT — GM ONLY**
+This document synthesizes all eleven archetypes. All are now [ESTABLISHED] as of 2026-05-07. Awakening scenarios for the five expansion archetypes are not yet written — see Development Status table in Part 5.
 
 ---
 
@@ -185,59 +185,55 @@ If two archetypes create substantially similar story moments, one of them is red
 
 ---
 
-## PART 3: PROPOSED EXPANSION ARCHETYPES
+## PART 3: EXPANSION ARCHETYPES
 
 ### Design Methodology
 
 The established six cover methods of: **Destroying, Fighting, Discovering, Seeing, Uniting, and Giving.** These are all *active* methods — they DO things to the world.
 
-The proposed expansions explore methods that are more *responsive* or *structural*: Preserving, Mending, Witnessing, Creating, and Subverting.
+The five expansions explore methods that are more *responsive* or *structural*: Guarding, Preserving, Mending, Creating, and Subverting. All five are now established (2026-05-07).
 
 Each proposed archetype includes the three-layer test and the narrative function test.
 
 ---
 
-### The Sentinel (Watcher/Witness) [PROPOSED] — Recommended: HIGH
+### The Sentinel (Guardian/Threshold) [ESTABLISHED]
 
-**Method:** Stood watch. Bore witness. Observed, recorded, ensured accountability. Not foresight (Visionary) but present-tense *observation* — seeing what IS, not what will be.
+**Method:** Stood at the edge. When others moved through danger toward safety, the Sentinel moved in the other direction — toward the threshold, the perimeter, the place where something might come through. Not foresight (Visionary) but present-tense *constancy* — being reliably present at the point of potential breach.
 
-**Legendary Role:** The moral conscience of the liberation. The record-keeper who ensured the heroes remained accountable. The one who watched every decision, every consequence, every compromise — and documented truthfully. Without the Sentinel, the heroes would have lost track of their own principles amid the chaos of war.
+**Legendary Role:** Held the borders of the liberated territories. When liberation succeeded and others celebrated, the Sentinel remained at the doors — the mountain passes, the city gates, the perimeters of fragile new freedom. Without the Sentinel's constancy at those thresholds, the Wizard's retreat would have become a counterattack before the freed peoples had found their feet.
 
-**Fear:** *"I watched everything. I saw the Wizard retreat rather than fall. I recorded the gaps — the things that didn't add up, the loose threads. I KNEW something was incomplete. And I stayed silent because the record showed victory, and questioning victory felt like treason."*
+**Fear:** *"I held every threshold I was given. Nothing came through that I didn't allow. The Wizard survived regardless. Was my presence protecting what was behind it — or was my presence at the same door, every time, what kept drawing the threat back to that specific door?"*
 
-**Deeper Question:** *"Is witnessing enough? At what point does the observer have a duty to intervene? When does faithful recording become complicity through silence?"*
+**Deeper Question:** *"Is my constancy protection, or is it a beacon? Does the danger keep returning because I'm the one standing between it and what it wants?"*
 
-**Tool:** A recording device — journal, memory stone, inscribed tablet. Resists by refusing to record certain things (or recording things the Sentinel didn't intend). Hungers to observe, to watch, to document. Knows everything that was witnessed — including the things the Sentinel chose not to report.
+**Tool:** Cracked lantern. Carries consciousness and agency; can refuse or resist (Decision 5). Still casts light — the crack is the record of every threshold held, not a failure of the tool. Warren allegiance surfaces in what it illuminates and what it refuses to show.
 
-**Narrative Function:** Fills a gap nothing else covers — the duty to speak vs. the discipline of observation. The Sentinel's doubt ("I knew and said nothing") is the most direct connection to the heroes' collective failure. Every other archetype failed because they didn't SEE the Wizard's survival. The Sentinel failed because they DID see — or saw the signs — and stayed silent.
+**Narrative Function:** The steady anchor. The one who is still present after the crisis, still at the threshold when everyone else has moved on. Creates moments where the party must decide: is this a new threat, or is it the same threat returning because the Sentinel is always behind the same door?
 
-**Unique Party Dynamic:** The one who notices things others miss. Not through investigation (Seeker) or foresight (Visionary) but through *paying attention to what's right in front of everyone*. The one who says "I saw that" when others are looking away. But also the one who might stay silent too long.
+**Unique Party Dynamic:** The one whose constancy is both reassurance and unease. The party relies on the Sentinel to hold the perimeter — but the Sentinel's doubt is whether their presence makes the perimeter a target.
 
-**Campaign Theme Carried:** Observation vs. action. The duty to speak. Complicity through silence.
+**Campaign Theme Carried:** Protection vs. attraction. Constancy vs. the possibility that staying is the problem. Whether the guardian is the barrier or the reason the threat never stops coming.
 
 **Foil Relationships:**
-- **Visionary** sees the future; **Sentinel** sees the present. Different failure modes of perception.
-- **Seeker** actively hunts for hidden truths; **Sentinel** passively absorbs visible ones. Different methods of knowing.
-- **Bridge** shapes events through influence; **Sentinel** records events without shaping them. Different relationships with power.
+- **Visionary** orients toward the future; **Sentinel** holds the present threshold. Different temporal orientations with mirrored failure modes — one fears manipulated sight, the other fears being the beacon.
+- **Seeker** actively hunts what's hidden; **Sentinel** stands fast at the known danger. Different responses to threat.
+- **Breaker** removes the threat by dismantling it; **Sentinel** contains it by remaining present. Different philosophies of safety with the same goal.
 
-**Awakening Sketch:** Wakes with perfect clarity about surroundings — sees everything, understands context immediately. But cannot ACT. Paralyzed by the habit of observation. Must break the pattern of watching and DO something. Perhaps: observes a crime or injustice unfolding and must choose between documenting it faithfully and stopping it. The tool records everything they see — including their own hesitation.
+**Awakening Sketch:** Wakes at a threshold — a gate, a pass, a doorway — as something is coming through. Their gift activates immediately: they see the danger, know the shape of it, understand what needs to hold. The crisis demands they act, not simply stand. The structural irony: the Sentinel's gift is constancy, but the awakening tests whether presence alone is ever enough. The cracked lantern illuminates everything — including what the Sentinel cannot stop.
 
-**Alternate Awakening Concept (from Visionary swap):** Inherit the Visionary's "mid-crisis, must act NOW" structural position. The Sentinel wakes INTO an unfolding disaster — and unlike the Visionary (whose gift fails), the Sentinel's gift works *perfectly*. They see everything: who's in danger, what's about to collapse, where the threat is coming from. Perfect observation. And it's not enough. The crisis demands they stop watching and DO. The irony isn't "I can't use my gift" — it's "my gift is working and it's STILL not enough." This directly echoes the legendary failure (saw the signs, chose silence) and forces the player to confront the core doubt in the first minutes of play. Potentially the strongest metaphoric match of any awakening scenario.
-
-*Status: Concept only. Not committed. Parking for future development.*
-
-**Silk Road Resonance:** Chroniclers at caravanserais. The tradition of the *tarikh* (historical chronicle) in Islamic scholarship. Court historians. The tension between recording truth and serving power.
+**Silk Road Resonance:** Border posts along the Silk Road. The tension between open trade routes and the need for defended passage. Caravanserai guards. The gatekeepers of mountain passes. Communities that survived imperial collapse by holding their own borders.
 
 **Three-Layer Test:**
-1. ✅ Method was necessary — the liberation needed accountability and record-keeping to maintain legitimacy.
-2. ✅ Doubt is specific — the fear isn't about action taken, but about silence kept. Unique among all archetypes.
-3. ✅ Tool mirrors doubt — the recording device that knows what was witnessed, including what was suppressed.
+1. ✅ Method was necessary — the liberation's new borders required someone to hold them against Imperial retaliation.
+2. ✅ Doubt is specific — the fear that constancy at the threshold attracted the threat rather than deterring it. Unique among all archetypes.
+3. ✅ Tool mirrors doubt — the cracked lantern that still casts light, that illuminates what approaches, that cannot say whether the light is warning or invitation.
 
-**Assessment:** Strongest proposed addition. Fills a genuine gap. The doubt is devastating and directly connects to the heroes' collective failure. The Sentinel is the only archetype whose failure was *knowing and not speaking* rather than *acting and not seeing*.
+**Assessment:** Fills the guardian gap cleanly. The doubt (presence as beacon rather than protection) is the most structurally uncomfortable in the roster — not failure through action, not failure through inaction, but the possibility that the right action was the wrong answer. Decision 10 locked: guardian/threshold framing.
 
 ---
 
-### The Keeper (Guardian/Preserver) [PROPOSED] — Recommended: HIGH
+### The Keeper (Guardian/Preserver) [ESTABLISHED]
 
 **Method:** Preserved what others wanted to destroy. Protected institutions, knowledge, culture, sacred sites — not through fighting (Warrior) but through *maintaining*.
 
@@ -273,7 +269,7 @@ Each proposed archetype includes the three-layer test and the narrative function
 
 ---
 
-### The Trickster (Deceiver/Subverter) [PROPOSED] — Recommended: MEDIUM-HIGH (with caution)
+### The Trickster (Deceiver/Subverter) [ESTABLISHED]
 
 **Method:** Worked from within. Used deception, misdirection, infiltration. The spy, the saboteur, the one who wore the enemy's face and unmade them from the inside.
 
@@ -311,7 +307,7 @@ Each proposed archetype includes the three-layer test and the narrative function
 
 ---
 
-### The Crafter (Builder/Maker) [PROPOSED] — Recommended: MEDIUM
+### The Crafter (Builder/Maker) [ESTABLISHED]
 
 **Method:** Built the tools, infrastructure, weapons, and systems that made liberation possible. Not destruction (Breaker) but *creation*.
 
@@ -348,7 +344,7 @@ Each proposed archetype includes the three-layer test and the narrative function
 
 ---
 
-### The Healer (Mender/Restorer) [PROPOSED] — Recommended: LOW-MEDIUM
+### The Healer (Mender/Restorer) [ESTABLISHED]
 
 **Method:** Repaired what was broken. Not just bodies — relationships, communities, land scarred by war.
 
@@ -469,24 +465,24 @@ The following ranking evaluates all eleven archetypes (six established + five pr
 
 | Rank | Archetype | Status | Rationale |
 |------|-----------|--------|-----------|
-| 4 | **Sentinel** | PROPOSED | Fills the perception gap AND carries the most devastating doubt. The only archetype whose failure was passive — knowing and not speaking. More directly implicated in the heroes' collective failure than any other. If only one archetype is added to the core three, this is the one. |
+| 4 | **Sentinel** | ESTABLISHED | Guardian/threshold. Doubt: whether constancy is protection or beacon. The only archetype whose failure mode is presence itself — the threat keeps returning to the same door. If only one archetype is added to the core three, this is the one. |
 | 5 | **Bridge** | ESTABLISHED | Fills the social engine gap. The Silk Road campaign needs someone who talks, negotiates, builds alliances. Without the Bridge, the setting's political richness goes underused. |
 
 **Tier 3 — The Depth (Excellent additions)**
 
 | Rank | Archetype | Status | Rationale |
 |------|-----------|--------|-----------|
-| 6 | **Keeper** | PROPOSED | Completes the Breaker foil. Every scene involving Imperial relics, cultural artifacts, Dwarven vaults, Elven sacred sites doubles in value with both Breaker and Keeper present. Scene-generating power the Sacrificer doesn't provide. |
+| 6 | **Keeper** | ESTABLISHED | Completes the Breaker foil. Every scene involving Imperial relics, cultural artifacts, Dwarven vaults, Elven sacred sites doubles in value with both Breaker and Keeper present. Scene-generating power the Sacrificer doesn't provide. |
 | 7 | **Sacrificer** | ESTABLISHED | The emotional register. The convergence integration is structurally elegant. "Receiving as strength" is genuinely moving. But the doubt is the most personal and least plot-driving. |
 
 **Tier 4 — The Spice (Right player, right table)**
 
 | Rank | Archetype | Status | Rationale |
 |------|-----------|--------|-----------|
-| 8 | **Trickster** | PROPOSED | Most interesting on paper. Identity crisis is existentially compelling. But high-risk — wrong player poisons party trust. Best as Model C late introduction after core party has bonded. |
+| 8 | **Trickster** | ESTABLISHED | Most interesting on paper. Identity crisis is existentially compelling. But high-risk — wrong player poisons party trust. Best as Model C late introduction after core party has bonded. |
 | 9 | **Visionary** | ESTABLISHED | The hardest cut from the original six. The Sentinel does the perception job better (present-tense observation vs. unreliable future-sight). The Seeker does the guidance job adequately (investigation vs. vision). The Visionary's unique contribution — paranoia about manipulated direction — is powerful seasoning but not load-bearing. Most overlap with the Seeker in party function. |
-| 10 | **Crafter** | PROPOSED | Solid and practical. But the Breaker already covers physical consequences, the Keeper covers relationship with what endures. The Crafter's middle position, while valid, isn't as distinctive. |
-| 11 | **Healer** | PROPOSED | Only if no Sacrificer. The overlap with the Sacrificer is too significant otherwise. |
+| 10 | **Crafter** | ESTABLISHED | Solid and practical. But the Breaker already covers physical consequences, the Keeper covers relationship with what endures. The Crafter's middle position, while valid, isn't as distinctive. |
+| 11 | **Healer** | ESTABLISHED | Only if no Sacrificer. The overlap with the Sacrificer is too significant otherwise. |
 
 ### Recommended "Best Six" Roster
 
@@ -517,11 +513,11 @@ The Sacrificer moves to "woven into convergence if a seventh player appears." Th
 | Bridge | 📋 Sketch only | ❌ Not written | ✅ CORE_CAMPAIGN | Design questions open. Target 20-25 min. |
 | Visionary | 📋 Sketch only | ❌ Not written | ✅ CORE_CAMPAIGN | Least developed of original six. No prose, no segments, no NPCs. |
 | Sacrificer | 📋 Framework only | ❌ Not written | ✅ CORE_CAMPAIGN | Choice architecture set. Situation TBD. Woven into convergence. |
-| Sentinel | 📋 Concept only | ❌ Not written | ✅ This document | Proposed. Awakening sketch exists. |
-| Keeper | 📋 Concept only | ❌ Not written | ✅ This document | Proposed. Awakening sketch exists. |
-| Trickster | 📋 Concept only | ❌ Not written | ✅ This document | Proposed. Design caution flagged. |
-| Crafter | 📋 Concept only | ❌ Not written | ✅ This document | Proposed. Tool distinction from Breaker needed. |
-| Healer | 📋 Concept only | ❌ Not written | ✅ This document | Proposed. Lowest priority. |
+| Sentinel | 📋 Concept only | ❌ Not written | ✅ This document | Established (guardian/threshold). Tool confirmed: cracked lantern. |
+| Keeper | 📋 Concept only | ❌ Not written | ✅ This document | Established. Tool pending Decision 11 lock: iron key with wax seal. |
+| Trickster | 📋 Concept only | ❌ Not written | ✅ This document | Established. Design caution flagged. |
+| Crafter | 📋 Concept only | ❌ Not written | ✅ This document | Established. Tool confirmed: worn whetstone. |
+| Healer | 📋 Concept only | ❌ Not written | ✅ This document | Established. Tool confirmed: bone needle + silk thread. |
 
 ### Minimum Viable Party Reminder
 

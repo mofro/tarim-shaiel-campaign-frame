@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-05-06
+last_updated: 2026-05-07
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -43,6 +43,7 @@ _One-line summaries. Source of truth: `.meta/DECISION_LOG.md` (human archive —
 | # | Question | Gates |
 |---|---|---|
 | 11 | Cosmic Conscription — expulsion as punishment vs. deployment? | Celestial Court nature, full Wizard motivation |
+| 15 | Keeper surrendered layer (Custodial) + tool (iron key with wax seal) — pending lock | Keeper awakening scenario |
 | — | Wizard's specific motivation for breaching the Threshold (the "why") | Campaign frame writing sessions |
 | — | Celestial Court nature (distributed will vs. unified?) | Decision 11 |
 

@@ -695,3 +695,18 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Rationale:** Sentinel identity axis resolved as guardian/threshold (not witness/record-keeper), making cracked lantern the correct tool. Seeker tome confirmed — tome mirrors the epistemic surrendered layer (accumulated certainty, now absent); bow represented a competing design direction ("reaching toward") and was dropped. Player-facing descriptions for all 10 archetypes now complete in both PLAYER_PITCH_AND_PRINCIPLES.md and PLAYER_PITCH_AND_PRINCIPLES_GM.md.
 
 **Previously blocking:** HeroHeaven-5u7 (4 optional archetype descriptions).
+
+---
+
+### Decision 15 — Keeper Surrendered Layer + Tool
+**Date:** 2026-05-07
+**Status:** Pending lock (gates on Keeper awakening scenario)
+**Domain:** Characters
+
+**Decision:** Keeper archetype established as 11th archetype (not replacing any existing one — limits on roster size are arbitrary). Surrendered layer: *Custodial* — the operating certainty that preservation is inherently virtue; what was given up was confidence that the judgment of what deserved to survive was correct. Tool: iron key with wax seal.
+
+**Rationale:** Custodial layer is the precise mirror of the Keeper's doubt (did preservation shelter what shouldn't have survived?) and the natural inverse of the Breaker's Ontological layer. Iron key with wax seal embodies the Keeper's method — opens things and seals them — and carries the R/H/K tension cleanly: Warren allegiance surfaces in what it will unseal and what it holds shut.
+
+**Blocking:** Keeper awakening scenario (not yet written).
+
+**Previously blocking:** HeroHeaven-1kx (player arc drift audit — Keeper was absent from optional archetype descriptions).

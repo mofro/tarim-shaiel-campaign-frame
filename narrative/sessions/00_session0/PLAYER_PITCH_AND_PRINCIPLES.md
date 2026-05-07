@@ -7,7 +7,7 @@ content_type: campaign_frame
 visibility: public
 status: canon
 created: 2026-05-06
-last_updated: 2026-05-06
+last_updated: 2026-05-07
 ---
 
 # Tarim Shaiel
@@ -37,7 +37,7 @@ Before ancestry, before class, before backstory — sit with this question:
 
 Not what they can do. How they meet the world.
 
-Ten approaches are available. Each describes a way of being present in a situation that demands response. None is a character class. None is a prescribed backstory. Each is a spine — an orientation that shapes how your character meets obstacles, builds relationships, and is changed by the campaign.
+Eleven approaches are available. Each describes a way of being present in a situation that demands response. None is a character class. None is a prescribed backstory. Each is a spine — an orientation that shapes how your character meets obstacles, builds relationships, and is changed by the campaign.
 
 ---
 
@@ -53,7 +53,7 @@ They are defined less by the capacity for violence than by the discipline that g
 
 Holds the threshold. Not because someone assigned it — because the threshold exists and someone has to be there when it's tested. When others move through danger toward safety, the Sentinel moves in the other direction: toward the door, the edge, the place where something might come through. Their gift is constancy: they are there when the crisis arrives, and still there after it passes.
 
-Their doubt is quiet and specific: whether standing between others and harm is the same as preventing it. Every harm that arrived in spite of everything is a question they carry without a clean answer.
+Their doubt is not abstract. It is specific to the threshold they hold: whether they are the reason the door remains standing — or the reason the threat keeps returning to it. Every time they stand between someone and harm, the question surfaces: whether their presence is protection, or whether it is a beacon.
 
 ---
 
@@ -69,7 +69,7 @@ Their doubt arrives in the aftermath. In the wreckage. In the space where a stru
 
 Doesn't fight the odds — changes them. Encounters a situation others treat as fixed and locates the piece that isn't: the assumption, the rule, the agreement no one has thought to question. Their gift is re-framing: when everyone else is trying to win the game, the Trickster is already deciding what game is actually being played.
 
-Their doubt is the underside of every success: whether the outcome arrived because of them, or because what they exploited was already broken. Whether cleverness is a skill or just luck that learned to explain itself.
+Their doubt arrives slowly, in the form of a question they've learned not to ask too directly: whether the face they're wearing now is the one they started with. Every mask taken on for good reason. Every persona worn long enough to become fluent. The doubt isn't about success or failure — it's about what's left when there's no one left to deceive.
 
 ---
 
@@ -85,7 +85,7 @@ Their gift is connection. Their doubt is the cost of it: whether the middle grou
 
 Asks questions others don't. Follows threads past the point where most people would let them go. Their gift is the question, not the answer — the sustained willingness to find out even when the finding might be unwelcome.
 
-Their doubt lives in the gap between what they know and what they can do with knowing it. Some truths arrive without a clear use. The Seeker has usually already asked what happens then, and hasn't stopped thinking about it.
+Their doubt is not about what they know but about who guided them to it. Every question followed to its end. Every thread pulled until it gave. The doubt that stays with them: whether the questions were theirs to begin with, or whether someone with a reason to show them certain things was always a few steps ahead of the asking.
 
 ---
 
@@ -93,7 +93,7 @@ Their doubt lives in the gap between what they know and what they can do with kn
 
 Transforms things. Not just physical materials — although that too — but problems, plans, the raw and unusable. Where others see obstruction, the Crafter sees a starting point. Their gift is in the making itself: they know how to work with what's present rather than what they wish were there.
 
-Their doubt circles the purpose. Whether what they build is genuinely useful or a form of proving something — to themselves, to the people watching. Whether the satisfaction of a thing well-made is separable from the need to be seen making it.
+Their doubt is not about the work itself but about what the work became. Every tool made for a specific purpose. Every system built to serve a specific end. The doubt arrives when they encounter something in the world that feels familiar — a method, a structure, a capability — and cannot be certain who has been using it, or for what, since.
 
 ---
 
@@ -101,7 +101,7 @@ Their doubt circles the purpose. Whether what they build is genuinely useful or 
 
 Takes care of people. Notices what others need before they ask. Sustains. Their gift is freely given — they don't keep score, don't track the ledger, don't wait to be asked twice.
 
-Their doubt arrives in the quiet: whether giving freely and without condition, over time, takes something essential. Whether they'd recognize the absence if it did. Whether the care they offer everyone is inseparable from a difficulty accepting it themselves.
+Their doubt lives in the difference between a gift freely given and a gift that couldn't have been withheld. The Sacrificer gave — consistently, without condition, at real cost. The question that doesn't resolve: whether that willingness was agency, or whether it was something others learned to rely on. Whether choosing to give is ever entirely a choice.
 
 ---
 
@@ -109,7 +109,7 @@ Their doubt arrives in the quiet: whether giving freely and without condition, o
 
 Brings people back. From injury, from the edge of breaking entirely, from the moment where someone has stopped believing the effort is worth continuing. Their gift is recognition: they see the person still present in the wreckage before that person can see themselves.
 
-Their doubt is the question the healed rarely ask: whether care received is ever entirely free. Whether something is owed. Whether in mending someone the Healer has also bound them in a way that hasn't yet been named.
+Their doubt is specific and uncomfortable: whether mending someone well made it easier for everyone — including the healed — to stop looking at what broke them. Restoration is a gift. It is also, sometimes, a way of removing the evidence. The Healer carries the question of whether their care kept certain things from being looked at directly.
 
 ---
 
@@ -117,7 +117,17 @@ Their doubt is the question the healed rarely ask: whether care received is ever
 
 Sees what needs to happen. Acts on conviction rather than authority — moves toward what they understand to be necessary without waiting for permission, authorization, or consensus. Their gift is clarity: in a situation that paralyzes others with choices, they see the path.
 
-Their doubt is the honest question that clarity doesn't answer: whether their conviction is wisdom, or just certainty that found a comfortable home in them.
+Their doubt is the one they cannot think their way out of: whether what they see is what's there. Their gift is clarity — but clarity can be manufactured. Can be aimed. The honest question the Visionary carries is not whether their judgment is good, but whether what they're seeing with has been compromised at the source.
+
+---
+
+### The Keeper
+
+Holds what would otherwise be lost. Not because no one else could — but because most people, when the burning starts, reach for what can be rebuilt rather than what cannot. Their gift is discernment under pressure: knowing which thread, if pulled, unravels something irreplaceable, and acting on that knowing before the moment passes.
+
+Most people, when the world starts burning, let go of what can be rebuilt. The Keeper decides what isn't allowed to be lost — and acts on that decision, whatever it costs to carry it forward. Their gift is the willingness to be the one responsible: to say *this survives* and mean it when the pressure to release is at its highest.
+
+What they protect outlasts them. What they lose stays lost. Their doubt arrives when something they kept turns out to shelter something they didn't intend: whether holding on was wisdom, or fear of loss dressed in careful hands — and whether some of what they preserved was better left to burn.
 
 ---
 

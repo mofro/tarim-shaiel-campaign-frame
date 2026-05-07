@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-05-06
+last_updated: 2026-05-07
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -28,8 +28,9 @@ last_updated: 2026-05-06
 | Warrior | Stands between others and harm; steady; reliable | [[characters/archetypes.md]] |
 | Visionary | Sees what needs to happen; acts on conviction, not authority | [[characters/archetypes.md]] |
 
-## 4 Optional Archetypes
+## 5 Optional Archetypes
 - Trickster, Crafter, Sentinel, Healer — player-facing descriptions complete (2026-05-06); awaiting awakening scenarios
+- Keeper — player-facing description complete (2026-05-07); surrendered layer + tool pending Decision 15 lock
 
 ## Tools-as-Animistic-Divine-Marks 🔒
 - Tools = externalized divine nature, not passive weapons
@@ -52,12 +53,14 @@ last_updated: 2026-05-06
 | Trickster | Systematic | The certainty that every structure has an exploitable gap |
 | Crafter | Mastery | Craft applied correctly produces the intended result |
 | Healer | Curative | Healing is complete; full restoration is possible |
+| Keeper | Custodial | Preservation is inherently virtue; the judgment of what deserves to survive |
 - Full rationale: gm_secrets/Session_0_Awakening_Design_Notes.md (do not read for archetype constraint questions)
 
 ## Tool Proposals (confirmed, Decision 10 locked 2026-05-06)
 - Warrior: iron blade | Seeker: tome | Breaker: crude hammer | Bridge: knotted silk cord
 - Sacrificer: scale with one pan missing | Visionary: obsidian disk
 - Trickster: shaved coin | Crafter: worn whetstone | Sentinel: cracked lantern | Healer: bone needle + silk thread
+- Keeper: iron key with wax seal (pending Decision 15 lock)
 
 ## Mechanical Identity Carriers (post-charm-removal)
 - **Vestiges** — physical remnants of past power, awakening slowly
