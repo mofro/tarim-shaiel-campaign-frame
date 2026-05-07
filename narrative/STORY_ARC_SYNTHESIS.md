@@ -7,7 +7,7 @@ content_type: campaign_frame
 visibility: gm_secrets
 status: draft
 created: 2026-02-09
-last_updated: 2026-02-09
+last_updated: 2026-05-07
 banner: images/places/1249702.jpg
 ---
 
@@ -28,45 +28,50 @@ Think of it as a network of pressure vessels. Magic flows through the world alon
 
 **The system works because it is in equilibrium.** Power accumulates, is earned, is spent, cycles back. The Warrens channel. The Holds contain. Hero Heaven rewards. The threshold regulates. It has worked this way since before recorded history.
 
-### The Sleeping Entity [PROPOSED]
+### The Held Breath [ESTABLISHED — locked 2026-03-08]
 
-Beneath (or beyond, or entangled with) this ecosystem lies something older. Not a god. Not a demon. Not even a being in any conventional sense. A **cosmic pressure** — a force that predates the mythic ecosystem and which the ecosystem was, in part, constructed to contain.
+The cosmic threat is not a singular entity. Not a god. Not a demon. Not a geological force. The Held Breath are **multiple liminal consciousnesses at celestial scale** — ancient presences that exist in suspension, neither fully awake nor fully absent. Their nature resists mortal categories: they are not imprisoned, not sleeping, not waiting in the way a predator waits. They are *held back* by cosmological equilibrium — and that equilibrium is what the Wizard's plan threatens.
 
-**What it is:**
-- Not conscious in the way mortals understand consciousness
-- More like a geological force — tectonic, patient, inevitable
-- The mythic ecosystem channels and dissipates its influence the way a river system manages floodwaters
-- It doesn't *want* anything. It simply *is* — and if the channels that contain it crack, it floods through
+**What they are:**
+- Multiple, not singular — distinct liminal consciousnesses, each of enormous scale
+- Not actively malevolent — not awake enough to have mortal-recognizable intent or agenda
+- Held in suspension by the balance of the Warren structure; not imprisoned by any act of will or design
+- The horror is not what they want. The horror is what they *weigh*.
 
-**What it does when disturbed:**
-- Reality becomes unstable near the cracks (Malazan Calamity Table parallels — otataral scarring, Chaos bleed)
-- Magic becomes unreliable, then dangerous, then self-consuming
-- The boundaries between mortal and celestial erode
-- Beings that exist in the spaces between Warrens begin to stir and push through
-- At full destabilization: the mythic ecosystem collapses entirely — no more Warrens, no more Holds, no more Hero Heaven, no more structured magic. Raw, undifferentiated cosmic force replaces ordered reality
+**What happens when they begin to stir:**
+- Reality near the disturbance becomes *wrong* in ways hard to name — not mechanically unstable, but felt
+- The Warren structure warps around them as they shift
+- Beings that exist in liminal spaces — between Warrens, between states — feel the change first and move in response; some with agendas of their own
+- What risks tipping them from suspension: concentrated power events at sufficient scale. The liberation 1,000 years ago was one. The Wizard's necromantic assault on the Threshold would be another, larger by an order of magnitude.
 
-**Malazan Parallel:** The Crippled God — a force chained by the very structure of the world, whose chains are the Warrens themselves. Damaging the Warrens doesn't just disrupt magic; it weakens the containment of something that should never be uncontained.
+**Critical framing:** The Held Breath do not need to *act* to be catastrophic. Their weight is the problem. A liminal consciousness at celestial scale beginning to move from suspension toward something else — that transition is the endgame threat. Not attack. Not malice. Weight.
 
-### How the Wizard Threatens It [PROPOSED]
+**Do not use "sleeping entity" language in any player-facing or GM-facing material. "Held Breath" is the canonical term.**
 
-The Wizard's plan to breach the Hero Heaven threshold is not just a heist. It is an assault on a **load-bearing wall of the mythic ecosystem**.
+### How the Wizard Threatens It [ESTABLISHED — locked 2026-03-08 / 2026-03-17]
 
-**What the Wizard knows (or thinks he knows):**
-- Hero Heaven is a reservoir of concentrated celestial power
+The Wizard's plan to breach the Hero Heaven threshold is not just a heist. It is an assault on a **load-bearing node in the Warren structure**.
+
+**What the Wizard knows:**
+- Hero Heaven is adjacent to Warren structure — wired directly into the cosmological infrastructure
 - The threshold is the access point
-- Breaching it by force (via Lich-Legion assault + heroes' stolen essence) would give him access to that power
-- He believes he can control or absorb it
+- He has spent 1,000 years studying the ecosystem's structure — he knows more about it than almost anyone alive
+- He knows about the Held Breath; he believes he can manage the risk
 
-**What the Wizard doesn't understand (or refuses to accept):**
-- The threshold is not just a door. It is a **pressure regulator**
-- Forcing it open doesn't just let him in — it creates a crack in the containment system
-- The concentrated celestial power he wants to steal is part of what holds the sleeping entity in check
-- Breaching it with necromantic force (fundamentally anti-life, anti-cycle energy) is like injecting poison into the system's circulatory network
-- The Lich-Legion itself — 100,000+ reanimated dead, all channeling necromantic energy — is already straining the mythic ecosystem. Their mere *existence* at this scale creates pressure
+**The locked framing (Decision 4 — B+C):**
+- **Tragic hubris seeded by cosmic manipulation** — the Wizard acts in overconfidence, not ignorance
+- He believes a controlled breach of the threshold + absorption of celestial power will let him *strengthen* rather than destabilize the Warren structure
+- He sees himself as the one mind disciplined and knowledgeable enough to do what no one else would dare
+- What he does not realize: his certainty about this has been shaped over 1,000 years by the Held Breath themselves — his conviction is not purely his own
+- His plans will appear *almost* coherent to players who piece them together. More unsettling than cartoonish evil.
 
-**The Irony:** The Wizard is brilliant, patient, and methodical. He has spent 1,000 years planning. But his plan is built on a model of the cosmos that is *almost* right — and the gap between "almost right" and "right" is the distance between controlled access and catastrophic rupture.
+**What the breach actually does (locked — Decision 7):**
+- The Threshold breach causes **immediate, unmistakable cosmological consequence** — not slow accumulation
+- Breaching it kicks a load-bearing wall; the Warren structure cracks visibly and at once
+- The Held Breath begin to stir — not because the Wizard intended it, but because the weight of the event tips the equilibrium
+- This is Layer 2 of the Three-Layer Revelation: the heroes stop the Wizard, and the consequences arrive anyway
 
-**Design Question:** Does the Wizard *know* about the sleeping entity and believe he can manage the risk? Or is he genuinely ignorant of it? (This determines whether he's tragic-hubristic or tragic-ignorant — both work, but they create different confrontation dynamics.)
+**Wizard's specific motivation for *why* he wants to breach the Threshold:** separate writing task, not yet resolved ❓
 
 ### Why the Heroes Were Really Expelled [PROPOSED — EXTENDS ESTABLISHED]
 
@@ -76,10 +81,10 @@ The Wizard's plan to breach the Hero Heaven threshold is not just a heist. It is
 
 The heroes don't know this. The gaes channeled through their fallen companion doesn't explain this. They experience it as punishment, or at best, as merciful deployment to finish the Wizard. But the deeper truth is that they were expelled because the mythic ecosystem *needs them* — not just to stop one man, but to prevent a cosmological collapse they can barely comprehend.
 
-**Narrative Implication:** The heroes' journey has three nested revelations:
-1. "We need to stop the Wizard" (surface quest, discovered early-mid campaign)
-2. "The Wizard's plan would crack the mythic ecosystem" (mid-late campaign revelation)
-3. "The ecosystem is already stressed, and fixing it requires more than stopping one man" (endgame revelation — requires understanding, not just force)
+**Three-Layer Revelation (locked — Decision 8):**
+1. **Stop the Wizard** — surface quest; discovered early-mid campaign
+2. **Threshold breach consequences** — the Wizard's assault causes immediate cosmological consequence; the Held Breath stirs; stopping him was necessary but not sufficient
+3. **Warren reckoning** — heroes must reckon with the Warren-level agendas disturbed by the liberation 1,000 years ago; those 1,000 years of running agendas are the endgame, not a cleanup task
 
 ---
 
@@ -95,8 +100,8 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 
 **What they understand:**
 - The mythic ecosystem exists as a structured whole (they have cosmological literacy)
-- The sleeping entity is real — their Daoist-immortal cultivation practices are partly *techniques for not disturbing it*
-- The threshold to Hero Heaven is a critical node in the containment system
+- The Held Breath are real — their Daoist-immortal cultivation practices are partly *techniques for not adding weight to what is already suspended*
+- The threshold to Hero Heaven is a critical node in the Warren structure
 - Necromancy at scale is cosmologically dangerous, not just morally objectionable
 - Something has been building pressure in the ecosystem for centuries
 
@@ -107,7 +112,7 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 - How to fix a breach if one occurs (their knowledge is preventive, not restorative)
 
 **Their stance:**
-- Withdrew from mortal affairs *partly because* proximity to mortal power accumulation risks disturbing the entity
+- Withdrew from mortal affairs *partly because* proximity to mortal power accumulation adds weight to the Warren equilibrium — "power draws power," and the Held Breath are what that power draws toward
 - Their "diminishing" is *voluntary retreat from the mortal layer* — they're not fading, they're *stepping back from a fault line*
 - A handful of High Elf elders might be convinced to share knowledge, but only if the heroes demonstrate they understand what's at stake (not just "save the world" but "preserve the structure of reality")
 - Most High Elves believe mortals are incapable of understanding and that intervention makes things worse
@@ -205,7 +210,7 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 - Isolated, often marginalized or dismissed as eccentrics
 - Some have been actively suppressed (Wizard's agents eliminating researchers who get too close)
 - Would be invaluable allies if the heroes can find them and connect their fragments
-- Their knowledge is *practical* — they might know how to detect ecosystem damage, create temporary stabilization, or identify the most vulnerable points
+- Their knowledge is *practical* — they might know how to detect Warren disturbances, map the dead zones, or identify where the Warren structure is most strained
 
 **What they fear:**
 - Being right (and being unable to do anything about it alone)
@@ -232,7 +237,7 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 
 **Their stance:**
 - Would be deeply conflicted if told their liberation damaged the ecosystem (defensive, potentially hostile to messengers who seem to be saying "you shouldn't have been freed")
-- Heroes must be *extremely careful* how this information is presented — the Orcs' liberation was RIGHT, but it was INCOMPLETE (the heroes failed to repair the ecosystem damage, not the Orcs)
+- Heroes must be *extremely careful* how this information is presented — the Orcs' liberation was RIGHT, but it was INCOMPLETE (the heroes failed to reckon with the Warren disturbance the liberation caused; the Orcs bear none of that weight)
 - Their shamanic traditions contain practical techniques for sensing ecosystem health — useful field tools
 - The oldest Orc epic songs contain verses about "the silence beneath the drumming" that may be literal descriptions of the entity
 
@@ -263,7 +268,7 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 **Their stance:**
 - Pragmatic: "Whatever's happening, it's bad for business"
 - Would trade information for information — show them what their data means and they'll share everything
-- Their networks could be instrumental in tracking ecosystem damage, Lich-Legion movements, and Wizard activities across the continent
+- Their networks could be instrumental in tracking Warren disturbances, Lich-Legion movements, and Wizard activities across the continent
 - No cultural investment in any particular cosmological theory — they'll believe whatever explains what they're seeing
 
 **What they fear:**
@@ -280,36 +285,21 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 
 ### THE WIZARD — "The Man Who Thinks He Understands"
 
-**What he understands:**
-- More than almost anyone alive about the mythic ecosystem's structure (he has studied it for 1,000 years)
+**What he understands (Decision 4 — B+C locked 2026-03-17):**
+- More than almost anyone alive about the Warren structure (he has studied it for 1,000 years)
 - That Hero Heaven contains concentrated celestial power
 - That the threshold is a critical access point
-- That his necromantic techniques work by *inverting* the ecosystem's natural flow (death energy where life energy should be)
-- [DESIGN QUESTION: Does he know about the entity?]
+- That his necromantic techniques work by inverting the Warren's natural flow
+- That the Held Breath exist — and he believes he can manage the risk
 
-**Option A — Tragic Ignorance:**
-- He does NOT know about the sleeping entity
-- His model of the cosmos is 95% correct — sophisticated enough to build a 1,000-year plan, but missing the one variable that makes his plan catastrophic
-- His confrontation with the heroes becomes: "You can't stop progress" vs. "You don't know what you're risking"
-- Tragedy: he's not evil, he's *incomplete* — the same flaw as the heroes
+**Locked framing — B+C combined (tragic hubris seeded by cosmic manipulation):**
+- He DOES know about the Held Breath; he acts in *overconfidence*, not ignorance
+- He believes controlled breach of the threshold + absorption of celestial power will let him *strengthen* Warren equilibrium rather than break it — he sees himself as the savior
+- His plan appears almost coherent to players who piece it together; more unsettling than cartoonish evil
+- What he cannot see: the Held Breath have been shaping his certainty over 1,000 years; his conviction is not purely his own; he is the most patient, disciplined mind in the world — patient and disciplined enough to be the perfect instrument
+- Confrontation becomes layered: "We agree on the problem but your solution will kill us all" + "the thing you think you're controlling has been controlling you"
 
-**Option B — Tragic Hubris:**
-- He DOES know about the sleeping entity
-- He believes he can manage the risk — that controlled breach of the threshold + absorption of celestial power will let him *strengthen* the containment rather than weaken it
-- He sees himself as the savior: "I'm the only one with the knowledge and the will to fix this"
-- His plan is genuinely well-intentioned but fatally flawed
-- Confrontation becomes: "We agree on the problem but your solution will kill us all"
-- Tragedy: he's right about the threat but wrong about the cure
-
-**Option C — Cosmic Manipulation:**
-- The sleeping entity isn't truly unconscious — it exerts *influence*
-- The Wizard's obsession with breaching the threshold has been subtly encouraged over centuries
-- His 1,000-year plan is partly his own genius and partly the entity's slow manipulation
-- He doesn't realize he's a tool
-- Confrontation becomes: "The thing you're trying to control is the thing that's controlling you"
-- Tragedy: the most patient, disciplined mind in the world was patient and disciplined enough to be the perfect instrument
-
-**[Mo: Which of these resonates? They're not mutually exclusive — C could layer onto either A or B.]**
+**Wizard's specific motivation for *why* he wants to breach the Threshold:** not yet resolved ❓ (separate writing task)
 
 ---
 
@@ -321,8 +311,8 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 
 **What they will learn:**
 - Layer 1 (Early): The Wizard survived, is planning something, must be stopped
-- Layer 2 (Mid): The Wizard's plan threatens the mythic ecosystem, not just political stability
-- Layer 3 (Late): The ecosystem is already strained, the entity stirs, and stopping the Wizard is necessary but not sufficient — the heroes must also *repair* what their incomplete charge left damaged
+- Layer 2 (Mid): The Wizard's Threshold breach causes immediate cosmological consequence — the Held Breath stirs; stopping him was necessary but not sufficient
+- Layer 3 (Late): Heroes must reckon with the Warren-level agendas disturbed by the liberation 1,000 years ago — those agendas have been running the entire time the heroes were in Hero Heaven
 
 **Why they're uniquely positioned:**
 - Their tools are fragments of celestial power — they can *sense* ecosystem health in ways no one else can
@@ -332,9 +322,8 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 
 **What they fear:**
 - Everything in CORE_CAMPAIGN_NARRATIVE.md still applies
-- Additionally: that their expulsion *weakened* the ecosystem (their celestial power, removed from Hero Heaven and placed in the mortal world, is additional pressure on an already strained system)
-- That using their Charms might be making things worse
-- That the tools' Resistance isn't protecting them — it's protecting the *ecosystem* from them
+- Additionally: that their presence in the mortal world is itself a beacon event — concentrated celestial power drawing Warren attention in ways they don't yet understand
+- That their tools' Resistance, Hunger, and Knowing aren't protective instincts aimed at *them* — they are Warren allegiance; the tools serve Warren interests that may not align with the heroes' goals
 
 **Stakes if the ecosystem collapses:**
 - Hero Heaven ceases to exist — their reward is gone permanently, not just temporarily
@@ -372,8 +361,8 @@ Beneath the prosperity, stress fractures:
 Invisible to almost everyone:
 - Lich-Legion (~100,000 undead) hidden across the continent
 - Wizard positioned for final assault on threshold
-- Ecosystem containment under increasing strain
-- The sleeping entity stirring — not awake, but restless
+- Warren equilibrium under increasing strain from 1,000 years of accumulated disturbance
+- The Held Breath stirring — not awake, but their weight shifting
 
 ### The Information Puzzle
 
@@ -387,7 +376,7 @@ The heroes will need to travel, build alliances, and synthesize knowledge from m
 | Human scholars | Practical fragments, dead zone mapping | Protection (being hunted) + synthesis | Scattered, isolated, some in hiding |
 | Goblin/Halfling networks | Continent-wide observational data | Explanation of what their data means | Everywhere, for a price |
 | Mortal Elf elders | Emotional/intuitive guidance, High Elf access | Trust, patience | Isolated enclaves |
-| Heroes' own tools | Celestial memory, ecosystem sensing | Recovery of Charms, willingness to listen to whispers | Internal journey |
+| Heroes' own tools | Celestial memory, Warren sensing | Willingness to listen to what the tools Know — and reckon with whose interests they serve | Internal journey |
 
 ---
 
@@ -425,11 +414,11 @@ The heroes will need to travel, build alliances, and synthesize knowledge from m
 - Orcish shamans report: "The ancestors are harder to reach. Something is thinning."
 - Human scholars found in hiding: "I was researching why magic fails in certain places. Then my colleagues started dying."
 - Goblin/Halfling networks provide the continent-wide view: "Dead zones are expanding. Trade preservation magic is failing."
-- Heroes' Charms awaken further — and they begin *sensing* what the Elves and shamans sense: something deep is wrong
+- Heroes' tools awaken further — Resistance, Hunger, Knowing intensify — and they begin *sensing* what the Elves and shamans sense: something deep is wrong
 - **Mid-Act turning point:** Contact with Mortal Elf elders who provide access (maybe) to High Elf knowledge. First exposure to the cosmological framework: "There is a structure beneath magic. It is under strain."
 - Individual Lich commander encounters (boss fights revealing diverse tragic backstories — the Orc shaman Lich, the Dwarf archivist Lich, etc.)
 - Heroes realize: even if they stop every Lich, the Wizard's *method* (necromancy at this scale) is already damaging the ecosystem
-- **Act II climax:** A major revelation — either through High Elf contact, recovered celestial memory, or witnessing a localized ecosystem failure (a place where the Warren/Hold structure visibly cracks, reality destabilizes, creatures from between push through). The heroes understand: this is bigger than the Wizard. His plan would breach the containment. The sleeping entity stirs.
+- **Act II climax:** A major revelation — either through High Elf contact, recovered celestial memory, or witnessing a localized Warren fracture (a place where the structure visibly cracks, reality destabilizes, entities from between push through with agendas of their own). The heroes understand: this is bigger than the Wizard. His plan would breach the Threshold. The Held Breath stirs.
 
 ### Act III: "The Real Charge" (Sessions 26-40+)
 **Surface Quest:** Confront the Wizard, defend the threshold
@@ -437,7 +426,7 @@ The heroes will need to travel, build alliances, and synthesize knowledge from m
 
 **Key beats:**
 - Full-scale Lich-Legion assault across the continent (multi-front war, factions finally cooperating)
-- Heroes must choose: pursue the Wizard directly, or address ecosystem damage first?
+- Heroes must choose: pursue the Wizard directly, or address the Warren disturbances already in motion?
 - The fallen companion's ghost becomes clearer: the gaes wasn't just "stop the Wizard" — it was "heal what we broke"
 - Heroes realize their *expulsion* was part of the repair: they carry celestial power that the ecosystem needs reintegrated, not hoarded in Hero Heaven
 - Approach the threshold — the geographic and cosmological climax point
@@ -479,17 +468,17 @@ The heroes will need to travel, build alliances, and synthesize knowledge from m
 
 ### Critical (Must Decide Before Outline Becomes Canon)
 
-1. **The Entity's Nature:** Geological force? Proto-consciousness? Something that was *deliberately* contained (by whom?)? How Malazan do we go? (Crippled God = deliberately chained; pure Chaos = natural force; something else?)
+1. ~~**The Held Breath Nature**~~ **✅ LOCKED (2026-03-08):** Plural liminal consciousnesses at celestial scale. Not geological, not a singular entity. Held in suspension by Warren equilibrium. Horror = their weight, not malice. Not deliberate containment — cosmological balance. See lat.md/cosmology.md.
 
-2. **Wizard's Awareness:** Option A (ignorant), B (hubristic), or C (manipulated)? Or a combination?
+2. ~~**Wizard's Awareness**~~ **✅ LOCKED (2026-03-17 — Decision 4):** B+C combined. Knows about the Held Breath; acts in overconfidence; his certainty has been shaped by the Held Breath over 1,000 years. Not ignorant — hubristic and manipulated simultaneously.
 
-3. **Heroes' Charm Usage and Ecosystem Impact:** Do the heroes' Charms strain the ecosystem? If so, this creates a devastating tension: their greatest power is also part of the problem. (Recommendation: yes, but at a level that's manageable — the cost is real but the benefit outweighs it. Creates meaningful choice without making their power feel toxic.)
+3. **Heroes' Tool Usage and Warren Impact:** Do the heroes' tools strain the Warren structure? (Note: Charm system removed 2026-03-13 — mechanics now carried by Tools, Vestiges, Memory Fragments, The Wrongness.) The tools are Warren ambassadors — their R/H/K reflects Warren interests. Whether using them in the mortal world is itself a beacon event is an open question. (Recommendation: yes, but at a level that's navigable — creates meaningful tension without making their power feel toxic.)
 
-4. **The Liberation's Side Effects:** How much did breaking the binding spells damage the ecosystem? This must be handled with extreme care — the liberation was UNEQUIVOCALLY RIGHT. The damage was a side effect the heroes should have repaired, not evidence that the liberation was wrong. (The analogy: demolishing a building safely requires cleaning up the rubble. They demolished the building [good] but left the rubble [incomplete charge].)
+4. **The Liberation's Warren Disturbance:** How much attention did shattering thousands of binding spells attract across the Warrens? The liberation was UNEQUIVOCALLY RIGHT — the framing is not ecosystem damage but beacon event: 1,000 years of entities with agendas responding to that signal. The open question is what those agendas have become after 1,000 years of running.
 
-5. **The Threshold's True Nature:** Is it one of several pressure regulators, or THE critical one? (Recommendation: one of several, but the most important — others exist but they can't compensate if this one fails.)
+5. **The Threshold's True Nature:** Is it one of several load-bearing Warren nodes, or THE critical one? (Recommendation: one of several, but the most important — others exist but cannot compensate if this one breaches.)
 
-6. **Can the Entity Be Communicated With?** If it's purely geological, no. If it has proto-consciousness, maybe — but this changes the endgame dramatically. (Recommendation: keep it non-conscious. The horror is that there's no one to negotiate with. It simply *is*.)
+6. **Can the Held Breath Be Communicated With?** They are liminal consciousnesses, not geological forces — proto-consciousness exists at some level. But whether communication is possible, and what that would mean for the endgame, is unresolved. (The horror works either way: "there's no one to negotiate with" is terrifying; "there is someone, but they are *vast* and not interested in mortal terms" may be more so.)
 
 ### Important (Should Decide Before Mid-Campaign)
 
@@ -510,15 +499,15 @@ This synthesis draws from and should be cross-referenced with:
 | **Document**                      | **What It Provides** | **What This Synthesis Adds** |
 | --------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------ |
 | CORE_CAMPAIGN_NARRATIVE.md        | Heroes' identity, self-doubt, tools, charge | Cosmological context for WHY all of this is happening |
-| HISTORICAL_TIMELINE.md            | 1,000-year history, 5 eras, Wizard's plan | The hidden through-line: ecosystem degradation across all eras |
+| HISTORICAL_TIMELINE.md            | 1,000-year history, 5 eras, Wizard's plan | The hidden through-line: 1,000 years of Warren disturbance across all eras |
 | CULTURAL_FRAMEWORK.md             | Faction dynamics, trade, species relations | Each faction's STAKES in the cosmic crisis |
-| HERO_HEAVEN_THRESHOLD.md          | Threshold as location, access, endgame | Threshold as ecosystem node, not just a door |
+| HERO_HEAVEN_THRESHOLD.md          | Threshold as location, access, endgame | Threshold as Warren load-bearing node, not just a door |
 | WIZARD_AND_LICH_CADRE.md          | Antagonist details, Lich-Legion, campaign structure | Wizard's plan as cosmological threat, not just military one |
-| SPELLS_VS_CHARMS_ANALYSIS_v7.md   | Dual magic system | Charms as celestial ecosystem connections; spells as Warren-channeled |
-| MYTHOLOGICAL_MAPPING_FRAMEWORK.md | Cultural mythologies | Each culture's myths contain fragments of ecosystem knowledge |
-| HERO_IDENTITY.md                  | Who heroes are cosmologically | Heroes as ecosystem repair agents, not just warriors |
-| MALAZAN_HOLDS_&_WARRENS_SYSTEM.md | Magic system reference | Warrens/Holds as ecosystem channels; Calamity Table as ecosystem failure |
-| Sessions_Structure.md             | Session 0 architecture | Awakening as ecosystem perturbation; tools as ecosystem sensors |
+| SPELLS_VS_CHARMS_ANALYSIS_v7.md   | Legacy dual magic system (Charm system removed 2026-03-13) | Tools as Warren ambassadors; spells as Warren-channeled |
+| MYTHOLOGICAL_MAPPING_FRAMEWORK.md | Cultural mythologies | Each culture's myths contain fragments of Warren knowledge |
+| HERO_IDENTITY.md                  | Who heroes are cosmologically | Heroes as Warren disturbance reckoners, not just warriors |
+| MALAZAN_HOLDS_&_WARRENS_SYSTEM.md | Magic system reference | Warrens/Holds as dimensional biome; Calamity Table as Warren fracture |
+| Sessions_Structure.md             | Session 0 architecture | Awakening as beacon event; tools as Warren ambassadors |
 
 ---
 
@@ -533,4 +522,4 @@ This synthesis draws from and should be cross-referenced with:
 
 ---
 
-*This document is a WORKING DRAFT. Nothing here is canon until Mo approves it. The purpose is to provide a complete picture for discussion and refinement.*
+*This document is a WORKING DRAFT. Cosmological architecture (Parts 1–2) now reflects locked decisions as of 2026-03-08/2026-03-17. Story arc outline and stakeholder framing (Parts 3–4) are provisional. Open design questions in Part 5 are updated to reflect resolved vs. still-open status.*
