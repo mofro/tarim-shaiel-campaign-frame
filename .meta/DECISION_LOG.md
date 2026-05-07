@@ -710,3 +710,16 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Blocking:** Keeper awakening scenario (not yet written).
 
 **Previously blocking:** HeroHeaven-1kx (player arc drift audit — Keeper was absent from optional archetype descriptions).
+
+---
+
+## Decision 16 — Seeker canonical tool: Tome (locked)
+**Date:** 2026-05-07
+**Domain:** Mechanics / Characters
+**Status:** LOCKED
+
+**Decision:** The Seeker archetype's canonical Session 0 tool form is a **tome** (leather-bound, star charts, accumulated certainty). The bow — previously listed in TOOL_EVOLUTION_FRAMEWORK Stage 0–3 examples — is a valid variant for Seeker + Ranger class combinations but is not the primary form.
+
+**Rationale:** The written Session 0 Seeker Awakening scenario is built entirely around the tome: its whisper voice ("without certainty, what are you?"), the R/H/K tension (certainty as the surrendered layer), and the awakening drama (the raider taking the tome). The Voice Character table in TOOL_EVOLUTION_FRAMEWORK Part 7 already recorded "Seeker | Tome" from completed awakening analysis. The bow was a stale example that predated the written scenario.
+
+**Files updated:** TOOL_EVOLUTION_FRAMEWORK.md (Stage 0–3 examples, Archetype-Class matrix, naming example, Next Steps note).
