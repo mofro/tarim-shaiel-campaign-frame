@@ -669,3 +669,29 @@ Dedicated `utilities/locations/` module separate from `generate_all_world_html.p
 
 Normalization script (`utilities/world/normalize_locations.py`) applied to all 37 location files: added `parent_region`, `visibility`, `status`; renamed `factions → factions_visible`.
 
+
+---
+
+### Decision 10 — Surrendered-Layer Framework (Locked 2026-05-06)
+
+**Domain:** Characters / Session 0  
+**Lock status:** 🔒 Locked
+
+**Decision:** The Surrendered-Layer Framework is fully locked. All 10 archetype surrendered layers and tools are confirmed:
+
+| Archetype | Surrendered Layer | Tool |
+|---|---|---|
+| Warrior | Tactical | Iron blade with wrapped bone grip |
+| Breaker | Ontological | Crude hammer |
+| Bridge | Relational | Knotted silk cord |
+| Seeker | Epistemic | Tome (confirmed; bow option dropped) |
+| Sacrificer | Volitional | Scale with one pan missing |
+| Visionary | Perceptual | Obsidian disk |
+| Sentinel | Warding | Cracked lantern (confirmed; recording device option dropped) |
+| Trickster | Systematic | Shaved coin |
+| Crafter | Mastery | Worn whetstone |
+| Healer | Curative | Bone needle + silk thread |
+
+**Rationale:** Sentinel identity axis resolved as guardian/threshold (not witness/record-keeper), making cracked lantern the correct tool. Seeker tome confirmed — tome mirrors the epistemic surrendered layer (accumulated certainty, now absent); bow represented a competing design direction ("reaching toward") and was dropped. Player-facing descriptions for all 10 archetypes now complete in both PLAYER_PITCH_AND_PRINCIPLES.md and PLAYER_PITCH_AND_PRINCIPLES_GM.md.
+
+**Previously blocking:** HeroHeaven-5u7 (4 optional archetype descriptions).

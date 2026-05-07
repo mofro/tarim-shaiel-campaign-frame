@@ -55,6 +55,18 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 ---
 
+### The Sentinel
+
+**Surrendered Layer (Decision 10 — locked):** *Warding* — presence as sufficient protection. What was surrendered at the threshold was the operating certainty that interposition prevents harm: that standing between something and its target is the same as stopping it. This is why the Sentinel's doubt centers on whether vigilance prevented anything — it is the precise site of what they gave.
+
+**Tool:** Cracked lantern. Carries consciousness and agency; can refuse or resist (Decision 5). Still casts light. The crack is not a failure of the tool — it is the record of every threshold held. Warren allegiance surfaces in what it illuminates and what it refuses to show.
+
+**Cosmological note:** The Sentinel's doubt (was I there, or did I stop it?) is not resolvable through normal experience. They held the threshold. Something still came through. The surrendered layer would have told them the difference; they don't have it anymore.
+
+**Awakening status:** Design skeleton only. Core scenario not yet written.
+
+---
+
 ### The Breaker
 
 **Surrendered Layer (Decision 10):** *Ontological* — identity defined by what they can destroy. What was surrendered was the operating assumption that destruction of the wrong structure was always justified liberation.
@@ -64,6 +76,18 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 **Cosmological note:** The Breaker's aftermath doubt (what did breaking this release?) is the site of the surrendered layer's absence. They feel the question most sharply because the certainty that once answered it was given up at the threshold.
 
 **Awakening status:** 🚧 v0.2.1, Segment 1 only. Scenario: collapsed inn after earthquake; the hammer is also structural support; abandon it or find another way. Use the design framework until complete.
+
+---
+
+### The Trickster
+
+**Surrendered Layer (Decision 10 — locked):** *Systematic* — the certainty that every structure has an exploitable gap. What was surrendered at the threshold was the operating confidence that cleverness finds the real leverage point, not merely a leverage point. This is why the Trickster's doubt centers on whether success came from skill or fragility — it is the precise site of what they gave.
+
+**Tool:** Shaved coin. Carries consciousness and agency; can refuse or resist (Decision 5). The weight is off; outcomes tilt but don't guarantee. Warren allegiance surfaces in which outcomes the coin tilts toward — and which results it refuses.
+
+**Cosmological note:** The Trickster's doubt (was it me, or was the world already broken?) is the exact register of the surrendered layer. They found the gap. They can no longer be certain they created favorable conditions or simply located a crack that already existed. Without the systematic certainty, those two things feel the same.
+
+**Awakening status:** Design skeleton only. Core scenario not yet written.
 
 ---
 
@@ -91,6 +115,18 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 ---
 
+### The Crafter
+
+**Surrendered Layer (Decision 10 — locked):** *Mastery* — the certainty that craft applied correctly produces the intended result. What was surrendered at the threshold was the operating confidence that skill, exercised fully, closes the gap between intention and outcome. This is why the Crafter's doubt circles purpose and audience — it is the precise site of what they gave.
+
+**Tool:** Worn whetstone. Carries consciousness and agency; can refuse or resist (Decision 5). Sharpens other things; does not act directly. Warren allegiance surfaces in what it will sharpen and what it refuses to touch.
+
+**Cosmological note:** The Crafter's doubt (for whom is this made?) is the absence of the surrendered layer made visible. They can make. They can no longer be certain the making produces what was intended or serves who they meant to serve. The uncertainty isn't a skill gap — it is the threshold cost.
+
+**Awakening status:** Design skeleton only. Core scenario not yet written.
+
+---
+
 ### The Sacrificer
 
 **Surrendered Layer (Decision 10):** *Volitional* — the right to refuse. What was surrendered was the option of self-protective non-participation: the ability to say *not my problem* and mean it.
@@ -100,6 +136,18 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 **Cosmological note:** The Sacrificer's doubt (whether giving freely over time takes something essential) is the site of the absence because the option to stop giving — to protect the self by withholding — no longer operates cleanly.
 
 **Awakening status:** Design framework only. The Sacrificer does NOT have a standalone awakening — they are woven through Act 2 convergence. They wake already being cared for (poor family's home, recipient of sacrifice rather than its source). This structural inversion is intentional: the archetype that gives without limit must first receive. Do not convert this to a standalone awakening.
+
+---
+
+### The Healer
+
+**Surrendered Layer (Decision 10 — locked):** *Curative* — the certainty that healing is complete, that restoration reaches the full depth of what was broken. What was surrendered at the threshold was the operating confidence that full recovery is possible: that nothing lost in the breaking is permanently absent. This is why the Healer's doubt centers on whether their care creates obligation — it is the precise site of what they gave.
+
+**Tool:** Bone needle + silk thread. Carries consciousness and agency; can refuse or resist (Decision 5). Binds things together; the binding is both repair and connection. Warren allegiance surfaces in which wounds it will close and which it refuses to touch.
+
+**Cosmological note:** The Healer's doubt (is this freely given, or does it bind?) traces the surrendered layer precisely. Full restoration was the operating certainty. Now they can mend — and something in the mending knows that what was broken didn't entirely come back. The doubt about obligation is the doubt about completeness wearing a different face.
+
+**Awakening status:** Design skeleton only. Core scenario not yet written.
 
 ---
 
@@ -117,7 +165,7 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 ## The Surrendered-Layer Framework (Decision 10)
 
-⚠️ **Proposed, pending lock. Do not lock without resolving: Seeker tome/bow discrepancy; Sentinel tool conflict (recording device vs. cracked lantern).**
+✅ **Locked 2026-05-06. Tools confirmed: Warrior — iron blade; Breaker — crude hammer; Bridge — knotted silk cord; Seeker — tome; Sacrificer — scale with one pan missing; Visionary — obsidian disk; Sentinel — cracked lantern; Trickster — shaved coin; Crafter — worn whetstone; Healer — bone needle + silk thread.**
 
 Each hero surrendered a specific layer of their nature at the threshold — the thing that once made their power clean and fast and unambiguous. What they carry now is the core of what they are, minus the operating certainty that used to make it simple.
 

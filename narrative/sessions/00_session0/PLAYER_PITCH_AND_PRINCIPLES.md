@@ -37,7 +37,7 @@ Before ancestry, before class, before backstory — sit with this question:
 
 Not what they can do. How they meet the world.
 
-Six approaches are available. Each describes a way of being present in a situation that demands response. None is a character class. None is a prescribed backstory. Each is a spine — an orientation that shapes how your character meets obstacles, builds relationships, and is changed by the campaign.
+Ten approaches are available. Each describes a way of being present in a situation that demands response. None is a character class. None is a prescribed backstory. Each is a spine — an orientation that shapes how your character meets obstacles, builds relationships, and is changed by the campaign.
 
 ---
 
@@ -49,11 +49,27 @@ They are defined less by the capacity for violence than by the discipline that g
 
 ---
 
+### The Sentinel
+
+Holds the threshold. Not because someone assigned it — because the threshold exists and someone has to be there when it's tested. When others move through danger toward safety, the Sentinel moves in the other direction: toward the door, the edge, the place where something might come through. Their gift is constancy: they are there when the crisis arrives, and still there after it passes.
+
+Their doubt is quiet and specific: whether standing between others and harm is the same as preventing it. Every harm that arrived in spite of everything is a question they carry without a clean answer.
+
+---
+
 ### The Breaker
 
 Solves problems through direct action. Encounters a barrier — physical, structural, social — and dismantles it rather than finding a way around it. Their gift is disruption: they see clearly what holds something in place and they act on that seeing, often before others have finished deciding whether to act at all.
 
 Their doubt arrives in the aftermath. In the wreckage. In the space where a structure used to be, asking what was holding what in place, and what else depended on it staying.
+
+---
+
+### The Trickster
+
+Doesn't fight the odds — changes them. Encounters a situation others treat as fixed and locates the piece that isn't: the assumption, the rule, the agreement no one has thought to question. Their gift is re-framing: when everyone else is trying to win the game, the Trickster is already deciding what game is actually being played.
+
+Their doubt is the underside of every success: whether the outcome arrived because of them, or because what they exploited was already broken. Whether cleverness is a skill or just luck that learned to explain itself.
 
 ---
 
@@ -73,11 +89,27 @@ Their doubt lives in the gap between what they know and what they can do with kn
 
 ---
 
+### The Crafter
+
+Transforms things. Not just physical materials — although that too — but problems, plans, the raw and unusable. Where others see obstruction, the Crafter sees a starting point. Their gift is in the making itself: they know how to work with what's present rather than what they wish were there.
+
+Their doubt circles the purpose. Whether what they build is genuinely useful or a form of proving something — to themselves, to the people watching. Whether the satisfaction of a thing well-made is separable from the need to be seen making it.
+
+---
+
 ### The Sacrificer
 
 Takes care of people. Notices what others need before they ask. Sustains. Their gift is freely given — they don't keep score, don't track the ledger, don't wait to be asked twice.
 
 Their doubt arrives in the quiet: whether giving freely and without condition, over time, takes something essential. Whether they'd recognize the absence if it did. Whether the care they offer everyone is inseparable from a difficulty accepting it themselves.
+
+---
+
+### The Healer
+
+Brings people back. From injury, from the edge of breaking entirely, from the moment where someone has stopped believing the effort is worth continuing. Their gift is recognition: they see the person still present in the wreckage before that person can see themselves.
+
+Their doubt is the question the healed rarely ask: whether care received is ever entirely free. Whether something is owed. Whether in mending someone the Healer has also bound them in a way that hasn't yet been named.
 
 ---
 

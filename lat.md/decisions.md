@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-04-11
+last_updated: 2026-05-06
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -26,6 +26,7 @@ _One-line summaries. Source of truth: `.meta/DECISION_LOG.md` (human archive —
 | 7 | Threshold = load-bearing ecosystem node; breach = immediate visible consequence | 2026-03-08 | Cosmology |
 | 8 | Three-Layer Revelation structure locked (Stop Wizard → Threshold breach → Warren reckoning) | 2026-03-08 | Narrative |
 | 9 | Six Convergence Points (CP1–CP6) govern mid-campaign stakes escalation; SME distribution locked | 2026-03-20 | Narrative |
+| 10 | Surrendered-Layer Framework — all 10 archetype surrendered layers + tools locked (Seeker: tome; Sentinel: cracked lantern) | 2026-05-06 | Characters |
 | — | Session 0 narrative architecture: 4-axis flashbacks, 5 SMEs, 7-segment pacing, campfire recognition | 2026-01-08 | Session 0 |
 | — | Player pitch: states facts without hinting at mystery | 2026-01-08 | Session 0 |
 | — | Archetype descriptions: current psychological pattern + role function only; no fallen godhood hints | 2026-01-08 | Characters |
@@ -41,7 +42,6 @@ _One-line summaries. Source of truth: `.meta/DECISION_LOG.md` (human archive —
 
 | # | Question | Gates |
 |---|---|---|
-| 10 | Surrendered-Layer Framework — proposed, pending lock (resolve Seeker tome/bow + Sentinel tool conflicts) | Awakening scenario writes |
 | 11 | Cosmic Conscription — expulsion as punishment vs. deployment? | Celestial Court nature, full Wizard motivation |
 | — | Wizard's specific motivation for breaching the Threshold (the "why") | Campaign frame writing sessions |
 | — | Celestial Court nature (distributed will vs. unified?) | Decision 11 |

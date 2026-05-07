@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-04-11
+last_updated: 2026-05-06
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -28,8 +28,8 @@ last_updated: 2026-04-11
 | Warrior | Stands between others and harm; steady; reliable | [[characters/archetypes.md]] |
 | Visionary | Sees what needs to happen; acts on conviction, not authority | [[characters/archetypes.md]] |
 
-## 4 Optional Archetypes (design skeletons only)
-- Trickster, Crafter, Sentinel, Healer — in Surrendered-Layer Framework; not yet play-ready
+## 4 Optional Archetypes
+- Trickster, Crafter, Sentinel, Healer — player-facing descriptions complete (2026-05-06); awaiting awakening scenarios
 
 ## Tools-as-Animistic-Divine-Marks 🔒
 - Tools = externalized divine nature, not passive weapons
@@ -39,7 +39,7 @@ last_updated: 2026-04-11
 - Tools serve as mirrors of R/H/K alignment (see [[lat.md/cosmology]] for R/H/K)
 - Tool is the **surrendered layer** made manifest — the attribute given up at the threshold
 
-## Surrendered-Layer Framework (Decision 10) ⚠️ proposed, pending lock
+## Surrendered-Layer Framework (Decision 10) 🔒 locked 2026-05-06
 | Archetype | Surrendered Layer | What they gave up |
 |---|---|---|
 | Seeker | Epistemic | Certainty as operating system |
@@ -48,10 +48,13 @@ last_updated: 2026-04-11
 | Bridge | Relational | The right to have a side |
 | Sacrificer | Volitional | The right to refuse |
 | Visionary | Perceptual | The right to look away |
-- Open items before locking: Seeker tome/bow discrepancy; Sentinel tool conflict (recording device vs. cracked lantern)
+| Sentinel | Warding | Presence as sufficient protection |
+| Trickster | Systematic | The certainty that every structure has an exploitable gap |
+| Crafter | Mastery | Craft applied correctly produces the intended result |
+| Healer | Curative | Healing is complete; full restoration is possible |
 - Full rationale: gm_secrets/Session_0_Awakening_Design_Notes.md (do not read for archetype constraint questions)
 
-## Tool Proposals (unconfirmed, pending Surrendered-Layer lock)
+## Tool Proposals (confirmed, Decision 10 locked 2026-05-06)
 - Warrior: iron blade | Seeker: tome | Breaker: crude hammer | Bridge: knotted silk cord
 - Sacrificer: scale with one pan missing | Visionary: obsidian disk
 - Trickster: shaved coin | Crafter: worn whetstone | Sentinel: cracked lantern | Healer: bone needle + silk thread
