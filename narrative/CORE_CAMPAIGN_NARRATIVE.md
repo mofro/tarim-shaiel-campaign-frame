@@ -7,7 +7,7 @@ content_type: campaign_frame
 visibility: gm_secrets
 status: canon
 created: 2025-12-14
-last_updated: 2026-02-19
+last_updated: 2026-05-07
 banner: images/places/1318668.png
 ---
 
@@ -343,6 +343,8 @@ The Wizard's threat was *real*. They were *supposed* to stop him. They just didn
 ---
 
 ## The Expulsion: Merciful Deployment
+
+> **Timing note:** The expulsion is the present-day inciting incident — it IS Session 0. The heroes did not fall 1,000 years ago; they rested in the Peak for 1,000 years and are expelled NOW, at the start of play. The Warrior awakening, the Seeker's night, the Breaker's dilemma — these are the expulsion landing.
 
 **What Happened:**
 The Celestial Peak, through means the heroes still don't fully understand, expelled them. They were cast down from reward into the material world, stripped of their ease of access to the Peak's power.
