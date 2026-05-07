@@ -16,6 +16,15 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-05-06 (2)
+- [HeroHeaven-5u7] 4 optional archetype descriptions complete ✅
+  - Sentinel (guardian/threshold), Trickster, Crafter, Healer added to both player and GM docs
+  - Thematic interspersing: Sentinel after Warrior; Trickster after Breaker; Crafter after Seeker; Healer after Sacrificer
+  - Decision 10 (Surrendered-Layer Framework) locked: Seeker→tome, Sentinel→cracked lantern; all 10 tools confirmed
+  - lat.md/characters.md + lat.md/decisions.md updated; DECISION_LOG.md entry appended
+
+---
+
 ### Session 2026-05-06
 - Migrated task tracking from TODO.md into Beads — [#223](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/223)
   - 29 bd issues created across 5 domains (cosmology, narrative, mechanics, world, infra)
