@@ -28,10 +28,15 @@ players:
     - {name: Healer,     status: pending,    player: ""}
 
 domain_overrides:
-  # Uncomment + set a value to manually pin a domain's percentage.
-  # Remove entry to let checkbox counts drive it.
-  # world: 42
-  # mechanics: 80
+  # Manually pinned at 2026-05-06 when task tracking migrated from TODO.md to Beads.
+  # Update these when significant bodies of work complete — bd issue close rate drives
+  # incremental progress; major milestones (scenario complete, section shipped) warrant
+  # bumping the value manually.
+  narrative: 50
+  mechanics: 95
+  world: 97
+  infra: 96
+  cosmology: 71
 
 blockers:
   # - "⛔ Description of active blocker"

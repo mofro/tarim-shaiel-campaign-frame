@@ -2,20 +2,24 @@
 """
 Tarim-Shaiel Dashboard Generator
 =================================
-Parses TODO.md (checkbox counts) and DASHBOARD.md (health panel) to generate docs/dashboard.html.
+Reads Beads issues (.beads/issues.jsonl), DASHBOARD.md (health panel), and
+CREATION_SESSIONS.md (session log) to generate docs/dashboard.html.
 
 Usage:
     python generate_dashboard.py
-    python generate_dashboard.py --todo path/to/TODO.md
     python generate_dashboard.py --out path/to/output.html
     python generate_dashboard.py --json   # also emit dashboard_data.json
 
-Domain mapping (keyword -> domain key):
-    cosmolog / ecosystem / entity      -> cosmology
-    story / narrative / session / lore -> narrative
-    charm / campaign frame / archetype -> mechanics
-    world / ancestry / location / myth -> world
-    kanka / obsidian / geojson / infra -> infra
+Domain tagging convention (in Beads issue --notes field):
+    domain: narrative    -> narrative
+    domain: mechanics    -> mechanics
+    domain: world        -> world
+    domain: infra        -> infra
+    domain: cosmology    -> cosmology
+
+Domain percentages are driven by DASHBOARD.md domain_overrides (manually updated
+when milestones complete). Beads issue close rate feeds incremental computation
+when no override is set for a domain.
 """
 
 import re
@@ -35,7 +39,8 @@ sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.config import ProjectConfig
 
 VAULT_ROOT      = ProjectConfig.vault_root
-TODO_PATH       = VAULT_ROOT / "TODO.md"
+BEADS_JSONL_PATH = VAULT_ROOT / ".beads" / "issues.jsonl"
+SESSIONS_PATH   = VAULT_ROOT / "CREATION_SESSIONS.md"
 DASHBOARD_PATH  = VAULT_ROOT / "DASHBOARD.md"
 OUTPUT_PATH     = VAULT_ROOT / "docs" / "dashboard.html"
 
@@ -237,61 +242,54 @@ def parse_dashboard_md() -> dict:
     }
 
 # ---------------------------------------------------------------------------
-# Checkbox counter per domain
-# Walks H2-H4 headers, assigns a current domain, counts [x] vs [ ]
+# Beads issue reader
+# Reads .beads/issues.jsonl (one JSON object per line), extracts domain tag
+# from the notes field using the convention: "domain: <name>"
 # ---------------------------------------------------------------------------
-SECTION_DOMAIN_HEADERS: dict[str, str] = {
-    "cosmolog": "cosmology", "ecosystem": "cosmology",
-    "story": "narrative", "narrative": "narrative", "session 0": "narrative",
-    "awakening": "narrative", "lore": "narrative", "liberation": "narrative",
-    "charm": "mechanics", "tool": "mechanics", "campaign frame": "mechanics",
-    "mechanics": "mechanics", "archetype": "mechanics",
-    "domains":    "mechanics", "abilities":  "mechanics", "classes":    "mechanics",
-    "subclasses": "mechanics", "armor":      "mechanics",
-    "world": "world", "geographic": "world", "ancestry": "world",
-    "location": "world", "locations": "world", "orc": "world", "myth": "world",
-    "silk road": "world", "npc": "world", "culture": "world",
-    "faction": "world", "factions": "world", "events": "world",
-    "regions": "world",
-    "kanka": "infra", "obsidian": "infra", "infrastructure": "infra",
-    "geojson": "infra", "documentation": "infra", "sync": "infra",
-}
+_DOMAIN_NOTE_RE = re.compile(r"domain:\s*(\w+)", re.IGNORECASE)
+_ALL_DOMAINS = ["narrative", "mechanics", "world", "infra", "cosmology"]
 
-def compute_domain_pcts(todo_text: str, overrides: dict[str, int]) -> dict[str, int]:
-    counts: dict[str, list[int]] = {d: [0, 0] for d in ["narrative", "mechanics", "world", "infra", "cosmology"]}
-    current_domain: Optional[str] = None
-    in_excluded_h2: bool = False
+def parse_beads_issues(path: Optional[Path] = None) -> list[dict]:
+    """Read .beads/issues.jsonl and return list of issue dicts. Returns [] if missing."""
+    p = path or BEADS_JSONL_PATH
+    if not p.exists():
+        return []
+    issues = []
+    for line in p.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            issues.append(json.loads(line))
+        except json.JSONDecodeError:
+            pass
+    return issues
 
-    # H2 sections that are pure journal/archive — never count their checkboxes
-    # NOTE: "completed" is intentionally NOT excluded here — completed items
-    # must count as done toward the domain percentages so the gauge reflects
-    # actual overall progress, not just how much of the outstanding work is ticked.
-    EXCLUDED_H2 = {"session log"}
+def _issue_domain(issue: dict) -> str:
+    """Extract domain tag from issue notes field. Returns 'general' if absent."""
+    notes = issue.get("notes") or issue.get("note") or ""
+    m = _DOMAIN_NOTE_RE.search(notes)
+    if m:
+        d = m.group(1).lower()
+        return d if d in _ALL_DOMAINS else "general"
+    # fall back to keyword detection on title
+    return detect_domain(issue.get("title", ""), default="general")
 
-    for line in todo_text.splitlines():
-        if re.match(r"^#{2,4} ", line):
-            h_text = re.sub(r"^#{2,4}\s+", "", line).lower()
-            # H2 exclusion check: if we enter an archive section, kill domain and
-            # keep it dead (including for any H3/H4 within) until another H2 is found
-            if re.match(r"^## ", line):
-                if any(excl in h_text for excl in EXCLUDED_H2):
-                    current_domain = None
-                    in_excluded_h2 = True
-                    continue
-                else:
-                    in_excluded_h2 = False
-            # Don't let H3/H4 inside excluded sections re-activate domain tracking
-            if not in_excluded_h2:
-                for kw, domain in SECTION_DOMAIN_HEADERS.items():
-                    if kw in h_text:
-                        current_domain = domain
-                        break
-        if current_domain:
-            if re.search(r"- \[x\]", line, re.IGNORECASE):
-                counts[current_domain][0] += 1
-                counts[current_domain][1] += 1
-            elif re.search(r"- \[ \]", line):
-                counts[current_domain][1] += 1
+# ---------------------------------------------------------------------------
+# Domain completion percentages
+# Primary: DASHBOARD.md domain_overrides (manually updated at milestones).
+# Fallback: closed/(closed+open) ratio from Beads issues for that domain.
+# ---------------------------------------------------------------------------
+def compute_domain_pcts(beads_issues: list[dict], overrides: dict[str, int]) -> dict[str, int]:
+    counts: dict[str, list[int]] = {d: [0, 0] for d in _ALL_DOMAINS}
+    for issue in beads_issues:
+        domain = _issue_domain(issue)
+        if domain not in counts:
+            continue
+        status = (issue.get("status") or "open").lower()
+        counts[domain][1] += 1  # total
+        if status == "closed":
+            counts[domain][0] += 1  # done
 
     result: dict[str, int] = {}
     for domain, (done, total) in counts.items():
@@ -312,20 +310,20 @@ def compute_readiness(domain_pcts: dict[str, int]) -> int:
     return round(sum(domain_pcts.get(d, 0) * w for d, w in DOMAIN_WEIGHTS.items()))
 
 # ---------------------------------------------------------------------------
-# Recent sessions — reads from ## SESSION LOG, ### Session YYYY-MM-DD entries
+# Recent sessions — reads ### Session YYYY-MM-DD entries from CREATION_SESSIONS.md
 # ---------------------------------------------------------------------------
-SESSION_LOG_RE = re.compile(
-    r"^##\s+SESSION LOG\s*$.*?(?=^##\s|\Z)", re.MULTILINE | re.DOTALL | re.IGNORECASE
-)
 SESSION_ENTRY_RE = re.compile(
     r"###\s+Session\s+(\d{4}-\d{2}-\d{2})(.*?)(?=\n###\s+Session\s+\d{4}|\n##\s|\Z)",
     re.DOTALL
 )
 
-def extract_recent_sessions(todo_text: str) -> list[dict]:
+def extract_recent_sessions(sessions_path: Optional[Path] = None) -> list[dict]:
+    """Read CREATION_SESSIONS.md and return the 3 most recent session entries."""
+    p = sessions_path or SESSIONS_PATH
+    if not p.exists():
+        return []
+    search_text = p.read_text(encoding="utf-8")
     sessions = []
-    log_m = SESSION_LOG_RE.search(todo_text)
-    search_text = log_m.group(0) if log_m else todo_text
     for m in SESSION_ENTRY_RE.finditer(search_text):
         body = m.group(2)
         title_m = re.search(r"\*\*([^*\n]+)\*\*", body)
@@ -335,8 +333,8 @@ def extract_recent_sessions(todo_text: str) -> list[dict]:
         summary = re.sub(r"\*+|`", "", summary)[:220]
         links = []
         for lm in re.finditer(r"`(/[^`]+\.md)`", body):
-            p = lm.group(1)
-            links.append({"label": Path(p).stem, "vault_path": p})
+            lp = lm.group(1)
+            links.append({"label": Path(lp).stem, "vault_path": lp})
         sessions.append({"date": m.group(1), "title": title, "summary": summary, "links": links[:3]})
         if len(sessions) >= 3:
             break
@@ -350,145 +348,68 @@ def extract_generation_time() -> str:
 
 
 # ---------------------------------------------------------------------------
-# TODO section parser
-# Maps H2 headings to status categories, H3/H4 to groups, checkboxes to items
+# Beads section builder
+# Maps Beads issue statuses to dashboard sections, groups issues by domain
 # ---------------------------------------------------------------------------
-STATUS_MAP = {
-    "ACTIVE": "active",
-    "HIGH PRIORITY": "active",       # legacy compat
-    "NEAR-TERM": "upcoming",
-    "NEAR TERM": "upcoming",
-    "MEDIUM-TERM": "upcoming",
-    "MEDIUM TERM": "upcoming",
-    "FUTURE": "upcoming",
-    "BLOCKED": "blocked",
-    "BLOCKERS": "blocked",           # legacy compat
-    "DECISIONS NEEDED": "blocked",   # legacy compat
-    "COMPLETED": "done",
-    "COMPLETED ASSETS": "done",      # legacy compat
-    "SETTLED MECHANICS": "done",     # legacy compat
-    "SETTLED": "done",               # legacy compat
+_BD_STATUS_TO_SECTION = {
+    "open":        "active",
+    "in_progress": "active",
+    "blocked":     "blocked",
+    "deferred":    "upcoming",
+    "closed":      "done",
 }
 SECTION_TITLES = {
-    "active":   ("Active Work",                  "In progress now"),
-    "blocked":  ("Blocked \u2014 Decisions Required", "Decisions needed"),
-    "upcoming": ("Near-Term & Medium-Term",       "This month / next 2\u20133 sessions"),
-    "done":     ("Completed Assets",              "Locked & verified"),
+    "active":   ("Active Work",                      "Open and in progress"),
+    "blocked":  ("Blocked — Decisions Required", "Waiting on decisions or dependencies"),
+    "upcoming": ("Deferred",                          "Scheduled for later"),
+    "done":     ("Completed",                         "Closed issues"),
 }
-SKIP_HEADINGS = {
-    "PROGRESS TRACKING", "SESSION LOG", "QUICK REFERENCE",
-    "WORKING PRINCIPLES", "BRAINSTORM", "PROJECT HEALTH",
-    "RECENT ACCOMPLISHMENTS",  # legacy compat
-    "LATEST SESSION",          # legacy compat
-    "PREVIOUS SESSION",        # legacy compat
+_DOMAIN_DISPLAY = {
+    "narrative":  "Narrative & Session 0",
+    "mechanics":  "Mechanics & Campaign Frame",
+    "world":      "World-Building",
+    "infra":      "Infrastructure",
+    "cosmology":  "Cosmological Architecture",
+    "general":    "General",
 }
 
-def parse_todo_sections(todo_text: str) -> list[Section]:
+def parse_beads_sections(beads_issues: list[dict]) -> list[Section]:
+    """Build dashboard sections from Beads issues, grouped by domain."""
+    buckets: dict[str, dict[str, list[dict]]] = {s: {} for s in SECTION_TITLES}
+
+    for issue in beads_issues:
+        raw_status = (issue.get("status") or "open").lower()
+        section_key = _BD_STATUS_TO_SECTION.get(raw_status, "active")
+        if section_key not in buckets:
+            continue
+        domain = _issue_domain(issue)
+        buckets[section_key].setdefault(domain, []).append(issue)
+
     sections: list[Section] = []
-    active_section: Optional[Section] = None
-    active_group:   Optional[TodoGroup] = None
-    current_item:   Optional[TodoItem] = None
-
-    def flush_item():
-        nonlocal current_item
-        if current_item is not None and active_group is not None:
-            active_group.items.append(current_item)
-            current_item = None
-
-    def flush_group():
-        nonlocal active_group
-        flush_item()
-        if active_group is not None and active_section is not None:
-            if active_group.items:
-                active_section.groups.append(active_group)
-        active_group = None
-
-    def flush_section():
-        flush_group()
-        if active_section is not None and active_section.groups:
-            sections.append(active_section)
-
-    for line in todo_text.splitlines():
-        # H2 -> section
-        if re.match(r"^## ", line):
-            flush_section()
-            active_section = None
-            h = re.sub(r"^##\s+[^\w]*", "", line).upper().strip()
-            if any(skip in h for skip in SKIP_HEADINGS):
-                continue
-            for key, status in STATUS_MAP.items():
-                if key in h:
-                    t, sub = SECTION_TITLES[status]
-                    existing = next((s for s in sections if s.status == status), None)
-                    if existing:
-                        active_section = existing
-                        sections.remove(existing)
-                    else:
-                        active_section = Section(status=status, title=t, subtitle=sub)
-                    break
-
-        # H3/H4 -> group
-        elif re.match(r"^#{3,4} ", line) and active_section is not None:
-            prev_domain = active_group.domain if active_group else None
-            flush_group()
-            raw = re.sub(r"^#{3,4}\s+", "", line)
-            has_done_marker = bool(re.search(r"LOCKED|COMPLETE|DECIDED|WORKING", raw, re.IGNORECASE))
-            # Strip non-ASCII (emoji) then cleanup status suffixes
-            raw = re.sub(r"[^\x00-\x7F]", "", raw).strip()
-            raw = re.sub(r"\s*(LOCKED|COMPLETE|DECIDED|WORKING|NEW|PARTIAL)\s*.*$", "", raw, flags=re.IGNORECASE).strip()
-            # Use SECTION_DOMAIN_HEADERS (same as compute_domain_pcts) so display
-            # domain matches the percentage domain. Fall back to parent group's domain
-            # rather than defaulting to "world" — prevents false WORLD classification
-            # for sub-headers like "GM-Facing Sections" or "Follow-up From DIVINE_PLAYERS.md".
-            # If neither header nor parent matches, fall back to detect_domain with
-            # "general" default (never silently classifies as world).
-            h_lower = raw.lower()
-            matched = next((dom for kw, dom in SECTION_DOMAIN_HEADERS.items() if kw in h_lower), None)
-            domain = matched or prev_domain or detect_domain(raw, default="general")
-            active_group = TodoGroup(title=raw, domain=domain)
-            if active_section.status == "done" and has_done_marker:
-                active_group.items.append(TodoItem(text=raw, done=True))
-
-        # Checkbox item
-        elif re.match(r"^\s*- \[[ xX]\]", line) and active_section is not None:
-            if active_group is None:
-                active_group = TodoGroup(title="General", domain=detect_domain(line, default="general"))
-            flush_item()
-            done = bool(re.match(r"^\s*- \[[xX]\]", line))
-            text = re.sub(r"^\s*- \[[xX ]\]\s*", "", line)
-            text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text).strip()
-            blocked = (active_section.status == "blocked") and not done
-            current_item = TodoItem(text=text, done=done, blocked=blocked)
-
-        # Numbered list item (BLOCKERS section uses these)
-        elif (re.match(r"^\d+\.\s+\*\*", line) and active_section is not None
-              and active_section.status == "blocked"):
-            if active_group is None:
-                active_group = TodoGroup(title="Critical Blockers", domain="mechanics")
-            flush_item()
-            text = re.sub(r"^\d+\.\s+\*\*([^*]+)\*\*.*", r"\1", line).strip()
-            current_item = TodoItem(text=text, done=False, blocked=True)
-
-        # Sub-list continuation
-        elif re.match(r"^\s{2,}- ", line) and current_item is not None:
-            sub = line.strip().lstrip("- ").strip()
-            if re.match(r"~\d", sub):
-                current_item.effort = sub
-            elif re.search(r"`/[^`]+`", sub) or "**File:**" in sub:
-                pm = re.search(r"`(/[^`]+)`", sub)
-                if pm:
-                    current_item.links.append((Path(pm.group(1)).stem, pm.group(1)))
-            else:
-                sub_clean = re.sub(r"\*+|`", "", sub).strip()
-                if sub_clean:
-                    current_item.note = ((current_item.note + " ") if current_item.note else "") + sub_clean
-
-    flush_section()
-
     order = ["active", "blocked", "upcoming", "done"]
-    sections.sort(key=lambda s: order.index(s.status) if s.status in order else 99)
+    for section_key in order:
+        domain_map = buckets[section_key]
+        if not domain_map:
+            continue
+        title, subtitle = SECTION_TITLES[section_key]
+        section = Section(status=section_key, title=title, subtitle=subtitle)
+        for domain in _ALL_DOMAINS + ["general"]:
+            issues_in_domain = domain_map.get(domain, [])
+            if not issues_in_domain:
+                continue
+            group_title = _DOMAIN_DISPLAY.get(domain, domain.capitalize())
+            group = TodoGroup(title=group_title, domain=domain)
+            for issue in issues_in_domain:
+                done    = (issue.get("status") or "").lower() == "closed"
+                blocked = (issue.get("status") or "").lower() == "blocked"
+                text    = issue.get("title") or "(untitled)"
+                note    = (issue.get("description") or "").split("\n")[0][:180]
+                note    = re.sub(r"\*+|`", "", note).strip()
+                group.items.append(TodoItem(text=text, done=done, blocked=blocked, note=note))
+            section.groups.append(group)
+        if section.groups:
+            sections.append(section)
     return sections
-
 # ---------------------------------------------------------------------------
 # HTML renderer
 # ---------------------------------------------------------------------------
@@ -636,25 +557,22 @@ def render_html(data: DashboardData) -> str:
 # Entry point
 # ---------------------------------------------------------------------------
 def main():
-    ap = argparse.ArgumentParser(description="Regenerate Hero Heaven dashboard from TODO.md")
-    ap.add_argument("--todo", default=str(TODO_PATH))
+    ap = argparse.ArgumentParser(description="Regenerate Tarim-Shaiel dashboard from Beads issues")
     ap.add_argument("--out",  default=str(OUTPUT_PATH))
     ap.add_argument("--json", action="store_true", help="Also write dashboard_data.json alongside HTML")
     ap.add_argument("--open", action="store_true", help="Open dashboard in browser after writing")
     args = ap.parse_args()
 
-    todo_path = Path(args.todo)
-    out_path  = Path(args.out)
+    out_path = Path(args.out)
 
-    if not todo_path.exists():
-        print(f"ERROR: {todo_path} not found"); return 1
-
-    print(f"Reading {todo_path.name} ...")
-    txt = todo_path.read_text(encoding="utf-8")
+    print("Reading Beads issues ...")
+    beads_issues = parse_beads_issues()
+    if not beads_issues:
+        print(f"WARNING: No issues found in {BEADS_JSONL_PATH} — sections will be empty.")
 
     dashboard   = parse_dashboard_md()
     overrides   = dashboard["domain_overrides"]
-    domain_pcts = compute_domain_pcts(txt, overrides)
+    domain_pcts = compute_domain_pcts(beads_issues, overrides)
     readiness   = compute_readiness(domain_pcts)
     data = DashboardData(
         last_updated    = dashboard["last_updated"],
@@ -663,8 +581,8 @@ def main():
         domain_pcts     = domain_pcts,
         critical_path   = dashboard["critical_path"],
         blockers        = dashboard["blockers"],
-        recent_sessions = extract_recent_sessions(txt),
-        sections        = parse_todo_sections(txt),
+        recent_sessions = extract_recent_sessions(),
+        sections        = parse_beads_sections(beads_issues),
         quick_summary   = dashboard["quick_summary"],
         player_status   = dashboard["players"],
     )
@@ -681,8 +599,9 @@ def main():
     print(f"\nDashboard -> {out_path}")
     print(f"  Readiness : {readiness}%")
     for d, pct in domain_pcts.items():
-        src = " (override)" if d in dashboard["domain_overrides"] else ""
+        src = " (override)" if d in dashboard["domain_overrides"] else " (beads)"
         print(f"  {d:12s}: {pct}%{src}")
+    print(f"  Issues    : {len(beads_issues)}")
     print(f"  Sections  : {len(data.sections)}")
     print(f"  Blockers  : {len(data.blockers)}")
 
@@ -702,7 +621,7 @@ if __name__ == "__main__":
 # ---------------------------------------------------------------------------
 class _Generator:
     name = "dashboard"
-    description = "Regenerate project dashboard from TODO.md"
+    description = "Regenerate project dashboard from Beads issues + CREATION_SESSIONS.md"
 
     def run(self, argv=None):
         import sys as _sys

@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
     paths:
-      - 'TODO.md'
+      - 'CREATION_SESSIONS.md'
+      - '.beads/issues.jsonl'
+      - 'DASHBOARD.md'
       - 'templates/tarim-shaiel-campaign-frame-v2.md'
       - 'world/**/*.md'
       - 'narrative/**/*.md'
@@ -32,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Generate TODO dashboard
+      - name: Generate dashboard
         run: python utilities/dashboard/generate_dashboard.py --out docs/dashboard.html
 
       - name: Generate campaign frame

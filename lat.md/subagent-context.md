@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-05-04
+last_updated: 2026-05-06
 ---
 
 > _Derived from CLAUDE.md and `lat.md/` files — update in the same commit when those change. Inject into spawned agent prompts; this file is not automatically read by any session._
@@ -19,7 +19,7 @@ The following contain no canonical content. Do not open them under any circumsta
 
 ## Session-Start Reads
 
-At session start, read in order: `TODO.md` (active checklist + session log), `DASHBOARD.md` (health panel — critical path, player status, quick summary, blockers). Then read relevant `lat.md/` files for the session's domain before beginning work.
+At session start: run `bd ready` (active work queue), read `DASHBOARD.md` (health panel — critical path, player status, quick summary, blockers), and `CREATION_SESSIONS.md` (recent authoring sessions). Then read relevant `lat.md/` files for the session's domain before beginning work. `TODO.md` is deprecated — task tracking has moved to Beads.
 
 ## Navigation
 

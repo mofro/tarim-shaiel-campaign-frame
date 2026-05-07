@@ -124,8 +124,8 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 
 | File | Purpose |
 |---|---|
-| `TODO.md` | Active checklist + session log — source of truth for task state |
-| `DASHBOARD.md` | Project health panel — critical path, player status, quick summary, blockers |
+| `CREATION_SESSIONS.md` | Authoring session log — append new entries at session close |
+| `DASHBOARD.md` | Project health panel — critical path, player status, quick summary, blockers, domain_overrides |
 | `narrative/sessions/00_session0/` | Session 0 awakening scenario files |
 | `templates/tarim-shaiel-campaign-frame-v2.md` | Primary player-facing campaign frame |
 | `utilities/dashboard/generate_dashboard.py` | Project health dashboard script |
@@ -145,18 +145,19 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 ## Working Conventions
 
 - **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.
-- **TODO.md + DASHBOARD.md are the session anchors.** Start each session by reading both. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain before beginning work.
-  - Update **`DASHBOARD.md`** when overall project state changes: player commits/drops, critical path shifts, blockers appear or clear, Quick Summary bullets need adding or resolving. Edit the YAML frontmatter fields (`players:`, `critical_path:`, `blockers:`, `domain_overrides:`) or the `## Quick Summary` bullet list directly.
-  - Update **`TODO.md`** when tasks change: check off items, add new work items to ACTIVE/NEAR-TERM/BACKLOG sections, append session log entries. `TODO.md` is a pure checklist + session log — the PROJECT HEALTH block no longer exists there.
+- **Session anchors.** Start each session by running `bd ready` to see available work, reading `DASHBOARD.md` for project health, and reading `CREATION_SESSIONS.md` for recent context. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain.
+  - Update **`DASHBOARD.md`** when overall project state changes: player commits/drops, critical path shifts, blockers appear or clear, Quick Summary bullets need adding or resolving. Edit the YAML frontmatter fields (`players:`, `critical_path:`, `blockers:`, `domain_overrides:`) or the `## Quick Summary` bullet list directly. Also bump `domain_overrides` when a significant body of work completes.
+  - Update **`CREATION_SESSIONS.md`** at session close: append a `### Session YYYY-MM-DD` entry summarizing what was done. Trim to last 10 sessions.
+  - Use **`bd create` / `bd close`** for all task tracking — do NOT add work items to TODO.md or any markdown file.
 - **Update `last_updated` frontmatter** when editing any persistent file.
 - **Append an entry to `.meta/DECISION_LOG.md`** for any significant design choice — include date, decision, rationale, and lock status. (Write only; do not read the archive.)
 - **Batch minor inconsistencies** rather than interrupting mid-flow; surface them in a summary.
-- **Scope restatement** is appropriate when a conversation drifts — ground back to TODO.md and active blockers.
+- **Scope restatement** is appropriate when a conversation drifts — run `bd ready` and check `DASHBOARD.md` blockers.
 - When working on narrative prose, match the benchmark register (Warrior Awakening v2.0).
 - Archetype descriptions are for PLAYER eyes — keep them in present-tense psychological framing.
 - **Content vs. pipeline:** Prose, lore, and world-building work edits files directly. Generator scripts and CI/CD work uses a feature branch and PR.
 - **Subagent context maintenance:** When updating the Quick Navigation table, Hard Constraints, or Narrative Tone section, also update `lat.md/subagent-context.md` in the same commit.
-- **New planned TODO items get a GitHub Issue.** When writing or significantly expanding a TODO item that meets all qualifying criteria (status `[ ]`/`[-]`/`[/]`, has title + implementation context, lives in ACTIVE or BLOCKED), create a GitHub Issue as part of that same work unit — not as a follow-up. Add the inline reference (`[#NN](url)`) to the TODO item before committing. For retrospective catch-up on existing items, run an explicit "sync TODO→issues" pass. Qualifying criteria: item represents a discrete unit of work or decision; sub-tasks belong in the issue body as a checklist, not as separate issues.
+- **New work gets a Beads issue + GitHub Issue.** When starting any non-trivial task: (1) create a `bd` issue with background, implementation checklist, and `domain:` note tag; (2) create a GitHub issue with the same content as the spec; (3) add the `[#NN](url)` reference to the beads issue description. Qualifying criteria: item represents a discrete unit of work or decision; sub-tasks belong in the issue body as a checklist.
 
 - **Issue-first discipline — treat work as a group effort.** Any non-trivial line of work should be documented before it is implemented, as if a different session (or a different person entirely) might be the one to execute it. The GitHub Issue is the spec. Before beginning implementation, ensure the issue contains: (1) **background and motivation** — what led here, what decisions are already locked; (2) **implementation plan** — ordered checklist of concrete steps; (3) **open questions** — design decisions that need resolution before or during the work; (4) **reference files** — key paths, relevant DECISION_LOG entries, prior session context. If the issue doesn't have this, write it first. This discipline applies to both new issues and existing ones being picked up mid-stream.
 
