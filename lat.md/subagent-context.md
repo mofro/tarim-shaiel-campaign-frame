@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-05-06
+last_updated: 2026-05-07
 ---
 
 > _Derived from CLAUDE.md and `lat.md/` files — update in the same commit when those change. Inject into spawned agent prompts; this file is not automatically read by any session._
@@ -27,6 +27,7 @@ Read the relevant `lat.md/` file before diving into domain content — one read 
 
 | Domain | File | When to read |
 |---|---|---|
+| Full campaign timeline, plot arc, established story structure | [[narrative/CAMPAIGN_SUMMARY]] | Full orientation, timeline questions, act structure overview |
 | Cosmological architecture, Warren, R/H/K, Held Breath | [[lat.md/cosmology]] | Any cosmology / Warren / Wizard question |
 | Session 0 design, awakenings, flashbacks, memory events | [[lat.md/session0]] | Session 0 work, pacing, scenario status |
 | Archetypes, tools system, surrendered-layer, identity | [[lat.md/characters]] | Archetype description constraints, tools-as-divine-marks, identity mechanics |
