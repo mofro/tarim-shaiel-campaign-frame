@@ -5,7 +5,7 @@ system: Daggerheart
 version: 2
 status: player-facing draft
 created: 2026-03-08
-last_updated: 2026-03-31
+last_updated: 2026-05-07
 notes: |
   Rebuilt to official Daggerheart Campaign Frame structure (Homebrew Kit v1.0).
   Player-facing sections: Title through GM Principles.
@@ -203,35 +203,173 @@ The campaign's spine is: *What do you do when the world is very certain who you 
 
 ## Distinctions
 
-*[GM DOCUMENT — STUB]*
+*[GM DOCUMENT]*
 
-The tentpoles of the campaign world. Includes:
-- How the World Works (Warrens, Holds, the unreliability of magic)
-- The Heroic Age and the thousand-year gap
-- The empire and its successors — the full picture
-- Major locations and their secrets
-- The truth behind the factions' relationships to the characters' identities
-- The antagonist and the Lich-Legion
-- The Celestial Peak
-- The Fallen Companion
-- The Gaes
+The full truth of the campaign world. Read this once before Session 0 so you understand what the players are moving through and what they are eventually moving toward. Individual topics are developed in depth across `narrative/gm_secrets/`. This is the map.
+
+---
+
+### How the World Works: The Mythic Ecosystem
+
+Magic in Tarim-Shaiel flows through a cosmological infrastructure called the **Warrens** — distinct dimensional spaces, not metaphors. Think of them as pressure vessels: each Warren has its own affinities, its own logic, its own inhabitants. **Holds** are the channels through which Warren energy surfaces into the mortal world. Where Holds concentrate, magic works. Where the Warren structure is damaged, it fails.
+
+**Power draws power.** Concentrated magical force attracts more pressure from the Warren structure toward it. This is not a metaphor — it is the ecosystem's most important mechanic. The heroes' celestial-touched tools, carried into the mortal world, are themselves a beacon event.
+
+The heroes' tools are **Warren ambassadors** — not extensions of their wielders' will, but representatives of Warren interests. When a tool **Resists**, it is the Warren protecting its investment, or protecting itself from what the hero is about to do. When it **Hungers**, a Warren is calling for energy expenditure for reasons the hero may not understand. When it **Knows**, it is delivering Warren-mediated revelation — what the Warren *wants* the hero to know, which may be true, partial, or strategically framed. The tools are not loyal. They are aligned. That is not the same thing.
+
+**Why magic is becoming unreliable:** The Warren structure is under strain. Expanding dead zones, failing preservation spells, degrading shamanic traditions — these are symptoms, not causes. The cause is 1,000 years of accumulated disturbance, running since the liberation beacon event, now approaching critical threshold under the Wizard's pressure.
+
+---
+
+### The Held Breath: The Real Threat
+
+The campaign's true endgame threat is not the Wizard. It is what the Wizard will wake.
+
+The **Held Breath** are multiple liminal consciousnesses at celestial scale — ancient presences in suspension, neither fully awake nor fully absent. They are held back by cosmological equilibrium. They are not imprisoned. They are not malevolent. They are not awake enough to have mortal-recognizable intent. The horror is not what they want. **The horror is what they weigh.**
+
+When they begin to shift from suspension toward something else — that transition is the endgame. Not attack. Not malice. Weight. Reality near the disturbance becomes *wrong* in ways difficult to name. The Warren structure warps around them as they move.
+
+What risks tipping them: concentrated power events at sufficient scale. The liberation 1,000 years ago was one — the shattering of thousands of binding spells rang through the Warrens like a bell. The Wizard's necromantic assault on the Threshold would be another, larger by an order of magnitude.
+
+Do not use "sleeping entity" language. The canonical term is **Held Breath**.
+
+---
+
+### The Heroic Age and the Thousand-Year Gap
+
+The heroes earned their reward. Approximately 1,000 years ago (~200 CE), they liberated enslaved peoples — the Orc nations — by breaking a Wizard's binding spells. They defeated the Empire that had used those spells as its foundation. They ended a system of absolute control. These were deeds worthy of reward.
+
+The reward was the **Celestial Peak** — a real place, geographically distant but reachable by the reward-granted. Not an afterlife. A sanctuary of rest, knowledge, and peace where those who complete great tasks are granted respite. The heroes lived there for 1,000 years as custodians. They believed the work was finished.
+
+**They were wrong.** The Wizard survived. He did not flee far. He began a patient 150-year plan, then a 700-year consolidation, and the heroes knew nothing of it because they had already accepted their reward.
+
+Their charge — given at the moment of reward, understood only in fragments — was to ensure the world's newfound freedom could stabilize. Specifically: to deal with the lingering Wizard threat. They did not recognize this. They rested. And the Wizard planned.
+
+The heroes were expelled at the start of play. This is not 1,000 years ago. **The expulsion is Session 0.** The Warrior waking in a refugee camp, the Seeker in the desert, the Bridge in a prison cell — these are the expulsion landing.
+
+---
+
+### What the Heroes Actually Are
+
+Not gods. Not diminished versions of gods. **People who earned a reward, and are now being asked to finish what they started.**
+
+They are 1,000-year-old legendary champions who did not recognize their unfinished work and have now been expelled back into the mortal world to complete it. They carry significant power — through their tools, their celestial memories, their Warren-attuned presence — but that power comes with obligations they do not yet understand.
+
+Each hero carries **archetype-specific self-doubt** about whether their methods caused harm alongside the good they did. The Breaker wonders if breaking the Wizard's binding spells inadvertently freed something else. The Warrior wonders if overwhelming force scattered the Wizard rather than defeating him. This doubt is *justified* — not paranoia. Their methods had real consequences that they failed to fully reckon with.
+
+The heroes are also unique in their position: they are the only beings in the world who carry both mortal perspective and celestial memory fragments. They are the only ones who can potentially synthesize the distributed knowledge held across the factions — High Elf cosmological theory, Dwarven archival data, Orcish shamanic sensing, human scholarly fragments, Goblin observational networks — into a complete picture of what is happening.
+
+---
+
+### The World as They Find It
+
+The world looks like a golden age. Trade flourishes across the Silk Road. Multi-species cooperation is at its historical peak. The Empire has been gone for 1,000 years and its absence, on the surface, looks like freedom.
+
+Below the surface: stress fractures. Magic failing in expanding dead zones. Shamanic traditions degrading. Scholars who got too close to the truth have been disappearing since ~1175 CE (the Scholar's Purge — targeted, not religious). The Dwarven Chronicle of Ages contains 1,000 years of pattern data that points toward something no one wants to name.
+
+The heroes are legend. Orcish oral tradition reveres them. Dwarven archives document them. Human mythology has mythologized and distorted them. Elven memory carries fragments of who they actually were. No one expects them to return. No one recognizes them at first — and that is the GM's most valuable tool. They arrive as strangers, unknown, with impossible knowledge and tools that don't behave like ordinary objects.
+
+---
+
+### The Antagonist: The Wizard
+
+The Wizard is not the final boss. He is the catalyst.
+
+He survived the heroes' era. He studied the Warren structure for 1,000 years — he now knows more about it than almost anyone alive. He knows about the Held Breath. He believes he can manage the risk. He plans a controlled breach of the Hero Heaven threshold that will, in his calculation, *strengthen* the Warren equilibrium rather than break it. He sees himself as the savior.
+
+**Locked framing (Decision 4 — B+C):** The Wizard acts in overconfidence, not ignorance. His certainty has been shaped over 1,000 years by the Held Breath themselves — his conviction is not purely his own. He is the most patient, disciplined mind in the world, patient and disciplined enough to be the perfect instrument. When the heroes confront him, the argument is not "you're evil" — it is "we agree on the problem and your solution will kill us all, and the thing you think you're controlling has been controlling you."
+
+His plans will appear *almost* coherent to players who piece them together. More unsettling than cartoonish evil.
+
+**Wizard's specific motivation for breaching the Threshold:** not yet resolved — see `narrative/gm_secrets/WIZARD_AND_LICH_CADRE.md` for current state. This is a separate writing task.
+
+---
+
+### The Lich-Legion
+
+Eight to twelve Lich commanders, each of a different species, each recruited by the Wizard at different points across the 700-year consolidation phase, each unaware the others exist. Orc shaman. Dwarf archivist. High Elf seeking to avoid diminishing. Human court mage. Mortal Elf historian. Each had something they wanted badly enough to accept the Wizard's offer.
+
+Each commands an undead legion. Total forces: approximately 80,000–120,000 undead distributed across the continent. Undead require no supply lines, no sleep, no morale. Their coordinated assault across multiple fronts is the military dimension of the Wizard's plan — a continent-wide distraction while he moves against the Threshold.
+
+The Lich commanders have tragic backstories. Some of them had genuinely good intentions. The Orc shaman who wanted to preserve the memory of liberation forever. The Dwarf archivist who discovered the pattern in the data and made a deal to survive long enough to stop it. The heroes will have to fight them, and the fights will not be clean.
+
+---
+
+### The Celestial Peak and the Threshold
+
+The Celestial Peak is a real place. The threshold between the mortal world and the Peak is a **load-bearing node in the mythic ecosystem** — a pressure regulator between mortal and celestial energy. It is not merely a door.
+
+Breaching it by force does not just open a door. It kicks a load-bearing wall. The Warren structure cracks. Visibly, immediately, unmistakably. The Held Breath stirs — not because the Wizard intended it, but because the weight of the event tips the equilibrium. This is **Layer 2 of the Three-Layer Revelation**: the heroes stop the Wizard, and the consequences arrive anyway.
+
+---
+
+### The Fallen Companion and the Gaes
+
+The heroes had a companion who fell in the final conflict of the Heroic Age. That companion's sacrifice was the emotional and spiritual anchor of their victory. It was also — 1,000 years later — the mechanism through which the Wizard expelled them.
+
+The **gaes** is a necromantic binding woven through the fallen companion's preserved essence. It used the threshold mechanism in reverse: instead of admitting, it ejected. The heroes experience it as betrayal, confusion, devastating self-doubt. They do not understand its source. Their companion's ghost now guides them, fragmentarily, ambiguously — the ghost may not fully understand itself.
+
+Whether the ghost can be trusted is a campaign-length question. It is real. It is trying to help. But it is anchored to a necromantic mechanism, and the Wizard's threads run through it. Handle this carefully. The ghost is the heroes' most intimate relationship with what they lost, and the source of their deepest vulnerability.
+
+---
+
+### The Three-Layer Revelation
+
+This is the structural spine of the campaign's endgame disclosure. Do not collapse the layers. Each one should feel complete and then insufficient.
+
+- **Layer 1 (early-mid campaign):** Stop the Wizard. Surface quest. Discovered through investigation. Players feel like they understand the problem.
+- **Layer 2 (mid-late campaign):** The Wizard's Threshold breach causes immediate cosmological consequence. Stopping him was necessary but not sufficient. The Held Breath stirs. The heroes thought stopping one man was enough.
+- **Layer 3 (endgame):** The heroes must reckon with the Warren-level agendas disturbed by the liberation 1,000 years ago. Those agendas have been running the entire time the heroes rested in the Peak. Stopping the Wizard does not end the story. It begins the reckoning.
+
+For full detail on each layer, including stakeholder knowledge distribution and divine player alignment, see `narrative/STORY_ARC_SYNTHESIS.md` and `narrative/gm_secrets/DIVINE_PLAYERS.md`.
 
 ---
 
 ## Inciting Incident
 
-*[GM DOCUMENT — STUB]*
-
-
+*[GM DOCUMENT]*
 
 ![[storyteller.png|left|180]] 
 > *The roads were here before the empire.* 
 > *That is the thing people forget...*
 
- Sample opening to the campaign. The awakening — its specific circumstances, location, and first witness. Three elements: the situation, the objective, the hooks that bring the characters' approaches into immediate play.
- 
- 
- 
+The campaign opens with Session 0: a structured sequence of individual awakenings, convergence, and recognition. There is no single shared inciting incident — each hero arrives separately, through their own crisis, and the full weight of what they share only becomes visible at the end.
+
+This is intentional. The question the campaign asks — *what do you do when the world is certain who you are, and you’re not?* — cannot survive a single opening scene that answers it. Mystery is preserved by distribution.
+
+### Why Parallel Awakenings
+
+Each hero wakes alone into a situation that immediately tests their archetype’s core tension. A warrior who cannot simply fight. A seeker whose knowledge is useless. A bridge who cannot negotiate. The crisis is designed to reveal the character before the character knows who they are — and to ensure the first thing the player sees is the shape of their own doubt.
+
+This structure prevents the party from explaining themselves to one another. Strangers cannot share what they do not yet understand. The heroes meet as people, not as legends.
+
+### The Mystery Economy
+
+At the emotional climax of each awakening — the moment the character chooses restraint over power, or surrenders certainty for instinct — the GM delivers a **secret snippet**: a brief, private memory fragment. Sensory and emotional, never explanatory. The player reads it silently. They do not share it unless they choose to.
+
+These snippets do not reveal what the heroes are. They reveal what it *felt like* to be what they were. Players invest in their characters before they understand them. That investment is the foundation the rest of the campaign is built on.
+
+### Convergence
+
+Each awakening ends with a natural vector toward the same westward merchant caravan. The Visionary defended it. The Seeker found it at the oasis. The Bridge was released into its custody. The heroes board as strangers with debts and complications — not as a party. They are thrown together by circumstance and begin to discover that they share something they cannot name.
+
+### The Recognition Climax
+
+Session 0 ends at the campfire. The GM delivers the following narration — not as a player option, but as an imposed story beat:
+
+> *Looking up from your shared bowls around the caravan campfire, your eyes lock. Electric. You all have a moment of shared realization.*
+>
+> *The vision becomes clear — you all remember a different moment, sitting together. Strong, artful architecture that speaks of care, longevity, and peace. Voices of others, greeting you as peers and familiars. All of you powerful and confident. Serene and somehow... content. It feels like... home.*
+>
+> *The vision lingers for a heartbeat. Then it fades.*
+
+Session ends there. No dialogue. Cut to black.
+
+This moment establishes that the memories are shared, not individual confusion — and that whatever happened, it happened to all of them. It asks the campaign’s question out loud for the first time, through the body rather than the mind.
+
+### Full Scenario Detail
+
+Complete awakening scenarios for each archetype, the secret snippet system, and the flashback triggering architecture are in `narrative/sessions/00_session0/`. Start with `Sessions_Structure.md` for the full structural overview, then the individual `Session_0_[Archetype]_Awakening.md` files for scenario text.
 
 ---
 
