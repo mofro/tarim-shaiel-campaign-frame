@@ -5,7 +5,7 @@ system: Daggerheart
 version: 2
 status: player-facing draft
 created: 2026-03-08
-last_updated: 2026-03-31
+last_updated: 2026-05-07
 notes: |
   Rebuilt to official Daggerheart Campaign Frame structure (Homebrew Kit v1.0).
   Player-facing sections: Title through GM Principles.
@@ -220,18 +220,49 @@ The tentpoles of the campaign world. Includes:
 
 ## Inciting Incident
 
-*[GM DOCUMENT — STUB]*
-
-
+*[GM DOCUMENT]*
 
 ![[storyteller.png|left|180]] 
 > *The roads were here before the empire.* 
 > *That is the thing people forget...*
 
- Sample opening to the campaign. The awakening — its specific circumstances, location, and first witness. Three elements: the situation, the objective, the hooks that bring the characters' approaches into immediate play.
- 
- 
- 
+The campaign opens with Session 0: a structured sequence of individual awakenings, convergence, and recognition. There is no single shared inciting incident — each hero arrives separately, through their own crisis, and the full weight of what they share only becomes visible at the end.
+
+This is intentional. The question the campaign asks — *what do you do when the world is certain who you are, and you’re not?* — cannot survive a single opening scene that answers it. Mystery is preserved by distribution.
+
+### Why Parallel Awakenings
+
+Each hero wakes alone into a situation that immediately tests their archetype’s core tension. A warrior who cannot simply fight. A seeker whose knowledge is useless. A bridge who cannot negotiate. The crisis is designed to reveal the character before the character knows who they are — and to ensure the first thing the player sees is the shape of their own doubt.
+
+This structure prevents the party from explaining themselves to one another. Strangers cannot share what they do not yet understand. The heroes meet as people, not as legends.
+
+### The Mystery Economy
+
+At the emotional climax of each awakening — the moment the character chooses restraint over power, or surrenders certainty for instinct — the GM delivers a **secret snippet**: a brief, private memory fragment. Sensory and emotional, never explanatory. The player reads it silently. They do not share it unless they choose to.
+
+These snippets do not reveal what the heroes are. They reveal what it *felt like* to be what they were. Players invest in their characters before they understand them. That investment is the foundation the rest of the campaign is built on.
+
+### Convergence
+
+Each awakening ends with a natural vector toward the same westward merchant caravan. The Visionary defended it. The Seeker found it at the oasis. The Bridge was released into its custody. The heroes board as strangers with debts and complications — not as a party. They are thrown together by circumstance and begin to discover that they share something they cannot name.
+
+### The Recognition Climax
+
+Session 0 ends at the campfire. The GM delivers the following narration — not as a player option, but as an imposed story beat:
+
+> *Looking up from your shared bowls around the caravan campfire, your eyes lock. Electric. You all have a moment of shared realization.*
+>
+> *The vision becomes clear — you all remember a different moment, sitting together. Strong, artful architecture that speaks of care, longevity, and peace. Voices of others, greeting you as peers and familiars. All of you powerful and confident. Serene and somehow... content. It feels like... home.*
+>
+> *The vision lingers for a heartbeat. Then it fades.*
+
+Session ends there. No dialogue. Cut to black.
+
+This moment establishes that the memories are shared, not individual confusion — and that whatever happened, it happened to all of them. It asks the campaign’s question out loud for the first time, through the body rather than the mind.
+
+### Full Scenario Detail
+
+Complete awakening scenarios for each archetype, the secret snippet system, and the flashback triggering architecture are in `narrative/sessions/00_session0/`. Start with `Sessions_Structure.md` for the full structural overview, then the individual `Session_0_[Archetype]_Awakening.md` files for scenario text.
 
 ---
 
