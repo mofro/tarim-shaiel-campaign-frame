@@ -40,7 +40,7 @@ last_updated: 2026-01-11
 ### **Why This Works**
 
 **Mechanically:**
-- Explains Charm activation: "I channel power through my tool"
+- Explains legendary capability activation: "I channel power through my tool"
 - Explains whisper system: Tool remembers what hero has forgotten
 - Explains R/H/K discovery: Learning what the tool knows about shared identity
 - Explains binding: Tools are keyed to specific legendary nature
@@ -98,7 +98,7 @@ Realization: "What IS this thing?"
 
 **Mechanical Properties:**
 - Enhanced damage/range/effect (+1 tier improvement)
-- First Charm tier unlocked (Tier 1 Charms accessible)
+- First legendary capabilities unlock (Tier 1 accessible)
 - Celestial dice progression: 2d12 Hope advantage when using tool
 
 **Narrative Moment:**
@@ -127,7 +127,7 @@ It whispers: "Remember..."
 
 **Mechanical Properties:**
 - Significant enhancement (+2 tier improvement)
-- Second Charm tier unlocked (Tier 2 Charms accessible)
+- Second tier legendary capabilities unlock (Tier 2 accessible)
 - Celestial dice: 2d12 Hope when aligned with purpose
 
 **Narrative Moment:**
@@ -157,7 +157,7 @@ and you KNOW its name for the first time.
 
 **Mechanical Properties:**
 - Maximum enhancement (+3 tier improvement)
-- Third Charm tier unlocked (Tier 3 Charms accessible)
+- Third tier legendary capabilities unlock (Tier 3 accessible)
 - Celestial dice: 3d12 Hope advantage always active
 - Unique legendary property (TBD per tool)
 
@@ -227,18 +227,18 @@ The tool whispers: "We are whole again."
 | Stage | Damage Bonus | Range Increase | Special Properties |
 |-------|--------------|----------------|-------------------|
 | Crude (Stage 0) | Standard | Standard | Tether only |
-| Masterwork (Essence 1) | +1 damage die size | +1 range band | Never breaks, Tier 1 Charms |
-| Ornate (Essence 2) | +2 damage die size | +2 range bands | Ignores mundane armor, Tier 2 Charms |
-| Legendary (Essence 3) | +3 damage die size | +3 range bands | Legendary property, Tier 3 Charms |
+| Masterwork (Essence 1) | +1 damage die size | +1 range band | Never breaks, Tier 1 legendary capabilities |
+| Ornate (Essence 2) | +2 damage die size | +2 range bands | Ignores mundane armor, Tier 2 legendary capabilities |
+| Legendary (Essence 3) | +3 damage die size | +3 range bands | Legendary property, Tier 3 legendary capabilities |
 
 **NON-WEAPON TOOLS:**
 
 | Stage | Effect Bonus | Clarity/Power | Special Properties |
 |-------|--------------|---------------|-------------------|
 | Crude (Stage 0) | Standard | Limited | Tether only |
-| Masterwork (Essence 1) | +1 to relevant rolls | Clear/Functional | Enhanced utility, Tier 1 Charms |
-| Ornate (Essence 2) | +2 to relevant rolls | Exceptional | Multiple uses, Tier 2 Charms |
-| Legendary (Essence 3) | +3 to relevant rolls | Perfect/Absolute | Reality-bending, Tier 3 Charms |
+| Masterwork (Essence 1) | +1 to relevant rolls | Clear/Functional | Enhanced utility, Tier 1 legendary capabilities |
+| Ornate (Essence 2) | +2 to relevant rolls | Exceptional | Multiple uses, Tier 2 legendary capabilities |
+| Legendary (Essence 3) | +3 to relevant rolls | Perfect/Absolute | Reality-bending, Tier 3 legendary capabilities |
 
 ### **Tether Mechanics (Death & Resurrection)**
 
@@ -256,7 +256,7 @@ The tool whispers: "We are whole again."
 
 **Tool Separated Completely:**
 - Hero feels constant pull toward tool
-- Cannot access Charms while separated
+- Cannot access legendary capabilities while separated
 - Vulnerability: Standard mortal capabilities only
 
 ---
@@ -369,7 +369,7 @@ Tools are **limited entities** with their own nature (Moorcock-style). Their per
 
 **Class Change Mid-Campaign:**
 - Tool form remains constant (reflects Session 0 choice)
-- Charms adjust to maintain thematic fit
+- Legendary capabilities adjust to maintain thematic fit
 - Narrative: "My tool remembers who I was, even as I change"
 
 **Tool Damage/Destruction:**
@@ -412,6 +412,6 @@ Tools are **limited entities** with their own nature (Moorcock-style). Their per
 
 ---
 
-**Last Updated:** 2026-03-20
+**Last Updated:** 2026-05-07
 **Next Steps:** Create CHARACTER_CREATION_SEQUENCE.md with Session -1 questionnaire structure; resolve Seeker tome/bow discrepancy between Stage 0 examples and written awakening scenario
 **Maintained by:** Lore Keeper, with input from Mythweaver

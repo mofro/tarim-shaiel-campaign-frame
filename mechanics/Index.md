@@ -35,7 +35,7 @@ FROM "mechanics/magic-systems"
 SORT file.name ASC
 ```
 
-### 💎 Charm Analysis
+### 💎 Legendary Capabilities (Archive)
 ```dataview
 LIST 
 FROM "mechanics/charm-analysis" 
@@ -60,9 +60,9 @@ SORT file.name ASC
 
 This directory contains all game mechanics organized by domain:
 - **Character Creation** - Session 0 and character development mechanics
-- **Character Progression** - Charms, tools, and advancement systems
-- **Magic Systems** - Spells vs charms analysis and magic frameworks
-- **Charm Analysis** - Detailed charm system research and design
+- **Character Progression** - Legendary capabilities, tools, and advancement systems
+- **Magic Systems** - Spells vs legendary capabilities analysis and magic frameworks
+- **Legendary Capabilities (Archive)** - Archived charm system research and design
 - **Design Decisions** - Mechanical design rationale and decisions
 
 ## Related Directories

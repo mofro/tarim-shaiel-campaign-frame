@@ -6,7 +6,7 @@ content_type: concept
 visibility: gm_secrets
 status: canon
 created: 2026-03-17
-last_updated: 2026-03-17
+last_updated: 2026-05-07
 ---
 
 # HERO HEAVEN: HERO IDENTITY & COSMOLOGICAL FOUNDATION
@@ -46,7 +46,7 @@ last_updated: 2026-03-17
 
 **Hero Heaven Heroes ≈ Exalted Solars**
 - Chosen champions with legendary power
-- Legendary abilities manifest through Charms
+- Legendary abilities manifest through Tools (R/H/K)
 - Tools as proxy for anima/caste marks
 - Legendary past drives current identity
 
@@ -87,7 +87,7 @@ Heroes were RIGHT to do what they did (earned paradise), but INCOMPLETE in under
 **No Mechanical Punishment for Past:**
 - Heroes don't lose power for "being wrong"
 - Tools don't betray heroes for incomplete understanding
-- Charms work regardless of alignment discovery
+- Legendary capabilities activate regardless of alignment discovery
 - Hope/Fear economy reflects present choices, not past
 
 ---
@@ -160,7 +160,7 @@ Heroes were RIGHT to do what they did (earned paradise), but INCOMPLETE in under
 
 **At Session 0 (Tier 0):**
 - Skills: Fully retained (GURPS attributes/skills intact)
-- Power: Dormant (Charms not yet recovered)
+- Power: Dormant (legendary capabilities not yet awakened)
 - Identity: Fragmented ("I'm a warrior... I think?")
 - Past: Emotional echoes only (feelings without context)
 
@@ -177,19 +177,19 @@ Warrior doesn't know WHY they protect (purpose unclear)
 ### **What Heroes Recover**
 
 **Tier 1 (First Awakening):**
-- First Charm: Legendary ability returns
+- First awakening: Legendary capability expresses through the tool
 - First Memory: Flashback to heroic deed
 - First Whisper: Tool recognizes hero
 - Aspirational R/H/K: Hero defines who they think they are
 
 **Tier 2 (Purpose Clarity):**
-- More Charms: Additional legendary abilities
+- Deeper awakening: Additional legendary capabilities
 - Purpose Memory: Flashback to WHY they were heroic
 - R/H/K Discovery: Hero realizes aspirational ≠ actual
 - Tool Alignment: Whispers reveal truth
 
 **Tier 3 (Full Awakening):**
-- Final Charms: Maximum legendary power
+- Full awakening: Maximum legendary power
 - Complete Memory: Full understanding of legendary past
 - Actual R/H/K: Hero knows who they truly are
 - Future Choice: Reclaim paradise or forge new path
@@ -202,7 +202,7 @@ Warrior doesn't know WHY they protect (purpose unclear)
 
 **Mechanical Layer (Always Transparent):**
 - Players know: "Following whisper = advantage dice"
-- Players know: "Spending Hope = Charm activation"
+- Players know: "Spending Hope = legendary capability activation"
 - Players know: "Resisting = +1 Hope gain"
 - No hidden mechanics, no GM fiat
 
@@ -263,7 +263,7 @@ Actual R/H/K revealed through mechanical choice
 4. Does this respect hero power? (No diminishment?)
 
 **Examples:**
-- ✅ Hope-Only Charms: Transparent costs, meaningful choices
+- ✅ Hope-triggered legendary capabilities: Transparent costs, meaningful choices
 - ✅ Celestial Dice: Tactile power growth, narrative triggers
 - ✅ Tool Whispers: Clear mechanics, ambiguous alignment
 - ❌ Hidden costs: Violates transparency

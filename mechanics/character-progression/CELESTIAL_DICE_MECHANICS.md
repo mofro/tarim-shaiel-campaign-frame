@@ -7,7 +7,7 @@ content_type: concept
 visibility: gm_secrets
 status: draft
 created: 2026-02-09
-last_updated: 2026-02-09
+last_updated: 2026-05-07
 ---
 
 # CELESTIAL DICE MECHANICS
@@ -37,30 +37,30 @@ Celestial dice mechanics form the core of Tarim-Shaiel's narrative and mechanica
 
 ### Tier 0: Dormant (Pre-Awakening)
 - Standard duality dice (1d12 Hope + 1d12 Fear)
-- No Charm access
+- Legendary capabilities dormant
 - Standard Daggerheart mechanics
 
 ### Tier 1 (Level 1): First Awakening
 - Celestial dice: 2d12 Hope (keep highest) + 1d12 Fear when using tool
-- Access to Tier 1 Charms
+- Tier 1 legendary capabilities accessible
 - Hope bonuses: +1 Hope per scene
 - Recall cost: 0 Hope
 
 ### Tier 2 (Levels 2-4): Expanding Consciousness
 - Celestial dice: 3d12 Hope (keep highest) + 1d12 Fear when aligned with purpose
-- Access to Tier 2 Charms + enhanced Tier 1
+- Tier 2 legendary capabilities accessible + enhanced Tier 1
 - Hope bonuses: +2 Hope per scene
 - Recall cost: 1 Hope
 
 ### Tier 3 (Levels 5-7): Purpose Clarity
 - Celestial dice: 3d12 Hope (keep highest) + 1d12 Fear always active
-- Access to Tier 3 Charms + maximum Tier 2 scaling
+- Tier 3 legendary capabilities accessible + maximum Tier 2 scaling
 - Hope bonuses: +2 Hope per scene
 - Recall cost: 2 Hope
 
 ### Tier 4 (Levels 8-10): Full Awakening
 - Celestial dice: 3d12 Hope (keep highest) + 1d12 Fear + mythic bonuses
-- Access to Tier 4 Charms + maximum scaling all tiers
+- Tier 4 legendary capabilities accessible + maximum scaling all tiers
 - Hope bonuses: +3 Hope per scene
 - Recall cost: 3 Hope
 
@@ -92,17 +92,17 @@ Celestial dice mechanics form the core of Tarim-Shaiel's narrative and mechanica
 
 **Tier 1 Spending**
 - Minor narrative adjustments
-- Simple Charm activations
+- Tier 1 legendary activations
 - Tactical rerolls
 
 **Tier 2 Spending**
 - Moderate narrative interventions
-- Complex Charm activations
+- Tier 2 legendary activations
 - Combining multiple action types
 
 **Tier 3 Spending**
 - Massive narrative transformations
-- Apocalyptic Charm activations
+- Tier 3 legendary activations
 - Rewriting immediate reality
 
 ## TOOL WHISPER INTERACTIONS
