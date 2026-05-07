@@ -514,9 +514,7 @@ Each stub answers three questions:
 
 **Contested-site dynamic:** The immune system placed the Sentinel at a site of *ongoing injustice* — not disaster, but a slow wrong in plain sight. The Wizard's agents weren't hunting the Sentinel specifically; they were already operating at this site. The Sentinel wakes into the middle of enemy activity they are uniquely positioned to observe. The tension: the agents don't know the Sentinel is there yet. Every moment of watching is also a moment of exposure risk.
 
-**Tool (original stub):** Recording device (journal, memory stone). Present and active from the first moment — recording everything, including the Sentinel's own hesitation.
-
-**Tool (framework proposal, 2026-03-20):** Cracked lantern — one pane missing, asymmetric light, cannot be extinguished. Voice: points without speaking; illuminates corners the Sentinel wasn't watching; cannot distinguish real threat from fear. *Conflict with original stub: recording device implies an epistemic/witness function; cracked lantern implies doxastic/vigilance function. The stub's Sentinel "wakes with perfect paralysing clarity" — if that's the core identity, the recording device may be more accurate. Resolve before writing full scenario.*
+**Tool (canonical — Decision 17, 2026-05-07):** Cracked lantern — one pane missing, asymmetric light, cannot be extinguished. Voice: points without speaking; illuminates corners the Sentinel wasn't watching; cannot distinguish real threat from the hero's own fear. The doxastic/vigilance function is the correct design logic: the surrendered layer is the *ability to trust without evidence*, and the lantern embodies that — it illuminates everything indiscriminately, which is precisely the problem. "Wakes with perfect paralysing clarity" is not an epistemic gift; it is the surrendered trust made visible as relentless, undiscriminating light. The recording device (original stub) was an early read of the witness function and is superseded.
 
 **Surrendered layer (framework):** Doxastic — the ability to trust without evidence; the experience of safety.
 

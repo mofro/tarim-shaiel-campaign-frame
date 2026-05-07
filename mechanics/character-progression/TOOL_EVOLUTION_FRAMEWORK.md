@@ -63,7 +63,7 @@ last_updated: 2026-01-11
 
 **Examples:**
 - Warrior's crude iron sword (no pommel, leather-wrapped grip)
-- Seeker's rough-carved bow (unstrung when dormant, simple wood)
+- Seeker's rough-covered tome (pages worn, ink faded, charts barely legible)
 - Bridge's frayed rope (knotted, worn, but unbreakable)
 - Visionary's clouded crystal (opaque, dim glow)
 
@@ -92,7 +92,7 @@ Realization: "What IS this thing?"
 
 **Examples:**
 - Warrior's blade sharpens to impossible edge, never dulls
-- Seeker's bow string hums with tension even when undrawn
+- Seeker's tome pages turn on their own to relevant charts, ink sharpens
 - Bridge's rope glows faintly when binding connections
 - Visionary's crystal begins to clear, shows fleeting images
 
@@ -121,7 +121,7 @@ It whispers: "Remember..."
 
 **Examples:**
 - Warrior's short sword, pommel bears unknown sigil, edge gleams with inner light
-- Seeker's composite bow, limbs inscribed with flowing script
+- Seeker's tome, margins fill with new annotations in an unknown hand
 - Bridge's braided cord, threads shimmer with multiple colors
 - Visionary's faceted orb, swirls with imagery when consulted
 
@@ -151,7 +151,7 @@ and you KNOW its name for the first time.
 
 **Examples:**
 - Warrior's longsword, blazing with celestial fire when drawn
-- Seeker's recurve bow, arrows manifest from pure light
+- Seeker's tome, pages illuminate with living star charts, truths write themselves
 - Bridge's living rope, moves with serpentine intelligence
 - Visionary's perfect sphere, contains entire cosmos within
 
@@ -199,8 +199,8 @@ The tool whispers: "We are whole again."
 - + Ranger Class → **Compass** (finding paths between)
 
 **SEEKER ARCHETYPE:**
+- + Wizard/Sorcerer Class → **Tome/Codex** (maps, star charts, accumulated certainty) *(canonical Session 0 form)*
 - + Ranger Class → **Bow/Crossbow** (seeking arrows, revelation shots)
-- + Wizard/Sorcerer Class → **Astrolabe/Orrery** (mapping truths)
 - + Rogue Class → **Spyglass/Lens** (seeing hidden)
 - + Druid Class → **Lantern/Torch** (illuminating nature's secrets)
 
@@ -272,7 +272,7 @@ The tool whispers: "We are whole again."
 **Examples:**
 - "Sundering Hammer of Khoda" (Breaker-Warrior)
 - "The Seeking Glass, Witness of Truths" (Visionary-Rogue)
-- "Pathfinder's Bow, called Swift-Truth" (Seeker-Ranger)
+- "The Certainty Tome, called Without-Doubt" (Seeker-Wizard)
 - "The Bridge's Thread, Heartbinder" (Bridge-Bard)
 - "The Sacrificial Blade, Mercy's Edge" (Sacrificer-Warrior)
 
@@ -413,5 +413,5 @@ Tools are **limited entities** with their own nature (Moorcock-style). Their per
 ---
 
 **Last Updated:** 2026-05-07
-**Next Steps:** Create CHARACTER_CREATION_SEQUENCE.md with Session -1 questionnaire structure; resolve Seeker tome/bow discrepancy between Stage 0 examples and written awakening scenario
+**Next Steps:** Create CHARACTER_CREATION_SEQUENCE.md with Session -1 questionnaire structure. (Seeker tome/bow discrepancy resolved 2026-05-07 — tome is canonical; locked as Decision 16.)
 **Maintained by:** Lore Keeper, with input from Mythweaver
