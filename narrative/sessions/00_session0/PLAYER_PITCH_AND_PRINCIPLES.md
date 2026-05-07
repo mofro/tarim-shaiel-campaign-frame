@@ -2,10 +2,10 @@
 title: Tarim Shaiel — Player Pitch & Principles
 project: TTRPG_Tarim_Shaiel
 domain: narrative
-doc_type: player_document
-content_type: session
-visibility: player-facing
-status: final
+doc_type: canon
+content_type: campaign_frame
+visibility: public
+status: canon
 created: 2026-05-06
 last_updated: 2026-05-06
 ---
@@ -109,7 +109,7 @@ These are not rules. They are the mindset that makes the campaign work.
 > When a scene makes you want to look away from something your character did, or enabled, or benefited from — look at it instead. That discomfort is the campaign working as intended. The best moments in Tarim Shaiel come from characters who don't flinch.
 
 > **Ask what it cost.**  
-> Every decision your character makes carries a cost. Sometimes it's visible immediately. Sometimes it surfaces sessions later when someone else inherits the consequence. Staying curious about the cost — not resistant to it — keeps you in right relationship with the campaign's themes.
+> The campaign doesn't resolve choices. It inherits them. Something done in session three surfaces in session nine as something someone else is living with — and they didn't choose it. The question is not whether there was a cost. It is whether you stay curious enough to watch it arrive.
 
 ---
 

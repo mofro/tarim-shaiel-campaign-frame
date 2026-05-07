@@ -3,9 +3,9 @@ title: Tarim Shaiel — Player Pitch & Principles (GM Reference)
 project: TTRPG_Tarim_Shaiel
 domain: narrative
 doc_type: gm_secrets
-content_type: session
+content_type: campaign_frame
 visibility: gm_secrets
-status: final
+status: canon
 created: 2026-05-06
 last_updated: 2026-05-06
 ---
@@ -146,6 +146,32 @@ This matters for how the world's magic feels unreliable and why certain places f
 
 ---
 
+## The Campaign's Shape (Decision 8)
+
+Running session zero effectively requires knowing, at least in outline, where this is headed. The campaign resolves in three layers:
+
+1. **Stop the Wizard** — the apparent arc, the threat players can name and point at. This is the surface.
+2. **The Threshold breach** — the Wizard's work pushes toward breaching a load-bearing node in the Warren ecosystem. The heroes stop the Wizard; the breach consequence arrives anyway, or nearly. This is the cost.
+3. **Warren reckoning** — the heroes must reckon with the disturbance their own liberation has caused and the presence of the Held Breath, whose weight was always the real endgame. This is the truth beneath the truth.
+
+Session zero launches a story that will take players through all three layers. They don't need to know this. You do — so that nothing you say in session zero forecloses a revelation that is still two-thirds of the campaign away.
+
+---
+
+## Mechanical Identity Carriers
+
+These are how the dual-truth reveals itself through play — not through narration, but through the game's mechanics behaving in ways that defy explanation.
+
+**Vestiges** are physical remnants of the heroes' past — objects, marks, instincts that behave oddly. They awaken slowly. A Vestige doesn't explain anything; it poses a question the character can't yet answer.
+
+**Memory Fragments** are partial recollections that surface at threshold moments — triggered by events, locations, moral echoes of past choices. They are the mechanism through which the revelation arrives. They come as sensation, image, inexplicable certainty. They cannot be forced. They are earned.
+
+**The Wrongness** is the Warren disturbance made tactile — the world's magic feeling broken in ways that correlate with the heroes' presence and proximity to the Threshold. It is not punishment. It is consequence. At low tiers it is ambient; at high tiers it becomes unmistakable.
+
+None of these explain the campaign to the players. They are the breadcrumbs that make the eventual recognition feel inevitable rather than announced.
+
+---
+
 ## How to Deliver the Player-Facing Document
 
 ### Timing
@@ -155,6 +181,14 @@ Hand `PLAYER_PITCH_AND_PRINCIPLES.md` to players before character creation — n
 The document speaks for itself. If players ask about the "weight" the characters carry, or what's meant by "the world has already decided something about who they are," stay in the register of the document: *"The world here has long memories. Your character is significant to people they haven't met yet. That's all you need to know for now."*
 
 Do not add context. Do not editorialize. The document is calibrated to communicate the right amount.
+
+### On "Why Are We Here?"
+
+Players will ask. Their characters will ask. The question is the campaign's central axis — and it has no answer yet. Decision 11 (cosmic conscription vs. punishment) is open. That's not an oversight. The characters' uncertainty about their own origins is structural; the ambiguity is the point until the campaign earns an answer.
+
+Don't mistake your own uncertainty for a gap that needs filling. The world doesn't know why these particular people are here either. The Celestial Court hasn't sent a letter. NPCs with opinions are operating on superstition, pattern recognition, and the unsettling feeling that something has shifted.
+
+When players push: *"I don't know. What does your character believe?"* is a complete answer. Let the characters carry the question. That's what the campaign is for.
 
 ### What Not to Say
 - Do not hint that the characters were once more powerful
@@ -168,6 +202,24 @@ Players should choose their approach before building their character, not after.
 
 ### On the Doubt
 Each archetype description includes a doubt. Encourage players to sit with it rather than resolving it during character creation. The campaign will do the work of testing and transforming that doubt over many sessions. Players who try to pre-resolve it in session zero deprive themselves of the campaign's best work.
+
+---
+
+## Session Zero Ending: The Recognition Climax
+
+Session zero ends at the campfire. All heroes have converged. They are, for the first time, sitting in the same light.
+
+**You narrate this.** The players don't ask for it. You don't wait for a natural pause. When the moment comes — when they've eaten and the fire has settled — you take it:
+
+> *Something in the firelight is wrong. Not threatening. Not frightening. Just — familiar. You are looking at people you have never met. And somewhere below cognition, the word that surfaces is not "stranger."*
+>
+> *It passes. Or nearly.*
+
+Cut to black. Session ends. Don't let anyone speak.
+
+**Why the cut works:** The recognition is not a revelation to be discussed; it's a door the campaign has just opened. If you let players react to it now, they'll reach for explanation, certainty, character reactions that close the question rather than carry it. The cut gives the moment to them and doesn't let them spend it. The next session begins with something that cannot be unremembered and hasn't yet been named.
+
+**What to say when they ask:** They will ask. *"What was that?"* is the correct response to that narration. Answer from inside the world: *"Your characters don't know. What does your character do with it?"* That is the question the campaign will spend the next thirty sessions answering.
 
 ---
 
