@@ -7,7 +7,7 @@ content_type: campaign_frame
 visibility: gm_secrets
 status: canon
 created: 2026-05-06
-last_updated: 2026-05-06
+last_updated: 2026-05-07
 ---
 
 # Tarim Shaiel — Player Pitch & Principles
@@ -61,7 +61,7 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 **Tool:** Cracked lantern. Carries consciousness and agency; can refuse or resist (Decision 5). Still casts light. The crack is not a failure of the tool — it is the record of every threshold held. Warren allegiance surfaces in what it illuminates and what it refuses to show.
 
-**Cosmological note:** The Sentinel's doubt (was I there, or did I stop it?) is not resolvable through normal experience. They held the threshold. Something still came through. The surrendered layer would have told them the difference; they don't have it anymore.
+**Cosmological note:** The Sentinel's doubt (am I the barrier, or the beacon?) is not resolvable through normal experience. The warding certainty confirmed that presence at the threshold deterred what threatened it. Without it, they cannot rule out the inverse: that what keeps returning to the door does so because they are behind it — that the threshold keeps being tested not despite their presence but because of it. This is not guilt. It is a structural uncertainty the surrendered layer would have resolved.
 
 **Awakening status:** Design skeleton only. Core scenario not yet written.
 
@@ -85,7 +85,7 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 **Tool:** Shaved coin. Carries consciousness and agency; can refuse or resist (Decision 5). The weight is off; outcomes tilt but don't guarantee. Warren allegiance surfaces in which outcomes the coin tilts toward — and which results it refuses.
 
-**Cosmological note:** The Trickster's doubt (was it me, or was the world already broken?) is the exact register of the surrendered layer. They found the gap. They can no longer be certain they created favorable conditions or simply located a crack that already existed. Without the systematic certainty, those two things feel the same.
+**Cosmological note:** The Trickster's doubt (which face is mine?) is the exact register of the surrendered layer. The systematic certainty knew which gap to find and — crucially — knew which self was doing the finding. Without it, they cannot locate the original face under the accumulated masks. The deception worked too well. The question of identity is not philosophical. It is operational.
 
 **Awakening status:** Design skeleton only. Core scenario not yet written.
 
@@ -109,7 +109,7 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 **Tool:** Tome (proposed — note unresolved tome/bow discrepancy pending Decision 10 lock).
 
-**Cosmological note:** The Seeker's doubt (what do you do with a truth you can't use?) is the exact register of the surrendered layer. They know how to find out. They don't always know what finding out permits them to do next.
+**Cosmological note:** The Seeker's doubt (were the questions theirs?) is the exact register of the surrendered layer. The epistemic certainty confirmed that inquiry was self-directed — that the Seeker's questions originated in the Seeker. Without it, they cannot distinguish between following their own curiosity and being guided toward what someone with different purposes wanted them to find. The truths they discovered may be genuine. The path that led to them may not have been theirs to choose.
 
 **Awakening status:** ✅ v0.4 complete. Scenario: desert wasteland, stars that don't match charts, knowledge vs. instinct. Pending revision to full prose density.
 
@@ -121,7 +121,7 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 **Tool:** Worn whetstone. Carries consciousness and agency; can refuse or resist (Decision 5). Sharpens other things; does not act directly. Warren allegiance surfaces in what it will sharpen and what it refuses to touch.
 
-**Cosmological note:** The Crafter's doubt (for whom is this made?) is the absence of the surrendered layer made visible. They can make. They can no longer be certain the making produces what was intended or serves who they meant to serve. The uncertainty isn't a skill gap — it is the threshold cost.
+**Cosmological note:** The Crafter's doubt (are their things still doing what they were made for?) is the absence of the surrendered layer made visible. The mastery certainty confirmed not just the skill but the destiny of what was made — that the thing would serve its purpose and reach its intended hands. Without it, they cannot know where their creations have gone, what they've been repurposed for, or who has benefited from what was built for someone else. The work is still out there. So is the uncertainty.
 
 **Awakening status:** Design skeleton only. Core scenario not yet written.
 
@@ -133,7 +133,7 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 **Tool:** Scale with one pan missing (proposed, pending Decision 10 lock).
 
-**Cosmological note:** The Sacrificer's doubt (whether giving freely over time takes something essential) is the site of the absence because the option to stop giving — to protect the self by withholding — no longer operates cleanly.
+**Cosmological note:** The Sacrificer's doubt (was the giving ever fully chosen?) is the site of the absence. The volitional certainty would have confirmed genuine agency — that the gift was freely given, that the willingness to sacrifice was a capacity rather than a compulsion. Without it, the Sacrificer cannot know whether their consistent, unconditioned giving was strength or a vulnerability others learned to rely on. Whether they chose to give, or could only ever have given.
 
 **Awakening status:** Design framework only. The Sacrificer does NOT have a standalone awakening — they are woven through Act 2 convergence. They wake already being cared for (poor family's home, recipient of sacrifice rather than its source). This structural inversion is intentional: the archetype that gives without limit must first receive. Do not convert this to a standalone awakening.
 
@@ -145,7 +145,7 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 **Tool:** Bone needle + silk thread. Carries consciousness and agency; can refuse or resist (Decision 5). Binds things together; the binding is both repair and connection. Warren allegiance surfaces in which wounds it will close and which it refuses to touch.
 
-**Cosmological note:** The Healer's doubt (is this freely given, or does it bind?) traces the surrendered layer precisely. Full restoration was the operating certainty. Now they can mend — and something in the mending knows that what was broken didn't entirely come back. The doubt about obligation is the doubt about completeness wearing a different face.
+**Cosmological note:** The Healer's doubt (did comfort prevent vigilance?) traces the surrendered layer precisely. The curative certainty told them that healing was resolution — that mending was finishing. Without it, they cannot know whether what they restored was actually resolved or merely made comfortable enough to stop looking at. Communities healed. Wounds closed. The question that remains: whether mending removed the evidence before the cause was addressed.
 
 **Awakening status:** Design skeleton only. Core scenario not yet written.
 
@@ -157,15 +157,27 @@ The archetype descriptions are written to be *true* at both layers. The Warrior 
 
 **Tool:** Obsidian disk (proposed, pending Decision 10 lock).
 
-**Cosmological note:** The Visionary's doubt (is this wisdom or comfortable certainty?) traces the precise location of the surrender. They see clearly. They cannot stop seeing. Whether the seeing is trustworthy is the question their archetype turns on.
+**Cosmological note:** The Visionary's doubt (is what I see what's there?) traces the precise location of the surrender. The perceptual certainty confirmed that their sight was their own — that what reached them reached them clean. Without it, they cannot rule out that clarity was manufactured. That the path they saw so clearly was shown to them, not discovered. The question isn't whether their judgment is good. It is whether the instrument of judgment was compromised at the source.
 
 **Awakening status:** Design framework only. Core scenario: mid-crisis (avalanche/fire/bandits NOW), no time for foresight, act or don't. Structural irony: the archetype that sees the path must act before any path is visible.
 
 ---
 
+### The Keeper
+
+**Surrendered Layer (Decision 15 — pending lock):** *Custodial* — the operating certainty that preservation is inherently virtue. What was surrendered at the threshold was the confidence that their judgment about what deserved to survive was correct. They can still preserve — and do — but the certainty that the things they kept were worth keeping, and didn't shelter something that should have burned, no longer holds.
+
+**Tool:** Iron key with wax seal. Carries consciousness and agency; can refuse or resist (Decision 5). Opens things and seals them. Warren allegiance surfaces in what it will unseal and what it holds shut.
+
+**Cosmological note:** The Keeper's doubt (did preservation shelter what shouldn't have survived?) is the custodial certainty's absence made visible. They made calls — this survives, that burns — and stood behind those calls at real cost. Without the custodial certainty, they cannot know if the judgment was discernment or fear dressed as discernment. The things they kept are still in the world. Some may have provided shelter to something that should have burned alongside it.
+
+**Awakening status:** Design skeleton only. Core scenario not yet written.
+
+---
+
 ## The Surrendered-Layer Framework (Decision 10)
 
-✅ **Locked 2026-05-06. Tools confirmed: Warrior — iron blade; Breaker — crude hammer; Bridge — knotted silk cord; Seeker — tome; Sacrificer — scale with one pan missing; Visionary — obsidian disk; Sentinel — cracked lantern; Trickster — shaved coin; Crafter — worn whetstone; Healer — bone needle + silk thread.**
+✅ **Locked 2026-05-06. Tools confirmed: Warrior — iron blade; Breaker — crude hammer; Bridge — knotted silk cord; Seeker — tome; Sacrificer — scale with one pan missing; Visionary — obsidian disk; Sentinel — cracked lantern; Trickster — shaved coin; Crafter — worn whetstone; Healer — bone needle + silk thread. ⏳ Pending lock (Decision 15): Keeper — iron key with wax seal.**
 
 Each hero surrendered a specific layer of their nature at the threshold — the thing that once made their power clean and fast and unambiguous. What they carry now is the core of what they are, minus the operating certainty that used to make it simple.
 
