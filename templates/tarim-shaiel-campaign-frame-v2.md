@@ -5,7 +5,7 @@ system: Daggerheart
 version: 2
 status: player-facing draft
 created: 2026-03-08
-last_updated: 2026-05-07
+last_updated: 2026-05-08
 notes: |
   Rebuilt to official Daggerheart Campaign Frame structure (Homebrew Kit v1.0).
   Player-facing sections: Title through GM Principles.
@@ -375,11 +375,60 @@ Complete awakening scenarios for each archetype, the secret snippet system, and 
 
 ## Custom Mechanics
 
-*[GM DOCUMENT — STUB]*
+*[GM DOCUMENT]*
 
-- **Vestiges** — objects the characters carry that don't behave like ordinary objects. Mechanical and narrative framework.
-- **Memory Fragments** — how fragments surface, when, and what they cost.
-- **The Wrongness** — mechanical support for the escalating sense that something is broken in the world's magic.
+Three mechanics run beneath the standard Daggerheart chassis: Vestiges, Memory Fragments, and The Wrongness. They are not independent systems. They are the same thing — the heroes' incomplete past pressing against the present — expressed through objects, memory, and the world.
+
+---
+
+### Vestiges
+
+Each hero carries one Vestige — the object that is their primary mechanical and narrative anchor. In player-facing language, "Vestige" is the campaign term; in GM prep, "tool" works interchangeably. Do not explain to players that these are externalized aspects of a divine self. They will discover that register through play.
+
+Vestiges are not inert. They have three expressed behaviors:
+
+**Resist** — The Vestige refuses, redirects, or absorbs. A hero reaches for a course of action, and something in the object pulls back. This is not malfunction. It is a signal: the Vestige's deeper allegiance is in tension with what the hero is about to do. The tension is real; the reason belongs to the Warren layer, not to the hero.
+
+**Hunger** — The Vestige pulls toward something. A direction, a person, a specific action. The pull has weight behind it. The reason may not be the hero's to know — at least not yet. When a Vestige hungers, something at the Warren level is calling for it.
+
+**Know** — The Vestige surfaces something: a flash of recognition, a certainty without origin, a direction the hero cannot account for. This information is not neutral. It is what the Vestige's allegiance *wants* the hero to know. That framing matters — what a Warren wants a hero to know and what is true are not always the same thing.
+
+**Evolution:** Vestiges move through four stages — crude, masterwork, ornate, legendary. Stage is not tied to level; it is tied to narrative threshold moments (see `mechanics/character-progression/TOOL_EVOLUTION_FRAMEWORK.md`). A Vestige at the legendary stage speaks with full clarity. What it says at that stage may reorganize the campaign's final arc. Do not rush it.
+
+---
+
+### Memory Fragments
+
+The heroes have 1,000 years of history they cannot access at the start of play. That history is not gone — it is inaccessible. Memory Fragments are how it surfaces.
+
+A Fragment is not a scene the hero narrates. It is an intrusion: a sensory reality arriving without context. The hero does not remember — they *briefly become the person who lived it*. Immediate. Physical. Then over. They return to the present uncertain what was real and what was now.
+
+**When Fragments surface:**
+- Through the Vestige's Know behavior — the Vestige decides what to surface, and when, and its motives belong to its Warren allegiance
+- During Shared Memory Events — campaign-triggered moments where a Fragment arrives simultaneously for all heroes; these are not individual (see `narrative/Shared_Memory_Events.md`)
+- At GM discretion, when a present-moment encounter rhymes strongly enough with the past that the boundary softens
+
+**Cost:** Fragments are not free. The surfacing costs something — stress, hope, a moment of dissociation at a critical juncture. The specific currency depends on scenario design. What matters is that a hero accumulating Fragments is a hero being cracked open. That is the function: Fragments are not rewards. They are the cost of becoming legible to yourself.
+
+**What they're for:** The accumulation of Fragments is the campaign's revelation architecture. Heroes move from "stop the Wizard" (Layer 1) toward understanding the cosmological stakes (Layer 3) in proportion to how much of themselves they have recovered. Do not shortcut this. The understanding should arrive the way memory does — sideways, incomplete, undeniable only in retrospect.
+
+---
+
+### The Wrongness
+
+Something is wrong with the world's magic. Players will encounter this before they understand it. That sequence is intentional — do not explain it early.
+
+The Wrongness is what Warren disturbance looks like from inside the affected space. Do not describe it as ecosystem damage; do not use that frame in GM prep. Ecosystem damage implies repair. Warren disturbance implies reckoning.
+
+Three tiers, corresponding to campaign progression:
+
+**Tier 1 — Absence** *(early campaign, CP1–CP2):* Magic fails in bounded locations. Preservation spells degrade. Ancestor communication drops to silence at specific ritual sites. Dead zones are localized — a shrine, a road junction, a stretch of river — and they do not expand on any timescale players can observe. Scholars and shamans are cataloguing them. No common framework has emerged. Players experience Tier 1 as an atmospheric signal: something is missing that should be there.
+
+**Tier 2 — Presence-Wrong** *(mid-campaign, CP3–CP4):* Dead zones do not merely fail — they go active. Cause and effect become locally unreliable. A hero's physical strength becomes a liability in a specific confrontation; a hero's gift for de-escalation triggers violence instead of defusing it. The Wrongness at this tier is not hostile. It is *inverted*. What works everywhere else works wrong here, and the inversion targets competence specifically. Heroes who are good at things should feel this most sharply.
+
+**Tier 3 — Ending** *(late campaign, CP5–CP6):* A specific, significant location stops being what it was. Not destroyed — *ended*. The walls stand. The fires burn. The people remain. But the location has ceased to be what it was in any functional sense, and nothing can restore it to that. This is not a curse. It is not reversible. It is the Warren layer withdrawing from a place that can no longer hold the weight. Players should encounter one Tier 3 event before the endgame. It establishes what the stakes actually mean.
+
+**Running the escalation:** The three tiers should feel like a single thing observed at increasing proximity, not three different phenomena. A GM who introduces Tier 1 correctly — as absence, as wrongness-of-texture rather than magical failure — will find Tier 2 lands harder, because players already know something is building. Tier 3 should arrive without warning. The location should matter. The ending should feel permanent because it is.
 
 ---
 
