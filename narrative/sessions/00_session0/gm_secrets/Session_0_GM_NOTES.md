@@ -523,8 +523,8 @@ Each stub below covers: awakening concept, structural slot (if used in Session 0
 | Extended archetype stubs (Sentinel, Keeper, Trickster, Crafter, Healer) | `Session_0_Awakening_Design_Notes.md §PROPOSED ARCHETYPE AWAKENING STUBS` |
 | Pacing model and full timing rationale | `Session_0_Awakening_Design_Notes.md` |
 | Locked structural architecture | `Sessions_Structure.md` |
-| Surrendered-layer framework (all 10 archetypes) | `Session_0_Awakening_Design_Notes.md §THE SURRENDERED-LAYER FRAMEWORK` |
+| Surrendered-layer framework (10 of 11 archetypes — Keeper pending) | `Session_0_Awakening_Design_Notes.md §THE SURRENDERED-LAYER FRAMEWORK` |
 
 ---
 
-*Document Status: Draft. Covers all 6 core awakenings + 5 extended archetype stubs, full pacing model, convergence orchestration, and recognition climax. Core sections for Bridge, Visionary, and Sacrificer derived from design sketches — update when full scenario files are written. Extended archetype stubs derived from `Session_0_Awakening_Design_Notes.md` — update as stubs develop into full scenarios.*
+*Document Status: Draft. Covers all 6 core awakenings + 5 extended archetype stubs (11 archetypes total), full pacing model, convergence orchestration, and recognition climax. Core sections for Bridge, Visionary, and Sacrificer derived from design sketches — update when full scenario files are written. Extended archetype stubs derived from `Session_0_Awakening_Design_Notes.md` — update as stubs develop into full scenarios. Keeper surrendered layer not yet defined in the framework — resolve before writing full scenario.*
