@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-05-07
+last_updated: 2026-05-08
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -18,19 +18,20 @@ last_updated: 2026-05-07
 - NO "once was", "used to", "forgotten", or power-loss framing
 - Player-facing text: present-tense psychological framing always
 
-## 6 Core Archetypes 🔒
-| Archetype | One-line description | File |
-|---|---|---|
-| Breaker | Solves problems through direct action; dismantles barriers | [[characters/archetypes.md]] |
-| Bridge | Understands people; finds common ground; holds things together | [[characters/archetypes.md]] |
-| Seeker | Asks questions others don't; follows threads to their ends | [[characters/archetypes.md]] |
-| Sacrificer | Takes care of people; notices what others need; sustains | [[characters/archetypes.md]] |
-| Warrior | Stands between others and harm; steady; reliable | [[characters/archetypes.md]] |
-| Visionary | Sees what needs to happen; acts on conviction, not authority | [[characters/archetypes.md]] |
-
-## 5 Optional Archetypes
-- Trickster, Crafter, Sentinel, Healer — player-facing descriptions complete (2026-05-06); awaiting awakening scenarios
-- Keeper — player-facing description complete (2026-05-07); surrendered layer + tool pending Decision 15 lock
+## Archetypes 🔒
+| Archetype | One-line description | Awakening scenario status | File |
+|---|---|---|---|
+| Breaker | Solves problems through direct action; dismantles barriers | Complete | [[characters/archetypes.md]] |
+| Bridge | Understands people; finds common ground; holds things together | Design framework only | [[characters/archetypes.md]] |
+| Crafter | Does what needs doing; craft as identity, service as purpose | Design framework only | [[characters/archetypes.md]] |
+| Healer | Tends wounds others don't name; sustains what would otherwise break | Design framework only | [[characters/archetypes.md]] |
+| Keeper | Preserves what matters; decides what is worth saving | Design framework only; tool pending Decision 15 | [[characters/archetypes.md]] |
+| Sacrificer | Takes care of people; notices what others need; sustains | Design framework only | [[characters/archetypes.md]] |
+| Seeker | Asks questions others don't; follows threads to their ends | Complete | [[characters/archetypes.md]] |
+| Sentinel | Stands watch so others don't have to; presence as protection | Design framework only | [[characters/archetypes.md]] |
+| Trickster | Finds the gap in every structure; survives by becoming whoever is needed | Design framework only | [[characters/archetypes.md]] |
+| Visionary | Sees what needs to happen; acts on conviction, not authority | Design framework only | [[characters/archetypes.md]] |
+| Warrior | Stands between others and harm; steady; reliable | Complete | [[characters/archetypes.md]] |
 
 ## Tools-as-Animistic-Divine-Marks 🔒
 - Tools = externalized divine nature, not passive weapons
@@ -73,7 +74,7 @@ last_updated: 2026-05-07
 - [[characters/NPCs/Narrator/Narrator.md]] — The Narrator NPC
 
 ## Only if the summary above doesn't answer it
-- [[characters/archetypes.md]] — 6 core archetypes with thematic tensions
+- [[characters/archetypes.md]] — all 11 archetypes with thematic tensions
 
 ## Do not read
 - `characters/Index.md` — Dataview queries only; not Claude-readable

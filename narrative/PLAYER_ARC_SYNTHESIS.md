@@ -465,7 +465,7 @@ The following ranking evaluates all eleven archetypes (six established + five pr
 
 | Rank | Archetype | Status | Rationale |
 |------|-----------|--------|-----------|
-| 4 | **Sentinel** | ESTABLISHED | Guardian/threshold. Doubt: whether constancy is protection or beacon. The only archetype whose failure mode is presence itself — the threat keeps returning to the same door. If only one archetype is added to the core three, this is the one. |
+| 4 | **Sentinel** | ESTABLISHED | Guardian/threshold. Doubt: whether constancy is protection or beacon. The only archetype whose failure mode is presence itself — the threat keeps returning to the same door. The strongest addition after Warrior, Seeker, and Breaker. |
 | 5 | **Bridge** | ESTABLISHED | Fills the social engine gap. The Silk Road campaign needs someone who talks, negotiates, builds alliances. Without the Bridge, the setting's political richness goes underused. |
 
 **Tier 3 — The Depth (Excellent additions)**

@@ -527,4 +527,4 @@ Each stub below covers: awakening concept, structural slot (if used in Session 0
 
 ---
 
-*Document Status: Draft. Covers all 6 core awakenings + 5 extended archetype stubs (11 archetypes total), full pacing model, convergence orchestration, and recognition climax. Core sections for Bridge, Visionary, and Sacrificer derived from design sketches — update when full scenario files are written. Extended archetype stubs derived from `Session_0_Awakening_Design_Notes.md` — update as stubs develop into full scenarios. Keeper surrendered layer not yet defined in the framework — resolve before writing full scenario.*
+*Document Status: Draft. Covers all 11 archetype awakenings — 3 complete (Warrior, Seeker, Breaker), 7 with design framework only (Bridge, Visionary, Sacrificer, Trickster, Crafter, Sentinel, Healer), Keeper pending Decision 15 lock. Full pacing model, convergence orchestration, and recognition climax covered. Sections for Bridge, Visionary, and Sacrificer derived from design sketches — update when full scenario files are written. Remaining archetype stubs derived from `Session_0_Awakening_Design_Notes.md` — update as stubs develop into full scenarios.*

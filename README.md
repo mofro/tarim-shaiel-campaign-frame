@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: navigation
 status: active
 created: 2025-12-05
-last_updated: 2026-04-24
+last_updated: 2026-05-08
 ---
 
 # Tarim-Shaiel
@@ -51,6 +51,6 @@ lat.md/             AI navigation layer — read before diving into domain conte
 
 ## Current status
 
-Three of six core Session 0 awakening scenarios are complete (Warrior, Seeker, Breaker). Cosmological architecture is fully locked. The HTML publishing pipeline is live. See [TODO.md](TODO.md) for the active critical path.
+Three of eleven Session 0 awakening scenarios are complete (Warrior, Seeker, Breaker). Cosmological architecture is fully locked. The HTML publishing pipeline is live. See [TODO.md](TODO.md) for the active critical path.
 
 **AI authoring:** Two personas are active — *Lore Keeper* (consistency, documentation) and *Mythweaver* (cosmological and mythic work). See [CLAUDE.md](CLAUDE.md) for full persona protocols and hard constraints.
