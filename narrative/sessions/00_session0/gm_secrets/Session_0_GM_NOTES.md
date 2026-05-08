@@ -399,6 +399,118 @@ If a player asks afterward "what did that mean?" — "That's what we're going to
 
 ---
 
+## Extended Archetypes — Mid-Campaign Awakening Stubs
+
+These five archetypes don't appear in Session 0 under the standard six-player configuration. When a new player joins mid-campaign, or a player replaces their character, their awakening becomes a **public dramatic event** — the party witnesses it with full awareness of what they're seeing. This transforms a private Session 0 experience into:
+
+- **An intelligence windfall** — the party may recognise the forces at the awakening site
+- **A demonstration of stakes** — immune system vs. Wizard's agents, shown rather than told
+- **A retroactive reframe** — players look back at their own awakenings differently
+
+Each stub below covers: awakening concept, structural slot (if used in Session 0), contested-site dynamic, tool, surrendered layer, and in-play variant note.
+
+---
+
+### SENTINEL (Watcher/Witness) — Priority: HIGH
+
+**Structural slot:** Standalone Act 1, 15–20 minutes. Can replace the Visionary — inherits its fast/explosive pacing.
+
+**Awakening concept:** Wakes with perfect, paralysing clarity — sees everything unfolding, understands context, cannot act. The crisis demands intervention before the Sentinel can decide whether witnessing is enough.
+
+**Setting:** A site of ongoing injustice — not disaster, but a slow wrong in plain sight. The Wizard's agents were already operating here; the Sentinel wakes into the middle of enemy activity they are uniquely positioned to observe. The agents don't know the Sentinel is there yet. Every moment of watching is also a moment of exposure risk.
+
+**The crisis test:** Stop watching and intervene — act on incomplete, terrifying clarity before every detail is confirmed. Witnessing alone is not enough, and the Sentinel's body knows this before their mind does.
+
+**Tool:** Cracked lantern — one pane missing, cannot be extinguished. Illuminates corners the Sentinel wasn't watching; cannot distinguish real threat from the hero's own fear.
+
+**Surrendered layer:** Doxastic — the ability to trust without evidence; the experience of safety.
+
+**Snippet trigger:** The moment the Sentinel realizes the agents are about to notice them — observation becomes exposure. The memory: *I have seen enough to act. I have always seen enough.*
+
+**In-play variant:** The party may recognise the agents at this site. The Sentinel's arrival becomes an intelligence windfall — and a race to extract them before the agents realize what they observed. Highest stakes entry of any mid-campaign arrival.
+
+---
+
+### KEEPER (Guardian/Preserver) — Priority: HIGH
+
+**Structural slot:** Convergence slot candidate (can replace the Sacrificer). Alternatively: standalone Act 1, 20–25 minutes, 4th position.
+
+**Awakening concept:** Wakes surrounded by something precious being destroyed — an archive, a sacred site, cultural artifacts being stripped. The tool is *already working*, shielding something, before the Keeper is fully conscious.
+
+**Setting:** A site of genuine cultural significance. The Wizard's agents are present not to hunt the Keeper but to *acquire* something — knowledge, an artifact, a strategic resource. The Keeper wakes between the agents and the thing they're protecting. Their instinct and the agents' acquisition goal are in direct conflict before the Keeper understands what's happening.
+
+**The crisis test:** Decide whether to protect the thing or protect the people — preservation wisdom vs. cowardice. The Keeper's doubt: *am I guarding this, or hiding behind it?*
+
+**Tool:** Key, seal, or ward — already locked around something. The Keeper doesn't choose to protect; they wake having already done it.
+
+**Surrendered layer:** (Not yet specified in the surrendered-layer framework — derive from archetype doubt.)
+
+**Snippet trigger:** The moment the Keeper recognizes that what they're protecting could survive the loss of them — but they can't make themselves leave.
+
+**In-play variant (posthumous):** If the Keeper fills the posthumous slot, what they died protecting becomes a party resource — a place, a cache of knowledge, an artifact. The cost of their death is written into what they saved.
+
+---
+
+### TRICKSTER (Deceiver/Subverter) — Priority: MEDIUM-HIGH
+
+**Structural slot:** Standalone Act 1, 20–25 minutes. Best placed 4th or 5th — not a first awakening. The table needs to trust the GM's tone before watching a scenario built on deliberate identity uncertainty.
+
+**Awakening concept:** Wakes not knowing who they are — genuinely. Multiple potential selves compete. They are already *in a role* before they're conscious enough to have chosen it. The crisis: someone is about to act on a mistaken belief about who the Trickster is, and the Trickster must decide whether to correct it or play it out.
+
+**Setting:** The Wizard's agents are present looking for a hero they know was expelled nearby — but they're looking for the *wrong face*. The immune system's protection was elegant: the Trickster landed already wearing cover. The Trickster's natural gift keeps them hidden, and they don't know they have it yet.
+
+**The crisis test:** Be nakedly, genuinely honest and be believed — without performing the honesty. The Trickster's surrendered self performs sincerity so fluently it can no longer locate the original.
+
+**Tool:** Shaved coin — filed on one side, passes as genuine but isn't true weight. Voice: sounds exactly like the Trickster's own voice.
+
+**Surrendered layer:** Authenticating — the right to be believed when telling the truth.
+
+**Snippet trigger:** The moment someone believes the Trickster for reasons that have nothing to do with the performance — because the truth slipped through. *There was a face before the mask. I remember it.*
+
+**In-play variant:** Highest dramatic potential of any mid-campaign awakening. The party witnesses a person who doesn't know who they are being hunted by people looking for someone who doesn't exist. The Trickster's arrival is a puzzle the party is uniquely positioned to help solve — if they don't accidentally blow their cover first.
+
+---
+
+### CRAFTER (Builder/Maker) — Priority: MEDIUM
+
+**Structural slot:** Standalone Act 1, 20–25 minutes. Interchangeable with the Bridge in 4th position — both provide an energy shift after heavier pieces.
+
+**Awakening concept:** Wakes surrounded by wreckage — structural, mechanical, human. The instinct to *fix* is immediate and practical. The tool suggests designs the Crafter's hands remember building but their mind doesn't recognise.
+
+**Setting:** A site of functional collapse — infrastructure the world needs, damaged deliberately by the Wizard's forces. The agents may still be present, ensuring it isn't repaired. The Crafter wakes into the aftermath of enemy action.
+
+**The crisis test:** Put the tool down before the work is complete — because the perfection it's reaching for will outlast the window for what actually matters. The Crafter's surrendered self cannot stop at "good enough."
+
+**Tool:** Worn whetstone — asymmetric from use, consumed by the act of improving other things. Voice: persistent, non-urgent — *"one more pass."*
+
+**Surrendered layer:** Receptive — the experience of the world as finished/complete.
+
+**Snippet trigger:** The moment the Crafter recognizes that what they've built will hold — and their hands are still moving.
+
+**Note on Breaker distinction:** The Crafter shapes and refines; the Breaker destroys and clears. A hammer appears in both scenarios — the Breaker's is crude and load-bearing; the Crafter's tool is precise and consuming. Do not conflate the scenarios.
+
+---
+
+### HEALER (Mender/Restorer) — Priority: LOW-MEDIUM
+
+**Structural slot:** Convergence slot candidate. If neither Sacrificer nor Healer is in the convergence slot, works as standalone 4th position, 20–25 minutes.
+
+**Awakening concept:** Wakes to someone in immediate need. The instinct to help is total. The crisis reveals itself as the Healer works: the wound is a symptom of something that cannot be healed — only confronted.
+
+**Setting:** A site of recent harm caused by the Wizard's agents — people hurt, community damaged. The agents are gone but their work remains. The Healer wakes into consequence, not confrontation.
+
+**The crisis test:** Accept that something cannot be mended — stop healing, let the wound be what it is — because continuing is for the Healer's need, not the patient's.
+
+**Tool:** Bone needle threaded with silk — the instrument of suturing. Voice: insists through physical sensation — the pull of thread through tissue. The silk thread is finite, getting shorter. Holds the record of every wound closed, and knows which ones reopened.
+
+**Surrendered layer:** Restorative — the certainty that wholeness is possible.
+
+**Snippet trigger:** The moment the Healer's hands go still — not because the work is done, but because the patient asked them to stop. *I have been here before. I held on past the point of helping.*
+
+**Note on Sacrificer comparison:** Both the Healer and Sacrificer occupy convergence slot territory and share relational arcs. The key distinction: the Sacrificer gives of themselves; the Healer acts upon others. The doubt differs — the Sacrificer fears they burden those they receive from; the Healer fears they harm those they act upon.
+
+---
+
 ## Cross-Reference Index
 
 | What you need | Where to find it |
@@ -408,10 +520,11 @@ If a player asks afterward "what did that mean?" — "That's what we're going to
 | Breaker scenario (Segments 1–5, pre-revision) | `Session_0_Breaker_Awakening.md` |
 | Snippet templates for all 6 archetypes | `Session_0_Secret_Snippets-Archetype_Templates.md` |
 | Bridge/Visionary/Sacrificer sketches | `Session_0_Awakening_Design_Notes.md` |
+| Extended archetype stubs (Sentinel, Keeper, Trickster, Crafter, Healer) | `Session_0_Awakening_Design_Notes.md §PROPOSED ARCHETYPE AWAKENING STUBS` |
 | Pacing model and full timing rationale | `Session_0_Awakening_Design_Notes.md` |
 | Locked structural architecture | `Sessions_Structure.md` |
 | Surrendered-layer framework (all 10 archetypes) | `Session_0_Awakening_Design_Notes.md §THE SURRENDERED-LAYER FRAMEWORK` |
 
 ---
 
-*Document Status: Draft. Covers all 6 awakenings, full pacing model, convergence orchestration, and recognition climax. Sections for Bridge, Visionary, and Sacrificer derived from design sketches — update when full scenarios are written.*
+*Document Status: Draft. Covers all 6 core awakenings + 5 extended archetype stubs, full pacing model, convergence orchestration, and recognition climax. Core sections for Bridge, Visionary, and Sacrificer derived from design sketches — update when full scenario files are written. Extended archetype stubs derived from `Session_0_Awakening_Design_Notes.md` — update as stubs develop into full scenarios.*
