@@ -125,25 +125,34 @@ def render_resources(resources: list[str]) -> str:
 # ---------------------------------------------------------------------------
 # Leaflet tile configuration — single source of truth for both mini-maps
 # and the full world map in generate_locations_html.py
+#
+# Tile provider is switchable at request time via ?tiles= URL param.
+# Default: physical. Options: physical | relief | satellite
+# All three are ESRI — no API key, free for non-commercial use.
+# Interim setup — replaced by MapTiler vector tiles in Phase B5.
 # ---------------------------------------------------------------------------
 
-# Stadia Stamen Terrain Background: no labels, no API key required.
-# Interim tile choice — replaced by MapTiler Cloud vector tiles in Phase B5.
-TILE_TERRAIN_URL = (
-    "https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.png"
+ESRI_ATTR = (
+    "&copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, "
+    "Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
 )
-TILE_TERRAIN_ATTR = (
-    "&copy; <a href=\"https://stadiamaps.com/\">Stadia Maps</a> "
-    "&copy; <a href=\"https://stamen.com\">Stamen Design</a> "
-    "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>"
-)
+
+# JS snippet embedded in every map — reads ?tiles= param and picks tile URL.
+# Defined once here; interpolated into both mini-map and world-map templates.
+TILE_SWITCHER_JS = """var _tiles = {
+    physical:  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}',
+    relief:    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}',
+    satellite: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+  };
+  var _tileKey = new URLSearchParams(window.location.search).get('tiles');
+  var _tileUrl = _tiles[_tileKey] || _tiles.physical;"""
+
+TILE_LAYER_JS = f"L.tileLayer(_tileUrl, {{maxZoom: 18, attribution: '{ESRI_ATTR}'}}).addTo(map);"
 
 # Combined attribution string for static map credit divs
 MAP_ATTRIBUTION_HTML = (
     f'<div class="map-attribution">'
-    f'Map &copy; <a href="https://stadiamaps.com/" target="_blank" rel="noopener">Stadia</a> / '
-    f'<a href="https://stamen.com" target="_blank" rel="noopener">Stamen</a> / '
-    f'<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a>'
+    f'Map &copy; <a href="https://www.esri.com/" target="_blank" rel="noopener">Esri</a>'
     f'</div>'
 )
 
@@ -200,7 +209,8 @@ def render_mini_map(
     doubleClickZoom: false,
     touchZoom: false
   }});
-  L.tileLayer('{TILE_TERRAIN_URL}', {{maxZoom: 18, detectRetina: true, attribution: '{TILE_TERRAIN_ATTR}'}}).addTo(map);
+  {TILE_SWITCHER_JS}
+  {TILE_LAYER_JS}
   {geojson_layers}
   L.circleMarker([{lat}, {lon}], {{radius: 8, color: '#7a1f1f', weight: 3, fillColor: '#f5edd8', fillOpacity: 1}}).addTo(map);
 }})();
