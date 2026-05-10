@@ -441,26 +441,12 @@ def main() -> int:
 # ---------------------------------------------------------------------------
 # Generator protocol wrapper (for build.py registry)
 # ---------------------------------------------------------------------------
-
-class _Generator:
-    name = "locations"
-    description = "Location detail pages, region indexes, and world home map"
-
-    def run(self, argv=None):
-        import sys as _sys
-        _saved = _sys.argv[1:]
-        if argv is not None:
-            _sys.argv[1:] = list(argv)
-        try:
-            result = main()
-            return result if isinstance(result, int) else 0
-        except SystemExit as e:
-            return int(e.code) if isinstance(e.code, int) else 0
-        finally:
-            _sys.argv[1:] = _saved
-
-
-generator = _Generator()
+from shared.base_generator import make_generator
+generator = make_generator(
+    "locations",
+    "Location detail pages, region indexes, and world home map",
+    main,
+)
 
 
 if __name__ == "__main__":

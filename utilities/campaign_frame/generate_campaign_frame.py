@@ -563,22 +563,9 @@ if __name__ == '__main__':
 # ---------------------------------------------------------------------------
 # Generator protocol wrapper (used by utilities/build.py)
 # ---------------------------------------------------------------------------
-class _Generator:
-    name = "campaign-frame"
-    description = "Generate campaign frame HTML from Markdown source"
-
-    def run(self, argv=None):
-        import sys as _sys
-        _saved = _sys.argv[1:]
-        if argv is not None:
-            _sys.argv[1:] = list(argv)
-        try:
-            result = main()
-            return result if isinstance(result, int) else 0
-        except SystemExit as e:
-            return int(e.code) if isinstance(e.code, int) else 0
-        finally:
-            _sys.argv[1:] = _saved
-
-
-generator = _Generator()
+from shared.base_generator import make_generator
+generator = make_generator(
+    "campaign-frame",
+    "Generate campaign frame HTML from Markdown source",
+    main,
+)
