@@ -166,6 +166,8 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 
 This project uses git for version control. Commits and pushes are part of the standard workstream — not afterthoughts.
 
+**Commit path discipline:** Before any commit, read `.claude/skills/commit-hygiene/SKILL.md`. It defines three work paths (content, infra, operational), the correct git path for each, grey zone file resolution, and the rule that operational files (beads, session logs, dashboard) must always be isolated in their own commit — never bundled with content or infra changes.
+
 **Commit triggers — create a commit when:**
 - A discrete piece of work is done: awakening scenario written/revised, location file completed, decision logged, template finalized
 - A session ends (always commit before closing)
