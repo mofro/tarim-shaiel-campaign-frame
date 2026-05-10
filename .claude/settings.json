@@ -15,7 +15,7 @@
       {
         "hooks": [
           {
-            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then git fetch origin main --quiet 2>/dev/null && git rebase origin/main --quiet 2>/dev/null || { echo '{\"continue\": false, \"stopReason\": \"Auto-rebase onto origin/main failed — resolve conflicts before pushing.\"}'; exit 1; }; fi",
+            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then git fetch origin main --quiet 2>/dev/null || true; git rebase origin/main --quiet 2>/dev/null || { echo '{\"continue\": false, \"stopReason\": \"Auto-rebase onto origin/main failed — resolve conflicts before pushing.\"}'; exit 1; }; fi",
             "statusMessage": "Rebasing onto origin/main before push...",
             "type": "command"
           }
