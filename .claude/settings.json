@@ -15,7 +15,7 @@
       {
         "hooks": [
           {
-            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then LOG=/tmp/claude-hook-debug.log; echo \"--- $(date) ---\" >> $LOG; git fetch origin main 2>&1 | tee -a $LOG; FETCH_EXIT=${PIPESTATUS[0]}; git rebase origin/main 2>&1 | tee -a $LOG; REBASE_EXIT=${PIPESTATUS[0]}; echo \"fetch=$FETCH_EXIT rebase=$REBASE_EXIT\" >> $LOG; if [ $REBASE_EXIT -ne 0 ]; then echo '{\"continue\": false, \"stopReason\": \"Auto-rebase onto origin/main failed — resolve conflicts before pushing.\"}'; exit 1; fi; fi",
+            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then git fetch origin main --quiet 2>/dev/null || true; BEHIND=$(git rev-list HEAD..origin/main --count 2>/dev/null); if [ \"${BEHIND:-0}\" -gt 0 ]; then echo '{\"continue\": false, \"stopReason\": \"Local branch is behind origin/main by '\"$BEHIND\"' commit(s) — pull or rebase before pushing.\"}'; exit 1; fi; fi",
             "statusMessage": "Rebasing onto origin/main before push...",
             "type": "command"
           }
