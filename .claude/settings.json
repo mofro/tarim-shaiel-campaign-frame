@@ -15,7 +15,7 @@
       {
         "hooks": [
           {
-            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then git fetch origin main --quiet 2\u003e/dev/null \u0026\u0026 git rebase origin/main --quiet 2\u003e/dev/null || { echo '{\"continue\": false, \"stopReason\": \"Auto-rebase onto origin/main failed — resolve conflicts before pushing.\"}'; exit 1; }; fi",
+            "command": "cmd=$(jq -r '.tool_input.command'); if echo \"$cmd\" | grep -q 'git push'; then git fetch origin main --quiet 2>/dev/null && git rebase origin/main --quiet 2>/dev/null || { echo '{\"continue\": false, \"stopReason\": \"Auto-rebase onto origin/main failed — resolve conflicts before pushing.\"}'; exit 1; }; fi",
             "statusMessage": "Rebasing onto origin/main before push...",
             "type": "command"
           }
@@ -27,7 +27,7 @@
       {
         "hooks": [
           {
-            "command": "bd prime",
+            "command": "bd prime && echo '' && echo '=== MORNING REPORT DATA (pre-gathered) ===' && echo '--- In Progress ---' && bd list --status=in_progress 2>/dev/null && echo '--- P0 Critical ---' && bd list --status=open --priority=0 2>/dev/null && echo '--- P1 High ---' && bd list --status=open --priority=1 2>/dev/null && echo '--- Ready (no blockers) ---' && bd ready 2>/dev/null && echo '--- Stale ---' && bd stale 2>/dev/null && echo '--- Recent Git ---' && git log --oneline -5 2>/dev/null && echo '=== END MORNING REPORT DATA ==='",
             "type": "command"
           }
         ],

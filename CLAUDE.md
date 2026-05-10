@@ -146,6 +146,14 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 ## Working Conventions
 
 - **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.
+## Morning Report
+
+When the first user message in a session contains no specific task (greetings, open-ended openers, "what should I work on", etc.), run the morning-report skill before responding. Gather data using whatever tracking frameworks are present in this project — Beads (`bd`), `DASHBOARD.md`, `CREATION_SESSIONS.md`, git log, or `TODO.md`. Present a scannable briefing using the format defined in the skill.
+
+Skip the report only if the user's opening message names a concrete task or question.
+
+---
+
 - **Session anchors.** Start each session by running `bd ready` to see available work, reading `DASHBOARD.md` for project health, and reading `CREATION_SESSIONS.md` for recent context. Then check the Quick Navigation table above and read any `lat.md/` files relevant to the session's domain.
   - Update **`DASHBOARD.md`** when overall project state changes: player commits/drops, critical path shifts, blockers appear or clear, Quick Summary bullets need adding or resolving. Edit the YAML frontmatter fields (`players:`, `critical_path:`, `blockers:`, `domain_overrides:`) or the `## Quick Summary` bullet list directly. Also bump `domain_overrides` when a significant body of work completes.
   - Update **`CREATION_SESSIONS.md`** at session close: append a `### Session YYYY-MM-DD` entry summarizing what was done. Trim to last 10 sessions.
