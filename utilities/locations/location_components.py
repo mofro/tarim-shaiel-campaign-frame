@@ -19,6 +19,7 @@ from locations.region_parser import RegionData
 
 _DANGER_BY_TYPE: dict[str, int] = {
     "city": 1,
+    "town": 1,
     "route-node": 2,
     "oasis": 2,
     "sacred-site": 3,
@@ -30,6 +31,7 @@ _DANGER_BY_TYPE: dict[str, int] = {
 
 _TYPE_LABELS: dict[str, str] = {
     "city": "City",
+    "town": "Town",
     "route-node": "Route Node",
     "oasis": "Oasis",
     "sacred-site": "Sacred Site",

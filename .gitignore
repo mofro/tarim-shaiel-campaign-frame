@@ -50,6 +50,7 @@ bd_linux
 docs/*.html
 docs/**/*.html
 !docs/login.html
+!docs/icon-preview.html
 docs/search-index.json
 
 # External tool integration (not source content)
