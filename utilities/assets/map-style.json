@@ -223,7 +223,7 @@
     {
       "id": "Background",
       "type": "background",
-      "minzoom": 11,
+      "minzoom": 0,
       "maxzoom": 15,
       "layout": {"visibility": "visible"},
       "paint": {"background-color": "hsl(0, 0%, 93%)"}
