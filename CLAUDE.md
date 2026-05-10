@@ -253,6 +253,17 @@ bd close <id>         # Complete work
 - Run `bd prime` for detailed command reference and session close protocol
 - Use `bd remember` for persistent knowledge — do NOT use MEMORY.md files
 
+### Review Intent — set at claim time
+
+When claiming an issue, ask once: **"Does this need a review before closing?"**
+
+- Default **No** for: content/prose, world-building, lore, chore/operational work
+- Default **Yes** for: generator scripts, CI/CD, build pipeline, anything touching `utilities/` or `.github/`
+- The user can override either way
+
+**If No review needed:** push and `bd close` together at session end.
+**If Yes review needed:** push, open a PR or flag for review, leave the issue open — close only after review passes.
+
 ## Session Completion
 
 **When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
