@@ -106,7 +106,7 @@ def _build_world_map_html(
     # Build location popup data keyed by slug
     popup_map: dict[str, dict] = {}
     for loc in locations:
-        popup_map[loc['title']] = {
+        popup_map[loc['slug']] = {
             'title': loc['title'],
             'type':  _TYPE_LABELS.get(loc['location_type'], loc['location_type']),
             'url':   f'/locations/{loc["slug"]}.html',
@@ -135,14 +135,24 @@ def _build_world_map_html(
             'paint:{"line-color":"#b8892a","line-width":1.5,"line-opacity":0.5,"line-dasharray":[4,4]}});\n'
         )
     if locations_geojson:
-        data_js += f'var _locGJ = {json.dumps(locations_geojson)};\n'
+        # Inject _slug into each feature's properties so the click handler
+        # can look up popup data by slug without relying on MapLibre feature IDs.
+        enriched_features = []
+        for feat in locations_geojson.get('features', []):
+            slug = str(feat.get('id', '')).replace('location_', '')
+            enriched_features.append({
+                **feat,
+                'properties': {**feat.get('properties', {}), '_slug': slug}
+            })
+        enriched_loc_geojson = {**locations_geojson, 'features': enriched_features}
+        data_js += f'var _locGJ = {json.dumps(enriched_loc_geojson)};\n'
         sources_js += 'map.addSource("locations", {type:"geojson", data:_locGJ});\n'
         layers_js += (
             'map.addLayer({id:"locations",type:"circle",source:"locations",'
             'paint:{"circle-radius":6,"circle-color":"#f5edd8","circle-stroke-width":2,"circle-stroke-color":"#7a1f1f","circle-opacity":0.9}});\n'
             'map.on("click","locations",function(e){\n'
-            '  var title=e.features[0].properties.title||e.features[0].properties.label||"";\n'
-            '  var info=_locPopups[title]||{title:title,type:"",url:"#"};\n'
+            '  var slug=e.features[0].properties._slug||"";\n'
+            '  var info=_locPopups[slug]||{title:e.features[0].properties.title||slug,type:"",url:"#"};\n'
             '  new maplibregl.Popup().setLngLat(e.features[0].geometry.coordinates)\n'
             '    .setHTML("<strong>"+info.title+"</strong><br>"+info.type+"<br><a href=\'"+info.url+"\'>View →</a>")\n'
             '    .addTo(map);\n'
