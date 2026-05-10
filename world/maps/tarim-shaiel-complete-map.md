@@ -13,7 +13,7 @@ lat: 38
 long: 80
 defaultZoom: 4
 height: 900px
-tileServer: https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.png|Terrain
+tileServer: https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}|Satellite
 osmLayer: false
 geojson: [[world/tarim-shaiel-map.json]]
 markerFolder: world/locations
