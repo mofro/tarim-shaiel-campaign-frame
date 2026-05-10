@@ -44,8 +44,6 @@ from locations.location_components import (
     render_mini_map,
     render_xref_stub,
     _TYPE_LABELS,
-    TILE_SWITCHER_JS,
-    TILE_LAYER_JS,
     MAP_ATTRIBUTION_HTML,
 )
 from shared.renderer import render_page
@@ -105,15 +103,7 @@ def _build_world_map_html(
 ) -> str:
     """Build the full-page Leaflet map for world.html."""
 
-    layers_js = ''
-    if locations_geojson:
-        layers_js += f'var _locGJ = {json.dumps(locations_geojson)};\n'
-    if routes_geojson:
-        layers_js += f'var _routeGJ = {json.dumps(routes_geojson)};\n'
-    if regions_geojson:
-        layers_js += f'var _regionGJ = {json.dumps(regions_geojson)};\n'
-
-    # Build location popup data from parsed location list
+    # Build location popup data keyed by slug
     popup_map: dict[str, dict] = {}
     for loc in locations:
         popup_map[loc['slug']] = {
@@ -121,48 +111,71 @@ def _build_world_map_html(
             'type':  _TYPE_LABELS.get(loc['location_type'], loc['location_type']),
             'url':   f'/locations/{loc["slug"]}.html',
         }
-    popup_js = f'var _locPopups = {json.dumps(popup_map)};\n'
 
-    geojson_layers = ''
+    # Inline GeoJSON and popup data as JS variables
+    data_js = f'var _locPopups = {json.dumps(popup_map)};\n'
+    sources_js = ''
+    layers_js = ''
+
     if regions_geojson:
-        geojson_layers += (
-            'L.geoJSON(_regionGJ, {'
-            'style: function(f){return {color: f.properties.stroke || "#b8892a", weight: 2, fillOpacity: 0.08};}'
-            '}).addTo(map);\n'
+        data_js += f'var _regionGJ = {json.dumps(regions_geojson)};\n'
+        sources_js += 'map.addSource("regions", {type:"geojson", data:_regionGJ});\n'
+        layers_js += (
+            'map.addLayer({id:"regions-fill",type:"fill",source:"regions",'
+            'paint:{"fill-color":["coalesce",["get","fill"],"#b8892a"],"fill-opacity":0.08}});\n'
+            'map.addLayer({id:"regions-line",type:"line",source:"regions",'
+            'paint:{"line-color":["coalesce",["get","stroke"],"#b8892a"],"line-width":2}});\n'
         )
     if routes_geojson:
-        geojson_layers += (
-            'L.geoJSON(_routeGJ, {style:{color:"#b8892a",weight:1.5,opacity:0.5,dashArray:"4 4"}}).addTo(map);\n'
+        data_js += f'var _routeGJ = {json.dumps(routes_geojson)};\n'
+        sources_js += 'map.addSource("routes", {type:"geojson", data:_routeGJ});\n'
+        layers_js += (
+            'map.addLayer({id:"routes",type:"line",source:"routes",'
+            'layout:{"line-cap":"butt"},'
+            'paint:{"line-color":"#b8892a","line-width":1.5,"line-opacity":0.5,"line-dasharray":[4,4]}});\n'
         )
     if locations_geojson:
-        geojson_layers += """\
-L.geoJSON(_locGJ, {
-  pointToLayer: function(f, ll) {
-    return L.circleMarker(ll, {radius:6, color:"#7a1f1f", weight:2, fillColor:"#f5edd8", fillOpacity:0.9});
-  },
-  onEachFeature: function(f, layer) {
-    var slug = (f.id || '').replace(/^location_/, '');
-    var info = _locPopups[slug] || {title: f.id, type: '', url: '#'};
-    layer.bindPopup('<strong>' + info.title + '</strong><br>' + info.type + '<br><a href="' + info.url + '">View &rarr;</a>');
-  }
-}).addTo(map);
-"""
+        # Inject _slug into each feature's properties so the click handler
+        # can look up popup data by slug without relying on MapLibre feature IDs.
+        enriched_features = []
+        for feat in locations_geojson.get('features', []):
+            slug = str(feat.get('id', '')).replace('location_', '')
+            enriched_features.append({
+                **feat,
+                'properties': {**feat.get('properties', {}), '_slug': slug}
+            })
+        enriched_loc_geojson = {**locations_geojson, 'features': enriched_features}
+        data_js += f'var _locGJ = {json.dumps(enriched_loc_geojson)};\n'
+        sources_js += 'map.addSource("locations", {type:"geojson", data:_locGJ});\n'
+        layers_js += (
+            'map.addLayer({id:"locations",type:"circle",source:"locations",'
+            'paint:{"circle-radius":6,"circle-color":"#f5edd8","circle-stroke-width":2,"circle-stroke-color":"#7a1f1f","circle-opacity":0.9}});\n'
+            'map.on("click","locations",function(e){\n'
+            '  var slug=e.features[0].properties._slug||"";\n'
+            '  var info=_locPopups[slug]||{title:e.features[0].properties.title||slug,type:"",url:"#"};\n'
+            '  new maplibregl.Popup().setLngLat(e.features[0].geometry.coordinates)\n'
+            '    .setHTML("<strong>"+info.title+"</strong><br>"+info.type+"<br><a href=\'"+info.url+"\'>View →</a>")\n'
+            '    .addTo(map);\n'
+            '});\n'
+            'map.on("mouseenter","locations",function(){map.getCanvas().style.cursor="pointer";});\n'
+            'map.on("mouseleave","locations",function(){map.getCanvas().style.cursor="";});\n'
+        )
 
     return f"""<div id="world-map"></div>
-{MAP_ATTRIBUTION_HTML}
 <script>
 (function() {{
-  {layers_js}{popup_js}
-  var map = L.map('world-map', {{
-    center: [40.0, 75.0],
+  {data_js}
+  var map = new maplibregl.Map({{
+    container: 'world-map',
+    style: '/assets/map-style.json',
+    center: [75.0, 40.0],
     zoom: 5,
-    maxZoom: 8,
-    zoomControl: true,
-    attributionControl: true
+    maxZoom: 8
   }});
-  {TILE_SWITCHER_JS}
-  {TILE_LAYER_JS}
-  {geojson_layers}
+  map.on('load', function() {{
+    {sources_js}
+    {layers_js}
+  }});
 }})();
 </script>
 """
