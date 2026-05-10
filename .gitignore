@@ -14,6 +14,7 @@ __pycache__/
 # Claude workspace metadata (.claude/ contents ignored except project settings)
 .claude/*
 !.claude/settings.json
+!.claude/README.md
 !.claude/skills
 !.claude/skills/**
 

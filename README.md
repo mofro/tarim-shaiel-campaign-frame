@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: navigation
 status: active
 created: 2025-12-05
-last_updated: 2026-05-08
+last_updated: 2026-05-10
 ---
 
 # Tarim-Shaiel
@@ -28,6 +28,7 @@ A design and authoring workspace — Markdown files with YAML frontmatter, an Ob
 | File | Purpose |
 |---|---|
 | [CLAUDE.md](CLAUDE.md) | Full project instructions, domain index, conventions — start here for AI sessions |
+| [.claude/README.md](.claude/README.md) | How the AI session is configured — hooks, morning report, skill descriptions |
 | [TODO.md](TODO.md) | Active task list, session log, source of truth for current state |
 | [DASHBOARD.md](DASHBOARD.md) | Project health panel — critical path, player status, blockers |
 | [GM_AUTHORING.md](GM_AUTHORING.md) | GM markdown conventions — inline redaction, callout blocks, file transclusion |
@@ -45,6 +46,7 @@ utilities/          Python publishing pipeline (generators, build.py, dashboard)
 images/             Source images (ancestry portraits committed; others gitignored)
 docs/               Generated HTML output (build artifact, gitignored except login.html)
 lat.md/             AI navigation layer — read before diving into domain content
+.claude/            Claude Code session config — hooks, skills, morning report pattern
 ```
 
 ---
