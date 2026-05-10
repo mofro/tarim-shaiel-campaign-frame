@@ -106,7 +106,7 @@ def _build_world_map_html(
     # Build location popup data keyed by slug
     popup_map: dict[str, dict] = {}
     for loc in locations:
-        popup_map[loc['slug']] = {
+        popup_map[loc['title']] = {
             'title': loc['title'],
             'type':  _TYPE_LABELS.get(loc['location_type'], loc['location_type']),
             'url':   f'/locations/{loc["slug"]}.html',
@@ -141,8 +141,8 @@ def _build_world_map_html(
             'map.addLayer({id:"locations",type:"circle",source:"locations",'
             'paint:{"circle-radius":6,"circle-color":"#f5edd8","circle-stroke-width":2,"circle-stroke-color":"#7a1f1f","circle-opacity":0.9}});\n'
             'map.on("click","locations",function(e){\n'
-            '  var slug=String(e.features[0].id||"").replace("location_","");\n'
-            '  var info=_locPopups[slug]||{title:String(e.features[0].id),type:"",url:"#"};\n'
+            '  var title=e.features[0].properties.title||e.features[0].properties.label||"";\n'
+            '  var info=_locPopups[title]||{title:title,type:"",url:"#"};\n'
             '  new maplibregl.Popup().setLngLat(e.features[0].geometry.coordinates)\n'
             '    .setHTML("<strong>"+info.title+"</strong><br>"+info.type+"<br><a href=\'"+info.url+"\'>View →</a>")\n'
             '    .addTo(map);\n'
