@@ -42,7 +42,7 @@ maxZoom: 18
 height: 500px
 osmLayer: false
 tileServer:
-  - https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.png|Terrain
+  - https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}|Satellite
 
 tileOverlay:
   - https://tiles.wmflabs.org/hillshading/{z}/{x}/{y}.png|Hillshade|on
