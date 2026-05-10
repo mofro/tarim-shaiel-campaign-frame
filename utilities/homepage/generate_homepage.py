@@ -120,12 +120,9 @@ if __name__ == "__main__":
     sys.exit(main())
 
 
-class _Generator:
-    name = "homepage"
-    description = "Campaign homepage / index (docs/index.html)"
-
-    def run(self, argv=None) -> int:
-        return main(argv)
-
-
-generator = _Generator()
+from shared.base_generator import make_generator
+generator = make_generator(
+    "homepage",
+    "Campaign homepage / index (docs/index.html)",
+    main,
+)
