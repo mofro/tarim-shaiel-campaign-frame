@@ -190,7 +190,7 @@ def _build_location_page(
         revealed_ids=revealed,
     )
 
-    mini_map_html = render_mini_map(loc, locations_geojson, routes_geojson, zoom=6)
+    mini_map_html = render_mini_map(loc, locations_geojson, routes_geojson, zoom=7)
     stats_row_html = render_stats_row(loc, region)
     danger_html = render_danger_pips(loc['location_type'])
     faction_html = render_faction_table(loc['factions_visible'])

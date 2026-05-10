@@ -147,7 +147,7 @@ TILE_SWITCHER_JS = """var _tiles = {
   var _tileKey = new URLSearchParams(window.location.search).get('tiles');
   var _tileUrl = _tiles[_tileKey] || _tiles.physical;"""
 
-TILE_LAYER_JS = f"L.tileLayer(_tileUrl, {{maxZoom: 18, attribution: '{ESRI_ATTR}'}}).addTo(map);"
+TILE_LAYER_JS = f"L.tileLayer(_tileUrl, {{maxZoom: 8, attribution: '{ESRI_ATTR}'}}).addTo(map);"
 
 # Combined attribution string for static map credit divs
 MAP_ATTRIBUTION_HTML = (
