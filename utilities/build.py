@@ -141,6 +141,16 @@ def _cmd_list(registry: dict) -> int:
     return 0
 
 
+def _copy_assets() -> None:
+    """Copy utilities/assets/*.json to docs/assets/ (e.g. map-style.json)."""
+    import shutil
+    src = SCRIPT_DIR / "assets"
+    dst = VAULT_ROOT / "docs" / "assets"
+    dst.mkdir(parents=True, exist_ok=True)
+    for f in src.glob("*.json"):
+        shutil.copy2(f, dst / f.name)
+
+
 def _copy_css() -> None:
     """Copy all *.css from utilities/shared/css/ to docs/assets/css/."""
     import shutil
@@ -185,6 +195,7 @@ def _copy_js() -> None:
 
 
 def _cmd_run(names: list[str], registry: dict, args: argparse.Namespace) -> int:
+    _copy_assets()
     _copy_css()
     _copy_js()
     if args.gm:

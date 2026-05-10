@@ -123,37 +123,18 @@ def render_resources(resources: list[str]) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Leaflet tile configuration — single source of truth for both mini-maps
-# and the full world map in generate_locations_html.py
-#
-# Tile provider is switchable at request time via ?tiles= URL param.
-# Default: physical. Options: physical | relief | satellite
-# All three are ESRI — no API key, free for non-commercial use.
-# Interim setup — replaced by MapTiler vector tiles in Phase B5.
+# MapLibre GL JS map configuration
+# Style JSON lives at /assets/map-style.json (copied from utilities/assets/
+# to docs/assets/ at build time). MapTiler API key is baked into the style.
 # ---------------------------------------------------------------------------
 
-ESRI_ATTR = (
-    "&copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, "
-    "Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
-)
-
-# JS snippet embedded in every map — reads ?tiles= param and picks tile URL.
-# Defined once here; interpolated into both mini-map and world-map templates.
-TILE_SWITCHER_JS = """var _tiles = {
-    physical:  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}',
-    relief:    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}',
-    satellite: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
-  };
-  var _tileKey = new URLSearchParams(window.location.search).get('tiles');
-  var _tileUrl = _tiles[_tileKey] || _tiles.satellite;"""
-
-TILE_LAYER_JS = f"L.tileLayer(_tileUrl, {{maxZoom: 8, attribution: '{ESRI_ATTR}'}}).addTo(map);"
-
-# Combined attribution string for static map credit divs
+# Attribution shown below non-interactive mini-maps (world map uses built-in
+# MapLibre attribution control which reads from the style JSON).
 MAP_ATTRIBUTION_HTML = (
-    f'<div class="map-attribution">'
-    f'Map &copy; <a href="https://www.esri.com/" target="_blank" rel="noopener">Esri</a>'
-    f'</div>'
+    '<div class="map-attribution">'
+    'Map &copy; <a href="https://www.maptiler.com/" target="_blank" rel="noopener">MapTiler</a> / '
+    '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a>'
+    '</div>'
 )
 
 
@@ -176,43 +157,39 @@ def render_mini_map(
     lat = loc['lat']
     lon = loc['lon']
 
+    sources_js = ''
     layers_js = ''
     if locations_geojson:
-        layers_js += f'var _locationsGeoJSON = {json.dumps(locations_geojson)};\n'
-    if routes_geojson:
-        layers_js += f'var _routesGeoJSON = {json.dumps(routes_geojson)};\n'
-
-    geojson_layers = ''
-    if locations_geojson:
-        geojson_layers += (
-            'L.geoJSON(_locationsGeoJSON, {'
-            'pointToLayer: function(f,ll){return L.circleMarker(ll,{radius:5,color:"#b8892a",weight:2,fillOpacity:0.7});}'
-            '}).addTo(map);\n'
+        sources_js += f'map.addSource("loc-overlay", {{type:"geojson", data:{json.dumps(locations_geojson)}}});\n'
+        layers_js += (
+            'map.addLayer({id:"loc-overlay",type:"circle",source:"loc-overlay",'
+            'paint:{"circle-radius":5,"circle-color":"#b8892a","circle-stroke-width":2,"circle-stroke-color":"#b8892a","circle-opacity":0.7}});\n'
         )
     if routes_geojson:
-        geojson_layers += (
-            'L.geoJSON(_routesGeoJSON, {style:{color:"#b8892a",weight:2,opacity:0.6}}).addTo(map);\n'
+        sources_js += f'map.addSource("routes-overlay", {{type:"geojson", data:{json.dumps(routes_geojson)}}});\n'
+        layers_js += (
+            'map.addLayer({id:"routes-overlay",type:"line",source:"routes-overlay",'
+            'paint:{"line-color":"#b8892a","line-width":2,"line-opacity":0.6}});\n'
         )
 
     return f"""<div class="mini-map" id="{map_id}"></div>
 {MAP_ATTRIBUTION_HTML}
 <script>
 (function() {{
-  {layers_js}
-  var map = L.map('{map_id}', {{
-    center: [{lat}, {lon}],
+  var map = new maplibregl.Map({{
+    container: '{map_id}',
+    style: '/assets/map-style.json',
+    center: [{lon}, {lat}],
     zoom: {zoom},
-    zoomControl: false,
-    attributionControl: false,
-    dragging: false,
-    scrollWheelZoom: false,
-    doubleClickZoom: false,
-    touchZoom: false
+    maxZoom: 8,
+    interactive: false,
+    attributionControl: false
   }});
-  {TILE_SWITCHER_JS}
-  {TILE_LAYER_JS}
-  {geojson_layers}
-  L.circleMarker([{lat}, {lon}], {{radius: 8, color: '#7a1f1f', weight: 3, fillColor: '#f5edd8', fillOpacity: 1}}).addTo(map);
+  map.on('load', function() {{
+    {sources_js}
+    {layers_js}
+    new maplibregl.Marker({{color: '#7a1f1f'}}).setLngLat([{lon}, {lat}]).addTo(map);
+  }});
 }})();
 </script>
 """
