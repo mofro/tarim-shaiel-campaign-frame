@@ -145,7 +145,7 @@ TILE_SWITCHER_JS = """var _tiles = {
     satellite: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
   };
   var _tileKey = new URLSearchParams(window.location.search).get('tiles');
-  var _tileUrl = _tiles[_tileKey] || _tiles.physical;"""
+  var _tileUrl = _tiles[_tileKey] || _tiles.satellite;"""
 
 TILE_LAYER_JS = f"L.tileLayer(_tileUrl, {{maxZoom: 8, attribution: '{ESRI_ATTR}'}}).addTo(map);"
 
