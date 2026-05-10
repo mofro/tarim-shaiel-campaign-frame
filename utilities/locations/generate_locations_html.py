@@ -156,7 +156,7 @@ L.geoJSON(_locGJ, {
   var map = L.map('world-map', {{
     center: [40.0, 75.0],
     zoom: 5,
-    maxZoom: 9,
+    maxZoom: 8,
     zoomControl: true,
     attributionControl: true
   }});
