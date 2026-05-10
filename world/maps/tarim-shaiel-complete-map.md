@@ -13,7 +13,7 @@ lat: 38
 long: 80
 defaultZoom: 4
 height: 900px
-tileServer: https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=988025a356244971b4db7ddced28eedb|Pioneer
+tileServer: https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.png|Terrain
 osmLayer: false
 geojson: [[world/tarim-shaiel-map.json]]
 markerFolder: world/locations

@@ -44,10 +44,8 @@ maxZoom: 18
 height: 500px
 osmLayer: false
 tileServer:
-  - https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}|Satellite (No Labels)
+  - https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}{r}.png|Terrain
 
-tileOverlay:
-  - https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png|Labels
 
 geojson:
   - [[world/tarim-shaiel-routes.geojson]]|Routes

@@ -44,10 +44,8 @@ from locations.location_components import (
     render_mini_map,
     render_xref_stub,
     _TYPE_LABELS,
-    TILE_SATELLITE_URL,
-    TILE_SATELLITE_ATTR,
-    TILE_LABELS_URL,
-    TILE_LABELS_ATTR,
+    TILE_TERRAIN_URL,
+    TILE_TERRAIN_ATTR,
     MAP_ATTRIBUTION_HTML,
 )
 from shared.renderer import render_page
@@ -161,8 +159,7 @@ L.geoJSON(_locGJ, {
     zoomControl: true,
     attributionControl: true
   }});
-  L.tileLayer('{TILE_SATELLITE_URL}', {{maxZoom: 18, attribution: '{TILE_SATELLITE_ATTR}'}}).addTo(map);
-  L.tileLayer('{TILE_LABELS_URL}', {{maxZoom: 18, subdomains: 'abcd', detectRetina: true, attribution: '{TILE_LABELS_ATTR}'}}).addTo(map);
+  L.tileLayer('{TILE_TERRAIN_URL}', {{maxZoom: 18, detectRetina: true, attribution: '{TILE_TERRAIN_ATTR}'}}).addTo(map);
   {geojson_layers}
 }})();
 </script>
