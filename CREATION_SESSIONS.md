@@ -16,6 +16,16 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-05-10 (2)
+- Map planning — designed and filed 4 Beads issues for map visibility + zoom system
+  - [HeroHeaven-uj9] Zoom choreography: tiered minzoom/maxzoom by feature category (standalone)
+  - [HeroHeaven-ahg] Unified visibility schema: standardize `gm_secrets` vocabulary + player-revealed.json manifest (foundational, no blockers)
+  - [HeroHeaven-aqo] GM-build styling: distinct dim/dashed render for gm_secrets features (blocked by ahg)
+  - [HeroHeaven-k9u] Progressive reveal workflow: file-edit + redeploy pattern (blocked by ahg + aqo)
+  - Key design decisions: security boundary = GM build (not URL params); reveal = per-feature not all-at-once; file-edit workflow for now with UI upgrade path noted
+
+---
+
 ### Session 2026-05-10
 - Map pipeline cleanup and topo style restoration
   - Removed orphaned `utilities/shared/js/lunr.min.js` (duplicate of `docs/assets/js/lunr.min.js`)
