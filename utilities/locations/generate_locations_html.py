@@ -121,16 +121,16 @@ def _build_world_map_html(
         data_js += f'var _regionGJ = {json.dumps(regions_geojson)};\n'
         sources_js += 'map.addSource("regions", {type:"geojson", data:_regionGJ});\n'
         layers_js += (
-            'map.addLayer({id:"regions-fill",type:"fill",source:"regions",'
+            'map.addLayer({id:"regions-fill",type:"fill",minzoom:2,source:"regions",'
             'paint:{"fill-color":["coalesce",["get","fill"],"#b8892a"],"fill-opacity":0.08}});\n'
-            'map.addLayer({id:"regions-line",type:"line",source:"regions",'
+            'map.addLayer({id:"regions-line",type:"line",minzoom:2,source:"regions",'
             'paint:{"line-color":["coalesce",["get","stroke"],"#b8892a"],"line-width":2}});\n'
         )
     if routes_geojson:
         data_js += f'var _routeGJ = {json.dumps(routes_geojson)};\n'
         sources_js += 'map.addSource("routes", {type:"geojson", data:_routeGJ});\n'
         layers_js += (
-            'map.addLayer({id:"routes",type:"line",source:"routes",'
+            'map.addLayer({id:"routes",type:"line",minzoom:4,source:"routes",'
             'layout:{"line-cap":"butt"},'
             'paint:{"line-color":"#b8892a","line-width":1.5,"line-opacity":0.5,"line-dasharray":[4,4]}});\n'
         )
@@ -206,7 +206,7 @@ def _build_world_map_html(
             '});'
             '})();\n'
             # Symbol layer with per-category icon-image expression
-            'map.addLayer({id:"locations",type:"symbol",source:"locations",'
+            'map.addLayer({id:"locations",type:"symbol",minzoom:4,maxzoom:16,source:"locations",'
             'layout:{'
               '"icon-image":["match",["get","category"],'
                 '"city","cat-city",'
@@ -242,7 +242,7 @@ def _build_world_map_html(
   {data_js}
   var map = new maplibregl.Map({{
     container: 'world-map',
-    style: '/assets/map-style.json',
+    style: 'https://api.maptiler.com/maps/019e13d9-26c8-7cd9-bf8d-64d83f66624e/style.json?key=uZtsACZHTZGwWfZ3HGai',
     center: [75.0, 40.0],
     zoom: 5,
     maxZoom: 8

@@ -180,7 +180,7 @@ def render_mini_map(
 (function() {{
   var map = new maplibregl.Map({{
     container: '{map_id}',
-    style: '/assets/map-style.json',
+    style: 'https://api.maptiler.com/maps/019e13d9-26c8-7cd9-bf8d-64d83f66624e/style.json?key=uZtsACZHTZGwWfZ3HGai',
     center: [{lon}, {lat}],
     zoom: {zoom},
     maxZoom: 8,
