@@ -8,6 +8,7 @@ visibility: internal
 status: canon
 created: 2026-05-10
 last_updated: 2026-05-10
+implemented: 2026-05-10
 tags: [map, markers, symbols, cartography, design]
 ---
 
@@ -75,7 +76,7 @@ dungeon:      <path d="M 21.5 4.2 A 13 13 0 1 1 10.5 4.2" fill="none" stroke="�
 
 MapLibre SDF sprites allow runtime recolouring — one sprite sheet, colour set by data expression in `map-style.json`.
 
-Planned mapping (not yet implemented — see HeroHeaven-0jh):
+Mapping (implemented in `utilities/locations/generate_locations_html.py` via canvas icons):
 
 | Colour | Hex | Use |
 |---|---|---|
