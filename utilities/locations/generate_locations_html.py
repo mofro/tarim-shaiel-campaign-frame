@@ -150,7 +150,7 @@ def _build_world_map_html(
         layers_js += (
             # Register canvas-drawn marker icons (one per GeoJSON category)
             '(function(){'
-            'function _mk(name,draw){var c=document.createElement("canvas");c.width=32;c.height=32;draw(c.getContext("2d"));map.addImage(name,c);}'
+            'function _mk(name,draw){var c=document.createElement("canvas");c.width=32;c.height=32;var ctx=c.getContext("2d");draw(ctx);map.addImage(name,ctx.getImageData(0,0,32,32));}'
             '_mk("cat-city",function(ctx){'
               'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.fillStyle="#7a1f1f";'
               'ctx.beginPath();ctx.arc(16,16,13,0,Math.PI*2);ctx.stroke();'
