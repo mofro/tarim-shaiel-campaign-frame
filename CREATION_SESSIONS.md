@@ -16,6 +16,15 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-05-10
+- Map pipeline cleanup and topo style restoration
+  - Removed orphaned `utilities/shared/js/lunr.min.js` (duplicate of `docs/assets/js/lunr.min.js`)
+  - Committed GCP pixel measurements in `georeference_map.py` for future re-georeferencing reference
+  - Swapped `map-style.json` for hosted MapTiler Cloud URL (custom Tarim-Shaiel topo style, `019e13d9-...`) — local style file deleted from git
+  - Added zoom visibility to all world map layers matching topo style conventions: `regions-fill`/`regions-line` minzoom:2, `routes` minzoom:4, `locations` minzoom:4 maxzoom:16
+
+---
+
 ### Session 2026-05-06 (2)
 - [HeroHeaven-5u7] 4 optional archetype descriptions complete ✅
   - Sentinel (guardian/threshold), Trickster, Crafter, Healer added to both player and GM docs
