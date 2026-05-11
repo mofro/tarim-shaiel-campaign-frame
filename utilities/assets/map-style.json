@@ -6,7 +6,6 @@
   "bearing": 0,
   "pitch": 0,
   "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=uZtsACZHTZGwWfZ3HGai",
-  "sprite": "https://api.maptiler.com/sprites/019d2471-bb09-76a3-8579-649eaf1aac38/sprite",
   "sources": {
     "wonderdraft": {
       "type": "raster",
