@@ -28,10 +28,11 @@ from pathlib import Path
 
 GCPS = [
     # (pixel_x, pixel_y, lat_deg, lng_deg)
-    (None, None, 39.47, 75.99),   # Kashgar
-    (None, None, 39.65, 66.97),   # Samarkand
-    (None, None, 40.15, 94.67),   # Dunhuang
-    (None, None, 34.27, 108.93),  # Chang'an (comment out if not visible)
+    (1842.5, 1017.8, 41.30, 69.27),   # Tashkent
+    (5390.4, 1816.1, 34.27, 108.93),  # Chang'an
+    (4122.7, 1160, 40.15, 94.67),   # Dunhuang
+    (1803, 1333.7, 38.56, 68.77),   # Dushanbe
+    (2525.2, 785.5, 43.24, 76.89),   # Almaty
 ]
 
 DEFAULT_IMAGE = Path(__file__).parent.parent.parent / "images/places/maps/reference_map.png"
