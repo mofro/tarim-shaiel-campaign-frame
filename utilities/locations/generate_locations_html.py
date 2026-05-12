@@ -80,13 +80,43 @@ def _load_geojson(path: Path) -> dict | None:
         return None
 
 
+def _build_locations_geojson(locations: list[LocationData]) -> dict:
+    """Build a GeoJSON FeatureCollection from parsed LocationData.
+
+    Regenerated on every build — markdown files are the source of truth.
+    Only includes locations that have coordinates.
+    """
+    features = []
+    for loc in locations:
+        if loc['lat'] is None or loc['lon'] is None:
+            continue
+        features.append({
+            'type': 'Feature',
+            'id': f'location_{loc["slug"]}',
+            'properties': {
+                'kind': 'location',
+                'category': loc['location_type'],
+                'label': loc['fantasy_name'] or loc['title'],
+                'title': loc['title'],
+                'description': loc['description'],
+                'fantasyName': loc['fantasy_name'],
+                'visibility': loc['visibility'],
+            },
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [loc['lon'], loc['lat']],
+            },
+        })
+    return {'type': 'FeatureCollection', 'features': features}
+
+
 def _filter_geojson_public(geojson: dict | None) -> dict | None:
-    """Remove features with visibility:secret for public builds."""
+    """Remove gm_secrets features for public builds."""
     if not geojson:
         return geojson
     public_features = [
         f for f in geojson.get('features', [])
-        if f.get('properties', {}).get('visibility') != 'secret'
+        if f.get('properties', {}).get('visibility') != 'gm_secrets'
     ]
     return {**geojson, 'features': public_features}
 
@@ -444,15 +474,26 @@ def generate(
         os.environ['TS_GM_MODE'] = '1'
         public_only = False
 
-    locations = load_all_locations(_LOCATIONS_DIR, public_only=public_only)
-    regions   = load_all_regions(_REGIONS_DIR)
+    locations  = load_all_locations(_LOCATIONS_DIR, public_only=False)
+    regions    = load_all_regions(_REGIONS_DIR)
 
-    locs_gj   = _load_geojson(_LOCATIONS_GEOJSON)
-    routes_gj = _load_geojson(_ROUTES_GEOJSON)
+    # Rebuild locations GeoJSON from markdown — single source of truth.
+    # Write all locations (incl. gm_secrets) so the file is complete;
+    # public builds filter at render time below.
+    locs_gj = _build_locations_geojson(locations)
+    if not dry_run:
+        _LOCATIONS_GEOJSON.parent.mkdir(parents=True, exist_ok=True)
+        _LOCATIONS_GEOJSON.write_text(
+            json.dumps(locs_gj, indent=2, ensure_ascii=False), encoding='utf-8'
+        )
+
+    routes_gj  = _load_geojson(_ROUTES_GEOJSON)
     regions_gj = _load_geojson(_REGIONS_GEOJSON)
 
+    # Filter to public-only locations for public builds
     if public_only:
-        locs_gj = _filter_geojson_public(locs_gj)
+        locations = [l for l in locations if l['visibility'] != 'gm_secrets']
+        locs_gj   = _filter_geojson_public(locs_gj)
 
     print(f"  Loaded {len(locations)} locations, {len(regions)} regions")
 
