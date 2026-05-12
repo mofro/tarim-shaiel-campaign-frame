@@ -293,7 +293,7 @@ def _build_world_map_html(
     style: 'https://api.maptiler.com/maps/019e13d9-26c8-7cd9-bf8d-64d83f66624e/style.json?key=uZtsACZHTZGwWfZ3HGai',
     center: [75.0, 40.0],
     zoom: 5,
-    maxZoom: 12
+    maxZoom: 11
   }});
   map.on('load', function() {{
     {sources_js}
