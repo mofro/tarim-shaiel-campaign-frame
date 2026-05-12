@@ -11,6 +11,7 @@ from typing import Optional
 
 from locations.location_parser import LocationData
 from locations.region_parser import RegionData
+from locations.map_icons import icon_registration_js
 
 
 # ---------------------------------------------------------------------------
@@ -180,7 +181,7 @@ def render_mini_map(
 
     if locations_geojson:
         sources_js += f'map.addSource("loc-overlay",{{type:"geojson",data:{json.dumps(locations_geojson)}}});\n'
-        # All locations — icons only, always visible at mini-map zoom
+        layers_js += icon_registration_js()
         layers_js += (
             f'map.addLayer({{id:"loc-overlay",type:"symbol",source:"loc-overlay",'
             f'layout:{{{icon_match}}},'
