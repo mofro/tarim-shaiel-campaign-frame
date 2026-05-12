@@ -95,6 +95,77 @@ def _filter_geojson_public(geojson: dict | None) -> dict | None:
 # ---------------------------------------------------------------------------
 
 
+def _locations_layers_js() -> str:
+    """Return JS that adds four zoom-tiered symbol layers for locations.
+
+    Tiers and fade windows:
+      major     (city, landmark)                    zoom 4.5 → 5
+      secondary (sacred-site, oasis, caravanserai)  zoom 5.5 → 6
+      routes    (route-node, chokepoint, mtn-pass)  zoom 6.5 → 7
+      detail    (ruins, poi, power-site, site)       zoom 7.5 → 8
+
+    Separate layers enable per-tier GM visibility control and future
+    gm_secrets layer insertion without touching the public tiers.
+    """
+    icon_match = (
+        '"icon-image":["match",["get","category"],'
+        '"city","cat-city",'
+        '"caravanserai","cat-route-node",'
+        '"chokepoint","cat-fortress",'
+        '"mountain-pass","cat-landmark",'
+        '"oasis","cat-oasis",'
+        '"power-site","cat-sacred-site",'
+        '"route-node","cat-route-node",'
+        '"ruins","cat-dungeon",'
+        '"sacred-site","cat-sacred-site",'
+        '"site","cat-poi",'
+        '"cat-poi"],'
+        '"icon-size":1,"icon-allow-overlap":true,"icon-anchor":"center"'
+    )
+
+    tiers = [
+        ('locations-major',     ['city', 'landmark'],                          4, 4.5, 5),
+        ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],      5, 5.5, 6),
+        ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'], 6, 6.5, 7),
+        ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],        7, 7.5, 8),
+    ]
+
+    js = ''
+    layer_ids = []
+    for layer_id, cats, minzoom, fade_start, fade_end in tiers:
+        cats_json = str(cats).replace("'", '"')
+        js += (
+            f'map.addLayer({{id:"{layer_id}",type:"symbol",minzoom:{minzoom},source:"locations",'
+            f'filter:["match",["get","category"],{cats_json},true,false],'
+            f'layout:{{{icon_match}}},'
+            f'paint:{{"icon-opacity":["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.95]}}}});\n'
+        )
+        layer_ids.append(layer_id)
+
+    # Shared popup click + cursor handlers across all tiers
+    ids_js = str(layer_ids).replace("'", '"')
+    js += (
+        f'{ids_js}.forEach(function(lyr){{\n'
+        '  map.on("click",lyr,function(e){\n'
+        '    var slug=e.features[0].properties._slug||"";\n'
+        '    var info=_locPopups[slug]||{title:e.features[0].properties.title||slug,type:"",url:"#"};\n'
+        '    var html="<div class=\'ts-popup\'>"\n'
+        '      +"<div class=\'ts-popup__title\'>"+info.title+"</div>"\n'
+        '      +(info.type?"<div class=\'ts-popup__type\'>"+info.type+"</div>":"")\n'
+        '      +(info.url&&info.url!="#"?"<a class=\'ts-popup__link\' href=\'"+info.url+"\'>View location →</a>":"")\n'
+        '      +"</div>";\n'
+        '    new maplibregl.Popup({className:"ts-map-popup",offset:12})\n'
+        '      .setLngLat(e.features[0].geometry.coordinates)\n'
+        '      .setHTML(html)\n'
+        '      .addTo(map);\n'
+        '  });\n'
+        '  map.on("mouseenter",lyr,function(){map.getCanvas().style.cursor="pointer";});\n'
+        '  map.on("mouseleave",lyr,function(){map.getCanvas().style.cursor="";});\n'
+        '});\n'
+    )
+    return js
+
+
 def _build_world_map_html(
     locations: list[LocationData],
     locations_geojson: dict | None,
@@ -122,9 +193,11 @@ def _build_world_map_html(
         sources_js += 'map.addSource("regions", {type:"geojson", data:_regionGJ});\n'
         layers_js += (
             'map.addLayer({id:"regions-fill",type:"fill",minzoom:2,source:"regions",'
-            'paint:{"fill-color":["coalesce",["get","fill"],"#b8892a"],"fill-opacity":0.08}});\n'
+            'paint:{"fill-color":["coalesce",["get","fill"],"#b8892a"],'
+            '"fill-opacity":["interpolate",["linear"],["zoom"],3,0.08,7,0]}});\n'
             'map.addLayer({id:"regions-line",type:"line",minzoom:2,source:"regions",'
-            'paint:{"line-color":["coalesce",["get","stroke"],"#b8892a"],"line-width":2}});\n'
+            'paint:{"line-color":["coalesce",["get","stroke"],"#b8892a"],"line-width":2,'
+            '"line-opacity":["interpolate",["linear"],["zoom"],3,0.7,7,0]}});\n'
         )
     if routes_geojson:
         data_js += f'var _routeGJ = {json.dumps(routes_geojson)};\n'
@@ -205,41 +278,10 @@ def _build_world_map_html(
               'ctx.beginPath();ctx.arc(16,16,3.5,0,Math.PI*2);ctx.fill();'
             '});'
             '})();\n'
-            # Symbol layer with per-category icon-image expression
-            'map.addLayer({id:"locations",type:"symbol",minzoom:4,maxzoom:16,source:"locations",'
-            'layout:{'
-              '"icon-image":["match",["get","category"],'
-                '"city","cat-city",'
-                '"caravanserai","cat-route-node",'
-                '"chokepoint","cat-fortress",'
-                '"mountain-pass","cat-landmark",'
-                '"oasis","cat-oasis",'
-                '"power-site","cat-sacred-site",'
-                '"route-node","cat-route-node",'
-                '"ruins","cat-dungeon",'
-                '"sacred-site","cat-sacred-site",'
-                '"site","cat-poi",'
-                '"cat-poi"],'
-              '"icon-size":1,'
-              '"icon-allow-overlap":true,'
-              '"icon-anchor":"center"'
-            '},'
-            'paint:{"icon-opacity":0.95}});\n'
-            'map.on("click","locations",function(e){\n'
-            '  var slug=e.features[0].properties._slug||"";\n'
-            '  var info=_locPopups[slug]||{title:e.features[0].properties.title||slug,type:"",url:"#"};\n'
-            '  var html="<div class=\'ts-popup\'>"\n'
-            '    +"<div class=\'ts-popup__title\'>"+info.title+"</div>"\n'
-            '    +(info.type?"<div class=\'ts-popup__type\'>"+info.type+"</div>":"")\n'
-            '    +(info.url&&info.url!="#"?"<a class=\'ts-popup__link\' href=\'"+info.url+"\'>View location →</a>":"")\n'
-            '    +"</div>";\n'
-            '  new maplibregl.Popup({className:"ts-map-popup",offset:12})\n'
-            '    .setLngLat(e.features[0].geometry.coordinates)\n'
-            '    .setHTML(html)\n'
-            '    .addTo(map);\n'
-            '});\n'
-            'map.on("mouseenter","locations",function(){map.getCanvas().style.cursor="pointer";});\n'
-            'map.on("mouseleave","locations",function(){map.getCanvas().style.cursor="";});\n'
+            # Four zoom-tiered symbol layers — same source, filtered by category.
+            # Each uses icon-opacity interpolation for smooth fade-in.
+            # Separate layers enable per-tier GM visibility control later.
+            + _locations_layers_js()
         )
 
     return f"""<div id="world-map"></div>
