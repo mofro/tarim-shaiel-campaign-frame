@@ -146,11 +146,10 @@ def render_mini_map(
     routes_geojson: Optional[dict] = None,
     zoom: int = 6,
 ) -> str:
-    """Render a Leaflet mini-map div for a single location.
+    """Render a MapLibre mini-map div for a single location.
 
-    Inlines GeoJSON data as JavaScript variables to avoid cross-origin issues.
-    Attribution control is suppressed on the small fixed map; a static credit
-    line is appended below instead.
+    Uses the same custom icon sprites and symbol layers as the world home map.
+    Inlines GeoJSON data as JS variables; attribution control is suppressed.
     """
     if loc['lat'] is None or loc['lon'] is None:
         return '<div class="mini-map mini-map--no-coords"><p>No coordinates available.</p></div>\n'
@@ -159,19 +158,33 @@ def render_mini_map(
     lat = loc['lat']
     lon = loc['lon']
 
+    icon_match = (
+        '"icon-image":["match",["get","category"],'
+        '"city","cat-city","caravanserai","cat-route-node",'
+        '"chokepoint","cat-fortress","mountain-pass","cat-landmark",'
+        '"oasis","cat-oasis","power-site","cat-sacred-site",'
+        '"route-node","cat-route-node","ruins","cat-dungeon",'
+        '"sacred-site","cat-sacred-site","site","cat-poi","cat-poi"],'
+        '"icon-size":1,"icon-allow-overlap":true,"icon-anchor":"center"'
+    )
+
     sources_js = ''
     layers_js = ''
-    if locations_geojson:
-        sources_js += f'map.addSource("loc-overlay", {{type:"geojson", data:{json.dumps(locations_geojson)}}});\n'
-        layers_js += (
-            'map.addLayer({id:"loc-overlay",type:"circle",source:"loc-overlay",'
-            'paint:{"circle-radius":5,"circle-color":"#b8892a","circle-stroke-width":2,"circle-stroke-color":"#b8892a","circle-opacity":0.7}});\n'
-        )
+
     if routes_geojson:
-        sources_js += f'map.addSource("routes-overlay", {{type:"geojson", data:{json.dumps(routes_geojson)}}});\n'
+        sources_js += f'map.addSource("routes-overlay",{{type:"geojson",data:{json.dumps(routes_geojson)}}});\n'
         layers_js += (
-            'map.addLayer({id:"routes-overlay",type:"line",source:"routes-overlay",'
+            'map.addLayer({id:"routes-overlay",type:"line",source:"routes-overlay",minzoom:4,'
             'paint:{"line-color":"#b8892a","line-width":2,"line-opacity":0.6}});\n'
+        )
+
+    if locations_geojson:
+        sources_js += f'map.addSource("loc-overlay",{{type:"geojson",data:{json.dumps(locations_geojson)}}});\n'
+        # All locations — icons only, always visible at mini-map zoom
+        layers_js += (
+            f'map.addLayer({{id:"loc-overlay",type:"symbol",source:"loc-overlay",'
+            f'layout:{{{icon_match}}},'
+            f'paint:{{"icon-opacity":0.9}}}});\n'
         )
 
     return f"""<div class="mini-map" id="{map_id}"></div>
@@ -183,7 +196,7 @@ def render_mini_map(
     style: 'https://api.maptiler.com/maps/019e13d9-26c8-7cd9-bf8d-64d83f66624e/style.json?key=uZtsACZHTZGwWfZ3HGai',
     center: [{lon}, {lat}],
     zoom: {zoom},
-    maxZoom: 8,
+    maxZoom: 11,
     interactive: false,
     attributionControl: false
   }});
