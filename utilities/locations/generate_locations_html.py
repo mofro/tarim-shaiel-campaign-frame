@@ -98,14 +98,11 @@ def _filter_geojson_public(geojson: dict | None) -> dict | None:
 def _locations_layers_js() -> str:
     """Return JS that adds four zoom-tiered symbol layers for locations.
 
-    Tiers and fade windows:
-      major     (city, landmark)                    zoom 4.5 → 5
-      secondary (sacred-site, oasis, caravanserai)  zoom 5.5 → 6
-      routes    (route-node, chokepoint, mtn-pass)  zoom 6.5 → 7
-      detail    (ruins, poi, power-site, site)       zoom 7.5 → 8
+    Each tier entry: (layer_id, categories, minzoom, fade_start, fade_end,
+                      label_font, label_size)
 
-    Separate layers enable per-tier GM visibility control and future
-    gm_secrets layer insertion without touching the public tiers.
+    label_font=None means no labels for that tier.
+    Separate layers enable per-tier GM visibility control later.
     """
     icon_match = (
         '"icon-image":["match",["get","category"],'
@@ -123,22 +120,49 @@ def _locations_layers_js() -> str:
         '"icon-size":1,"icon-allow-overlap":true,"icon-anchor":"center"'
     )
 
+    # fmt: off
     tiers = [
-        ('locations-major',     ['city', 'landmark'],                          4, 4.5, 5),
-        ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],      5, 5.5, 6),
-        ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'], 6, 6.5, 7),
-        ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],        7, 7.5, 8),
+        # layer_id               categories                                  mz  fs   fe  font                                      size
+        ('locations-major',     ['city', 'landmark'],                        4,  4.5, 5,  ['Noto Sans Bold', 'Roboto Bold'],         13),
+        ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    5,  5.5, 6,  ['Noto Sans Medium Italic', 'Roboto Italic'], 11),
+        ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                     0),
+        ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],      7,  7.5, 8,  None,                                     0),
     ]
+    # fmt: on
 
     js = ''
     layer_ids = []
-    for layer_id, cats, minzoom, fade_start, fade_end in tiers:
+    for layer_id, cats, minzoom, fade_start, fade_end, label_font, label_size in tiers:
         cats_json = str(cats).replace("'", '"')
+        opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.95]'
+
+        if label_font:
+            font_json = str(label_font).replace("'", '"')
+            label_layout = (
+                f',"text-field":["get","label"]'
+                f',"text-font":{font_json}'
+                f',"text-size":{label_size}'
+                f',"text-offset":[0,1.1]'
+                f',"text-anchor":"top"'
+                f',"text-max-width":8'
+                f',"text-letter-spacing":0.03'
+                f',"text-allow-overlap":false'
+            )
+            label_paint = (
+                f',"text-color":"#b8892a"'
+                f',"text-halo-color":"rgba(14,11,8,0.85)"'
+                f',"text-halo-width":1.5'
+                f',"text-opacity":{opacity_expr}'
+            )
+        else:
+            label_layout = ''
+            label_paint = ''
+
         js += (
             f'map.addLayer({{id:"{layer_id}",type:"symbol",minzoom:{minzoom},source:"locations",'
             f'filter:["match",["get","category"],{cats_json},true,false],'
-            f'layout:{{{icon_match}}},'
-            f'paint:{{"icon-opacity":["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.95]}}}});\n'
+            f'layout:{{{icon_match}{label_layout}}},'
+            f'paint:{{"icon-opacity":{opacity_expr}{label_paint}}}}});\n'
         )
         layer_ids.append(layer_id)
 
