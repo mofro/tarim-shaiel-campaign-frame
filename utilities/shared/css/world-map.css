@@ -1,4 +1,4 @@
-/* world-map.css — World home page & full Leaflet map styles */
+/* world-map.css — World home page & map styles */
 
 /* ---------------------------------------------------------------------------
  * Page header
@@ -53,6 +53,58 @@
 .leaflet-popup-content { margin: 0.6rem 0.8rem; font-family: 'EB Garamond', serif; font-size: 0.95rem; }
 .leaflet-popup-content strong { font-family: 'Cinzel', serif; font-size: 0.85rem; display: block; color: var(--gold); }
 .leaflet-popup-content a { color: var(--steel); }
+
+/* MapLibre popup overrides — always dark (floats over map) */
+.maplibregl-popup-content {
+  background: var(--surface) !important;
+  border: 1px solid rgba(184,137,42,0.35) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.55) !important;
+  padding: 0 !important;
+  min-width: 160px;
+}
+.maplibregl-popup-tip {
+  border-top-color: var(--surface) !important;
+}
+.maplibregl-popup-close-button {
+  color: var(--muted);
+  font-size: 1.1rem;
+  padding: 0.25rem 0.4rem;
+}
+.maplibregl-popup-close-button:hover {
+  color: var(--gold);
+  background: transparent;
+}
+
+/* Popup card interior */
+.ts-popup {
+  padding: 0.65rem 0.85rem 0.75rem;
+}
+.ts-popup__title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+.ts-popup__type {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.55rem;
+}
+.ts-popup__link {
+  display: inline-block;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.88rem;
+  color: var(--gold-lt);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184,137,42,0.3);
+  line-height: 1.2;
+}
+.ts-popup__link:hover { color: #fff; border-bottom-color: var(--gold-lt); }
 
 /* ---------------------------------------------------------------------------
  * Region card grid

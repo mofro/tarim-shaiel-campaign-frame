@@ -228,8 +228,14 @@ def _build_world_map_html(
             'map.on("click","locations",function(e){\n'
             '  var slug=e.features[0].properties._slug||"";\n'
             '  var info=_locPopups[slug]||{title:e.features[0].properties.title||slug,type:"",url:"#"};\n'
-            '  new maplibregl.Popup().setLngLat(e.features[0].geometry.coordinates)\n'
-            '    .setHTML("<strong>"+info.title+"</strong><br>"+info.type+"<br><a href=\'"+info.url+"\'>View →</a>")\n'
+            '  var html="<div class=\'ts-popup\'>"\n'
+            '    +"<div class=\'ts-popup__title\'>"+info.title+"</div>"\n'
+            '    +(info.type?"<div class=\'ts-popup__type\'>"+info.type+"</div>":"")\n'
+            '    +(info.url&&info.url!="#"?"<a class=\'ts-popup__link\' href=\'"+info.url+"\'>View location →</a>":"")\n'
+            '    +"</div>";\n'
+            '  new maplibregl.Popup({className:"ts-map-popup",offset:12})\n'
+            '    .setLngLat(e.features[0].geometry.coordinates)\n'
+            '    .setHTML(html)\n'
             '    .addTo(map);\n'
             '});\n'
             'map.on("mouseenter","locations",function(){map.getCanvas().style.cursor="pointer";});\n'
@@ -240,7 +246,7 @@ def _build_world_map_html(
 <script>
 (function() {{
   {data_js}
-  var map = new maplibregl.Map({{
+  var map = window._tsMap = new maplibregl.Map({{
     container: 'world-map',
     style: 'https://api.maptiler.com/maps/019e13d9-26c8-7cd9-bf8d-64d83f66624e/style.json?key=uZtsACZHTZGwWfZ3HGai',
     center: [75.0, 40.0],
