@@ -643,6 +643,26 @@
         "type": "Point",
         "coordinates": [83.6, 41.9]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "location_balkh-kamen",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "label": "Balkh-Kamen",
+        "title": "Balkh-Kamen",
+        "description": "Stone Mirror of the Central Tarim highlands. A vast reflective lake — critical water source and cultural nexus.",
+        "realWorldName": "Lake Balkhash",
+        "fantasyName": "Balkh-Kamen",
+        "marker-color": "#b8892a",
+        "marker-size": "medium",
+        "marker-symbol": "circle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [74.9, 46.5]
+      }
     }
   ]
 }

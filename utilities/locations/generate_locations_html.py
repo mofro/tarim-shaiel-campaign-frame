@@ -128,7 +128,7 @@ def _locations_layers_js() -> str:
     # fmt: off
     tiers = [
         # layer_id               categories                                  mz  fs   fe  font                                      size
-        ('locations-major',     ['city', 'landmark'],                        4,  4.5, 5,  ['Noto Sans Bold', 'Roboto Bold'],         13),
+        ('locations-major',     ['city', 'landmark'],                        3,  3.5, 4,  ['Noto Sans Bold', 'Roboto Bold'],         13),
         ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    5,  5.5, 6,  ['Noto Sans Medium Italic', 'Roboto Italic'], 11),
         ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                     0),
         ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],      7,  7.5, 8,  None,                                     0),
