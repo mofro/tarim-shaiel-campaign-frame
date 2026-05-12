@@ -171,11 +171,13 @@ def _locations_layers_js() -> str:
         )
         layer_ids.append(layer_id)
 
-    # Shared popup click + cursor handlers across all tiers
+    # Shared popup hover + cursor handlers across all tiers
     ids_js = str(layer_ids).replace("'", '"')
     js += (
+        'var _hoverPopup=new maplibregl.Popup({className:"ts-map-popup",offset:12,closeButton:false,closeOnClick:false});\n'
         f'{ids_js}.forEach(function(lyr){{\n'
-        '  map.on("click",lyr,function(e){\n'
+        '  map.on("mouseenter",lyr,function(e){\n'
+        '    map.getCanvas().style.cursor="pointer";\n'
         '    var slug=e.features[0].properties._slug||"";\n'
         '    var info=_locPopups[slug]||{title:e.features[0].properties.title||slug,type:"",url:"#"};\n'
         '    var html="<div class=\'ts-popup\'>"\n'
@@ -183,13 +185,12 @@ def _locations_layers_js() -> str:
         '      +(info.type?"<div class=\'ts-popup__type\'>"+info.type+"</div>":"")\n'
         '      +(info.url&&info.url!="#"?"<a class=\'ts-popup__link\' href=\'"+info.url+"\'>View location →</a>":"")\n'
         '      +"</div>";\n'
-        '    new maplibregl.Popup({className:"ts-map-popup",offset:12})\n'
-        '      .setLngLat(e.features[0].geometry.coordinates)\n'
-        '      .setHTML(html)\n'
-        '      .addTo(map);\n'
+        '    _hoverPopup.setLngLat(e.features[0].geometry.coordinates).setHTML(html).addTo(map);\n'
         '  });\n'
-        '  map.on("mouseenter",lyr,function(){map.getCanvas().style.cursor="pointer";});\n'
-        '  map.on("mouseleave",lyr,function(){map.getCanvas().style.cursor="";});\n'
+        '  map.on("mouseleave",lyr,function(){\n'
+        '    map.getCanvas().style.cursor="";\n'
+        '    _hoverPopup.remove();\n'
+        '  });\n'
         '});\n'
     )
     return js
