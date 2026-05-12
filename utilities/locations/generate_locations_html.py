@@ -152,14 +152,14 @@ def _locations_layers_js() -> str:
         '"sacred-site","cat-sacred-site",'
         '"site","cat-poi",'
         '"cat-poi"],'
-        '"icon-size":1,"icon-allow-overlap":true,"icon-anchor":"center"'
+        '"icon-size":1.3,"icon-allow-overlap":true,"icon-anchor":"center"'
     )
 
     # fmt: off
     tiers = [
         # layer_id               categories                                  mz  fs   fe  font                                      size
-        ('locations-major',     ['city', 'landmark'],                        3,  3.5, 4,  ['Noto Sans Bold', 'Roboto Bold'],         13),
-        ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    5,  5.5, 6,  ['Noto Sans Medium Italic', 'Roboto Italic'], 11),
+        ('locations-major',     ['city', 'landmark'],                        3,  3.5, 4,  ['Noto Sans Bold', 'Roboto Bold'],         15),
+        ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    5,  5.5, 6,  ['Noto Sans Medium Italic', 'Roboto Italic'], 13),
         ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                     0),
         ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],      7,  7.5, 8,  None,                                     0),
     ]
@@ -184,9 +184,9 @@ def _locations_layers_js() -> str:
                 f',"text-allow-overlap":false'
             )
             label_paint = (
-                f',"text-color":"#b8892a"'
-                f',"text-halo-color":"rgba(14,11,8,0.85)"'
-                f',"text-halo-width":1.5'
+                f',"text-color":"#f0e6c8"'
+                f',"text-halo-color":"rgba(10,8,5,0.95)"'
+                f',"text-halo-width":2.5'
                 f',"text-opacity":{opacity_expr}'
             )
         else:
