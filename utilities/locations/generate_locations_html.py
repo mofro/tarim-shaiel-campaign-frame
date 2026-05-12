@@ -171,7 +171,7 @@ def _locations_layers_js() -> str:
         )
         layer_ids.append(layer_id)
 
-    # Shared popup hover + cursor handlers across all tiers
+    # Shared popup hover + click-to-navigate handlers across all tiers
     ids_js = str(layer_ids).replace("'", '"')
     js += (
         'var _hoverPopup=new maplibregl.Popup({className:"ts-map-popup",offset:12,closeButton:false,closeOnClick:false});\n'
@@ -183,13 +183,17 @@ def _locations_layers_js() -> str:
         '    var html="<div class=\'ts-popup\'>"\n'
         '      +"<div class=\'ts-popup__title\'>"+info.title+"</div>"\n'
         '      +(info.type?"<div class=\'ts-popup__type\'>"+info.type+"</div>":"")\n'
-        '      +(info.url&&info.url!="#"?"<a class=\'ts-popup__link\' href=\'"+info.url+"\'>View location →</a>":"")\n'
         '      +"</div>";\n'
         '    _hoverPopup.setLngLat(e.features[0].geometry.coordinates).setHTML(html).addTo(map);\n'
         '  });\n'
         '  map.on("mouseleave",lyr,function(){\n'
         '    map.getCanvas().style.cursor="";\n'
         '    _hoverPopup.remove();\n'
+        '  });\n'
+        '  map.on("click",lyr,function(e){\n'
+        '    var slug=e.features[0].properties._slug||"";\n'
+        '    var info=_locPopups[slug]||{};\n'
+        '    if(info.url&&info.url!="#")window.location.href=info.url;\n'
         '  });\n'
         '});\n'
     )
