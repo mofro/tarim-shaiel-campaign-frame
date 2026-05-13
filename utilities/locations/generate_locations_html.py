@@ -477,15 +477,10 @@ def generate(
     locations  = load_all_locations(_LOCATIONS_DIR, public_only=False)
     regions    = load_all_regions(_REGIONS_DIR)
 
-    # Rebuild locations GeoJSON from markdown — single source of truth.
-    # Write all locations (incl. gm_secrets) so the file is complete;
-    # public builds filter at render time below.
+    # Build in-memory locations GeoJSON for HTML map rendering.
+    # The file at world/data/tarim-shaiel-locations.geojson is owned by the
+    # geojson generator (utilities/geojson/generate_geojson.py) — do not write it here.
     locs_gj = _build_locations_geojson(locations)
-    if not dry_run:
-        _LOCATIONS_GEOJSON.parent.mkdir(parents=True, exist_ok=True)
-        _LOCATIONS_GEOJSON.write_text(
-            json.dumps(locs_gj, indent=2, ensure_ascii=False), encoding='utf-8'
-        )
 
     routes_gj  = _load_geojson(_ROUTES_GEOJSON)
     regions_gj = _load_geojson(_REGIONS_GEOJSON)

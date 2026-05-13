@@ -1,22 +1,47 @@
 ---
-name: 
-type: 
+title:
+project:
+parent_region:
+domain:
+doc_type:
+content_type:
+visibility:
 status: deprecated
-is_private: false
-
-# Optional attributes
-elevation: 
-location: []  # [latitude, longitude]
-mapmarker: 
+created:
+  "{ date }":
+cultural_notes:
+description:
+elevation:
+factions_visible:
+fantasy_name:
+last_updated:
+location: []
+mapmarker:
+name:
 resources: []
-factions: []
-population: 
-
-# Metadata (Obsidian only - not synced)
-created: {{date}}
 tags: []
+type:
 ---
+```leaflet
+id: location-<location>
+coordinates: [[world/locations/<location>]]
+defaultZoom: 10
+minZoom: 4.5
+maxZoom: 18
+height: 500px
+osmLayer: false
+tileServer:
+  - https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}|Satellite
 
+tileOverlay:
+  - https://tiles.wmflabs.org/hillshading/{z}/{x}/{y}.png|Hillshade|on
+
+geojson:
+  - [[world/tarim-shaiel-regions.geojson]]|Regions
+  - [[world/tarim-shaiel-routes.geojson]]|Routes
+  - [[world/tarim-shaiel-locations.geojson]]|Locations
+
+```
 # {{title}}
 
 Brief description of the location (1-2 sentences).

@@ -1,5 +1,5 @@
 ---
-title: New York City
+title: city_name
 project: TTRPG_Tarim_Shaiel
 parent_region: tarim-basin
 domain: world
@@ -16,17 +16,17 @@ factions_visible:
 fantasy_name:
 last_updated:
 location:
-  - 40.6971914
-  - -74.3098405
+  - latitude
+  - longitude
 mapmarker: city
-name: NYC
+name: city_name
 resources: []
 tags: []
 type: city
 ---
 ```leaflet
-id: location-New-York-City
-coordinates: [[world/locations/New-York-City]]
+id: location-city_name
+coordinates: [[world/locations/city_name]]
 defaultZoom: 10
 minZoom: 4.5
 maxZoom: 18
@@ -44,7 +44,7 @@ geojson:
   - [[world/tarim-shaiel-locations.geojson]]|Locations
 
 ```
-# New York City
+# {{title}}
 
 Brief description of the location (1-2 sentences).
 

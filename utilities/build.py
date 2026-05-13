@@ -33,6 +33,7 @@ Registered generators (in pipeline order):
     search          Search UI page (docs/search.html)
     world           Single world/myth/timeline doc (requires --source)
     world-all       Batch all world docs + index
+    geojson         Location GeoJSON (world/data/tarim-shaiel-locations.geojson)
     locations       Location detail pages, region indexes, and world home map
 
 The LegendKeeper pipeline (generate_lk_json, generate_lk_markdown) is
@@ -75,12 +76,13 @@ def _load_registry() -> dict:
     from search.generate_search_html import generator as search
     from world.generate_world_html import generator as world
     from world.generate_all_world_html import generator as world_all
+    from geojson.generate_geojson import generator as geojson
     from locations.generate_locations_html import generator as locations
 
     return {
         g.name: g for g in [
             homepage, dashboard, campaign_frame, lore, ancestry,
-            search_index, search, world, world_all, locations,
+            search_index, search, world, world_all, geojson, locations,
         ]
     }
 
@@ -119,6 +121,12 @@ def _run_one(name: str, generator, args: argparse.Namespace) -> int:
             argv = ["--gm"]
         if args.out:
             argv += ["--out", args.out]
+
+    elif name == "geojson":
+        if args.public:
+            argv = ["--public"]
+        elif args.gm:
+            argv = ["--gm"]
 
     elif name == "locations":
         if args.public:
