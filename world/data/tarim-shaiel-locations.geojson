@@ -7,11 +7,25 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "aksu",
         "label": "Aksu",
         "title": "Aksu",
+        "fantasy_name": "Aksu",
         "description": "A waypoint on the northern route. An oasis providing critical supplies for westbound merchants.",
-        "fantasyName": "Aksu",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [
+          "Merchants & Caravanners"
+        ],
+        "resources": [
+          "oasis goods",
+          "fruits"
+        ],
+        "popup_html": "<p>A waypoint on the northern route. An oasis providing critical supplies for westbound merchants.</p><p class=\"popup-factions\"><em>Factions:</em> Merchants & Caravanners</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods, fruits</p>",
+        "url": "/locations/aksu.html"
       },
       "geometry": {
         "type": "Point",
@@ -27,11 +41,20 @@
       "properties": {
         "kind": "location",
         "category": "landmark",
+        "slug": "alak-mor",
         "label": "Alak-Mor",
         "title": "Alak-Mor",
+        "fantasy_name": "Alak-Mor",
         "description": "Great Colored Depths of the Eastern Highlands",
-        "fantasyName": "Alak-Mor",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Great Colored Depths of the Eastern Highlands</p>",
+        "url": "/locations/alak-mor.html"
       },
       "geometry": {
         "type": "Point",
@@ -47,11 +70,20 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "anvil-sunder-switchbacks",
         "label": "The Anvil-Sunder Switchbacks",
         "title": "The Anvil-Sunder Switchbacks",
+        "fantasy_name": "The Anvil-Sunder Switchbacks",
         "description": "A punishing alternate high route of tight switchbacks and exposed ridgelines.",
-        "fantasyName": "The Anvil-Sunder Switchbacks",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>A punishing alternate high route of tight switchbacks and exposed ridgelines.</p>",
+        "url": "/locations/anvil-sunder-switchbacks.html"
       },
       "geometry": {
         "type": "Point",
@@ -67,11 +99,20 @@
       "properties": {
         "kind": "location",
         "category": "landmark",
+        "slug": "balkh-kamen",
         "label": "Balkh-Kamen",
         "title": "Balkh-Kamen",
+        "fantasy_name": "Balkh-Kamen",
         "description": "Stone Mirror of the Central Tarimhighlands",
-        "fantasyName": "Balkh-Kamen",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Stone Mirror of the Central Tarimhighlands</p>",
+        "url": "/locations/balkh-kamen.html"
       },
       "geometry": {
         "type": "Point",
@@ -87,11 +128,25 @@
       "properties": {
         "kind": "location",
         "category": "city",
+        "slug": "balkh",
         "label": "Balkh",
         "title": "Balkh",
+        "fantasy_name": "Balkh",
         "description": "Once the 'Mother of Cities,' Balkh was destroyed by Genghis Khan and never fully recovered. Now a haunting reminder of past glory.",
-        "fantasyName": "Balkh",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "large",
+        "factions": [
+          "Afghan Remnant Authority"
+        ],
+        "resources": [
+          "ruins of knowledge",
+          "oasis goods"
+        ],
+        "popup_html": "<p>Once the 'Mother of Cities,' Balkh was destroyed by Genghis Khan and never fully recovered. Now a haunting reminder of past glory.</p><p class=\"popup-factions\"><em>Factions:</em> Afghan Remnant Authority</p><p class=\"popup-resources\"><em>Resources:</em> ruins of knowledge, oasis goods</p>",
+        "url": "/locations/balkh.html"
       },
       "geometry": {
         "type": "Point",
@@ -107,11 +162,20 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "black-timber-post",
         "label": "Black-Timber Post",
         "title": "Black-Timber Post",
+        "fantasy_name": "Black-Timber Post",
         "description": "Fortified overnight station with stables and a small shrine; a safe stop when the weather turns.",
-        "fantasyName": "Black-Timber Post",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Fortified overnight station with stables and a small shrine; a safe stop when the weather turns.</p>",
+        "url": "/locations/black-timber-post.html"
       },
       "geometry": {
         "type": "Point",
@@ -127,11 +191,26 @@
       "properties": {
         "kind": "location",
         "category": "city",
+        "slug": "bukhara",
         "label": "Bukhara",
         "title": "Bukhara",
+        "fantasy_name": "Bukhara",
         "description": "Center of Islamic scholarship and trade. A major city of Sogdiana with 140+ architectural monuments.",
-        "fantasyName": "Bukhara",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [
+          "Islamic Scholarly Network"
+        ],
+        "resources": [
+          "textiles",
+          "scholarship",
+          "trade goods"
+        ],
+        "popup_html": "<p>Center of Islamic scholarship and trade. A major city of Sogdiana with 140+ architectural monuments.</p><p class=\"popup-factions\"><em>Factions:</em> Islamic Scholarly Network</p><p class=\"popup-resources\"><em>Resources:</em> textiles, scholarship, trade goods</p>",
+        "url": "/locations/bukhara.html"
       },
       "geometry": {
         "type": "Point",
@@ -147,11 +226,20 @@
       "properties": {
         "kind": "location",
         "category": "sacred-site",
+        "slug": "buried-lens",
         "label": "The Buried Lens",
         "title": "The Buried Lens",
+        "fantasy_name": "The Buried Lens",
         "description": "A half-excavated relic site where glassy strata and strange echoes suggest buried ancient works.",
-        "fantasyName": "The Buried Lens",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "sacred-site",
+        "marker-symbol": "place-of-worship",
+        "marker-color": "#F5F0E8",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>A half-excavated relic site where glassy strata and strange echoes suggest buried ancient works.</p>",
+        "url": "/locations/buried-lens.html"
       },
       "geometry": {
         "type": "Point",
@@ -167,11 +255,20 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "caravan-crypt",
         "label": "The Caravan-Crypt",
         "title": "The Caravan-Crypt",
+        "fantasy_name": "The Caravan-Crypt",
         "description": "A sealed cache-chamber used by merchants in hard times; its entrance is easy to miss without a guide.",
-        "fantasyName": "The Caravan-Crypt",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>A sealed cache-chamber used by merchants in hard times; its entrance is easy to miss without a guide.</p>",
+        "url": "/locations/caravan-crypt.html"
       },
       "geometry": {
         "type": "Point",
@@ -187,11 +284,29 @@
       "properties": {
         "kind": "location",
         "category": "city",
+        "slug": "chang-an",
         "label": "Chang'an",
         "title": "Chang'an",
+        "fantasy_name": "Chang'an",
         "description": "The eastern terminus of the Silk Road. An imperial capital with 12-mile walls built in 1370. Where merchants complete their epic journeys.",
-        "fantasyName": "Chang'an",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "large",
+        "factions": [
+          "Imperial Government",
+          "Merchant Guilds",
+          "Buddhist Communities"
+        ],
+        "resources": [
+          "silk",
+          "porcelain",
+          "jade",
+          "administrative authority"
+        ],
+        "popup_html": "<p>The eastern terminus of the Silk Road. An imperial capital with 12-mile walls built in 1370. Where merchants complete their epic journeys.</p><p class=\"popup-factions\"><em>Factions:</em> Imperial Government, Merchant Guilds, Buddhist Communities</p><p class=\"popup-resources\"><em>Resources:</em> silk, porcelain, jade, administrative authority</p>",
+        "url": "/locations/chang-an.html"
       },
       "geometry": {
         "type": "Point",
@@ -207,11 +322,24 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "charklik",
         "label": "Charklik",
         "title": "Charklik",
+        "fantasy_name": "Charklik",
         "description": "A waypoint on the southern route between desert sections.",
-        "fantasyName": "Charklik",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Oasis Keepers"
+        ],
+        "resources": [
+          "oasis supplies"
+        ],
+        "popup_html": "<p>A waypoint on the southern route between desert sections.</p><p class=\"popup-factions\"><em>Factions:</em> Oasis Keepers</p><p class=\"popup-resources\"><em>Resources:</em> oasis supplies</p>",
+        "url": "/locations/charklik.html"
       },
       "geometry": {
         "type": "Point",
@@ -227,11 +355,24 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "cherchen",
         "label": "Cherchen",
         "title": "Cherchen",
+        "fantasy_name": "Cherchen",
         "description": "A waypoint on the southern route between eastern and western Taklamakan sections.",
-        "fantasyName": "Cherchen",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Oasis Settlers"
+        ],
+        "resources": [
+          "oasis goods"
+        ],
+        "popup_html": "<p>A waypoint on the southern route between eastern and western Taklamakan sections.</p><p class=\"popup-factions\"><em>Factions:</em> Oasis Settlers</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods</p>",
+        "url": "/locations/cherchen.html"
       },
       "geometry": {
         "type": "Point",
@@ -247,11 +388,25 @@
       "properties": {
         "kind": "location",
         "category": "sacred-site",
+        "slug": "dunhuang",
         "label": "Dunhuang",
         "title": "Dunhuang",
+        "fantasy_name": "Dunhuang",
         "description": "Gateway to China; home to the Mogao Caves with thousands of Buddhist artworks spanning centuries.",
-        "fantasyName": "Dunhuang",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "capital",
+        "marker-symbol": "star",
+        "marker-color": "#8B6914",
+        "marker-size": "large",
+        "factions": [
+          "Buddhist Monastic Order"
+        ],
+        "resources": [
+          "artistic treasures",
+          "religious texts"
+        ],
+        "popup_html": "<p>Gateway to China; home to the Mogao Caves with thousands of Buddhist artworks spanning centuries.</p><p class=\"popup-factions\"><em>Factions:</em> Buddhist Monastic Order</p><p class=\"popup-resources\"><em>Resources:</em> artistic treasures, religious texts</p>",
+        "url": "/locations/dunhuang.html"
       },
       "geometry": {
         "type": "Point",
@@ -267,11 +422,24 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "endere",
         "label": "Endere",
         "title": "Endere",
+        "fantasy_name": "Endere",
         "description": "An isolated waypoint on the southern route through harsh desert.",
-        "fantasyName": "Endere",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Desert Survivors"
+        ],
+        "resources": [
+          "oasis goods"
+        ],
+        "popup_html": "<p>An isolated waypoint on the southern route through harsh desert.</p><p class=\"popup-factions\"><em>Factions:</em> Desert Survivors</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods</p>",
+        "url": "/locations/endere.html"
       },
       "geometry": {
         "type": "Point",
@@ -287,11 +455,20 @@
       "properties": {
         "kind": "location",
         "category": "landmark",
+        "slug": "isyk-zhel",
         "label": "Isyk-Zhel",
         "title": "Isyk-Zhel",
+        "fantasy_name": "Isyk-Zhel",
         "description": "Warm Winds of the Mountain Realm",
-        "fantasyName": "Isyk-Zhel",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Warm Winds of the Mountain Realm</p>",
+        "url": "/locations/isyk-zhel.html"
       },
       "geometry": {
         "type": "Point",
@@ -307,11 +484,24 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "jade-gate",
         "label": "Jade Gate",
         "title": "Jade Gate",
+        "fantasy_name": "Jade Gate",
         "description": "The western gateway to imperial China. A heavily fortified checkpoint where all merchants are inspected and taxed.",
-        "fantasyName": "Jade Gate",
-        "visibility": "secret"
+        "visibility": "secret",
+        "mapmarker": "fortress",
+        "marker-symbol": "castle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [
+          "Imperial Guard Post"
+        ],
+        "resources": [
+          "garrison supplies"
+        ],
+        "popup_html": "<p>The western gateway to imperial China. A heavily fortified checkpoint where all merchants are inspected and taxed.</p><p class=\"popup-factions\"><em>Factions:</em> Imperial Guard Post</p><p class=\"popup-resources\"><em>Resources:</em> garrison supplies</p>",
+        "url": "/locations/jade-gate.html"
       },
       "geometry": {
         "type": "Point",
@@ -327,11 +517,27 @@
       "properties": {
         "kind": "location",
         "category": "city",
+        "slug": "khotan",
         "label": "Khotan",
         "title": "Khotan",
+        "fantasy_name": "Khotan",
         "description": "The jade capital of the Silk Road. A mountain kingdom that converted from Buddhism to Islam, but jade remains its lifeblood.",
-        "fantasyName": "Khotan",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [
+          "Jade Merchants Guild",
+          "Buddhist Monastic Order"
+        ],
+        "resources": [
+          "jade (primary export)",
+          "carpets",
+          "oasis goods"
+        ],
+        "popup_html": "<p>The jade capital of the Silk Road. A mountain kingdom that converted from Buddhism to Islam, but jade remains its lifeblood.</p><p class=\"popup-factions\"><em>Factions:</em> Jade Merchants Guild, Buddhist Monastic Order</p><p class=\"popup-resources\"><em>Resources:</em> jade (primary export), carpets, oasis goods</p>",
+        "url": "/locations/khotan.html"
       },
       "geometry": {
         "type": "Point",
@@ -347,11 +553,26 @@
       "properties": {
         "kind": "location",
         "category": "sacred-site",
+        "slug": "kucha",
         "label": "Kucha",
         "title": "Kucha",
+        "fantasy_name": "Kucha",
         "description": "A major Buddhist center with magnificent Kizil Caves nearby. A place of pilgrimage and monastic study.",
-        "fantasyName": "Kucha",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "sacred-site",
+        "marker-symbol": "place-of-worship",
+        "marker-color": "#F5F0E8",
+        "marker-size": "large",
+        "factions": [
+          "Buddhist Monastic Community"
+        ],
+        "resources": [
+          "Buddhist textiles",
+          "religious art",
+          "manuscripts"
+        ],
+        "popup_html": "<p>A major Buddhist center with magnificent Kizil Caves nearby. A place of pilgrimage and monastic study.</p><p class=\"popup-factions\"><em>Factions:</em> Buddhist Monastic Community</p><p class=\"popup-resources\"><em>Resources:</em> Buddhist textiles, religious art, manuscripts</p>",
+        "url": "/locations/kucha.html"
       },
       "geometry": {
         "type": "Point",
@@ -367,11 +588,24 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "maralbashi",
         "label": "Maralbashi",
         "title": "Maralbashi",
+        "fantasy_name": "Maralbashi",
         "description": "A waypoint at the base of mountain passes. Guides here help merchants navigate the treacherous western mountain crossing.",
-        "fantasyName": "Maralbashi",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Mountain Guides"
+        ],
+        "resources": [
+          "mountain provisions"
+        ],
+        "popup_html": "<p>A waypoint at the base of mountain passes. Guides here help merchants navigate the treacherous western mountain crossing.</p><p class=\"popup-factions\"><em>Factions:</em> Mountain Guides</p><p class=\"popup-resources\"><em>Resources:</em> mountain provisions</p>",
+        "url": "/locations/maralbashi.html"
       },
       "geometry": {
         "type": "Point",
@@ -387,11 +621,25 @@
       "properties": {
         "kind": "location",
         "category": "city",
+        "slug": "merv",
         "label": "Merv (Mary)",
         "title": "Merv (Mary)",
+        "fantasy_name": "Merv (Mary)",
         "description": "Once a great oasis city, destroyed by Genghis Khan's son. Now rebuilt as Mary, a smaller settlement.",
-        "fantasyName": "Merv (Mary)",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [
+          "Turkmen Locals"
+        ],
+        "resources": [
+          "oasis goods",
+          "historical artifacts"
+        ],
+        "popup_html": "<p>Once a great oasis city, destroyed by Genghis Khan's son. Now rebuilt as Mary, a smaller settlement.</p><p class=\"popup-factions\"><em>Factions:</em> Turkmen Locals</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods, historical artifacts</p>",
+        "url": "/locations/merv.html"
       },
       "geometry": {
         "type": "Point",
@@ -407,11 +655,20 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "miran-temple-district",
         "label": "Miran Temple District",
         "title": "Miran Temple District",
+        "fantasy_name": "Miran Temple District",
         "description": "Ruined temple compounds and broken statuary beyond Miran's waypoint; haunted by wind and sand.",
-        "fantasyName": "Miran Temple District",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Ruined temple compounds and broken statuary beyond Miran's waypoint; haunted by wind and sand.</p>",
+        "url": "/locations/miran-temple-district.html"
       },
       "geometry": {
         "type": "Point",
@@ -427,11 +684,25 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "miran",
         "label": "Miran",
         "title": "Miran",
+        "fantasy_name": "Miran",
         "description": "A waypoint on the southern desert route. An ancient settlement with ruins of Buddhist temples.",
-        "fantasyName": "Miran",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Oasis Guardians"
+        ],
+        "resources": [
+          "oasis goods",
+          "archaeological relics"
+        ],
+        "popup_html": "<p>A waypoint on the southern desert route. An ancient settlement with ruins of Buddhist temples.</p><p class=\"popup-factions\"><em>Factions:</em> Oasis Guardians</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods, archaeological relics</p>",
+        "url": "/locations/miran.html"
       },
       "geometry": {
         "type": "Point",
@@ -447,11 +718,20 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "niya-outer-fields",
         "label": "Niya Outer Fields",
         "title": "Niya Outer Fields",
+        "fantasy_name": "Niya Outer Fields",
         "description": "Collapsed irrigation lines and wind-buried walls on the approach to Niya; easy to miss in a sandstorm.",
-        "fantasyName": "Niya Outer Fields",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Collapsed irrigation lines and wind-buried walls on the approach to Niya; easy to miss in a sandstorm.</p>",
+        "url": "/locations/niya-outer-fields.html"
       },
       "geometry": {
         "type": "Point",
@@ -467,11 +747,24 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "niya",
         "label": "Niya",
         "title": "Niya",
+        "fantasy_name": "Niya",
         "description": "Ancient oasis ruins on the southern route. Archaeological treasures hidden in the sands await discovery.",
-        "fantasyName": "Niya",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Desert Guardians"
+        ],
+        "resources": [
+          "oasis supplies"
+        ],
+        "popup_html": "<p>Ancient oasis ruins on the southern route. Archaeological treasures hidden in the sands await discovery.</p><p class=\"popup-factions\"><em>Factions:</em> Desert Guardians</p><p class=\"popup-resources\"><em>Resources:</em> oasis supplies</p>",
+        "url": "/locations/niya.html"
       },
       "geometry": {
         "type": "Point",
@@ -487,11 +780,20 @@
       "properties": {
         "kind": "location",
         "category": "oasis",
+        "slug": "salt-reed-oasis",
         "label": "Salt-Reed Oasis",
         "title": "Salt-Reed Oasis",
+        "fantasy_name": "Salt-Reed Oasis",
         "description": "A reliable water stop at the edge of a brutal stretch; reeds and salt flats mark it from afar.",
-        "fantasyName": "Salt-Reed Oasis",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>A reliable water stop at the edge of a brutal stretch; reeds and salt flats mark it from afar.</p>",
+        "url": "/locations/salt-reed-oasis.html"
       },
       "geometry": {
         "type": "Point",
@@ -507,11 +809,26 @@
       "properties": {
         "kind": "location",
         "category": "city",
+        "slug": "samarkand",
         "label": "Samarqandh",
         "title": "Samarqandh",
+        "fantasy_name": "Samarqandh",
         "description": "A major hub on the Silk Road, known for its bazaars and monumental architecture.",
-        "fantasyName": "Samarqandh",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [
+          "Sogdian Merchants Guild"
+        ],
+        "resources": [
+          "textiles",
+          "luxury goods",
+          "paper"
+        ],
+        "popup_html": "<p>A major hub on the Silk Road, known for its bazaars and monumental architecture.</p><p class=\"popup-factions\"><em>Factions:</em> Sogdian Merchants Guild</p><p class=\"popup-resources\"><em>Resources:</em> textiles, luxury goods, paper</p>",
+        "url": "/locations/samarkand.html"
       },
       "geometry": {
         "type": "Point",
@@ -527,11 +844,20 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "stone-ledger-gate",
         "label": "The Stone Ledger Gate",
         "title": "The Stone Ledger Gate",
+        "fantasy_name": "The Stone Ledger Gate",
         "description": "A controlled high pass where weights, measures, and cargo manifests are certified before crossing.",
-        "fantasyName": "The Stone Ledger Gate",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>A controlled high pass where weights, measures, and cargo manifests are certified before crossing.</p>",
+        "url": "/locations/stone-ledger-gate.html"
       },
       "geometry": {
         "type": "Point",
@@ -547,11 +873,26 @@
       "properties": {
         "kind": "location",
         "category": "city",
+        "slug": "tashkent",
         "label": "Tashkent",
         "title": "Tashkent",
+        "fantasy_name": "Tashkent",
         "description": "The largest city in Central Asia. Known as the 'Stone City' for its fortifications.",
-        "fantasyName": "Tashkent",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [
+          "Central Asian Trade Union"
+        ],
+        "resources": [
+          "agricultural goods",
+          "trade hub services",
+          "horses"
+        ],
+        "popup_html": "<p>The largest city in Central Asia. Known as the 'Stone City' for its fortifications.</p><p class=\"popup-factions\"><em>Factions:</em> Central Asian Trade Union</p><p class=\"popup-resources\"><em>Resources:</em> agricultural goods, trade hub services, horses</p>",
+        "url": "/locations/tashkent.html"
       },
       "geometry": {
         "type": "Point",
@@ -567,11 +908,26 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "turfan",
         "label": "Turfan Depression",
         "title": "Turfan Depression",
+        "fantasy_name": "Turfan Depression",
         "description": "An oasis in a depression, protected from harsh desert winds. Known for cultivation of grapes and wine production.",
-        "fantasyName": "Turfan Depression",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Oasis Settlers"
+        ],
+        "resources": [
+          "wine",
+          "grapes",
+          "grain"
+        ],
+        "popup_html": "<p>An oasis in a depression, protected from harsh desert winds. Known for cultivation of grapes and wine production.</p><p class=\"popup-factions\"><em>Factions:</em> Oasis Settlers</p><p class=\"popup-resources\"><em>Resources:</em> wine, grapes, grain</p>",
+        "url": "/locations/turfan.html"
       },
       "geometry": {
         "type": "Point",
@@ -587,11 +943,20 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "wind-cut-narrows",
         "label": "The Wind-Cut Narrows",
         "title": "The Wind-Cut Narrows",
+        "fantasy_name": "The Wind-Cut Narrows",
         "description": "A canyon pinch-point where the road compresses into a single file—ideal for tolls, patrols, and ambushes.",
-        "fantasyName": "The Wind-Cut Narrows",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>A canyon pinch-point where the road compresses into a single file—ideal for tolls, patrols, and ambushes.</p>",
+        "url": "/locations/wind-cut-narrows.html"
       },
       "geometry": {
         "type": "Point",
@@ -607,11 +972,26 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "yarkand",
         "label": "Yarkand",
         "title": "Yarkand",
+        "fantasy_name": "Yarkand",
         "description": "A major waypoint where the southern and northern routes converge. A hub of trade and communication.",
-        "fantasyName": "Yarkand",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Southern Route Merchants"
+        ],
+        "resources": [
+          "oasis goods",
+          "fruits",
+          "textiles"
+        ],
+        "popup_html": "<p>A major waypoint where the southern and northern routes converge. A hub of trade and communication.</p><p class=\"popup-factions\"><em>Factions:</em> Southern Route Merchants</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods, fruits, textiles</p>",
+        "url": "/locations/yarkand.html"
       },
       "geometry": {
         "type": "Point",
@@ -627,11 +1007,20 @@
       "properties": {
         "kind": "location",
         "category": "route-node",
+        "slug": "yumen-waystation",
         "label": "Yumen Waystation (Outer)",
         "title": "Yumen Waystation (Outer)",
+        "fantasy_name": "Yumen Waystation (Outer)",
         "description": "Overflow staging post for caravans approaching the Jade Gate; paperwork, inspections, and remounts.",
-        "fantasyName": "Yumen Waystation (Outer)",
-        "visibility": "public"
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Overflow staging post for caravans approaching the Jade Gate; paperwork, inspections, and remounts.</p>",
+        "url": "/locations/yumen-waystation.html"
       },
       "geometry": {
         "type": "Point",
