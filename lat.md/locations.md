@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-05-04
+last_updated: 2026-05-14
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -72,6 +72,36 @@ gm_revealed:
 ```
 
 At build time, any block whose `id=` value appears in `gm_revealed` is rendered as `.revealed-content.gm-callout--revealed` — promoted to the player DOM regardless of `gm_mode`. Blocks without a matching revealed ID are stripped in public builds.
+
+## Map Reveal Workflow
+
+Features start as `visibility: gm_secrets` — dimmed on the GM map, invisible on the player map. When players discover a location, the GM promotes it to player-visible via `world/data/player-revealed.json`.
+
+**Three-state model:**
+
+| State | GM map | Player map |
+|---|---|---|
+| `visibility: public` | full opacity | full opacity |
+| `visibility: gm_secrets` (unrevealed) | dimmed (40%), "GM only" badge | hidden |
+| `visibility: gm_secrets` + ID in `player-revealed.json` | full opacity | full opacity |
+
+**GM workflow:**
+1. After session: identify which features players discovered
+2. Open `world/data/player-revealed.json`
+3. Add the feature's GeoJSON ID to the `"revealed"` array
+4. Commit + push → Netlify rebuilds → players see the new marker
+
+**Feature ID format:**
+```
+location_<slug>    e.g.  location_jade-gate
+region_<id>        e.g.  region_tarim_basin
+route_<id>
+```
+
+**Current gm_secrets features** (candidates for reveal):
+- `location_jade-gate` — Jade Gate (fortress, eastern-gateway)
+
+**Future upgrade:** When file-editing becomes friction, replace with a GM-build UI button ("Reveal to players") that downloads an updated JSON. Filed as a future enhancement.
 
 ## GeoJSON Structure
 

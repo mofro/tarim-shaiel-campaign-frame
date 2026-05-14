@@ -64,6 +64,8 @@ _GM_PAGE_BANNER = (
     '</div>\n'
 )
 
+_PLAYER_REVEALED_JSON = _DATA_DIR / "player-revealed.json"
+
 # Tile URL constants are defined in location_components.py and imported above.
 
 # ---------------------------------------------------------------------------
@@ -78,6 +80,34 @@ def _load_geojson(path: Path) -> dict | None:
     except Exception as e:
         print(f"  WARNING: could not load {path.name}: {e}", file=sys.stderr)
         return None
+
+
+def _load_revealed_ids(path: Path) -> set[str]:
+    """Load the set of feature IDs promoted from gm_secrets → public."""
+    if not path.exists():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+        return set(data.get('revealed', []))
+    except Exception as e:
+        print(f"  WARNING: could not load {path.name}: {e}", file=sys.stderr)
+        return set()
+
+
+def _apply_revealed(geojson: dict | None, revealed_ids: set[str]) -> dict | None:
+    """Promote revealed features from gm_secrets → public in-memory.
+
+    Does not modify the source GeoJSON file — only the in-memory copy used
+    for rendering. Revealed features appear at full opacity in both builds.
+    """
+    if not geojson or not revealed_ids:
+        return geojson
+    updated = []
+    for feat in geojson.get('features', []):
+        if feat.get('id') in revealed_ids and feat.get('properties', {}).get('visibility') == 'gm_secrets':
+            feat = {**feat, 'properties': {**feat['properties'], 'visibility': 'public'}}
+        updated.append(feat)
+    return {**geojson, 'features': updated}
 
 
 def _build_locations_geojson(locations: list[LocationData]) -> dict:
@@ -569,6 +599,13 @@ def generate(
 
     routes_gj  = _load_geojson(_ROUTES_GEOJSON)
     regions_gj = _load_geojson(_REGIONS_GEOJSON)
+
+    # Promote revealed features: gm_secrets IDs in player-revealed.json render
+    # as public in both builds (full opacity, visible to players).
+    revealed_ids = _load_revealed_ids(_PLAYER_REVEALED_JSON)
+    if revealed_ids:
+        print(f"  Revealed : {len(revealed_ids)} feature(s) promoted to public")
+        locs_gj = _apply_revealed(locs_gj, revealed_ids)
 
     # Filter to public-only locations for public builds
     if public_only:

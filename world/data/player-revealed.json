@@ -1,0 +1,16 @@
+{
+  "_comment": [
+    "GM REVEAL MANIFEST",
+    "Add a feature's GeoJSON ID to 'revealed' to promote it from gm_secrets \u2192 public.",
+    "Commit + push \u2192 Netlify rebuilds \u2192 players see the new marker on the map.",
+    "",
+    "ID format:",
+    "  Locations : location_<slug>   e.g. location_jade-gate",
+    "  Regions   : region_<id>       e.g. region_tarim_basin",
+    "  Routes    : route_<id>",
+    "",
+    "Current gm_secrets features (candidates for reveal):",
+    "  location_jade-gate  \u2014 Jade Gate (fortress, eastern-gateway)"
+  ],
+  "revealed": []
+}
