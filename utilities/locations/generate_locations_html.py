@@ -130,14 +130,15 @@ def _filter_geojson_public(geojson: dict | None) -> dict | None:
 # ---------------------------------------------------------------------------
 
 
-def _locations_layers_js() -> str:
+def _locations_layers_js(gm_mode: bool = False) -> str:
     """Return JS that adds four zoom-tiered symbol layers for locations.
 
     Each tier entry: (layer_id, categories, minzoom, fade_start, fade_end,
                       label_font, label_size)
 
     label_font=None means no labels for that tier.
-    Separate layers enable per-tier GM visibility control later.
+    In gm_mode, each layer filters out gm_secrets so they don't overlap the
+    dedicated dim layers added by _gm_secrets_layers_js().
     """
     icon_match = (
         '"icon-image":["match",["get","category"],'
@@ -193,9 +194,14 @@ def _locations_layers_js() -> str:
             label_layout = ''
             label_paint = ''
 
+        cat_filter = f'["match",["get","category"],{cats_json},true,false]'
+        if gm_mode:
+            layer_filter = f'["all",{cat_filter},["!=",["get","visibility"],"gm_secrets"]]'
+        else:
+            layer_filter = cat_filter
         js += (
             f'map.addLayer({{id:"{layer_id}",type:"symbol",minzoom:{minzoom},source:"locations",'
-            f'filter:["match",["get","category"],{cats_json},true,false],'
+            f'filter:{layer_filter},'
             f'layout:{{{icon_match}{label_layout}}},'
             f'paint:{{"icon-opacity":{opacity_expr}{label_paint}}}}});\n'
         )
@@ -230,11 +236,91 @@ def _locations_layers_js() -> str:
     return js
 
 
+def _gm_secrets_layers_js() -> str:
+    """Return JS adding dimmed symbol layers for gm_secrets features (GM build only).
+
+    Mirrors the four tiers in _locations_layers_js() but filtered to
+    visibility==gm_secrets and rendered at 40% opacity so the GM can
+    distinguish secret vs revealed at a glance.
+    """
+    # fmt: off
+    tiers = [
+        ('gm-locations-major',     ['city', 'landmark'],                         3,  3.5, 4),
+        ('gm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5,  5.5, 6),
+        ('gm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6,  6.5, 7),
+        ('gm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7,  7.5, 8),
+    ]
+    # fmt: on
+
+    icon_match = (
+        '"icon-image":["match",["get","category"],'
+        '"city","cat-city",'
+        '"caravanserai","cat-route-node",'
+        '"chokepoint","cat-fortress",'
+        '"mountain-pass","cat-landmark",'
+        '"oasis","cat-oasis",'
+        '"power-site","cat-sacred-site",'
+        '"route-node","cat-route-node",'
+        '"ruins","cat-dungeon",'
+        '"sacred-site","cat-sacred-site",'
+        '"site","cat-poi",'
+        '"cat-poi"],'
+        '"icon-size":1.3,"icon-allow-overlap":true,"icon-anchor":"center"'
+    )
+
+    js = ''
+    gm_layer_ids = []
+    for layer_id, cats, minzoom, fade_start, fade_end in tiers:
+        cats_json = str(cats).replace("'", '"')
+        # Fade in to 0.4 (not 0.95) — visually distinct from public markers
+        opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.4]'
+        layer_filter = (
+            f'["all",["match",["get","category"],{cats_json},true,false],'
+            f'["==",["get","visibility"],"gm_secrets"]]'
+        )
+        js += (
+            f'map.addLayer({{id:"{layer_id}",type:"symbol",minzoom:{minzoom},source:"locations",'
+            f'filter:{layer_filter},'
+            f'layout:{{{icon_match}}},'
+            f'paint:{{"icon-opacity":{opacity_expr}}}}});\n'
+        )
+        gm_layer_ids.append(layer_id)
+
+    # Hover popup labels GM-only features; click navigates same as public
+    ids_js = str(gm_layer_ids).replace("'", '"')
+    js += (
+        f'{ids_js}.forEach(function(lyr){{\n'
+        '  map.on("mouseenter",lyr,function(e){\n'
+        '    map.getCanvas().style.cursor="pointer";\n'
+        '    var slug=e.features[0].properties._slug||"";\n'
+        '    var info=_locPopups[slug]||{title:e.features[0].properties.title||slug,type:"",url:"#"};\n'
+        '    var html="<div class=\'ts-popup\'>"\n'
+        '      +"<div class=\'ts-popup__title\'>"+info.title+"</div>"\n'
+        '      +"<div class=\'ts-popup__type gm-secret-badge\'>GM only</div>"\n'
+        '      +(info.type?"<div class=\'ts-popup__type\'>"+info.type+"</div>":"")\n'
+        '      +"</div>";\n'
+        '    _hoverPopup.setLngLat(e.features[0].geometry.coordinates).setHTML(html).addTo(map);\n'
+        '  });\n'
+        '  map.on("mouseleave",lyr,function(){\n'
+        '    map.getCanvas().style.cursor="";\n'
+        '    _hoverPopup.remove();\n'
+        '  });\n'
+        '  map.on("click",lyr,function(e){\n'
+        '    var slug=e.features[0].properties._slug||"";\n'
+        '    var info=_locPopups[slug]||{};\n'
+        '    if(info.url&&info.url!="#")window.location.href=info.url;\n'
+        '  });\n'
+        '});\n'
+    )
+    return js
+
+
 def _build_world_map_html(
     locations: list[LocationData],
     locations_geojson: dict | None,
     routes_geojson: dict | None,
     regions_geojson: dict | None,
+    gm_mode: bool = False,
 ) -> str:
     """Build the full-page Leaflet map for world.html."""
 
@@ -286,11 +372,10 @@ def _build_world_map_html(
         sources_js += 'map.addSource("locations", {type:"geojson", data:_locGJ});\n'
         layers_js += (
             icon_registration_js()
-            # Four zoom-tiered symbol layers — same source, filtered by category.
-            # Each uses icon-opacity interpolation for smooth fade-in.
-            # Separate layers enable per-tier GM visibility control later.
-            + _locations_layers_js()
+            + _locations_layers_js(gm_mode=gm_mode)
         )
+        if gm_mode:
+            layers_js += _gm_secrets_layers_js()
 
     return f"""<div id="world-map"></div>
 <script>
@@ -428,7 +513,7 @@ def _build_world_home(
     gm_mode: bool,
 ) -> str:
     world_map_html = _build_world_map_html(
-        locations, locations_geojson, routes_geojson, regions_geojson
+        locations, locations_geojson, routes_geojson, regions_geojson, gm_mode=gm_mode
     )
 
     region_list = []
