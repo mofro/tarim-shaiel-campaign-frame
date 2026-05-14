@@ -6,32 +6,30 @@ domain: world
 doc_type: canon
 content_type: location
 visibility: public
-revealed: 2026-05-14
 status: draft
 created: 2025-12-13
-cultural_notes: '''Ruined Silk Road city'' - archaeological significance'
-description: Once a great oasis city, destroyed by Genghis Khan's son. Now rebuilt
-  as Mary, a smaller settlement.
+cultural_notes: "'Ruined Silk Road city' - archaeological significance"
+description: Once a great oasis city, destroyed by Genghis Khan's son. Now rebuilt as Mary, a smaller settlement.
 elevation: 218
 factions_visible:
-- Turkmen Locals
+  - Turkmen Locals
 fantasy_name: Merv (Mary)
-historical_basis: Margiana - Destroyed by Mongol invasion; rebuilt as smaller settlement
-  (Mary)
-last_updated: 2026-05-14
+historical_basis: Margiana - Destroyed by Mongol invasion; rebuilt as smaller settlement (Mary)
+last_updated: 2026-05-13
 location:
-- 37.66
-- 61.83
+  - 37.66
+  - 61.83
 mapmarker: city
 name: Merv
 resources:
-- oasis goods
-- historical artifacts
+  - oasis goods
+  - historical artifacts
 tags:
-- player-visible
-- campaign-arc-ruins
-- type-city
+  - player-visible
+  - campaign-arc-ruins
+  - type-city
 type: city
+revealed: 2026-05-13
 ---
 
 ```leaflet
