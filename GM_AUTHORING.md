@@ -31,6 +31,29 @@ Set `visibility: gm_secrets` in the file's frontmatter. The entire file is exclu
 
 For mixed-visibility files (public doc with embedded GM notes), use Tier 1–3 instead.
 
+### Revealing a location to players (map + site)
+
+When players discover a `gm_secrets` location, run the **tp-reveal-location** Templater template on the file:
+
+1. Open the location file in Obsidian
+2. `Cmd+P` → **Templater: Open Insert Template Modal** → **tp-reveal-location**
+3. Frontmatter updates automatically: `visibility: public`, `revealed: YYYY-MM-DD`, `last_updated: YYYY-MM-DD`
+4. Commit + push → Netlify rebuilds → marker appears on player map
+
+The template is at `templates/tarim-shaiel-templates/tp-reveal-location.md`.
+
+**What changes on reveal:**
+- `visibility: gm_secrets` → `visibility: public` (makes it visible in public builds)
+- `revealed: YYYY-MM-DD` added (audit trail — when players found it)
+- Map marker: was dimmed on GM map, now full opacity on both maps
+- Location detail page: now generated in public build
+
+**Important:** After running the template, you must also regenerate the GeoJSON for the Obsidian vault maps to update:
+```bash
+python utilities/build.py geojson
+```
+The Netlify HTML build reads frontmatter directly — no GeoJSON regeneration needed for the deployed site.
+
 ---
 
 ## Tier 1 — Inline Redaction: `{gm:text}`

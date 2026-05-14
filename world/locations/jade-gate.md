@@ -7,27 +7,27 @@ doc_type: canon
 content_type: location
 status: draft
 created: 2025-12-13
-description: The western gateway to imperial China. A heavily fortified checkpoint
-  where all merchants are inspected and taxed.
+description: The western gateway to imperial China. A heavily fortified checkpoint where all merchants are inspected and taxed.
 elevation: 1400
 factions_visible:
-- Imperial Guard Post
+  - Imperial Guard Post
 fantasy_name: Jade Gate
 historical_basis: Gansu Corridor - Western border of imperial Chinese territory
-last_updated: 2025-12-13
+last_updated: 2026-05-13
 location:
-- 40.339
-- 94.5855
+  - 40.339
+  - 94.5855
 mapmarker: fortress
 name: Jade Gate
 resources:
-- garrison supplies
+  - garrison supplies
 tags:
-- player-visible
-- campaign-arc-eastern-routes
-- type-route-node
+  - player-visible
+  - campaign-arc-eastern-routes
+  - type-route-node
 type: route-node
-visibility: gm_secrets
+visibility: public
+revealed: 2026-05-13
 ---
 
 ```leaflet
