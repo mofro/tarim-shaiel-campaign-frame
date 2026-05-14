@@ -26,7 +26,7 @@ class LocationData(TypedDict):
     fantasy_name: str
     description: str
     location_type: str       # city | route-node | oasis | dungeon | landmark | poi | sacred-site | fortress
-    visibility: str          # public | secret | gm_secrets
+    visibility: str          # public | gm_secrets
     status: str
     parent_region: Optional[str]
     lat: Optional[float]
@@ -228,6 +228,11 @@ def load_all_locations(locations_dir: Path, public_only: bool = False) -> list[L
         data = parse_location(p)
         if data is None:
             continue
+        if data['visibility'] not in ('public', 'gm_secrets'):
+            import sys
+            print(f"  WARN: {data['slug']} has unknown visibility '{data['visibility']}' — treating as gm_secrets", file=sys.stderr)
+            data = dict(data)  # type: ignore[assignment]
+            data['visibility'] = 'gm_secrets'
         if public_only and data['visibility'] != 'public':
             continue
         results.append(data)

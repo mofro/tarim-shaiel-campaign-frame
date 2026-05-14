@@ -27,7 +27,7 @@ tags:
 - campaign-arc-eastern-routes
 - type-route-node
 type: route-node
-visibility: secret
+visibility: gm_secrets
 ---
 
 ```leaflet
