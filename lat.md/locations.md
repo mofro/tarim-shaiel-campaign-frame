@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-05-04
+last_updated: 2026-05-14
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -72,6 +72,20 @@ gm_revealed:
 ```
 
 At build time, any block whose `id=` value appears in `gm_revealed` is rendered as `.revealed-content.gm-callout--revealed` — promoted to the player DOM regardless of `gm_mode`. Blocks without a matching revealed ID are stripped in public builds.
+
+## Map Reveal Workflow
+
+Features start as `visibility: gm_secrets` — dimmed on the GM map, invisible on the player map. When players discover a location, edit its frontmatter directly:
+
+```yaml
+visibility: public
+revealed: 2026-05-14    # datestamp — auto-written by Templater hook on save
+```
+
+That's it. Commit + push → Netlify rebuilds → players see the marker. The `revealed:` datestamp is the audit trail.
+
+**Current gm_secrets features** (candidates for reveal):
+- `jade-gate.md` — Jade Gate (fortress, eastern-gateway)
 
 ## GeoJSON Structure
 

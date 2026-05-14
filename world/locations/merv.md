@@ -5,7 +5,7 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 cultural_notes: '''Ruined Silk Road city'' - archaeological significance'
