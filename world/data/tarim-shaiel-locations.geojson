@@ -489,7 +489,7 @@
         "title": "Jade Gate",
         "fantasy_name": "Jade Gate",
         "description": "The western gateway to imperial China. A heavily fortified checkpoint where all merchants are inspected and taxed.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "fortress",
         "marker-symbol": "castle",
         "marker-color": "#6B7280",
