@@ -68,6 +68,41 @@
       .lore-figure { float: none; max-width: 100%; margin: 0 0 1.5rem 0; }
     }
 
+    /* ---- Feature box (e.g. "In Tarim-Shaiel" world-framing paragraphs) ---- */
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      margin-top: 1.3rem;
+    }
+
+    .feature-box {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.95rem 1.1rem 1rem;
+      box-shadow: inset 0 1px 4px rgba(26,18,8,0.06);
+    }
+
+    .feature-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.45rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .feature-box p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
     /* ---- Audio player ---- */
 
     .audio-player {

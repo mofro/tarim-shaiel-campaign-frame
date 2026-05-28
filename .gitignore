@@ -33,6 +33,7 @@ archive/
 images/*
 !images/paper-texture-top-view-2.jpg
 !images/people/ancestries/
+!images/classes/
 docs/images/
 docs/assets/
 audio/

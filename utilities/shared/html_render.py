@@ -22,6 +22,7 @@ AUDIO_MIME  = {'.mp3': 'audio/mpeg', '.ogg': 'audio/ogg', '.wav': 'audio/wav',
 def render_wiki_embed(
     p: str,
     vault: Optional[Path] = None,
+    docs: Optional[Path] = None,
     gm_mode: bool = False,
 ) -> str:
     """Render a single Obsidian wiki-embed paragraph (![[...]]) to HTML.
@@ -70,7 +71,12 @@ def render_wiki_embed(
             f'    </div>\n'
         )
     else:
-        src = escape(f'/images/{fname}')
+        if vault is not None and docs is not None:
+            from shared.assets import prepare_image
+            resolved = prepare_image(fname, vault, docs)
+            src = escape(resolved or f'/images/{fname}')
+        else:
+            src = escape(f'/images/{fname}')
         alt = escape(alias_part if alias_part else fname.rsplit('.', 1)[0])
         return (
             f'    <figure class="lore-figure">\n'
@@ -271,7 +277,7 @@ def render_body(
             continue
 
         # Wiki-embed: ![[file|caption|width]] → figure, audio, or GM prose block
-        wiki_html = render_wiki_embed(para, vault=vault, gm_mode=gm_mode)
+        wiki_html = render_wiki_embed(para, vault=vault, docs=docs, gm_mode=gm_mode)
         if wiki_html:
             _flush_features()
             html_parts.append(wiki_html)
