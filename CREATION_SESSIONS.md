@@ -16,6 +16,16 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-05-27
+- [HeroHeaven-5cf] Daggerheart class primer — P0, blocks player class survey
+  - Content file: `world/classes/class_primer.md` committed to main
+  - 13 classes covered: 9 SRD + 4 playtest (Assassin, Brawler, Warlock, Witch)
+  - Each entry: SRD description + Tarim-Shaiel framing paragraph + domains + subclasses
+  - Pipeline PR #264 open for review: generator, build.py, homepage card, CI step, lore.html eyebrow fix
+  - HeroHeaven-5cf stays open until PR is reviewed and merged
+
+---
+
 ### Session 2026-05-10 (2)
 - Map planning — designed and filed 4 Beads issues for map visibility + zoom system
   - [HeroHeaven-uj9] Zoom choreography: tiered minzoom/maxzoom by feature category (standalone)
