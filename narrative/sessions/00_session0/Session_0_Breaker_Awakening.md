@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2025-01-21
-last_updated: 2025-01-21
+last_updated: 2026-05-28
 banner: images/places/Screencaps/terrain_color_map.png
 ---
 # Session 0: Breaker Awakening
@@ -289,344 +289,277 @@ The crisis is now fully established. Segment 5 will force the choice.
 
 ---
 
+
 ## Segment 5: The Choice (8-12 minutes, Variable)
 
 ### The Weight of Decision
 
 **[The crisis is now fully visible. Time for the player to wrestle with what this means.]**
 
-The gap is there. Narrow. Maybe wide enough for shoulders turned sideways, hips scraping stone. Air and light somewhere beyond.
+The gap beckons. Bone-scrapingly narrow, but navigable. Air and light bleeding through from beyond.
 
-Your body could fit.
-
-The hammer couldn't.
-
-Testing the iron head against the opening: too wide. The handle: too long. The wedged position between timber and stone: load-bearing. Pulling it free would shift the timber. The timber holds the floor. The floor holds the walls. Everything holds everything else.
+The hammer wedged between timber and stone. Load-bearing. Pull it free and the timber shifts. The timber holds the floor. The floor holds the walls.
 
 *"I'm right here."*
 
-The thought arrives without invitation. Not quite yours. Not quite separate.
+The man coughs. Wet. Rattling in his chest like stones. "How long...?"
 
-The man with the pinned leg coughs—wet, rattling. "How long?" Voice thin as the air. "How long until... someone comes?"
+No answer. Maybe rescuers dig for them. Maybe hours. Maybe they've given up.
 
-No answer for that. Maybe rescuers are digging. Maybe hours. Maybe they've already given up.
+The child's whimpers echo from above. The elder's breathing sputters shallowly like soft coughs.
 
-The child whimpers from above. The older person's breathing: shallower. Each inhalation a question.
-
-"There's a gap," you say. "Here. Narrow. One person could—"
-
-"Can we all—" The woman stirs, half-conscious.
-
-"No."
+"There's a gap," you say. "Narrow. I think—"
 
 Silence weighs more than rubble.
 
 The man understands. "You could get out. Get help."
 
-Could. The word hangs there.
+The woman stirs, and moans half-consciously.
+
+Could.
 
 *"You're wasting me."*
 
-The hammer's weight shifts in your grip. Not heavier. Just... present. Insistent.
+The hammer waits. Smooth warm wood against your palm. Weight that knows you.
 
-Your hands know this tool. Don't remember picking it up, but they know it. The worn wood fits like it was shaped by these palms. The balance speaks of use, of purpose, of impacts delivered with certainty.
+Options surface:
 
-Options present themselves through touch:
+Pull it free. Use it. Break into the pockets, precise and true, with swift strokes. Feel the barriers fall. Reach them. Or lever the timber—lift, wedge debris, build a way. Either one: action.
 
-The gap. Body alone. Leave the hammer wedged, slip through to freedom. Get help. Come back.
-
-*If* there's time. *If* the structure holds. *If* rescue arrives before the man's leg fails, before the older person stops breathing, before the child's whimpering becomes something worse.
-
-Or.
-
-Your grip tightens. The angle presents itself: *there*. Where the gap's edge meets timber. One swing. Maybe two. Widen it enough to—
+The certainty arrives like muscle memory. You've done this before. Made space where none existed. Somehow you know. Your body knows. Or is it the hammer that calls?
 
 *"I can do this."*
 
-The certainty arrives like muscle memory. You've done this before. Not this exact thing, but... breaking through. Making space where none existed. The hammer knows. Your body knows.
+Creaking wood cuts through your reverie: Pulling free risks everything—
 
-But the timber would shift. The wedged position would fail. Everything above would—
+Leave it wedged. Slip through alone. Get help from outside. Trust that waiting is wiser than acting. Trust that your interference might kill them all.
 
-Might. *Might* collapse. Or might hold. Or might settle differently. No way to know until the swing connects.
-
-Or.
-
-The hammer as lever, not weapon. The handle under the timber, another piece of debris as fulcrum. Lift instead of break. Build supports. Wedge. Stabilize. Create rather than destroy.
-
-Slower. Uncertain. You've never done this before—or if you have, the memory doesn't surface the way breaking does. No muscle certainty. No instinctive knowing.
+Your hands ache to move.
 
 *"Stop thinking. Just swing."*
 
-The man shifts position. Gasps. His breathing has changed—shallower, faster. Pain or shock or both.
+The man gasps. His breathing—shallower, faster. Pain or shock.
 
-The child has gone quiet. That feels worse.
+The child has gone quiet. Worse than crying.
 
-The older person's inhalation stutters, catches, continues.
+The elder's breath stutters, catches, continues.
 
-Your hands rest on the hammer. The wood is warm from your grip. The iron head points toward the gap, toward the angle where one good impact would—
-
-What are you?
-
-Someone who breaks through obstacles. Someone who makes space. Someone whose capability is measured in walls that come down, barriers that shatter, problems that cease to exist under sufficient force.
-
-Or someone who can choose differently. Someone who builds instead of breaks. Someone who takes the slow way, the uncertain way, because fast might mean everyone dies.
-
-The hammer sits patient between timber and stone. Wedged. Load-bearing. Yours.
-
-What are you?
+The hammer rests between timber and stone. Wedged. Load-bearing. Patient.
 
 *"Use me. That's what I'm for."*
 
+No answer comes.
+
 ### GM Notes
 
-**This is the archetype test. Let it breathe.**
-
-- Don't rush the player through this decision
-- Three clear options are presented in the prose: escape alone, break wider, build supports
-- The hammer's voice creates pressure but not certainty
-- The other trapped people create urgency, but this isn't about guilt-tripping
-- Player may explore other creative solutions—allow it, but the geometry is unforgiving
-- Player may ask questions—answer honestly about structural reality
-- No option is guaranteed to succeed—that's the crisis
-
-**The three paths laid out in prose:**
-
-1. **Slip through the gap alone** (leave hammer wedged)
-   - Fastest route to getting help
-   - Requires abandoning the tool
-   - Risk: takes time to return, others may not survive the wait
-   - Identity: "I can serve without my capability"
-
-2. **Break the gap wider** (swing hammer, force the space)
-   - Feels instinctive, certain, familiar
-   - Hammer knows this, body knows this
-   - Risk: might trigger total collapse, kill everyone
-   - Identity: "I am a breaker. This is what I do."
-
-3. **Build supports** (use hammer as lever, wedge debris, stabilize)
-   - Slower, uncertain, unfamiliar
-   - No muscle memory for this
-   - Risk: takes time, might fail, might not work at all
-   - Identity: "I can choose to create instead of destroy"
-
-**Key questions player might ask:**
-
-*"How confident am I that breaking would work?"*
-- The body feels certain. The hammer feels eager. But certainty isn't guarantee. You've broken through worse—but not with five lives at stake.
-
-*"How long would building take?"*
-- Unknown. Minutes? An hour? The man's breathing suggests you don't have hours.
-
-*"Could I slip through and come back quickly?"*
-- Maybe. Depends on how close rescuers are. Depends if the structure holds that long.
-
-*"What if I try something else?"*
-- Allow creative solutions. But the physics are unforgiving. The hammer is wedged load-bearing. The gap is narrow. The pockets are separate.
-
-**Two snippet paths based on thematic choice:**
-
-**Nature Path** (break wider, slip through alone, trust capability):
-- Snippet focuses on: destruction as tool, capability as identity, trusting your nature
-- Memory: a time when breaking through saved lives
-
-**Duty Path** (build supports, help others first, restrain power):
-- Snippet focuses on: restraint as strength, service over self, choosing against instinct
-- Memory: a time when refusing to break saved lives
-
-**The "Yes" moment from Segment 4 should haunt this choice:**
-- You've faced this before: trust your nature or choose restraint
-- Whatever path they choose, the memory will surface
-- The decision triggers full emergence of the snippet
+- This segment has no branching. The geometry has already decided the outcome.
+- Player agency lives in *how* they help the others — what order, what they say to the man with the trapped leg, whether they speak to the child
+- The internal resistance is the drama: let the player describe or ask questions about what the hammer "feels like" to let go of
+- The hammer's voice is comfort, not command — "I'm right here" is a reassurance, not a goad
+- Do not offer a path that takes the hammer. The load-bearing wedge is structural reality.
+- The final question — *why does this hurt?* — is the snippet trigger. Don't answer it here.
+- Target pace: faster than Segments 1-4. The crisis is established; this is falling action building toward Segment 6.
 
 ### Player Agency
 
-The player must decide their approach:
-- **Slip through alone** - Leave hammer, get help, return
-- **Break it wider** - Trust instinct, swing hammer, force the gap
-- **Build supports** - Use hammer as lever, create stability, slow path
-- **Other creative solution** - GM adjudicates feasibility within structural constraints
+The player guides the others through — in whatever order they choose. Prompt at each person: *"What do you do?"*
 
-Prompt them: "What do you do?"
+The only structural constraint: they come through last. That is their character.
 
-**Do not proceed to Segment 6 until the player has made their choice and begun acting on it.**
+The hammer stays behind. That is the geometry.
 
 ---
 
-## Segment 6: The Secret Snippet Moment (2-3 minutes)
+## Segment 6: The Secret Snippet (2-3 minutes)
 
-### [TO BE WRITTEN]
+### The Memory That Surfaces
 
-**Trigger Condition:**
-- Arrives when player makes their choice (either path)
-- Timed to the moment of commitment
-- Delivered silently as they act
+**[Outside now. Disorientation of sudden light. The question arrives before the world does.]**
 
-**Key Beats:**
-- Memory surfaces of past similar choice
-- Recognition: "I've chosen this before"
-- Crystallization of archetype identity
-- Understanding flows without explanation
+Light.
 
-**Tone:** Quiet revelation, weight of recognition
+Even overcast, even filtered through haze and the particular dimness of a day that started before anyone expected to be outside — it is more than what the darkness offered. Eyes adjust with a reluctance that suggests the darkness had become, in its way, comprehensible.
+
+*Why does this hurt?*
+
+The question will not leave.
+
+The rescuers are shouting somewhere ahead, calling to each other, calling to the survivors emerging from the rubble. The child is already with them. The older person has been received by capable hands. Somewhere behind, the voices are reorganizing around the problem of the man with the trapped leg.
+
+And here, still close enough to the gap to feel the tomb-air drifting through it, hands press against the rough stone of what used to be a wall—
+
+The world changes.
 
 ---
 
-## Segment 7: The Rescue (3-5 minutes)
+*Not the inn. Not the rubble field.*
 
-### [TO BE WRITTEN]
+*Standing before gates that have not been opened in thirty years. The city beyond them had held against everything: siege engines, starvation, the slow cruelty of being surrounded. Three armies had tried. All three had withdrawn carrying their dead.*
 
-**Key Beats:**
-- External rescuers break through
-- Survivors extracted (order matters based on player's choice)
-- Aftermath: who survived, who didn't
-- Recognition from survivors (gratitude, fear, confusion)
-- Invitation to join caravan heading west
+*The hammer is in the right hand. Familiar weight. Different weapon — or the same one, the memory blurs — but the same pull in the palm, the same certainty in the grip. One blow. The gates are ancient, the iron straps corroded, the stone cracked along the lintel in exactly the way that suggests: here. One good impact and the mechanism fails. The gates open. The soldiers behind come through. The city falls.*
 
-**Tone:** Relief mixed with cost, transition to next phase
+*Setting it down.*
+
+*The hammer touching stone with a sound that has no business being audible over the noise of armies, but somehow is. Setting it down and walking to the gates alone, hands open, and knocking.*
+
+*Three knocks. The sound of a person.*
+
+*The gates opened.*
+
+*Not because of force. Because of something force could never have managed — because of what it meant that someone stood before them unarmed, in plain sight of the defenders and the attacking army both, and knocked like a guest. Because of what it communicated about what came next.*
+
+*The city did not fall that day. It ended differently. Better or worse, the memory won't say — only that it ended, and that the hammer was still lying in the dust outside the walls when the negotiators came through, and no one picked it up for a long time.*
+
+---
+
+The stone is cold under the hands.
+
+The rescuers are calling. Someone is asking if you're hurt.
+
+The memory is already fading — not gone, but receding to the edge of certain, becoming the texture of something half-dreamed, a residue of significance without the specifics that would make it legible.
+
+*I have done this before.*
+
+Not the thought itself. Just the weight of it. The recognition, settling into the bones the same way the hammer's weight had settled — familiar, correct, a thing that has always been true waiting to be understood again.
+
+### GM Notes
+
+- Deliver the memory as read-aloud narration — the player doesn't play through it, they receive it
+- The memory is a fragment, not an explanation. No cosmological context. No identity reveal. Just: a moment, vast scale, a choice that rhymes with the one just made.
+- The city, the armies, the gates — these are specific enough to feel real but none of the details should be pressed. *You don't know more than the fragment shows.*
+- The key beat: the player's character learns they have done this before. Not "I am a hero." Just: "this kind of leaving is not new."
+- The fading is important — the memory is not a full return. It is a door briefly open.
+- After delivering the narration, pause. Ask simply: *"What does your character do with that?"*
+
+### Player Agency
+
+The player absorbs the memory fragment. They can:
+- Sit with it, ask questions about what it means
+- Move toward the rescuers and the caravan
+- Look back at the ruin and what's inside it
+
+The scene ends when they move toward where other people are gathered.
+
+---
+
+## Segment 7: The Rescue (3-4 minutes)
+
+### The Outside World
+
+**[Sudden transition: light, noise, the disorientation of people who don't know what they're looking at.]**
+
+The rescuers have been digging for — it's unclear how long. Long enough that their hands are raw. Long enough that the ones who organized the effort have the particular expression of people who prepared themselves for finding bodies.
+
+Finding survivors instead produces something complicated in the face — relief that doesn't know how to arrive cleanly, that comes with the residue of the grief it displaced.
+
+"There's another one still inside," you say. "Leg pinned. Left side of the main hall, about six meters from the south wall. He's conscious."
+
+They move before you finish. Someone takes your arm — not out of force but out of the instinct to tether people who have been in enclosed spaces back to the open air, to confirm they are present, accounted for, connected to the ordinary world again.
+
+The caravanserai's courtyard is crowded.
+
+Merchants and their people, a caravan stopped against its schedule. Draft animals that have decided to be calm about the day's events. A fire someone started, which has become the organizing center of the gathering: the place people move toward when they need somewhere to stand that means *here, not alone, not lost*.
+
+Faces turn. The child is already at the fire, wrapped in someone's coat, telling a version of events that is probably more accurate than the listeners realize.
+
+The survivors from the inn's other pockets are here — the woman seated, being tended, her head wound cleaned and bandaged with the efficiency of someone who has done this before. The older person is at the fire, hands wrapped around something warm.
+
+Recognition passes through the gathered faces. *You were inside.* Not a question. The evidence is self-explanatory: the dust, the specific manner of emerging from the collapse of something that was, until recently, a building.
+
+One of the merchants — older, broad-shouldered, the careful economy of movement that belongs to people who manage large things — separates from the group and approaches.
+
+"West," he says, by way of greeting. "We're heading west. Three days to the first decent waystation. You're welcome to the road if you want it."
+
+Not a generous offer. A practical one. People who have come out of collapsed buildings tend to need somewhere to go next.
+
+### GM Notes
+
+- Let the sensory contrast land: from compressed dark to daylight, silence to crowd
+- The caravan master's offer is business, not charity — he's seen this kind of thing before
+- The survivors from inside are all present and accounted for (including the man with the pinned leg, being extracted as this scene unfolds)
+- No one knows what to make of the Breaker yet. They were *inside*. That's notable. But the shape of it isn't clear.
+- The hammer is still in the ruin. It hasn't come up yet — that's a Segment 8 beat.
+- Tempo: brief. This is transition. Don't linger.
+
+### Player Agency
+
+The player can speak with survivors, the caravan master, or rescuers. Keep responses brief — this is a scene of arrival, not resolution.
+
+Prompt: *"The caravan is preparing to continue. What do you do?"*
 
 ---
 
 ## Segment 8: Convergence (2-3 minutes)
 
-### [TO BE WRITTEN]
+### The Unfinished Thing
 
-**Key Beats:**
-- Joining westward caravan
-- Other heroes present (recognition without memory)
-- Breaker's unique entry: the one who chose powerlessness
-- Setup for larger Session 0 convergence
+**[The road west is forming. But the hammer is still inside.]**
 
-**Tone:** New beginning, mysterious connection
+The ruin settles.
 
----
+These sounds are distinct from collapse — not the sudden catastrophic shift but the slow continuous re-negotiation of weight, a building's materials finding their new equilibrium after violent change. The structure is not going anywhere. It has, in the particular way of old stonework, decided to remain.
 
-## [REMAINING CONTENT - TO BE REORGANIZED INTO SEGMENTS ABOVE]
+The hammer is still in there.
 
-Then breathing interrupts the calculation. Not personal breathing—someone else's, close but invisible in this absolute black. Shallow, rapid breaths that hitch and catch, the rhythm of fear barely contained. Another sound emerges from farther away: wet coughing, then a child's whimper, quickly stifled.
+This is not abstract. It is a specific piece of iron at a specific structural position, still wedged between timber and stone at the load-bearing angle that kept the pocket intact. The rescuers know where it is — they had to work around it to extract the man with the trapped leg. They mentioned it without understanding what they were saying: *"There's a hammer in there, did you see it? Must have been wedged in before the collapse. Lucky, honestly. Kept that section from coming down."*
 
-Multiple someones. Trapped in here with—
+Lucky.
 
-"Is someone there?"
+The caravan master has his timeline. The animals are already being harnessed.
 
-A man's voice, hoarse with dust and terror he's working to master. Trying to map this darkness through sound alone, to make it comprehensible.
+There are other people moving toward the caravan who were not there an hour ago — travelers, it seems, drawn to the same road by different circumstances. A few of them carry themselves in ways that are hard to categorize, something about the distribution of their attention that suggests people who have learned to notice exits and entrances from long practice.
 
-"Don't move. The structure isn't stable."
+Not acquaintances. But not strangers in the way most strangers are strangers.
 
-The words surface without thought, carrying a certainty that has no source. Why speak them? Why those words first? No answer comes.
+*The hammer waits.*
 
-"Are we..." The man's voice wavers. "Is anyone else—"
+It will wait as long as it needs to. It has always been patient.
 
-He doesn't finish. Speaking the possibility might make it real.
+The road west is forming, and the question of when to return for it, how to return for it, whether the building will grant access again — these are problems with no immediate solution. They are, the body already understands, problems for later. For when there is a later. For when the road has been traveled long enough that what was left behind becomes retrievable.
 
-The child whimpers again, and the sound locates them: somewhere to the right and above, where something hasn't quite collapsed but has sagged down like canvas weighted with snow. A pocket within the pocket, held by timber that won't hold forever.
+The caravan moves.
 
-Careful exploration begins—testing each movement, waiting for the groan of shifting weight. Eyes adjust enough to distinguish between absolute darkness and the fractionally lesser black where cracks in the ruin admit ghost-light. Not enough to see, but enough to sense dimension. This space extends perhaps twice shoulder-width, maybe three body-lengths in what used to be—what? A room? A hall?
+### GM Notes
 
-The air suggests answers: that sour wine smell, the ghost of roasted meat, the particular musk of many bodies sharing space. A public house, maybe. An inn. Somewhere travelers gathered and paid for beds and meals and whatever warmth coin could purchase.
+- The hammer's status as a future problem is the key beat — plant it clearly, don't resolve it
+- This is the Breaker's specific entry into the convergence: *the one who came out of the ruin*. Everyone else was outside when it happened. The Breaker was in.
+- The other travelers (future heroes, though no one knows this yet) should be present as a detail, not a revelation. Notice them without emphasis.
+- The caravan master's timeline creates gentle pressure — not mandatory, but the road is forming now.
+- End on motion, not resolution. The Breaker leaves something behind and walks toward something unknown. That is the throughline.
 
-Then the earth moved, and now—this.
+### Player Agency
 
-Moving through the compressed space, other presences reveal themselves:
+The player can:
+- Ask about the hammer and when/how to retrieve it (caravan master will help think through practical logistics)
+- Speak to any of the new travelers (keep introductions light — full recognition is Act 2)
+- Simply move with the caravan
 
-The man who spoke first is trapped in a similar pocket, visible now only as darkness slightly deeper than the surrounding black. His breathing has steadied into something approximating control, but the effort shows. "My leg," he says, when approach brings proximity. "Can't feel it anymore. Pinned."
+Prompt: *"The caravan rolls west. What does your character carry into the road?"*
 
-Beyond him, where the floor has buckled downward, two more: a woman, unconscious, something wet and dark matting her hair where impact found her. Beside her, someone older—gender unclear in this lightless space—who stirs at approach, groaning.
-
-And above, in that sagging pocket of temporary survival: the child. Invisible now, tracked only by sound. The whimpering has stopped, replaced by the careful silence of prey that understands predators hunt by noise.
-
-"How many?" the man asks.
-
-"Five. At least five."
-
-Including the one doing the counting.
-
-The hammer hasn't moved, still wedged in its load-bearing position. But the gap it guards has become clearer through exploration: a space where collapse created a tunnel, narrow but navigable. For a body alone. For someone willing to slip through without the iron weight that won't fit.
-
-Freedom, that way. Air and light and the absence of tons of ruin waiting to settle.
-
-But pulling the hammer free—testing it again confirms the suspicion—would shift the timber it braces. And that timber holds back the floor above. And the floor above holds back the walls. And the walls keep the entire structure from progressive collapse into the spaces where five people breathe and wait and hope for rescue that might already be digging toward them from the outside.
-
-The geometry is merciless: stay with the tool and stay trapped, or leave it wedged and slip through to safety.
-
-Without it. Powerless. Empty-handed.
-
-The child begins to cry—soft, defeated sounds that speak of understanding beyond years. The woman stirs but doesn't wake. The man with the pinned leg tries to shift position and gasps, pain breaking through his carefully maintained control. The older person's breathing has gone shallow and irregular, each inhalation a question mark.
-
-And here, in this pocket of temporary survival, hands rest on a tool that could mean everything or nothing, trying to remember if a choice like this has presented itself before.
-
-The answer comes slowly, like light through cracks:
-
-*Yes.*
-
----
-
-## [SEGMENT 2 - TO BE CONTINUED]
-
-*The story branches here based on the player's approach to the crisis. The GM should observe how the player engages with the trapped situation and the tool before determining which path forward best serves their emerging character.*
+**The awakening ends here. The convergence begins.**
 
 ---
 
 ## GM Notes: Overall Structure
 
 **Segment Breakdown:**
-1. **The Waking (3-5 min):** ✅ COMPLETE - Sensory awakening, hammer discovery
-2. **The Geometry (5-8 min):** ✅ COMPLETE - Spatial exploration, gap/hammer crisis
-3. **The Others (3-5 min):** ✅ COMPLETE - Finding trapped civilians, ethical stakes
-4. **The Voices (3-4 min):** ✅ COMPLETE - Communication, "Yes" memory hint
-5. **The Choice (8-12 min):** TO BE WRITTEN - Decision architecture
-6. **Secret Snippet (2-3 min):** TO BE WRITTEN - Memory crystallization
-7. **The Rescue (3-5 min):** TO BE WRITTEN - External help, extraction
-8. **Convergence (2-3 min):** TO BE WRITTEN - Caravan joining
+1. **The Waking (3-5 min):** ✅ Complete — Sensory awakening, hammer discovery
+2. **The Geometry (5-8 min):** ✅ Complete — Spatial exploration, gap/hammer crisis
+3. **The Others (3-5 min):** ✅ Complete — Finding trapped civilians, ethical stakes
+4. **The Voices (3-4 min):** ✅ Complete — Communication, "Yes" memory hint
+5. **The Letting Go (6-8 min):** ✅ Complete — Single-path, internal struggle, helping others through
+6. **The Secret Snippet (2-3 min):** ✅ Complete — God-tier memory fragment, siege gates
+7. **The Rescue (3-4 min):** ✅ Complete — Outside world, caravan, practical aftermath
+8. **Convergence (2-3 min):** ✅ Complete — Road west, hammer as unfinished thread
 
-**Total Estimated Time:** 40-45 minutes
+**Total Estimated Time:** 25-30 minutes (per Design Notes target)
 
-**Current Status:** v0.2 - Segment 1 refined, structure established, segments 2-8 pending
+**Status:** v1.0 — All segments complete
 
-**Next Steps:**
-1. Mine existing draft prose (see "Remaining Content" below) for segments 2-5
-2. Write new prose for segments 6-8
-3. Apply same editorial rigor to all segments
-4. Version uptick to 0.3 when all segments created
+**Convergence Note:** The ruined caravanserai where the Breaker emerges IS where the caravan stops. The Breaker is discovered emerging from the ruin as the caravan arrives. The hammer recovery becomes active engagement during the convergence phase while other heroes arrive.
 
 ---
 
-## REMAINING CONTENT - TO BE REORGANIZED INTO SEGMENTS ABOVE
-
-*The following prose was written before segment restructuring. It should be mined, edited, and redistributed into Segments 2-5 above.*
-
-**Tone:** Erikson-inspired: visceral sensory detail, psychological weight, ambiguity about identity
-**Key Elements Established:**
-- Physical confinement in collapsed inn (inferred through sensory details, not memory)
-- The hammer as load-bearing structural support AND identity
-- Escape route exists but requires abandoning the hammer
-- Multiple trapped civilians (five total including protagonist)
-- The central crisis: identity vs. survival
-
-**The Core Choice:**
-- Hammer is wedged between timber and stone, acting as support
-- Gap near hammer is only escape route
-- Body alone can fit; body + hammer cannot
-- Pulling hammer free destabilizes the structure
-- Others are trapped in separate pockets, waiting for external rescue
-- Choice: Leave tool behind and escape, or stay trapped with it
-
-**Player Agency:** This segment is pure setup—no choices yet required. Let the player absorb the situation, ask questions, explore their space. The pressure should be atmospheric, not mechanical. The realization that the hammer must be left behind should dawn gradually.
-
-**What Comes Next:** Segment 2 will present the decision moment:
-- **Path A (Abandonment):** Leave the hammer, slip through to freedom
-- **Path B (Commitment):** Refuse to abandon the tool, seek alternative
-- Both paths lead to alignment memory, but different memories
-
-**Pacing:** Don't rush. Let the darkness and the geometry work on them. The child's presence creates urgency without manipulation. The man's trapped leg is a ticking clock. The protagonist must discover the escape route through exploration, then realize what it costs.
-
-**Subtle Details:**
-- No explicit memories of "before"—only sensory inference
-- Hammer familiarity is instinctive, not remembered
-- Varied sentence structure reduces "you" repetition
-- Protagonist learns through touch and sound, not exposition
-
----
-
-**Version:** 0.2 - Revised opening (2025-01-21)  
-**Status:** Draft - Crisis architecture rebuilt  
-**Next:** Develop Segment 2 decision point and alignment memory variants
+**Version:** 1.0 — All segments complete (2026-05-14)
+**Status:** Draft complete
+**Prose Benchmark:** Warrior Awakening v2.0 (Erikson-grade density, sensory-first, identity weight)
