@@ -24,10 +24,10 @@ featured_docs:
     sub: History, factions, and the shape of the known world.
     href: /lore/the-roads.html
 
-  - tag: "Interactive Map · 6 Regions"
-    title: World Map
-    sub: Locations, regions, and the Silk Road trade network.
-    href: /world.html
+#  - tag: "Interactive Map · 6 Regions"
+#       title: World Map
+#       sub: Locations, regions, and the Silk Road trade network.
+#       href: /world.html
 ---
 
 # Homepage Featured Documents

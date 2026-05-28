@@ -11,6 +11,7 @@ on:
       - 'world/**/*.md'
       - 'narrative/**/*.md'
       - 'world/classes/class_primer.md'
+      - 'utilities/homepage/featured-docs.md'
       - 'utilities/**/*.py'
       - 'utilities/**/*.css'
   workflow_dispatch:  # allows manual trigger from GitHub Actions UI
@@ -34,6 +35,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Generate homepage
+        run: python utilities/homepage/generate_homepage.py
 
       - name: Generate dashboard
         run: python utilities/dashboard/generate_dashboard.py --out docs/dashboard.html
