@@ -7,7 +7,7 @@ content_type: reference
 visibility: public
 status: draft
 created: 2026-05-27
-last_updated: 2026-05-27
+last_updated: 2026-05-28
 tags:
   - daggerheart
   - classes
@@ -23,6 +23,16 @@ Every class has two **subclasses** — specialisations you choose that sharpen y
 
 ---
 
+## Assassin
+
+*Domains: Blade & Midnight · Subclasses: Executioner's Guild · Poisoner's Guild*
+
+Assassins are masters in the art of slipping past their opponents' defences to inflict terrible pain and deadly strikes. When an assassin marks someone for death, they pursue their prey with unwavering intent.
+
+**In Tarim-Shaiel:** In the courts and counting houses of the region, the assassin is the argument made when all other arguments have failed — or when patience runs out before process does. Some work under contract; others follow ideological imperatives that are not for sale. The mark of skill in this world is not a kill count but the ability to end a conflict before it becomes visible.
+
+---
+
 ## Bard
 
 *Domains: Grace & Codex · Subclasses: Troubadour · Wordsmith*
@@ -30,6 +40,16 @@ Every class has two **subclasses** — specialisations you choose that sharpen y
 Bards are the most charismatic people in all the realms. Members of this class are masters of captivation and specialise in a variety of performance types, including singing, playing musical instruments, weaving tales, or telling jokes. Whether performing for an audience or speaking to an individual, bards thrive in social situations. Members of this profession bond and train at schools or guilds, but a current of egotism runs through those of the bardic persuasion. While they may be the most likely class to bring people together, a bard of ill temper can just as easily tear a party apart.
 
 **In Tarim-Shaiel:** Storytellers at caravanserai fires, court musicians who carry political messages encoded in verse, travelling performers who pass through checkpoints unquestioned — bards occupy the spaces where information moves between worlds. Their voice is currency; their reputation travels faster than their feet.
+
+---
+
+## Brawler
+
+*Domains: Valor & Bone · Subclasses: Juggernaut · Martial Artist*
+
+Experts in unarmed combat, brawlers hone their bodies into lethal weapons using impressive physical prowess. They develop mastery through either structured training or hard-won street experience, unifying body and mind.
+
+**In Tarim-Shaiel:** The trade routes attract every form of conflict, and the brawler has learned that in a world full of weapons, the body remains the most reliable one. Street fighters, former soldiers, wrestlers from ancient traditions — the brawler's training is often difficult to name but impossible to miss in a fight.
 
 ---
 
@@ -93,6 +113,16 @@ Not all innate magic users choose to hone their craft, but those who do can beco
 
 ---
 
+## Warlock
+
+*Domains: Dread & Grace · Subclasses: Pact of the Endless · Pact of the Wrathful*
+
+Those who've traded their lives, or perhaps even their souls, to an otherworldly Patron in exchange for incredible power are known as Warlocks. These characters typically reach desperation — protecting loved ones, aiding communities, seeking vengeance, or advancing ambitions — before making such a sacrifice.
+
+**In Tarim-Shaiel:** Every major power in the region — city, court, caravan house, faith — has something it can offer. Warlocks have made the same calculation at a different scale, negotiating directly with entities that exist outside political geography. The terms are personal and binding, and what a warlock traded for their power is rarely fully visible to outsiders.
+
+---
+
 ## Warrior
 
 ![[warrior-call-of-the-slayer.avif|Warrior]]
@@ -102,6 +132,16 @@ Not all innate magic users choose to hone their craft, but those who do can beco
 Becoming a warrior requires years, often a lifetime, of training and dedication to the mastery of weapons and violence. While many who seek to fight hone only their strength, warriors understand the importance of an agile body and mind, making them some of the most sought-after fighters across the realms. Frequently, warriors find employment within an army, a band of mercenaries, or even a royal guard, but their potential is wasted in any position where they cannot continue to improve and expand their skills. Warriors are known to have a favoured weapon; to come between them and their blade would be a grievous mistake.
 
 **In Tarim-Shaiel:** A warrior's value is not only in what they can do with a weapon but in what they do with everything else — when to wait, when to move, how to read a room before it turns hostile. The fallen empire's wars left standing armies without states; the best fighters turned that freedom into a discipline no school could have taught them.
+
+---
+
+## Witch
+
+*Domains: Dread & Sage · Subclasses: Hedge · Moon*
+
+Magical practitioners who commune with the forces of nature and entities from realms beyond, witches call forth their power through craft, rituals, incantations, herbs, stones, candles, and other tools to enact their will and conjure powerful spells.
+
+**In Tarim-Shaiel:** The craft traditions of the region's folk practitioners are older than the empire that tried to classify them. Witches work through relationship with forces that don't recognise borders — spirits of place, patterns in natural time, the boundary between the living and the dead. They're found in cities as often as in wilderness, but rarely in places where their work is well understood.
 
 ---
 
@@ -115,42 +155,3 @@ Whether through an institution or individual study, those known as wizards acqui
 
 **In Tarim-Shaiel:** The great libraries of predecessor civilisations still exist in pieces — private collections, monastery archives, merchant families who inherited knowledge without understanding its value. Wizards navigate this landscape of scattered inheritance with the patience of archivists and the ambition of collectors, governed by principles of magical stewardship that rarely agree with each other.
 
----
-
-## Assassin
-
-*Domains: Blade & Midnight · Subclasses: Executioner's Guild · Poisoner's Guild*
-
-Assassins are masters in the art of slipping past their opponents' defences to inflict terrible pain and deadly strikes. When an assassin marks someone for death, they pursue their prey with unwavering intent.
-
-**In Tarim-Shaiel:** In the courts and counting houses of the region, the assassin is the argument made when all other arguments have failed — or when patience runs out before process does. Some work under contract; others follow ideological imperatives that are not for sale. The mark of skill in this world is not a kill count but the ability to end a conflict before it becomes visible.
-
----
-
-## Brawler
-
-*Domains: Valor & Bone · Subclasses: Juggernaut · Martial Artist*
-
-Experts in unarmed combat, brawlers hone their bodies into lethal weapons using impressive physical prowess. They develop mastery through either structured training or hard-won street experience, unifying body and mind.
-
-**In Tarim-Shaiel:** The trade routes attract every form of conflict, and the brawler has learned that in a world full of weapons, the body remains the most reliable one. Street fighters, former soldiers, wrestlers from ancient traditions — the brawler's training is often difficult to name but impossible to miss in a fight.
-
----
-
-## Warlock
-
-*Domains: Dread & Grace · Subclasses: Pact of the Endless · Pact of the Wrathful*
-
-Those who've traded their lives, or perhaps even their souls, to an otherworldly Patron in exchange for incredible power are known as Warlocks. These characters typically reach desperation — protecting loved ones, aiding communities, seeking vengeance, or advancing ambitions — before making such a sacrifice.
-
-**In Tarim-Shaiel:** Every major power in the region — city, court, caravan house, faith — has something it can offer. Warlocks have made the same calculation at a different scale, negotiating directly with entities that exist outside political geography. The terms are personal and binding, and what a warlock traded for their power is rarely fully visible to outsiders.
-
----
-
-## Witch
-
-*Domains: Dread & Sage · Subclasses: Hedge · Moon*
-
-Magical practitioners who commune with the forces of nature and entities from realms beyond, witches call forth their power through craft, rituals, incantations, herbs, stones, candles, and other tools to enact their will and conjure powerful spells.
-
-**In Tarim-Shaiel:** The craft traditions of the region's folk practitioners are older than the empire that tried to classify them. Witches work through relationship with forces that don't recognise borders — spirits of place, patterns in natural time, the boundary between the living and the dead. They're found in cities as often as in wilderness, but rarely in places where their work is well understood.
