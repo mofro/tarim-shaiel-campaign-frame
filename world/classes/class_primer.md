@@ -21,8 +21,6 @@ These are the classes available in Tarim-Shaiel. Each describes who you are and 
 
 Every class has two **subclasses** — specialisations you choose that sharpen your approach. You'll pick your subclass after some initial play, once you have a better sense of who your character is becoming.
 
-> **Playtest classes** are marked with *(playtest)*. They are fully functional but drawn from supplemental material rather than the core rulebook.
-
 ---
 
 ## Bard
@@ -115,7 +113,7 @@ Whether through an institution or individual study, those known as wizards acqui
 
 ---
 
-## Assassin *(playtest)*
+## Assassin
 
 *Domains: Blade & Midnight · Subclasses: Executioner's Guild · Poisoner's Guild*
 
@@ -125,7 +123,7 @@ Assassins are masters in the art of slipping past their opponents' defences to i
 
 ---
 
-## Brawler *(playtest)*
+## Brawler
 
 *Domains: Valor & Bone · Subclasses: Juggernaut · Martial Artist*
 
@@ -135,7 +133,7 @@ Experts in unarmed combat, brawlers hone their bodies into lethal weapons using 
 
 ---
 
-## Warlock *(playtest)*
+## Warlock
 
 *Domains: Dread & Grace · Subclasses: Pact of the Endless · Pact of the Wrathful*
 
@@ -145,7 +143,7 @@ Those who've traded their lives, or perhaps even their souls, to an otherworldly
 
 ---
 
-## Witch *(playtest)*
+## Witch
 
 *Domains: Dread & Sage · Subclasses: Hedge · Moon*
 
