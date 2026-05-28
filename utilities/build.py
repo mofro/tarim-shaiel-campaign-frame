@@ -72,6 +72,7 @@ def _load_registry() -> dict:
     from campaign_frame.generate_campaign_frame import generator as campaign_frame
     from lore.generate_lore_html import generator as lore
     from ancestries.generate_ancestry_html import generator as ancestry
+    from class_primer.generate_class_primer import generator as class_primer
     from search.generate_search_index import generator as search_index
     from search.generate_search_html import generator as search
     from world.generate_world_html import generator as world
@@ -81,7 +82,7 @@ def _load_registry() -> dict:
 
     return {
         g.name: g for g in [
-            homepage, dashboard, campaign_frame, lore, ancestry,
+            homepage, dashboard, campaign_frame, lore, ancestry, class_primer,
             search_index, search, world, world_all, geojson, locations,
         ]
     }

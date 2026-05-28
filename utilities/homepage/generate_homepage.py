@@ -30,6 +30,12 @@ FEATURED_DOCS = [
         "href": "/peoples-of-tarim-shaiel.html",
     },
     {
+        "tag": "Class Primer · 13 Classes",
+        "title": "Character Classes",
+        "sub": "Daggerheart classes framed for the world of Tarim-Shaiel.",
+        "href": "/class-primer.html",
+    },
+    {
         "tag": "World Lore",
         "title": "The Roads",
         "sub": "History, factions, and the shape of the known world.",

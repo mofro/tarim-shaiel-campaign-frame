@@ -10,6 +10,7 @@ on:
       - 'templates/tarim-shaiel-campaign-frame-v2.md'
       - 'world/**/*.md'
       - 'narrative/**/*.md'
+      - 'world/classes/class_primer.md'
       - 'utilities/**/*.py'
       - 'utilities/**/*.css'
   workflow_dispatch:  # allows manual trigger from GitHub Actions UI
@@ -42,6 +43,9 @@ jobs:
 
       - name: Generate ancestry guide
         run: python utilities/ancestries/generate_ancestry_html.py
+
+      - name: Generate class primer
+        run: python utilities/class_primer/generate_class_primer.py
 
       - name: Generate world HTML + index
         run: python utilities/world/generate_all_world_html.py --public
