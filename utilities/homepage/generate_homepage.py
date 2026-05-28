@@ -16,38 +16,9 @@ sys.path.insert(0, str(UTILITIES_DIR / "world"))
 from shared.renderer import render_page
 from shared.frontmatter import parse_frontmatter
 
-FEATURED_DOCS = [
-    {
-        "tag": "Player-Facing · v2.0",
-        "title": "Campaign Frame",
-        "sub": "Themes, principles, and Session Zero questions.",
-        "href": "/campaign-frame.html",
-    },
-    {
-        "tag": "Ancestry Guide · 14 Peoples",
-        "title": "Peoples of Tarim-Shaiel",
-        "sub": "Lore descriptions and features for character creation.",
-        "href": "/peoples-of-tarim-shaiel.html",
-    },
-    {
-        "tag": "Class Primer · 13 Classes",
-        "title": "Character Classes",
-        "sub": "Daggerheart classes framed for the world of Tarim-Shaiel.",
-        "href": "/class-primer.html",
-    },
-    {
-        "tag": "World Lore",
-        "title": "The Roads",
-        "sub": "History, factions, and the shape of the known world.",
-        "href": "/lore/the-roads.html",
-    },
-    {
-        "tag": "Interactive Map · 6 Regions",
-        "title": "World Map",
-        "sub": "Locations, regions, and the Silk Road trade network.",
-        "href": "/world.html",
-    },
-]
+_FEATURED_DOCS_FILE = SCRIPT_DIR / "featured-docs.md"
+_fm, _ = parse_frontmatter(_FEATURED_DOCS_FILE.read_text(encoding="utf-8"))
+FEATURED_DOCS = _fm.get("featured_docs", [])
 
 # Categories suppressed from the homepage (subcategories, GM-only, or low-value index noise)
 SUPPRESS_FROM_HOME = {
