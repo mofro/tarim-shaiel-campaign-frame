@@ -57,8 +57,6 @@ Bards are the most charismatic people in all the realms. Members of this class a
 
 ## Brawler
 
-![[mitch-mohrhauser-taka-front-concepts-2.jpg|Brawler]]
-
 ![[grant-griffin-mgb-tieflingmonk-final02-gg.jpg|Brawler]]
 
 *Domains: Valor & Bone · Subclasses: Juggernaut · Martial Artist*
@@ -78,8 +76,6 @@ Experts in unarmed combat, brawlers hone their bodies into lethal weapons using 
 ## Druid
 
 ![[monk_in_the_bamboo_grove_by_the_gm_craft_tavern_dlbp5c7-fullview.jpg|Druid]]
-
-![[dj4z2cr-61e5f577-3762-45fa-8b68-bfaeb92cb577.png|Druid]]
 
 *Domains: Sage & Arcana · Subclasses: Warden of the Elements · Warden of Renewal*
 
@@ -106,8 +102,6 @@ The title of guardian represents an array of martial professions, speaking more 
 ## Ranger
 
 ![[dkos0fv-e7a5bd0a-bc1d-4b00-9225-2c314e737ba8.png|Ranger]]
-
-![[mitch-mohrhauser-kaede-concept-8.jpg|Ranger]]
 
 *Domains: Bone & Sage · Subclasses: Beastbound · Wayfinder*
 
