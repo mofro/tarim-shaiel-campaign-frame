@@ -27,8 +27,6 @@ Every class has two **subclasses** — specialisations you choose that sharpen y
 
 ![[l-e-n-t-e-s-c-u-r-a-ronin-by-l-e-n-t-e-s-c-u-r-a-daok9gb.jpg|Assassin]]
 
-![[imx-awan-mongol-asassin222.jpg|Assassin]]
-
 *Domains: Blade & Midnight · Subclasses: Executioner's Guild · Poisoner's Guild*
 
 Assassins are masters in the art of slipping past their opponents' defences to inflict terrible pain and deadly strikes. When an assassin marks someone for death, they pursue their prey with unwavering intent.
@@ -40,7 +38,6 @@ Assassins are masters in the art of slipping past their opponents' defences to i
 ## Bard
 
 ![[bard_of_the_east_2_by_dercius_diqhnif-fullview.jpg]]
-![[rpg_portrait_female_halfling_bard_by_themalfazar_dknd3ig-fullview.jpg|Halfling Bard]]
 
 ![[rpg_portrait_male_goblin_bard_by_themalfazar_dkndb6y-fullview.jpg|Goblin Bard]]
 
