@@ -7,7 +7,7 @@ content_type: reference
 visibility: public
 status: draft
 created: 2026-05-27
-last_updated: 2026-05-28
+last_updated: 2026-06-01
 tags:
   - daggerheart
   - classes
@@ -25,6 +25,10 @@ Every class has two **subclasses** — specialisations you choose that sharpen y
 
 ## Assassin
 
+![[l-e-n-t-e-s-c-u-r-a-ronin-by-l-e-n-t-e-s-c-u-r-a-daok9gb.jpg|Assassin]]
+
+![[imx-awan-mongol-asassin222.jpg|Assassin]]
+
 *Domains: Blade & Midnight · Subclasses: Executioner's Guild · Poisoner's Guild*
 
 Assassins are masters in the art of slipping past their opponents' defences to inflict terrible pain and deadly strikes. When an assassin marks someone for death, they pursue their prey with unwavering intent.
@@ -34,6 +38,12 @@ Assassins are masters in the art of slipping past their opponents' defences to i
 ---
 
 ## Bard
+
+![[bard_of_the_east_2_by_dercius_diqhnif-fullview.jpg]]
+![[rpg_portrait_female_halfling_bard_by_themalfazar_dknd3ig-fullview.jpg|Halfling Bard]]
+
+![[rpg_portrait_male_goblin_bard_by_themalfazar_dkndb6y-fullview.jpg|Goblin Bard]]
+
 
 *Domains: Grace & Codex · Subclasses: Troubadour · Wordsmith*
 
@@ -45,6 +55,10 @@ Bards are the most charismatic people in all the realms. Members of this class a
 
 ## Brawler
 
+![[mitch-mohrhauser-taka-front-concepts-2.jpg|Brawler]]
+
+![[grant-griffin-mgb-tieflingmonk-final02-gg.jpg|Brawler]]
+
 *Domains: Valor & Bone · Subclasses: Juggernaut · Martial Artist*
 
 Experts in unarmed combat, brawlers hone their bodies into lethal weapons using impressive physical prowess. They develop mastery through either structured training or hard-won street experience, unifying body and mind.
@@ -55,6 +69,9 @@ Experts in unarmed combat, brawlers hone their bodies into lethal weapons using 
 
 ## Druid
 
+![[monk_in_the_bamboo_grove_by_the_gm_craft_tavern_dlbp5c7-fullview.jpg|Druid]]
+
+![[dj4z2cr-61e5f577-3762-45fa-8b68-bfaeb92cb577.png|Druid]]
 *Domains: Sage & Arcana · Subclasses: Warden of the Elements · Warden of Renewal*
 
 Becoming a druid is more than an occupation; it's a calling for those who wish to learn from and protect the magic of the wilderness. While one might underestimate a gentle druid who practises the often-quiet work of cultivating flora, druids who channel the untamed forces of nature are terrifying to behold. Druids cultivate their abilities in small groups, often connected by a specific ethos or locale, but some choose to work alone. Through years of study and dedication, druids can learn to transform into beasts and shape nature itself.
@@ -64,6 +81,10 @@ Becoming a druid is more than an occupation; it's a calling for those who wish t
 ---
 
 ## Guardian
+
+![[imperial_blade_keeper_of_the_sacred_throne_by_timforshadedigital.jpg|Guardian]]
+
+![[artificial_guardian_by_vablo_daknmrf-fullview.jpg|Guardian]]
 
 *Domains: Valor & Blade · Subclasses: Stalwart · Vengeance*
 
@@ -75,6 +96,10 @@ The title of guardian represents an array of martial professions, speaking more 
 
 ## Ranger
 
+![[dkos0fv-e7a5bd0a-bc1d-4b00-9225-2c314e737ba8.png|Ranger]]
+
+![[mitch-mohrhauser-kaede-concept-8.jpg|Ranger]]
+
 *Domains: Bone & Sage · Subclasses: Beastbound · Wayfinder*
 
 Rangers are highly skilled hunters who, despite their martial abilities, rarely lend their skills to an army. Through mastery of the body and a deep understanding of the wilderness, rangers become sly tacticians, pursuing their quarry with cunning and patience. Many rangers track and fight alongside an animal companion with whom they've forged a powerful spiritual bond. By honing their skills in the wild, rangers become expert trackers, as likely to ensnare their foes in a trap as they are to assail them head-on.
@@ -84,6 +109,10 @@ Rangers are highly skilled hunters who, despite their martial abilities, rarely 
 ---
 
 ## Rogue
+
+![[dk0wi77-6c110d95-e01e-49a0-8403-25e67f833fdb.png|Rogue]]
+
+![[diidfam-40d5d404-d3f7-455e-931e-ee0a34ca16c9.png|Rogue]]
 
 *Domains: Midnight & Grace · Subclasses: Nightwalker · Syndicate*
 
@@ -95,6 +124,10 @@ Rogues are scoundrels, often in both attitude and practice. Broadly known as lia
 
 ## Seraph
 
+![[nathalie-araujo-acheron.webp|Seraph]]
+
+![[rpg_portrait_female_aasimar_paladin_by_themalfazar_dkmvfk8-fullview.jpg|Seraphim]]
+
 *Domains: Splendor & Valor · Subclasses: Divine Wielder · Winged Sentinel*
 
 Seraphs are divine fighters and healers imbued with sacred purpose. A wide array of deities exist within the realms, and thus numerous kinds of seraphs are appointed by these gods. Their ethos traditionally aligns with the domain or goals of their god, such as defending the weak, exacting vengeance, protecting a land or artifact, or upholding a particular faith. Some seraphs ally themselves with an army or locale, much to the satisfaction of their rulers, but other crusaders fight in opposition to the follies of the Mortal Realm. It is better to be a seraph's ally than their enemy, as they are terrifying foes to those who defy their purpose.
@@ -104,6 +137,10 @@ Seraphs are divine fighters and healers imbued with sacred purpose. A wide array
 ---
 
 ## Sorcerer
+
+![[arcane_ascension_within_the_shattered_ruins_by_timforshadedigital_dk9jhmc-fullview.jpg|Sorcerer]]
+
+![[a1742_by_daemini_dlnijkm-fullview.jpg|Sorcerer]]
 
 *Domains: Arcana & Midnight · Subclasses: Elemental Origin · Primal Origin*
 
@@ -115,6 +152,10 @@ Not all innate magic users choose to hone their craft, but those who do can beco
 
 ## Warlock
 
+![[warlock_rogue_sorcerer_magician_warrior_medieval__by_dissunder_dim6lcv-fullview.jpg|Warlock]]
+
+![[_open__warlock_woman__3__by_anavrinart_dhbsk47-pre.jpg]]
+
 *Domains: Dread & Grace · Subclasses: Pact of the Endless · Pact of the Wrathful*
 
 Those who've traded their lives, or perhaps even their souls, to an otherworldly Patron in exchange for incredible power are known as Warlocks. These characters typically reach desperation — protecting loved ones, aiding communities, seeking vengeance, or advancing ambitions — before making such a sacrifice.
@@ -125,7 +166,9 @@ Those who've traded their lives, or perhaps even their souls, to an otherworldly
 
 ## Warrior
 
-![[warrior-call-of-the-slayer.avif|Warrior]]
+![[fierce_orc_warrior_amidst_battle_horde_by_wickedmythos_dkk60en-pre.jpg|Warrior]]
+
+![[the_mercenary_of_the_blood_stained_market_by_timforshadedigital_dkvg5f2-fullview.jpg|Warrior]]
 
 *Domains: Blade & Bone · Subclasses: Call of the Brave · Call of the Slayer*
 
@@ -137,6 +180,10 @@ Becoming a warrior requires years, often a lifetime, of training and dedication 
 
 ## Witch
 
+![[infernal_rite_of_the_crimson_horned_sorceress_by_timforshadedigital_dk9jmcz-fullview.jpg|Witch]]
+
+![[d7zpj43-898d79ab-4946-4b09-a94b-3ea4abed55e6.jpg]]
+
 *Domains: Dread & Sage · Subclasses: Hedge · Moon*
 
 Magical practitioners who commune with the forces of nature and entities from realms beyond, witches call forth their power through craft, rituals, incantations, herbs, stones, candles, and other tools to enact their will and conjure powerful spells.
@@ -147,7 +194,9 @@ Magical practitioners who commune with the forces of nature and entities from re
 
 ## Wizard
 
-![[wizard-school-of-knowledge.avif|Wizard]]
+![[she_carried_the_weight_of_words_no_one_dared_by_timforshadedigital_dl5v25p-fullview.jpg|Wizard]]
+
+![[rpg_portrait_male_half_elf_mage_by_themalfazar_dknblc6-fullview.jpg]]
 
 *Domains: Codex & Splendor · Subclasses: School of Knowledge · School of War*
 
