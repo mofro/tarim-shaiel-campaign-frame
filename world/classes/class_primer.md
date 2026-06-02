@@ -37,7 +37,7 @@ Assassins are masters in the art of slipping past their opponents' defences to i
 
 ## Bard
 
-![[bard_of_the_east_2_by_dercius_diqhnif-fullview.jpg]]
+![[bard_of_the_east_2_by_dercius_diqhnif-fullview.jpg|Bard]]
 
 ![[rpg_portrait_male_goblin_bard_by_themalfazar_dkndb6y-fullview.jpg|Goblin Bard]]
 
@@ -153,7 +153,7 @@ Not all innate magic users choose to hone their craft, but those who do can beco
 
 ![[warlock_rogue_sorcerer_magician_warrior_medieval__by_dissunder_dim6lcv-fullview.jpg|Warlock]]
 
-![[_open__warlock_woman__3__by_anavrinart_dhbsk47-pre.jpg]]
+![[_open__warlock_woman__3__by_anavrinart_dhbsk47-pre.jpg|Warlock]]
 
 *Domains: Dread & Grace · Subclasses: Pact of the Endless · Pact of the Wrathful*
 
@@ -181,7 +181,7 @@ Becoming a warrior requires years, often a lifetime, of training and dedication 
 
 ![[infernal_rite_of_the_crimson_horned_sorceress_by_timforshadedigital_dk9jmcz-fullview.jpg|Witch]]
 
-![[d7zpj43-898d79ab-4946-4b09-a94b-3ea4abed55e6.jpg]]
+![[d7zpj43-898d79ab-4946-4b09-a94b-3ea4abed55e6.jpg|Witch]]
 
 *Domains: Dread & Sage · Subclasses: Hedge · Moon*
 
@@ -195,7 +195,7 @@ Magical practitioners who commune with the forces of nature and entities from re
 
 ![[she_carried_the_weight_of_words_no_one_dared_by_timforshadedigital_dl5v25p-fullview.jpg|Wizard]]
 
-![[rpg_portrait_male_half_elf_mage_by_themalfazar_dknblc6-fullview.jpg]]
+![[rpg_portrait_male_half_elf_mage_by_themalfazar_dknblc6-fullview.jpg|Wizard]]
 
 *Domains: Codex & Splendor · Subclasses: School of Knowledge · School of War*
 
