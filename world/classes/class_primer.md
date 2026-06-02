@@ -48,6 +48,11 @@ Bards are the most charismatic people in all the realms. Members of this class a
 
 **In Tarim-Shaiel:** Storytellers at caravanserai fires, court musicians who carry political messages encoded in verse, travelling performers who pass through checkpoints unquestioned — bards occupy the spaces where information moves between worlds. Their voice is currency; their reputation travels faster than their feet.
 
+
+
+
+
+
 ---
 
 ## Brawler
@@ -62,6 +67,12 @@ Experts in unarmed combat, brawlers hone their bodies into lethal weapons using 
 
 **In Tarim-Shaiel:** The trade routes attract every form of conflict, and the brawler has learned that in a world full of weapons, the body remains the most reliable one. Street fighters, former soldiers, wrestlers from ancient traditions — the brawler's training is often difficult to name but impossible to miss in a fight.
 
+
+
+
+
+
+
 ---
 
 ## Druid
@@ -69,6 +80,7 @@ Experts in unarmed combat, brawlers hone their bodies into lethal weapons using 
 ![[monk_in_the_bamboo_grove_by_the_gm_craft_tavern_dlbp5c7-fullview.jpg|Druid]]
 
 ![[dj4z2cr-61e5f577-3762-45fa-8b68-bfaeb92cb577.png|Druid]]
+
 *Domains: Sage & Arcana · Subclasses: Warden of the Elements · Warden of Renewal*
 
 Becoming a druid is more than an occupation; it's a calling for those who wish to learn from and protect the magic of the wilderness. While one might underestimate a gentle druid who practises the often-quiet work of cultivating flora, druids who channel the untamed forces of nature are terrifying to behold. Druids cultivate their abilities in small groups, often connected by a specific ethos or locale, but some choose to work alone. Through years of study and dedication, druids can learn to transform into beasts and shape nature itself.
