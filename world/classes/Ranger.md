@@ -2,13 +2,14 @@
 title: Ranger
 project: TTRPG_Tarim_Shaiel
 type: character_framework
-visibility: gm_secrets
+visibility: public
 domains:
   - bone
   - sage
 sub-classes:
   - beastbound
   - wayfinder
+published: true
 status: canon
 created: 2026-04-14
 last_updated: 2026-04-14

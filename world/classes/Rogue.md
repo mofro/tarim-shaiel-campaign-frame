@@ -2,13 +2,14 @@
 title: Rogue
 project: TTRPG_Tarim_Shaiel
 type: character_framework
-visibility: gm_secrets
+visibility: public
 domains:
   - midnight
   - grace
 sub-classes:
   - nightwalker
   - syndicate
+published: true
 status: canon
 created: 2026-04-14
 last_updated: 2026-04-14

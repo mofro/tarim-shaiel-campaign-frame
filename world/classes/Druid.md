@@ -2,7 +2,7 @@
 title: Druid
 project: TTRPG_Tarim_Shaiel
 type: character_framework
-visibility: gm_secrets
+visibility: public
 domains:
   - sage
   - arcana
@@ -10,6 +10,7 @@ sub-classes:
   - warden-of-the-elements
   - warden-of-renewal
   - beastforms
+published: true
 status: canon
 created: 2026-04-14
 last_updated: 2026-04-20

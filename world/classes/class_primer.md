@@ -5,6 +5,7 @@ domain: world
 doc_type: canon
 content_type: reference
 visibility: public
+published: true
 status: draft
 created: 2026-05-27
 last_updated: 2026-06-01
