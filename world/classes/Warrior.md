@@ -2,13 +2,14 @@
 title: Warrior
 project: TTRPG_Tarim_Shaiel
 type: character_framework
-visibility: gm_secrets
+visibility: public
 domains:
   - blade
   - bone
 sub-classes:
   - call-of-the-brave
   - call-of-the-slayer
+published: true
 status: canon
 created: 2026-04-14
 last_updated: 2026-04-14

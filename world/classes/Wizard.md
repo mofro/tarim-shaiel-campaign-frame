@@ -2,13 +2,14 @@
 title: Wizard
 project: TTRPG_Tarim_Shaiel
 type: character_framework
-visibility: gm_secrets
+visibility: public
 domains:
   - codex
   - splendor
 sub-classes:
   - school-of-knowledge
   - school-of-war
+published: true
 status: canon
 created: 2026-04-14
 last_updated: 2026-04-14
