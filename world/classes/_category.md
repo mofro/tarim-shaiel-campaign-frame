@@ -1,11 +1,19 @@
 ---
 title: Character Classes
 description: Class descriptions for Tarim Shaiel
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: public
 published: true
+status: canon
+created: 2026-04-19
+last_updated: 2026-04-20
 banner_left: TARIM-SHAIEL * Character Creation
 banner_right: Classes
 jump_nav: true
+back_href: https: //tarim-shaiel.world/
 ---
+
 ## Player Classes
 
 Players in the world Tarim-Shaiel have choices as to how they express themselves. One of the more direct and methods is by choosing a character path, often described as "classes".
