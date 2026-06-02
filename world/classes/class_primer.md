@@ -115,8 +115,6 @@ Rangers are highly skilled hunters who, despite their martial abilities, rarely 
 
 ![[dk0wi77-6c110d95-e01e-49a0-8403-25e67f833fdb.png|Rogue]]
 
-![[diidfam-40d5d404-d3f7-455e-931e-ee0a34ca16c9.png|Rogue]]
-
 *Domains: Midnight & Grace · Subclasses: Nightwalker · Syndicate*
 
 Rogues are scoundrels, often in both attitude and practice. Broadly known as liars and thieves, the best among this class move through the world anonymously. Utilising their sharp wits and blades, rogues trick their foes through social manipulation as easily as breaking locks, climbing through windows, or dealing underhanded blows. These masters of magical craft manipulate shadow and movement, adding an array of useful and deadly tools to their repertoire. Rogues frequently establish guilds to meet future accomplices, hire out jobs, and hone secret skills, proving that there's honour among thieves for those who know where to look.
@@ -126,8 +124,6 @@ Rogues are scoundrels, often in both attitude and practice. Broadly known as lia
 ---
 
 ## Seraph
-
-![[nathalie-araujo-acheron.webp|Seraph]]
 
 ![[rpg_portrait_female_aasimar_paladin_by_themalfazar_dkmvfk8-fullview.jpg|Seraphim]]
 
