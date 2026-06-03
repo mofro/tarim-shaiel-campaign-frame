@@ -1,11 +1,19 @@
 ---
 title: Ancestries
 description: The peoples of Tarim-Shaiel
+project: TTRPG_Tarim_Shaiel
+type: lore
+visibility: public
 published: true
+status: canon
+created: 2026-04-19
+last_updated: 2026-04-20
 banner_left: TARIM-SHAIEL * Ancestry
 banner_right: Lore
 jump_nav: true
+back_href: https: //tarim-shaiel.world/
 ---
+
 ## About Ancestries
 
 The world of Tarim-Shaiel is home to several distinct ancestries, each shaped by the land, the empire that once ruled it, and the thousand years of silence that followed.

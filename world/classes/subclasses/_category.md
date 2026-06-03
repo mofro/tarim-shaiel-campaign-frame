@@ -3,7 +3,7 @@ title: Sub-Classes
 description: List of ALL of the Daggerheart sub-classes
 project: TTRPG_Tarim_Shaiel
 type: lore
-visibility: gm_secrets
+visibility: public,public
 published: true
 status: canon
 created: 2026-04-19
