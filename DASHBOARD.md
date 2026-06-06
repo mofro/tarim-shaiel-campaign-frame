@@ -29,6 +29,7 @@ players:
   pending_players:
     - {player: "Marc",  class_pref: "Ranger or Assassin", archetype: "TBD"}
     - {player: "Bruce", class_pref: "TBD",                archetype: "TBD", note: "new player — not yet mapped"}
+    - {player: "Dave",  class_pref: "TBD",                archetype: "TBD", note: "new player — not yet mapped"}
 
 domain_overrides:
   # Manually pinned at 2026-05-06 when task tracking migrated from TODO.md to Beads.
