@@ -28,7 +28,7 @@ DOCS_DIR    = VAULT_ROOT / "docs"
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.frontmatter import parse_frontmatter
 from shared.assets import prepare_image, prepare_audio, prepare_audio_wiki
-from shared.html_render import render_prose, AUDIO_EXTS, AUDIO_MIME
+from shared.html_render import render_body, AUDIO_EXTS, AUDIO_MIME
 from shared.renderer import render_page
 
 COVER_IMAGE_URL = "https://images5.alphacoders.com/798/thumb-1920-798802.jpg"
@@ -102,7 +102,7 @@ def main() -> None:
         else:
             prepare_image(fname, VAULT_ROOT, DOCS_DIR)
 
-    body_html = render_prose(body)
+    body_html, _ = render_body(body, VAULT_ROOT, DOCS_DIR, gm_mode=False)
 
     if args.out:
         out = Path(args.out)
