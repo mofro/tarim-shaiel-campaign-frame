@@ -545,6 +545,7 @@ def _build_world_home(
         regions=region_list,
         all_locations=az_list,
         gm_mode=gm_mode,
+        show_locations=gm_mode,
         extra_css=['world-map'],
         generator_name='generate_locations_html.py',
     )

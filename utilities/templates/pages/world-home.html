@@ -27,6 +27,7 @@
     {{ world_map_html | safe }}
   </div>
 
+  {% if show_locations %}
   <!-- Region index -->
   <section class="world-regions-section">
     <h2>Regions</h2>
@@ -55,6 +56,7 @@
     {% endfor %}
     </div>
   </section>
+  {% endif %}
 
 </div>
 {% endblock %}
