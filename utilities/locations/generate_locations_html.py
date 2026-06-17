@@ -322,6 +322,7 @@ def _build_world_map_html(
     routes_geojson: dict | None,
     regions_geojson: dict | None,
     gm_mode: bool = False,
+    show_locations: bool = False,
 ) -> str:
     """Build the full-page Leaflet map for world.html."""
 
@@ -358,7 +359,7 @@ def _build_world_map_html(
             'layout:{"line-cap":"butt"},'
             'paint:{"line-color":"#b8892a","line-width":1.5,"line-opacity":0.5,"line-dasharray":[4,4]}});\n'
         )
-    if locations_geojson:
+    if locations_geojson and show_locations:
         # Inject _slug into each feature's properties so the click handler
         # can look up popup data by slug without relying on MapLibre feature IDs.
         enriched_features = []
@@ -515,7 +516,8 @@ def _build_world_home(
     gm_mode: bool,
 ) -> str:
     world_map_html = _build_world_map_html(
-        locations, locations_geojson, routes_geojson, regions_geojson, gm_mode=gm_mode
+        locations, locations_geojson, routes_geojson, regions_geojson,
+        gm_mode=gm_mode, show_locations=gm_mode,
     )
 
     region_list = []
