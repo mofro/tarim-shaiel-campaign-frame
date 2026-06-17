@@ -1,5 +1,5 @@
 ---
-banner: images/elements/mofro_An_ultra-realistic_documentary_image_of_a_gathering_of__42d4d882-cf48-4b51-ab53-d785ba01f626_2.gif
+banner: images/places/798802.jpg
 title: The Wanderers Convene — A Session Zero Gathering
 project: TTRPG_Tarim_Shaiel
 domain: narrative
