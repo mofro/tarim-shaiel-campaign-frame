@@ -11,7 +11,7 @@ location: Fortress ruins above a branching gorge (Khaakha-inspired)
 status: draft
 created: 2026-06-06
 last_updated: 2026-06-19
-version: 0.3
+version: 0.4
 ---
 
 # Session 0: Sentinel Archetype Awakening
@@ -103,9 +103,13 @@ This place feels like a deliberate choice.
 
 The wind shifts. From below: the sound of water, somewhere.
 
-The signal post is at the parapet's highest corner, visible when you turn. The lantern sits in its bracket at the base, a small pouch of flint and tinder beside it. Your hands find what they need. The wick catches.
+The signal post is at the parapet's highest corner, visible when you turn. Your hands find the bracket first — iron-ringed, built to hold a serious fire, deep enough to throw light across the whole valley below. Cold inside. Ash, compacted and old. Nothing here to light.
 
-The light comes out divided — a crack runs from base to crown, old damage worn smooth at the edges, and the flame breathes through it in two directions at once: forward, out over the valley, and sideways at an angle no whole lantern would permit.
+Below it, sheltered at the post's base: a lantern. Iron body, glass intact on three sides. A small pouch of flint and tinder wedged beside it — not forgotten, placed. Someone who maintained this post understood: the bracket-fire needs preparation and fuel; the lantern needs only will.
+
+The spark catches on the third strike. The wick takes the flame.
+
+The light comes out divided. A crack runs from base to crown — old damage, the edges worn smooth from years of being exactly what they are — and the flame breathes through it in two directions at once: forward, out over the valley, and sideways at an angle no whole lantern would permit.
 
 The wind shifts again. Below, the water... advances.
 
@@ -118,15 +122,15 @@ Voices.
 - The Sentinel wakes to *space*, not crisis — let the orientation breathe before anything intrudes
 - "You get to your feet" before the wind section: they're standing in the dark, feeling the openness, before the situation makes itself known
 - The water sound arrives before the voices — plant it plainly; "advances" is enough
-- The lantern and flint are found together: practical, unstated. The post is stocked because a beacon without means to light it is useless. No magic.
-- The crack is visible when the flame catches — old damage, matter-of-fact. Don't editorialize.
+- The post has two light sources: the iron bracket (signal fire, cold and depleted) and the lantern (fueled, flint and tinder placed beside it). The Sentinel never has to choose — the bracket is empty, the lantern is ready. This is practical, not significant. The significance is in the crack, not the choosing.
+- The crack is revealed by the flame — it doesn't exist until the light does. Old damage, matter-of-fact. Don't editorialize.
 - Voices as interruption: everything before them is orientation. The player should feel the scene was already settled when the voices arrived.
 
 ### Player Agency
 
 The player is now awake and aware of:
 - Their position: high ground, ancient fortress ruins, stone parapet
-- The tool: cracked lantern, found at the signal post, already lit
+- The tool: cracked lantern, lit at the signal post by the Sentinel's own hands — the crack revealed only when the flame caught
 - The situation: voices from below, two directions, not yet understood
 - The darkness: the gorges are not yet readable
 
@@ -144,7 +148,7 @@ The fortress reveals itself in pieces, the way ruins do: suggesting what was rat
 
 Stone walls chest-high in places, knee-high in others, collapsed altogether where the weight of centuries decided to redistribute itself. A courtyard of sorts, open to the sky, the signal post at its highest corner — positioned to be visible from the valley below on clear days, firelit from the surrounding terrain on dark ones. Whoever built this chose the site with care: the rock face drops away sharply on three sides, and the fourth, the approach, is a narrow path cut into the cliff that a single person could hold against many.
 
-Old fire-ash in the post bracket. Old char on the stones beside it. This has been lit before, many times, over many years.
+Old char on the stones around the bracket, laid down over seasons and decades — this post has been lit many times, by many hands, whenever the gorge below needed a lamp at its crown. The bracket sits cold and depleted now. The lantern was the ready thing.
 
 The lantern in hand throws its divided light: forward, over the parapet, into the dark where the valley should be — and sideways, backward, across the stones of the courtyard. The crack doesn't weaken the forward beam so much as *add* to it. More directions than intended. Less precision. More reach.
 
