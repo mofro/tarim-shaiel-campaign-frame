@@ -789,13 +789,15 @@ Later in Session 0, all six heroes will share a vision at the campfire (Hero Hea
 
 ## NPC Reference
 
-**The Woman with Military Bearing**
+**Kira** *(the woman with military bearing)*
 - Scarred, ~40 years old
 - Former soldier (assessment, discipline)
 - De facto leader of the camp
 - Evaluates threats professionally
-- Will become ally if Warrior builds trust
-- Never formally named in this scenario (identity unclear)
+- Name withheld throughout — surfaces only in Path B2, spoken by the old woman as she bridges the distance Kira won't cross herself
+- Path A: becomes a genuine ally if Warrior builds trust
+- Path B2: closed off but recoverable; travels on the caravan at a distance
+- Path B1: gone before dawn, not recoverable
 
 **The Old Woman**
 - ~70+ years old
@@ -818,18 +820,27 @@ Later in Session 0, all six heroes will share a vision at the campfire (Hero Hea
 - Wounded but functional
 - Represents the camp's connection to larger world
 
+**The Man with the Wrapped Hand** *(Path B1 only)*
+- Age unclear — worn rather than old
+- Right hand wrapped in self-applied cloth, dried rust-colored; favors one leg when shifting weight
+- Did not run when the rest of the camp did — whether couldn't or chose not to, he hasn't offered the distinction
+- Does not meet eyes; the quality is not fear but something that has already spent what fear costs
+- Guilty of something, or complicit in something — leave it unresolved; he carries a question, not a confession
+- Travels west without being invited, at his own distance
+- *Do not explain him. Let the Warrior carry the question.*
+
 ---
 
 ## Document Status
 
-**v2 Status:** ✅ COMPLETE - All segments refined to Erikson-grade prose  
+**v2.1 Status:** ✅ COMPLETE - Dual-path architecture (Restraint / Violence) fully written  
 **Plot Details:** ✅ Finalized  
 **GM Guidance:** ✅ Complete  
 **Prose Quality:** Atmospheric density varies by segment mental state (thick/disoriented → tight/adrenaline → languid/de-escalating)
 
 **Next Steps:**
-- Playtest validation (40-45 minute runtime)
-- Create corresponding runsheets for other five archetypes (using this as template)
+- Playtest validation (~42-50 minute runtime, Path A; Path B adds combat time)
+- Create corresponding runsheets for other archetypes (using this as template)
 - Update Sessions_Structure.md with completion status
 
 ---
