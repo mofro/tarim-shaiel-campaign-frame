@@ -736,3 +736,10 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Rationale:** The cracked lantern is the correct expression of the Doxastic surrendered layer (the ability to trust without evidence). The lantern illuminates indiscriminately — it cannot distinguish real threat from the Sentinel's own fear, which is precisely the surrendered layer's pathology made manifest. The recording device implied an epistemic/witness function (the Sentinel as archivist of events), but the Sentinel's core tension is not about knowledge — it is about the inability to stand down from vigilance. The lantern also carries a second resonance: Sentinel awakenings are beacon events in the Warren sense — undiscriminating light that draws attention.
 
 **Blocking:** Sentinel awakening scenario (not yet written).
+
+---
+**2026-06-17 — Player Roster Resolution (Session 0 archetypes)**
+- **Decision:** Erik confirmed as Seeker (Tadbir/Sorcerer). Marc assigned Breaker (Seraph/Ranger or Assassin, deciding).
+- **Rationale:** Erik's long-standing Seeker vs Breaker indecision resolved. Marc's Seraph ancestry introduced; user confirmed Seraph can need water (thermal regulation, hydraulic pressure, anti-seizure) so Seeker scenario thirst motif transfers cleanly. Marc is better fit for Breaker's identity-through-destruction arc.
+- **Consequences:** Seeker awakening needs a Seraph adaptation pass (light revision only — see [#272](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/272) / beads-global-9jd). Core 4 archetypes now defined: Warrior (Lisa), Sentinel (Arno), Seeker (Erik), Breaker (Marc).
+- **Lock status:** Committed (Erik); Deciding (Marc — ancestry/class not final).
