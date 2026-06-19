@@ -10,8 +10,8 @@ tool_form: cracked lantern
 location: Fortress ruins above a branching gorge (Khaakha-inspired)
 status: draft
 created: 2026-06-06
-last_updated: 2026-06-10
-version: 0.2
+last_updated: 2026-06-19
+version: 0.3
 ---
 
 # Session 0: Sentinel Archetype Awakening
@@ -59,6 +59,21 @@ The gorge system below was not random. The Wizard's agents seeded the panic that
 **Dual-truth preservation:**
 - Storyteller knows: The Sentinel was placed precisely here, at exactly this gap, because something needed watching that couldn't watch itself
 - Player knows: They woke at a signal post with a cracked lantern and voices coming up from the dark in two directions
+
+**R/H/K — The lantern as Warren ambassador:**
+
+The cracked lantern is not loyal to the Sentinel. Its behavior reflects Warren interests — the interests of whatever Warren faction placed the Sentinel at this post. The scene's physics already encode the arc; the GM reads the lantern through this frame, not the player.
+
+- **Resist:** The forward beam — steady, reliable, aimed at what the signal post was designed to serve. The Warren protecting its investment: this position, this watchpoint, this specific gap. When the Sentinel considers moving, the primary beam doesn't waver. That steadiness is not encouragement; it is the Warren's preference made visible. *Stay where you were placed.*
+
+- **Hunger:** The crack's sideways scatter. Light going in directions the lantern was never designed to reach — already angling toward Group B before the Sentinel has decided anything. A Warren calling for extended coverage, more ground illuminated, the watch expanded past its designed scope. The scatter is the Warren's appetite arriving ahead of the Sentinel's intention.
+
+- **Know:** The snippet at the moment of commitment. The Warren delivers what it has been holding: *fixed positions have always had edges. The watch-fire did its job. Something still happened.* This arrives regardless of which path the Sentinel takes — the revelation is not conditional on the outcome. It was waiting for the moment of commitment itself.
+
+**The three paths read through R/H/K:**
+- **Hold:** The Sentinel answers Resist — stays in the Warren's preferred position. The forward beam is what it was built to be. But the Hunger signal (the scatter) was already reaching toward what the post couldn't cover.
+- **Move:** The Sentinel follows Hunger — carries the lantern to where the scatter was already pointing. Whether the Warren intended this outcome or merely called for it is worth leaving unresolved.
+- **Split:** The Sentinel tries to answer both signals at once. The Know moment arrives: the Warren's patience with this question runs to longer than the Sentinel has been alive to ask it.
 
 ---
 
