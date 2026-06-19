@@ -10,8 +10,8 @@ class: "Warrior (tool form: iron blade with wrapped bone grip)"
 location: Refugee camp (ravine/drainage depression)
 status: canon
 created: 2025-01-14
-last_updated: 2026-02-19
-version: 2
+last_updated: 2026-06-19
+version: 2.1
 banner: images/people/PCs/mofro_she_glances_to_the_horizon_and_back_--ar_5877_--video_1_2f3f09bb-ada1-4314-9252-f8c4c806b3c8_0.gif
 banner-x: 51
 banner-y: 0
@@ -443,21 +443,41 @@ The snippet arrives when:
 - Soldiers approach and begin to come *close*
 - The moment of real danger becomes palpable
 
-### What Happens
+### The Choice Surface
 
 > As the camp finishes moving and settles into hiding positions, a sound comes from the perimeter the Warrior is watching: footsteps. Voices. Imperial soldiers, getting closer.
 >
 > Instinct *screams* to draw the blade, to intercept them, to solve this the warrior way.
 >
-> But they can't. If they move, if they fight, the camp is exposed.
->
-> So they stand still. Blade sheathed. Body tense with readiness but *restrained*.
->
-> Holding back the power that surges through them.
+> The blade knows the grip is there. The grip knows the hand.
 
-### This is the Moment
+**[Stop narrating. Ask: "What do you do?"]**
 
-**[The snippet arrives here. Silently. The player reads it while the camp is hidden, while danger passes nearby, while they are alone at the perimeter with the weight of restraint.]**
+Let the player breathe. Questions are expected — how many soldiers, how close, what they sound like, whether they can be seen clearly. Answer from the setup notes: eight men, moving in loose formation, scanning without purpose. They do not move like soldiers who know what they're after. Something is wrong with them and a careful player may sense it without being able to name it. Let them ask. Let them think.
+
+When the question resolves into a decision:
+
+---
+
+**Path A — Restrain:** The player holds. Continue to the restraint snippet below.
+
+**Path B — Draw:** The player reaches for the blade. Call for a roll — visible to the whole table, so everyone sees that a decision was made and might have gone differently. What's being resolved is not the Warrior's capability. It's the soldiers' broken state: how much is left in men who've already been through something they can't name.
+
+| Result | What the soldiers do |
+|---|---|
+| **High** | Prostrate — hands up, some on their knees, one face-down and weeping. They were hollow before the blade came out. |
+| **Mid** | Scatter and run. Not toward anything. Just away. The Warrior has a beat of choice: let them go, or follow. |
+| **Low** | Fight — badly, but they fight. The Warrior's body handles it. |
+
+The blade, in all three outcomes, performs better than it should for someone who woke in mud less than an hour ago. After — whatever the outcome — it goes quiet. Fed. The silence where the howling was is its own kind of answer.
+
+Continue to the violence snippet below. Resume **Segment 8, Path B**.
+
+---
+
+### Path A: Restrain — Snippet Delivery
+
+**[The snippet arrives here. Silently. The player reads it while the camp is hidden, while danger passes nearby, while they stand alone at the perimeter with the weight of restraint.]**
 
 Deliver the snippet by:
 - Quietly sliding it across the table or handing it directly
@@ -500,47 +520,190 @@ This feels like victory.
 
 ---
 
-## Segment 8: Convergence (3-5 minutes)
+### Path B: Violence — Snippet Delivery
 
-### The Morning After
+**[Deliver this after the combat resolves — while the scene is still present, before the morning comes. The camp may have heard. The blade is quiet now.]**
+
+Deliver the snippet by:
+- Passing it quietly, or reading low
+- Letting it land while the outcome is still immediate
+- Not asking them to share or explain
+
+---
+
+## Snippet Text (Warrior Archetype - Violence)
+
+![[Stone Beneath Your Feet - Violence.mp3]]
+
+Stone beneath your feet.
+
+Thirty people behind you trusting the space between them and  whatever hunts.
+Then: boots. Voices. The specific quiet of men trying not to be heard and failing.
+Your hand moved.
+
+Not you — your hand. The distinction matters and you can feel it mattering even as the blade clears the scabbard with a sound that isn't quite metal on leather. Something cleaner. Something that knows this sound. The grip settles into your palm like a key finding a lock that was always there, always waiting, and the weight—
+
+ The weight is exactly right.
+
+You didn't decide that. Your palm did.
+
+ What follows isn't memory. Memory implies being present. This is more like waking a second time — mid-action, mid-motion, watching your own body work from somewhere slightly behind your eyes. Footwork you don't remember learning. Angles your mind never calculated. The blade moves and men move and the thing carrying your hands through all of it is older than anything you can reach when you try to touch it.
+
+The blade doesn't howl now. It hums. Low. Satisfied. The difference between a fire that wants feeding and a fire fed.
+
+And then it's over.
+
+ Stone beneath your feet again. Your breath. The silence where the shouting was.
+
+Your hands are steady. That truth finds you, quiet and terrible, settling into your chest like sediment: Your hands are steady.
+
+No trembling. No recoil. The blade hangs easy, comfortable, like it never left this angle.
+
+ Cold.
+
+Like it's been here the whole time and the scabbard was the interruption.
+
+You try to find the moment you chose this. You can't.
+
+The river moved. You went with it. Somewhere in the rushing and the roar there was a choice-shaped gap and something stepped into it — and it wore your hands so naturally, so fluently, that you only noticed the wearing after.
+
+No guilt. Not yet.
+
+Just the vertigo of someone who looked down and found they were already running.
+
+ But whose feet, are these? 
+
+---
+
+## Segment 8: The Morning After (3-5 minutes)
+
+**[Conditional on the choice made at the perimeter.]**
+
+---
+
+### Path A: Restraint
 
 Dawn breaks. The woman with the spear approaches.
 
 The soldiers passed. The camp survived. The Warrior protected through restraint, not force.
 
-### The Conversation
-
 She looks at you differently now. Not with fear. Something else entirely.
 
-"Scouts say there's a caravan. Two hours west. Merchants heading for the coastal cities. We're going with them—safer in numbers than out here alone."
+*"Scouts say there's a caravan. Two hours west. Merchants heading for the coastal cities. We're going with them—safer in numbers than out here alone."*
 
 Pause. Weighing something.
 
-"You can come. If you want."
+*"You can come. If you want."*
 
 Another pause. Eyes reading you.
 
-"You can fight, can't you? I mean... *really* fight."
+*"You can fight, can't you? I mean... really fight."*
 
-This is the moment. She's registering what you are. What you're capable of. But she's not afraid anymore. She's asking if you'll fight *for* them.
+She's registering what you are. What you're capable of. But she's not afraid anymore. She's asking if you'll fight *for* them.
 
-### The Caravan Path
+The camp joins the merchant caravan heading west. The Warrior comes with them — hired as protection, invited, or simply absorbed through the old woman's quiet insistence. Given a place. A role. Traveling with people who chose to trust you despite knowing what you carry.
 
-The camp joins the merchant caravan heading west. You're integrated—hired as protection, or invited, or simply absorbed into the group through the old woman's quiet insistence.
+---
 
-You're given a place. A role.
+### Path B: Violence
 
-More importantly: you're traveling with people who chose to trust you despite knowing what you carry.
+The blade is quiet now. That's the first thing the morning carries — the silence where it howled.
 
-### The Larger Convergence
+**The old woman's reaction is the same across all three sub-paths:** bemusement, not condemnation and not approval. The calm of someone who has filed what they're looking at correctly. She was not surprised. She is still not surprised.
 
-As the caravan settles for evening travel or makes camp:
+---
+
+#### B3 — Low Roll: Killed fighters (most recoverable)
+
+Dawn comes.
+
+The bodies are at the perimeter where they fell. The camp knows they're there — they know because nobody is looking in that direction. The woman with the spear counted them before first light, the way she counts things, without needing to be near them again.
+
+She approaches when the sun has cleared the horizon. Stands at middle distance. Eyes on the blade, then on you.
+
+*"They fought,"* she says. Statement. Not comfort.
+
+Pause.
+
+*"Scouts say there's a merchant train. Two hours west."*
+
+She doesn't ask if you're coming. She doesn't need to. The camp is going. You can come or not — she's made her calculation about what that means either way.
+
+The old woman brings the bowl. Same thin soup, same hot. Sits where she sat before. Her expression is closer to recognition than comfort, as though what happened was expected and the expectation has simply been confirmed. She doesn't ask questions.
+
+The caravan path forms around you. Protector by default, now — because what else do you call the person who held the perimeter?
+
+**Persistent wound:** The Warrior arrives at the caravan functional, trusted in the specific way that people trust something they've seen work. The camp's discomfort is real but muted. The woman's distance is present but not closed.
+
+---
+
+#### B2 — Mid Roll: Chased the fleeing (recoverable)
+
+Dawn comes.
+
+The soldiers are gone. You chased them far enough to be sure, then came back with nothing to show for it except the direction you'd run. They had already been running. You ran after men who were already running.
+
+The woman with the spear is awake when you return. She watches you walk back in.
+
+She turns away. That's all. No scene, no confrontation. She turns away and finds something else to look at, and the message arrives in the absence of her gaze: she knows what you did, and she knows the difference between pursuing a threat and pursuing men who were already gone.
+
+The old woman brings the bowl anyway. Sits closer than before — close enough that the space she's occupying reads as deliberate. She eats her own soup while you eat yours. At no point does she look at you with anything except that particular calm that belongs to people who have revised their expectations long ago and now find everything more or less confirms them.
+
+*"There's a merchant train,"* she says, eventually. Not looking up. *"West. By noon, if you move."*
+
+A beat.
+
+*"I'll tell Kira."*
+
+The woman with the spear. That's her name. You didn't know it until this moment.
+
+The caravan path comes through the old woman. The woman — Kira — doesn't rescind the invitation, but she's not the one who extends it.
+
+**Persistent wound:** Kira travels on the caravan but the space between you is real and not immediately closable. She knows what she's looking at. She'll work with it. She won't forget it. The old woman is the bridge for now.
+
+---
+
+#### B1 — High Roll: Killed the prostrate (permanent tear)
+
+Most of the camp is gone before dawn.
+
+You don't see them leave. It's the kind of leaving that happens in the hours when you've stopped watching — when the sounds of people packing and moving and deciding are indistinguishable from the sounds of a camp that doesn't sleep well. One moment there are thirty people. Then fewer. Then fewer than that.
+
+When the light comes up: two.
+
+The old woman. She is not packing.
+
+And a man sitting against what remains of a tent frame — the fabric collapsed in the night, just the poles standing, and he is leaning against one of them with his legs stretched in front of him and his right hand wrapped in cloth that has dried the color of old rust. He has not looked at you since before the soldiers came. He is not looking at you now. He is looking at the ground between his feet with the quality of someone who has learned that meeting eyes costs him something he has already spent.
+
+Whether he couldn't run — the hand, the leg he favors when he shifts weight — or simply didn't, he has not offered the distinction. He is not going to.
+
+The woman with the spear is not among the two. She took the rest with her before the light came.
+
+The old woman, when she's ready, straightens and looks at you with something that is neither condemnation nor sympathy — closer to the look of someone who expected to find exactly this and finds no surprise in having found it.
+
+*"There's a merchant train. West. You'll reach it before noon."*
+
+She picks up her bundle. Adjusts the strap.
+
+*"I'll be going the same direction."*
+
+The man with the wrapped hand gets to his feet without being asked. He doesn't say anything. He doesn't look at you. He just stands, adjusts the weight off his bad side, and waits — not beside you, not apart from you, just in the same direction.
+
+That's the convergence. An old woman walking west, and a man who stayed for reasons he hasn't explained, and the Warrior who knows what the morning after looks like.
+
+**Persistent wound:** The woman with the spear and most of the camp are gone — this is not recoverable. The Warrior enters the caravan with the old woman's quiet company and a man whose wound — which wound, exactly — remains a question. The old woman knows something she isn't saying yet. The man may know something too. That silence travels west.
+
+---
+
+### The Larger Convergence (All Paths)
+
+As the caravan makes camp for the evening:
 
 The other heroes are there. All of them. Same caravan. Together.
 
 Strangers. But something about them feels *familiar* in a way you can't name.
 
-When your eyes meet—across the fire, along the caravan route—something resonates.
+When your eyes meet — across the fire, along the caravan route — something resonates.
 
 Not memory. Not yet.
 
@@ -552,18 +715,26 @@ Just recognition.
 
 ### Time Breakdown
 
+**Segments 1–6 (shared across both paths):**
 - **Segment 1 (Waking):** 3-5 minutes
 - **Segment 2 (Awareness):** 5-8 minutes
 - **Segment 3 (Voices):** 3-4 minutes
-- **Segment 4 (Trust):** 8-12 minutes *(variable—let it breathe)*
+- **Segment 4 (Trust):** 8-12 minutes *(variable — let it breathe)*
 - **Segment 5 (Child/Old Woman):** 3-5 minutes
 - **Segment 6 (Crisis):** 5-7 minutes
-- **Segment 7 (Snippet):** 2-3 minutes
-- **Segment 8 (Convergence):** 3-5 minutes
 
-**Total: 40-45 minutes** (refined prose in Segments 1-3 adds ~5-10 minutes)
+**Segment 7 (both paths):** 4-6 minutes
+*(The conversation phase before the choice adds 2-3 minutes over the original snippet-only estimate. Path B adds combat time on top — not calculated here.)*
 
-**Note:** Original estimate was 30-35 minutes with functional prose. Erikson-grade refinement increases atmospheric density and requires more time for sensory details to land. If playtesting shows this drags, Segments 6-8 can be tightened (Option C: speed up crisis/resolution sections while preserving opening atmosphere).
+**Segment 8:**
+- **Path A — Restraint:** 3-5 minutes
+- **Path B — B2/B3 (recoverable outcomes):** 3-5 minutes
+- **Path B — B1 (permanent tear):** 2-4 minutes *(sparse scene, two characters, little dialogue)*
+
+**Total — Path A:** ~42-50 minutes
+**Total — Path B (excluding combat):** ~40-50 minutes
+
+**Note:** The main timing drift from v2 is Segment 7 — the choice surface and conversation phase replace what was a direct snippet delivery. If the table runs long in Segments 4-5, Segment 8 is the natural place to tighten.
 
 ### Pacing Tips
 
@@ -573,13 +744,11 @@ Just recognition.
 - The old woman's quiet trust is powerful because it contrasts with everyone else's fear
 - The snippet moment should feel like a *gift* after the tension
 
-### Handling Deviation: If the Player Tries to Fight
+### Violence Path (Not a Deviation — See Segment 7 Path B)
 
-- Let them try
-- Show immediate consequences: camp scatters, child is hurt in chaos, woman fights back
-- Offer the reality: "You can win this fight. But everyone you were trying to protect dies."
-- Offer reset: "You hold back. You lower the weapon."
-- The snippet still comes—but tinged with near-tragedy and guilt
+Fighting at the perimeter is a legitimate path with its own architecture — not a deviation to redirect. If the player draws at Segment 7, run the roll mechanic and follow Segment 8, Path B (B1/B2/B3 based on roll result). Do not offer a reset or redirect to restraint; that erases the choice the player made.
+
+The old GM note ("offer the reality / offer reset") is superseded. The violence path has real, differentiated consequences and its own morning-after.
 
 ### Handling Deviation: If the Player Tries to Leave
 
