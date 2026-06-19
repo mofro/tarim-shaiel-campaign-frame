@@ -156,7 +156,7 @@ Not all innate magic users choose to hone their craft, but those who do can beco
 
 ![[_open__warlock_woman__3__by_anavrinart_dhbsk47-pre.jpg|Warlock]]
 
-*Domains: Dread & Grace · Subclasses: Pact of the Endless · Pact of the Wrathful*
+*Domains: Dread & Grace · Subclasses: Pact of the Endless · Pact of the Wrathful · Source: Hope and Fear expansion*
 
 Those who've traded their lives, or perhaps even their souls, to an otherworldly Patron in exchange for incredible power are known as Warlocks. These characters typically reach desperation — protecting loved ones, aiding communities, seeking vengeance, or advancing ambitions — before making such a sacrifice.
 

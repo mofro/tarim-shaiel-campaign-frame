@@ -10,8 +10,8 @@ tool_form: cracked lantern
 location: Fortress ruins above a branching gorge (Khaakha-inspired)
 status: draft
 created: 2026-06-06
-last_updated: 2026-06-06
-version: 0.1
+last_updated: 2026-06-10
+version: 0.2
 ---
 
 # Session 0: Sentinel Archetype Awakening
@@ -66,54 +66,46 @@ The gorge system below was not random. The Wizard's agents seeded the panic that
 
 ### Opening Narration
 
-**[Start with wind and space — the opposite of the Breaker's confinement, the opposite of the Warrior's mud. The Sentinel wakes to height and darkness and the sensation of something vast below.]**
+**[Space before person — the Sentinel wakes to height and openness, the situation already in progress around them. No rush. The voices are the interruption, not the opening.]**
 
-Wind comes first.
+The height registers, before awareness does, as a yawning absence: nothing pressing close, just an openness that must extend all the way to a horizon that black night has made theoretical.
 
-Not the channeled rush of streets or the breath of enclosed spaces — something that has traveled from unreasonable distances to arrive here, high and cold and indifferent. It doesn't bite so much as simply replace whatever warmth had accumulated in the bones. The cold of altitude. The cold of stone that has given up trying to hold heat against the night.
+Something vast is below. Your body knows this as surely as the stone under your cheek is cold and hard. And just as solidly.
 
-The cheek is against that stone now. Ancient, grained, worn smooth in places where hands have rested — not one pair of hands, but generations of them, the friction of vigilance pressed into rock over centuries. Someone built here because this position meant something. Because from here, you could see.
+Where  ...  is this.
 
-Not now.
+The question surfaces without urgency. The darkness doesn't answer.
 
-The sky overhead is enormous and dark, stars scattered in patterns that carry the faint wrongness of waking in a place not chosen — not wrong enough to name, just wrong enough to register. No ceiling. No walls pressing close. Just the stone beneath, the wind moving past, and the space below that the darkness refuses to describe.
+You get to your feet.
 
-There is no lantern in hand. No blade bound to wrist, no tome clutched in sleeping fingers. Just the cold, and the stone, and the wind.
+Wind moves — not a gust, but a current that has been crossing this ground longer than you've been conscious of it. It carries cold from higher up, and beneath that, the smell of old stone: dry, crusted, undisturbed. And underneath, from further below, something almost loam — earth with moisture in it somewhere deeper down.
 
-And then — voices.
+Your eyes adjust slowly. Stars overhead, numerous in the way altitude permits, closer than they should be. You can sense nothing near in almost every direction save one.
 
-Carried up from below, thin with distance, multiplied and redirected by the gorge walls before arriving here. Two distinct threads, resolving on separate axes. One from the near approach, below and to the left: urgent, climbing, a rhythm that speaks of people who know what is behind them. The other from further off, a different angle entirely: also below, also climbing, but the direction is wrong. The wrong gorge.
+Your hands move in exploration across fitted stone: worn at the crown by age, exposure, and by contact. Perhaps by the accumulated weight of other hands through other nights. Below it, on the interior face, a courtyard faintly resolves in meager starlight — walls at various heights, chest-high and knee-high and gone altogether in places.
 
-Both at once.
+This place feels like a deliberate choice.
 
-The instinct arrives before thought catches up: *the beacon. Where is the beacon.*
+The wind shifts. From below: the sound of water, somewhere.
 
-Hands find stone, move across it. The surface of an ancient wall, fitted without mortar, tight and enduring. A parapet edge. A post driven deep into the rock, iron that has oxidized to the color of old blood. And here, resting in a bracket at the post's base, set down and left, waiting for someone to come back for it —
+The signal post is at the parapet's highest corner, visible when you turn. The lantern sits in its bracket at the base, a small pouch of flint and tinder beside it. Your hands find what they need. The wick catches.
 
-Metal. Glass. A cylinder of worked bronze with a grip worn smooth by years of other hands, familiar in the way tools become familiar: not personal, but accumulated.
+The light comes out divided — a crack runs from base to crown, old damage worn smooth at the edges, and the flame breathes through it in two directions at once: forward, out over the valley, and sideways at an angle no whole lantern would permit.
 
-The lantern.
+The wind shifts again. Below, the water... advances.
 
-It does not resist the grip. The oil is still present, still viable — someone stocked this post, or no one has had cause to use it, or time in this place runs differently than it should. The wick catches.
-
-The light that emerges is fractured.
-
-A crack runs the length of the glass from base to crown, and the flame breathes through it in two directions at once — the primary beam forward and out over the valley, and a secondary scatter that spills sideways at an angle no whole lantern would permit, throwing irregular light against the ancient stonework.
-
-Not broken. Just divided.
-
-Below, where the darkness is absolute, two gorges open in different directions. From both, separate and distinct on the cold air:
+And then — from below, in two directions at once —
 
 Voices.
 
 ### GM Notes
 
-- Let the space land before anything else — the Sentinel wakes to *height*, to *openness*. This is the sensory contrast with every other awakening
-- The voices before full orientation is intentional — the situation announces itself before the Sentinel is ready
-- Do not describe the gorges visually yet; just the darkness and the sound directions
-- The crack in the lantern: visible immediately, impossible to miss. Don't editorialize about what it means. Just: the light goes two ways
-- The lantern *found* rather than bound — the reaching for it, the moment of contact, is the tool-discovery beat
-- Allow silence after the lantern lights. Let the player sit with: cracked lantern, high stone, voices from two wrong directions
+- The Sentinel wakes to *space*, not crisis — let the orientation breathe before anything intrudes
+- "You get to your feet" before the wind section: they're standing in the dark, feeling the openness, before the situation makes itself known
+- The water sound arrives before the voices — plant it plainly; "advances" is enough
+- The lantern and flint are found together: practical, unstated. The post is stocked because a beacon without means to light it is useless. No magic.
+- The crack is visible when the flame catches — old damage, matter-of-fact. Don't editorialize.
+- Voices as interruption: everything before them is orientation. The player should feel the scene was already settled when the voices arrived.
 
 ### Player Agency
 
