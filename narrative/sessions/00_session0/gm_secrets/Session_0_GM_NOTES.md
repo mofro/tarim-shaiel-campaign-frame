@@ -178,35 +178,39 @@ When one player is in their awakening scenario, the others are **watching, not p
 
 ### 2. SEEKER — Erik (25–30 minutes)
 
-**File:** `Session_0_Seeker_Awakening.md` — v0.4 complete.
+**File:** `Session_0_Seeker_Awakening.md` — v0.4. Note: the file has both paths written with full narration and snippets, but no formal 8-segment structure. Treat the file as the scenario — it runs complete even without segment headers.
 
-**The engine:** Internal decision — knowledge vs. instinct. Two paths exist; both lead to the caravan. **Note which path Erik takes: it determines whether the caravan reroutes on Day 7.**
+**The engine:** Knowledge vs. instinct — two paths exist from the same opening crisis. **Note which path Erik takes: it determines the caravan's Day 7 situation.**
 
-**Setting:** Desert wasteland. Stars don't match the charts. The tome knows, and the tome is wrong.
+**Setting:** Desert wasteland at dusk. High ground, rocky outcrop. Stars have appeared — but they don't match the charts.
 
-**The core crisis:** The tome's certainty is seductive and false. The Seeker must choose to put it face-down and walk toward water the charts say isn't there.
+**The core crisis:** The tome's charts are accurate — accurate for a sky that is no longer this sky. The Seeker can follow the charts northeast toward validated water, or walk west on instinct that has no proof. Both paths reach the caravan. Neither path is the wrong answer. Which path the player chooses changes what the tome costs them.
 
 **Running it leaner:** Convert sustained narration into active questions. "The sun is brutal. What keeps you walking?" "The tome whispers to turn back. What do you tell it?" The player's answers are the scenario content.
 
 #### NPC Quick-Refs
 
 **The Raider Leader** *(Eastern path only)*
-- Wants the tome. Specific. Mercenary. Not cruel by preference.
-- The offer: give us the tome and walk. Thirty seconds before it stops being an offer.
-- Underestimates the Seeker — that's the only advantage available.
+- Six riders. Dismounts with the confidence of someone who knows he controls the situation. Hand on sword hilt — casual, not threatening. Not yet.
+- He wants the tome but doesn't announce it. Notices it, asks to see it. When the Seeker can't release their grip, he just takes it: *"We'll take this. You keep the oasis. Fair trade — we could've just slit your throat and taken both."*
+- Then rides northwest on the lie the Seeker told him.
 
-**The Caravan** *(arrival, either path)*
-- Found by them or finds the Seeker. The mechanism matters less than the register of arrival: relief, water, recognition.
-- Caravan lead: practical. Assesses quickly. Surviving a desert alone while carrying something valuable is qualification enough.
+**The scarred woman** *(Eastern path — raider second-in-command)*
+- Nasty slip of scar tissue on her left cheek, like calligraphy. Rides with the raiders. When the Seeker says they found the water: *"You're either blessed by gods or touched by sun-madness."*
+- She nods fractionally to the leader before they accept the misdirection. Her read matters.
+
+**Convergence** *(either path)*
+- East: Seeker arrives exhausted after 1.5 days tracking, finds caravan scouts. Carries the warning: raiders in the region, misdirected northwest. This is what allows defensive preparation.
+- West: Seeker collapses at dusk. Found by caravan outriders on patrol, unconscious, tome still gripped in both hands. Comes to with the caravan already around them.
 
 #### Pacing Cues
 
-- **Star-chart discovery:** This is both the waking AND the crisis reveal. Efficient — let it work.
-- **Key moment:** The Seeker opens the tome and sees it's *right but wrong* — accurate for a time that doesn't match the stars overhead. Don't explain this. Let the player sit with it.
-- **Eastern path:** The raider encounter. The Seeker arrives at the caravan with information: there are raiders in the eastern approach. **This is the Day 7 warning that reroutes the caravan SW.** Note this for Act 2.
-- **Western path:** Seeker found unconscious ahead of the caravan. No raider warning. Raiders never learn the caravan exists — no pursuit. Caravan continues on its planned route.
-- **Snippet trigger:** The moment of setting the tome face-down and choosing to walk west anyway. The surrender of epistemic certainty.
-- **Target:** 25–30 minutes. If running long, trim the journey narration; the choice and the snippet are non-negotiable.
+- **The waking and the crisis are the same moment.** No prologue before the star-chart misalignment — the Seeker surfaces into the choice.
+- **Key moment:** The charts are not wrong — they are right for a time that no longer exists. Don't explain this. Let the player sit with the vertigo of it.
+- **Eastern path:** The Seeker follows the charts, reaches the oasis, encounters the riders. The snippet fires at the moment the Seeker's fingers finally unlock and the tome slides into the raider's hands — *the Letting Go*. After: the Seeker sends the riders northwest on a lie, then walks southwest to the caravan with a warning that matters.
+- **Eastern path — caravan impact:** The Seeker arrives with intelligence: raiders in the region, sent northwest. This allows the caravan to prepare. Note this for Act 2.
+- **Western path:** The Seeker turns west on instinct. The tome resists — growing heavier, whispering doubt throughout the journey. The snippet fires at the moment of defiance: when the Seeker says *no* to the tome's voice and keeps walking. The Seeker collapses before reaching the caravan.
+- **Target:** 25–30 minutes. If running long, trim the journey narration; the choice moment and the snippet are non-negotiable.
 
 **Tone calibration:** Vast. Interior. The desert scale should feel liberating and terrifying in equal measure. Silence is allowed here.
 
