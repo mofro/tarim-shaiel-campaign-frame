@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2025-01-21
-last_updated: 2026-05-28
+last_updated: 2026-06-19
 banner: images/places/Screencaps/terrain_color_map.png
 ---
 # Session 0: Breaker Awakening
@@ -54,6 +54,16 @@ The inn's collapse was not the earthquake it appeared to be. The Wizard's agents
 **Dual-truth preservation:**
 - Storyteller knows: The Breaker was placed here — protected by the very damage done to trap them
 - Player knows: They woke trapped with a tool that could save them or doom everyone
+
+**R/H/K — The hammer as Warren ambassador:**
+
+The hammer is not loyal to the Breaker. Its behavior reflects Warren interests — what the Warren gets from this relationship is energy use, breaking, the Breaker doing what the Breaker does. The GM reads the italicized voices through this frame; the player only ever hears "I'm right here."
+
+- **Hunger:** The hammer's voice throughout Segment 5. This is the dominant signal — the Warren calling for energy use. "I'm right here" is Hunger at its warmest: comfort, presence, invitation. The grip settles when the hammer is held, the weight familiar and correct, the Warren's appetite expressed as belonging. As the scene progresses and the Breaker doesn't act, Hunger escalates in register: from comfort to pressure to command. *"Stop thinking. Just swing"* is still Hunger — not a different signal, just Hunger running out of patience. The GM note that calls the hammer "comfort, not command" is only half right: Hunger has a range. What it never becomes is coercive. The hammer does not threaten. It insists.
+
+- **Resist:** Segment 8. Not the voice — the silence. When the Breaker leaves the hammer wedged in the ruin and walks away, the Warren does not pull them back. It waits. *"It will wait as long as it needs to. It has always been patient."* That patience is the Resist signal: the Warren protecting its investment not by resisting the Breaker's departure, but by making the departure impossible to complete. The Breaker's palm, walking toward the caravan, still expects the weight. The hand hasn't let go. The Warren is counting on that.
+
+- **Know:** Segment 6. The snippet. The Warren delivers what it has been holding: *you set it down before. At different gates, with armies watching. And something happened that force could never have managed.* The revelation is not about the hammer's power — it is about what the hammer cannot do. The Warren has always known this. The Warren is telling the Breaker now, at the moment they've just proven it again.
 
 ---
 
@@ -355,7 +365,8 @@ No answer comes.
 - This segment has no branching. The geometry has already decided the outcome.
 - Player agency lives in *how* they help the others — what order, what they say to the man with the trapped leg, whether they speak to the child
 - The internal resistance is the drama: let the player describe or ask questions about what the hammer "feels like" to let go of
-- The hammer's voice is comfort, not command — "I'm right here" is a reassurance, not a goad
+- **Felt voice:** When the Breaker holds the hammer in this segment, the weight is not just physical — the grip settles, warm and familiar, the Warren's Hunger expressed as belonging. This is the Hunger register at its warmest. When the Breaker begins to untether their intention from the hammer — preparing to leave it, even before the hand lets go — that quality shifts. Not lighter. Not heavier. Less certain. The hammer is still there; the Warren is still calling. But the Breaker has started answering something else. If the player asks what the hammer feels like as they prepare to leave it, the answer is: *still present. Still expecting to be used. Not yet resigned.*
+- The hammer's voice ranges from comfort to command — all of it is Hunger, the Warren calling for energy use. It does not threaten; it insists. The register escalates because the Warren is running out of patience, not because it is becoming something other than itself
 - Do not offer a path that takes the hammer. The load-bearing wedge is structural reality.
 - The final question — *why does this hurt?* — is the snippet trigger. Don't answer it here.
 - Target pace: faster than Segments 1-4. The crisis is established; this is falling action building toward Segment 6.
@@ -522,6 +533,7 @@ The caravan moves.
 ### GM Notes
 
 - The hammer's status as a future problem is the key beat — plant it clearly, don't resolve it
+- **Felt voice (Resist):** The Breaker's hand, walking away from the ruin, still expects the weight. Not a phantom limb — the specific absence of something the body had decided was permanent. This is the Resist signal's final expression: the Warren doesn't let go. The Breaker does. If the player asks what their character feels walking toward the caravan, the answer lives in the palm: *empty in a way that has a specific shape.*
 - This is the Breaker's specific entry into the convergence: *the one who came out of the ruin*. Everyone else was outside when it happened. The Breaker was in.
 - The other travelers (future heroes, though no one knows this yet) should be present as a detail, not a revelation. Notice them without emphasis.
 - The caravan master's timeline creates gentle pressure — not mandatory, but the road is forming now.
