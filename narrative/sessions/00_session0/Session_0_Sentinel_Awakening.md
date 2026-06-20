@@ -11,7 +11,7 @@ location: Fortress ruins above a branching gorge (Khaakha-inspired)
 status: draft
 created: 2026-06-06
 last_updated: 2026-06-19
-version: 0.4
+version: 0.5
 ---
 
 # Session 0: Sentinel Archetype Awakening
@@ -64,9 +64,9 @@ The gorge system below was not random. The Wizard's agents seeded the panic that
 
 The cracked lantern is not loyal to the Sentinel. Its behavior reflects Warren interests — the interests of whatever Warren faction placed the Sentinel at this post. The scene's physics already encode the arc; the GM reads the lantern through this frame, not the player.
 
-- **Resist:** The forward beam — steady, reliable, aimed at what the signal post was designed to serve. The Warren protecting its investment: this position, this watchpoint, this specific gap. When the Sentinel considers moving, the primary beam doesn't waver. That steadiness is not encouragement; it is the Warren's preference made visible. *Stay where you were placed.*
+- **Resist:** The forward beam — steady, reliable, aimed at what the signal post was designed to serve. The Warren protecting its investment: this position, this watchpoint, this specific gap. When the Sentinel holds the lantern forward, something settles in the grip. Not comfort — *correctness*. This is what the lantern is for. This is what it wants to be: true. A single strong beam, a clear signal, a position held. When the Sentinel considers moving, the primary beam doesn't waver. That steadiness is not encouragement; it is the Warren's preference made visible. *Stay where you were placed. Be the watchtower flame.*
 
-- **Hunger:** The crack's sideways scatter. Light going in directions the lantern was never designed to reach — already angling toward Group B before the Sentinel has decided anything. A Warren calling for extended coverage, more ground illuminated, the watch expanded past its designed scope. The scatter is the Warren's appetite arriving ahead of the Sentinel's intention.
+- **Hunger:** The crack's sideways scatter. Light going in directions the lantern was never designed to reach — already angling toward Group B before the Sentinel has decided anything. A Warren calling for extended coverage, more ground illuminated, the watch expanded past its designed scope. The scatter is the Warren's appetite arriving ahead of the Sentinel's intention. **What the Sentinel feels when the crack becomes the focus:** the grip doesn't change, but something does. The lantern held forward has a quality of wholeness to it. The lantern angled for the scatter is divided — light going two ways at once, neither beam what it would be alone. The lantern does not resist this. It simply shines wherever it's pointed. But it offers no confirmation that the crack will reach them. It offers no opinion at all. The Sentinel cannot read certainty from the light. That absence is the Hunger signal in full: *I will go there. I cannot tell you if it will be enough.*
 
 - **Know:** The snippet at the moment of commitment. The Warren delivers what it has been holding: *fixed positions have always had edges. The watch-fire did its job. Something still happened.* This arrives regardless of which path the Sentinel takes — the revelation is not conditional on the outcome. It was waiting for the moment of commitment itself.
 
@@ -82,6 +82,8 @@ The cracked lantern is not loyal to the Sentinel. Its behavior reflects Warren i
 ### Opening Narration
 
 **[Space before person — the Sentinel wakes to height and openness, the situation already in progress around them. No rush. The voices are the interruption, not the opening.]**
+
+![[Light to Guide - Sentinel.mp3]]
 
 The height registers, before awareness does, as a yawning absence: nothing pressing close, just an openness that must extend all the way to a horizon that black night has made theoretical.
 
@@ -258,6 +260,7 @@ Group B has less time than Group A, or the same time through a worse path. The t
 - The flood's pace: steady, not sudden. The urgency is real but not instant. The Sentinel has time to make a considered choice, not a panicked one
 - Group A is self-sufficient with the fixed signal — they just need it to stay on
 - Group B requires the Sentinel to move — nothing else reaches them reliably
+- **The lantern's felt voice at this moment:** When the Sentinel holds the lantern forward over the parapet toward Group A, something in the grip is settled — the lantern doing what it was made to do, the light going where it is supposed to go. When they angle it toward the crack's scatter, testing whether it reaches the tributary, that quality changes. Not resistance. The lantern shines wherever it's pointed. But the beam is divided, the forward beam diminished, and the scatter offers no confirmation — it reaches or it doesn't, and the light cannot tell them which. If a player asks "does the lantern feel different when I angle it?", the answer is: *yes. Not heavier. Just less certain. Like it knows it wasn't made for this, and is doing it anyway.*
 
 ### Player Agency
 
@@ -393,7 +396,7 @@ The snippet arrives at the moment of commitment: when the Sentinel's hands are s
 
 *And then the messenger, arriving from the direction that had not been watched, because the position was designed to watch the road and not the eastern ridge, because presence at one point cannot be presence at all points, because a watch-fire is a fixed thing and fixed things have edges.*
 
-*What happened on the eastern ridge that night.*
+*What happened on the eastern ridge that night?*
 
 *The count that mattered was four thousand. The count that came through was four thousand. Both true.*
 
