@@ -11,7 +11,7 @@ location: Fortress ruins above a branching gorge (Khaakha-inspired)
 status: draft
 created: 2026-06-06
 last_updated: 2026-06-19
-version: 0.5
+version: 0.6
 ---
 
 # Session 0: Sentinel Archetype Awakening
@@ -74,6 +74,70 @@ The cracked lantern is not loyal to the Sentinel. Its behavior reflects Warren i
 - **Hold:** The Sentinel answers Resist — stays in the Warren's preferred position. The forward beam is what it was built to be. But the Hunger signal (the scatter) was already reaching toward what the post couldn't cover.
 - **Move:** The Sentinel follows Hunger — carries the lantern to where the scatter was already pointing. Whether the Warren intended this outcome or merely called for it is worth leaving unresolved.
 - **Split:** The Sentinel tries to answer both signals at once. The Know moment arrives: the Warren's patience with this question runs to longer than the Sentinel has been alive to ask it.
+
+---
+
+## The Vigil Clock
+
+### What the player sees
+
+Place two dice on the table — one for each group below, both showing 4. These numbers represent how much time each group has before the flood decides for them. Your actions push those numbers up. The scene pushes them down. Where the dice sit when it ends is what happened.
+
+### How the dice move
+
+**Group A's die** holds steady while the signal is maintained. If the Sentinel leaves the post or the lantern moves, it ticks down 1 per narrative beat.
+
+**Group B's die** ticks down 1 per narrative beat regardless. It will not hold on its own — they cannot see the signal and have no way to self-correct.
+
+> *Narrative beat:* each time the GM marks a scene transition or judges that meaningful time has passed — roughly every two minutes of real time, or when the fiction demands it.
+
+### Action rolls — Difficulty 14
+
+A roll is called when the Sentinel takes a physical or navigational action that could meaningfully succeed or fail. Holding the lantern steady is not a roll. These are:
+
+| Action | Attribute |
+|---|---|
+| Moving with the lantern down the cliff path | Agility |
+| Angling the crack to reach the tributary mouth | Finesse |
+| Calling guidance over flood noise and panicking voices | Presence |
+| Reading the gorge acoustics before committing to a move | Instinct |
+| Wedging the lantern at the post to free both hands | Instinct |
+| Steadying a Group A climber over the final section one-handed | Strength |
+| Keeping the flame alive while moving fast through wind | Finesse or Instinct |
+
+Before rolling, the player may argue that Pari-kin or a relevant archetype ability applies. If the argument holds, grant advantage on the roll.
+
+### Roll results
+
+| Result | Die effect |
+|---|---|
+| Critical success | Target group's die +2 |
+| Success with Hope | Target group's die +1 |
+| Success with Fear | Target group's die +1; other group's die −1 |
+| Failure with Hope | No change |
+| Failure with Fear | Target group's die −1 |
+
+*Success with Fear* represents time well spent — but the cost lands on the group not being helped. The flood doesn't pause while you're focused elsewhere.
+
+### Path behavior (GM only)
+
+- **Hold:** Group A's die holds steady automatically (no ticks) while the signal is maintained. Group B's die ticks every beat. The Sentinel may roll to guide Group B through the crack from a fixed position — but the geometry is against it. Add +2 to difficulty, or call at disadvantage.
+- **Move:** Group A's die begins ticking the moment the Sentinel leaves the post. Group B gets direct rolls at standard difficulty. The Sentinel is racing to push Group B's die high enough before Group A's drops too far.
+- **Split:** Both dice follow their natural tick rate. The Sentinel rolls for one group per action, alternating. No passive hold for either group.
+
+### Resolution
+
+When the scene ends, read each die:
+
+| Value | What happened to that group |
+|---|---|
+| 5–6 | Safe — arrived with time to spare |
+| 3–4 | Safe — arrived shaken and close, but clear |
+| 2 | Recoverable — one more action or desperate push gets them out |
+| 1 | In danger — they may survive, but not unscathed |
+| 0 | Did not make it |
+
+Both dice at 3 or above = the Sentinel held the line. One die at 0 = the Sentinel made a choice, whether they meant to or not. The wound they carry into the convergence scene comes from this math, not from a GM judgment call.
 
 ---
 
@@ -402,7 +466,7 @@ The snippet arrives at the moment of commitment: when the Sentinel's hands are s
 
 *And the watch-fire was still burning when morning came, exactly as it should have been, having done exactly what it was built to do.*
 
-*The lantern still in hand. The signal still correct.*
+* The lantern still in hand. And yet... did the signal stand correct?*
 
 *The question that has no answer forming in the bones like cold: what is protection, if it only covers what it was aimed at?*
 
