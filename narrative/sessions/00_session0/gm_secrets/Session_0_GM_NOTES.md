@@ -310,7 +310,7 @@ By Day 10, all four heroes are at or moving toward the same caravanserai. The Se
 
 ### The Caravan
 
-**The Caravan Leader** *(name TBD — establish before session)*
+**Volkath** *(Caravan Leader)*
 - Runs a tight operation. Has opinions. Has been on this road for a long time.
 - Has been watching the last several days with a quality of attention that is not purely commercial. Travelers appearing from nowhere, surviving impossible circumstances, carrying tools with unusual properties. He has seen strange things before. He suspects these are stranger than most.
 - His knowledge is the base history of Tarim-Shaiel — the Tulpar perspective, the trader's account of a thousand years. Not the mythic layer. He can point them toward someone with that knowledge, if they ask.
