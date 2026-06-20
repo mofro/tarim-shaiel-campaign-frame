@@ -11,7 +11,7 @@ location: Caravanserai on the western road
 status: draft
 created: 2026-06-19
 last_updated: 2026-06-19
-version: 0.1
+version: 0.3
 ---
 
 # Session 0: Visionary Archetype Awakening
@@ -484,7 +484,7 @@ The caravan moves.
 
 ---
 
-**Version:** 0.1 — First draft complete (2026-06-19)
+**Version:** 0.3 — Second-person prose pass complete (2026-06-19)
 **Status:** Draft — playtest pending
 **Prose Benchmark:** Warrior Awakening v2.0 (Erikson-grade density, sensory-first, identity weight)
 **Divine patron:** Sky-Father — watching, not directing; the Seraph is the intervention he does not make directly
