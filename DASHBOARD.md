@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-06-17
+last_updated: 2026-06-19
 
 critical_path:
   - Resolve cosmological architecture
@@ -19,15 +19,15 @@ players:
     - {name: Warrior,    status: committed,  player: "Lisa",  character: "Human / Warrior class"}
     - {name: Sentinel,   status: committed,  player: "Arno",  character: "Pari-Kin / Druid class"}
     - {name: Seeker,     status: committed,  player: "Erik",  character: "Tadbir / Sorcerer"}
-    - {name: Breaker,    status: deciding,   player: "Marc",  character: "Human / Seraph class"}
+    - {name: Visionary,  status: deciding,   player: "Marc",  character: "Human / Seraph class"}
+    - {name: Breaker,    status: deciding,   player: "Bruce", character: "? / Guardian"}
     - {name: Bridge,     status: pending,    player: ""}
     - {name: Sacrificer, status: pending,    player: ""}
-    - {name: Visionary,  status: pending,    player: ""}
     - {name: Trickster,  status: pending,    player: ""}
     - {name: Crafter,    status: pending,    player: ""}
     - {name: Healer,     status: pending,    player: ""}
+    - {name: Keeper,     status: pending,    player: ""}
   pending_players:
-    - {player: "Bruce", class_pref: "Guardian",  archetype: "TBD", note: "protector instinct — archetype TBD"}
     - {player: "Dave",  class_pref: "Warlock",   archetype: "Sacrificer", note: "Hope and Fear expansion class; archetype tentative"}
 
 domain_overrides:
