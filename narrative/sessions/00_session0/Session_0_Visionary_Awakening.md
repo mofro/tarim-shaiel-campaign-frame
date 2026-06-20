@@ -11,7 +11,7 @@ location: Caravanserai on the western road
 status: draft
 created: 2026-06-19
 last_updated: 2026-06-19
-version: 0.3
+version: 0.4
 ---
 
 # Session 0: Visionary Archetype Awakening
@@ -88,7 +88,7 @@ Except here. Around you: a small clearing. Not conspicuous. People flowing past 
 
 This has been true for some time. No one has looked directly.
 
-Something is in the right hand: flat, round, the diameter of the palm. Obsidian, one face polished to a mirror finish. Cold where it has not been held; warm at the grip.
+Something is in your right hand: flat, round, the diameter of the palm. Obsidian, one face polished to a mirror finish. Cold where it has not been held; warm at the grip.
 
 Looking into it: the courtyard, the well, the morning light. Your own face at the center of all of it.
 
@@ -111,7 +111,7 @@ The disk does not explain. It shows. The crowd has already been responding to wh
 
 **[The setting resolves. You orient. And then the quality of the morning changes.]**
 
-Before the disk can be lowered, the courtyard shifts.
+Before you can lower the disk, the courtyard shifts.
 
 Not dramatically. Commerce continues. The camels have not reconsidered the morning. But a change moves through the crowd the way a change in wind moves through standing grain: the transactions nearest the main gates slow, partners requiring sudden careful attention, the studied busyness of people who need to not be witnesses to whatever is about to enter.
 
@@ -162,7 +162,7 @@ The merchant's hands stop.
 
 Both of them know the spring agreement covers this road. Both of them know the rider knows this too. The argument being made is not about tariff schedules.
 
-The disk catches the morning light from where it is held. The confrontation reflects in the obsidian: horsemen, merchant, the mules that have stilled behind him as animals do when the air changes. The rider's hand, resting near his hip with practiced casualness.
+The disk catches the morning light from where you hold it. The confrontation reflects in the obsidian: horsemen, merchant, the mules that have stilled behind him as animals do when the air changes. The rider's hand, resting near his hip with practiced casualness.
 
 And in the reflection — something is not what it claims to be. Not in the rider, not in the merchant. Something in the arrangement of the scene that sits differently in the obsidian than it sits in direct sight. The disk doesn't name it. It registers the way a temperature change registers: not identified, just felt. *Wrong, here, in some direction.*
 
@@ -197,13 +197,13 @@ The young orc is still.
 
 You, and the disk.
 
-The disk has shifted in the hand without being directed — the angle has changed, catching the scene from a different geometry. The obsidian holds the morning, the confrontation, the crowd's practiced non-attention. Your own face at the center of it all.
+The disk has shifted in your hand without being directed — the angle has changed, catching the scene from a different geometry. The obsidian holds the morning, the confrontation, the crowd's practiced non-attention. Your own face at the center of it all.
 
-Still more than expected. Still holding something the surrounding faces don't hold. The disk is not offering an explanation. It is showing the same face it showed in the first moment — the face the crowd has been responding to with arranged space and careful non-attention — and showing it with the patience of something that has been waiting a long time to show it to you.
+Still more than you expected. Still holding something the surrounding faces don't hold. The disk is not offering an explanation. It is showing the same face it showed in the first moment — the face the crowd has been responding to with arranged space and careful non-attention — and showing it with the patience of something that has been waiting a long time to show it to you.
 
 From somewhere without location: a presence. Vast. The quality of attention that belongs to something that has been watching since before this caravanserai was built, from a distance that does not diminish the attention. Not direction. Not voice. Just: *watching. Noting. Present to what is about to happen.*
 
-The prayer surfaces without decision — the reflex of a life organized around the assumption that asking would be answered:
+Your prayer surfaces without decision — the reflex of a life organized around the assumption that asking would be answered:
 
 *What do I do?*
 
@@ -233,11 +233,11 @@ The young orc's hand is inside the coat.
 
 The crowd has found pressing business elsewhere.
 
-The disk in the hand. The face in the disk. The watching from without location.
+The disk in your hand. The face in the disk. The watching from without location.
 
-The body moves.
+Your body moves.
 
-Not decided — moved. The feet have already crossed some threshold before the mind has finished the sentence that would have preceded the decision. The open ground between the crowd and the confrontation is closing. The crowd is not in the way. It was never in the way. It has arranged itself, without acknowledging it, around the fact that you were going to move.
+Not decided — moved. Your feet have already crossed some threshold before the mind has finished the sentence that would have preceded the decision. The open ground between the crowd and the confrontation is closing. The crowd is not in the way. It was never in the way. It has arranged itself, without acknowledging it, around the fact that you were going to move.
 
 One of the merchants near the well inhales.
 
@@ -345,13 +345,13 @@ Two figures across the fire. The comrade's face won't fully resolve — but the 
 
 *He's solid. I know him. Let it go.*
 
-The disk is in the hand, here too. And in its surface: something. The ally's reflection sits slightly wrong. Not monstrous. Not obviously dangerous. The specific wrongness of a thing that is not what it presents itself as — the same note the disk has always used for that signal.
+The disk is in your hand here, too. And in its surface: something. The ally's reflection sits slightly wrong. Not monstrous. Not obviously dangerous. The specific wrongness of a thing that is not what it presents itself as — the same note the disk has always used for that signal.
 
 The comrade's hand on the shoulder. *You worry too much. He's with us.*
 
-Setting it down.
+You set it down.
 
-Not the disk — the knowledge. The seen thing. Choosing to fold the sight, to honor the comrade's judgment over what the obsidian showed, to be the kind of person who does not make accusations they cannot prove against someone a friend has vouched for.
+Not the disk — the knowledge. The seen thing. You chose to fold the sight, to honor the comrade's judgment over what the obsidian showed, to be the kind of person who does not make accusations they cannot prove against someone a friend has vouched for.
 
 The ally remained trusted. The comrade remained certain.
 
@@ -361,7 +361,7 @@ The weight of what the choosing-not-to-see had permitted. Not the event itself �
 
 ---
 
-*The courtyard reconstitutes. The disk in the hand. The standoff, or the aftermath of whichever path was taken.*
+*The courtyard reconstitutes. The disk in your hand. The standoff, or the aftermath of whichever path was taken.*
 
 *And with the courtyard: understanding, arriving without words.*
 
@@ -409,7 +409,7 @@ Not a question.
 
 *Can you use a blade?*
 
-The disk in the hand. The reflection: the merchant's face, clear, looking at you with the expression of someone asking a practical question and meaning it practically. The disk says nothing. It shows the face. The face is offering something.
+The disk in your hand. The reflection: the merchant's face, clear, looking at you with the expression of someone asking a practical question and meaning it practically. The disk says nothing. It shows the face. The face is offering something.
 
 ### GM Notes
 
@@ -446,7 +446,7 @@ Not generous. Practical. People who have come through difficult mornings in cara
 
 The eastern gate closes behind the last animal. The road west opens.
 
-The disk is in the hand. The blade — if accepted — is at the hip, unfamiliar in a way that will resolve with time and use. The morning has given you: a direction, a group of people moving through it, and the weight of a memory that arrived without asking and has not finished settling.
+The disk is in your hand. The blade — if accepted — is at the hip, unfamiliar in a way that will resolve with time and use. The morning has given you: a direction, a group of people moving through it, and the weight of a memory that arrived without asking and has not finished settling.
 
 *The difference is not certainty. The difference is the choice.*
 
@@ -484,7 +484,7 @@ The caravan moves.
 
 ---
 
-**Version:** 0.3 — Second-person prose pass complete (2026-06-19)
+**Version:** 0.4 — Second-person narration pass complete (2026-06-19)
 **Status:** Draft — playtest pending
 **Prose Benchmark:** Warrior Awakening v2.0 (Erikson-grade density, sensory-first, identity weight)
 **Divine patron:** Sky-Father — watching, not directing; the Seraph is the intervention he does not make directly
