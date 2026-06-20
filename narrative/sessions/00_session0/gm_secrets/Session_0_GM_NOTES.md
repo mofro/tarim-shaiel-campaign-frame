@@ -127,42 +127,52 @@ When one player is in their awakening scenario, the others are **watching, not p
 
 ### 1. WARRIOR — Lisa (40–45 minutes)
 
-**File:** `Session_0_Warrior_Awakening.md` — v2.0 complete, prose benchmark. Use as written.
+**File:** `Session_0_Warrior_Awakening.md` — v2.1 complete, prose benchmark. Use as written.
 
 **The engine:** Social trust-building. Can a Warrior be present and capable without dominating?
 
-**Setting:** Ravine. ~30 refugees. Just before dawn. Soldiers approaching.
+**Setting:** Ravine/drainage depression. ~30 refugees. Just before dawn. Imperial soldiers approaching.
 
-**Atmospheric register:** Low light. Cramped but not confined. Voices kept quiet from habit and fear. The camp smells like bodies and damp earth and last night's fire. The Warrior's blade is warm in ways it shouldn't be.
+**Atmospheric register:** Low fires burning as confession. Tents patched past repair. The mud the Warrior woke in is specific — degraded, compacted, stained. The blade pulls free trailing muck. The camp smells like bodies and fear-sweat and grain gone sour.
 
 #### NPC Quick-Refs
 
-**Darvesh** (de facto leader)
-- Weathered, mid-50s. Keeps people alive through hard calls. Doesn't trust easily; once he does, it's absolute.
-- Speaks in short sentences. Watches hands before faces.
-- What he needs from the Warrior: restraint, not control. He's seen plenty of control. Control is what put these people in a ravine.
-- *If things go well:* Quietly tells the Warrior they'll have a place at the front of the column.
-- *If things go badly:* Pulls back, finds another path, hires the Warrior at arm's length.
+**Kira** *(woman with military bearing — de facto leader)*
+- ~40, scarred forearms, former soldier. Holds a spear but doesn't point it. Eyes run a professional circuit: perimeter, people, perimeter, people.
+- Her name is never spoken in-scenario — it surfaces only in Path B2, when the old woman says *"I'll tell Kira."* Throughout play she is "the woman with the spear."
+- What she's assessing: whether the Warrior is dangerous and unpredictable, or like them. She needs honest answers and no sudden movements.
+- *Path A (restraint):* becomes a genuine ally by morning. *"You can come. If you want."* She's the one who extends the invitation.
+- *Path B2 (mid roll):* turns away when the Warrior returns from pursuit. Travels on the caravan, but that distance is real.
+- *Path B1 (high roll — prostrate killed):* gone before dawn with most of the camp. Not recoverable.
 
-**Nara** (child, ~8)
-- Has a cough she's trying to suppress. Watches from behind Darvesh's coat.
-- The moment she stops hiding is the emotional indicator that trust has been earned. Let it land without calling attention to it.
-- Doesn't speak unless the Warrior is genuinely safe.
+**The old woman** *(unnamed, ~70+)*
+- Moves deliberately. Keeps stirring the pot without looking up — but her shoulders angle toward the Warrior. Listening without seeming to.
+- Brings thin soup without asking questions. Her trust arrives like weather: it simply is. The camp reads it as a signal.
+- In Path B2: the bridge. Speaks the merchant train information and names Kira for the first time.
+- In Path B1: one of two people left at dawn. *"There's a merchant train. West."* Then: *"I'll be going the same direction."*
 
-**The Soldiers** (distant threat)
-- Two or three scouts. Irregular conscripts looking for reasons not to report. Not monsters; tired men doing a job.
-- Doesn't have to be violent. A Warrior who makes themselves not worth the trouble succeeds.
-- If combat: brief, consequence-focused. The refugees scatter, which costs time and trust.
+**The child** *(unnamed, ~5)*
+- Bolts when the Warrior stirs — not toward safety, just *away*. Later watches from behind Kira.
+- Asks the question that cuts through everything: *"Are you like the ones who burned the village?"*
+- The child's slow shift from flight to watching to speaking is the emotional indicator of earned trust. Don't announce it.
+
+**The soldiers** *(eight imperial soldiers — real but broken)*
+- Patrolling in loose formation, not specifically hunting this camp. But something already happened to them — they don't move like soldiers who know what they're after. A careful player may sense it.
+- *Path A:* pass without knowing the Warrior is there.
+- *Path B:* their broken state drives the roll outcome. High = prostrate (hands up, one face-down weeping). Mid = scatter and run. Low = fight badly.
 
 #### Pacing Cues
 
-- **Segment 1 (The Waking):** Slow. Don't skip the disorientation. The blade howling at the wrist is the first mystery. Let the player sit in not-knowing.
-- **Segment 3 (Initial Contact):** Darvesh does not warm immediately. Let the player work for it.
-- **Segments 5–6 (Crisis Point):** Time the soldiers here. Trust-building must be at least partially established before the test of it.
-- **Snippet:** The moment the Warrior actively chooses NOT to draw or strike — when they hold the blade back against every instinct.
-- **Convergence:** Darvesh offers escort work. The refugees are joining a caravan heading west. The Warrior's reason to be on the road is obligation, not wandering.
+- **Segment 1 (Waking):** Don't rush the pull from the muck. The leather thong at the wrist. The weight that feels *known*. The first thought: *This is my chain.*
+- **Segment 3 (Initial Contact):** Kira crouches at twenty feet and asks: *"What do you remember?"* The whole camp waits. This is the player's first real moment of agency.
+- **Segments 4–5 (Trust Architecture):** Let it breathe. The child's question is the emotional peak. The old woman's soup is the camp's permission to wait.
+- **Segment 7 (Snippet — dual path):** Stop narrating when the soldiers are audibly close. Ask: *"What do you do?"* Let them decide. Path A (hold) → restraint snippet, delivered silently while danger passes. Path B (draw) → call the roll; violence snippet delivered after combat resolves with its own morning-after.
+- **Convergence:**
+  - *Path A:* Kira offers the caravan at dawn directly.
+  - *Path B2:* Old woman brokers it; names Kira. Warrior joins as protector by default.
+  - *Path B1:* Old woman + unnamed man with wrapped hand travel west alongside. Kira is gone.
 
-**Tone calibration:** Patient. Heavy. Model patience in your narration — the Warrior is the most instinctively violent character in this scenario and must express capability through stillness.
+**Tone calibration:** Patient. Heavy. The Warrior is the most instinctively violent character here and must express capability through stillness. The discomfort is the point — don't soften it.
 
 ---
 
@@ -397,7 +407,7 @@ If a player asks afterward what it meant: "That's what we're going to find out."
 
 | What you need | Where to find it |
 |---|---|
-| Warrior scenario (v2.0) | `Session_0_Warrior_Awakening.md` |
+| Warrior scenario (v2.1) | `Session_0_Warrior_Awakening.md` |
 | Seeker scenario (v0.4) | `Session_0_Seeker_Awakening.md` |
 | Sentinel scenario (v0.6) | `Session_0_Sentinel_Awakening.md` |
 | Visionary/Seraph scenario (v0.4) | `Session_0_Visionary_Awakening.md` |
