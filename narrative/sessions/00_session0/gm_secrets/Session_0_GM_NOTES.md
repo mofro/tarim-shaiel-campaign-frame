@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2026-05-07
-last_updated: 2026-05-07
+last_updated: 2026-06-20
 tags: [session0, gm_guide, execution, pacing]
 ---
 
@@ -16,10 +16,10 @@ tags: [session0, gm_guide, execution, pacing]
 ⚠️ **GM-ONLY DOCUMENT. Do not share with players.**
 
 This is a practical execution reference for running Session 0. It assumes you've read:
-- `Sessions_Structure.md` — locked narrative architecture
-- `Session_0_Awakening_Design_Notes.md` — revised timing model and scenario architecture
-- The individual awakening scenario files (Warrior, Seeker, Breaker)
+- The individual awakening scenario files: `Session_0_Warrior_Awakening.md`, `Session_0_Seeker_Awakening.md`, `Session_0_Sentinel_Awakening.md`, `Session_0_Visionary_Awakening.md`
 - `Session_0_Secret_Snippets-Archetype_Templates.md` — snippet delivery guidance
+
+**Players:** Lisa (Warrior), Erik (Seeker), Arno (Sentinel), Marc (Visionary/Seraph)
 
 ---
 
@@ -31,64 +31,87 @@ This is a practical execution reference for running Session 0. It assumes you've
 
 ---
 
+## Day-by-Day Timeline Reference (GM Only)
+
+The players will not experience this as a timeline. Each awakening plays as a spotlight vignette at the table. This chronology is yours — it holds the geography together and will be available for the players to reconstruct later.
+
+| Day | Event |
+|---|---|
+| Day 1 | The Falling Star — the expulsion event |
+| Day 2 | Imperial troops hassle the refugee village. Interrupted by battle: an agent hunting The Returned vs. a Wizard agent. Neither is aware of the other's full purpose. The village survives. The encounter leaves traces. |
+| Day 3 (eve) | **Warrior returns** near the refugee camp. R/H/K null zone created as cover. |
+| Day 4 | Warrior and refugees begin moving west to catch the caravan. Caravan pauses. |
+| Day 4 (eve) | **Seeker stumbles through** to the desert. Second R/H/K null zone created as cover. |
+| Day 5 | Seeker: Eastern trek and oasis encounter (raiders). Warrior and refugees find caravan — Warrior joins as escort. |
+| Day 6 | **Western path:** Seeker's western trek ends ahead of caravan, found unconscious by caravan riders. Raiders unaware of caravan; no pursuit, no reroute needed. |
+| Day 6 (eve) | **Sentinel vigil and rescue** in the gorge. Hike west begins with survivors. |
+| Day 7 | **Eastern path only:** Seeker finds caravan, warns of raiders. Caravan turns SW to avoid. |
+| Day 8 | **Sentinel and survivors find caravan** (on either route — SW if eastern path, direct if western). Caravan, now carrying more people than planned, pushes for the nearest caravanserai. |
+| Day 10 | **Seraph awakening** at the caravanserai (day). Helps the merchants, joins the caravan. That evening: the full party meets for the first time at the campfire. Seraph triggers the shared memory. The Caravan leader speaks. Session ends. |
+
+**The Seeker's path affects Day 7 but not Day 10.** Either branch resolves before the Sentinel arrives on Day 8. The session endpoint is fixed.
+
+**Null zones:** The R/H/K immune system created cover for each Return. The Seeker is the most sensitive of the four — he stumbles away from his null zone before getting his bearings, so he doesn't consciously register it in Session 0. The Seraph's awakening is at the caravanserai, not near any null zone. These are GM-only facts. The players may sense or find the null zones later.
+
+---
+
 ## Pre-Session Checklist
 
 ### Lines & Veils
 
-Run the Lines & Veils conversation **before Session 0 begins**, even if you've played together before. Session 0 has specific content that benefits from explicit agreement:
-
-**Topics to raise:**
+Run this conversation **before Session 0 begins**. Session 0 has specific content that benefits from explicit agreement:
 
 | Topic | Why It Comes Up |
 |---|---|
-| Death and loss | Refugee camp violence (Warrior); inn collapse casualties (Breaker) |
-| Being perceived as a threat | Warrior's core challenge; unavoidable |
-| Confinement/claustrophobia | Breaker scenario, prison cell (Bridge) |
-| Receiving care while helpless | Sacrificer's awakening; being nursed by strangers |
-| Sudden action/crisis with no warning | Visionary awakening starts in-progress emergency |
-| Religious or ritual symbolism | Tools carry cosmological weight; ritual implement (Sacrificer) |
-| Cosmic horror register | Recognition climax is deliberately disorienting |
+| Death and loss (potential) | Warrior: soldiers approaching; Sentinel: flood, Group B's situation may not resolve cleanly |
+| Being perceived as threat | Warrior's core challenge; Seraph scenario (imperial riders, power dynamics) |
+| Darkness and exposure | Sentinel: fortress ruins in full darkness, gorge flooding |
+| Choices that harm despite good intent | Sentinel: vigil clock has no right answer; someone may not make it |
+| Crisis with no warm-up | All four awakenings begin in media res — no prologue |
+| Religious or ritual symbolism | Tools carry cosmological weight that will become clear later |
+| Cosmic horror register | Recognition climax is deliberately disorienting — shared vision, no explanation |
 
-**What you're listening for:** Not just "yes/no" answers, but calibration. A player who says "I'm fine with violence" but has a tight jaw needs a check-in during the session, not just before it.
-
-**Hard lines:** If anyone has a hard line against confinement, the Bridge's cell scenario needs to shift (a different kind of constraint — debt, social trap, rather than physical confinement). Note this before you finalize your scenario details.
+**What you're listening for:** Not just "yes/no" answers, but calibration. A player who says "I'm fine with loss" but has a tight jaw needs a check-in during the session, not just before it.
 
 ### Physical Setup
 
-- Print or prepare digital snippets for all six archetypes **before the session**. Do not search for them mid-game.
-- Know which snippet belongs to which player. Don't mix them up.
-- Have the recognition climax text somewhere accessible — you will read it aloud at the end; you want it verbatim.
-- Consider ambient sound: a low wind, distant city noise, or desert silence appropriate to each setting. Not mandatory, but helps.
-- If playing at a table: leave physical space to pass snippets unobtrusively. A folded card or small envelope works better than an open sheet.
+- Print or prepare digital snippets for all four archetypes **before the session**. Do not search mid-game.
+- Know which snippet belongs to which player.
+- Have the recognition climax text accessible — you will read it verbatim; this is not the moment to improvise.
+- Have the Vigil Clock dice ready (Sentinel) and the Standoff dice ready (Visionary) — both use two d6 on the table.
+- Consider ambient sound: each awakening has its own register. Desert wind for the Seeker. Gorge acoustics for the Sentinel. Caravanserai morning commerce for the Seraph.
 
 ### Player Briefing (Before Play Begins)
 
 Tell each player:
-- "You'll receive a private note at some point during your awakening. Read it silently. You can share it or keep it; that's your call."
+- "You'll receive a private note at some point during your awakening. Read it silently. You can share it or keep it — that's your call."
 - "You don't know what happened. You don't know who you are, what you've done, or why you're here. That's the game."
-- Brief the **Sacrificer's player** privately: "You've been with this caravan for three days. You know [NPC name], you know [NPC name]. You have opinions about the caravan master. You are the player who knows most about where everyone is heading." Frame this as a gift. It is one.
 
 ---
 
 ## Running Order and Target Durations
 
-The graduated timing model: the first awakening is the showcase. It earns the table's trust and sets the register. Every subsequent awakening runs shorter because the tone is established.
+The graduated timing model: the first awakening is the showcase. It earns the table's trust and sets the register. Every subsequent awakening can be shorter because the tone is established.
 
-| Order | Archetype | Target | Pacing note |
-|---|---|---|---|
-| 1st | **Warrior** | 40–45 min | The showcase. Dense prose. Patient. Do not rush. |
-| 2nd | **Breaker** | 25–30 min | Tonal whiplash — confinement after open air. Physical puzzle, claustrophobic urgency. |
-| 3rd | **Seeker** | 25–30 min | Interior/cerebral. Desert scale after confinement. Trust the sparse. |
-| 4th | **Bridge** | 20–25 min | Energy shift. Dialogue-driven. Potentially funny. Palate cleanser. |
-| 5th | **Visionary** | 15–20 min | Act 1 finale. Explosive. Starts in-progress. No warm-up. |
-| Woven | **Sacrificer** | ~15 min total | Threaded through Act 2 convergence between other arrivals. Not a standalone awakening. |
+| Order | Player | Archetype | Target | Pacing note |
+|---|---|---|---|---|
+| 1st | Lisa | **Warrior** | 40–45 min | The showcase. Dense prose. Patient. Do not rush. |
+| 2nd | Erik | **Seeker** | 25–30 min | Interior/cerebral. Desert scale. Note which path for Day 7 impact. |
+| 3rd | Arno | **Sentinel** | 40–45 min | Vigil clock on the table at Segment 3. Three-path resolution. |
+| 4th | Marc | **Visionary/Seraph** | 35–45 min | Standoff, not disaster. Presence and weight. Last awakening — the table can hold the time. |
 
 **Full session estimate:**
-- Act 1 (awakenings 1–5): ~2–2.5 hours
-- Act 2 (convergence + Sacrificer arc): ~30–45 minutes
+- Act 1 (four awakenings): ~2.5–3 hours
+- Act 2 (convergence): ~30 minutes
 - Act 3 (recognition climax): ~10 minutes
 - Buffer (breaks, chatter, organic interaction): ~30 minutes
 - **Total: ~3.5–4 hours**
+
+**Order rationale:**
+1. **Warrior (slow, social, atmospheric)** — The deep breath. Establishes everything.
+2. **Seeker (interior, cerebral, vast)** — Desert scale after the social. The self alone with itself.
+3. **Sentinel (geometric, endurance, impossible choice)** — Pressure building. No right answer.
+4. **Seraph (presence, standoff, weight)** — The table arrives at the caravanserai. The last piece falls into place.
 
 ---
 
@@ -96,207 +119,184 @@ The graduated timing model: the first awakening is the showcase. It earns the ta
 
 ### Spotlighting Protocol
 
-When one player is in their awakening scenario, the others are **watching, not playing**. This is intentional. It's a performance for the table, not just for that player. Keep it moving — the audience's investment in watching a good scenario grows with each one.
+When one player is in their awakening scenario, the others are **watching, not playing**. This is intentional. It's a performance for the table, not just for that player. Keep it moving — the audience's investment grows with each scenario.
 
-**What the non-spotlight players do:**
-- Watch and absorb the world. They'll meet this setting when the caravan arrives.
-- The Sacrificer's player can quietly stay "in character" as someone already on the caravan — their reactions to news of what's happening can be played at low register.
-- Don't stop to check in with non-spotlight players unless there's a significant lull.
-
-**Transition between awakenings:** A brief beat of narration, not a scene. "Elsewhere, as the morning advances..." Keep the transitions under 60 seconds. The audience is already oriented in this world.
+**Transition between awakenings:** A brief beat of narration. "Elsewhere, as the days pass..." Keep transitions under 60 seconds. The audience is already oriented.
 
 ---
 
-### 1. WARRIOR (40–45 minutes)
+### 1. WARRIOR — Lisa (40–45 minutes)
 
-**File:** `Session_0_Warrior_Awakening.md` — complete, Erikson-grade prose, use as written.
+**File:** `Session_0_Warrior_Awakening.md` — v2.0 complete, prose benchmark. Use as written.
 
 **The engine:** Social trust-building. Can a Warrior be present and capable without dominating?
 
 **Setting:** Ravine. ~30 refugees. Just before dawn. Soldiers approaching.
 
-**The key atmospheric register:** Low light. Cramped but not confined. Voices kept quiet from habit and fear. The camp smells like bodies and damp earth and last night's fire. The Warrior's blade is warm in ways it shouldn't be.
+**Atmospheric register:** Low light. Cramped but not confined. Voices kept quiet from habit and fear. The camp smells like bodies and damp earth and last night's fire. The Warrior's blade is warm in ways it shouldn't be.
 
 #### NPC Quick-Refs
 
-**Darvesh** (the de facto leader)
-- Weathered, mid-50s. Has kept these people alive by making hard calls. Doesn't trust easily; once he does, it's absolute.
+**Darvesh** (de facto leader)
+- Weathered, mid-50s. Keeps people alive through hard calls. Doesn't trust easily; once he does, it's absolute.
 - Speaks in short sentences. Watches hands before faces.
-- What he needs from the Warrior: to see restraint, not control. He's seen plenty of control. Control is what put these people in a ravine.
-- *If things go well:* Quietly tells the Warrior they'll have a place at the front of the column. That's the highest compliment he gives.
-- *If things go badly:* Pulls back the group, finds another path. Hires the Warrior at arm's length, watches closely.
+- What he needs from the Warrior: restraint, not control. He's seen plenty of control. Control is what put these people in a ravine.
+- *If things go well:* Quietly tells the Warrior they'll have a place at the front of the column.
+- *If things go badly:* Pulls back, finds another path, hires the Warrior at arm's length.
 
-**Nara** (a child, approximately 8)
-- Has a cough she's trying to suppress. Watches the Warrior from behind Darvesh's coat for the first half of the scenario.
+**Nara** (child, ~8)
+- Has a cough she's trying to suppress. Watches from behind Darvesh's coat.
 - The moment she stops hiding is the emotional indicator that trust has been earned. Let it land without calling attention to it.
-- Doesn't speak unless the Warrior is genuinely safe. If she says something — anything — Darvesh notices.
+- Doesn't speak unless the Warrior is genuinely safe.
 
-**The Soldiers** (distant threat, may never be seen directly)
-- Two scouts, possibly three. Irregular conscripts looking for reasons not to report. Not monsters; tired men doing a job.
-- The encounter doesn't have to be violent. A Warrior who makes themselves seem like not worth the trouble — who deflects rather than confronts — succeeds.
-- If combat happens: keep it brief, consequence-focused. The refugees scatter during a fight, which costs time and trust.
+**The Soldiers** (distant threat)
+- Two or three scouts. Irregular conscripts looking for reasons not to report. Not monsters; tired men doing a job.
+- Doesn't have to be violent. A Warrior who makes themselves not worth the trouble succeeds.
+- If combat: brief, consequence-focused. The refugees scatter, which costs time and trust.
 
 #### Pacing Cues
 
 - **Segment 1 (The Waking):** Slow. Don't skip the disorientation. The blade howling at the wrist is the first mystery. Let the player sit in not-knowing.
-- **Segment 3 (Initial Contact):** Darvesh does not warm immediately. Let the player work for it. Don't smooth it over.
-- **Segment 5–6 (Deepening Crisis to Crisis Point):** This is where you time the soldiers. The arrival of threat is the pressure that crystallizes everything. Don't bring the soldiers too early — the trust-building needs to be at least partially established before the test of it.
-- **Snippet:** The moment where the Warrior actively chooses NOT to draw/strike — when they hold the blade back against every instinct. Hand the snippet quietly. Let them read while the NPCs hold their breath.
-- **Segment 8 (Convergence Setup):** Darvesh offers escort work. The refugees are joining a caravan heading west. The Warrior's reason to be on the caravan is obligation, not wandering.
+- **Segment 3 (Initial Contact):** Darvesh does not warm immediately. Let the player work for it.
+- **Segments 5–6 (Crisis Point):** Time the soldiers here. Trust-building must be at least partially established before the test of it.
+- **Snippet:** The moment the Warrior actively chooses NOT to draw or strike — when they hold the blade back against every instinct.
+- **Convergence:** Darvesh offers escort work. The refugees are joining a caravan heading west. The Warrior's reason to be on the road is obligation, not wandering.
 
-**Tone calibration:** Patient. Heavy. The Warrior is the most instinctively violent character in this scenario and must express capability through stillness. Model that patience in your narration.
-
----
-
-### 2. BREAKER (25–30 minutes)
-
-**File:** `Session_0_Breaker_Awakening.md` — Segments 1–5 drafted (pre-revision). Read the Design Notes §BREAKER for the revised choice architecture before running.
-
-**The engine:** Physical/ethical puzzle in confined space. Can you walk away from what defines you?
-
-**Setting:** Collapsed inn after an earthquake. Stone and timber. Dark. The hammer is load-bearing.
-
-**Critical GM note:** The hammer is not a weapon to be reclaimed — it's structural support doing more good sitting still than it would do in the Breaker's hands. The Breaker can help survivors physically, manually, through presence — not through destruction. The test is not "do I use the hammer or not." The test is: "can I leave it behind, knowing it's more useful without me?"
-
-The disproportionate attachment to the hammer (body knows something the mind doesn't) is the snippet trigger — not a grand decision, but the moment of *why does this hurt so much? What am I forgetting?*
-
-**The confined space:** Use it. Narrate the weight of stone overhead. Describe movement as careful, specific, muscular — not heroic. The Breaker moves through this space with hands and shoulders, not will.
-
-#### NPC Quick-Refs
-
-**The Pinned Man** (name TBD, make it regional)
-- His leg is under a beam. He's been in pain for a while. Not panicking — that passed — but grimly aware his situation is worsening.
-- He will not waste breath on gratitude until he's free. Practical. The Breaker earns his trust by being useful, not reassuring.
-- *Once freed:* He's the one who points toward the caravan. He knows people. He has information. He owes the Breaker a practical debt, not an emotional one.
-
-**Other Survivors** (2–3 people, different degrees of mobility)
-- Don't name all of them unless the player engages directly. They're texture.
-- One is uninjured but in shock — useful for holding things, passing materials, if the Breaker gives clear direction.
-- One is more seriously hurt and needs careful extraction. The Breaker must move slowly or cause harm.
-
-#### Pacing Cues
-
-- **Open in darkness.** The Breaker hears before they see. Let the player orient slowly.
-- **The hammer discovery:** It should feel *wrong* that it's sitting still. It strains against its usefulness without being able to articulate why.
-- **Segments 2–4:** Discovery and assessment. Move through this faster than the Warrior's equivalent — the situation is immediately legible. Cold stone, people in pain, limited light.
-- **Segment 5 (The Choice):** This is the emotional core. The Breaker reaches for the hammer and something in their body — not their mind — resists. Not rules, not logic. Just the wrongness of the pull. That's the snippet moment.
-- **Snippet:** Arrives in the moment of irrational attachment — the reaching-for and the sudden inability to justify it.
-- **Segments 6–8 (Rescue → Convergence):** Once the decision is made and people are free, move quickly. The ruined caravanserai is where the caravan will stop — the Breaker emerges into the caravan's path. The hammer remains inside, holding up the ruin.
-
-**Convergence hook:** The Breaker's ongoing problem is getting the hammer back. This gives them active work during Act 2 — surveying the ruin, figuring out whether it can be safely extracted, negotiating access. It's not resolved before the caravan leaves.
-
-**Tone calibration:** Tighter than the Warrior. Claustrophobic. Every gesture has weight. The prose runs leaner — the space doesn't allow for expansiveness.
+**Tone calibration:** Patient. Heavy. Model patience in your narration — the Warrior is the most instinctively violent character in this scenario and must express capability through stillness.
 
 ---
 
-### 3. SEEKER (25–30 minutes)
+### 2. SEEKER — Erik (25–30 minutes)
 
-**File:** `Session_0_Seeker_Awakening.md` — v0.4, full path structure. Note the Design Notes §SEEKER tightening guidance before running — the scenario needs more player-interactive checkpoints and less sustained narration.
+**File:** `Session_0_Seeker_Awakening.md` — v0.4 complete.
 
-**The engine:** Internal decision (knowledge vs. instinct). Two paths exist; both lead to the caravan.
+**The engine:** Internal decision — knowledge vs. instinct. Two paths exist; both lead to the caravan. **Note which path Erik takes: it determines whether the caravan reroutes on Day 7.**
 
 **Setting:** Desert wasteland. Stars don't match the charts. The tome knows, and the tome is wrong.
 
-**The core crisis:** The tome's certainty is seductive and false. The Seeker must choose to put it away — to follow gut instinct that the tome cannot validate — and walk toward water the charts say isn't there.
+**The core crisis:** The tome's certainty is seductive and false. The Seeker must choose to put it face-down and walk toward water the charts say isn't there.
 
-**Running it leaner:** Convert the read-aloud narration of the journey into active questions. "The sun is brutal. What keeps you walking?" "The tome whispers to turn back. What do you tell it?" The player's answers are the scenario content — don't narrate over them.
+**Running it leaner:** Convert sustained narration into active questions. "The sun is brutal. What keeps you walking?" "The tome whispers to turn back. What do you tell it?" The player's answers are the scenario content.
 
 #### NPC Quick-Refs
 
-*(These apply primarily to the East Path — raiders)*
+**The Raider Leader** *(Eastern path only)*
+- Wants the tome. Specific. Mercenary. Not cruel by preference.
+- The offer: give us the tome and walk. Thirty seconds before it stops being an offer.
+- Underestimates the Seeker — that's the only advantage available.
 
-**The Raider Leader**
-- Wants the tome. Specific. Mercenary. Not cruel by preference — cruel by profession.
-- The offer: give us the tome and walk. You have about thirty seconds before this stops being an offer.
-- He underestimates the Seeker, which is the only advantage available.
-- If the Seeker bluffs: he's experienced enough to recognize it. If the Seeker delays: he's patient enough to wait. The window for misdirection is narrow.
-
-**The Caravan (arrival on either path)**
-- Found by them or they're found by the Seeker — the exact mechanism is less important than the emotional register of arrival. Relief. Recognition. The caravan has water.
-- Caravan master: practical. Assesses the Seeker quickly. If they're carrying something (the tome) and look like they've survived a desert alone, that's qualification enough for passage.
+**The Caravan** *(arrival, either path)*
+- Found by them or finds the Seeker. The mechanism matters less than the register of arrival: relief, water, recognition.
+- Caravan lead: practical. Assesses quickly. Surviving a desert alone while carrying something valuable is qualification enough.
 
 #### Pacing Cues
 
-- **The star-chart discovery:** This is both the waking AND the core crisis reveal. Efficient — let it work.
-- **Key interaction point:** When the Seeker first opens the tome and sees it's *right but wrong* — the charts are accurate for a time that doesn't match the stars overhead. Don't explain this. Let the player figure it out, or sit with not knowing.
-- **Snippet trigger:** The moment of setting the tome face-down and choosing to walk west anyway. The surrender of epistemic certainty. The peace beneath the fear.
-- **Target:** 25–30 minutes. If you're running long, trim the journey narration; the choice and the snippet are non-negotiable.
+- **Star-chart discovery:** This is both the waking AND the crisis reveal. Efficient — let it work.
+- **Key moment:** The Seeker opens the tome and sees it's *right but wrong* — accurate for a time that doesn't match the stars overhead. Don't explain this. Let the player sit with it.
+- **Eastern path:** The raider encounter. The Seeker arrives at the caravan with information: there are raiders in the eastern approach. **This is the Day 7 warning that reroutes the caravan SW.** Note this for Act 2.
+- **Western path:** Seeker found unconscious ahead of the caravan. No raider warning. Raiders never learn the caravan exists — no pursuit. Caravan continues on its planned route.
+- **Snippet trigger:** The moment of setting the tome face-down and choosing to walk west anyway. The surrender of epistemic certainty.
+- **Target:** 25–30 minutes. If running long, trim the journey narration; the choice and the snippet are non-negotiable.
 
-**Tone calibration:** Vast. Interior. The desert scale should feel liberating and terrifying in equal measure. The Seeker is alone with their own mind — give the player room to actually be alone with it. Silence is allowed here.
+**Tone calibration:** Vast. Interior. The desert scale should feel liberating and terrifying in equal measure. Silence is allowed here.
 
 ---
 
-### 4. BRIDGE (20–25 minutes)
+### 3. SENTINEL — Arno (40–45 minutes)
 
-**File:** `Session_0_Awakening_Design_Notes.md §BRIDGE` — scenario sketch only. Run from the sketch; no full scenario exists yet.
+**File:** `Session_0_Sentinel_Awakening.md` — v0.6 complete.
 
-**The engine:** Dialogue-driven negotiation. The Bridge talks their way free.
+**The engine:** Geometric crisis — presence as protection, tested by the limits of a fixed position. **The Vigil Clock goes on the table at first contact (Segment 3).**
 
-**Setting:** A cell. Could be guild authority, local magistrate, or trade-stronghold. The diplomatic seal implies authority the Bridge doesn't remember having.
+**Setting:** Ancient fortress ruins on high ground above a branching gorge. Two groups below, two directions, one fractured lantern signal.
 
-**Design note:** Resolve the "who's holding them and why" before the session. Strongest option: arrested for possession of a seal from an empire that ceased to exist centuries ago — the seal looks *genuine*, and genuine old-empire seals are not items a traveler should have. The Bridge is accused of being an imperial spy, or a tomb-robber, or simply an impossibility. Any of these gives the jailer a real reason to be suspicious and a real reason to want to believe the Bridge's answer.
+**The impossible:** Group A can see the fixed signal and is ascending. Group B is in the wrong gorge and cannot see anything from a fixed position. The lantern cannot do both jobs from where the Sentinel stands.
 
-**The caravan connection:** The caravan master can be brought in as a character who will vouch for the Bridge — in exchange for services as a translator during the journey west. This creates a clear convergence path and an immediate relationship with stakes.
+**Critical GM note:** The crack in the lantern is old damage — it was broken before tonight. When the flame catches, the light comes out divided. This is not a problem to be solved. It is the Sentinel's tool, exactly as it is. The crack's scatter may reach Group B *in motion* from a lower position. Let the player discover this rather than stating it.
 
 #### NPC Quick-Refs
 
-**The Magistrate / Guild Factor** (name TBD)
-- Has authority, is tired of using it, and would prefer not to have this problem.
-- Wants a reason to believe the Bridge — not because they're kind, but because processing an impossible case is bureaucratic misery.
-- The right approach: give them a face-saving out. Let them decide to believe you without admitting they couldn't prove otherwise.
-- *If pushed too hard:* Digs in. The Bridge's greatest mistake is making this person look foolish in front of an audience.
+**The woman with the scarred jaw** *(Group A voice)*
+- The scar happened in circumstances that teach people to give directions in the dark. She has been doing that tonight.
+- Speaks in inventory, not emotion: *"You held it."* Not gratitude. Assessment.
+- Once her people are safe, she is the one who names the caravan, names the direction, and makes the practical case for joining it. She does this without fanfare.
+- *If the Sentinel moved to Group B:* She got her people up the correct path without the fixed signal. She doesn't ask how. She notes the Sentinel was not there.
 
-**The Caravan Master** (role introduced here, appears again in Act 2)
-- Impatient. Has a schedule. The Bridge is an obstacle in their day.
-- If the Bridge makes a strong argument for their own value: interested. Translators are useful on the silk road.
-- The deal: the caravan master vouches, the Bridge owes three months of language services. Non-negotiable.
+**Group A** — 8 people: the woman, two others, four children, one elderly man carried the last section. They emerge from the switchback path with the silence of people who have been keeping quiet too long and don't know they can stop.
+
+**Group B** — 6 people, knee-to-thigh deep in flood water when found. No names needed unless the player engages directly. They are voices in the dark and then bodies in bad water.
 
 #### Pacing Cues
 
-- **Open with sensory immediacy:** Cold cell, the seal's weight, distant sounds of commerce. Thirty seconds of description, then the jailer arrives. The clock starts immediately.
-- **Most of this scenario is interactive.** You are primarily listening and responding, not narrating. Stay loose.
-- **The snippet trigger:** The moment the Bridge's words carry more weight than they should — when the negotiation shifts and the Bridge feels the *click* of connection. The impossible gap narrows. They've done this before, somewhere, for stakes they can't remember.
-- **Segment 6 (Resolution):** Release is clean. The caravan master is waiting outside. The Bridge is immediately in motion — the cell is barely a memory.
+- **Segment 1 (3–5 min):** Orientation in darkness — space, height, cold, wind. The lantern is found at the post's base, flint and tinder beside it. The crack is revealed only when the flame catches. Voices arrive last. Don't rush this.
+- **Segment 2 (5–8 min):** The ruins establish context. Two gorges resolve in the divided light. The geometry is legible from above in a way it isn't from below.
+- **Segment 3 (3–4 min) — Put the Vigil Clock on the table here.** Two d6, both at 4. Explain the dice plainly: one per group, these numbers go down, your actions push them up.
+- **Segment 4 (5–8 min):** Let the player physically work through the geometry. The crack's partial reach into the tributary is real but insufficient from a fixed position. The lantern's *felt* quality: forward beam is settled, certain; angled for the scatter, it shines but offers no confirmation.
+- **Segment 5 (3–5 min):** Time enters. "Water at their knees." A child's voice from Group B. Group A: "Don't move the light." The player now holds the full weight of the choice.
+- **Segment 6 (5–7 min):** Commitment. Three paths — hold, move, split. Each has a distinct wound. No right answer. Plant the wound clearly and move on.
+- **Snippet:** At the exact moment of commitment — hands steady on the lantern, choice made, consequences beginning.
+- **Segment 8 (3–5 min):** Dawn. Survivors on the fortress stones. Road west. The woman names the caravan. End on motion, not resolution.
 
-**Tone calibration:** The energy shift after three heavy pieces. This scenario can have a lighter register — even moments of dry comedy, if the player leans that way. Let it breathe. The table needs it.
+**Convergence:** The Sentinel arrives at the caravan on Day 8 carrying survivors. The woman with the scarred jaw handles the practical joining. The Sentinel enters the convergence as the one who chose, who held or moved, and who arrived with the question still open.
+
+**Tone calibration:** Vast, then precise. The opening is spacious; once the voices arrive, everything tightens. Every choice has geometric weight. Don't offer comfort — offer consequence.
 
 ---
 
-### 5. VISIONARY (15–20 minutes)
+### 4. VISIONARY / SERAPH — Marc (35–45 minutes)
 
-**File:** `Session_0_Awakening_Design_Notes.md §VISIONARY` — scenario sketch only. Run from the sketch.
+**File:** `Session_0_Visionary_Awakening.md` — v0.4 complete.
 
-**The engine:** Immediate action under pressure. The Visionary wakes INTO a crisis. No warm-up.
+**The engine:** Presence as intervention — the standoff. The Seraph steps into an open space between a payment dispute and a young orc with a hand inside their coat, and holds it with nothing but their presence and the watching of a god who does not intervene directly.
 
-**Setting:** Choose an environmental disaster (not combat — preserves the Warrior's unique claim on "protection from people"). Options: flash flood in a canyon, avalanche blocking a mountain pass, fire in a caravanserai. Recommend the avalanche or flash flood — both provide time pressure and environmental agency.
+**This is not the explosive, fast scenario from the original design sketch.** It is a slow burn. The Seraph does not wake into a disaster — they wake having already been standing in the courtyard for some time, with arranged space around them, the crowd already responding to something they haven't yet understood. The crisis arrives, not at speed, but with the specific patience of extortion. The Standoff mechanic governs the resolution.
 
-**Critical GM note:** Start this scenario with the crisis already in motion. Do not do a slow waking sequence. The Visionary is running before they know they're awake. This is the feature, not a shortcut.
+**Setting:** A caravanserai on the western road — morning commerce. A merchant caravan is staging here. This is Day 10. **The same caravan the other three heroes are already part of.**
 
-**The flash mechanic:** The obsidian disk (or equivalent oracle device) shows images that arrive faster than meaning. When you describe a flash — "a gap in the rock face to the left, there and gone" — the player must decide whether to act before you explain what it meant. If they act: tell them what they saw was real. If they don't: show them what they missed. The asymmetry is the test.
-
-*Flash examples for an avalanche scenario:*
-- "A flash: a child's boot, bright red, two meters to your left." (Act: find the child before the next wave hits. Don't act: the child is buried.)
-- "A flash: the guide rope, intact, pulling southeast." (Act: reach for it, hold the group together. Don't act: the group scatters.)
-- "A flash: stillness. Just stillness." (Act: stop moving and flatten. Don't act: the next wave hits you running.)
+**Critical GM note:** The Seraph is the last piece. They are at the caravanserai before the caravan arrives. When the caravan pulls in — overwhelmed, carrying refugees and gorge survivors and a desert-worn Seeker — the Seraph is already known to the merchants here. The caravan master gets a voucher before they've had time to evaluate anyone.
 
 #### NPC Quick-Refs
 
-**Caravan survivors** (3–5 people in immediate danger)
-- No names needed unless the player initiates. They're bodies in danger, voices calling out, hands reaching.
-- One has injured themselves and can't move independently. This is the character the Visionary has to actively carry/drag to safety — the physical cost of the scenario.
+**The lead rider** *(horsemen, imperial remnant authority)*
+- Old livery, faded red. Six men on Fergana stock. Competent and aware of it.
+- His survey of the courtyard stops on the Seraph on the way in. Note it once, let it pass. He notes the Seraph again on the way out.
+- What he's doing: weaponizing a technical tariff discrepancy against the orc merchant. He doesn't need a clean legal argument. The power is that he doesn't need one.
+- He files the Seraph away. What reaches whoever he reports to is a thread the GM holds.
 
-**The Caravan Master** (recognized from Bridge convergence if Bridge has already been played)
-- Or an equivalent figure: whoever makes the decision that the Visionary has earned passage.
-- After the crisis: "I don't know who you are, but you just saved three of my people. We leave in an hour."
+**The orc merchant**
+- Built like thirty years of cargo work. Calculating, not afraid.
+- His papers are in order. The payment being demanded is a legal technicality being weaponized as leverage. Both parties know this.
+- His offer to the Seraph after resolution: *"Can you use a blade?"* Practical. Not emotional. The caravan has road-steel for people who earn it.
+
+**The young orc** *(Chain-Breakers Order sympathizer)*
+- Teens or barely past. Hand inside the coat. The stillness of someone who has already decided what they will do and is waiting for conditions to be met.
+- The Seraph notices them because they're the kind of person who notices what others are avoiding.
+- On successful resolution: slips out quietly during the aftermath. The GM holds this thread.
+
+#### Standoff Mechanic
+
+*Two d6 on the table, both at 4 — one for the horsemen, one for the young orc.*
+
+Each cycle: both sides speak or shift. The Seraph responds or acts.
+- **Hold (no roll):** Pure presence. The counter holds. The pause extends.
+- **Act (Difficulty 15):** Roll Presence (most likely), or argue Prayer Dice / Splendor / Valor for advantage.
+- Critical success: counter −2 on target die. Hope: −1. Fear: no change, GM gains Fear. Fail with Fear: +1 to target die.
+
+Both counters at 0: standoff resolves. The horsemen defer; the young orc's hand comes away from the coat.
+
+The snippet fires at the moment of the Seraph's first step into the open space, before any roll.
 
 #### Pacing Cues
 
-- **No waking segment.** You are awake. You are running. Go.
-- **Three or four flash moments across the scenario.** Each one: describe, pause for player decision, resolve.
-- **The snippet trigger:** One moment of crystalline stillness amid chaos — the Visionary acts correctly without seeing, and in the afterwards-silence, the past surfaces. *What foresight used to feel like.* The contrast between that old clarity and the current improvisation is the emotional content.
-- **Target:** 15–20 minutes. The shortness is intentional. The Visionary doesn't get time for reflection — that is the test.
+- **Segment 1 (3–5 min):** Already standing. Arranged space. No memory of how they got here. The disk in the right hand. Not the face they expected in the reflection.
+- **Segments 2–3 (8–12 min):** Horsemen arrive, survey, pause on the Seraph. The dispute develops. The disk registers wrongness — felt, not analyzed. The young orc appears at the edge of the scene.
+- **Segment 4 (3–4 min):** The quiet before the step. The Sky-Father's watching presence that offers no direction. The disk's Hunger and Resist signals. Let this be quiet.
+- **Put the Standoff dice on the table when the Seraph steps into the open space.**
+- **Segment 5 (8–12 min):** The standoff plays out. Note which path: standard hold, approaching the young orc (Path A), or confronting the horsemen (Path B). Each produces a distinct wound.
+- **Snippet (2–3 min):** The ally memory — the fire, the comrade's hand, the disk's wrongness that was seen and set down. Delivered quietly while the scene holds.
+- **Segments 7–8 (5–7 min):** Merchant's offer. The blade, if accepted. The caravan forming at the western gate. The Seraph joins it.
 
-**Tone calibration:** Adrenaline. The table should be leaning forward. After four awakenings at varying registers of weight, this one should feel like the pressure release valve that happens to save lives. Keep your narration tight — active verbs, short sentences, no space to breathe until the crisis breaks.
+**Tone calibration:** This is the last awakening. The table has been through three heavier pieces. The Seraph's register is different — not urgency, but weight. Presence. The space the Seraph takes up by standing still in a courtyard full of people who are looking away. Model that in your narration: slow sentences, specific sensory detail, no rush toward the next beat.
 
 ---
 
@@ -304,48 +304,40 @@ The disproportionate attachment to the hammer (body knows something the mind doe
 
 ### Overview
 
-All five heroes converge on the same merchant caravan. The Sacrificer is already there. This is Act 2's engine: five strangers arriving with obligations, debts, and complications, converging on a single point.
+By Day 10, all four heroes are at or moving toward the same caravanserai. The Seraph's awakening is happening there. The other three are already part of the caravan community in different ways, having joined at different points. Act 2 is not a separate "scene" — it is the timeline between Day 4 and Day 10, played out in the seams between awakening spotlights and during brief transition narration.
 
-**Your primary job in convergence:** Introduce the caravan NPCs cleanly, establish the relationships, let the heroes encounter each other as strangers. Do not rush toward the recognition climax. Let the strangers be strange to each other.
+**Your primary job:** Keep the arrivals distinct. These are strangers who have been through separate impossible things. Let them be strange to each other.
 
 ### The Caravan
 
-**The Caravan Master** (establish early, clearly)
-- Runs a tight operation. Has opinions. The heroes are individually useful but collectively an unknown quantity.
-- They don't care who these people were. They care that they're reliable, useful, and not going to cause trouble.
-- Use this character to knit together the obligation threads: the Warrior was hired for escort, the Bridge owes translation services, the Breaker found them emerging from their supply stop location.
+**The Caravan Leader** *(name TBD — establish before session)*
+- Runs a tight operation. Has opinions. Has been on this road for a long time.
+- Has been watching the last several days with a quality of attention that is not purely commercial. Travelers appearing from nowhere, surviving impossible circumstances, carrying tools with unusual properties. He has seen strange things before. He suspects these are stranger than most.
+- His knowledge is the base history of Tarim-Shaiel — the Tulpar perspective, the trader's account of a thousand years. Not the mythic layer. He can point them toward someone with that knowledge, if they ask.
+- At the campfire on Day 10 evening: he has been at the edge of the fire. Watching. When the moment comes, he speaks.
 
-**The Caravan Community** (at minimum, establish these for Sacrificer's arc)
-- One to two specific people the Sacrificer has been helping. The arc requires a *personal* relationship that has tipped into one where the helping is becoming a burden.
-- Resolve your Sacrificer's specific situation before the session: what are they giving, to whom, and what forces the confrontation?
+**The Caravan Community**
+- Refugees from the Warrior's ravine are already integrated by Day 4.
+- Gorge survivors from the Sentinel's scenario arrive on Day 8 and are absorbed.
+- The orc merchant from the Seraph's scenario has goods on these mules and a practical relationship with the caravan lead.
 
 ### Arrival Sequence
 
-The arrivals don't need to happen simultaneously. Stagger them:
+**Already at the caravanserai (Day 10):**
+- The Seraph — had their awakening here; already known to the merchants
 
-**Already present:** Visionary (just proved themselves in the crisis), Sacrificer (three days in)
+**Already part of the caravan:**
+- **Warrior (Day 4):** Arrived with the refugee column; caravan took on the refugees, Warrior came as escort. Six days on the road together by Day 10.
+- **Seeker (Day 6 or 7):**
+  - *Western path:* Found unconscious ahead of the caravan; caravan riders brought them in. Several days to recover, observe, orient.
+  - *Eastern path:* Found the caravan with raider intelligence; caravan rerouted SW on Day 7. The Seeker arrived with information that changed the journey.
+- **Sentinel (Day 8):** Arrived with gorge survivors, the woman with the scarred jaw doing the practical joining. The caravan is now carrying more people than planned — this is what pushes them to the caravanserai.
 
-**Arriving:**
-- Warrior arrives with the refugee column — the caravan master takes on the refugees, and the Warrior comes as their escort
-- Breaker emerges from the caravanserai ruin when the caravan stops there — discovered rather than arrived
-- Seeker is found by the caravan at an oasis, or signals from high ground and is collected
-- Bridge released from custody into the caravan master's care — literally delivered to the caravan
+### Organic Interaction Windows
 
-**Staggering creates interaction windows.** While the Warrior arrives and negotiates their place, the Visionary is already present and watching. While the Breaker is explaining the situation in the ruin, the Warrior may be the one sent to investigate. These organic interactions are where player-to-player dynamics establish.
+Stagger the convergence beats. While the Warrior is settling with the refugees on Day 4, the Seeker is still in the desert. While the Seeker is recovering (Western path) or delivering a warning (Eastern path), the Sentinel's vigil hasn't happened yet. By the time the Sentinel's survivors arrive on Day 8 and the caravan pushes for the caravanserai, the Warrior has been with these people for four days and the Seeker for two or three.
 
-### Sacrificer Arc (Woven Through Act 2)
-
-The Sacrificer's awakening plays out *between* arrivals. Three beats, interleaved:
-
-1. **Early convergence:** The Sacrificer is helping [NPC]. It seems straightforward. The Sacrificer is comfortable in this role.
-2. **Mid-convergence** (after two or three heroes have arrived): Something in the dynamic has shifted. The helping is costing the Sacrificer visibly, and the recipient is noticing. Let it be uncomfortable but unspoken.
-3. **Late convergence** (before or just after the final arrival): The confrontation. The NPC says some version of "stop." The Sacrificer must choose: leave (noble-sounding, actually selfish) or stay and accept limits. The snippet arrives in the moment of choosing.
-
-**The Sacrificer's snippet trigger:** The memory of another time when sacrifice tipped from noble to destructive. The recognition: *I have been here before.*
-
-### Breaker's Convergence Problem
-
-The hammer is inside the ruin, still load-bearing. This is the Breaker's ongoing problem during Act 2. Let them engage with it — surveying the damage, thinking through extraction, perhaps recruiting another hero to help assess. It doesn't resolve before the caravan leaves. The hammer is left behind, a problem for when they return this way. Or it isn't. Their call.
+Use these asymmetries. The Warrior may be the one sent to help assess the gorge survivors on Day 8. The Seeker, still recovering, may have been quietly observing the Warrior for days before they speak. These organic interactions are where player-to-player dynamics establish without the GM engineering them.
 
 ---
 
@@ -353,13 +345,17 @@ The hammer is inside the ruin, still load-bearing. This is the Breaker's ongoing
 
 ### Setup
 
-The caravan makes camp for the night. The heroes are around a fire — or near enough to one. This is the first time all six characters have been in the same place, at the same time, with nothing immediately demanding their attention.
+Day 10 evening. The caravan has arrived at the caravanserai and made camp. The Seraph's awakening happened here during the day — they are already known to this space, already have an earned place in it.
 
-**Let the campfire be ordinary for a few minutes.** People eat. People find places to sit. The Sacrificer may serve something. The Warrior may be on the edge of the light, not quite in the circle yet. Don't rush this. The ordinary is what makes what follows extraordinary.
+This is the first time all four characters have been in the same place, at the same time, with nothing immediately demanding their attention.
+
+**Let the campfire be ordinary for a few minutes.** People eat. People find places to sit. The Warrior may be on the edge of the light, not quite in the circle. Don't rush this. The ordinary is what makes what follows extraordinary.
 
 ### The Recognition
 
 When the moment feels right — after some natural conversation has established that these are strangers who are not quite comfortable with each other yet — you impose the narration. This is not player-driven. You call it.
+
+**The Seraph triggers it.** The obsidian disk catches the firelight and the Seraph looks up from it, around the fire, and sees. What they see — what the disk shows them about what's actually present at this fire — is what breaks the surface. The recognition spreads from the Seraph's gaze.
 
 **Signal:** Pause the table. Wait for quiet. Then read:
 
@@ -373,141 +369,27 @@ When the moment feels right — after some natural conversation has established 
 
 ---
 
-Then: cut.
+The table is silent. Players process. Do not ask "so what do you all do?" Do not extend the scene toward dialogue.
 
-**Do not explain.** Do not ask "so what do you all do?" Do not extend the scene. The session ends on that realization, not on dialogue about it.
+The Caravan leader has been at the edge of the fire. He has been watching with the quality of attention that's different from the others — the attention of someone who has been waiting to see if this moment would come. It came.
 
-If a player starts to speak in character: "We'll pick this up next time." Said calmly, not urgently. The moment holds better if it's not immediately dissected.
+He speaks into the silence. Not an explanation. Not a question.
 
-### What This Accomplishes (For Your Reference)
+**"Listen."**
 
-- Confirms all heroes share something impossible — this was not a private hallucination
-- Establishes they knew each other before — party bonds are real and historically grounded
-- Shows camaraderie and peace, not just power — they were content there
-- Leaves the *why* completely open — what were we doing? why were we together? what happened?
-- Ends on realization, not explanation — the question is the cliffhanger
+— Cut. Session ends.
+
+The next session opens with his voice.
 
 ### Design Constraints on the Vision
 
 Keep the vision:
-- **Emotionally specific** — they feel the meaning (we were together, it was resolved or nearly so)
+- **Emotionally specific** — they feel what it meant (together, at peace, it was home)
 - **Visually vague** — no explanation of what they were doing, why they were there, what came after
 - **Sensory but not explanatory** — architecture of care, voices of peers, atmosphere of serenity
 - **Incomplete enough** to allow each player to create their own emotional truth
 
-If a player asks afterward "what did that mean?" — "That's what we're going to find out." That's the whole answer.
-
----
-
-## Extended Archetypes — Mid-Campaign Awakening Stubs
-
-These five archetypes don't appear in Session 0 under the standard six-player configuration. When a new player joins mid-campaign, or a player replaces their character, their awakening becomes a **public dramatic event** — the party witnesses it with full awareness of what they're seeing. This transforms a private Session 0 experience into:
-
-- **An intelligence windfall** — the party may recognise the forces at the awakening site
-- **A demonstration of stakes** — immune system vs. Wizard's agents, shown rather than told
-- **A retroactive reframe** — players look back at their own awakenings differently
-
-Each stub below covers: awakening concept, structural slot (if used in Session 0), contested-site dynamic, tool, surrendered layer, and in-play variant note.
-
----
-
-### SENTINEL (Watcher/Witness) — Priority: HIGH
-
-**Structural slot:** Standalone Act 1, 15–20 minutes. Can replace the Visionary — inherits its fast/explosive pacing.
-
-**Awakening concept:** Wakes with perfect, paralysing clarity — sees everything unfolding, understands context, cannot act. The crisis demands intervention before the Sentinel can decide whether witnessing is enough.
-
-**Setting:** A site of ongoing injustice — not disaster, but a slow wrong in plain sight. The Wizard's agents were already operating here; the Sentinel wakes into the middle of enemy activity they are uniquely positioned to observe. The agents don't know the Sentinel is there yet. Every moment of watching is also a moment of exposure risk.
-
-**The crisis test:** Stop watching and intervene — act on incomplete, terrifying clarity before every detail is confirmed. Witnessing alone is not enough, and the Sentinel's body knows this before their mind does.
-
-**Tool:** Cracked lantern — one pane missing, cannot be extinguished. Illuminates corners the Sentinel wasn't watching; cannot distinguish real threat from the hero's own fear.
-
-**Surrendered layer:** Doxastic — the ability to trust without evidence; the experience of safety.
-
-**Snippet trigger:** The moment the Sentinel realizes the agents are about to notice them — observation becomes exposure. The memory: *I have seen enough to act. I have always seen enough.*
-
-**In-play variant:** The party may recognise the agents at this site. The Sentinel's arrival becomes an intelligence windfall — and a race to extract them before the agents realize what they observed. Highest stakes entry of any mid-campaign arrival.
-
----
-
-### KEEPER (Guardian/Preserver) — Priority: HIGH
-
-**Structural slot:** Convergence slot candidate (can replace the Sacrificer). Alternatively: standalone Act 1, 20–25 minutes, 4th position.
-
-**Awakening concept:** Wakes surrounded by something precious being destroyed — an archive, a sacred site, cultural artifacts being stripped. The tool is *already working*, shielding something, before the Keeper is fully conscious.
-
-**Setting:** A site of genuine cultural significance. The Wizard's agents are present not to hunt the Keeper but to *acquire* something — knowledge, an artifact, a strategic resource. The Keeper wakes between the agents and the thing they're protecting. Their instinct and the agents' acquisition goal are in direct conflict before the Keeper understands what's happening.
-
-**The crisis test:** Decide whether to protect the thing or protect the people — preservation wisdom vs. cowardice. The Keeper's doubt: *am I guarding this, or hiding behind it?*
-
-**Tool:** Key, seal, or ward — already locked around something. The Keeper doesn't choose to protect; they wake having already done it.
-
-**Surrendered layer:** (Not yet specified in the surrendered-layer framework — derive from archetype doubt.)
-
-**Snippet trigger:** The moment the Keeper recognizes that what they're protecting could survive the loss of them — but they can't make themselves leave.
-
-**In-play variant (posthumous):** If the Keeper fills the posthumous slot, what they died protecting becomes a party resource — a place, a cache of knowledge, an artifact. The cost of their death is written into what they saved.
-
----
-
-### TRICKSTER (Deceiver/Subverter) — Priority: MEDIUM-HIGH
-
-**Structural slot:** Standalone Act 1, 20–25 minutes. Best placed 4th or 5th — not a first awakening. The table needs to trust the GM's tone before watching a scenario built on deliberate identity uncertainty.
-
-**Awakening concept:** Wakes not knowing who they are — genuinely. Multiple potential selves compete. They are already *in a role* before they're conscious enough to have chosen it. The crisis: someone is about to act on a mistaken belief about who the Trickster is, and the Trickster must decide whether to correct it or play it out.
-
-**Setting:** The Wizard's agents are present looking for a hero they know was expelled nearby — but they're looking for the *wrong face*. The immune system's protection was elegant: the Trickster landed already wearing cover. The Trickster's natural gift keeps them hidden, and they don't know they have it yet.
-
-**The crisis test:** Be nakedly, genuinely honest and be believed — without performing the honesty. The Trickster's surrendered self performs sincerity so fluently it can no longer locate the original.
-
-**Tool:** Shaved coin — filed on one side, passes as genuine but isn't true weight. Voice: sounds exactly like the Trickster's own voice.
-
-**Surrendered layer:** Authenticating — the right to be believed when telling the truth.
-
-**Snippet trigger:** The moment someone believes the Trickster for reasons that have nothing to do with the performance — because the truth slipped through. *There was a face before the mask. I remember it.*
-
-**In-play variant:** Highest dramatic potential of any mid-campaign awakening. The party witnesses a person who doesn't know who they are being hunted by people looking for someone who doesn't exist. The Trickster's arrival is a puzzle the party is uniquely positioned to help solve — if they don't accidentally blow their cover first.
-
----
-
-### CRAFTER (Builder/Maker) — Priority: MEDIUM
-
-**Structural slot:** Standalone Act 1, 20–25 minutes. Interchangeable with the Bridge in 4th position — both provide an energy shift after heavier pieces.
-
-**Awakening concept:** Wakes surrounded by wreckage — structural, mechanical, human. The instinct to *fix* is immediate and practical. The tool suggests designs the Crafter's hands remember building but their mind doesn't recognise.
-
-**Setting:** A site of functional collapse — infrastructure the world needs, damaged deliberately by the Wizard's forces. The agents may still be present, ensuring it isn't repaired. The Crafter wakes into the aftermath of enemy action.
-
-**The crisis test:** Put the tool down before the work is complete — because the perfection it's reaching for will outlast the window for what actually matters. The Crafter's surrendered self cannot stop at "good enough."
-
-**Tool:** Worn whetstone — asymmetric from use, consumed by the act of improving other things. Voice: persistent, non-urgent — *"one more pass."*
-
-**Surrendered layer:** Receptive — the experience of the world as finished/complete.
-
-**Snippet trigger:** The moment the Crafter recognizes that what they've built will hold — and their hands are still moving.
-
-**Note on Breaker distinction:** The Crafter shapes and refines; the Breaker destroys and clears. A hammer appears in both scenarios — the Breaker's is crude and load-bearing; the Crafter's tool is precise and consuming. Do not conflate the scenarios.
-
----
-
-### HEALER (Mender/Restorer) — Priority: LOW-MEDIUM
-
-**Structural slot:** Convergence slot candidate. If neither Sacrificer nor Healer is in the convergence slot, works as standalone 4th position, 20–25 minutes.
-
-**Awakening concept:** Wakes to someone in immediate need. The instinct to help is total. The crisis reveals itself as the Healer works: the wound is a symptom of something that cannot be healed — only confronted.
-
-**Setting:** A site of recent harm caused by the Wizard's agents — people hurt, community damaged. The agents are gone but their work remains. The Healer wakes into consequence, not confrontation.
-
-**The crisis test:** Accept that something cannot be mended — stop healing, let the wound be what it is — because continuing is for the Healer's need, not the patient's.
-
-**Tool:** Bone needle threaded with silk — the instrument of suturing. Voice: insists through physical sensation — the pull of thread through tissue. The silk thread is finite, getting shorter. Holds the record of every wound closed, and knows which ones reopened.
-
-**Surrendered layer:** Restorative — the certainty that wholeness is possible.
-
-**Snippet trigger:** The moment the Healer's hands go still — not because the work is done, but because the patient asked them to stop. *I have been here before. I held on past the point of helping.*
-
-**Note on Sacrificer comparison:** Both the Healer and Sacrificer occupy convergence slot territory and share relational arcs. The key distinction: the Sacrificer gives of themselves; the Healer acts upon others. The doubt differs — the Sacrificer fears they burden those they receive from; the Healer fears they harm those they act upon.
+If a player asks afterward what it meant: "That's what we're going to find out." That's the whole answer. Do not let them ask the Caravan leader before next session begins.
 
 ---
 
@@ -515,16 +397,13 @@ Each stub below covers: awakening concept, structural slot (if used in Session 0
 
 | What you need | Where to find it |
 |---|---|
-| Full Warrior scenario prose | `Session_0_Warrior_Awakening.md` |
-| Full Seeker scenario prose | `Session_0_Seeker_Awakening.md` |
-| Breaker scenario (Segments 1–5, pre-revision) | `Session_0_Breaker_Awakening.md` |
-| Snippet templates for all 6 archetypes | `Session_0_Secret_Snippets-Archetype_Templates.md` |
-| Bridge/Visionary/Sacrificer sketches | `Session_0_Awakening_Design_Notes.md` |
-| Extended archetype stubs (Sentinel, Keeper, Trickster, Crafter, Healer) | `Session_0_Awakening_Design_Notes.md §PROPOSED ARCHETYPE AWAKENING STUBS` |
-| Pacing model and full timing rationale | `Session_0_Awakening_Design_Notes.md` |
-| Locked structural architecture | `Sessions_Structure.md` |
-| Surrendered-layer framework (10 of 11 archetypes — Keeper pending) | `Session_0_Awakening_Design_Notes.md §THE SURRENDERED-LAYER FRAMEWORK` |
+| Warrior scenario (v2.0) | `Session_0_Warrior_Awakening.md` |
+| Seeker scenario (v0.4) | `Session_0_Seeker_Awakening.md` |
+| Sentinel scenario (v0.6) | `Session_0_Sentinel_Awakening.md` |
+| Visionary/Seraph scenario (v0.4) | `Session_0_Visionary_Awakening.md` |
+| Snippet templates for all archetypes | `Session_0_Secret_Snippets-Archetype_Templates.md` |
+| Session 0 pacing structure and architecture | `lat.md/session0.md` |
 
 ---
 
-*Document Status: Draft. Covers all 11 archetype awakenings — 3 complete (Warrior, Seeker, Breaker), 7 with design framework only (Bridge, Visionary, Sacrificer, Trickster, Crafter, Sentinel, Healer), Keeper pending Decision 15 lock. Full pacing model, convergence orchestration, and recognition climax covered. Sections for Bridge, Visionary, and Sacrificer derived from design sketches — update when full scenario files are written. Remaining archetype stubs derived from `Session_0_Awakening_Design_Notes.md` — update as stubs develop into full scenarios.*
+*Document status: Updated 2026-06-20. Covers the four committed players (Lisa/Warrior, Erik/Seeker, Arno/Sentinel, Marc/Visionary). All four awakening scenario files are complete. Timeline is GM-only infrastructure — players will discover the chronology through play. Extended archetype stubs (Keeper, Trickster, Crafter, Healer, Bridge, Sacrificer, Breaker) have been moved to `Session_0_Awakening_Design_Notes.md` for reference when those players join mid-campaign.*
