@@ -84,17 +84,17 @@ Already standing. No memory of becoming so.
 
 Blue sky above the caravanserai walls. Dust and cookfire smoke, the light early and gold. A full courtyard at morning — animals, cargo, handlers, the press and noise of commerce in three languages the mouth knows without the mind having caught up to knowing them.
 
-Except here. Around this figure: a small clearing. Not conspicuous. People flowing past and around and away without looking — the way water moves around something fixed in a stream, not by decision but by what is simply there.
+Except here. Around you: a small clearing. Not conspicuous. People flowing past and around and away without looking — the way water moves around something fixed in a stream, not by decision but by what is simply there.
 
 This has been true for some time. No one has looked directly.
 
 Something is in the right hand: flat, round, the diameter of the palm. Obsidian, one face polished to a mirror finish. Cold where it has not been held; warm at the grip.
 
-Looking into it: the courtyard, the well, the morning light. Their own face at the center of all of it.
+Looking into it: the courtyard, the well, the morning light. Your own face at the center of all of it.
 
-Not the face they expected.
+Not the face you expected.
 
-The disk does not explain. It shows. The crowd has already been responding to what it shows — the arranged space, the careful non-attention — and the person at the center of the reflection is the last to understand what has already begun.
+The disk does not explain. It shows. The crowd has already been responding to what it shows — the arranged space, the careful non-attention — and you are the last to understand what has already begun.
 
 ### GM Notes
 
@@ -109,7 +109,7 @@ The disk does not explain. It shows. The crowd has already been responding to wh
 
 ### Understanding the Space
 
-**[The setting resolves. The Seraph orients. And then the quality of the morning changes.]**
+**[The setting resolves. You orient. And then the quality of the morning changes.]**
 
 Before the disk can be lowered, the courtyard shifts.
 
@@ -123,7 +123,7 @@ Old livery: faded red at the shoulders, a device on the chest that would have me
 
 The lead rider surveys the courtyard the way a ledger-keeper surveys a column of figures. Merchants. Cargo. Strangers. Anything worth noting.
 
-His survey stops at the figure with the disk. Not long. But it stops.
+His survey stops at you. Not long. But it stops.
 
 Then continues, with the controlled neutrality of a man who has noted something and will return to it when he is ready.
 
@@ -168,11 +168,11 @@ And in the reflection — something is not what it claims to be. Not in the ride
 
 Then, at the edge of the crowd:
 
-Someone watching the confrontation with a quality of attention that is different from the crowd's studied avoidance. Young — teens or barely past. Orc, dressed as a traveler but not moving as travelers move. The particular stillness of someone who has already decided what they will do and is waiting to find out whether the conditions are being met.
+Someone watching the confrontation with a quality of attention that is different from the crowd's studied avoidance. Young — teens or barely past. Orc, dressed as a traveler but not moving as travelers move. The stillness of someone who has already decided what they will do and is waiting to find out whether the conditions are being met.
 
 The hand inside the coat.
 
-The crowd around this person has given them the same unconscious space it gave the Seraph — but different. The space around the Seraph is uncertainty. The space around the young orc is the instinct of people who have learned to read the specific stillness of someone who has already chosen.
+The crowd around this person has given them the same unconscious space it gave you — but different. The space around you is uncertainty. The space around the young orc is the instinct of people who have learned to read the specific stillness of someone who has already chosen.
 
 ### GM Notes
 
@@ -187,7 +187,7 @@ The crowd around this person has given them the same unconscious space it gave t
 
 ### The Quiet Before the Step
 
-**[The Seraph, the disk, and the absence of the guidance that was supposed to come.]**
+**[You, the disk, and the absence of the guidance that was supposed to come.]**
 
 Three silences happening simultaneously:
 
@@ -195,11 +195,11 @@ The merchant has not answered. The rider has not moved. The space between the de
 
 The young orc is still.
 
-The Seraph, and the disk.
+You, and the disk.
 
-The disk has shifted in the hand without being directed — the angle has changed, catching the scene from a different geometry. The obsidian holds the morning, the confrontation, the crowd's practiced non-attention. Their own face at the center of it all.
+The disk has shifted in the hand without being directed — the angle has changed, catching the scene from a different geometry. The obsidian holds the morning, the confrontation, the crowd's practiced non-attention. Your own face at the center of it all.
 
-Still more than expected. Still holding something the surrounding faces don't hold. The disk is not offering an explanation. It is showing the same face it showed in the first moment — the face the crowd has been responding to with arranged space and careful non-attention — and showing it with the patience of something that has been waiting a long time to show it to the person it belongs to.
+Still more than expected. Still holding something the surrounding faces don't hold. The disk is not offering an explanation. It is showing the same face it showed in the first moment — the face the crowd has been responding to with arranged space and careful non-attention — and showing it with the patience of something that has been waiting a long time to show it to you.
 
 From somewhere without location: a presence. Vast. The quality of attention that belongs to something that has been watching since before this caravanserai was built, from a distance that does not diminish the attention. Not direction. Not voice. Just: *watching. Noting. Present to what is about to happen.*
 
@@ -237,7 +237,7 @@ The disk in the hand. The face in the disk. The watching from without location.
 
 The body moves.
 
-Not decided — moved. The feet have already crossed some threshold before the mind has finished the sentence that would have preceded the decision. The open ground between the crowd and the confrontation is closing. The crowd is not in the way. It was never in the way. It has arranged itself, without acknowledging it, around the fact that this person was going to move.
+Not decided — moved. The feet have already crossed some threshold before the mind has finished the sentence that would have preceded the decision. The open ground between the crowd and the confrontation is closing. The crowd is not in the way. It was never in the way. It has arranged itself, without acknowledging it, around the fact that you were going to move.
 
 One of the merchants near the well inhales.
 
@@ -247,7 +247,7 @@ The young orc goes still in a different way — the stillness of someone who was
 
 ---
 
-When the Seraph enters the open space, something redistributes. Not magic. Not threat. Just: the weight of the moment finding a new center. The rider is looking at the Seraph the way he looked at them when he first entered the courtyard, but this time he does not look away. The merchant has gone very still.
+When you enter the open space, something redistributes. Not magic. Not threat. Just: the weight of the moment finding a new center. The rider is looking at you the way he looked at you when he first entered the courtyard, but this time he does not look away. The merchant has gone very still.
 
 Time extends.
 
@@ -290,11 +290,11 @@ If the Seraph moves toward the young orc with the posture of someone with power 
 
 Not heavier. Wrong.
 
-The reflection shows the young orc's posture before the Seraph's mind has consciously read it: braced. The specific preparation for impact that belongs to someone who has learned authority as a word for *incoming.* The disk is showing them what they're reading as, from outside, before they can correct it.
+The reflection shows the young orc's posture before your mind has consciously read it: braced. The preparation for impact that belongs to someone who has learned authority as a word for *incoming.* The disk is showing you what you're reading as, from outside, before you can correct it.
 
 The young orc's hand comes out of the coat. Not slowly.
 
-The horsemen do not intervene. They watch with the particular attention of professionals assessing whether a situation has resolved itself usefully.
+The horsemen do not intervene. They watch with the attention of professionals assessing whether a situation has resolved itself usefully.
 
 The scuffle is brief and not lethal — the young orc is not trying to kill anyone; they are trying to make the authority stop coming toward them. Resolve it appropriate to the situation and the Seraph's capabilities. When it ends, both parties are breathing harder than the violence warranted.
 
@@ -310,7 +310,7 @@ If the Seraph challenges the horsemen directly — interposes with Valor's weigh
 
 What happens next is professional and impersonal. These are men who know how to respond to challenges from individuals without recognized authority in public spaces. They have done it before. It is not a beating — it is a demonstration, a reminder, a teaching in the specific language of men who enforce things for a living. Non-lethal. Efficient. Not particularly interested in the Seraph as a person.
 
-**The disk during the engagement:** Divided — like a lantern held at two angles at once. There is something right about standing against authority that has expired. Valor is not wrong here. But the disk's reflection at the moment of engagement shows the Seraph what they look like from outside: not the radiant figure the crowd has been giving space to, but someone who has made themselves a combatant. Someone who has given the horsemen exactly the kind of problem they are equipped to solve.
+**The disk during the engagement:** Divided — like a lantern held at two angles at once. There is something right about standing against authority that has expired. Valor is not wrong here. But the disk's reflection at the moment of engagement shows you what you look like from outside: not the figure the crowd has been giving space to, but someone who has made themselves a combatant — someone who has given the horsemen exactly the kind of problem they are equipped to solve.
 
 The scuffle is more significant than Path A and less clean. Resolve it appropriate to the Seraph's capabilities. When it ends, the horsemen have made their point and the Seraph is on the ground or steadied.
 
@@ -391,7 +391,7 @@ The weight of what the choosing-not-to-see had permitted. Not the event itself �
 
 The lead rider closes his ledger.
 
-No acknowledgment of what changed or why. No recognition of the Seraph, of the pause, of the specific quality of the morning that made pressing the matter cost more than it was worth. He turns his horse with the efficiency of a man who has completed his assessment and found the situation not worth continuing. The formation follows. The hoofbeats cross the courtyard and pass through the main gate and diminish on the eastern road.
+No acknowledgment of what changed or why. No recognition of you, of the pause, of what it cost him to decide this morning wasn't worth continuing. He turns his horse with the efficiency of a man who has completed his assessment and found the situation not worth continuing. The formation follows. The hoofbeats cross the courtyard and pass through the main gate and diminish on the eastern road.
 
 The merchant does not move immediately. He watches the gate for the space of several breaths. Then he begins moving again — the same cargo, the same offload — but with the manner of someone who has remembered that he has a body and it is still here.
 
@@ -399,7 +399,7 @@ The young orc is gone. The hand that came away from the coat, the feet that turn
 
 The courtyard restores itself. The weight-argument resumes. The camels have continued declining the morning. Somewhere, the smithy fire.
 
-The merchant finishes securing the last mule-load. Then he looks at the Seraph — a direct look, the first direct look from anyone in the courtyard since the horsemen arrived.
+The merchant finishes securing the last mule-load. Then he looks at you — a direct look, the first direct look from anyone in the courtyard since the horsemen arrived.
 
 He says something in the trade language, formal and without flourish:
 
@@ -409,7 +409,7 @@ Not a question.
 
 *Can you use a blade?*
 
-The disk in the hand. The reflection: the merchant's face, clear, looking at the Seraph with the expression of someone asking a practical question and meaning it practically. The disk says nothing. It shows the face. The face is offering something.
+The disk in the hand. The reflection: the merchant's face, clear, looking at you with the expression of someone asking a practical question and meaning it practically. The disk says nothing. It shows the face. The face is offering something.
 
 ### GM Notes
 
@@ -436,17 +436,17 @@ Prompt: *"The caravan is forming at the western gate. What does your character c
 
 **[The caravan and what joins it.]**
 
-The caravan forms with the particular organized chaos of its kind: draft animals being persuaded toward appropriate positions, cargo lashed and tested, the lead merchant's voice cutting through the courtyard noise with the authority of someone who has been giving this exact set of instructions for thirty years and has no patience for the animals that haven't learned them.
+The caravan forms the way caravans do: draft animals being persuaded toward their positions, cargo lashed and tested, the lead merchant's voice cutting through the courtyard noise with the authority of someone who has been giving this exact set of instructions for thirty years and has no patience for the animals that haven't learned them.
 
-The Seraph is part of this now. Not because anyone announced it — because they are moving with it, and no one is suggesting otherwise, and the merchant with the eastern silks has already communicated something to the caravan lead, because the caravan lead gave the Seraph the look of a man who has been told something and has decided to accept the information.
+You are part of this now. Not because anyone announced it — because you are moving with it, and no one is suggesting otherwise, and the merchant with the eastern silks has already communicated something to the caravan lead, because the caravan lead gave you the look of a man who has been told something and has decided to accept the information.
 
-*West.* The lead merchant to the Seraph, passing without stopping. *Three days to the waystation. You're welcome to the road.*
+*West.* The lead merchant, passing without stopping. *Three days to the waystation. You're welcome to the road.*
 
 Not generous. Practical. People who have come through difficult mornings in caravanserais tend to need somewhere to go next.
 
 The eastern gate closes behind the last animal. The road west opens.
 
-The disk is in the hand. The blade — if accepted — is at the hip, unfamiliar in a way that will resolve with time and use. The morning has given the Seraph: a direction, a group of people moving through it, and the weight of a memory that arrived without asking and has not finished settling.
+The disk is in the hand. The blade — if accepted — is at the hip, unfamiliar in a way that will resolve with time and use. The morning has given you: a direction, a group of people moving through it, and the weight of a memory that arrived without asking and has not finished settling.
 
 *The difference is not certainty. The difference is the choice.*
 
