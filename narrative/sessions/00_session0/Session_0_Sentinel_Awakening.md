@@ -448,6 +448,8 @@ The snippet arrives at the moment of commitment: when the Sentinel's hands are s
 
 ---
 
+![[Not this Gorge - Sentinel MUSIC.mp3]]
+
 *Not this fortress. Not this gorge.*
 
 *A watchtower at a different pass — larger, older, a structure that had held its position for three hundred years before the night in question. The torches lit along the wall as they always were, the signal fire at the tower's crown, everything correct, everything in place.*
@@ -458,7 +460,7 @@ The snippet arrives at the moment of commitment: when the Sentinel's hands are s
 
 *The fourth thousand. The last of them.*
 
-*And then the messenger, arriving from the direction that had not been watched, because the position was designed to watch the road and not the eastern ridge, because presence at one point cannot be presence at all points, because a watch-fire is a fixed thing and fixed things have edges.*
+*And then the messenger, arriving from the direction that had not been watched, because the position was designed to watch the road and not the eastern ridge, because presence at one point cannot be presence at all points, because a watch-fire is a fixed thing and fixed things have limits.*
 
 *What happened on the eastern ridge that night?*
 
