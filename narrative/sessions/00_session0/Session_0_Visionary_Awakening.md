@@ -78,37 +78,29 @@ The disk is not loyal to the Seraph. Its behavior reflects Warren interests. The
 
 ### Opening Narration
 
-**[No transition. Already here. The disorientation is spatial, not temporal — the question is not when but where, and the answer resolves slowly through sensation.]**
+**[No transition. Already here. Already standing.]**
 
-The smell arrives before anything else: animal dung and hay, cooking smoke, the particular density of many humans in proximity, dust that has been stirred and settled and stirred again by feet and hooves and wind finding its way through a gate. The bright copper note of a smithy fire somewhere at the courtyard's edge. Charcoal and bread. Somewhere, a disagreement about weight.
+Already standing. No memory of becoming so.
 
-Morning.
+Blue sky above the caravanserai walls. Dust and cookfire smoke, the light early and gold. A full courtyard at morning — animals, cargo, handlers, the press and noise of commerce in three languages the mouth knows without the mind having caught up to knowing them.
 
-Already standing. The feet on packed earth, the body upright, positioned in the middle of something already in motion without any memory of arriving.
+Except here. Around this figure: a small clearing. Not conspicuous. People flowing past and around and away without looking — the way water moves around something fixed in a stream, not by decision but by what is simply there.
 
-A caravanserai. The dimensions reveal themselves through the crowd's movement: a courtyard large enough for several caravans simultaneously, walls high and interrupted by rooms and stalls along the perimeter, a well at the center worn rope-smooth at the post. Draft animals at the far end — horses, two camels that have declined to acknowledge the morning. The light comes from the east, low and gold, throwing long shadows off everything vertical.
+This has been true for some time. No one has looked directly.
 
-Voices in three languages that the mouth knows without the mind having caught up to knowing them. The rhythm of commerce, which sounds the same in any tongue: statement, counter, silence, concession.
+Something is in the right hand: flat, round, the diameter of the palm. Obsidian, one face polished to a mirror finish. Cold where it has not been held; warm at the grip.
 
-Three or four people nearest have arranged themselves at a small distance. Not conspicuously — the courtyard is busy enough that space could be incidental. But it is not incidental. It is the space people give when they are uncertain what they are near and have decided that certainty is not presently worth the cost of finding out.
+Looking into it: the courtyard, the well, the morning light. Their own face at the center of all of it.
 
-No one is looking directly.
+Not the face they expected.
 
-The right hand is holding something: flat, round, the diameter of the palm. Obsidian. One face polished to a finish that holds depth without offering it. Cold where it has not been held; warm at the grip.
-
-Looking into it: the courtyard reflected. The well. The camels at the far end. The morning light.
-
-Their own face at the center of it.
-
-Not the face they expected. No one here can be told what was expected — but the face in the disk is more. There is no better word immediately available. More than prepared for. The light catches in it in a way that the surrounding faces don't catch the light. The disk does not explain. It shows. And what the disk shows, the crowd has already been responding to with arranged space and careful non-attention — and the person at the center of the reflection is the last to understand what has already begun.
-
-The disk is warm now where it has been held.
+The disk does not explain. It shows. The crowd has already been responding to what it shows — the arranged space, the careful non-attention — and the person at the center of the reflection is the last to understand what has already begun.
 
 ### GM Notes
 
-- Let the disorientation of "already standing" register before the surroundings do
-- The arranged space is the first signal: something has already been happening that the Seraph wasn't conscious for. The crowd didn't react to them arriving — they reacted to them being there
-- The disk's reflection: do not describe what the Seraph sees beyond *more than expected*. Let the player name it, or not. The point is that the disk is the first mirror, and what it shows doesn't have a word yet
+- The crowd is the environment. Don't let it become backdrop — it's what makes this opening distinct from every other awakening. The Seraph woke surrounded. Something was already happening.
+- The arranged space is the first fact the GM delivers: not "you see a crowd" but "the crowd has given you space, and has been giving it for some time." The crowd didn't react to them arriving. They reacted to them being there.
+- The disk's reflection: do not describe what the Seraph sees beyond *not the face they expected*. Let the player name it, or not. The disk is the first mirror; what it shows doesn't have a word yet.
 - Prompt: *"What does your character do?"*
 
 ---
