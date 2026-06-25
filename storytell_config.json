@@ -1,0 +1,22 @@
+{
+  "campaign": "Tarim Shaiel",
+  "narrator_ensemble": ["julian", "yusra", "mythweaver"],
+  "vault_path": "/Users/mo/Documents/Games/HeroHeaven",
+  "output_subdir": "narrative/sessions",
+  "context_dirs": [
+    "world/",
+    "characters/PCs/",
+    "characters/NPCs/",
+    "narrative/lore/"
+  ],
+  "context_files": [
+    "world/GLOSSARY_PLAYER.md"
+  ],
+  "pc_dir": "characters/PCs",
+  "npc_dir": "characters/NPCs",
+  "campaign_config": "/Users/mo/Documents/Games/HeroHeaven/campaign_config.json",
+  "site_root": null,
+  "persona_dir": null,
+  "session_prefix": "hh",
+  "publish": false
+}

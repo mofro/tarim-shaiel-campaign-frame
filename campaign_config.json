@@ -1,0 +1,14 @@
+{
+  "campaign": "Tarim Shaiel",
+
+  "initial_prompt": "Tarim-Shaiel TTRPG campaign using the Daggerheart system. The heroes are legendary figures — archetypes known as the Warrior, the Seeker, the Breaker, the Visionary, and the Bridge — awakening in the Celestial Peak (Hero Heaven) after a thousand years of rest. Key vocabulary: Tarim-Shaiel, Daggerheart, Held Breath, Hope, Fear, Adversary, Threshold, caravanserai, Silk Road, the Warren, the Liberation, the Scholar's Purge, the Scholar's Remnant, the Silence, the Chain-Breakers, the Azure Convocation, the Celestial Peak, Hero Heaven, the Wizard, Orcish Steppe, Dwarven Archivists.",
+
+  "speaker_names": {
+    "SPEAKER_00": "Mo",
+    "SPEAKER_01": "Lisa",
+    "SPEAKER_02": "Arno",
+    "SPEAKER_03": "Erik",
+    "SPEAKER_04": "Marc",
+    "SPEAKER_05": "Dave"
+  }
+}
