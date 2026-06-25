@@ -16,6 +16,19 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-06-20
+- [HeroHeaven-155] Session 0 GM execution guide — complete rewrite ✅
+  - Full rewrite of `Session_0_GM_NOTES.md` for 4-player roster (Lisa/Warrior, Erik/Seeker, Arno/Sentinel, Marc/Seraph)
+  - 10-day GM-only timeline spine with dual Seeker branches (East/West)
+  - Running order: Warrior → Seeker → Sentinel → Seraph with per-player NPC quick-refs and pacing cues
+  - Caravan leader named **Volkath**
+  - Act 2 convergence rewritten without Bridge/Sacrificer; Act 3 recognition climax with Seraph as trigger, "Listen." as session-end hard cut
+  - Audited all four NPC sections against source awakening files — corrected fabricated names (Darvesh/Nara from Warrior section), wrong Raider Leader dynamic, missing scarred-woman raider, wrong snippet trigger descriptions (Seeker), missing Vigil Clock results (Sentinel noted for follow-up)
+  - Visionary v0.3 → v0.4: second-person narration pass (13 targeted edits in narration blocks)
+  - HeroHeaven-155 closed
+
+---
+
 ### Session 2026-05-27
 - [HeroHeaven-5cf] Daggerheart class primer — P0, blocks player class survey
   - Content file: `world/classes/class_primer.md` committed to main
