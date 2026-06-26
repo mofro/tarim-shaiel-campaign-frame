@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+<div class="page-header">
+  <div class="page-header-eyebrow">{{ eyebrow | default('Session Chronicle') }}</div>
+  <h1>{{ title }}</h1>
+  <div class="page-header-meta">{{ date_str }}{% if campaign %} &middot; {{ campaign }}{% endif %}</div>
+</div>
+{% endblock %}
+
+{% block content %}
+{{ body_html | safe }}
+{% endblock %}
+
+{% block credits %}
+    Tarim-Shaiel &middot; Session Chronicle &middot; {{ title }} &middot; {{ date_str }}
+{% endblock %}
