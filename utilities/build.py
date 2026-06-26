@@ -209,6 +209,8 @@ def _cmd_run(names: list[str], registry: dict, args: argparse.Namespace) -> int:
     _copy_js()
     if args.gm:
         os.environ['TS_GM_MODE'] = '1'
+    if args.standalone:
+        os.environ['TS_STANDALONE'] = '1'
     failed = []
     for name in names:
         if name not in registry:
@@ -257,6 +259,14 @@ def main() -> int:
     parser.add_argument(
         "--gm", action="store_true",
         help="GM mode: include all docs with GM markers + auth guard; sets TS_GM_MODE=1"
+    )
+    parser.add_argument(
+        "--standalone", action="store_true",
+        help=(
+            "Inline all CSS into <style> blocks instead of linking external files. "
+            "Produces portable HTML that works offline or as a printable document. "
+            "Sets TS_STANDALONE=1. Does not affect Netlify output when omitted."
+        ),
     )
 
     args = parser.parse_args()

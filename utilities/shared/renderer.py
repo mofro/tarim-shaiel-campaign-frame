@@ -1,7 +1,20 @@
 """Jinja2 environment and rendering helpers for Tarim-Shaiel generators."""
 
+import os
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+_CSS_DIR = Path(__file__).parent / "css"
+
+
+def _inline_css(*stems: str) -> str:
+    """Read and concatenate CSS files from utilities/shared/css/ for standalone output."""
+    parts = []
+    for stem in stems:
+        path = _CSS_DIR / f"{stem}.css"
+        if path.exists():
+            parts.append(path.read_text(encoding="utf-8"))
+    return "\n".join(parts)
 
 _TEMPLATES_DIR = Path(__file__).parent.parent / "templates"
 
@@ -40,6 +53,8 @@ def render_page(template_name: str, **context) -> str:
     """Render a Jinja2 page template with the given context.
 
     Injects shared constants (favicon, gm_guard_script) into every context.
+    When TS_STANDALONE=1, also injects pre-computed inline_css_html so the
+    template can emit a <style> block instead of <link> tags.
     """
     env = get_env()
     context.setdefault('favicon_svg', _FAVICON_SVG)
@@ -47,5 +62,17 @@ def render_page(template_name: str, **context) -> str:
     context.setdefault('gm_mode', False)
     context.setdefault('extra_css', [])
     context.setdefault('use_base_css', True)
+
+    _standalone = os.environ.get('TS_STANDALONE') == '1'
+    context.setdefault('standalone', _standalone)
+    if _standalone and 'inline_css_html' not in context:
+        stems = ['tokens']
+        if context.get('use_base_css', True):
+            stems += ['base', 'comp-nav', 'comp-sidebar', 'comp-card']
+        stems += list(context.get('extra_css', []))
+        if context.get('gm_mode', False):
+            stems.append('gm')
+        context['inline_css_html'] = f'<style>\n{_inline_css(*stems)}\n</style>'
+
     tmpl = env.get_template(template_name)
     return tmpl.render(**context)
