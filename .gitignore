@@ -62,3 +62,7 @@ moulinette/
 .dolt/
 *.db
 .beads-credential-key
+
+# LK bridge round-trip artifacts (generated exports, LK re-exports, reimports)
+utilities/lk-bridge/roundtrip/
+utilities/lk-bridge/lk_manifest.json
