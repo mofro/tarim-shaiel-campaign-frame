@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-06-19
+last_updated: 2026-07-04
 
 critical_path:
   - Resolve cosmological architecture
@@ -47,6 +47,7 @@ blockers:
 
 ## Quick Summary
 
+- 🔄 **In review (2026-07-04):** LK Bridge — vault↔LegendKeeper converter (`utilities/lk-bridge/`), validator, 24 tests; all four round-trip questions verified live (secrets survive, hidden pages preserved, additive sync works). [PR #273](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/273); HeroHeaven-x1i stays open pending LK API. Pre-existing bugs filed: HeroHeaven-zqo (tests broken on main), HeroHeaven-bl5 (geojson build).
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, Orc cultural framework, Silk Road weapons, Cosmological architecture (all 8 decisions locked 2026-03-17), World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10), Preliminary world diagrams (2026-03-13), HTML publishing pipeline + Netlify deployment (2026-03-15), Visibility gating + Obsidian Shell Commands integration (2026-03-17)
 - 🔄 **Active work:** Session 0 scenarios (3/11 complete: Warrior, Seeker, Breaker; 7 have design framework only; Keeper surrendered layer pending Decision 15), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
 - ✅ **Resolved (2026-04-05):** liberation_aftermath.md rewrite — v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)
