@@ -108,7 +108,12 @@ def _block(node: dict, ids: dict, depth: int = 0) -> str | None:
 def _secret(node: dict, ids: dict) -> str | None:
     attrs = node.get('attrs') or {}
     if attrs.get('extensionKey') not in ('block-secret', ''):
-        return None
+        # LK-authored container blocks (e.g. block-text-field, observed
+        # 2026-07-04) — unwrap: render inner content as plain blocks so
+        # nothing is silently dropped on LK → vault conversion
+        inner = [_block(c, ids) for c in node.get('content', [])]
+        body = '\n\n'.join(b for b in inner if b)
+        return body or None
     title = str((attrs.get('parameters') or {}).get('extensionTitle', '') or '')
     inner_blocks = [_block(c, ids) for c in node.get('content', [])]
     body = '\n'.join(b for b in inner_blocks if b)
