@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LK ProseMirror content dialect (measured, not vanilla ADF)",
+  "description": "Node vocabulary measured from real LK exports (May 2026 + 2026-07-03 post-rewrite). LK is built on the Atlaskit editor (ADF lineage — see schemas/SOURCE.md) but diverges from published ADF in enumerated ways; this schema encodes the dialect LK actually emits and accepts. Applied to each document's 'content' field.",
+  "$ref": "#/definitions/doc",
+  "definitions": {
+    "doc": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"const": "doc"},
+        "content": {"type": "array", "items": {"$ref": "#/definitions/blockNode"}}
+      }
+    },
+    "blockNode": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": ["paragraph", "heading", "bulletList", "orderedList", "listItem",
+                   "blockquote", "rule", "panel", "table", "tableRow", "tableCell",
+                   "tableHeader", "mediaSingle", "layoutSection", "layoutColumn",
+                   "bodiedExtension", "extension", "taskList", "taskItem",
+                   "event", "codeBlock",
+                   "arrow", "bookmark", "draw", "element", "external", "frame",
+                   "free", "geo", "group", "image", "note"]
+        },
+        "attrs": {"type": "object"},
+        "content": {"type": "array", "items": {"$ref": "#/definitions/anyNode"}},
+        "marks": {"type": "array", "items": {"$ref": "#/definitions/mark"}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "heading"}}},
+          "then": {
+            "properties": {
+              "attrs": {
+                "type": "object",
+                "required": ["level"],
+                "properties": {"level": {"type": "integer", "minimum": 1, "maximum": 6},
+                               "id": {"type": "string"}}
+              }
+            },
+            "required": ["attrs"]
+          }
+        },
+        {
+          "if": {"properties": {"type": {"const": "panel"}}},
+          "then": {
+            "properties": {
+              "attrs": {
+                "type": "object",
+                "required": ["panelType"],
+                "properties": {"panelType": {"enum": ["info", "note", "warning", "success", "error"]}}
+              }
+            },
+            "required": ["attrs"]
+          }
+        },
+        {
+          "if": {"properties": {"type": {"const": "bodiedExtension"}}},
+          "then": {
+            "properties": {
+              "attrs": {
+                "type": "object",
+                "required": ["extensionType", "extensionKey"],
+                "properties": {
+                  "extensionType": {"type": "string"},
+                  "extensionKey": {"type": "string"},
+                  "parameters": {"type": "object"},
+                  "layout": {"type": "string"}
+                }
+              }
+            },
+            "required": ["attrs"]
+          }
+        }
+      ]
+    },
+    "inlineNode": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"enum": ["text", "mention", "hardBreak", "inlineExtension", "media", "file", "emoji", "date", "status"]},
+        "text": {"type": "string"},
+        "attrs": {"type": "object"},
+        "marks": {"type": "array", "items": {"$ref": "#/definitions/mark"}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "text"}}},
+          "then": {"required": ["text"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "mention"}}},
+          "then": {
+            "properties": {
+              "attrs": {
+                "type": "object",
+                "required": ["id", "text"],
+                "properties": {
+                  "id": {"type": "string"},
+                  "text": {"type": "string"},
+                  "alias": {"type": "string"},
+                  "accessLevel": {"type": "string"},
+                  "userType": {"type": "string"},
+                  "documentId": {"type": "string"}
+                }
+              }
+            },
+            "required": ["attrs"]
+          }
+        }
+      ]
+    },
+    "anyNode": {
+      "anyOf": [
+        {"$ref": "#/definitions/blockNode"},
+        {"$ref": "#/definitions/inlineNode"}
+      ]
+    },
+    "mark": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"enum": ["strong", "em", "code", "link", "strike", "underline",
+                          "textColor", "subsup", "alignment", "indentation"]},
+        "attrs": {"type": "object"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "link"}}},
+          "then": {
+            "properties": {
+              "attrs": {
+                "type": "object",
+                "required": ["href"],
+                "properties": {"href": {"type": "string"},
+                               "__confluenceMetadata": {"type": ["object", "null"]}}
+              }
+            },
+            "required": ["attrs"]
+          }
+        }
+      ]
+    }
+  }
+}

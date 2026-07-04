@@ -20,7 +20,7 @@ from pathlib import Path
 
 # Make utilities/shared importable regardless of working directory
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from shared.frontmatter import parse_frontmatter
+from shared.frontmatter import parse_frontmatter, doc_type_of
 from shared.md_utils import (
     extract_secret_blocks,
     strip_wikilinks,
@@ -172,7 +172,7 @@ def main() -> None:
 
     raw = src.read_text(encoding='utf-8')
     fm, body = parse_frontmatter(raw)
-    doc_type = fm.get('type', '').lower()
+    doc_type = doc_type_of(fm)  # Schema C aware (content_type → doc_type → legacy type)
 
     if doc_type in ('myth', 'fable', 'lore', 'page'):
         result = generate_myth_md(fm, body)

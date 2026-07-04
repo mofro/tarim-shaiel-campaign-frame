@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LegendKeeper export envelope (reverse-engineered)",
+  "description": "Derived from real LK exports: May 2026 baseline + 2026-07-03 post-rewrite export (verdict: identical envelope schema). The 'hash' field uses an unknown LK algorithm and is NOT verified by LK on import.",
+  "type": "object",
+  "required": ["version", "exportId", "exportedAt", "resources", "calendars", "resourceCount", "hash"],
+  "properties": {
+    "version": {"const": 1},
+    "exportId": {"type": "string", "minLength": 1},
+    "exportedAt": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T"},
+    "resourceCount": {"type": "integer", "minimum": 0},
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "calendars": {"type": "array"},
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "pos", "documents"],
+        "$comment": "parentId omitted entirely on some root resources in post-rewrite exports",
+        "properties": {
+          "schemaVersion": {"const": 1},
+          "id": {"type": "string", "pattern": "^[a-z0-9]{8}$"},
+          "name": {"type": "string"},
+          "parentId": {"type": "string"},
+          "pos": {"type": "string", "minLength": 1},
+          "aliases": {"type": "array"},
+          "banner": {"type": "object"},
+          "createdBy": {"type": "string"},
+          "iconColor": {"type": "string"},
+          "iconGlyph": {"type": "string"},
+          "iconShape": {"type": "string"},
+          "isHidden": {"type": "boolean"},
+          "isLocked": {"type": "boolean"},
+          "properties": {"type": "array"},
+          "showPropertyBar": {"type": "boolean"},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "documents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "type", "content"],
+              "properties": {
+                "id": {"type": "string", "minLength": 1},
+                "type": {"enum": ["page", "time", "blank", "board", "map"]},
+                "presentation": {
+                  "type": "object",
+                  "description": "Optional in post-rewrite LK exports, but null HANGS the importer (proven 2026-05) — bridge exports always emit it; validated as an error when null, a warning when absent"
+                },
+                "content": {
+                  "type": "object",
+                  "$comment": "empty {} on blank documents in post-rewrite exports"
+                },
+                "map": {"type": "object"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

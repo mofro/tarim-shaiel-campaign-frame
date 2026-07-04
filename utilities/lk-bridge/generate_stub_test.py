@@ -20,87 +20,20 @@ import json
 import gzip
 import hashlib
 import argparse
+import sys
 from pathlib import Path
-from datetime import datetime, timezone
 
-NOW = datetime.now(timezone.utc).isoformat(timespec='milliseconds').replace('+00:00', 'Z')
+# Builders now live in the shared lk_schema library (extracted 2026-07-03)
+sys.path.insert(0, str(Path(__file__).parent))
+from lk_schema import doc, resource, heading, para, text, mention
 
-
-def doc(doc_id: str, content_nodes: list, name: str = "Main") -> dict:
-    return {
-        "id": doc_id,
-        "pos": "Q",
-        "createdAt": NOW,
-        "updatedAt": NOW,
-        "locatorId": f"document:{doc_id}",
-        "name": name,
-        "type": "page",
-        "isHidden": False,
-        "isFullWidth": False,
-        "isFirst": True,
-        "transforms": [],
-        "sources": [],
-        "presentation": {"documentType": "page"},
-        "content": {
-            "type": "doc",
-            "content": content_nodes,
-        },
-    }
-
-
-def resource(res_id: str, name: str, parent_id: str, docs: list,
-             tags: list = None, pos: str = "Q") -> dict:
-    return {
-        "schemaVersion": 1,
-        "aliases": [],
-        "banner": {"enabled": False, "url": "", "yPosition": 50},
-        "createdBy": "",
-        "iconColor": "#FFFFFF",
-        "iconGlyph": "fas fa-book",
-        "iconShape": "pin-icon",
-        "id": res_id,
-        "isHidden": False,
-        "isLocked": False,
-        "name": name,
-        "parentId": parent_id,
-        "pos": pos,
-        "properties": [],
-        "showPropertyBar": False,
-        "tags": tags or [],
-        "documents": docs,
-    }
-
-
-def heading(text: str, level: int = 1) -> dict:
-    return {"type": "heading", "attrs": {"level": level},
-            "content": [{"type": "text", "text": text}]}
-
-
-def para(*inline) -> dict:
-    return {"type": "paragraph", "content": list(inline)}
-
-
-def text(t: str) -> dict:
-    return {"type": "text", "text": t}
-
-
-def mention(res_id: str, name: str) -> dict:
-    return {"type": "mention",
-            "attrs": {"id": res_id, "text": name, "alias": "",
-                      "accessLevel": "", "userType": ""}}
+NOW = None  # timestamps now handled by lk_schema.now_iso()
 
 
 def secret_block(*inner_nodes) -> dict:
-    return {
-        "type": "bodiedExtension",
-        "attrs": {
-            "extensionType": "com.algorific.legendkeeper.extensions",
-            "extensionKey": "block-secret",
-            "parameters": {"extensionTitle": "Secret"},
-            "layout": "default",
-        },
-        "content": list(inner_nodes),
-    }
+    """Stub-test flavor: LK's default 'Secret' title (legacy call shape)."""
+    from lk_schema import secret_block as _sb
+    return _sb(list(inner_nodes), title="Secret")
 
 
 def build() -> dict:

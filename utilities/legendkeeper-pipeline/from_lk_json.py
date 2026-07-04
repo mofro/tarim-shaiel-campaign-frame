@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """
-LK JSON → Source Markdown Converter
+LK JSON → Source Markdown Converter  [LEGACY — timelines only]
 =====================================
 Converts a LegendKeeper JSON export (timeline) back to the canonical
 Obsidian source format understood by the publishing pipeline.
+
+LEGACY NOTICE (2026-07-03): this script emits pre-Schema-C frontmatter
+(``type: timeline``) and handles timeline documents only. Prose pages are
+handled by the superseding bridge in ``utilities/lk-bridge/`` (``from_lk.py``),
+which emits Schema C frontmatter. Timeline re-import is out of scope for the
+bridge's first round; when it is migrated, this script retires. See GH #213.
 
 Usage:
     python from_lk_json.py Timeline_Export.json

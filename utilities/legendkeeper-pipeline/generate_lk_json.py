@@ -25,6 +25,7 @@ Usage:
 """
 
 import re
+import sys
 import json
 import gzip
 import hashlib
@@ -32,6 +33,10 @@ import argparse
 from pathlib import Path
 from datetime import datetime, timezone
 from uuid import uuid4
+
+# Make utilities/shared importable regardless of working directory
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from shared.frontmatter import doc_type_of
 
 try:
     import yaml
@@ -482,7 +487,7 @@ def main() -> None:
 
     raw = src.read_text(encoding='utf-8')
     fm, body = parse_frontmatter(raw)
-    doc_type = fm.get('type', '').lower()
+    doc_type = doc_type_of(fm)  # Schema C aware (content_type → doc_type → legacy type)
 
     if doc_type == 'timeline':
         export = build_timeline_json(fm, body)

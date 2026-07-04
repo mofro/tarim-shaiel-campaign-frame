@@ -14,6 +14,22 @@ except ImportError:
     _YAML_AVAILABLE = False
 
 
+def doc_type_of(fm: dict) -> str:
+    """Resolve a document's legacy type label across schema generations.
+
+    Schema C (Decision 17, 2026-05-02) replaced the single ``type:`` field with
+    ``domain:`` / ``doc_type:`` / ``content_type:``. Consumers that still route
+    on the old label (LK pipeline: myth/lore/timeline) should call this instead
+    of ``fm.get('type')``: it prefers ``content_type:``, then ``doc_type:``,
+    then falls back to legacy ``type:``. Always returns a lowercase string.
+    """
+    for key in ('content_type', 'doc_type', 'type'):
+        value = fm.get(key)
+        if value:
+            return str(value).strip().lower()
+    return ''
+
+
 def parse_frontmatter(text: str) -> tuple[dict, str]:
     """Return (frontmatter_dict, body_text).
 
