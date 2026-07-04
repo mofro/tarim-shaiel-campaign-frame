@@ -31,7 +31,22 @@ sys.path.insert(0, str(BRIDGE_DIR))
 import pm_to_md
 
 CONTENT_ROOTS = ('world', 'narrative', 'mechanics', 'characters', 'templates')
-SKIP_TAGS = {'section', 'lk-bridge'}      # bridge-generated scaffolding resources
+HUB_MARKER = 'Generated from vault by lk-bridge'
+
+
+def is_scaffolding(resource: dict) -> bool:
+    """Bridge-generated hub/section resources — never real vault content.
+
+    Sections carry the 'section' tag; the hub is identified by its generated
+    marker text, NOT by the 'lk-bridge' tag alone (real vault pages may
+    legitimately carry that tag — e.g. the GM-constructs fixture)."""
+    tags = set(resource.get('tags') or [])
+    if 'section' in tags:
+        return True
+    if 'lk-bridge' in tags:
+        text = json.dumps(resource.get('documents') or [])
+        return HUB_MARKER in text
+    return False
 
 
 def load_export(path: Path) -> dict:
@@ -88,7 +103,7 @@ def main() -> None:
 
     for r in export.get('resources', []):
         tags = r.get('tags') or []
-        if not args.include_scaffolding and (set(tags) & SKIP_TAGS):
+        if not args.include_scaffolding and is_scaffolding(r):
             skipped += 1
             continue
         pages = [d for d in r.get('documents', [])
@@ -109,7 +124,7 @@ def main() -> None:
         else:
             rel_out = Path(slugify(r['name']) + '.md')
 
-        content_tags = [t for t in tags if t not in SKIP_TAGS and t != 'gm-secret']
+        content_tags = [t for t in tags if t not in ('section', 'gm-secret')]
         fm_lines = [
             '---',
             f'title: "{r["name"]}"',
