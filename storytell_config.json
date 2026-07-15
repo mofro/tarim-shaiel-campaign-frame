@@ -1,6 +1,6 @@
 {
   "campaign": "Tarim Shaiel",
-  "narrator_ensemble": ["julian", "yusra", "mythweaver"],
+  "narrator_ensemble": [],
   "vault_path": "/Users/mo/Documents/Games/HeroHeaven",
   "output_subdir": "narrative/sessions",
   "context_dirs": [
