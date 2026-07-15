@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-07-04
+last_updated: 2026-07-15
 
 critical_path:
   - Resolve cosmological architecture
@@ -13,22 +13,23 @@ critical_path:
   - Playtest
 
 players:
-  committed: 3
+  committed: 4
   total: 10
   archetypes:
     - {name: Warrior,    status: committed,  player: "Lisa",  character: "Human / Warrior class"}
     - {name: Sentinel,   status: committed,  player: "Arno",  character: "Pari-Kin / Druid class"}
     - {name: Seeker,     status: committed,  player: "Erik",  character: "Tadbir / Sorcerer"}
-    - {name: Visionary,  status: deciding,   player: "Marc",  character: "Human / Seraph class"}
-    - {name: Breaker,    status: deciding,   player: "Bruce", character: "? / Guardian"}
+    - {name: Visionary,  status: committed,  player: "Marc",  character: "Human / Seraph class"}
+    - {name: Breaker,    status: pending,    player: ""}
     - {name: Bridge,     status: pending,    player: ""}
     - {name: Sacrificer, status: pending,    player: ""}
     - {name: Trickster,  status: pending,    player: ""}
     - {name: Crafter,    status: pending,    player: ""}
     - {name: Healer,     status: pending,    player: ""}
     - {name: Keeper,     status: pending,    player: ""}
-  pending_players:
-    - {player: "Dave",  class_pref: "Warlock",   archetype: "Sacrificer", note: "Hope and Fear expansion class; archetype tentative"}
+  deciding_players:
+    - {player: "Dave",  class_pref: "Warlock",  archetype: "undecided"}
+    - {player: "Bruce", class_pref: "Guardian", archetype: "undecided"}
 
 domain_overrides:
   # Manually pinned at 2026-05-06 when task tracking migrated from TODO.md to Beads.
@@ -71,5 +72,5 @@ blockers:
 - ✅ **Completed (2026-05-02):** Schema C vault migration — all 5 phases; Decision 17 locked; 300+ files migrated from type: to domain/doc_type/content_type; is_private: removed; classification: removed. [#77](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/77)
 - ✅ **Completed (2026-05-27):** Daggerheart class primer — 13 classes (9 SRD + 4 playtest), per-class Tarim-Shaiel framing, images, pipeline; classes page public. [HeroHeaven-5cf](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/262)
 - ✅ **Completed (2026-06-06):** Class survey — 4 responses collected: Lisa/Warrior ✓, Arno/Sentinel ✓, Erik deciding Seeker vs Breaker, Marc TBD, Bruce queued as new player. [HeroHeaven-uma]
-- ✅ **Resolved (2026-06-17):** Player archetypes locked: Erik → Seeker (Tadbir/Sorcerer), Marc → Breaker (Seraph/Ranger or Assassin). Core 4 defined: Warrior, Sentinel, Seeker, Breaker.
+- ✅ **Resolved (2026-07-15):** Player archetypes confirmed: Lisa/Warrior, Arno/Sentinel, Erik/Seeker, Marc/Visionary — 4 committed. Bruce/Breaker + Dave deciding. Scenarios: Warrior, Seeker, Sentinel, Visionary complete; Breaker mostly complete.
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to archive/charms/; Daggerheart base used for now
