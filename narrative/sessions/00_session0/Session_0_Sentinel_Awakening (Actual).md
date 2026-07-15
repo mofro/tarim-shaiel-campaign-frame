@@ -8,7 +8,7 @@ visibility: gm_secrets
 archetype: Sentinel
 tool_form: cracked lantern
 location: Fortress ruins above a branching gorge (Khaakha-inspired)
-status: draft
+status: canon
 created: 2026-06-06
 last_updated: 2026-06-19
 version: 0.6

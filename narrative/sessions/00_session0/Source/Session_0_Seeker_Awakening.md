@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 archetype: Seeker
 class: Seeker
-tool_form: tome, compass, or astrolabe
+tool_form: tome
 location: Desert wasteland
 status: canon
 created: 2025-01-15

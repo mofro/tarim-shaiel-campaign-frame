@@ -8,7 +8,7 @@ visibility: gm_secrets
 archetype: Visionary
 tool_form: obsidian disk
 location: Caravanserai on the western road
-status: draft
+status: canon
 created: 2026-06-19
 last_updated: 2026-06-19
 version: 0.4
@@ -79,6 +79,8 @@ The disk is not loyal to the Seraph. Its behavior reflects Warren interests. The
 ### Opening Narration
 
 **[No transition. Already here. Already standing.]**
+
+![[VISIONARY - Awakening in the Baazar.mp3]]
 
 Already standing. No memory of becoming so.
 
@@ -339,7 +341,7 @@ The scuffle is more significant than Path A and less clean. Resolve it appropria
 
 ---
 
-A fire at a campaign's edge. Pine-resin and cook-smoke, the cold coming down from higher ground at night, the warmth of people who have survived a hard thing together and built something worth sitting beside.
+![[VISIONARY - The Memory That Surfaces.mp3]]A fire at a campaign's edge. Pine-resin and cook-smoke, the cold coming down from higher ground at night, the warmth of people who have survived a hard thing together and built something worth sitting beside.
 
 Two figures across the fire. The comrade's face won't fully resolve — but the feeling does: the weight of trust built through things survived together. And beside them, the ally. New to the circle. Vouched for.
 
