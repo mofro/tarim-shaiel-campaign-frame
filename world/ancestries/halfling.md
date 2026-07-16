@@ -21,7 +21,7 @@ description: " (Daggerheart: Halfling)"
 
 ![[daggerheart-ancestry-Rahban.png|250]]
 
-Rahban are small, rounded humanoids with notably large feet, prominent ears, and an internal sense of direction that functions regardless of weather, terrain, or how long it has been since they last knew where they were. Their average height runs from 3 to 4 feet. Their feet — hairy and broad — give them a stability on irregular terrain that larger peoples sometimes envy. They live for around 150 years, maintaining a youthful appearance well into late adulthood.
+Rahban (Halfling) are small, rounded humanoids with notably large feet, prominent ears, and an internal sense of direction that functions regardless of weather, terrain, or how long it has been since they last knew where they were. Their average height runs from 3 to 4 feet. Their feet — hairy and broad — give them a stability on irregular terrain that larger peoples sometimes envy. They live for around 150 years, maintaining a youthful appearance well into late adulthood.
 
 Their internal compass is not metaphor. Rahban are magnetically attuned to their world in a way that means they do not get lost. This has made them sought-after as guides and navigators across Tarim-Shaiel, though Rahban themselves tend to be skeptical of the value others place on this ability — to them, it is simply knowing where you are, which seems basic.
 
@@ -93,19 +93,21 @@ This practice is sometimes mistaken for obligation-exploitation by peoples who d
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-**Tulpar:** Warm and historically grounded. Rahban communities were present in the post-liberation chaos in ways that the Tulpar oral tradition acknowledges specifically — not as heroes, but as the people who showed up with food and stayed. This creates a particular kind of gratitude that the Tulpar express through practical alliance: Rahban-Tulpar trade partnerships are considered among the most reliable in the Silk Road system.
+**Tulpar (Orc):** Warm and historically grounded. Rahban communities were present in the post-liberation chaos in ways that the Tulpar oral tradition acknowledges specifically — not as heroes, but as the people who showed up with food and stayed. This creates a particular kind of gratitude that the Tulpar express through practical alliance: Rahban-Tulpar trade partnerships are considered among the most reliable in the Silk Road system.
 
-**Vanara:** Respectful professional kinship. Both are peoples of the road, both take their obligations seriously, and both have been doing this long enough to recognize it in each other. Vanara and Rahban communities at the same waystation tend to coordinate naturally, each filling gaps the other leaves.
+**Vanara (Simiah):** Respectful professional kinship. Both are peoples of the road, both take their obligations seriously, and both have been doing this long enough to recognize it in each other. Vanara and Rahban communities at the same waystation tend to coordinate naturally, each filling gaps the other leaves.
 
-**Pari-Kin:** Unlikely affinity that holds up in practice. Pari-Kin seasonality and Rahban permanence seem incompatible; in fact, they complement. Pari-Kin pass through. Rahban are still there when they return. This reliability is something the Pari-Kin don't take for granted, and the Rahban value the Pari-Kin's knowledge of what lies beyond the last waystation.
+**Pari-Kin (Faun):** Unlikely affinity that holds up in practice. Pari-Kin seasonality and Rahban permanence seem incompatible; in fact, they complement. Pari-Kin pass through. Rahban are still there when they return. This reliability is something the Pari-Kin don't take for granted, and the Rahban value the Pari-Kin's knowledge of what lies beyond the last waystation.
 
-**Kuhban:** Mutual respect and occasional friction. Kuhban appreciate Rahban reliability; Rahban appreciate Kuhban record-keeping. The friction arises from Kuhban institutional memory meeting Rahban relational memory — they often have records of the same event that are technically compatible and experientially incompatible, which produces interesting arguments.
+**Kuhban (Dwarf):** Mutual respect and occasional friction. Kuhban appreciate Rahban reliability; Rahban appreciate Kuhban record-keeping. The friction arises from Kuhban institutional memory meeting Rahban relational memory — they often have records of the same event that are technically compatible and experientially incompatible, which produces interesting arguments.
 
-**Jivar:** Complicated kinship. Both Rahban and Jivar are dispersed peoples without political homelands, and both operate through commercial and social networks rather than military or territorial power. The philosophies of that operation diverge sharply — Jivar reliability is contractual ("we deliver, no matter what"), Rahban reliability is relational — which creates both genuine mutual recognition and genuine friction.
+**Jivar (Goblin):** Complicated kinship. Both Rahban and Jivar are dispersed peoples without political homelands, and both operate through commercial and social networks rather than military or territorial power. The philosophies of that operation diverge sharply — Jivar reliability is contractual ("we deliver, no matter what"), Rahban reliability is relational — which creates both genuine mutual recognition and genuine friction.
 
 ---
 
 ## PLAYER CHARACTER HOOKS
+
+### Questions for a Rahban (Halfling) PC
 
 1. **What community are you from, and who are you carrying with you?** A Rahban who travels widely doesn't leave community behind — they bring it in the form of obligations, correspondence, and the specific people whose absence they feel. Who are they, and when did you last write?
 

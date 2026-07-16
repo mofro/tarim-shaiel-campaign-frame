@@ -16,7 +16,7 @@ description: " (Daggerheart: Faun)"
 
 ![[daggerheart-ancestry-Pari-Kin.png]]
 
-Pari-Kin have a goatlike lower body and broadly humanoid upper body, with horns, cloven hooves, and horizontal pupils. Their lower bodies are covered in dense fur. Horn shapes range from modest backward curves to full dramatic spirals, and ear shapes vary similarly. They stand between 4 and 6½ feet tall, though posture plays an outsized role in how they carry that height — Pari-Kin can appear considerably taller or shorter depending on how they choose to hold themselves.
+Pari-Kin (Faun) have a goatlike lower body and broadly humanoid upper body, with horns, cloven hooves, and horizontal pupils. Their lower bodies are covered in dense fur. Horn shapes range from modest backward curves to full dramatic spirals, and ear shapes vary similarly. They stand between 4 and 6½ feet tall, though posture plays an outsized role in how they carry that height — Pari-Kin can appear considerably taller or shorter depending on how they choose to hold themselves.
 
 They are found most commonly in the highland regions of Tarim-Shaiel and along mountain routes, where they have long served as guides and threshold-keepers. They have a notable ease with barriers — physical, social, and otherwise — that can be disorienting to people who prefer boundaries to stay fixed. Their leaping ability is practical rather than showy; they treat gaps and walls as minor inconveniences.
 
@@ -92,19 +92,19 @@ This can make communication with Pari-Kin about historical matters disorienting 
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-**Vanara:** Overlapping territory, different function. Both peoples maintain relationships with mountain routes and highland passes. Vanara hold the roads institutionally; Pari-Kin hold the peaks and the sacred waypoints that the roads serve. The relationship is generally respectful at the working level and occasionally tense at the level of who knows what a particular place means.
+**Vanara (Simiah):** Overlapping territory, different function. Both peoples maintain relationships with mountain routes and highland passes. Vanara hold the roads institutionally; Pari-Kin hold the peaks and the sacred waypoints that the roads serve. The relationship is generally respectful at the working level and occasionally tense at the level of who knows what a particular place means.
 
-**Gavar:** A useful pairing at major threshold sites. Gavar hold the formal crossing; Pari-Kin know the informal routes. These are not competing functions. Communities that have learned to coordinate them have the most complete coverage of their territory.
+**Gavar (Firbolg):** A useful pairing at major threshold sites. Gavar hold the formal crossing; Pari-Kin know the informal routes. These are not competing functions. Communities that have learned to coordinate them have the most complete coverage of their territory.
 
 **Humans:** Variable. Pari-Kin ease with barriers makes some humans uncomfortable regardless of intent. Human communities that have long experience with Pari-Kin neighbors tend to be more relaxed about it. Human communities encountering Pari-Kin for the first time sometimes react to the barrier-ease as threatening even when nothing threatening is happening.
 
-**Khavar:** An unusual affinity. Both peoples maintain relationships with places rather than nations, and both peoples hold knowledge that does not fit neatly into the record-keeping systems of settled cultures. Pari-Kin and Khavar communities sometimes winter together in regions where their territories overlap, and the combination of Khavar death-memory and Pari-Kin place-memory produces historical knowledge that neither community holds alone.
+**Khavar (Fungril):** An unusual affinity. Both peoples maintain relationships with places rather than nations, and both peoples hold knowledge that does not fit neatly into the record-keeping systems of settled cultures. Pari-Kin and Khavar communities sometimes winter together in regions where their territories overlap, and the combination of Khavar death-memory and Pari-Kin place-memory produces historical knowledge that neither community holds alone.
 
 ---
 
 ## PLAYER CHARACTER HOOKS
 
-### Questions for a Pari-Kin PC
+### Questions for a Pari-Kin (Faun) PC
 
 1. **What place are you in relationship with, and what does it ask of you?** Pari-Kin identity is spatial. Even a Pari-Kin who has left their community is in relationship with the places their community keeps. What is yours, and what does being away from it mean?
 

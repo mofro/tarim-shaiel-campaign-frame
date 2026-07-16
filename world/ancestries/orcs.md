@@ -17,7 +17,7 @@ aliases:
 
 ![[daggerheart-ancestry-Tulpar.png|Tulpar (Orcs)|250]]
 
-Tulpar (Orcs) are not the savage raiders of traditional fantasy. They are a people defined by hard-won freedom, cosmopolitan diversity, and economic mastery. After 1,000 years of liberation from enslavement — roughly forty generations — Tulpar culture has evolved from survival to prosperity. Modern Tulpar are respected as master traders, diplomatic mediators, and cultural bridges across the Silk Road, while never forgetting the chains they once wore.
+Tulpar (Orc) are not the savage raiders of traditional fantasy. They are a people defined by hard-won freedom, cosmopolitan diversity, and economic mastery. After 1,000 years of liberation from enslavement — roughly forty generations — Tulpar culture has evolved from survival to prosperity. Modern Tulpar are respected as master traders, diplomatic mediators, and cultural bridges across the Silk Road, while never forgetting the chains they once wore.
 
 **Core Identity:** "We remember where we came from. We choose where we're going."
 
@@ -171,17 +171,17 @@ Tulpar have no unified religion. Different clans adopted different spiritual pra
 
 **Humans:** The most complex relationship. Humans were both captors and liberators, enemies and allies. Varies by region and clan history. The tension is real but not universal — case by case.
 
-**Kuhban (Dwarves):** Generally positive. Shared respect for craftsmanship, some trade partnerships combining Tulpar weapon diversity with Kuhban engineering, and mutual appreciation for remembering where you came from.
+**Kuhban (Dwarf):** Generally positive. Shared respect for craftsmanship, some trade partnerships combining Tulpar weapon diversity with Kuhban engineering, and mutual appreciation for remembering where you came from.
 
-**Rahban (Halflings):** Friendly. Halflings' welcoming nature appeals to scattered Tulpar diaspora. Trade relationships are common; some intermarriage, rare but accepted.
+**Rahban (Halfling):** Friendly. Rahban's welcoming nature appeals to scattered Tulpar diaspora. Trade relationships are common; some intermarriage, rare but accepted.
 
-**Vaghri (Katari):** Respectful distance. Tulpar admire Katari martial prowess; limited interaction due to different settlement patterns; occasional weapon technique exchanges.
+**Vaghri (Katari):** Respectful distance. Tulpar admire Vaghri martial prowess; limited interaction due to different settlement patterns; occasional weapon technique exchanges.
 
-**Jivar (Goblins):** Kinship. Both ancestries marginalized, scrappy, adaptive. Some regional alliances, shared pragmatism.
+**Jivar (Goblin):** Kinship. Both ancestries marginalized, scrappy, adaptive. Some regional alliances, shared pragmatism.
 
 **Div-Born (Infernis):** Complicated. Some Tulpar see Div-Born as "branded like we were" — sympathetic. Others are wary of the demonic associations. Varies by individual more than clan.
 
-**Gavar (Firbolg), Pari-Kin (Fauns), Kalan (Giants):** Neutral to positive. Limited interaction due to settlement patterns, no historical baggage, trade and occasional cooperation.
+**Gavar (Firbolg), Pari-Kin (Faun), Kalan (Giant):** Neutral to positive. Limited interaction due to settlement patterns, no historical baggage, trade and occasional cooperation.
 
 **Naga-Kin (Drakona):** Wary respect. Drakona's power reminds some Tulpar of powerful captors; others admire their strength. Generally keep distance unless allied.
 
@@ -197,7 +197,7 @@ Half-Tulpar children of mixed marriages are never considered lesser. Same for an
 
 ## PLAYER CHARACTER HOOKS
 
-### Questions for a Tulpar PC
+### Questions for a Tulpar (Orc) PC
 
 1. **Which clan are you from, and what is their signature weapon tradition?** The clan tells your story. The weapon tradition tells what your ancestors learned, and from whom.
 

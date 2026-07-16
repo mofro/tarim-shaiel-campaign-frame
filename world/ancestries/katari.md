@@ -21,7 +21,7 @@ description: " (Daggerheart: Katari)"
 
 ![[daggerheart-ancestry-Vaghri.png|Vaghri (Katari)]]
 
-Vaghri are feline humanoids with retractable claws, vertical pupils, and triangular ears set high on the head. Their whiskers assist navigation in near-darkness and crowded spaces, and their ears can rotate nearly 180 degrees to track sound independently of their head position. Some Vaghri are more pronouncedly feline — muzzle, dense fur, tail — while others are nearer to humanoid with primarily feline eyes and ears. About half carry a tail. Their fur and skin patterns span the full range of felid colorings: solids, stripes, spots, marbling, calico.
+Vaghri (Katari) are feline humanoids with retractable claws, vertical pupils, and triangular ears set high on the head. Their whiskers assist navigation in near-darkness and crowded spaces, and their ears can rotate nearly 180 degrees to track sound independently of their head position. Some Vaghri are more pronouncedly feline — muzzle, dense fur, tail — while others are nearer to humanoid with primarily feline eyes and ears. About half carry a tail. Their fur and skin patterns span the full range of felid colorings: solids, stripes, spots, marbling, calico.
 
 Vaghri stand between 3 and 6½ feet tall and live to around 150 years. They are found across Tarim-Shaiel in broadly distributed communities, without the geographic concentration that marks some other ancestries. Their hunting instincts are not separate from their social selves — Vaghri are simply people for whom the read on a room, the tracking of movement at the edge of perception, and the precise assessment of threat are natural functions rather than practiced skills.
 
@@ -95,19 +95,21 @@ What Vaghri do not have is the kind of institutional backing that makes large-sc
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-**Tulpar:** Respectful distance that tends toward warmth over time. Shared respect for martial tradition provides initial common ground; the differences in approach — Tulpar collecting traditions widely, Vaghri developing from within — become interesting rather than divisive once the initial assessment has happened. Weapon technique exchanges occur occasionally. They are taken seriously by both parties.
+**Tulpar (Orc):** Respectful distance that tends toward warmth over time. Shared respect for martial tradition provides initial common ground; the differences in approach — Tulpar collecting traditions widely, Vaghri developing from within — become interesting rather than divisive once the initial assessment has happened. Weapon technique exchanges occur occasionally. They are taken seriously by both parties.
 
-**Vanara:** Overlapping space and complementary orientation. Vanara maintain the roads; Vaghri are present everywhere along them. Both take their obligations seriously. Both have a relationship to pride that the other recognizes, even if expressed differently. Long-term partnerships between individual Vanara and Vaghri are not uncommon and tend to be among the more durable relationships either party forms.
+**Vanara (Simiah):** Overlapping space and complementary orientation. Vanara maintain the roads; Vaghri are present everywhere along them. Both take their obligations seriously. Both have a relationship to pride that the other recognizes, even if expressed differently. Long-term partnerships between individual Vanara and Vaghri are not uncommon and tend to be among the more durable relationships either party forms.
 
-**Rahban:** Genuine affinity with interesting texture. Rahban community-building appeals to Vaghri, who value specific deep bonds over broad shallow ones. The Rahban practice of maintaining relationships across distance resonates with the Vaghri ledger — though a Vaghri's ledger and a Rahban's correspondence network are different instruments for similar purposes. Misunderstandings occur when Rahban interpret Vaghri reserve as coolness; they usually resolve once the Vaghri has finished assessing.
+**Rahban (Halfling):** Genuine affinity with interesting texture. Rahban community-building appeals to Vaghri, who value specific deep bonds over broad shallow ones. The Rahban practice of maintaining relationships across distance resonates with the Vaghri ledger — though a Vaghri's ledger and a Rahban's correspondence network are different instruments for similar purposes. Misunderstandings occur when Rahban interpret Vaghri reserve as coolness; they usually resolve once the Vaghri has finished assessing.
 
-**Pari-Kin:** Mutual professional respect at mountain passes and waypoints. Both peoples move with a quality of attention that the other recognizes. The Pari-Kin facility with thresholds and the Vaghri facility with reading situations combine practically into effective partnership in uncertain terrain. Neither is especially interested in the other's inner life, which makes the partnership comfortable.
+**Pari-Kin (Faun):** Mutual professional respect at mountain passes and waypoints. Both peoples move with a quality of attention that the other recognizes. The Pari-Kin facility with thresholds and the Vaghri facility with reading situations combine practically into effective partnership in uncertain terrain. Neither is especially interested in the other's inner life, which makes the partnership comfortable.
 
 **Humans:** Entirely individual. Vaghri assess each human community on its own terms, carrying the ledger of what specific humans have done. In regions with long histories of Vaghri-human cooperation, relationships are warm and layered. In regions where the accounts are difficult, the difficulty is specific and named rather than general.
 
 ---
 
 ## PLAYER CHARACTER HOOKS
+
+### Questions for a Vaghri (Katari) PC
 
 1. **What did you evaluate and find worthy — and was that surprising?** Vaghri assessment is supposed to be accurate, not predetermined. What met your assessment in a way you didn't expect?
 

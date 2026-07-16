@@ -17,7 +17,7 @@ description: " (Daggerheart: Simiah)"
 
 ![[daggerheart-ancestry-Vanra.png|Vanra|250]]
 
-Vanara are primate folk found across Tarim-Shaiel, ranging in build from compact and quick-moving to broad-shouldered and deliberate. Their coats span from jet black to deep amber to a gold that catches light readily. All Vanara have prehensile feet nearly as dexterous as their hands, and roughly half have a fully grasping tail as well.
+Vanara (Simiah) are primate folk found across Tarim-Shaiel, ranging in build from compact and quick-moving to broad-shouldered and deliberate. Their coats span from jet black to deep amber to a gold that catches light readily. All Vanara have prehensile feet nearly as dexterous as their hands, and roughly half have a fully grasping tail as well.
 
 Vanara communities are most commonly found along high mountain passes and pilgrimage routes, where they have served for generations as guides, teachers, and guardians. They are known throughout Tarim-Shaiel as scholar-warriors — people who treat the disciplined body and the studied text as the same instrument. Their traditions of devotion are their most recognizable feature: when a Vanara commits to a cause or a person, that commitment is understood as binding.
 
@@ -91,19 +91,19 @@ This is most visible in Vanara martial traditions, which were developed for bodi
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-**Orcs:** Strong mutual respect built over the liberation era. Orc clans moving through mountain routes in the chaos period found Vanara guides who did not demand proof of worthiness before helping. Several major Orc clan histories include named Vanara who made a critical difference. The relationship is not uniformly warm — Vanara find Orc pragmatism occasionally at odds with Vanara ideas of honor — but the foundation is solid.
+**Tulpar (Orc):** Strong mutual respect built over the liberation era. Tulpar clans moving through mountain routes in the chaos period found Vanara guides who did not demand proof of worthiness before helping. Several major Tulpar clan histories include named Vanara who made a critical difference. The relationship is not uniformly warm — Vanara find Tulpar pragmatism occasionally at odds with Vanara ideas of honor — but the foundation is solid.
 
 **Humans:** The most common students at Vanara academies are human, for the simple reason that humans are the most numerous people in Tarim-Shaiel. Vanara instructors have complex feelings about this — appreciation for the resource it represents, occasional frustration with students who want the credential without the discipline. The best Vanara-human relationships are teaching bonds that last decades.
 
-**Gavar:** Natural alignment at thresholds. Both peoples understand the holding of a boundary as a sacred obligation rather than a commercial one. Vanara and Gavar communities co-manage several major mountain crossroads, with a division of labor that has evolved organically: Gavar hold the gates, Vanara hold the roads.
+**Gavar (Firbolg):** Natural alignment at thresholds. Both peoples understand the holding of a boundary as a sacred obligation rather than a commercial one. Vanara and Gavar communities co-manage several major mountain crossroads, with a division of labor that has evolved organically: Gavar hold the gates, Vanara hold the roads.
 
-**Tadbir:** Mutual curiosity. The Tadbir relationship to purpose — carrying an original function across centuries — resonates with Vanara ideas about devotion. The practical collaboration is less obvious, but Vanara scholars and Tadbir have worked together at several major archives.
+**Tadbir (Clank):** Mutual curiosity. The Tadbir relationship to purpose — carrying an original function across centuries — resonates with Vanara ideas about devotion. The practical collaboration is less obvious, but Vanara scholars and Tadbir have worked together at several major archives.
 
-**Dwarves:** *[NEEDS REFINEMENT — see Development Notes]*  A significant relationship that requires dedicated treatment. Dwarves hold the interior of the mountain; Vanara hold the surface routes. Complementary niches with real friction over who speaks for the mountain itself.
+**Kuhban (Dwarf):** *[NEEDS REFINEMENT — see Development Notes]*  A significant relationship that requires dedicated treatment. Kuhban hold the interior of the mountain; Vanara hold the surface routes. Complementary niches with real friction over who speaks for the mountain itself.
 
 ## PLAYER CHARACTER HOOKS
 
-### Questions for a Vanara PC
+### Questions for a Vanara (Simiah) PC
 
 1. **Who are you devoted to?** Vanara devotion is not casual. If you carry it for someone, what did they do — or what are they — that earned it? And do they know the weight of what you've given them?
 
