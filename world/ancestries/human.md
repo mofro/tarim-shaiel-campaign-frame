@@ -1,6 +1,7 @@
 ---
 title: Human
 project: TTRPG_Tarim_Shaiel
+type: lore
 domain: world
 doc_type: canon
 content_type: ancestry
@@ -52,7 +53,9 @@ When the liberation came and the imperial structure failed, the human response w
 
 Former administrative families became warlords, diplomats, or refugees depending on what they had access to and how quickly they could adapt. The merchant class pivoted faster than most — trade continued even when governance didn't, and human merchants who could work with the emerging Tulpar (Orc) clans and Rahban (Halfling) networks found themselves well-positioned in the new order. Rural communities largely kept farming. The political catastrophe of empire collapse was, for most humans, an event that reached them at a remove and then was absorbed into the longer rhythms of ordinary life.
 
-Three major successor kingdoms eventually consolidated from the chaos — distinct dynasties with sophisticated bureaucracies, exam-based merit systems, and a complicated cultural relationship to their imperial predecessors. Each has spent a thousand years deciding what to do with the fact of the old empire: some human cultures have processed it as a source of lasting shame that shapes how they engage with Tulpar communities today; others have reconstructed it as "complicated history" in ways that Tulpar find infuriating; most have landed somewhere in the middle, carrying the weight without having resolved what to do with it.
+Three major successor kingdoms eventually consolidated from the chaos in the east — distinct dynasties with sophisticated bureaucracies, exam-based civil service systems, and a highly developed aesthetic culture that tends to view the old empire as a cautionary tale it has decisively moved beyond. These eastern kingdoms carry the most direct administrative inheritance from the empire, and consequently the most complicated feelings about it; Tulpar communities living nearby have opinions about how thoroughly that reckoning has actually happened. Further south, the great sub-continental principalities pursued a different path — less interested in imperial continuity than in maritime trade and religious scholarship, more pluralist in practice if not always in theory. To the north, the steppe confederacies — horse-peoples who the empire never fully absorbed and never stopped trying to — emerged from the chaos as significant powers in their own right, with a relationship to the old empire that is mostly contemptuous: *we were never conquered. We are not implicated.* Whether that assessment is entirely accurate is a matter some Tulpar historians dispute quietly.
+
+Each of these traditions has spent a thousand years deciding what to do with the fact of the old empire: some human cultures have processed it as a source of lasting shame that shapes how they engage with Tulpar communities today; others have reconstructed it as "complicated history" in ways that Tulpar find infuriating; most have landed somewhere in the middle, carrying the weight without having resolved what to do with it. The steppe peoples largely decline the question.
 
 ### The Long Peace and the Cosmopolitan Present
 
@@ -80,7 +83,7 @@ The shadow side is that this same adaptability can mean absorbing the values of 
 
 Unlike almost every other ancestry in Tarim-Shaiel, humans do not have a shared event that organizes cultural memory. The Tulpar (Orc) have the liberation. The Rahban (Halfling) have the Truce. The Pari-Kin (Faun) have their relationship to specific sacred places. Humans have everything and nothing — too many events, too many communities, too many competing versions of what matters.
 
-This means human identity, more than any other ancestry's, is local. A human from the eastern successor kingdoms carries different assumptions, aesthetics, and obligations than a human from the Tarim Basin oasis cities, who carries different ones than a human from the mountain borderlands. When these humans meet, they share an ancestry and often find they share very little else. They adapt — find common ground, adjust, proceed — but the common ground is negotiated, not inherited.
+This means human identity, more than any other ancestry's, is local. A human from the eastern successor kingdoms carries different assumptions, aesthetics, and obligations than a human from the Tarim Basin oasis cities, who carries different ones than a human from the mountain borderlands, who carries different ones than someone raised in a steppe confederacy where a tent and a horse are the only permanent things. When these humans meet, they share an ancestry and often find they share very little else. They adapt — find common ground, adjust, proceed — but the common ground is negotiated, not inherited.
 
 ---
 
@@ -99,6 +102,8 @@ Every ancestry in Tarim-Shaiel has a relationship with humans. This is unavoidab
 **Jivar (Goblin):** Pragmatic alignment. Both peoples built significant presences in the Silk Road's commercial culture, and both tend to evaluate each other on demonstrated capability rather than ancestry. Jivar communities have long memories for which humans were reliable partners and which weren't — their ledgers are commercial rather than historical, but they are kept with equal precision.
 
 **Gavar (Firbolg):** Variable by region, consistent in one respect: Gavar communities remember exactly what happened at their thresholds during the liberation and chaos period. The humans who held their covenants are remembered as such. The humans who didn't are also remembered. This is not a grudge — it is simply an accurate record that shapes how trust is extended in the present.
+
+**Serenvar (Elf):** The most opaque relationship on the Silk Road, and the one humans are most likely to have strong opinions about without reliable information. Serenvar enclaves predate most human settlements and outlast most human institutions; they have been present through the full arc of the empire, the liberation, the chaos, and the Long Peace, watching all of it from positions they have not explained. Human speculation runs in every direction. Some say the Serenvar knew the empire would fall long before anyone else did — that certain enclave locations shifted in the years before the liberation in ways that in retrospect look deliberate. Others say the Serenvar actively influenced the liberation in ways that were never acknowledged, for reasons that served the enclaves rather than the Tulpar. Others say they simply watch, and wait, and are waiting still for something that has not happened yet. The enclaves do not comment on any of these theories. The humans in settlements nearest the enclaves tend to have the most specific rumors and the least certainty about which ones are true.
 
 ---
 

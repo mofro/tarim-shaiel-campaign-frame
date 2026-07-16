@@ -76,3 +76,7 @@ A jeweled city where trade routes converge. Once ruled by distant empires, it ha
 - High-quality textiles
 - Luxury items
 - Paper production
+
+## Notable Nearby Locations
+
+- **[[afrasiyan-plateau|The Afrasiyan Plateau]]** — the ruins of the city that preceded Samarkand, on the plateau to the north. The old empire's palace district. The Tulpar Confederation holds it and has decided what happens to it.

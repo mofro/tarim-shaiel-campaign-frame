@@ -1,6 +1,7 @@
 ---
 title: Vaghri
 project: TTRPG_Tarim_Shaiel
+type: lore
 domain: world
 doc_type: canon
 content_type: ancestry
