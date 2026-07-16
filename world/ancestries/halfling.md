@@ -12,7 +12,6 @@ created: 2026-04-07
 last_updated: 2026-07-16
 description: " (Daggerheart: Halfling)"
 ---
-
 # Rahban — The People Who Stayed
 
 *Daggerheart ancestry: Halfling. Player-facing.*

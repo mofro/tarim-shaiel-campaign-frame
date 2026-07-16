@@ -16,7 +16,7 @@ description: " (Daggerheart: Elf)"
 
 ![[daggerheart-ancestry-Serenvar.png|250]]
 
-Serenvar are tall, pointed-eared humanoids whose acutely attuned senses make them difficult to surprise. Their heights run from about 6 to 6½ feet, and their ears vary from sharply angular to gently curved, drooping slightly at the tips with age. Rather than sleep, Serenvar enter a celestial trance — a restful state they can hold in far less time than full sleep requires, and from which they emerge with an alertness that has made their night watches legendary.
+Serenvar (Elf) are tall, pointed-eared humanoids whose acutely attuned senses make them difficult to surprise. Their heights run from about 6 to 6½ feet, and their ears vary from sharply angular to gently curved, drooping slightly at the tips with age. Rather than sleep, Serenvar enter a celestial trance — a restful state they can hold in far less time than full sleep requires, and from which they emerge with an alertness that has made their night watches legendary.
 
 Some Serenvar, through deep study or long dedication to a particular practice, develop what their own communities call a mystic form — physical changes that reflect the work of their inner life. Celestial freckles, leaves or blossoms present in the hair, eyes that shift in color with concentration. These traits can be inherited, but they also shift over a lifetime in response to how a Serenvar lives. An elder Serenvar who has changed focus more than once may carry several layers of change simultaneously, each readable to those who know what they are looking at.
 

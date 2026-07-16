@@ -16,7 +16,7 @@ last_updated: 2026-04-07
 
 ![[daggerheart-ancestry-Gavar.png|Gavar (Firbolg)|250]]
 
-Gavar are bovine humanoids recognized by their broad frames, fur-covered bodies, and horns. Their faces range from humanoid with subtle caprine features to fully bull-headed; those with the fullest bovine aspect are called Minaurid within Gavar communities. Their fur runs in earthy tones — deep brown, black, cream, occasional ash — and their horns can be modest and swept-back or dramatically curved. On average, Gavar stand between 5 and 7 feet and are consistently strong regardless of age.
+Gavar (Firbolg) are bovine humanoids recognized by their broad frames, fur-covered bodies, and horns. Their faces range from humanoid with subtle caprine features to fully bull-headed; those with the fullest bovine aspect are called Minaurid within Gavar communities. Their fur runs in earthy tones — deep brown, black, cream, occasional ash — and their horns can be modest and swept-back or dramatically curved. On average, Gavar stand between 5 and 7 feet and are consistently strong regardless of age.
 
 Gavar communities are found throughout Tarim-Shaiel at thresholds: crossroads, river fords, city gates, mountain passes. They have kept these places for generations and are associated with oaths, agricultural contracts, and the marking of seasons. Their presence at a boundary is generally understood as a guarantee that the boundary will be respected.
 
@@ -90,17 +90,17 @@ Non-Gavar who attend these ceremonies are welcome in most communities. They are 
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-**Vanara:** Natural partners at mountain thresholds. Both peoples understand guardianship as an obligation rather than a commercial arrangement. The working division — Gavar hold the gates, Vanara hold the roads — has evolved over centuries at specific shared sites. There is genuine mutual respect, and occasional genuine disagreement about where one community's responsibility ends and the other's begins.
+**Vanara (Simiah):** Natural partners at mountain thresholds. Both peoples understand guardianship as an obligation rather than a commercial arrangement. The working division — Gavar hold the gates, Vanara hold the roads — has evolved over centuries at specific shared sites. There is genuine mutual respect, and occasional genuine disagreement about where one community's responsibility ends and the other's begins.
 
-**Orcs:** Complex. Orc clans passing through the chaos period found Gavar crossings both essential and occasionally contested. The communities that held their covenants during the liberation are well-regarded in Orc clan histories. The communities that didn't are not. Modern Orc-Gavar relationships carry the weight of both memories.
+**Tulpar (Orc):** Complex. Tulpar clans passing through the chaos period found Gavar crossings both essential and occasionally contested. The communities that held their covenants during the liberation are well-regarded in Tulpar clan histories. The communities that didn't are not. Modern Tulpar-Gavar relationships carry the weight of both memories.
 
 **Humans:** Varied by region. In agricultural zones where Gavar families have held contracts for generations, the relationships with local human communities are old and layered. In cities, Gavar are more unusual presences — functional but less culturally embedded. The city Gavar tends to be someone who left a threshold, for reasons that are always their own.
 
-**Div-Born:** Mutual respect for the weight of spoken commitment. When both a Gavar and a Div-Born say they will do something, the people around them tend to believe it. This shared credibility creates natural working relationships in contexts where reliable parties are needed.
+**Div-Born (Infernis):** Mutual respect for the weight of spoken commitment. When both a Gavar and a Div-Born say they will do something, the people around them tend to believe it. This shared credibility creates natural working relationships in contexts where reliable parties are needed.
 
 ## PLAYER CHARACTER HOOKS
 
-### Questions for a Gavar PC
+### Questions for a Gavar (Firbolg) PC
 
 1. **What threshold did you leave, and why?** Gavar are defined by the places they hold. A Gavar who is traveling — who is *here*, wherever here is — has left something. That leaving has a reason, and the reason matters.
 

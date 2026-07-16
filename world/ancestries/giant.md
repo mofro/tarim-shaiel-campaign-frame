@@ -16,7 +16,7 @@ description: " (Daggerheart: Giant)"
 
 ![[daggerheart-ancestry-Kalan.png|250]]
 
-Kalan are the tallest of Tarim-Shaiel's peoples, ranging from 6½ to 8½ feet in adulthood, with wide frames and elongated arms that give them a reach that can be startling at close quarters. They are born without eyes — a sightless first year is universal to the ancestry — and their eyes develop gradually, sometimes settling on one, sometimes two, sometimes three. Those with a single eye, known as cyclops across most of Tarim-Shaiel, are not uncommon; the variation is treated within Kalan communities as individual rather than categorical.
+Kalan (Giant) are the tallest of Tarim-Shaiel's peoples, ranging from 6½ to 8½ feet in adulthood, with wide frames and elongated arms that give them a reach that can be startling at close quarters. They are born without eyes — a sightless first year is universal to the ancestry — and their eyes develop gradually, sometimes settling on one, sometimes two, sometimes three. Those with a single eye, known as cyclops across most of Tarim-Shaiel, are not uncommon; the variation is treated within Kalan communities as individual rather than categorical.
 
 Kalan are strong. This is rarely in question and rarely the most interesting thing about them, though it is frequently the first thing mentioned. Their average lifespan runs to about 75 years — shorter than most of the peoples they live alongside — which tends to give them a different relationship to urgency. Time presses on Giants in a way it does not press on a Kuhban or a Serenvar. Most of them are aware of this.
 

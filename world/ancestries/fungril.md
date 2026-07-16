@@ -16,7 +16,7 @@ description: " (Daggerheart: Fungril)"
 
 ![[daggerheart-ancestry-Khavar.png]]
 
-Khavar are humanoid in form, with skin toned in the colors of earth and old wood, often mottled in the way of forest floors or weathered stone. Their features and height vary considerably. They are among the longer-lived peoples of Tarim-Shaiel, with lifespans commonly reaching 300 years.
+Khavar (Fungril) are humanoid in form, with skin toned in the colors of earth and old wood, often mottled in the way of forest floors or weathered stone. Their features and height vary considerably. They are among the longer-lived peoples of Tarim-Shaiel, with lifespans commonly reaching 300 years.
 
 Khavar can communicate with others of their ancestry across any distance through a mycelial network — a biological connection to a shared ancestor-web that pre-dates most written records in Tarim-Shaiel. This connection also gives them access to the memories of the recent dead: by touching a corpse, they can draw out a memory tied to a specific emotion or sensation. Khavar have served for centuries as death-witnesses, grave-tenders, and keepers of what was lost — records that exist nowhere else.
 
@@ -96,17 +96,17 @@ The practical effect is that Khavar-maintained graves are among the best-preserv
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-**Orcs:** Among the deepest relationships in Tarim-Shaiel. Orc Chain Chronicles and Khavar death-witnessing served the same populations during the liberation — one preserving the living story, the other preserving what the dead could not carry. Some of the most important entries in major Orc clan histories were recovered through Khavar witnessing after battle. The relationship is old and carries genuine weight on both sides.
+**Tulpar (Orc):** Among the deepest relationships in Tarim-Shaiel. Tulpar Chain Chronicles and Khavar death-witnessing served the same populations during the liberation — one preserving the living story, the other preserving what the dead could not carry. Some of the most important entries in major Tulpar clan histories were recovered through Khavar witnessing after battle. The relationship is old and carries genuine weight on both sides.
 
 **Humans:** The most numerically significant relationship. More human dead are witnessed by Khavar than any other ancestry, for reasons of population size. The relationship ranges from formal and professional to deeply personal, depending on how long a Khavar community has been embedded in a particular human community.
 
-**Tadbir:** Complementary archival roles. What Khavar hold is what living people could not bring themselves to write down; what Tadbir hold is what was recorded precisely. Together they cover different portions of the historical record. The communities have a professional respect for each other that occasionally tips into genuine collaboration.
+**Tadbir (Clank):** Complementary archival roles. What Khavar hold is what living people could not bring themselves to write down; what Tadbir hold is what was recorded precisely. Together they cover different portions of the historical record. The communities have a professional respect for each other that occasionally tips into genuine collaboration.
 
-**Pari-Kin:** An unusual affinity rooted in a shared relationship to what settled cultures cannot easily hold. Pari-Kin and Khavar both maintain knowledge that does not fit conventional archives — one spatial and cyclical, one carried in bodies and mycelium. Communities that have developed working relationships tend to produce historical knowledge neither holds alone.
+**Pari-Kin (Faun):** An unusual affinity rooted in a shared relationship to what settled cultures cannot easily hold. Pari-Kin and Khavar both maintain knowledge that does not fit conventional archives — one spatial and cyclical, one carried in bodies and mycelium. Communities that have developed working relationships tend to produce historical knowledge neither holds alone.
 
 ## PLAYER CHARACTER HOOKS
 
-### Questions for a Khavar PC
+### Questions for a Khavar (Fungril) PC
 
 1. **What memory are you still carrying from someone else's death?** Death-witnessing leaves residue. A Khavar who has witnessed deaths carries something from those people. What is the one you have not yet released, and why?
 

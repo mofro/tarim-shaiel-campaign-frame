@@ -16,7 +16,7 @@ description: "Djinn Children - or merely misunderstood? (Daggerheart: Infernis)"
 
 ![[daggerheart-ancestry-Div-Born.png|Div-Born]]
 
-Div-Born are humanoids with horns, pronounced canine teeth, and pointed ears. Their horns vary considerably — some have two or four, others a crown of many, some only one — and tend to grow asymmetrically in ways that Div-Born commonly emphasize through carving and ornamentation. Skin tones range from deep crimson to silver-ash to charcoal, with hair and horns following a similarly broad range of colors.
+Div-Born (Infernis) are humanoids with horns, pronounced canine teeth, and pointed ears. Their horns vary considerably — some have two or four, others a crown of many, some only one — and tend to grow asymmetrically in ways that Div-Born commonly emphasize through carving and ornamentation. Skin tones range from deep crimson to silver-ash to charcoal, with hair and horns following a similarly broad range of colors.
 
 The Div-Born carry lineage tracing to the beings of the Outer Reaches — the territories below the Warren — and are sometimes treated with wariness for this reason. Within Tarim-Shaiel, they have built long histories as merchants, negotiators, and contract-holders at the crossroads of competing interests. Most Div-Born are Tarim-Shaiel-born and raised, shaped more by the world around them than by distant ancestry.
 
@@ -90,17 +90,17 @@ Removing or damaging a Div-Born's horn ornamentation without consent is treated 
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-**Orcs:** Productive alignment. Both peoples built their modern identity in the aftermath of the liberation by making themselves useful at the points of friction between other groups. Orc diplomatic academies and Div-Born crossroads communities overlap and sometimes compete for the same mediating roles, but the relationship is more collaborative than rivalrous. Each respects what the other built.
+**Tulpar (Orc):** Productive alignment. Both peoples built their modern identity in the aftermath of the liberation by making themselves useful at the points of friction between other groups. Tulpar diplomatic academies and Div-Born crossroads communities overlap and sometimes compete for the same mediating roles, but the relationship is more collaborative than rivalrous. Each respects what the other built.
 
 **Humans:** The most variable relationship. Human responses to Div-Born ancestry range from complete indifference to active wariness depending on region, history, and individual temperament. Div-Born who have spent time in human-majority cities have usually developed a well-calibrated read on where any given human sits on that range, within the first few minutes of meeting them.
 
-**Gavar:** Mutual respect for the weight of a spoken commitment. Gavar and Div-Born both treat explicit agreements as binding in ways that go beyond legal enforcement. This shared understanding creates reliable working relationships, particularly in contract contexts.
+**Gavar (Firbolg):** Mutual respect for the weight of a spoken commitment. Gavar and Div-Born both treat explicit agreements as binding in ways that go beyond legal enforcement. This shared understanding creates reliable working relationships, particularly in contract contexts.
 
-**Khavar:** An interesting pairing. Div-Born who work in mediation and the Khavar who serve as death-witnesses share a professional relationship with difficult truths — things that are real but unwelcome, that have to be said clearly regardless of the audience's preferences. There is a quiet mutual recognition between communities that occupy these roles.
+**Khavar (Fungril):** An interesting pairing. Div-Born who work in mediation and the Khavar who serve as death-witnesses share a professional relationship with difficult truths — things that are real but unwelcome, that have to be said clearly regardless of the audience's preferences. There is a quiet mutual recognition between communities that occupy these roles.
 
 ## PLAYER CHARACTER HOOKS
 
-### Questions for a Div-Born PC
+### Questions for a Div-Born (Infernis) PC
 
 1. **What do you know about your Div ancestry specifically?** Not all Div are alike, and not all Div-Born lines are the same. Do you know which Div your lineage traces to? Does that matter to you? Have you ever tried to find out more — or actively avoided finding out?
 

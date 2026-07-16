@@ -16,7 +16,7 @@ description: " (Daggerheart: Dwarf)"
 
 ![[daggerheart-ancestry-Kuhban.png|250]]
 
-Kuhban are short, broad humanoids with dense musculature, thick hair, and nails containing enough keratin to accept embedded gemstones. Their average height runs from 4 to 5½ feet, though their frames carry a heft that can surprise people who judge by height alone. All genders can grow facial hair, which Kuhban of Tarim-Shaiel style with care and regional variation — elaborate braids in the high mountain communities of the north, close-cropped patterns in the southern trade cities, woven through with tokens that mark clan and accomplishment.
+Kuhban (Dwarf) are short, broad humanoids with dense musculature, thick hair, and nails containing enough keratin to accept embedded gemstones. Their average height runs from 4 to 5½ feet, though their frames carry a heft that can surprise people who judge by height alone. All genders can grow facial hair, which Kuhban of Tarim-Shaiel style with care and regional variation — elaborate braids in the high mountain communities of the north, close-cropped patterns in the southern trade cities, woven through with tokens that mark clan and accomplishment.
 
 Kuhban communities are found throughout Tarim-Shaiel wherever mountains, mines, or long-established trade routes exist. They are not a people of expansion; they are a people of depth. Kuhban families in a given location tend to have been there for many generations, and their knowledge of a region's physical geography, underground resources, and historical layers is typically unmatched.
 

@@ -16,7 +16,7 @@ description: " (Daggerheart: Clank)"
 
 ![[daggerheart-ancestry-Tadbir.png|250]]
 
-Tadbir are mechanical beings built from brass, copper, carved wood, stone, and other materials. Their forms vary considerably — some are closely humanoid, others are shaped for specific purposes that give them more unusual configurations. Each Tadbir's body is unique, typically marked with the geometric patterns, calligraphy, or maker's signs of the artificer who built them.
+Tadbir (Clank) are mechanical beings built from brass, copper, carved wood, stone, and other materials. Their forms vary considerably — some are closely humanoid, others are shaped for specific purposes that give them more unusual configurations. Each Tadbir's body is unique, typically marked with the geometric patterns, calligraphy, or maker's signs of the artificer who built them.
 
 The Tadbir tradition in Tarim-Shaiel traces to the great artificer schools — craftspeople who held that a sufficiently precise mechanism, filled with a sufficiently precise intention, could sustain a living mind. A Tadbir's body can last indefinitely with proper maintenance and replacement parts. Their minds are another matter. The animating force that sustains their thought loses potency over time, and the oldest Tadbir have developed a notable economy of focus — holding onto what matters most because they can no longer afford to hold onto everything.
 
@@ -94,19 +94,19 @@ Some Tadbir add to their marks over their lifetime — recording significant eve
 
 ## RELATIONS WITH OTHER ANCESTRIES
 
-**Vanara:** Mutual respect built around archives and long memory. Vanara scholarly traditions and Tadbir living records complement each other — the Vanara hold the analytical and pedagogical frameworks; the Tadbir hold the raw historical material. Several major Tarim-Shaiel archives run as genuine collaborations between the two communities.
+**Vanara (Simiah):** Mutual respect built around archives and long memory. Vanara scholarly traditions and Tadbir living records complement each other — the Vanara hold the analytical and pedagogical frameworks; the Tadbir hold the raw historical material. Several major Tarim-Shaiel archives run as genuine collaborations between the two communities.
 
 **Humans:** The most common maintainers of Tadbir bodies are human, for reasons of population density and the breadth of human craft traditions. This creates relationships of practical intimacy between Tadbir and human craftspeople that sometimes develop into genuine personal bonds across the considerable lifespan gap.
 
-**Khavar:** An unexpected alignment. Both Tadbir and Khavar serve as keepers of what would otherwise be lost — the Tadbir through mechanical memory, the Khavar through their connection to the recent dead. They do not overlap in function, but they share a professional understanding of what it means to be a repository for things that matter to others.
+**Khavar (Fungril):** An unexpected alignment. Both Tadbir and Khavar serve as keepers of what would otherwise be lost — the Tadbir through mechanical memory, the Khavar through their connection to the recent dead. They do not overlap in function, but they share a professional understanding of what it means to be a repository for things that matter to others.
 
-**Tulpar (Orcs):** Tulpar Chain Chronicles and Tadbir living memory occasionally conflict, and occasionally corroborate. The relationship is not uniformly comfortable — Tulpar clan histories are narratively shaped in ways that Tadbir records are not, and discrepancies create friction. But both communities take historical record seriously, which is a foundation.
+**Tulpar (Orc):** Tulpar Chain Chronicles and Tadbir living memory occasionally conflict, and occasionally corroborate. The relationship is not uniformly comfortable — Tulpar clan histories are narratively shaped in ways that Tadbir records are not, and discrepancies create friction. But both communities take historical record seriously, which is a foundation.
 
 ---
 
 ## PLAYER CHARACTER HOOKS
 
-### Questions for a Tadbir PC
+### Questions for a Tadbir (Clank) PC
 
 1. **What were you made for, and what is your relationship to that purpose now?** This is the central question of Tadbir existence. You don't have to have answered it. But you have probably been living with it for long enough to know what it feels like to not have answered it.
 
