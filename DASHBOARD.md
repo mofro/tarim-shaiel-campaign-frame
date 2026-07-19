@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-07-15
+last_updated: 2026-07-18
 
 critical_path:
   - Resolve cosmological architecture
@@ -28,8 +28,9 @@ players:
     - {name: Healer,     status: pending,    player: ""}
     - {name: Keeper,     status: pending,    player: ""}
   deciding_players:
-    - {player: "Dave",  class_pref: "Warlock",  archetype: "undecided"}
-    - {player: "Bruce", class_pref: "Guardian", archetype: "undecided"}
+    - {player: "Dave",  class_pref: "Warlock",   archetype: "undecided"}
+    - {player: "Bruce", class_pref: "Guardian",  archetype: "undecided"}
+    - {player: "Jim",   class_pref: "unknown",   archetype: "undecided"}
 
 domain_overrides:
   # Manually pinned at 2026-05-06 when task tracking migrated from TODO.md to Beads.
@@ -72,5 +73,5 @@ blockers:
 - ✅ **Completed (2026-05-02):** Schema C vault migration — all 5 phases; Decision 17 locked; 300+ files migrated from type: to domain/doc_type/content_type; is_private: removed; classification: removed. [#77](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/77)
 - ✅ **Completed (2026-05-27):** Daggerheart class primer — 13 classes (9 SRD + 4 playtest), per-class Tarim-Shaiel framing, images, pipeline; classes page public. [HeroHeaven-5cf](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/262)
 - ✅ **Completed (2026-06-06):** Class survey — 4 responses collected: Lisa/Warrior ✓, Arno/Sentinel ✓, Erik deciding Seeker vs Breaker, Marc TBD, Bruce queued as new player. [HeroHeaven-uma]
-- ✅ **Resolved (2026-07-15):** Player archetypes confirmed: Lisa/Warrior, Arno/Sentinel, Erik/Seeker, Marc/Visionary — 4 committed. Bruce/Breaker + Dave deciding. Scenarios: Warrior, Seeker, Sentinel, Visionary complete; Breaker mostly complete.
+- ✅ **Resolved (2026-07-15):** Player archetypes confirmed: Lisa/Warrior, Arno/Sentinel, Erik/Seeker, Marc/Visionary — 4 committed. Bruce, Dave, Jim all undecided. Scenarios complete for all 4 committed archetypes + Breaker. Bruce not assigned to any archetype.
 - 🗃️ **Charm system deferred (2026-03-13):** Archived to archive/charms/; Daggerheart base used for now
