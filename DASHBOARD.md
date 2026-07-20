@@ -28,7 +28,7 @@ players:
     - {name: Healer,     status: pending,    player: ""}
     - {name: Keeper,     status: pending,    player: ""}
   deciding_players:
-    - {player: "Dave",  class_pref: "Warlock",   archetype: "undecided"}
+    - {player: "Dave",  class_pref: "Warlock",   archetype: "Protector (proposed)", character: "Vanara / Warlock — patron choice pending"}
     - {player: "Bruce", class_pref: "Guardian",  archetype: "undecided"}
     - {player: "Jim",   class_pref: "unknown",   archetype: "undecided"}
 
