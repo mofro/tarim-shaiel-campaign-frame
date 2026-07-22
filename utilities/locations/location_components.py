@@ -6,6 +6,8 @@ Used by the main generator to assemble location detail pages.
 """
 
 import json
+import os
+import sys
 from html import escape
 from typing import Optional
 
@@ -127,9 +129,24 @@ def render_resources(resources: list[str]) -> str:
 
 # ---------------------------------------------------------------------------
 # MapLibre GL JS map configuration
-# Style JSON lives at /assets/map-style.json (copied from utilities/assets/
-# to docs/assets/ at build time). MapTiler API key is baked into the style.
+# The style id itself isn't sensitive, but the MapTiler key is -- it must
+# come from the environment (Netlify env var in production, exported locally
+# for dev builds) rather than being committed to source. See
+# https://github.com/mofro/tarim-shaiel-campaign-frame/issues/275
 # ---------------------------------------------------------------------------
+
+MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'
+MAPTILER_KEY = os.environ.get('MAPTILER_KEY', '')
+if not MAPTILER_KEY:
+    print(
+        "WARNING: MAPTILER_KEY environment variable is not set -- "
+        "maps will fail to load tiles. Set it in your shell for local "
+        "builds, or in Netlify's Environment Variables for production.",
+        file=sys.stderr,
+    )
+MAPTILER_STYLE_URL = (
+    f'https://api.maptiler.com/maps/{MAPTILER_STYLE_ID}/style.json?key={MAPTILER_KEY}'
+)
 
 # Attribution shown below non-interactive mini-maps (world map uses built-in
 # MapLibre attribution control which reads from the style JSON).
@@ -283,7 +300,7 @@ def render_mini_map(
 (function() {{
   var map = new maplibregl.Map({{
     container: '{map_id}',
-    style: 'https://api.maptiler.com/maps/019e13d9-26c8-7cd9-bf8d-64d83f66624e/style.json?key=uZtsACZHTZGwWfZ3HGai',
+    style: '{MAPTILER_STYLE_URL}',
     center: [{lon}, {lat}],
     zoom: {effective_zoom},
     minZoom: {effective_min_zoom},
