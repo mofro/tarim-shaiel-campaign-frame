@@ -45,6 +45,7 @@ from locations.location_components import (
     render_xref_stub,
     _TYPE_LABELS,
     MAP_ATTRIBUTION_HTML,
+    MAPTILER_STYLE_URL,
 )
 from locations.map_icons import icon_registration_js
 from shared.renderer import render_page
@@ -403,7 +404,7 @@ def _build_world_map_html(
   {data_js}
   var map = window._tsMap = new maplibregl.Map({{
     container: 'world-map',
-    style: 'https://api.maptiler.com/maps/019e13d9-26c8-7cd9-bf8d-64d83f66624e/style.json?key=uZtsACZHTZGwWfZ3HGai',
+    style: '{MAPTILER_STYLE_URL}',
     center: [75.0, 40.0],
     zoom: 5,
     minZoom: 5,
