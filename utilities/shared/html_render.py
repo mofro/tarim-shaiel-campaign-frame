@@ -24,11 +24,17 @@ def render_wiki_embed(
     vault: Optional[Path] = None,
     docs: Optional[Path] = None,
     gm_mode: bool = False,
-) -> str:
+) -> Optional[str]:
     """Render a single Obsidian wiki-embed paragraph (![[...]]) to HTML.
 
     Returns an audio player div for audio files, a figure for images, or a GM
-    prose block for ![[gm_secrets/...]] embeds.  Returns '' if not a wiki-embed.
+    prose block for ![[gm_secrets/...]] embeds. Returns None if the paragraph
+    is not a wiki-embed at all. Returns '' (empty string, not None) if it IS
+    a recognized wiki-embed that intentionally resolves to nothing in this
+    render mode — e.g. a Tier-3 ![[gm_secrets/...]] embed stripped from a
+    public build. Callers must check `is not None`, not truthiness, or a
+    correctly-stripped embed falls through and its raw ![[...]] syntax leaks
+    into the page as a literal paragraph.
 
     Tier 3 logic:
       - path contains 'gm_secrets/': public → '' (stripped); GM → rendered block
@@ -36,7 +42,7 @@ def render_wiki_embed(
     """
     obs_m = re.match(r'^!\[\[([^\]|]+)(?:\|([^\]]*))?\]\]$', p)
     if not obs_m:
-        return ''
+        return None
 
     path_part  = obs_m.group(1).strip()
     alias_part = (obs_m.group(2) or '').split('|')[0].strip()
@@ -124,7 +130,7 @@ def render_prose(body: str) -> str:
 
         # Obsidian wiki-embed
         wiki_html = render_wiki_embed(p)
-        if wiki_html:
+        if wiki_html is not None:
             html += wiki_html
             continue
 
@@ -278,7 +284,7 @@ def render_body(
 
         # Wiki-embed: ![[file|caption|width]] → figure, audio, or GM prose block
         wiki_html = render_wiki_embed(para, vault=vault, docs=docs, gm_mode=gm_mode)
-        if wiki_html:
+        if wiki_html is not None:
             _flush_features()
             html_parts.append(wiki_html)
             continue

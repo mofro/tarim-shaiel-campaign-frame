@@ -102,6 +102,9 @@ def _build_locations_geojson(locations: list[LocationData]) -> dict:
                 'description': loc['description'],
                 'fantasyName': loc['fantasy_name'],
                 'visibility': loc['visibility'],
+                'mapLabel': loc['map_label'],
+                'mapMarker': loc['map_marker'],
+                'slug': loc['slug'],
             },
             'geometry': {
                 'type': 'Point',
@@ -141,8 +144,16 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     In gm_mode, each layer filters out gm_secrets so they don't overlap the
     dedicated dim layers added by _gm_secrets_layers_js().
     """
+    # mapMarker frontmatter override takes priority over the category-driven
+    # icon: a string -> "cat-<string>" directly, unset/null -> the category
+    # match. false (no icon) is handled by excluding the feature via filter
+    # below, not here -- MapLibre's style spec forbids nesting a zoom-based
+    # interpolate (used for icon-opacity's fade) inside a "case", so hiding
+    # via opacity isn't legal; filtering the feature out entirely is.
     icon_match = (
-        '"icon-image":["match",["get","category"],'
+        '"icon-image":["case",'
+        '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
+        '["match",["get","category"],'
         '"city","cat-city",'
         '"caravanserai","cat-route-node",'
         '"chokepoint","cat-fortress",'
@@ -153,14 +164,14 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
         '"ruins","cat-dungeon",'
         '"sacred-site","cat-sacred-site",'
         '"site","cat-poi",'
-        '"cat-poi"],'
+        '"cat-poi"]],'
         '"icon-size":1.3,"icon-allow-overlap":true,"icon-anchor":"center"'
     )
 
     # fmt: off
     tiers = [
         # layer_id               categories                                  mz  fs   fe  font                                      size
-        ('locations-major',     ['city', 'landmark'],                        3,  3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],  15),
+        ('locations-major',     ['city', 'landmark', 'fortress'],            3,  3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],  15),
         ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    5,  5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 13),
         ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                     0),
         ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],      7,  7.5, 8,  None,                                     0),
@@ -176,7 +187,7 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
         if label_font:
             font_json = str(label_font).replace("'", '"')
             label_layout = (
-                f',"text-field":["get","label"]'
+                f',"text-field":["case",["==",["get","mapLabel"],false],"",["get","label"]]'
                 f',"text-font":{font_json}'
                 f',"text-size":{label_size}'
                 f',"text-offset":[0,1.1]'
@@ -195,7 +206,7 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
             label_layout = ''
             label_paint = ''
 
-        cat_filter = f'["match",["get","category"],{cats_json},true,false]'
+        cat_filter = f'["all",["match",["get","category"],{cats_json},true,false],["!=",["get","mapMarker"],false]]'
         if gm_mode:
             layer_filter = f'["all",{cat_filter},["!=",["get","visibility"],"gm_secrets"]]'
         else:
@@ -246,15 +257,21 @@ def _gm_secrets_layers_js() -> str:
     """
     # fmt: off
     tiers = [
-        ('gm-locations-major',     ['city', 'landmark'],                         3,  3.5, 4),
+        ('gm-locations-major',     ['city', 'landmark', 'fortress'],             3,  3.5, 4),
         ('gm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5,  5.5, 6),
         ('gm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6,  6.5, 7),
         ('gm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7,  7.5, 8),
     ]
     # fmt: on
 
+    # mapMarker frontmatter override takes priority over the category-driven
+    # icon: a string -> "cat-<string>" directly, unset/null -> the category
+    # match. false (no icon) is handled via filter exclusion below, not here
+    # — see the comment in _locations_layers_js for why.
     icon_match = (
-        '"icon-image":["match",["get","category"],'
+        '"icon-image":["case",'
+        '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
+        '["match",["get","category"],'
         '"city","cat-city",'
         '"caravanserai","cat-route-node",'
         '"chokepoint","cat-fortress",'
@@ -265,7 +282,7 @@ def _gm_secrets_layers_js() -> str:
         '"ruins","cat-dungeon",'
         '"sacred-site","cat-sacred-site",'
         '"site","cat-poi",'
-        '"cat-poi"],'
+        '"cat-poi"]],'
         '"icon-size":1.3,"icon-allow-overlap":true,"icon-anchor":"center"'
     )
 
@@ -277,6 +294,7 @@ def _gm_secrets_layers_js() -> str:
         opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.4]'
         layer_filter = (
             f'["all",["match",["get","category"],{cats_json},true,false],'
+            f'["!=",["get","mapMarker"],false],'
             f'["==",["get","visibility"],"gm_secrets"]]'
         )
         js += (
@@ -450,7 +468,7 @@ def _build_location_page(
         region_slug=loc['parent_region'] if loc['parent_region'] else '',
         gm_page_banner_html=gm_banner,
         gm_mode=gm_mode,
-        extra_css=['world-location'],
+        extra_css=['world-base', 'world-location'],
         generator_name='generate_locations_html.py',
     )
 
@@ -498,7 +516,7 @@ def _build_region_page(
         content_html=body_html,
         locations=loc_cards,
         gm_mode=gm_mode,
-        extra_css=['world-location', 'world-region'],
+        extra_css=['world-base', 'world-location', 'world-region'],
         generator_name='generate_locations_html.py',
     )
 
@@ -517,7 +535,7 @@ def _build_world_home(
 ) -> str:
     world_map_html = _build_world_map_html(
         locations, locations_geojson, routes_geojson, regions_geojson,
-        gm_mode=gm_mode, show_locations=gm_mode,
+        gm_mode=gm_mode, show_locations=True,
     )
 
     region_list = []
@@ -545,7 +563,7 @@ def _build_world_home(
         regions=region_list,
         all_locations=az_list,
         gm_mode=gm_mode,
-        show_locations=gm_mode,
+        show_locations=True,
         extra_css=['world-map'],
         generator_name='generate_locations_html.py',
     )

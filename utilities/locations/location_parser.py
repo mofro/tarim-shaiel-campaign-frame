@@ -39,6 +39,12 @@ class LocationData(TypedDict):
     gm_revealed: list[str]   # list of block IDs promoted to player-visible
     body: str                # raw markdown body (leaflet block stripped)
     source_path: Path
+    map_zoom: Optional[float]  # per-location mini-map starting zoom override; None = caller default
+    map_min_zoom: Optional[float]  # per-location mini-map zoom-out floor; None = default (0)
+    map_max_zoom: Optional[float]  # per-location mini-map zoom-in ceiling; None = default (11)
+    map_pan: bool            # per-location mini-map drag-to-pan toggle; default True
+    map_label: bool          # whether this location's marker gets a text label; default True
+    map_marker: object       # None = default icon (from category), False = no icon, str = icon override key
 
 
 # ---------------------------------------------------------------------------
@@ -196,6 +202,41 @@ def parse_location(path: Path) -> Optional[LocationData]:
     fantasy_name = str(fm.get('fantasy_name') or title).strip()
     slug = path.stem
 
+    # Per-location mini-map overrides (all optional; None/absent = caller default)
+    map_zoom = None
+    try:
+        raw_zoom = fm.get('map_zoom')
+        if raw_zoom is not None:
+            map_zoom = float(raw_zoom)
+    except (TypeError, ValueError):
+        pass
+    map_min_zoom = None
+    try:
+        raw_min_zoom = fm.get('map_min_zoom')
+        if raw_min_zoom is not None:
+            map_min_zoom = float(raw_min_zoom)
+    except (TypeError, ValueError):
+        pass
+    map_max_zoom = None
+    try:
+        raw_max_zoom = fm.get('map_max_zoom')
+        if raw_max_zoom is not None:
+            map_max_zoom = float(raw_max_zoom)
+    except (TypeError, ValueError):
+        pass
+    map_pan = bool(fm.get('map_pan', True))
+    map_label = bool(fm.get('map_label', True))
+
+    # map_marker: None = default (icon from category), False = no icon,
+    # str = override icon key (one of the registered cat-* sprite names)
+    raw_marker = fm.get('map_marker')
+    if raw_marker is False:
+        map_marker: Optional[object] = False
+    elif raw_marker:
+        map_marker = str(raw_marker).strip().lower()
+    else:
+        map_marker = None
+
     return LocationData(
         slug=slug,
         title=title,
@@ -213,6 +254,12 @@ def parse_location(path: Path) -> Optional[LocationData]:
         resources=_str_list(fm.get('resources', [])),
         tags=_str_list(fm.get('tags', [])),
         gm_revealed=_str_list(fm.get('gm_revealed', [])),
+        map_zoom=map_zoom,
+        map_min_zoom=map_min_zoom,
+        map_max_zoom=map_max_zoom,
+        map_pan=map_pan,
+        map_label=map_label,
+        map_marker=map_marker,
         body=strip_leaflet_block(body),
         source_path=path,
     )

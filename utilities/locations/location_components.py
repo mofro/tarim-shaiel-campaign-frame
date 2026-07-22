@@ -141,15 +141,102 @@ MAP_ATTRIBUTION_HTML = (
 )
 
 
+# Mirrors the tier structure in generate_locations_html.py::_locations_layers_js
+# (same category groupings + zoom thresholds) so mini-maps and the world map
+# reveal locations the same way as you zoom. Duplicated rather than imported —
+# generate_locations_html.py imports FROM this module, so importing back would
+# create a circular dependency.
+_MINI_MAP_TIERS = [
+    # layer_id            categories                                    mz  fs   fe   label_font                                     size
+    ('mm-locations-major',     ['city', 'landmark', 'fortress'],             3, 3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
+    ('mm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5, 5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
+    ('mm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                       0),
+    ('mm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7, 7.5, 8,  None,                                       0),
+]
+
+
+def _mini_map_icon_match() -> str:
+    # mapMarker frontmatter override takes priority: a string -> "cat-<string>"
+    # directly, unset/null -> the category-driven match below. false (no icon)
+    # is handled via filter exclusion in _mini_map_tiered_layers_js, not here —
+    # MapLibre's style spec forbids nesting a zoom-based interpolate (used for
+    # icon-opacity's fade) inside a "case" expression, so hiding via opacity
+    # isn't legal; filtering the feature out of the layer entirely is.
+    return (
+        '["case",'
+        '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
+        '["match",["get","category"],'
+        '"city","cat-city","caravanserai","cat-route-node",'
+        '"chokepoint","cat-fortress","mountain-pass","cat-landmark",'
+        '"oasis","cat-oasis","power-site","cat-sacred-site",'
+        '"route-node","cat-route-node","ruins","cat-dungeon",'
+        '"sacred-site","cat-sacred-site","site","cat-poi","cat-poi"]]'
+    )
+
+
+def _mini_map_tiered_layers_js(own_slug: str = '') -> str:
+    """Build the tiered loc-overlay symbol layers for a mini-map (see _MINI_MAP_TIERS),
+    plus hover-cursor and click-to-navigate handlers shared across all four tiers.
+
+    Slugs come from each feature's `properties.slug` (set by
+    _build_locations_geojson), not `feature.id` — MapLibre's GeoJSON source
+    auto-generates its own internal numeric id unless `promoteId` is set,
+    silently overriding the string id we set in the GeoJSON, so `.id` is
+    unreliable for this. own_slug is excluded so clicking the current
+    location's own marker doesn't just reload the same page.
+    """
+    icon_match = _mini_map_icon_match()
+    js = ''
+    layer_ids: list[str] = []
+    for layer_id, cats, minzoom, fade_start, fade_end, label_font, label_size in _MINI_MAP_TIERS:
+        cats_json = str(cats).replace("'", '"')
+        opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.9]'
+        layout = f'"icon-image":{icon_match},"icon-size":1,"icon-allow-overlap":true,"icon-anchor":"center"'
+        paint = f'"icon-opacity":{opacity_expr}'
+        if label_font:
+            font_json = str(label_font).replace("'", '"')
+            layout += (
+                f',"text-field":["case",["==",["get","mapLabel"],false],"",["get","label"]]'
+                f',"text-font":{font_json},"text-size":{label_size}'
+                f',"text-offset":[0,1],"text-anchor":"top","text-max-width":8'
+                f',"text-allow-overlap":false,"text-optional":true'
+            )
+            paint += (
+                f',"text-color":"#ffffff","text-halo-color":"rgba(10,8,5,0.95)"'
+                f',"text-halo-width":1.5,"text-opacity":{opacity_expr}'
+            )
+        cat_filter = f'["all",["match",["get","category"],{cats_json},true,false],["!=",["get","mapMarker"],false]]'
+        js += (
+            f'map.addLayer({{id:"{layer_id}",type:"symbol",minzoom:{minzoom},source:"loc-overlay",'
+            f'filter:{cat_filter},layout:{{{layout}}},paint:{{{paint}}}}});\n'
+        )
+        layer_ids.append(layer_id)
+
+    ids_js = str(layer_ids).replace("'", '"')
+    own_slug_json = json.dumps(own_slug)
+    js += (
+        f'{ids_js}.forEach(function(lyr){{\n'
+        '  map.on("mouseenter",lyr,function(){map.getCanvas().style.cursor="pointer";});\n'
+        '  map.on("mouseleave",lyr,function(){map.getCanvas().style.cursor="";});\n'
+        '  map.on("click",lyr,function(e){\n'
+        '    var slug=e.features[0].properties.slug||"";\n'
+        f'    if(slug&&slug!=={own_slug_json})window.location.href="/locations/"+slug+".html";\n'
+        '  });\n'
+        '});\n'
+    )
+    return js
+
+
 def render_mini_map(
     loc: LocationData,
     locations_geojson: Optional[dict] = None,
     routes_geojson: Optional[dict] = None,
-    zoom: int = 6,
+    zoom: float = 6,
 ) -> str:
     """Render a MapLibre mini-map div for a single location.
 
-    Uses the same custom icon sprites and symbol layers as the world home map.
+    Uses the same custom icon sprites as the world home map, and the same
+    zoom-tiered reveal system (_MINI_MAP_TIERS) for neighboring markers.
     Inlines GeoJSON data as JS variables; attribution control is suppressed.
     """
     if loc['lat'] is None or loc['lon'] is None:
@@ -158,15 +245,19 @@ def render_mini_map(
     map_id = f'map-{escape(loc["slug"])}'
     lat = loc['lat']
     lon = loc['lon']
-
-    icon_match = (
-        '"icon-image":["match",["get","category"],'
-        '"city","cat-city","caravanserai","cat-route-node",'
-        '"chokepoint","cat-fortress","mountain-pass","cat-landmark",'
-        '"oasis","cat-oasis","power-site","cat-sacred-site",'
-        '"route-node","cat-route-node","ruins","cat-dungeon",'
-        '"sacred-site","cat-sacred-site","site","cat-poi","cat-poi"],'
-        '"icon-size":1,"icon-allow-overlap":true,"icon-anchor":"center"'
+    effective_zoom = loc.get('map_zoom')
+    if effective_zoom is None:
+        effective_zoom = zoom
+    effective_min_zoom = loc.get('map_min_zoom')
+    if effective_min_zoom is None:
+        effective_min_zoom = 5
+    effective_max_zoom = loc.get('map_max_zoom')
+    if effective_max_zoom is None:
+        effective_max_zoom = 9
+    drag_pan_js = 'true' if loc.get('map_pan', True) else 'false'
+    own_marker_js = (
+        '' if loc.get('map_marker') is False
+        else f"new maplibregl.Marker({{color: '#7a1f1f'}}).setLngLat([{lon}, {lat}]).addTo(map);"
     )
 
     sources_js = ''
@@ -182,13 +273,11 @@ def render_mini_map(
     if locations_geojson:
         sources_js += f'map.addSource("loc-overlay",{{type:"geojson",data:{json.dumps(locations_geojson)}}});\n'
         layers_js += icon_registration_js()
-        layers_js += (
-            f'map.addLayer({{id:"loc-overlay",type:"symbol",source:"loc-overlay",'
-            f'layout:{{{icon_match}}},'
-            f'paint:{{"icon-opacity":0.9}}}});\n'
-        )
+        layers_js += _mini_map_tiered_layers_js(own_slug=loc['slug'])
 
-    return f"""<div class="mini-map" id="{map_id}"></div>
+    return f"""<div class="mini-map" id="{map_id}" style="position:relative;">
+  <div id="{map_id}-zoom-debug" style="position:absolute;top:8px;left:8px;z-index:5;background:rgba(10,8,5,0.85);color:#fff;font:12px monospace;padding:2px 6px;border-radius:3px;pointer-events:none;">zoom: —</div>
+</div>
 {MAP_ATTRIBUTION_HTML}
 <script>
 (function() {{
@@ -196,15 +285,27 @@ def render_mini_map(
     container: '{map_id}',
     style: 'https://api.maptiler.com/maps/019e13d9-26c8-7cd9-bf8d-64d83f66624e/style.json?key=uZtsACZHTZGwWfZ3HGai',
     center: [{lon}, {lat}],
-    zoom: {zoom},
-    maxZoom: 11,
-    interactive: false,
+    zoom: {effective_zoom},
+    minZoom: {effective_min_zoom},
+    maxZoom: {effective_max_zoom},
+    dragPan: {drag_pan_js},
+    scrollZoom: true,
+    boxZoom: false,
+    dragRotate: false,
+    keyboard: false,
+    doubleClickZoom: true,
+    touchZoomRotate: false,
     attributionControl: false
   }});
+  // TEMP DEBUG — zoom-level readout, remove when done testing
+  var zoomDebugEl = document.getElementById('{map_id}-zoom-debug');
+  function updateZoomDebug() {{ zoomDebugEl.textContent = 'zoom: ' + map.getZoom().toFixed(2); }}
+  map.on('zoom', updateZoomDebug);
+  map.on('load', updateZoomDebug);
   map.on('load', function() {{
     {sources_js}
     {layers_js}
-    new maplibregl.Marker({{color: '#7a1f1f'}}).setLngLat([{lon}, {lat}]).addTo(map);
+    {own_marker_js}
   }});
 }})();
 </script>
