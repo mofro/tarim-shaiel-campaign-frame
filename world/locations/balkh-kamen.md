@@ -14,6 +14,8 @@ last_updated: 2026-01-05
 location:
 - 46.5
 - 74.9
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: water-body
 name: Balkh-Kamen
 real_world_name: Balkhash Lake

@@ -19,6 +19,8 @@ last_updated: 2025-12-13
 location:
 - 41.525095839817354
 - 82.07693159580232
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: route-node
 name: Shorchuk
 resources:

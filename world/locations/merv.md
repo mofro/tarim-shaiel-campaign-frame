@@ -19,6 +19,8 @@ last_updated: 2026-05-13
 location:
   - 37.66
   - 61.83
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: city
 name: Merv
 resources:

@@ -7,10 +7,10 @@ content_type: session
 visibility: gm_secrets
 archetype: Visionary
 tool_form: obsidian disk
-location: Caravanserai on the western road
+location: Caravanserai on the western road — Rabati Malik
 status: canon
 created: 2026-06-19
-last_updated: 2026-06-19
+last_updated: 2026-07-21
 version: 0.4
 ---
 

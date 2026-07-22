@@ -14,6 +14,8 @@ last_updated: 2026-01-05
 location:
 - 42.4
 - 76.9
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: water-body
 name: Isyk-Zhel
 real_world_name: Issyk Kul Lake

@@ -14,6 +14,8 @@ last_updated: 2025-12-13
 location:
 - 40.50249308507127
 - 74.87956784432755
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: route-node
 name: The Anvil-Sunder Switchbacks
 tags:

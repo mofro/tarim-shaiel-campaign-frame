@@ -606,6 +606,135 @@
           [94.67, 40.15]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_samarkand_kattakurgan",
+      "properties": {
+        "kind": "route",
+        "label": "Samarqandh → Kattakurgan",
+        "title": "Samarqandh → Kattakurgan",
+        "description": "Western royal road segment — Zarafshan valley",
+        "stroke": "#c9a227",
+        "stroke-width": 16,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [66.97, 39.65],
+          [66.85, 39.72],
+          [66.55, 39.80],
+          [66.2685, 39.9018]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_kattakurgan_karmana",
+      "properties": {
+        "kind": "route",
+        "label": "Kattakurgan → Karmana",
+        "title": "Kattakurgan → Karmana",
+        "description": "Western royal road segment — Zarafshan valley",
+        "stroke": "#c9a227",
+        "stroke-width": 16,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [66.2685, 39.9018],
+          [65.95, 39.98],
+          [65.62, 40.08],
+          [65.3608, 40.1411]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_karmana_rabati-malik",
+      "properties": {
+        "kind": "route",
+        "label": "Karmana → Rabati Malik",
+        "title": "Karmana → Rabati Malik",
+        "description": "Western royal road segment — caravanserai approach",
+        "stroke": "#c9a227",
+        "stroke-width": 16,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [65.3608, 40.1411],
+          [65.1482, 40.1229]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_rabati-malik_gijduvan",
+      "properties": {
+        "kind": "route",
+        "label": "Rabati Malik → Gijduvan",
+        "title": "Rabati Malik → Gijduvan",
+        "description": "Western royal road segment — Zarafshan valley",
+        "stroke": "#c9a227",
+        "stroke-width": 16,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [65.1482, 40.1229],
+          [64.90, 40.09],
+          [64.6829, 40.1030]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_seg_gijduvan_bukhara",
+      "properties": {
+        "kind": "route",
+        "label": "Gijduvan → Bukhara",
+        "title": "Gijduvan → Bukhara",
+        "description": "Western royal road segment — Bukhara oasis approach",
+        "stroke": "#c9a227",
+        "stroke-width": 16,
+        "stroke-opacity": 0.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [64.6829, 40.1030],
+          [64.55, 40.00],
+          [64.43, 39.77]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_karmana_nur-ata",
+      "properties": {
+        "kind": "route",
+        "label": "Karmana → Nur-Ata",
+        "title": "Karmana → Nur-Ata",
+        "description": "Sentinel spur — Nuratau foothills",
+        "stroke": "#c9a227",
+        "stroke-width": 15,
+        "stroke-opacity": 0.45
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [65.3608, 40.1411],
+          [65.45, 40.25],
+          [65.55, 40.38],
+          [65.65, 40.48],
+          [65.6904, 40.5628]
+        ]
+      }
     }
   ]
 }

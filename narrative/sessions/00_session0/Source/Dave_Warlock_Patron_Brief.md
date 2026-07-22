@@ -22,7 +22,7 @@ tags:
 
 ---
 
-You were a student at a mountain academy. You know what was expected of you: the body trained, the text mastered, both disciplines feeding each other, both offered up to something larger than yourself. You know — better than anyone else will ever know — the exact size of the gap between what was expected and what you could deliver.
+You were a student at a mountain academy. Your family had attended for centuries. You know what was expected of you: the body trained, the text mastered, both disciplines feeding each other, both offered up to something larger than yourself. You know — better than anyone else will ever know — the exact size of the gap between what was expected and what you could deliver.
 
 And you know what you did about it.
 

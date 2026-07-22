@@ -19,6 +19,8 @@ last_updated: 2025-12-13
 location:
 - 39.77193
 - 78.53602
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: route-node
 name: Maralbashi
 resources:

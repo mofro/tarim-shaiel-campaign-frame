@@ -5,9 +5,10 @@ domain: narrative
 doc_type: canon
 content_type: session
 visibility: gm_secrets
+location: Collapsed inn/tavern after earthquake — Karmana
 status: draft
 created: 2025-01-21
-last_updated: 2026-06-19
+last_updated: 2026-07-21
 banner: images/places/Screencaps/terrain_color_map.png
 ---
 # Session 0: Breaker Awakening
@@ -15,7 +16,7 @@ banner: images/places/Screencaps/terrain_color_map.png
 **Archetype:** Breaker  
 **Core Doubt:** "Can I be present without destroying everything I touch?"  
 **Tool:** Hammer (crude, heavy, wedged as structural support)  
-**Setting:** Collapsed inn/tavern after earthquake  
+**Setting:** Collapsed inn/tavern after earthquake — Karmana, on the Samarqandh–Bukhara royal road  
 **Crisis:** Can escape if hammer is abandoned; taking it risks everyone
 **Duration:** 40-45 minutes total play time (estimated)
 **Tone:** Sensory confinement → geometric discovery → ethical weight → identity choice

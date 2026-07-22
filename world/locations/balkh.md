@@ -22,6 +22,8 @@ last_updated: 2025-12-13
 location:
 - 36.76
 - 66.9
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: city
 name: Balkh
 narrative_weight: true

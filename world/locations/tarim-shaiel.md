@@ -12,6 +12,8 @@ description: Metaphysical realm of heroic transformation and divine negotiation
 fantasy_name: Tarim-Shaiel
 last_updated: 2026-01-05
 location: null
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: mythic-landscape
 name: Tarim-Shaiel
 tags:

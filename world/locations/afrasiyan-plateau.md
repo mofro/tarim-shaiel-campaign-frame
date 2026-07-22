@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-07-16
 last_updated: 2026-07-16
@@ -12,7 +12,11 @@ fantasy_name: Afrasiyan
 location:
   - 39.67
   - 66.96
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: ruin
+map_label: false
+map_marker: false
 parent_region: central-asian-hubs
 elevation: 750
 factions_visible:

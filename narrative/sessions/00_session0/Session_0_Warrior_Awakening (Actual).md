@@ -7,10 +7,10 @@ content_type: session
 visibility: gm_secrets
 archetype: Warrior
 class: "Warrior (tool form: iron blade with wrapped bone grip)"
-location: Refugee camp (ravine/drainage depression)
+location: Refugee camp (ravine/drainage depression) — Ember Wash, near Kattakurgan
 status: canon
 created: 2025-01-14
-last_updated: 2026-06-30
+last_updated: 2026-07-21
 version: 3.0
 banner: images/people/PCs/mofro_she_glances_to_the_horizon_and_back_--ar_5877_--video_1_2f3f09bb-ada1-4314-9252-f8c4c806b3c8_0.gif
 banner-x: 51

@@ -15,6 +15,8 @@ last_updated: 2025-12-13
 location:
 - 41.05
 - 82.3
+map_min_zoom: 6
+map_max_zoom: 8
 mapmarker: route-node
 name: Black-Timber Post
 tags:

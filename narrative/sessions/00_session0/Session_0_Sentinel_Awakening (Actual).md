@@ -7,10 +7,10 @@ content_type: session
 visibility: gm_secrets
 archetype: Sentinel
 tool_form: cracked lantern
-location: Fortress ruins above a branching gorge (Khaakha-inspired)
+location: Fortress ruins above a branching gorge — Nur-Ata
 status: canon
 created: 2026-06-06
-last_updated: 2026-06-19
+last_updated: 2026-07-21
 version: 0.6
 ---
 
@@ -551,7 +551,7 @@ Prompt: *"The road west. What does your character carry into it?"*
 
 **Status:** v0.1 — All segments drafted
 
-**Geographic Note:** Setting is inspired by the fortress ruins near Namadgut/Khaakha, Wakhan Corridor. Exact geography TBD pending research — placeholder is gorge/valley system with high fortress signal post. Structure does not depend on exact location.
+**Geographic Note:** Grounded at [[world/locations/nur-ata|Nur-Ata]] — a real frontier watch-fort on the western spur of the Nuratau range, above rocky gorge terrain, roughly a day north of the Samarqandh–Bukhara royal road via the Karmana spur (see [[world/locations/waycross]]). Replaces the earlier Namadgut/Khaakha (Wakhan Corridor) placeholder. Spring snowmelt from the Nuratau heights stands in for the glacial-melt flood described in the Vigil Clock.
 
 **Convergence Note:** The Sentinel arrives at the caravan carrying survivors from the gorge — the woman with the scarred jaw (if present) does the practical work of joining the merchant train. The Sentinel enters the convergence as the one who chose, who held or moved, and who arrived with the question still open.
 
