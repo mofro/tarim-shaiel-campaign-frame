@@ -16,7 +16,7 @@ location:
 - 40.47
 - 88.15
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: route-node
 name: Miran Temple District
 tags:

@@ -20,7 +20,7 @@ location:
 - 38.14
 - 85.55
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: route-node
 name: Cherchen
 resources:

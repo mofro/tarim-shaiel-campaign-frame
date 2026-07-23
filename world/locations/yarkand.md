@@ -20,7 +20,7 @@ location:
 - 38.417
 - 77.2411
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: route-node
 name: Yarkand
 resources:

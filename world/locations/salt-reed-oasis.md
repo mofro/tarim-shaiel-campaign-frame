@@ -16,7 +16,7 @@ location:
 - 39.554
 - 87.9862
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: caravanserai
 name: Salt-Reed Oasis
 tags:

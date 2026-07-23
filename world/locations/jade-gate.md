@@ -18,7 +18,7 @@ location:
   - 40.339
   - 94.5855
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: fortress
 name: Jade Gate
 resources:

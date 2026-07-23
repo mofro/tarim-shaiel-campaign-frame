@@ -21,7 +21,7 @@ location:
 - 41.73
 - 82.95
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: sacred-site
 name: Kucha
 narrative_weight: true

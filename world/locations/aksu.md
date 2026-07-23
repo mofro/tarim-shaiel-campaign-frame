@@ -20,7 +20,7 @@ location:
 - 41.17
 - 80.26
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: caravanserai
 name: Aksu
 resources:

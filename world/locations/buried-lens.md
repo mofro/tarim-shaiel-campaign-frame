@@ -16,7 +16,7 @@ location:
 - 41.4
 - 86.2
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: sacred-site
 name: The Buried Lens
 tags:

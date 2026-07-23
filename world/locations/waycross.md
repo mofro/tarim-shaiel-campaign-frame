@@ -16,7 +16,7 @@ location:
   - 65.12
 map_zoom: 6.8
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 map_pan: true
 map_label: false
 map_marker: false

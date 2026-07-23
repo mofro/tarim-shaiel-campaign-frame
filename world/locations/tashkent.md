@@ -20,7 +20,7 @@ location:
 - 41.31
 - 69.24
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: city
 name: Tashkent
 resources:

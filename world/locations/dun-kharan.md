@@ -49,7 +49,7 @@ tags:
 type: Mobile Entity
 version: 1.0
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 ---
 
 # Dun-Kharan: The Wandering Council

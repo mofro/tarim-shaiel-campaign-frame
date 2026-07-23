@@ -16,7 +16,7 @@ location:
 - 40.42
 - 94.78
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: route-node
 name: Yumen Waystation (Outer)
 tags:

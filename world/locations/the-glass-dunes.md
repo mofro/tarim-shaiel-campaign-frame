@@ -15,7 +15,7 @@ location:
 - 40.35
 - 65.40
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: poi
 name: The Glass Dunes
 tags:

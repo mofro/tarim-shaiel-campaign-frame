@@ -15,7 +15,7 @@ location:
 - 46.3
 - 81.5
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: water-body
 name: Alak-Mor
 real_world_name: Lake Alakol

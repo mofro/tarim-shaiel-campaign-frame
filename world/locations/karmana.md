@@ -15,7 +15,7 @@ location:
 - 40.1411
 - 65.3608
 map_min_zoom: 6
-map_max_zoom: 8
+map_max_zoom: 7
 mapmarker: route-node
 map_pan: false
 map_label: false
