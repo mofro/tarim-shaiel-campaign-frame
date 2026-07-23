@@ -43,6 +43,14 @@ references/
 bd
 bd_linux
 
+# Natural Earth raw downloads (public domain, trivially re-fetchable from
+# naturalearthdata.com) -- only the clipped, project-specific subset is kept
+utilities/world/natural_earth/*.zip
+utilities/world/natural_earth/ne_10m_coastline/
+utilities/world/natural_earth/ne_10m_lakes/
+utilities/world/natural_earth/ne_10m_populated_places/
+utilities/world/natural_earth/ne_10m_rivers_lake_centerlines/
+
 # Binary file types (tracked text data like .geojson/.kml is fine)
 *.pdf
 *.zip
