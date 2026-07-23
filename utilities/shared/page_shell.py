@@ -37,6 +37,16 @@ def _read_css(*stems: str) -> str:
             parts.append(path.read_text(encoding="utf-8"))
     return "\n".join(parts)
 
+
+def _css_version(stem: str) -> str:
+    """File mtime as a cache-busting query param -- browsers otherwise hold
+    onto these unversioned filenames indefinitely across normal reloads."""
+    path = _CSS_DIR / f"{stem}.css"
+    try:
+        return str(int(path.stat().st_mtime))
+    except OSError:
+        return "0"
+
 FAVICON_SVG = (
     "data:image/svg+xml,"
     "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
@@ -114,13 +124,16 @@ def build_page(
         css_section = f'  <style>\n{_read_css(*css_stems)}\n  </style>\n'
     else:
         extra_link_tags = ''.join(
-            f'  <link rel="stylesheet" href="/assets/css/{stem}.css">\n'
+            f'  <link rel="stylesheet" href="/assets/css/{stem}.css?v={_css_version(stem)}">\n'
             for stem in extra_css
         )
-        gm_link_tag = '  <link rel="stylesheet" href="/assets/css/gm.css">\n' if _gm else ''
+        gm_link_tag = (
+            f'  <link rel="stylesheet" href="/assets/css/gm.css?v={_css_version("gm")}">\n'
+            if _gm else ''
+        )
         css_section = (
-            '  <link rel="stylesheet" href="/assets/css/tokens.css">\n'
-            '  <link rel="stylesheet" href="/assets/css/base.css">\n'
+            f'  <link rel="stylesheet" href="/assets/css/tokens.css?v={_css_version("tokens")}">\n'
+            f'  <link rel="stylesheet" href="/assets/css/base.css?v={_css_version("base")}">\n'
             f'{extra_link_tags}{gm_link_tag}'
         )
 

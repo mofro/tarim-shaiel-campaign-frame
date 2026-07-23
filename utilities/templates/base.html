@@ -10,19 +10,19 @@
   {% if standalone %}
   {{ inline_css_html | safe }}
   {% else %}
-  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css?v={{ asset_version }}">
   {% if use_base_css %}
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/comp-nav.css">
-  <link rel="stylesheet" href="/assets/css/comp-sidebar.css">
-  <link rel="stylesheet" href="/assets/css/comp-card.css">
+  <link rel="stylesheet" href="/assets/css/base.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="/assets/css/comp-nav.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="/assets/css/comp-sidebar.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="/assets/css/comp-card.css?v={{ asset_version }}">
   {% endif %}
   {% for stem in extra_css %}
-  <link rel="stylesheet" href="/assets/css/{{ stem }}.css">
+  <link rel="stylesheet" href="/assets/css/{{ stem }}.css?v={{ asset_version }}">
   {% endfor %}
   {% block extra_css %}{% endblock %}
   {% if gm_mode %}
-  <link rel="stylesheet" href="/assets/css/gm.css">
+  <link rel="stylesheet" href="/assets/css/gm.css?v={{ asset_version }}">
   {% endif %}
   {% endif %}
   {% block extra_head %}{% endblock %}

@@ -1,10 +1,15 @@
 """Jinja2 environment and rendering helpers for Tarim-Shaiel generators."""
 
 import os
+import time
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 _CSS_DIR = Path(__file__).parent / "css"
+
+# One version per build run -- forces browsers to fetch fresh CSS instead of
+# holding onto these unversioned filenames indefinitely across reloads.
+_ASSET_VERSION = str(int(time.time()))
 
 
 def _inline_css(*stems: str) -> str:
@@ -62,6 +67,7 @@ def render_page(template_name: str, **context) -> str:
     context.setdefault('gm_mode', False)
     context.setdefault('extra_css', [])
     context.setdefault('use_base_css', True)
+    context.setdefault('asset_version', _ASSET_VERSION)
 
     _standalone = os.environ.get('TS_STANDALONE') == '1'
     context.setdefault('standalone', _standalone)

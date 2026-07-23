@@ -411,10 +411,10 @@ def _build_world_map_html(
   var map = window._tsMap = new maplibregl.Map({{
     container: 'world-map',
     style: {MAPLIBRE_STYLE_JSON},
-    center: [75.0, 40.0],
-    zoom: 3.5,
-    minZoom: 3.5,
-    maxZoom: 3.5
+    center: [68.0, 40.0],
+    zoom: 3.8,
+    minZoom: 3.8,
+    maxZoom: 3.8
   }});
   map.on('load', function() {{
     {sources_js}
@@ -541,7 +541,9 @@ def _build_world_home(
     gm_mode: bool,
 ) -> str:
     world_map_html = _build_world_map_html(
-        locations, locations_geojson, routes_geojson, regions_geojson,
+        # Region boundary boxes disabled -- not ready for display yet.
+        # Pass regions_geojson through again once they are.
+        locations, locations_geojson, routes_geojson, None,
         gm_mode=gm_mode, show_locations=True,
     )
 

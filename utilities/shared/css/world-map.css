@@ -24,6 +24,8 @@
 #world-map {
   height: 520px;
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   border: 1px solid var(--rule);
   border-radius: 6px;
   background: var(--surface);
