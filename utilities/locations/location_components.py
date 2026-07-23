@@ -183,11 +183,15 @@ MAP_ATTRIBUTION_HTML = (
 # generate_locations_html.py imports FROM this module, so importing back would
 # create a circular dependency.
 _MINI_MAP_TIERS = [
+    # Thresholds shifted down by 1 from the original 3/5/6/7 minzoom scheme
+    # to fit the new mini-map range (map_max_zoom now 7, was 8) -- otherwise
+    # "detail" (fade 7.5->8) would never reach full opacity within the new
+    # max zoom. Kept in sync with generate_locations_html.py's tiers.
     # layer_id            categories                                    mz  fs   fe   label_font                                     size
-    ('mm-locations-major',     ['city', 'landmark', 'fortress'],             3, 3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
-    ('mm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5, 5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
-    ('mm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                       0),
-    ('mm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7, 7.5, 8,  None,                                       0),
+    ('mm-locations-major',     ['city', 'landmark', 'fortress'],             2, 2.5, 3,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
+    ('mm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     4, 4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
+    ('mm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],5, 5.5, 6,  None,                                       0),
+    ('mm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       6, 6.5, 7,  None,                                       0),
 ]
 
 
@@ -286,10 +290,10 @@ def render_mini_map(
         effective_zoom = zoom
     effective_min_zoom = loc.get('map_min_zoom')
     if effective_min_zoom is None:
-        effective_min_zoom = 5
+        effective_min_zoom = 6
     effective_max_zoom = loc.get('map_max_zoom')
     if effective_max_zoom is None:
-        effective_max_zoom = 9
+        effective_max_zoom = 7
     drag_pan_js = 'true' if loc.get('map_pan', True) else 'false'
     own_marker_js = (
         '' if loc.get('map_marker') is False

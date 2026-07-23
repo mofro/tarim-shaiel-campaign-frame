@@ -170,12 +170,16 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     )
 
     # fmt: off
+    # Thresholds shifted down by 1 from the original 3/5/6/7 minzoom scheme
+    # to fit the new location mini-map range (map_max_zoom now 7, was 8) --
+    # otherwise "detail" (fade 7.5->8) would never reach full opacity within
+    # the new max zoom. See HeroHeaven-1yu.
     tiers = [
         # layer_id               categories                                  mz  fs   fe  font                                      size
-        ('locations-major',     ['city', 'landmark', 'fortress'],            3,  3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],  15),
-        ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    5,  5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 13),
-        ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                     0),
-        ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],      7,  7.5, 8,  None,                                     0),
+        ('locations-major',     ['city', 'landmark', 'fortress'],            2,  2.5, 3,  ['Roboto Serif Regular', 'Noto Sans Bold'],  15),
+        ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    4,  4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Italic'], 13),
+        ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],5, 5.5, 6,  None,                                     0),
+        ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],      6,  6.5, 7,  None,                                     0),
     ]
     # fmt: on
 
@@ -257,11 +261,13 @@ def _gm_secrets_layers_js() -> str:
     distinguish secret vs revealed at a glance.
     """
     # fmt: off
+    # Kept in sync with _locations_layers_js()'s tiers -- see the comment
+    # there for why these shifted down by 1.
     tiers = [
-        ('gm-locations-major',     ['city', 'landmark', 'fortress'],             3,  3.5, 4),
-        ('gm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5,  5.5, 6),
-        ('gm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6,  6.5, 7),
-        ('gm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7,  7.5, 8),
+        ('gm-locations-major',     ['city', 'landmark', 'fortress'],             2,  2.5, 3),
+        ('gm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     4,  4.5, 5),
+        ('gm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],5,  5.5, 6),
+        ('gm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       6,  6.5, 7),
     ]
     # fmt: on
 
@@ -406,9 +412,9 @@ def _build_world_map_html(
     container: 'world-map',
     style: {MAPLIBRE_STYLE_JSON},
     center: [75.0, 40.0],
-    zoom: 5,
-    minZoom: 5,
-    maxZoom: 5
+    zoom: 3.5,
+    minZoom: 3.5,
+    maxZoom: 3.5
   }});
   map.on('load', function() {{
     {sources_js}
