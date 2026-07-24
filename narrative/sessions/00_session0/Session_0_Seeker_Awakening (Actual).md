@@ -11,8 +11,8 @@ tool_form: tome
 location: Desert wasteland — The Glass Dunes, below Nur-Ata
 status: canon
 created: 2025-01-15
-last_updated: 2026-07-21
-version: 1.0
+last_updated: 2026-07-23
+version: 1.1
 banner: images/places/1012721.png
 ---
 
@@ -109,3 +109,33 @@ They fell. Didn't get up.
 The sand held the day's warmth against them. The tome was still in their hands — they couldn't seem to let go. Distantly, maybe: hoofbeats. Voices. The wind playing its last trick.
 
 The darkness took them before they could decide.
+
+---
+
+## Found
+
+The outriders almost rode past them — one more shape the desert had finished with, sand already reclaiming the exposed skin. Someone reined in. Someone else called it in.
+
+Digging them free took longer than expected. What moved under that skin wasn't flesh giving way — something harder, jointed, packed solid with sand that had worked into every seam during the fall. Whatever kept this body moving had seized: works and joints locked rigid, stopped as much by grit as by exhaustion.
+
+"Never seen one up close," one of the outriders said, low, to no one in particular. Not unkind. Just cataloguing something new.
+
+The tome never left their grip. Sand-caked, fingers locked around it as rigid as everything else had been. No one tried very hard to take it.
+
+They were lifted — carefully, the way you carry something you're not sure won't break further — and laid in the back of a wagon among sacks and bundled cloth. The caravan didn't stop moving for it.
+
+---
+
+## Waking Again
+
+Stars, first. Not fixed — sliding, swaying at the edges of a canvas roof with each rut and lean of the wheels.
+
+Motion returned before understanding did. A finger first. Then a wrist. The body finding its own rhythm again, joint by joint, like something being wound back up from the inside.
+
+The tome was still there. Sand-caked, fingers locked around it exactly as they'd been locked before the dark took them.
+
+No new memories came with the waking. Whatever gap had existed before the desert existed after it too — the same blank stretching back, undisturbed. Just the wagon now, the stars jostling overhead, and a stranger's face leaning into view to check whether the eyes behind it had actually opened.
+
+"Back with us?" A woman's voice, unfamiliar, unsure what answer to expect.
+
+Did they even have one? Not yet.

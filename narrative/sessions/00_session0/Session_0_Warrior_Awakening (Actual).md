@@ -10,8 +10,8 @@ class: "Warrior (tool form: iron blade with wrapped bone grip)"
 location: Refugee camp (ravine/drainage depression) — Ember Wash, near Kattakurgan
 status: canon
 created: 2025-01-14
-last_updated: 2026-07-21
-version: 3.0
+last_updated: 2026-07-23
+version: 3.2
 banner: images/people/PCs/mofro_she_glances_to_the_horizon_and_back_--ar_5877_--video_1_2f3f09bb-ada1-4314-9252-f8c4c806b3c8_0.gif
 banner-x: 51
 banner-y: 0
@@ -30,13 +30,19 @@ The Warrior came up cold — not clean winter cold but something that had settle
 
 The smells arrived before anything else made sense: unwashed bodies, low fires, grain going sour, and underneath everything the sharp copper of fear-sweat. The reek of people who understood the value of being small.
 
-A child saw her wake and bolted — not toward safety, just away, bare feet finding purchase in the muck. Running deeper into camp, toward the woman with the soldier's eyes.
-
-Near the closest fire, an old woman stirred a pot. Didn't look up. Her shoulders tracked the sound of movement anyway.
-
 The blade came up with her arm, trailing muck. Crude iron — no shine, no pride. Just function hammered into shape. She looked at it.
 
 *--This is my chain--*
+
+---
+
+## The Camp
+
+Movement brought it into focus. Not shelters, not really — cloth stretched over frames never meant to hold this long, sunk into a shallow ravine that did the walls' job for them. Thirty people, maybe. Hard to count when everyone was trying to be small. Fires burned low, barely more than embers with something left to say for themselves. A place built for hiding, not living.
+
+A child saw her wake and bolted — not toward safety, just away, bare feet finding purchase in the muck. Running deeper into camp, toward the woman with the soldier's eyes.
+
+Near the closest fire, an old woman stirred a pot. Didn't look up. Her shoulders tracked the sound of movement anyway.
 
 ---
 
@@ -158,7 +164,7 @@ This feels like victory.
 
 ## Morning
 
-Dawn came. The woman approached.
+Dawn came. The woman approached — and something in how she looked at the Warrior had shifted overnight. Not fear anymore. Something closer to appraisal, the look you give someone whose measure you've finally taken.
 
 "Scouts say there's a caravan. Two hours west. Merchants heading for the coastal cities. We're going with them—safer in numbers than out here alone."
 
@@ -189,10 +195,10 @@ She went. Quietly. Still confused.
 - ~70+ years old; brought food without transaction; her trust was chosen, not earned
 - Has seen something like this before (significance TBD)
 
-**The Child**
+**Aigul** *(the child)*
 - ~5 years old; afraid but curious
 - Asked the real question: "Are you like the ones who burned the village?"
 - Possibly traveling with the caravan
 
-**The Scout**
+**Tomiris** *(the scout)*
 - Female, fit; brought news of soldiers; wounded but functional
