@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lora:wght@400;600&family=Zen+Antique&display=swap">
+{% endblock %}
+
+{% block page_header %}{% endblock %}
+
+{% block body_layout %}
+<div class="np-index">
+  <div class="np-index-heading np-font-antique">{{ newspaper_name }}</div>
+  {% if issues %}
+  <div class="np-index-grid">
+    {% for issue in issues %}
+    <a class="np-issue-card" href="/newspaper/{{ issue.slug }}/">
+      <div class="np-issue-card-issue">{{ issue.issue_no }}</div>
+      <div class="np-issue-card-title np-font-antique">{{ issue.lead_headline }}</div>
+      <div class="np-issue-card-date">{{ issue.date }}</div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p style="font-family: var(--font-body); color: var(--color-text); opacity: 0.6;">No issues published yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -80,11 +80,13 @@ def _load_registry() -> dict:
     from geojson.generate_geojson import generator as geojson
     from locations.generate_locations_html import generator as locations
     from sessions.generate_sessions_html import generator as sessions
+    from newspaper.generate_newspaper_html import generator as newspaper
 
     return {
         g.name: g for g in [
             homepage, dashboard, campaign_frame, lore, ancestry, class_primer,
             search_index, search, world, world_all, geojson, locations, sessions,
+            newspaper,
         ]
     }
 

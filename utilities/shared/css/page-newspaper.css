@@ -1,0 +1,90 @@
+/* page-newspaper.css — Fantasy Newspaper layout.
+   Depends on newspaper-tokens.css being loaded first (--color-*, --font-*, --space-*).
+   Fonts loaded by the newspaper.html template's extra_head block. */
+
+/* sheet wrapper — centers the white page on the grey background */
+.np-sheet { max-width: 850px; margin: 0 auto var(--space-8); box-shadow: var(--shadow-md); }
+
+.np-page{padding:56px 52px;font-family:var(--font-body);background:#fff;color:var(--color-text)}
+.np-page + .np-page{margin-top:1rem}
+
+/* masthead — page 1 only */
+.np-masthead{text-align:center;padding-bottom:var(--space-4);margin-bottom:var(--space-4);border-bottom:3px double var(--color-text)}
+.np-masthead-edition{font-family:var(--font-heading);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px}
+.np-masthead-title{font-family:var(--font-heading);font-weight:400;font-size:36px;letter-spacing:0.05em;margin:0 0 6px;line-height:1.15}
+.np-masthead-tagline{font-style:italic;font-size:14px;opacity:0.75;margin-bottom:var(--space-2)}
+.np-masthead-meta{display:flex;justify-content:space-between;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;font-variant-numeric:tabular-nums;border-top:1px solid var(--color-divider);padding-top:6px}
+
+/* running head — continuation pages (2, 3, ...) */
+.np-running-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--font-heading);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid var(--color-divider);padding-bottom:6px;margin-bottom:var(--space-4)}
+
+/* grid — 3 columns, story weights span 1–3 */
+.np-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6);align-items:start}
+
+/* lead — the front-page banner story, spans all 3 columns */
+.np-lead{grid-column:span 3;padding-bottom:var(--space-4);margin-bottom:var(--space-2);border-bottom:1px solid var(--color-divider)}
+.np-lead.np-lead-continuation{padding-bottom:var(--space-3)}
+.np-lead-kicker{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px}
+.np-lead-headline{font-family:var(--font-heading);font-weight:400;font-size:30px;letter-spacing:0.01em;line-height:1.15;margin:0 0 10px}
+.np-lead-headline.np-lead-headline-continuation{font-size:21px;line-height:1.2}
+.np-lead-dek{font-style:italic;font-size:16px;margin:0 0 var(--space-3);max-width:60ch}
+.np-lead-body{column-count:2;column-gap:var(--space-6);text-align:justify;hyphens:auto;font-size:14px;line-height:1.6}
+.np-lead-body p{margin:0 0 var(--space-3)}
+.np-lead-continued-note,.np-lead-continued-from{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-accent-700);margin:0}
+.np-lead-continued-from{margin:0 0 var(--space-2)}
+/* optional image — small, floated; NOT assumed present (images are rare) */
+.np-lead-figure{float:right;width:38%;margin:0 0 10px 18px;aspect-ratio:4/3;background:repeating-linear-gradient(135deg,var(--color-surface),var(--color-surface) 10px,var(--color-neutral-200) 10px,var(--color-neutral-200) 20px);display:flex;align-items:center;justify-content:center}
+
+/* standard — a secondary/"lesser" story, spans 2 columns */
+.np-standard{grid-column:span 2}
+.np-standard-kicker{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:4px}
+.np-standard-headline{font-family:var(--font-heading);font-weight:400;font-size:18px;margin:0 0 4px}
+.np-standard-byline{font-size:11px;font-style:italic;opacity:0.6;margin-bottom:8px}
+.np-standard-body{text-align:justify;hyphens:auto;font-size:13px;line-height:1.6}
+.np-standard-body p{margin:0 0 var(--space-2)}
+
+/* brief — a short blurb, spans 1 column, hairline left rule */
+.np-brief{grid-column:span 1;border-left:1px solid var(--color-divider);padding-left:var(--space-3)}
+.np-brief-kicker{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:4px}
+.np-brief-headline{font-family:var(--font-heading);font-weight:400;font-size:14px;margin:0 0 4px}
+.np-brief-body{font-size:12px;line-height:1.55;margin:0}
+
+/* sidebar — weather/notices box, spans 1 column, uses the shared .card component */
+.np-sidebar{grid-column:span 1;background:var(--color-surface)}
+.np-sidebar-row{font-size:12px}
+.np-sidebar-row strong{font-family:var(--font-heading);font-weight:600}
+.np-sidebar-row span{opacity:0.85}
+
+/* editorial — italic opinion snippet, framed top+bottom rule, spans 2 columns */
+.np-editorial{grid-column:span 2;border-top:1px solid var(--color-text);border-bottom:1px solid var(--color-text);padding:var(--space-3) 0}
+.np-editorial-title{font-family:var(--font-heading);font-weight:400;font-style:italic;font-size:20px;margin:0 0 8px;text-align:center}
+.np-editorial-body{font-style:italic;text-align:justify;hyphens:auto;font-size:13px;line-height:1.65}
+.np-editorial-body p{margin:0 0 var(--space-2)}
+.np-editorial-byline{text-align:right;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;margin:6px 0 0;opacity:0.65}
+
+/* reference — NPC/glossary list, spans 1 column */
+.np-reference{grid-column:span 1}
+.np-reference-title{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px;border-bottom:1px solid var(--color-divider);padding-bottom:4px}
+.np-reference-entry{margin-bottom:8px}
+.np-reference-entry-name{font-family:var(--font-heading);font-weight:600;font-size:13px}
+.np-reference-entry-role{font-size:11px;line-height:1.4;opacity:0.75}
+
+/* headline display-font switch */
+.np-font-antique{font-family:'Zen Antique',var(--font-heading)}
+.np-font-script{font-family:'Long Cang',var(--font-heading)}
+
+/* newspaper page body background */
+.newspaper-page { background: var(--color-bg); }
+
+/* suppress site theme toggle — newspaper is light-only */
+.newspaper-page .theme-toggle { display: none !important; }
+
+/* newspaper index listing */
+.np-index { max-width: 850px; margin: 0 auto; padding: var(--space-8) var(--space-4); }
+.np-index-heading { font-family: var(--font-heading); font-size: 28px; font-weight: 400; letter-spacing: 0.04em; border-bottom: 3px double var(--color-text); padding-bottom: var(--space-3); margin-bottom: var(--space-6); color: var(--color-text); }
+.np-index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-4); }
+.np-issue-card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--color-divider); padding: var(--space-4); background: #fff; box-shadow: var(--shadow-sm); }
+.np-issue-card:hover { box-shadow: var(--shadow-md); }
+.np-issue-card-issue { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 4px; }
+.np-issue-card-title { font-family: var(--font-heading); font-size: 18px; font-weight: 400; margin: 0 0 4px; line-height: 1.2; }
+.np-issue-card-date { font-size: 11px; opacity: 0.6; }

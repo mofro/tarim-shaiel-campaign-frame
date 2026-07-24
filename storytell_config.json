@@ -18,5 +18,11 @@
   "site_root": null,
   "persona_dir": null,
   "session_prefix": "hh",
-  "publish": false
+  "publish": false,
+  "newspaper": {
+    "name": "The Tarim-Shaiel Herald",
+    "tagline": "Dispatches from a world remade",
+    "edition": "Roads Edition",
+    "output_subdir": "narrative/newspaper"
+  }
 }

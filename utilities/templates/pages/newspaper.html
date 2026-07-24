@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lora:wght@400;600&family=Zen+Antique&family=Long+Cang&display=swap">
+{% endblock %}
+
+{% block site_nav %}
+<nav class="site-nav">
+  <a class="site-nav-wordmark" href="/index.html"><span class="wm-title">TARIM-SHAIEL</span><span class="wm-sub">DAGGERHEART</span></a>
+  <div class="site-nav-links">
+    <a href="/newspaper/">&#8592; All Issues</a>
+  </div>
+</nav>
+{% endblock %}
+
+{% block page_header %}{% endblock %}
+
+{% block body_layout %}
+{% for page in issue.pages %}
+<div class="np-sheet">
+  <section class="np-page">
+
+    {% if loop.first %}
+    <div class="np-masthead">
+      {% if issue.masthead.edition %}<div class="np-masthead-edition">{{ issue.masthead.edition | upper }}</div>{% endif %}
+      <h1 class="np-masthead-title np-font-antique">{{ issue.masthead.title }}</h1>
+      {% if issue.masthead.tagline %}<div class="np-masthead-tagline">{{ issue.masthead.tagline }}</div>{% endif %}
+      <div class="np-masthead-meta">
+        <span>{{ issue.masthead.date | upper }}</span>
+        <span>{{ issue.masthead.issue_no | upper }}</span>
+      </div>
+    </div>
+    {% else %}
+    <div class="np-running-head">
+      <span>{{ issue.masthead.title }}</span>
+      <span>Page {{ loop.index }}</span>
+    </div>
+    {% endif %}
+
+    <div class="np-grid">
+    {% for story in page.stories %}
+
+      {% if story.weight == 'lead' %}
+      <div class="np-lead{% if story.continued_from_page %} np-lead-continuation{% endif %}">
+        {% if story.continued_from_page %}<p class="np-lead-continued-from">Continued from page {{ story.continued_from_page }}</p>{% endif %}
+        {% if story.kicker %}<div class="np-lead-kicker">{{ story.kicker }}</div>{% endif %}
+        <h2 class="np-lead-headline np-font-antique{% if story.continued_from_page %} np-lead-headline-continuation{% endif %}">{{ story.headline }}</h2>
+        {% if story.dek %}<p class="np-lead-dek">{{ story.dek }}</p>{% endif %}
+        <div class="np-lead-body">
+          {% if story.image %}<figure class="np-lead-figure"></figure>{% endif %}
+          {% for para in story.body %}<p>{{ para }}</p>{% endfor %}
+        </div>
+        {% if story.continued_on_page %}<p class="np-lead-continued-note">Continued on page {{ story.continued_on_page }}</p>{% endif %}
+      </div>
+
+      {% elif story.weight == 'standard' %}
+      <div class="np-standard">
+        {% if story.kicker %}<div class="np-standard-kicker">{{ story.kicker }}</div>{% endif %}
+        <h3 class="np-standard-headline np-font-antique">{{ story.headline }}</h3>
+        {% if story.byline %}<div class="np-standard-byline">{{ story.byline }}</div>{% endif %}
+        <div class="np-standard-body">
+          {% for para in story.body %}<p>{{ para }}</p>{% endfor %}
+        </div>
+      </div>
+
+      {% elif story.weight == 'brief' %}
+      <div class="np-brief">
+        {% if story.kicker %}<div class="np-brief-kicker">{{ story.kicker }}</div>{% endif %}
+        <h4 class="np-brief-headline np-font-antique">{{ story.headline }}</h4>
+        <p class="np-brief-body">{{ story.body }}</p>
+      </div>
+
+      {% elif story.weight == 'sidebar' %}
+      <div class="card np-sidebar">
+        {% if story.kind %}<div class="card-kicker">{{ story.kind | title }}</div>{% endif %}
+        <div class="card-title">{{ story.title }}</div>
+        {% for item in story.sidebar_items %}
+        <div class="np-sidebar-row"><strong>{{ item.label }}: </strong><span>{{ item.value }}</span></div>
+        {% endfor %}
+      </div>
+
+      {% elif story.weight == 'editorial' %}
+      <div class="np-editorial">
+        <h3 class="np-editorial-title">{{ story.title }}</h3>
+        <div class="np-editorial-body">
+          {% for para in story.body %}<p>{{ para }}</p>{% endfor %}
+        </div>
+        {% if story.byline %}<p class="np-editorial-byline">{{ story.byline }}</p>{% endif %}
+      </div>
+
+      {% elif story.weight == 'reference' %}
+      <div class="np-reference">
+        <div class="np-reference-title">{{ story.title }}</div>
+        {% for entry in story.entries %}
+        <div class="np-reference-entry">
+          <div class="np-reference-entry-name">{{ entry.name }}</div>
+          <div class="np-reference-entry-role">{{ entry.role }}</div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% endif %}
+    {% endfor %}
+    </div>
+
+  </section>
+</div>
+{% endfor %}
+{% endblock %}

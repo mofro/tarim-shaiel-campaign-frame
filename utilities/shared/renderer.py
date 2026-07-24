@@ -1,5 +1,6 @@
 """Jinja2 environment and rendering helpers for Tarim-Shaiel generators."""
 
+import json
 import os
 import time
 from pathlib import Path
@@ -22,6 +23,16 @@ def _inline_css(*stems: str) -> str:
     return "\n".join(parts)
 
 _TEMPLATES_DIR = Path(__file__).parent.parent / "templates"
+
+def _load_newspaper_name() -> str:
+    config_path = Path(__file__).parent.parent.parent / "storytell_config.json"
+    try:
+        cfg = json.loads(config_path.read_text(encoding="utf-8"))
+        return cfg.get("newspaper", {}).get("name", "")
+    except (FileNotFoundError, json.JSONDecodeError):
+        return ""
+
+_NEWSPAPER_NAME = _load_newspaper_name()
 
 _FAVICON_SVG = (
     "data:image/svg+xml,"
@@ -68,6 +79,7 @@ def render_page(template_name: str, **context) -> str:
     context.setdefault('extra_css', [])
     context.setdefault('use_base_css', True)
     context.setdefault('asset_version', _ASSET_VERSION)
+    context.setdefault('newspaper_name', _NEWSPAPER_NAME)
 
     _standalone = os.environ.get('TS_STANDALONE') == '1'
     context.setdefault('standalone', _standalone)
