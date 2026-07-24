@@ -199,7 +199,7 @@ class _Generator:
 
         issue_dirs = sorted(
             d for d in NEWS_SRC.iterdir()
-            if d.is_dir() and not d.name.startswith(".")
+            if d.is_dir() and not d.name.startswith((".", "_"))
         )
 
         listing: list[dict] = []
