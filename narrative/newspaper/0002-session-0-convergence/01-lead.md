@@ -15,7 +15,7 @@ A ravine camp where refugees had been hiding long enough to call it home. A dese
 
 In each place, someone woke with a thing in their hands they hadn't chosen. A blade. A tome. A cracked lantern, still lit. A disk of polished obsidian.
 
-In each place, a choice had to be made before the morning was over — and each of them made one.
+In each place, a choice had to be made before the evening was over — and each of them made one.
 
 The Warrior held back when the blade wanted to move. The Seeker walked west when the charts said northeast. The Sentinel chose which group of voices to answer when both needed saving. The Visionary stepped into open ground between a merchant and a man with old authority and bad intent.
 
