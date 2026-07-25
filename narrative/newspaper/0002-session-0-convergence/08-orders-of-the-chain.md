@@ -2,8 +2,9 @@
 type: newspaper-story
 issue: "0002-session-0-convergence"
 weight: editorial
-order: 3
-page: 2
+order: 6
+page: 1
+full_width: true
 title: "Orders of the Chain: A Tulpar History"
 byline: "Volkath, Merchant Caravan Leader, Sixth Cycle Tradesman of the West"
 ---

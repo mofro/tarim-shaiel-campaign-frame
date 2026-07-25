@@ -54,7 +54,7 @@
       </div>
 
       {% elif story.weight == 'standard' %}
-      <div class="np-standard">
+      <div class="np-standard{% if story.wide %} np-wide{% endif %}">
         {% if story.kicker %}<div class="np-standard-kicker">{{ story.kicker }}</div>{% endif %}
         <h3 class="np-standard-headline np-font-antique">{{ story.headline }}</h3>
         {% if story.byline %}<div class="np-standard-byline">{{ story.byline }}</div>{% endif %}
@@ -80,12 +80,14 @@
       </div>
 
       {% elif story.weight == 'editorial' %}
-      <div class="np-editorial">
-        <h3 class="np-editorial-title">{{ story.title }}</h3>
+      <div class="np-editorial{% if story.full_width %} np-full-width{% endif %}">
+        {% if story.continued_from_page %}<p class="np-editorial-continued-from">Continued from page {{ story.continued_from_page }}</p>{% endif %}
+        <h3 class="np-editorial-title">{{ story.title }}{% if story.continued_from_page %} <em>(continued)</em>{% endif %}</h3>
         <div class="np-editorial-body">
           {% for para in story.body %}<p>{{ para }}</p>{% endfor %}
         </div>
-        {% if story.byline %}<p class="np-editorial-byline">{{ story.byline }}</p>{% endif %}
+        {% if story.continued_on_page %}<p class="np-editorial-continued-note">Continued on page {{ story.continued_on_page }}</p>{% endif %}
+        {% if story.byline and not story.continued_on_page %}<p class="np-editorial-byline">{{ story.byline }}</p>{% endif %}
       </div>
 
       {% elif story.weight == 'reference' %}

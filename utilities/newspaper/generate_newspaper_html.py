@@ -96,6 +96,8 @@ def _build_story(fm: dict, body: str) -> dict:
         "image":               bool(fm.get("image", False)),
         "continued_on_page":   None,
         "continued_from_page": None,
+        "wide":                bool(fm.get("wide", False)),
+        "full_width":          bool(fm.get("full_width", False)),
         # sidebar
         "kind":         fm.get("kind", ""),
         "sidebar_items": fm.get("items", []),
@@ -152,7 +154,12 @@ def _assemble_issue(issue_dir: Path, np_config: dict) -> dict | None:
     # (Inserted right after the source story so that further sorting keeps it adjacent.)
     paginated: list[dict] = []
     for story in stories:
-        if story["weight"] == "lead" and not story.get("continued_from_page"):
+        should_paginate = (
+            story["weight"] == "lead"
+            or (story["weight"] == "editorial" and story.get("full_width"))
+        ) and not story.get("continued_from_page")
+
+        if should_paginate:
             first, rest = _paginate_lead(story["body"])
             if rest:
                 cont_page = story["page"] + 1
@@ -163,9 +170,14 @@ def _assemble_issue(issue_dir: Path, np_config: dict) -> dict | None:
                 cont = copy.copy(story)
                 cont["body"] = rest
                 cont["page"] = cont_page
-                cont["order"] = 0          # continuations sort first on their page
                 cont["continued_from_page"] = story["page"]
                 cont["continued_on_page"] = None
+
+                if story["weight"] == "lead":
+                    cont["order"] = 0   # lead continuations sort first on their page
+                else:
+                    cont["order"] = 3   # editorial continuation: after Sentinel(1)+Visionary(2)
+                    cont["full_width"] = False  # continuation is span-2, not full-width
 
                 paginated.append(story)
                 paginated.append(cont)
@@ -178,7 +190,7 @@ def _assemble_issue(issue_dir: Path, np_config: dict) -> dict | None:
         pages_dict.setdefault(s["page"], []).append(s)
 
     pages = [
-        {"stories": pages_dict[n]}
+        {"stories": sorted(pages_dict[n], key=lambda s: s["order"])}
         for n in sorted(pages_dict)
     ]
 
