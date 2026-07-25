@@ -43,7 +43,8 @@ sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.frontmatter import parse_frontmatter
 from shared.renderer import render_page
 
-LEAD_WORD_BUDGET = 600  # words per lead body fragment
+LEAD_WORD_BUDGET       = 600  # words per lead body fragment
+EDITORIAL_WORD_BUDGET  = 510  # words per full-width editorial fragment
 
 # ---------------------------------------------------------------------------
 # Config
@@ -160,7 +161,8 @@ def _assemble_issue(issue_dir: Path, np_config: dict) -> dict | None:
         ) and not story.get("continued_from_page")
 
         if should_paginate:
-            first, rest = _paginate_lead(story["body"])
+            budget = LEAD_WORD_BUDGET if story["weight"] == "lead" else EDITORIAL_WORD_BUDGET
+            first, rest = _paginate_lead(story["body"], budget)
             if rest:
                 cont_page = story["page"] + 1
                 story = copy.copy(story)
