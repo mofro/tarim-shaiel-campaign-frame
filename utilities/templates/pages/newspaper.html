@@ -80,7 +80,7 @@
       </div>
 
       {% elif story.weight == 'editorial' %}
-      <div class="np-editorial{% if story.full_width %} np-full-width{% endif %}">
+      <div class="np-editorial{% if story.full_width %} np-full-width{% endif %}{% if story.continued_from_page %} np-editorial-continued{% endif %}">
         {% if story.continued_from_page %}<p class="np-editorial-continued-from">Continued from page {{ story.continued_from_page }}</p>{% endif %}
         <h3 class="np-editorial-title">{{ story.title }}{% if story.continued_from_page %} <em>(continued)</em>{% endif %}</h3>
         <div class="np-editorial-body">

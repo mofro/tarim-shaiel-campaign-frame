@@ -4,6 +4,7 @@ issue: "0002-session-0-convergence"
 weight: standard
 order: 4
 page: 1
+wide: true
 kicker: "The Glass Dunes, below Nur-Ata"
 headline: "The Tome Said Northeast. They Went West."
 byline: ""
