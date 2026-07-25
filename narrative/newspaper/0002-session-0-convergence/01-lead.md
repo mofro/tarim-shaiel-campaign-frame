@@ -9,7 +9,7 @@ headline: "What the Road Delivers"
 dek: "Four voices awaken, but know not to whom they belong."
 ---
 
-Four people woke without memory on the same morning, in four places that had nothing in common except that each was, in some way, the edge of something.
+Four people woke without memory on the same evening, in four places that had nothing in common except that each was, in some way, the edge of something.
 
 A ravine camp where refugees had been hiding long enough to call it home. A desert plateau above the Glass Dunes where the stars didn't match the charts. A flooded gorge below a ruined fortress, with water rising and voices calling from two directions at once. A caravanserai courtyard at Rabati Malik, already in motion, commerce flowing around a single still figure the way water moves around something fixed in a stream.
 
