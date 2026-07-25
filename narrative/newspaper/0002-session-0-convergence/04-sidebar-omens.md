@@ -2,7 +2,7 @@
 type: newspaper-story
 issue: "0002-session-0-convergence"
 weight: sidebar
-order: 3
+order: 2
 page: 1
 status: placeholder
 kind: weather

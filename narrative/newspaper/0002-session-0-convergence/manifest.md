@@ -6,5 +6,5 @@ masthead:
   tagline: "Dispatches from a world remade"
   edition: "Roads Edition"
   date: "Haziran, 1199th Year of the Held Breath"
-  issueNo: "No. 02"
+  issueNo: "No. 00"
 ---

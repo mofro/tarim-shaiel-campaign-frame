@@ -2,7 +2,7 @@
 type: newspaper-story
 issue: "0002-session-0-convergence"
 weight: standard
-order: 2
+order: 3
 page: 1
 kicker: "Ember Wash, near Kattakurgan"
 headline: "The Blade Waited. She Held."
