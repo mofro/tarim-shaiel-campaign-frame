@@ -15,5 +15,5 @@ items:
   - label: "Fire"
     value: "Burn-smear visible on eastern horizon, one day's walk"
   - label: "Omen"
-    value: "The child ran before the stranger spoke. No one read this as good."
+    value: "The stars have wandered in their fields. What is the sky telling you?"
 ---

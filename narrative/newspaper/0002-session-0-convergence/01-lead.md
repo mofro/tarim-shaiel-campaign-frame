@@ -6,7 +6,7 @@ order: 1
 page: 1
 kicker: "Session Zero — All Archetypes"
 headline: "What the Road Delivers"
-dek: "Four strangers wake without memory on the same morning. By nightfall they are on the same road."
+dek: "Four voices awaken, but know not to whom they belong."
 ---
 
 Four people woke without memory on the same morning, in four places that had nothing in common except that each was, in some way, the edge of something.

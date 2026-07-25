@@ -2,7 +2,7 @@
 type: newspaper-story
 issue: "0002-session-0-convergence"
 weight: standard
-order: 3
+order: 2
 page: 2
 kicker: "Rabati Malik"
 headline: "The Disk Turned. The Rider Left."

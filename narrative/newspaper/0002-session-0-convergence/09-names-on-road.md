@@ -2,7 +2,7 @@
 type: newspaper-story
 issue: "0002-session-0-convergence"
 weight: reference
-order: 2
+order: 4
 page: 2
 title: "Names on the Road"
 entries:
