@@ -9,6 +9,7 @@ import json
 import os
 import sys
 from html import escape
+from pathlib import Path
 from typing import Optional
 
 from locations.location_parser import LocationData
@@ -134,6 +135,26 @@ def render_resources(resources: list[str]) -> str:
 # for dev builds) rather than being committed to source. See
 # https://github.com/mofro/tarim-shaiel-campaign-frame/issues/275
 # ---------------------------------------------------------------------------
+
+def _load_dotenv() -> None:
+    """Fill os.environ from a repo-root .env file, if one exists.
+
+    Real environment variables always win -- this only uses setdefault, so a
+    shell export or Netlify's actual env var is never overridden by .env.
+    No new dependency: .env files are simple enough not to need one.
+    """
+    env_path = Path(__file__).resolve().parent.parent.parent / '.env'
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, _, value = line.partition('=')
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+_load_dotenv()
 
 MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'
 MAPTILER_KEY = os.environ.get('MAPTILER_KEY', '')
