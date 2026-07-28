@@ -398,7 +398,50 @@ def _build_world_map_html(
         if gm_mode:
             layers_js += _gm_secrets_layers_js()
 
-    return f"""<div id="world-map"></div>
+    # GM-only coordinate picker -- click the map to read off real lat/lng for
+    # siting a new location. Entirely absent from public builds (not just
+    # hidden): gm_mode is baked in at generation time, so the HTML/JS below
+    # simply doesn't exist in the --public output.
+    coord_picker_html = ''
+    coord_picker_js = ''
+    if gm_mode:
+        coord_picker_html = (
+            '<div id="coord-picker" '
+            'style="position:absolute;bottom:10px;left:10px;z-index:5;'
+            'background:rgba(10,8,5,0.85);color:#e8dcc4;font:12px monospace;'
+            'padding:6px 10px;border-radius:3px;cursor:pointer;'
+            'border:1px solid rgba(184,146,44,0.4);" '
+            'title="Click the map to read coordinates. Click this readout to copy.">'
+            'Click map for coordinates</div>'
+        )
+        coord_picker_js = (
+            'var coordEl = document.getElementById("coord-picker");\n'
+            'map.on("click", function(e) {\n'
+            '  var lat = e.lngLat.lat.toFixed(6), lng = e.lngLat.lng.toFixed(6);\n'
+            '  coordEl.dataset.coords = "  - " + lat + "\\n  - " + lng;\n'
+            '  coordEl.textContent = "lat " + lat + ", lng " + lng + "  (click to copy)";\n'
+            '});\n'
+            'coordEl.addEventListener("click", function() {\n'
+            '  if (!coordEl.dataset.coords) return;\n'
+            '  navigator.clipboard.writeText(coordEl.dataset.coords).then(function() {\n'
+            '    var prev = coordEl.textContent;\n'
+            '    coordEl.textContent = "Copied!";\n'
+            '    setTimeout(function() { coordEl.textContent = prev; }, 900);\n'
+            '  });\n'
+            '});\n'
+        )
+
+    # Public: fixed single zoom, non-zoomable (original design intent).
+    # GM mode: real zoom range so the coordinate picker can be used precisely
+    # -- one pixel at the fixed zoom 5 view is ~3.7km of real ground, far too
+    # coarse for siting a new location.
+    world_min_zoom = 3 if gm_mode else 5
+    world_max_zoom = 14 if gm_mode else 5
+
+    return f"""<div id="world-map-inner-wrap" style="position:relative;">
+<div id="world-map"></div>
+{coord_picker_html}
+</div>
 <script>
 (function() {{
   {data_js}
@@ -407,9 +450,10 @@ def _build_world_map_html(
     style: '{MAPTILER_STYLE_URL}',
     center: [75.0, 40.0],
     zoom: 5,
-    minZoom: 5,
-    maxZoom: 5
+    minZoom: {world_min_zoom},
+    maxZoom: {world_max_zoom}
   }});
+  {coord_picker_js}
   map.on('load', function() {{
     {sources_js}
     {layers_js}
