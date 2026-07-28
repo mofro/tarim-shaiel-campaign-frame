@@ -6,6 +6,8 @@ Used by the main generator to assemble location detail pages.
 """
 
 import json
+import os
+import sys
 from html import escape
 from typing import Optional
 
@@ -127,52 +129,31 @@ def render_resources(resources: list[str]) -> str:
 
 # ---------------------------------------------------------------------------
 # MapLibre GL JS map configuration
-# The base map is now a self-hosted static raster tile pyramid (docs/tiles/),
-# generated from the georeferenced Wonderdraft art -- no external tile
-# service, no API key. See utilities/world/GEOREFERENCING.md and
+# The style id itself isn't sensitive, but the MapTiler key is -- it must
+# come from the environment (Netlify env var in production, exported locally
+# for dev builds) rather than being committed to source. See
 # https://github.com/mofro/tarim-shaiel-campaign-frame/issues/275
-#
-# `glyphs` is intentionally omitted: MapLibre falls back to local/system
-# fonts for text-field rendering when it's unset (confirmed via the style
-# spec -- omitting it doesn't error or hide labels, it just doesn't use the
-# custom PBF font atlas a hosted style would normally provide).
 # ---------------------------------------------------------------------------
 
-# Bounds computed from the QGIS thin-plate-spline georeferencing pass
-# (2026-07-22, 12 GCPs) -- [west, south, east, north].
-MAP_BOUNDS = [47.9030620, 25.3876570, 123.0647401, 51.4063843]
+MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'
+MAPTILER_KEY = os.environ.get('MAPTILER_KEY', '')
+if not MAPTILER_KEY:
+    print(
+        "WARNING: MAPTILER_KEY environment variable is not set -- "
+        "maps will fail to load tiles. Set it in your shell for local "
+        "builds, or in Netlify's Environment Variables for production.",
+        file=sys.stderr,
+    )
+MAPTILER_STYLE_URL = (
+    f'https://api.maptiler.com/maps/{MAPTILER_STYLE_ID}/style.json?key={MAPTILER_KEY}'
+)
 
-MAPLIBRE_LOCAL_STYLE = {
-    'version': 8,
-    'sources': {
-        'tarim-shaiel-raster': {
-            'type': 'raster',
-            'tiles': ['/tiles/{z}/{x}/{y}.png'],
-            'tileSize': 256,
-            'bounds': MAP_BOUNDS,
-            'minzoom': 5,
-            'maxzoom': 8,
-            # gdal2tiles.py outputs TMS scheme (Y from south) by default,
-            # not XYZ (Y from north) -- without this, tiles 404 against the
-            # wrong Y coordinate. See HeroHeaven-1yu.
-            'scheme': 'tms',
-        },
-    },
-    'layers': [
-        {
-            'id': 'tarim-shaiel-base',
-            'type': 'raster',
-            'source': 'tarim-shaiel-raster',
-        },
-    ],
-}
-MAPLIBRE_STYLE_JSON = json.dumps(MAPLIBRE_LOCAL_STYLE)
-
-# Attribution shown below non-interactive mini-maps. No external tile
-# provider to credit anymore -- this is the campaign's own art.
+# Attribution shown below non-interactive mini-maps (world map uses built-in
+# MapLibre attribution control which reads from the style JSON).
 MAP_ATTRIBUTION_HTML = (
     '<div class="map-attribution">'
-    'Map art &copy; Tarim-Shaiel'
+    'Map &copy; <a href="https://www.maptiler.com/" target="_blank" rel="noopener">MapTiler</a> / '
+    '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a>'
     '</div>'
 )
 
@@ -183,15 +164,11 @@ MAP_ATTRIBUTION_HTML = (
 # generate_locations_html.py imports FROM this module, so importing back would
 # create a circular dependency.
 _MINI_MAP_TIERS = [
-    # Thresholds shifted down by 1 from the original 3/5/6/7 minzoom scheme
-    # to fit the new mini-map range (map_max_zoom now 7, was 8) -- otherwise
-    # "detail" (fade 7.5->8) would never reach full opacity within the new
-    # max zoom. Kept in sync with generate_locations_html.py's tiers.
     # layer_id            categories                                    mz  fs   fe   label_font                                     size
-    ('mm-locations-major',     ['city', 'landmark', 'fortress'],             2, 2.5, 3,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
-    ('mm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     4, 4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
-    ('mm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],5, 5.5, 6,  None,                                       0),
-    ('mm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       6, 6.5, 7,  None,                                       0),
+    ('mm-locations-major',     ['city', 'landmark', 'fortress'],             3, 3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
+    ('mm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5, 5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
+    ('mm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                       0),
+    ('mm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7, 7.5, 8,  None,                                       0),
 ]
 
 
@@ -290,10 +267,10 @@ def render_mini_map(
         effective_zoom = zoom
     effective_min_zoom = loc.get('map_min_zoom')
     if effective_min_zoom is None:
-        effective_min_zoom = 6
+        effective_min_zoom = 5
     effective_max_zoom = loc.get('map_max_zoom')
     if effective_max_zoom is None:
-        effective_max_zoom = 7
+        effective_max_zoom = 9
     drag_pan_js = 'true' if loc.get('map_pan', True) else 'false'
     own_marker_js = (
         '' if loc.get('map_marker') is False
@@ -315,15 +292,13 @@ def render_mini_map(
         layers_js += icon_registration_js()
         layers_js += _mini_map_tiered_layers_js(own_slug=loc['slug'])
 
-    return f"""<div class="mini-map" id="{map_id}" style="position:relative;">
-  <div id="{map_id}-zoom-debug" style="position:absolute;top:8px;left:8px;z-index:5;background:rgba(10,8,5,0.85);color:#fff;font:12px monospace;padding:2px 6px;border-radius:3px;pointer-events:none;">zoom: —</div>
-</div>
+    return f"""<div class="mini-map" id="{map_id}"></div>
 {MAP_ATTRIBUTION_HTML}
 <script>
 (function() {{
   var map = new maplibregl.Map({{
     container: '{map_id}',
-    style: {MAPLIBRE_STYLE_JSON},
+    style: '{MAPTILER_STYLE_URL}',
     center: [{lon}, {lat}],
     zoom: {effective_zoom},
     minZoom: {effective_min_zoom},
@@ -337,11 +312,6 @@ def render_mini_map(
     touchZoomRotate: false,
     attributionControl: false
   }});
-  // TEMP DEBUG — zoom-level readout, remove when done testing
-  var zoomDebugEl = document.getElementById('{map_id}-zoom-debug');
-  function updateZoomDebug() {{ zoomDebugEl.textContent = 'zoom: ' + map.getZoom().toFixed(2); }}
-  map.on('zoom', updateZoomDebug);
-  map.on('load', updateZoomDebug);
   map.on('load', function() {{
     {sources_js}
     {layers_js}
