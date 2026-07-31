@@ -6,7 +6,7 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-07-04
+last_updated: 2026-07-31
 ---
 
 # Creation Session Log
@@ -15,6 +15,16 @@ _Authoring and design work sessions. Newest first. Trim to last 10 sessions; old
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
 
 ---
+
+### Session 2026-07-30/31
+- Session 2 prep — split-thread ambush encounter (dual Dynamic Countdown structure)
+  - Read `narrative/sessions/01_session1/session-chronicle.html` for the first time — Session 1 had already been played (Sahir's Fork, Volkath's history, the memory-gap realization, Veyra walking east, Volkath's confession that the Rabati Malik ambush is his own son's doing)
+  - Wrote `narrative/sessions/02_session2/gm_secrets/Session_2_GM_NOTES.md`: dual Dynamic Countdown race ("Blood in the Streets" shared fuse vs. two Progress countdowns) instead of a scripted fight, per-stage Difficulties, neither thread pre-assigned to a PC
+  - Named Captain Idris Kaan (Session 0's "Lead Rider") and Sanem (Temir's second)
+  - Corrected `Session_0_GM_NOTES.md`: "young orc" to "young Tulpar" for the courtyard bystander (now identified as Temir, Volkath's son) — the actually-played scenario file and newspaper index both already used "Tulpar"; only the GM-prep draft was stale
+  - Fleshed out `world/locations/rabati-malik.md` (was a placeholder) and added `world/gm_secrets/rabati-malik-gm.md` — a reusable Tier 1 Social Daggerheart Environment stat block, following the existing Waycross transclusion pattern
+  - Process note: deleted files mid-plan-mode by mistake (restored by the user) — root cause was treating a "cleanup" Bash call as read-only when plan mode requires read-only for everything except the plan file
+- Beads cleanup: closed HeroHeaven-8rp (Jim's Fork), HeroHeaven-oej (Dave's intro), HeroHeaven-6yj/0gw (newspaper generator+templates) — all confirmed done via actual play / live site. Updated `DASHBOARD.md` — Jim (Sahir) and Dave (Rill) moved from deciding to committed; `deciding_players` split into a new `new_heroes` key since they aren't archetype-slot characters
 
 ### Session 2026-07-03/04
 - [HeroHeaven-x1i] LK Bridge — full interim implementation + verification (PR #273) 🔄 awaiting review

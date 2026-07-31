@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-07-18
+last_updated: 2026-07-31
 
 critical_path:
   - Resolve cosmological architecture
@@ -27,10 +27,14 @@ players:
     - {name: Crafter,    status: pending,    player: ""}
     - {name: Healer,     status: pending,    player: ""}
     - {name: Keeper,     status: pending,    player: ""}
+  # Jim and Dave are new heroes (unaccounted-for arrivals, not one of the ten expelled
+  # legendary archetypes) — see HeroHeaven-8rp, HeroHeaven-oej. Both played and confirmed
+  # in Session 1 (2026-07-XX); key renamed from deciding_players since they're no longer deciding.
+  new_heroes:
+    - {player: "Dave", class_pref: "Warlock", character: "Rill — Vanara (Simiah) / Warlock", patron: "Door One — unknown-price patron (Lord of Exhausted Seams / the Shattered King)"}
+    - {player: "Jim",  class_pref: "Bard",    character: "Sahir — Rahban (Halfling) / Bard"}
   deciding_players:
-    - {player: "Dave",  class_pref: "Warlock",   archetype: "Protector (proposed)", character: "Vanara / Warlock — patron choice pending"}
-    - {player: "Bruce", class_pref: "Guardian",  archetype: "undecided"}
-    - {player: "Jim",   class_pref: "unknown",   archetype: "undecided"}
+    - {player: "Bruce", class_pref: "Guardian", archetype: "undecided"}
 
 domain_overrides:
   # Manually pinned at 2026-05-06 when task tracking migrated from TODO.md to Beads.
