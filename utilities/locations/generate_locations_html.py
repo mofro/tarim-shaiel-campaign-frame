@@ -414,9 +414,14 @@ def _build_world_map_html(
             'title="Click the map to read coordinates. Click this readout to copy.">'
             'Click map for coordinates</div>'
         )
+        # mouseup, not click -- MapLibre only fires "click" when there is
+        # near-zero pointer movement between down/up, so any trackpad
+        # micro-drag (very common) gets classified as a pan instead and
+        # "click" never fires at all. mouseup always fires with the final
+        # cursor position, drag or not.
         coord_picker_js = (
             'var coordEl = document.getElementById("coord-picker");\n'
-            'map.on("click", function(e) {\n'
+            'map.on("mouseup", function(e) {\n'
             '  var lat = e.lngLat.lat.toFixed(6), lng = e.lngLat.lng.toFixed(6);\n'
             '  coordEl.dataset.coords = "  - " + lat + "\\n  - " + lng;\n'
             '  coordEl.textContent = "lat " + lat + ", lng " + lng + "  (click to copy)";\n'
