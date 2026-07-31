@@ -1,0 +1,516 @@
+
+<title>Session Chronicle — Tarim-Shaiel</title>
+<style>
+  :root {
+    --gold:      #b8922c;
+    --gold-dim:  #8a6a1e;
+    --jade:      #4A8070;
+    --jade-dim:  #325a50;
+    --bg:        #EDE4D4;
+    --surface:   #F5EEE2;
+    --surface2:  #E2D7C2;
+    --text:      #1E1409;
+    --text-body: #2E200E;
+    --muted:     #6A5030;
+    --rule:      #C8B48A;
+    --drop-cap:  #b8922c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:        #130D07;
+      --surface:   #1E1409;
+      --surface2:  #2A1C0C;
+      --text:      #EDE0C4;
+      --text-body: #D8CAA8;
+      --muted:     #8A7050;
+      --rule:      #4A3520;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg:        #EDE4D4; --surface:   #F5EEE2; --surface2:  #E2D7C2;
+    --text:      #1E1409; --text-body: #2E200E; --muted:     #6A5030;
+    --rule:      #C8B48A;
+  }
+  :root[data-theme="dark"] {
+    --bg:        #130D07; --surface:   #1E1409; --surface2:  #2A1C0C;
+    --text:      #EDE0C4; --text-body: #D8CAA8; --muted:     #8A7050;
+    --rule:      #4A3520;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 17px; scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: Georgia, 'Times New Roman', 'Book Antiqua', Palatino, serif;
+    line-height: 1.7; transition: background 0.3s, color 0.3s;
+  }
+
+  .theme-toggle {
+    position: fixed; top: 1.2rem; right: 1.4rem; z-index: 100;
+    background: var(--surface2); border: 1px solid var(--rule); border-radius: 2px;
+    color: var(--muted);
+    font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.35rem 0.7rem; cursor: pointer; transition: color 0.2s, border-color 0.2s;
+  }
+  .theme-toggle:hover { color: var(--gold); border-color: var(--gold); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .page { max-width: 760px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  @media (max-width: 600px) { .page { padding: 1.5rem 1rem 3rem; } }
+
+  .masthead { text-align: center; padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.8rem; }
+  .masthead-eyebrow { font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif; font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; }
+  .masthead-title { font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif; font-size: clamp(2rem, 5vw, 2.8rem); font-weight: normal; letter-spacing: 0.04em; color: var(--text); text-wrap: balance; line-height: 1.2; margin-bottom: 0.5rem; }
+  .masthead-subtitle { font-style: italic; color: var(--muted); font-size: 0.95rem; margin-bottom: 1.4rem; }
+  .session-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .session-meta span { white-space: nowrap; }
+  .session-meta .sep { opacity: 0.4; }
+
+  .part-label { font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .part-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  .summary-scene { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+  .summary-scene:last-child { border-bottom: none; margin-bottom: 0; }
+  .scene-heading { font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif; font-size: 1.05rem; font-weight: normal; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; text-wrap: balance; }
+  .summary p { font-size: 0.93rem; color: var(--text-body); margin-bottom: 0.7rem; line-height: 1.75; }
+  .summary p:last-child { margin-bottom: 0; }
+
+  .player-tag { display: inline-block; font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--jade); border: 1px solid var(--jade-dim); border-radius: 2px; padding: 0.05em 0.45em; margin-right: 0.3em; white-space: nowrap; vertical-align: middle; }
+  .detail-list { list-style: none; margin: 0.6rem 0; }
+  .detail-list li { font-size: 0.88rem; color: var(--text-body); line-height: 1.65; padding: 0.2rem 0 0.2rem 1.2rem; position: relative; }
+  .detail-list li::before { content: '◆'; position: absolute; left: 0; color: var(--gold-dim); font-size: 0.5em; top: 0.55em; }
+  .quote-inline { font-style: italic; color: var(--muted); }
+  .roll-note { display: inline-block; font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif; font-size: 0.65rem; letter-spacing: 0.06em; color: var(--muted); border: 1px solid var(--rule); border-radius: 2px; padding: 0.05em 0.4em; margin-left: 0.3em; white-space: nowrap; }
+
+  .roster-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin: 0.8rem 0; }
+  @media (max-width: 500px) { .roster-grid { grid-template-columns: 1fr; } }
+  .roster-row { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: baseline; font-size: 0.84rem; color: var(--text-body); font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif; padding: 0.35rem 0; border-bottom: 1px solid var(--rule); }
+  .roster-player { color: var(--muted); font-size: 0.7rem; letter-spacing: 0.06em; flex-shrink: 0; width: 3.2rem; text-align: right; }
+  .roster-char { color: var(--text); font-family: Georgia, serif; font-style: italic; flex-shrink: 0; }
+  .roster-sub { color: var(--muted); font-size: 0.7rem; flex-basis: 100%; padding-left: 3.6rem; line-height: 1.4; }
+
+  .note-box { background: var(--surface2); border-left: 3px solid var(--gold-dim); padding: 0.8rem 1rem; margin: 1rem 0; font-size: 0.86rem; color: var(--text-body); line-height: 1.65; }
+  .note-box strong { color: var(--text); }
+  .note-box.unrecorded { border-left-color: var(--jade-dim); }
+
+  .chronicle-divider { text-align: center; margin: 3.5rem 0; position: relative; }
+  .divider-rule { height: 1px; background: linear-gradient(to right, transparent, var(--rule), var(--gold-dim), var(--rule), transparent); margin-bottom: -0.85rem; }
+  .divider-star { display: inline-block; background: var(--bg); padding: 0 1rem; position: relative; z-index: 1; }
+  .divider-eyebrow { display: block; font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-top: 0.9rem; }
+
+  .chronicle { position: relative; }
+  .chronicle::before { content: ''; position: absolute; inset: 0; opacity: 0.025; pointer-events: none; background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%); background-size: 28px 28px; }
+  .chronicle-scene { margin-bottom: 3.2rem; position: relative; }
+  .chronicle-scene:last-child { margin-bottom: 0; }
+  .chronicle-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.4rem; }
+  .scene-num { font-family: 'Trebuchet MS', Verdana, system-ui, sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dim); flex-shrink: 0; }
+  .chronicle-title { font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif; font-size: 1.35rem; font-weight: normal; color: var(--text); text-wrap: balance; line-height: 1.25; }
+  .chronicle p { font-size: 0.98rem; color: var(--text-body); line-height: 1.85; margin-bottom: 1.1rem; max-width: 67ch; }
+  .chronicle p:last-child { margin-bottom: 0; }
+  .chronicle-scene:first-child p:first-of-type::first-letter { font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif; font-size: 3.6em; line-height: 0.78; float: left; margin-right: 0.08em; margin-top: 0.1em; color: var(--drop-cap); font-weight: normal; }
+  .scene-break { text-align: center; color: var(--gold-dim); font-size: 0.6rem; letter-spacing: 0.6em; margin: 2rem 0; user-select: none; }
+  .chronicle .spoken { display: block; margin: 0.5rem 0 0.5rem 2rem; font-style: italic; color: var(--muted); font-size: 0.95rem; border-left: 2px solid var(--rule); padding-left: 1rem; max-width: 55ch; }
+  .chronicle-scene-rule { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; opacity: 0.5; }
+</style>
+
+<button class="theme-toggle" onclick="(function(){var r=document.documentElement,t=r.getAttribute('data-theme');r.setAttribute('data-theme',t==='dark'?'light':'dark');this.textContent=t==='dark'?'Dark':'Light'}).call(this)">Light</button>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="masthead-eyebrow">Tarim-Shaiel · Daggerheart Campaign</p>
+    <h1 class="masthead-title">The Fork in the Road</h1>
+    <p class="masthead-subtitle">Session Chronicle &amp; Running Notes</p>
+    <div class="session-meta">
+      <span>Session 1</span>
+      <span class="sep">·</span>
+      <span>GM: Mo</span>
+      <span class="sep">·</span>
+      <span>Five players + one remote</span>
+      <span class="sep">·</span>
+      <span>Next: August 15, 2026</span>
+    </div>
+  </header>
+
+    <div class="summary-scene">
+      <h2 class="scene-heading">At the Table</h2>
+      <div class="roster-grid">
+        <div class="roster-row"><span class="roster-player">Mo</span><span class="roster-char">GM</span></div>
+        <div class="roster-row"><span class="roster-player">Jim</span><span class="roster-char">Sahir</span><span class="roster-sub">Rahban (Halfling) · Bard</span></div>
+        <div class="roster-row"><span class="roster-player">Arno</span><span class="roster-char">Rayzen</span><span class="roster-sub">Pari-Kin (Faun) · Druid</span></div>
+        <div class="roster-row"><span class="roster-player">Marc</span><span class="roster-char">Ariel</span><span class="roster-sub">Vaghri (Katari) · Seraph</span></div>
+        <div class="roster-row"><span class="roster-player">Erik</span><span class="roster-char">Cal</span><span class="roster-sub">Dwarven Constructed Tadbir (Clank) · Sorcerer</span></div>
+        <div class="roster-row"><span class="roster-player">Dave</span><span class="roster-char">Rill</span><span class="roster-sub">Vanara (Simiah) · Warlock</span></div>
+        <div class="roster-row"><span class="roster-player">Lisa</span><span class="roster-char">Veyra</span><span class="roster-sub">Human · Warrior · Remote audio</span></div>
+        <div class="roster-row"><span class="roster-player">Sarah</span><span class="roster-char" style="color:var(--muted);font-style:normal;">Spectator — no character</span></div>
+      </div>
+    </div>
+
+  <!-- ═══ PART ONE: CHRONICLE ═══ -->
+  <section class="chronicle" aria-label="In-Game Chronicle">
+    <p class="part-label">Part One — The Chronicle</p>
+
+    <!-- SCENE I -->
+    <div class="chronicle-scene">
+      <div class="chronicle-header">
+        <span class="scene-num">Scene I</span>
+        <h2 class="chronicle-title">The Fork</h2>
+      </div>
+
+      <p>Three days on the road, and the road had been good to him. Sahir moved through country with the ease that comes not from familiarity with this particular stretch of ground but from something older — a Rahban's birthright, the bone-knowledge that there is always a direction and the direction is always findable. He had never once stood somewhere and not known the way forward. This was not a point of pride. It was simply true.</p>
+
+      <p>Then the fork.</p>
+
+      <p>He stopped. Both paths pulled — that was what stopped him. Not one pull, not the familiar singular certainty that had always organized his feet. Two, simultaneously, with equal weight, pointing at each other and refusing to resolve. The Rahban vocabulary had no word for this. It wasn't being lost; Sahir knew exactly where he was. It was something more like watching an instrument he'd relied on his entire life give two different readings, both convincing, both authoritative, neither wrong enough to dismiss.</p>
+
+      <p>He'd been standing there long enough that a small brown bird landed near his boot, regarded his toe as a potential meal for what must have been two solid minutes, concluded otherwise, and left. He'd barely registered it.</p>
+
+      <p>He got out his notebook. That was when he saw the cart — planted at the center of the junction, a flat wagon with cases of small goods and a man moving among them who had, Sahir suddenly understood, been watching him stand here for some time. He put the notebook away and walked over.</p>
+
+      <div class="scene-break">◆ &nbsp; ◆ &nbsp; ◆</div>
+
+      <p>The merchant wore an abacus on his belt — jade beads, very worn, the green catching the low afternoon sun the way of green things. Not for display. A working tool for someone who counted things constantly. He gestured at his wares without ceremony; small curiosities, hard to categorize.</p>
+
+      <p>They talked as travelers do: economical, neither investing more than the conversation warranted. Sahir said he had no particular destination. The merchant absorbed this without comment. From a balsa-wood case — almost too light to be real — he produced a metal needle wrapped in leather, tapered at both ends. When Sahir took it, his hand turned north.</p>
+
+      <p>Not pulled. Turned. As if the needle had its own agenda and the hand was simply accompanying it.</p>
+
+      <p>The merchant explained, with the tone of someone who had made this explanation before to people who didn't believe it: the world was a globe. A field, invisible and consistent. One end of this needle always knew where that field converged. Sahir, who had seen maps and knew they were flat, said so. The merchant smiled without conceding anything.</p>
+
+      <p>Then his question:</p>
+      <span class="spoken">"Which pull do you usually trust?"</span>
+      <p>Sahir considered the two competing certainties still echoing in his feet.</p>
+      <span class="spoken">"The one not known."</span>
+
+      <p>The merchant reached into his robes, produced a small notebook, wrote something brief, put it away. He offered the compass as payment for the answer — not a gift, he was clear. <span class="quote-inline">"I took my payment in kind."</span></p>
+
+      <p>Sahir accepted. Before leaving he asked for a name, as you should when the road might return you to someone.</p>
+      <span class="spoken">"I am known by very many names, most of which I don't favor. You can call me Kalas. With a K, if it matters."</span>
+      <span class="spoken">"If it matters to you, it matters."</span>
+      <span class="spoken">"I am just happy to be called at all."</span>
+
+      <p>They parted without ceremony. Sahir took the right fork. The competing pull faded as he walked — the road resolving into a tributary lane toward a caravan meeting ground. By golden hour he could see a large caravan in the distance. He pointed himself at it and kept walking, turning the compass in his hand, watching it hold its course regardless of direction.</p>
+    </div>
+
+    <hr class="chronicle-scene-rule">
+
+    <!-- SCENE II -->
+    <div class="chronicle-scene">
+      <div class="chronicle-header">
+        <span class="scene-num">Scene II</span>
+        <h2 class="chronicle-title">The World According to Volkath</h2>
+      </div>
+
+      <p>Volkath held the telling carefully. These were words he'd arranged over many tellings and hadn't grown careless with; the fire was low, the night not yet cold, and he spoke about his people with the gravity of someone who understood that certain histories are only kept alive if someone keeps saying them aloud.</p>
+
+      <p>He told them about the chains. The geas — the compulsion that had bent the Tulpar into servitude for thousands of years, that had organized them as warriors, miners, laborers at the command of empires that came and went. He told them how the last great empire fell, and how the chains broke with it, all at once, everywhere — and how that freedom arrived before his people had anything to receive it into. How the rage that followed lasted decades. Thirty or forty percent of the Tulpar gone in pointless wars against remnants of empire, against other peoples who panicked at the sudden unchained fury of them, against anyone who appeared at the wrong moment.</p>
+
+      <p>Time helped. The Tulpar found the road, and found themselves suited to it — as traders, as instructors in the martial arts, as the connective tissue between east and west. They built a reputation from the ground up and earned something to be proud of. He was proud. It was a real pride.</p>
+
+      <p>He stopped when he'd finished. Took several long breaths. Looked at each of them in turn.</p>
+      <span class="spoken">"Are there any questions?"</span>
+
+      <p>The group sat with it. They knew the broad shapes of this world — its peoples, its geography — but the specific history Volkath described didn't reach back to anything they could touch. What they knew, sitting around that fire, was each other: deep and certain and completely unexplained.</p>
+    </div>
+
+    <hr class="chronicle-scene-rule">
+
+    <!-- SCENE III (new) -->
+    <div class="chronicle-scene">
+      <div class="chronicle-header">
+        <span class="scene-num">Scene III</span>
+        <h2 class="chronicle-title">The Unfamiliar Sky</h2>
+      </div>
+
+      <p>The fire had been burning long enough to have opinions — red-cored embers, logs going grey at their edges, the group arranged around it in the loose configuration of people who'd stopped pretending they might leave soon. Then Veyra looked up at the stars and said they sat wrong.</p>
+
+      <p>Cal remembered the tome — reached for it as the subject made it suddenly relevant. He opened it to the star charts. The constellations documented there and the constellations visible above them were not in agreement — not the small variance of latitude or season, but structurally different, as if drawn from a different sky entirely.</p>
+
+      <p>They took stock of what they knew and what they didn't.</p>
+
+      <p>What they knew: the particular weight of early lives. Veyra's mountains, her animals, the specific sounds of mornings she'd know anywhere. Ariel's history. Rayzen's relation to growing things. All of it present, personal, verifiable by the quality of it. And then: the world Volkath had just finished describing. The empire. The chains. The centuries of reconstruction. Nothing. Not dim, not half-remembered. Simply absent, as if they had arrived here from somewhere else that didn't include this history.</p>
+
+      <p>Ariel spoke once, briefly — a memory that had surfaced whole, from the same deep current the others were drawing from. A moment of being tested: something that wanted vengeance, and the choice to hold it back. She didn't elaborate, and no one pressed her.</p>
+
+      <p>Veyra said what she thought: that perhaps they had died. That something had pulled them back from a deathly sleep of a thousand years. She said it plainly, as the most economical account of the available evidence, not as distress.</p>
+
+      <p>Silence. Then: <em>how</em> would such a thing be accomplished?</p>
+
+      <p>Volkath said he didn't know. His expression was careful — the kind of careful that means something. He sent a runner.</p>
+
+      <div class="scene-break">◆ &nbsp; ◆ &nbsp; ◆</div>
+
+      <p>The runner came back with Rill. A Vanara who had been traveling with the caravan, introduced to this particular group for the first time — slightly rumpled, carrying the air of someone interrupted mid-thought. Volkath made the introduction with measured neutrality. Rill made clear he was not a mage. That was not how he understood his situation.</p>
+
+      <p>Volkath's smile at this was brief and dry and said nothing more.</p>
+
+      <div class="scene-break">◆ &nbsp; ◆ &nbsp; ◆</div>
+
+      <p>Sahir arrived while the tome was still being examined, which turned out to be the right moment. He produced sweets without ceremony and distributed them, and then asked questions — the right questions, in the right order, offered to people who were ready to think through something difficult. The conversation opened up. The tome passed between them. Stories surfaced. Hypotheses were offered and considered and modified. The sweet treats made the rounds.</p>
+
+      <p>The fire crackled on, unconcerned. The stars remained arranged as they were, impervious to theorizing. Whatever the group was beginning to build — toward some eventual understanding of where they were and how they'd arrived — it started here, around this fire, with a plate of sweets and a book of charts that didn't match the sky.</p>
+    </div>
+
+    <hr class="chronicle-scene-rule">
+
+    <!-- SCENE IV -->
+    <div class="chronicle-scene">
+      <div class="chronicle-header">
+        <span class="scene-num">Scene IV</span>
+        <h2 class="chronicle-title">What the Ring Knows</h2>
+      </div>
+
+      <p>Rill had been sitting on something since joining the fire. Certain senses — nothing with a name, nothing corresponding to sight or hearing — went quiet near this group. He'd noticed the pattern, waited to be sure it wasn't simply the strangeness of everything, then brought it up carefully, not wanting to be taken for unwell.</p>
+
+      <p>Ariel carried a disc — the object she'd woken holding. She crossed to Rill and handed it over. Giving it up cost her something she hadn't known she was carrying; the tension in her shoulders became slightly more of itself the moment the disc left her hand. Rill held the disc and backed away from her to test whether the artifact extended whatever he was sensing. It didn't. Holding Ariel's disc while moving away changed nothing at all about the muffling.</p>
+
+      <p>He set the disc on the ground and walked toward her instead. At roughly the halfway point — perhaps seventeen feet out — his ring finger itched. Just that, briefly. Then nothing. He made it all the way to Ariel without the connection resuming. When she retrieved the disc, the tension she'd been holding released quietly, in a way she hadn't anticipated.</p>
+
+      <p>So: the disc extended something, but the ring had responded independently at the midpoint. Two artifacts, two behaviors, one experiment that answered less than it cost to run. They filed it and kept looking.</p>
+
+      <p>Rill's ring: black metal, formed during a ritual reading at a secular monastery — following the instructions in a book until something happened and the ring was simply there. A deal with a counterparty whose name he doesn't know. It won't come off. Stare at it too long and it seems to shift.</p>
+
+      <p>Veyra's artifact: her sword, which woke wanting blood. She no longer obliges it. The people she might still want it against — those who stole her goats, the specific and unmetaphorical grievance she named without softening — were almost certainly dead a thousand years over.</p>
+    </div>
+
+    <hr class="chronicle-scene-rule">
+
+    <!-- SCENE V -->
+    <div class="chronicle-scene">
+      <div class="chronicle-header">
+        <span class="scene-num">Scene V</span>
+        <h2 class="chronicle-title">The Goat Herder's Argument</h2>
+      </div>
+
+      <p>She was gone before full light. Veyra took provisions, strapped on what she'd come with, and started walking east — back the way they'd come, toward mountains visible on the horizon when the light was right, toward a hut she would build and goats she would find from someone else's starting stock. Her previous goats were a thousand years dead. This was a logistical problem, not a philosophical one.</p>
+
+      <p>Ariel found her from the air and came down alongside.</p>
+      <span class="spoken">"I was wondering where you're going."</span>
+      <span class="spoken">"I'm looking for a new home."</span>
+
+      <p>Ariel made her case. The recognition between them was real — she wasn't pretending it wasn't there, and neither was Veyra. Something had assembled these specific people at this specific point, and the assembly had a shape even if its purpose wasn't clear yet. She said so without dressing it as destiny.</p>
+
+      <p>Veyra stopped walking.</p>
+
+      <p>She felt it — that was the problem. Not vaguely. Something like a critical instinct, the kind that tells a warrior how a fight is going before the fight has started. The group made a certain sense. She just didn't trust what that meant.</p>
+      <span class="spoken">"That's the feeling of being manipulated,"</span>
+      <p>she said.</p>
+      <span class="spoken">"Higher purpose we're supposed to devote our lives to — it's for suckers. Just go to where you find peace and stay there."</span>
+      <span class="spoken">"If there are two paths and one loops back to the other, take the one that loops back. You'll see both paths."</span>
+
+      <p>Veyra wished her well and started walking again.</p>
+      <span class="spoken">"Hope you take my advice."</span>
+      <span class="spoken">"Hope you take mine."</span>
+
+      <p>The road east took her with the indifference roads have for who uses them. In a few minutes she was a shape in the early grey. Then a question the group was left carrying. Nobody ran after her.</p>
+    </div>
+
+    <hr class="chronicle-scene-rule">
+
+    <!-- SCENE VI -->
+    <div class="chronicle-scene">
+      <div class="chronicle-header">
+        <span class="scene-num">Scene VI</span>
+        <h2 class="chronicle-title">Dawn Survey</h2>
+      </div>
+
+      <p>Ariel went up at first light and circled the camp from above. Below: the caravan in morning configuration — animals, fires, people who had not yet started moving but knew they would shortly. Mountains on the eastern horizon, clear against the pale sky, going where Veyra had gone. Nothing else approached from any direction. She came down and reported: ordinary morning, for now.</p>
+    </div>
+
+    <hr class="chronicle-scene-rule">
+
+    <!-- SCENE VII -->
+    <div class="chronicle-scene">
+      <div class="chronicle-header">
+        <span class="scene-num">Scene VII</span>
+        <h2 class="chronicle-title">Volkath's Son</h2>
+      </div>
+
+      <p>The runner came from Rabati Malik perhaps thirty minutes after the caravan had eaten. Volkath stood for a moment after receiving the message, then looked for the group and crossed to them.</p>
+      <span class="spoken">"I may have a problem."</span>
+
+      <p>He laid it out directly. When the Imperial tax collectors had forced a renegotiation at the last meeting — worsened the terms, in the language of men with armed escorts — some of his caravan had not accepted the peace. They had only stood down because the moment required it. They had since lured those same soldiers back into Rabati Malik under some pretext and were currently waiting for them in the streets.</p>
+
+      <p>If the soldiers had already sent word back to their command before walking in, a larger force would come, and come to the caravan as an identified party. The caravan's name would travel west ahead of them. Younger members would carry legal exposure they hadn't earned. The road would become difficult in ways that couldn't be simplified.</p>
+
+      <p>He couldn't compel the group. This was outside the agreement. But the persuasive ability they'd already demonstrated would be the most useful thing they could put into this situation.</p>
+
+      <p>Then, quietly:</p>
+      <span class="spoken">"I will allow for some full disclosure. That head miscreant is my son."</span>
+    </div>
+
+    <hr class="chronicle-scene-rule">
+
+    <!-- SCENE VIII -->
+    <div class="chronicle-scene">
+      <div class="chronicle-header">
+        <span class="scene-num">Scene VIII</span>
+        <h2 class="chronicle-title">The Split</h2>
+      </div>
+
+      <p>Two problems, two threads. The plan assembled in pieces — not cleanly, but with a logic that became obvious as the pieces arrived. Someone needed to reach the Imperial soldiers before they entered the trap. Someone else needed to reach Volkath's son and get the ambush called off, or at minimum place themselves between the two parties before the first blow landed.</p>
+
+      <p>Ariel would take the Imperials. Speed was the whole game on that side. Rill had been with the caravan a month; he had a face the son might recognize and a claim to having operated in good faith. He would go for the son. Others fell in around the two threads.</p>
+
+      <p>Cal, practically, offered to send one of his eyes with the group heading to the son — something the son would recognize as coming from a specific person rather than a stranger. The proposal was received with a particular silence.</p>
+
+      <p>Ariel offered to carry whoever needed moving. The road to Rabati Malik was waiting. So was everything on it.</p>
+    </div>
+
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="chronicle-divider">
+    <div class="divider-rule"></div>
+    <div class="divider-star">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g transform="translate(26,26)">
+          <polygon points="0,-18 4.5,-4.5 18,0 4.5,4.5 0,18 -4.5,4.5 -18,0 -4.5,-4.5" fill="var(--gold)" opacity="0.85"/>
+          <polygon points="0,-18 4.5,-4.5 18,0 4.5,4.5 0,18 -4.5,4.5 -18,0 -4.5,-4.5" fill="none" stroke="var(--gold-dim)" stroke-width="0.5" transform="rotate(22.5)"/>
+          <circle r="3.5" fill="var(--bg)"/>
+          <circle r="2" fill="var(--gold-dim)"/>
+        </g>
+      </svg>
+      <span class="divider-eyebrow">Session Notes</span>
+    </div>
+  </div>
+
+  <!-- ═══ PART TWO: SESSION NOTES ═══ -->
+  <section class="summary" aria-label="Session Notes">
+    <p class="part-label">Part Two — Session Notes</p>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        Session Logistics
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <div class="note-box">
+        <strong>Session logistics:</strong> Lisa and Arno both missed the date and were nearly absent. Lisa joined by audio mid-session via Discord after a grocery run; Dave is a new player, introduced at this session. A recording device was running throughout. Mo passed the Session Zero newspaper handout (which includes the <em>Orders of the Chain</em> editorial) via a shared URL for players who wanted background reading.
+      </div>
+      </div>
+    </details>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        I. The Fork — Sahir Solo
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <p><span class="player-tag">Jim / Sahir</span> opens the session alone on the road. Three days walking this particular stretch, traffic growing steadily busier. Then: a true fork. Not a city junction — a deliberate Y in open country with no wayside marker. What makes it unusual is what it does to Sahir: a Rahban doesn't get lost. Direction is not a skill for them; it's structural. But here Sahir encounters something with no name in his vocabulary — two simultaneous pulls, both authoritative, completely disagreeing. The way station he knows is to the left, legible and certain. The right fork carries a different pull of equal weight, pointing somewhere without a destination he can name.</p>
+      <p>He's been standing there long enough for a bird to land by his boot and leave again before he notices a merchant's cart that has been at the center of the junction all along.</p>
+      <ul class="detail-list">
+        <li>Sahir rolls Instinct (+1) to place the merchant against any known group or guild symbols. <span class="roll-note">13 + 1 = 14 vs. TN 10</span> — conclusive negative. Never seen him, not in any clan story.</li>
+        <li>The merchant: human, traveling clothes, no visible weapons. An abacus strung with jade beads on his belt — worn from constant use, not decorative.</li>
+        <li>He produces a compass from a balsa-wood case: a metal needle in leather, tapered both ends. When held loosely, the hand turns north. A natural instrument, no magical quality. The merchant explains the world is a globe with a consistent field converging on two points. Sahir notes the maps are flat. The merchant declines to argue.</li>
+        <li>Kalas asks: <span class="quote-inline">"Which pull do you usually trust?"</span> Sahir: <span class="quote-inline">"The one not known."</span> Kalas writes something in a small notebook, pockets it without explaining. Sahir fails to read it. <span class="roll-note">vs. TN 13 — fails</span></li>
+        <li>The compass is payment for the answer, not a gift. Kalas's name: <em>Kalas</em>, with a K.</li>
+      </ul>
+      <p>Sahir takes the right fork. The unfamiliar pull fades as he walks; the road resolves into a tributary lane toward a caravan meeting ground. By golden hour he spots a large caravan in the distance and heads toward it.</p>
+      </div>
+    </details>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        II. Volkath Tells the World's Story
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <p>Continuing from the campfire: Volkath, the Tulpar caravan master, gives a long personal account of the world — the enslavement of the Tulpar people under a compulsory geas, the breaking of those chains when the last empire fell roughly a thousand years ago, the devastating decades of rage that followed, and the eventual reclamation of identity through the road as traders and cultural carriers east to west. He finishes with genuine pride and asks for questions.</p>
+      <p>The group recognizes the world's broad geography and peoples in general terms, but the specific history Volkath describes doesn't match anything they can access. Their early personal memories are clear and immediate. This history is simply absent.</p>
+      </div>
+    </details>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        III. The Unfamiliar Sky — Rill &amp; Sahir Arrive
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <div class="note-box unrecorded"><strong>Unrecorded scene.</strong> This scene was not captured in the audio. The summary below is reconstructed from the GM's description.</div>
+      <p>The conversation about the history turns into an accounting of what they <em>do</em> and <em>don't</em> know. Personal early memories: vivid and available. The world Volkath just described: foreign. No resonance at all, as if they arrived into this moment from somewhere else that didn't include this history.</p>
+      <p>Cal produces his tome of constellations — a thing he carries and studies without entirely understanding — and opens it to the star charts. The patterns documented in the tome don't match the sky above them. Not the small drift of latitude or season: structurally different, as if drawn from a different sky entirely. Veyra confirms it independently: the stars sit wrong.</p>
+      <p>During this accounting, Ariel surfaced a memory — pulled from the same deeper current as the others' flashes. A moment of challenge: vengeful protection tested, then held back. She offered it briefly; the full shape of it was not drawn out. <strong>⚑ Account of Ariel's memory to be recorded.</strong></p>
+      <p>Veyra offers the most direct hypothesis: perhaps they have died. Perhaps they've been pulled back from a deathly sleep of a thousand years. She says this as the most economical account of the evidence, not as distress.</p>
+      <p><em>How</em> such a thing might be accomplished is a different question. Volkath says he doesn't know — his expression suggests he has a candidate — and sends a runner.</p>
+      <p>The runner returns with Rill: a Vanara who has been traveling with the caravan, introduced to the group for the first time. Volkath presents him with care. Rill is clear that he is not a mage, or at least that's not how he understands himself. Volkath's smile at this is dry and brief.</p>
+      <p>Sahir arrives during the examination of the tome, bearing sweets. His entrance opens the conversation rather than interrupting it: the right questions, offered to the right people at the right moment. The group talks — stories, hypotheses, the tome passed between them, sweet treats making the rounds. The fire crackles on, unconcerned.</p>
+      </div>
+    </details>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        IV. The Artifact Experiment
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <p><span class="player-tag">Dave / Rill</span> raises something he's noticed since arriving at the fire: certain senses — nothing with a clean name — go muffled near the group. He's been quietly testing the pattern. The group decides to experiment.</p>
+      <p>Ariel carries a disc — the object she woke holding. She crosses to Rill and hands it over. <span class="roll-note">Marc: 13 + 4 prayer dice = 17 vs. TN 17 — barely, takes Fear</span>. There was reluctance in the handoff she hadn't known she was carrying. Rill takes the disc and backs away from Ariel to test whether it extends the connection. It doesn't: the muffling stays regardless of distance while holding the disc.</p>
+      <p>Second test: Rill sets the disc down and walks toward Ariel on foot. <span class="roll-note">Crit — double 10s</span>. At roughly the halfway point his ring finger itches — briefly, then gone. He makes it all the way to Ariel without the connection resuming. When Ariel retrieves the disc, a tension she'd been holding without knowing it releases.</p>
+      <p>Working conclusion: the disc extends something; the ring responded independently at the midpoint. Two artifacts, two distinct behaviors. The experiment answered less than it cost to run.</p>
+      <p>Rill's ring: black metal, won't come off. Formed during a ritual reading at a secular monastery — following the instructions in a book until something happened and the ring was there. A deal with an unnamed counterparty. Pulses when stared at too long. He's had it a month and a half; been with the caravan a month.</p>
+      <p>Veyra's artifact: her sword, which woke wanting to draw blood. She no longer obliges it. The only people she'd still consider pointing it at are those who stole her goats — almost certainly dead a thousand years over.</p>
+      <p><span class="roll-note">Veyra rolls Instinct on whether she genuinely feels the group connection: crit — double 10s (rolled by Cal for Lisa).</span> She does. She just doesn't trust what it means.</p>
+      </div>
+    </details>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        V. Veyra Walks East
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <p><span class="player-tag">Lisa / Veyra</span> is gone before full light. She takes what provisions the caravan will allow, points herself east, and walks. Goal: a mountain, a hut, new goats. Ariel flies down to intercept. Veyra acknowledges that she does feel the pull toward the group — the instinct roll confirmed it — but she doesn't trust what it's pointing at. <span class="quote-inline">"Higher purpose we're supposed to devote our lives to — it's for suckers."</span> Ariel: <span class="quote-inline">"If there are two paths and one loops back to the other, take the one that loops back."</span> Veyra walks. Nobody pursues.</p>
+      <div class="note-box">
+        <strong>Practical note:</strong> Mo observes the caravan is heading west; if Veyra stays on the road, the gap could close without active pursuit in a few days. Lisa is open to a second character. Her summary of Veyra's reasoning: <span class="quote-inline">"All you had to do was tell me the guys who stole my goats went the same direction."</span>
+      </div>
+      </div>
+    </details>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        VI. Dawn Survey
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <p><span class="player-tag">Marc / Ariel</span> takes to the air at first light for an aerial view. Caravan in morning configuration, nothing approaching on any horizon. Mountains visible to the east. Unremarkable morning.</p>
+      </div>
+    </details>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        VII. Volkath's Son
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <p>Thirty minutes past breakfast, a runner arrives from <strong>Rabati Malik</strong>, the fortified caravanserai the caravan is camped outside. Volkath crosses to the group: <span class="quote-inline">"I may have a problem."</span></p>
+      <p>Some of his caravan never accepted the renegotiated deal with the Imperial tax collectors from the previous encounter. They've lured those soldiers back into Rabati Malik and are staging an ambush. If the soldiers sent word before walking in, a larger force will come. The caravan gets identified. Reputation gone, legal exposure for younger members, difficult road west. Volkath makes clear this is outside their agreement — he can't compel them. But their persuasive ability would be the most useful thing they could put into the situation.</p>
+      <p>Final disclosure: <span class="quote-inline">"That head miscreant is my son."</span></p>
+      </div>
+    </details>
+
+    <details class="summary-scene">
+      <summary class="scene-heading" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:0.6em;color:var(--gold-dim);transition:transform 0.2s;" class="details-arrow">▶</span>
+        VIII. The Split
+      </summary>
+      <div style="margin-top:0.8rem;">
+      <p>Two threads: intercept the Imperials before they walk into the trap; reach Volkath's son and call the ambush off. Ariel takes the Imperials — speed matters. Rill has standing with the son after a month with the caravan; he goes for the son. Others distribute.</p>
+      <p><span class="player-tag">Erik / Cal</span> offers to send one of his eyes with the other group as proof of origin. The table receives this with silence followed by a specific quality of horrified amusement. Ariel offered to carry whoever needed moving. Session ends here, on the edge of the split.</p>
+      <div class="note-box"><strong>Scheduling:</strong> Next session August 15, 2026. Weekend of August 8th out for several players.</div>
+      </div>
+    </details>
+
+  </section>
+
+
+</div>
+
+<script>
+  (function() {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var btn = document.querySelector('.theme-toggle');
+    if (btn) btn.textContent = mq.matches ? 'Light' : 'Dark';
+  })();
+</script>
