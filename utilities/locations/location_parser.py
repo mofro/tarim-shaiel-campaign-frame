@@ -13,7 +13,12 @@ try:
     import yaml
     _YAML_AVAILABLE = True
 except ImportError:
-    _YAML_AVAILABLE = False
+    raise ImportError(
+        "PyYAML is required (pip install -r requirements.txt, or check "
+        "you're using the project's intended Python interpreter) — "
+        "frontmatter parsing silently degrades to a broken minimal parser "
+        "without it, producing empty/incorrect build output."
+    )
 
 
 # ---------------------------------------------------------------------------

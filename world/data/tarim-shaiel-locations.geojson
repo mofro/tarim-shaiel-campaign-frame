@@ -3,6 +3,37 @@
   "features": [
     {
       "type": "Feature",
+      "id": "location_afrasiyan-plateau",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "afrasiyan-plateau",
+        "label": "Afrasiyan",
+        "title": "The Afrasiyan Plateau",
+        "fantasy_name": "Afrasiyan",
+        "description": "",
+        "visibility": "gm_secrets",
+        "mapmarker": "ruin",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [
+          "Tulpar Confederation"
+        ],
+        "resources": [],
+        "popup_html": "<p class=\"popup-factions\"><em>Factions:</em> Tulpar Confederation</p>",
+        "url": "/locations/afrasiyan-plateau.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.96,
+          39.67
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_aksu",
       "properties": {
         "kind": "location",
@@ -66,6 +97,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_almaty",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "almaty",
+        "label": "TBD",
+        "title": "Almaty",
+        "fantasy_name": "TBD",
+        "description": "",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "",
+        "url": "/locations/almaty.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.8512,
+          43.222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_anvil-sunder-switchbacks",
       "properties": {
         "kind": "location",
@@ -90,6 +150,35 @@
         "coordinates": [
           74.87956784432755,
           40.50249308507127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_ashgabat",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "ashgabat",
+        "label": "TBD",
+        "title": "Ashgabat",
+        "fantasy_name": "TBD",
+        "description": "",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "",
+        "url": "/locations/ashgabat.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          58.3261,
+          37.9601
         ]
       }
     },
@@ -153,6 +242,64 @@
         "coordinates": [
           66.9,
           36.76
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_beijing",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "beijing",
+        "label": "TBD",
+        "title": "Beijing",
+        "fantasy_name": "TBD",
+        "description": "",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "",
+        "url": "/locations/beijing.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.4074,
+          39.9042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_bishkek",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "bishkek",
+        "label": "TBD",
+        "title": "Bishkek",
+        "fantasy_name": "TBD",
+        "description": "",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "",
+        "url": "/locations/bishkek.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.5698,
+          42.8746
         ]
       }
     },
@@ -318,6 +465,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_char-bulak",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "char-bulak",
+        "label": "Chur-Balk",
+        "title": "Char Bulak",
+        "fantasy_name": "Chur-Balk",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/char-bulak.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.720872,
+          36.756284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_charklik",
       "properties": {
         "kind": "location",
@@ -346,6 +522,35 @@
         "coordinates": [
           88.15,
           39.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_chengdu",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "chengdu",
+        "label": "TBD",
+        "title": "Chengdu",
+        "fantasy_name": "TBD",
+        "description": "",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "",
+        "url": "/locations/chengdu.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.0668,
+          30.5728
         ]
       }
     },
@@ -413,6 +618,64 @@
         "coordinates": [
           94.67,
           40.15
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_dushanbe",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "dushanbe",
+        "label": "Dush'nbe",
+        "title": "Dushanbe",
+        "fantasy_name": "Dush'nbe",
+        "description": "",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "",
+        "url": "/locations/dushanbe.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.787,
+          38.5598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_ember-wash",
+      "properties": {
+        "kind": "location",
+        "category": "poi",
+        "slug": "ember-wash",
+        "label": "Ember Wash",
+        "title": "Ember Wash",
+        "fantasy_name": "Ember Wash",
+        "description": "A drainage ravine off the Samarqandh-Bukhara road, near Kattakurgan — refugee camp site, Session 0 Warrior awakening.",
+        "visibility": "public",
+        "mapmarker": "poi",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>A drainage ravine off the Samarqandh-Bukhara road, near Kattakurgan — refugee camp site, Session 0 Warrior awakening.</p>",
+        "url": "/locations/ember-wash.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.15,
+          39.82
         ]
       }
     },
@@ -508,6 +771,35 @@
         "coordinates": [
           94.5855,
           40.339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_karmana",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "karmana",
+        "label": "Karmana",
+        "title": "Karmana",
+        "fantasy_name": "Karmana",
+        "description": "PLACEHOLDER — medium river town on the Samarqandh-Bukhara road, near Rabati Malik. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — medium river town on the Samarqandh-Bukhara road, near Rabati Malik. Prose pass pending.</p>",
+        "url": "/locations/karmana.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.3608,
+          40.1411
         ]
       }
     },
@@ -776,6 +1068,64 @@
     },
     {
       "type": "Feature",
+      "id": "location_nur-ata",
+      "properties": {
+        "kind": "location",
+        "category": "fortress",
+        "slug": "nur-ata",
+        "label": "Nur-Ata",
+        "title": "Nur-Ata",
+        "fantasy_name": "Nur-Ata",
+        "description": "PLACEHOLDER — rocky sentinel heights overlooking the Kyzylkum dune fringe north of the Samarqandh-Bukhara road. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "fortress",
+        "marker-symbol": "castle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — rocky sentinel heights overlooking the Kyzylkum dune fringe north of the Samarqandh-Bukhara road. Prose pass pending.</p>",
+        "url": "/locations/nur-ata.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.6904,
+          40.5628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_rabati-malik",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "rabati-malik",
+        "label": "Rabati Malik",
+        "title": "Rabati Malik",
+        "fantasy_name": "Rabati Malik",
+        "description": "A fortified caravanserai on the royal road between Samarqandh and Bukhara, where the Merchant Council's tariff agreements and the empire's fading claim to collect never quite resolve who's in charge.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>A fortified caravanserai on the royal road between Samarqandh and Bukhara, where the Merchant Council's tariff agreements and the empire's fading claim to collect never quite resolve who's in charge.</p>",
+        "url": "/locations/rabati-malik.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.184288,
+          40.131083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_salt-reed-oasis",
       "properties": {
         "kind": "location",
@@ -904,6 +1254,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_the-glass-dunes",
+      "properties": {
+        "kind": "location",
+        "category": "poi",
+        "slug": "the-glass-dunes",
+        "label": "The Glass Dunes",
+        "title": "The Glass Dunes",
+        "fantasy_name": "The Glass Dunes",
+        "description": "Open Kyzylkum dune country between Nur-Ata and the royal road — Session 0 Seeker awakening collapse site.",
+        "visibility": "public",
+        "mapmarker": "poi",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Open Kyzylkum dune country between Nur-Ata and the royal road — Session 0 Seeker awakening collapse site.</p>",
+        "url": "/locations/the-glass-dunes.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.4,
+          40.35
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_turfan",
       "properties": {
         "kind": "location",
@@ -934,6 +1313,35 @@
         "coordinates": [
           89.19,
           42.95
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_waycross",
+      "properties": {
+        "kind": "location",
+        "category": "poi",
+        "slug": "waycross",
+        "label": "Waycross",
+        "title": "Waycross",
+        "fantasy_name": "Waycross",
+        "description": "Where the Samarqandh–Bukhara royal road gathers its travelers — a caravanserai, a river town, watch-heights, and open dune country, all within a day or so of each other.",
+        "visibility": "public",
+        "mapmarker": "poi",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Where the Samarqandh–Bukhara royal road gathers its travelers — a caravanserai, a river town, watch-heights, and open dune country, all within a day or so of each other.</p>",
+        "url": "/locations/waycross.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.12,
+          40.15
         ]
       }
     },
