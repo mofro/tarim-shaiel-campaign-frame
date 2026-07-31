@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2026-05-07
-last_updated: 2026-06-20
+last_updated: 2026-07-30
 tags: [session0, gm_guide, execution, pacing]
 ---
 
@@ -261,7 +261,7 @@ When one player is in their awakening scenario, the others are **watching, not p
 
 **File:** `Session_0_Visionary_Awakening.md` — v0.4 complete.
 
-**The engine:** Presence as intervention — the standoff. The Seraph steps into an open space between a payment dispute and a young orc with a hand inside their coat, and holds it with nothing but their presence and the watching of a god who does not intervene directly.
+**The engine:** Presence as intervention — the standoff. The Seraph steps into an open space between a payment dispute and a young Tulpar with a hand inside their coat, and holds it with nothing but their presence and the watching of a god who does not intervene directly.
 
 **This is not the explosive, fast scenario from the original design sketch.** It is a slow burn. The Seraph does not wake into a disaster — they wake having already been standing in the courtyard for some time, with arranged space around them, the crowd already responding to something they haven't yet understood. The crisis arrives, not at speed, but with the specific patience of extortion. The Standoff mechanic governs the resolution.
 
@@ -282,31 +282,32 @@ When one player is in their awakening scenario, the others are **watching, not p
 - His papers are in order. The payment being demanded is a legal technicality being weaponized as leverage. Both parties know this.
 - His offer to the Seraph after resolution: *"Can you use a blade?"* Practical. Not emotional. The caravan has road-steel for people who earn it.
 
-**The young orc** *(Chain-Breakers Order sympathizer)*
+**The young Tulpar** *(Chain-Breakers Order sympathizer)*
 - Teens or barely past. Hand inside the coat. The stillness of someone who has already decided what they will do and is waiting for conditions to be met.
 - The Seraph notices them because they're the kind of person who notices what others are avoiding.
 - On successful resolution: slips out quietly during the aftermath. The GM holds this thread.
+- **Forward-note (Session 2):** this is Temir, Volkath's son — identified in `narrative/sessions/02_session2/gm_secrets/Session_2_GM_NOTES.md`. Ancestry corrected here from an earlier "young orc" draft label to match the actually-played scenario and the newspaper NPC index, both of which use "Tulpar."
 
 #### Standoff Mechanic
 
-*Two d6 on the table, both at 4 — one for the horsemen, one for the young orc.*
+*Two d6 on the table, both at 4 — one for the horsemen, one for the young Tulpar.*
 
 Each cycle: both sides speak or shift. The Seraph responds or acts.
 - **Hold (no roll):** Pure presence. The counter holds. The pause extends.
 - **Act (Difficulty 15):** Roll Presence (most likely), or argue Prayer Dice / Splendor / Valor for advantage.
 - Critical success: counter −2 on target die. Hope: −1. Fear: no change, GM gains Fear. Fail with Fear: +1 to target die.
 
-Both counters at 0: standoff resolves. The horsemen defer; the young orc's hand comes away from the coat.
+Both counters at 0: standoff resolves. The horsemen defer; the young Tulpar's hand comes away from the coat.
 
 The snippet fires at the moment of the Seraph's first step into the open space, before any roll.
 
 #### Pacing Cues
 
 - **Segment 1 (3–5 min):** Already standing. Arranged space. No memory of how they got here. The disk in the right hand. Not the face they expected in the reflection.
-- **Segments 2–3 (8–12 min):** Horsemen arrive, survey, pause on the Seraph. The dispute develops. The disk registers wrongness — felt, not analyzed. The young orc appears at the edge of the scene.
+- **Segments 2–3 (8–12 min):** Horsemen arrive, survey, pause on the Seraph. The dispute develops. The disk registers wrongness — felt, not analyzed. The young Tulpar appears at the edge of the scene.
 - **Segment 4 (3–4 min):** The quiet before the step. The Sky-Father's watching presence that offers no direction. The disk's Hunger and Resist signals. Let this be quiet.
 - **Put the Standoff dice on the table when the Seraph steps into the open space.**
-- **Segment 5 (8–12 min):** The standoff plays out. Note which path: standard hold, approaching the young orc (Path A), or confronting the horsemen (Path B). Each produces a distinct wound.
+- **Segment 5 (8–12 min):** The standoff plays out. Note which path: standard hold, approaching the young Tulpar (Path A), or confronting the horsemen (Path B). Each produces a distinct wound.
 - **Snippet (2–3 min):** The ally memory — the fire, the comrade's hand, the disk's wrongness that was seen and set down. Delivered quietly while the scene holds.
 - **Segments 7–8 (5–7 min):** Merchant's offer. The blade, if accepted. The caravan forming at the western gate. The Seraph joins it.
 
