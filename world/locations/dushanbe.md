@@ -8,17 +8,17 @@ visibility: gm_secrets
 status: draft
 created: 2026-07-22
 last_updated: 2026-07-22
-fantasy_name: TBD
+fantasy_name: Dush'nbe
 real_world_name: Dushanbe
 location:
-- 38.5598
-- 68.7870
+  - 38.5598
+  - 68.787
 type: city
-parent_region: null
+parent_region:
 tags:
-- gcp-anchor
-- stub
-- real-world-city
+  - gcp-anchor
+  - stub
+  - real-world-city
 ---
 
 Stub entry — real-world coordinates only, no narrative development yet. `fantasy_name: TBD` marks this for replacement once named properly.
