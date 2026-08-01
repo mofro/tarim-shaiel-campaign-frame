@@ -4,7 +4,7 @@ type: ""
 is_private: false
 tags: [pc]
 player: ""
-status: active
+status: deprecated
 
 # Daggerheart Standard
 daggerheart_class: ""

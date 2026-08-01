@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-07-15
+last_updated: 2026-08-01
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -62,12 +62,22 @@ last_updated: 2026-07-15
 - Sacrificer: scale with one pan missing | Visionary: obsidian disk
 - Trickster: shaved coin | Crafter: worn whetstone | Sentinel: cracked lantern | Healer: bone needle + silk thread
 - Keeper: iron key with wax seal (pending Decision 15 lock)
+- **PC override:** Sahir (Bridge) carries a copper and wood compass, not the knotted silk cord — player-specific; the cord remains the archetype default
 
 ## Mechanical Identity Carriers (post-charm-removal)
 - **Vestiges** — physical remnants of past power, awakening slowly
 - **Memory Fragments** — partial recollections, triggered by events
 - **The Wrongness** — three-tier escalation (Warren disturbance made concrete)
 - Charm system ARCHIVED 2026-03-13 — do not reintroduce
+
+## PCs (roster confirmed Session 2, 2026-07-27)
+- [[characters/PCs/veyra.md]] — Warrior / Human / Lisa
+- [[characters/PCs/cal.md]] — Seeker / Tadbir (Clank) / Erik
+- [[characters/PCs/ariel.md]] — Visionary / Vaghri (Katari) / Marc
+- [[characters/PCs/rayzen.md]] — Sentinel / Pari-Kin (Faun) / Arno
+- [[characters/PCs/sahir.md]] — Bridge / Rahban (Halfling) / Jim
+- [[characters/PCs/rill.md]] — Keeper / Vanara (Simiah) / Dave
+- Template: [[templates/world-building/_TEMPLATE_pc.md]]
 
 ## NPCs
 - [[characters/NPCs/]] — named NPCs with images and stat blocks
