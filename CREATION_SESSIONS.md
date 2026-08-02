@@ -6,7 +6,7 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-07-31
+last_updated: 2026-08-02
 ---
 
 # Creation Session Log
@@ -15,6 +15,16 @@ _Authoring and design work sessions. Newest first. Trim to last 10 sessions; old
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
 
 ---
+
+### Session 2026-08-02
+- Character files + session close
+  - Added `[!profile]+` callout (portrait, bio placeholder, DataviewJS stats) to `sahir.md` and `_TEMPLATE_pc.md`
+  - Resolved 3 open threads from session-0 audit:
+    - Vigil Clock roll results table inserted into `Session_0_GM_NOTES.md` (was flagged missing after HeroHeaven-155 close)
+    - `session0_campfire_convergence.md` created as pointer doc (recognition event + Volkath's history brief; links to `world_primer.md` and `08-orders-of-the-chain.md`)
+    - Rill's patron canonized in `rill.md` GM Notes: The Shattered King (Dave's Door One); cultural names First Gone (Orcish), Lord of Exhausted Seams (Dwarven)
+  - Session review pass: archived 25+ Tarim-Shaiel sessions across multiple rounds; confirmed 6 ttrpg_recorder sessions correctly mapped (not HeroHeaven)
+  - Saved feedback memory: wrong-cwd is not grounds for archival — only archive when work is done/superseded
 
 ### Session 2026-07-30/31
 - Session 2 prep — split-thread ambush encounter (dual Dynamic Countdown structure)
