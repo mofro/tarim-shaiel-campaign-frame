@@ -35,7 +35,14 @@ tags: [pc]
 
 # Rayzen
 
-![[PC-Rayzen-portrait.png|250]]
+> [!profile]+
+> ![[F57C441E-3549-4302-BF42-D4806E70D8A0.png]]
+> 
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac enim ut sapien imperdiet gravida. Nulla sed turpis et neque tincidunt convallis. Phasellus posuere nisi eros, non tincidunt erat tincidunt ut. Morbi blandit vehicula nisl, laoreet pellentesque enim pellentesque eu.
+>
+> Level `$= dv.current().level` `$= dv.current().daggerheart_class`/(`$= dv.current().subclass`). `$= dv.current().ancestry ` ancestry, `$= dv.current().community `
+
+---
 
 > Unhurried in a way that suggests they have already checked the exits.
 

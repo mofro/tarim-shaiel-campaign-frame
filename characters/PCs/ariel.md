@@ -35,7 +35,14 @@ tags: [pc]
 
 # Ariel
 
-![[PC-Ariel-portrait.png|250]]
+> [!profile]+
+> ![[Daggerheart-Winged-Seraph-portrait.png]]
+> 
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac enim ut sapien imperdiet gravida. Nulla sed turpis et neque tincidunt convallis. Phasellus posuere nisi eros, non tincidunt erat tincidunt ut. Morbi blandit vehicula nisl, laoreet pellentesque enim pellentesque eu.
+>
+> Level `$= dv.current().level` `$= dv.current().daggerheart_class`/(`$= dv.current().subclass`). `$= dv.current().ancestry ` ancestry, `$= dv.current().community `
+
+---
 
 > A feline figure with wings folded tight — the stillness of someone who has already decided what is about to happen.
 

@@ -35,7 +35,14 @@ tags: [pc]
 
 # Cal
 
-![[PC-Cal-portrait.png|250]]
+> [!profile]+
+> ![[mofro_standing_human_ears_contemplating_--ar_34_--sref_httpss_33a01621-c4a0-4f85-ab8a-f6174e46d0f5_0.png]]
+> 
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac enim ut sapien imperdiet gravida. Nulla sed turpis et neque tincidunt convallis. Phasellus posuere nisi eros, non tincidunt erat tincidunt ut. Morbi blandit vehicula nisl, laoreet pellentesque enim pellentesque eu.
+>
+> Level `$= dv.current().level` `$= dv.current().daggerheart_class`/(`$= dv.current().subclass`). `$= dv.current().ancestry ` ancestry, `$= dv.current().community `
+
+---
 
 > A constructed figure that holds itself too still between questions, and then leans forward with too much interest when something catches.
 
