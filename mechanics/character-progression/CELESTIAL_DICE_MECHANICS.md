@@ -40,25 +40,25 @@ Celestial dice mechanics form the core of Tarim-Shaiel's narrative and mechanica
 - Legendary capabilities dormant
 - Standard Daggerheart mechanics
 
-### Tier 1 (Level 1): First Awakening
+### Tier 1 (Level 1-3): First Awakening
 - Celestial dice: 2d12 Hope (keep highest) + 1d12 Fear when using tool
 - Tier 1 legendary capabilities accessible
 - Hope bonuses: +1 Hope per scene
 - Recall cost: 0 Hope
 
-### Tier 2 (Levels 2-4): Expanding Consciousness
+### Tier 2 (Levels 4-6): Expanding Consciousness
 - Celestial dice: 3d12 Hope (keep highest) + 1d12 Fear when aligned with purpose
 - Tier 2 legendary capabilities accessible + enhanced Tier 1
 - Hope bonuses: +2 Hope per scene
 - Recall cost: 1 Hope
 
-### Tier 3 (Levels 5-7): Purpose Clarity
+### Tier 3 (Levels 6-8): Purpose Clarity
 - Celestial dice: 3d12 Hope (keep highest) + 1d12 Fear always active
 - Tier 3 legendary capabilities accessible + maximum Tier 2 scaling
 - Hope bonuses: +2 Hope per scene
 - Recall cost: 2 Hope
 
-### Tier 4 (Levels 8-10): Full Awakening
+### Tier 4 (Levels 9+): Full Awakening
 - Celestial dice: 3d12 Hope (keep highest) + 1d12 Fear + mythic bonuses
 - Tier 4 legendary capabilities accessible + maximum scaling all tiers
 - Hope bonuses: +3 Hope per scene

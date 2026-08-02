@@ -9,6 +9,7 @@ status: draft
 created: 2026-07-30
 last_updated: 2026-07-30
 tags: [session2, gm_guide, execution]
+css
 ---
 
 # Session 2 — The Split
@@ -29,7 +30,7 @@ Two threads, decided at the end of Session 1: one group goes to intercept the so
 
 ---
 
-## Structure — Dual Dynamic Countdowns
+### Structure — Dual Dynamic Countdowns
 
 This is not a scripted fight. It's a race against a shared clock, using the core rules' Dynamic Countdown mechanic (the same pattern the book uses for chase scenes — one side's progress, one shared consequence). Full explanation below — don't assume you'll have the core book's countdown rules memorized mid-session.
 

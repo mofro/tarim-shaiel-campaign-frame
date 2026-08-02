@@ -28,18 +28,19 @@ tags:
   - type-poi
 type: poi
 ---
-![[waycross-map]]
 
-# Waycross
+```leaflet
+id: location-waycross
+coordinates: [[world/locations/waycross]]
+defaultZoom: 8
+minZoom: 4.5
+maxZoom: 18
+height: 500px
+osmLayer: false
+tileServer:
+  - https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}|Satellite
 
-A working stretch of the Samarqandh–Bukhara royal road — a caravanserai, a river town, watch-heights, and open dune country, all within a day or so of each other along the same corridor.
-
-| Character | Site |
-|---|---|
-| Lisa — Human Warrior | [[world/locations/ember-wash\|Ember Wash]] |
-| Erik — Tadbir Sorcerer | [[world/locations/the-glass-dunes\|The Glass Dunes]] |
-| Arno — Pari-Kin Druid | [[world/locations/nur-ata\|Nur-Ata]] |
-| Marc — Human Seraph | [[world/locations/rabati-malik\|Rabati Malik]] |
-| *(unassigned)* | [[world/locations/karmana\|Karmana]] |
-
-![[gm_secrets/waycross-gm]]
+geojson:
+  - [[world/tarim-shaiel-routes.geojson]]|Routes
+  - [[world/tarim-shaiel-locations.geojson]]|Locations
+```

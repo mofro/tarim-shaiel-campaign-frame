@@ -1,4 +1,5 @@
 ---
+cssClasses: [columns-2]
 type: newspaper-story
 issue: "0001-session-0-warrior"
 weight: lead
@@ -8,7 +9,6 @@ kicker: "SESSION CHRONICLE — SESSION 0"
 headline: "A Stranger Wakes Among the Ravine-Bound"
 dek: "Cold iron, colder camp: an armed drifter is taken in by refugees fleeing a horror no one can name."
 ---
-
 The Warrior came up cold — not clean winter cold but something that had settled into bone. Her left arm was numb, crushed beneath her. When she flexed her fingers, they moved like things belonging to someone else.
 
 The smells arrived before anything else made sense: unwashed bodies, low fires, grain going sour, and underneath everything the sharp copper of fear-sweat. The reek of people who understood the value of being small.

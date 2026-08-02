@@ -5,6 +5,11 @@ domain: narrative
 doc_type: gm_secrets
 content_type: session
 visibility: gm_secrets
+cssClasses: 
+  - columns-2
+  - newspaper
+  - wide-page
+
 status: draft
 created: 2026-07-25
 last_updated: 2026-07-25
