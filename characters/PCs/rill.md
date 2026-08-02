@@ -29,7 +29,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-08-01
+last_updated: 2026-08-02
 tags: [pc]
 --- 
 
@@ -135,6 +135,6 @@ Rill's arc runs through the Keeper's core tension: preservation is not inherentl
 
 The key's wax seal is a planted seed — it shows a mark connected to something in Act II that the patron knows and Rill does not. The patron-bond's calm in the dead zone is the first signal that these two forces (the patron and whatever the Warren disturbance is) may be in communication.
 
-The patron-bond brief is in `narrative/sessions/00_session0/Source/Dave_Warlock_Patron_Brief.md`.
+**Patron: The Shattered King** — Dave chose Door One. See `narrative/gm_secrets/divine-players/the-shattered-king.md` for cosmological position and long-game agenda. Cultural names Rill may encounter in play: *First Gone* (Orcish), *Lord of Exhausted Seams* (Dwarven). The patron's calm in the dead zone is not coincidence — the Shattered King has tenure in exhausted-energy spaces, and the dead zone reads as home ground to him. The patron-bond brief (player-facing) is in `narrative/sessions/00_session0/Source/Dave_Warlock_Patron_Brief.md`.
 
 Surrendered layer — *Custodial*: Rill gave up the right to decide what deserves preservation; the patron may have taken that judgment up on his behalf.

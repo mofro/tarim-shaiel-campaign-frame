@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2026-05-07
-last_updated: 2026-07-30
+last_updated: 2026-08-02
 tags: [session0, gm_guide, execution, pacing]
 ---
 
@@ -245,6 +245,15 @@ When one player is in their awakening scenario, the others are **watching, not p
 - **Segment 1 (3–5 min):** Orientation in darkness — space, height, cold, wind. The lantern is found at the post's base, flint and tinder beside it. The crack is revealed only when the flame catches. Voices arrive last. Don't rush this.
 - **Segment 2 (5–8 min):** The ruins establish context. Two gorges resolve in the divided light. The geometry is legible from above in a way it isn't from below.
 - **Segment 3 (3–4 min) — Put the Vigil Clock on the table here.** Two d6, both at 4. Explain the dice plainly: one per group, these numbers go down, your actions push them up.
+
+  | Result | Die effect |
+  |---|---|
+  | Critical success | Target group's die +2 |
+  | Success with Hope | Target group's die +1 |
+  | Success with Fear | Target group's die +1; other group's die −1 |
+  | Failure with Hope | No change |
+  | Failure with Fear | Target group's die −1 |
+
 - **Segment 4 (5–8 min):** Let the player physically work through the geometry. The crack's partial reach into the tributary is real but insufficient from a fixed position. The lantern's *felt* quality: forward beam is settled, certain; angled for the scatter, it shines but offers no confirmation.
 - **Segment 5 (3–5 min):** Time enters. "Water at their knees." A child's voice from Group B. Group A: "Don't move the light." The player now holds the full weight of the choice.
 - **Segment 6 (5–7 min):** Commitment. Three paths — hold, move, split. Each has a distinct wound. No right answer. Plant the wound clearly and move on.
