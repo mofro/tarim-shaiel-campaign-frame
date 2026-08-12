@@ -55,9 +55,10 @@ _LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 _REGIONS_DIR   = VAULT_ROOT / "world" / "regions"
 _DATA_DIR      = VAULT_ROOT / "world" / "data"
 
-_LOCATIONS_GEOJSON = _DATA_DIR / "tarim-shaiel-locations.geojson"
-_ROUTES_GEOJSON    = _DATA_DIR / "tarim-shaiel-routes.geojson"
-_REGIONS_GEOJSON   = _DATA_DIR / "tarim-shaiel-regions.geojson"
+_LOCATIONS_GEOJSON  = _DATA_DIR / "tarim-shaiel-locations.geojson"
+_ROUTES_GEOJSON     = _DATA_DIR / "tarim-shaiel-routes.geojson"
+_REGIONS_GEOJSON    = _DATA_DIR / "tarim-shaiel-regions.geojson"
+_WAYSTATIONS_GEOJSON = _DATA_DIR / "tarim-shaiel-waystations.geojson"
 
 _GM_PAGE_BANNER = (
     '<div class="gm-page-banner">'
@@ -340,6 +341,7 @@ def _build_world_map_html(
     locations_geojson: dict | None,
     routes_geojson: dict | None,
     regions_geojson: dict | None,
+    waystations_geojson: dict | None = None,
     gm_mode: bool = False,
     show_locations: bool = False,
 ) -> str:
@@ -377,6 +379,17 @@ def _build_world_map_html(
             'map.addLayer({id:"routes",type:"line",minzoom:4,source:"routes",'
             'layout:{"line-cap":"butt"},'
             'paint:{"line-color":"#b8892a","line-width":1.5,"line-opacity":0.5,"line-dasharray":[4,4]}});\n'
+        )
+    if waystations_geojson:
+        data_js += f'var _waystationGJ = {json.dumps(waystations_geojson)};\n'
+        sources_js += 'map.addSource("waystations", {type:"geojson", data:_waystationGJ});\n'
+        layers_js += (
+            'map.addLayer({id:"waystations",type:"symbol",source:"waystations",minzoom:5,'
+            'layout:{"icon-image":"cat-route-node","icon-size":0.7,'
+            '"text-field":["case",["!=",["get","osm_name"],null],["get","osm_name"],""],'
+            '"text-size":9,"text-offset":[0,0.8],"text-anchor":"top","text-optional":true},'
+            'paint:{"icon-opacity":0.5,"text-color":"#cccccc",'
+            '"text-halo-color":"rgba(10,8,5,0.95)","text-halo-width":1}});\n'
         )
     if locations_geojson and show_locations:
         # Inject _slug into each feature's properties so the click handler
@@ -477,6 +490,7 @@ def _build_location_page(
     regions: dict[str, RegionData],
     locations_geojson: dict | None,
     routes_geojson: dict | None,
+    waystations_geojson: dict | None,
     gm_mode: bool,
 ) -> str:
     region = regions.get(loc['parent_region']) if loc['parent_region'] else None
@@ -490,7 +504,7 @@ def _build_location_page(
         revealed_ids=revealed,
     )
 
-    mini_map_html = render_mini_map(loc, locations_geojson, routes_geojson, zoom=7)
+    mini_map_html = render_mini_map(loc, locations_geojson, routes_geojson, waystations_geojson, zoom=7)
     stats_row_html = render_stats_row(loc, region)
     danger_html = render_danger_pips(loc['location_type'])
     faction_html = render_faction_table(loc['factions_visible'])
@@ -532,6 +546,7 @@ def _build_region_page(
     region_locations: list[LocationData],
     locations_geojson: dict | None,
     routes_geojson: dict | None,
+    waystations_geojson: dict | None,
     gm_mode: bool,
 ) -> str:
     from shared.html_render import render_body as _rb
@@ -542,7 +557,7 @@ def _build_region_page(
     anchor = next((l for l in region_locations if l['lat'] is not None), None)
     if anchor:
         from locations.location_components import render_mini_map
-        region_map_html = render_mini_map(anchor, locations_geojson, routes_geojson, zoom=5)
+        region_map_html = render_mini_map(anchor, locations_geojson, routes_geojson, waystations_geojson, zoom=5)
 
     # Location cards
     loc_cards = []
@@ -581,12 +596,13 @@ def _build_world_home(
     locations_geojson: dict | None,
     routes_geojson: dict | None,
     regions_geojson: dict | None,
+    waystations_geojson: dict | None,
     gm_mode: bool,
 ) -> str:
     world_map_html = _build_world_map_html(
         # Region boundary boxes disabled -- not ready for display yet.
         # Pass regions_geojson through again once they are.
-        locations, locations_geojson, routes_geojson, None,
+        locations, locations_geojson, routes_geojson, None, waystations_geojson,
         gm_mode=gm_mode, show_locations=True,
     )
 
@@ -642,8 +658,9 @@ def generate(
     # geojson generator (utilities/geojson/generate_geojson.py) — do not write it here.
     locs_gj = _build_locations_geojson(locations)
 
-    routes_gj  = _load_geojson(_ROUTES_GEOJSON)
-    regions_gj = _load_geojson(_REGIONS_GEOJSON)
+    routes_gj      = _load_geojson(_ROUTES_GEOJSON)
+    regions_gj     = _load_geojson(_REGIONS_GEOJSON)
+    waystations_gj = _load_geojson(_WAYSTATIONS_GEOJSON)
 
     # Filter to public-only locations for public builds
     if public_only:
@@ -661,7 +678,7 @@ def generate(
 
     for loc in locations:
         try:
-            html = _build_location_page(loc, regions, locs_gj, routes_gj, gm_mode)
+            html = _build_location_page(loc, regions, locs_gj, routes_gj, waystations_gj, gm_mode)
         except Exception as e:
             msg = f"  ERROR building {loc['slug']}: {e}"
             print(msg, file=sys.stderr)
@@ -684,7 +701,7 @@ def generate(
     for slug, region in regions.items():
         region_locs = [l for l in locations if l['parent_region'] == slug]
         try:
-            html = _build_region_page(region, region_locs, locs_gj, routes_gj, gm_mode)
+            html = _build_region_page(region, region_locs, locs_gj, routes_gj, waystations_gj, gm_mode)
         except Exception as e:
             msg = f"  ERROR building region {slug}: {e}"
             print(msg, file=sys.stderr)
@@ -702,7 +719,7 @@ def generate(
     # --- World home ---
     try:
         world_html = _build_world_home(
-            locations, regions, locs_gj, routes_gj, regions_gj, gm_mode
+            locations, regions, locs_gj, routes_gj, regions_gj, waystations_gj, gm_mode
         )
     except Exception as e:
         msg = f"  ERROR building world.html: {e}"

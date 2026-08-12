@@ -269,6 +269,7 @@ def render_mini_map(
     loc: LocationData,
     locations_geojson: Optional[dict] = None,
     routes_geojson: Optional[dict] = None,
+    waystations_geojson: Optional[dict] = None,
     zoom: float = 6,
 ) -> str:
     """Render a MapLibre mini-map div for a single location.
@@ -308,9 +309,24 @@ def render_mini_map(
             'paint:{"line-color":"#b8892a","line-width":2,"line-opacity":0.6}});\n'
         )
 
+    if waystations_geojson or locations_geojson:
+        # Register the sprite atlas once; both waystations and location layers use it.
+        layers_js += icon_registration_js()
+
+    if waystations_geojson:
+        sources_js += f'map.addSource("waystations-overlay",{{type:"geojson",data:{json.dumps(waystations_geojson)}}});\n'
+        layers_js += (
+            'map.addLayer({id:"waystations-overlay",type:"symbol",'
+            'source:"waystations-overlay",minzoom:5,'
+            'layout:{"icon-image":"cat-route-node","icon-size":0.7,'
+            '"text-field":["case",["!=",["get","osm_name"],null],["get","osm_name"],""],'
+            '"text-size":9,"text-offset":[0,0.8],"text-anchor":"top","text-optional":true},'
+            'paint:{"icon-opacity":0.5,"text-color":"#cccccc",'
+            '"text-halo-color":"rgba(10,8,5,0.95)","text-halo-width":1}});\n'
+        )
+
     if locations_geojson:
         sources_js += f'map.addSource("loc-overlay",{{type:"geojson",data:{json.dumps(locations_geojson)}}});\n'
-        layers_js += icon_registration_js()
         layers_js += _mini_map_tiered_layers_js(own_slug=loc['slug'])
 
     return f"""<div class="mini-map" id="{map_id}"></div>
