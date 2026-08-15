@@ -130,6 +130,7 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 | `narrative/sessions/00_session0/` | Session 0 awakening scenario files |
 | `templates/tarim-shaiel-campaign-frame-v2.md` | Primary player-facing campaign frame |
 | `utilities/dashboard/generate_dashboard.py` | Project health dashboard script |
+| `.claude/skills/epic-fantasy-prose/SKILL.md` | Fiction/narrative prose style — canonical; see Skill Source-of-Truth Rule below |
 
 ---
 
@@ -145,6 +146,7 @@ Target register: Erikson-grade density. Session 0 Warrior Awakening (v2.0) is th
 
 ## Working Conventions
 
+- **Skill source-of-truth rule.** Any Claude skill scoped to this project (e.g. `.claude/skills/epic-fantasy-prose/SKILL.md`) that also has a mirrored copy in the user's account-level Cowork skill store must treat the **project file as canonical**. If a session refines the skill's content — from feedback on generated output, explicit edits, or new examples — update the project file first, then push the identical content to the Cowork copy (`save_skill` with `overwrite: true`). Do not let the two drift; if they're ever found to differ, the project file wins and the Cowork copy should be corrected to match.
 - **Verify before claiming capability.** Before asserting that a tool, CLI command, or integration is available (e.g. `gh`, `netlify`, browser access), run a quick check (`which <cmd>` or equivalent). Do not claim a capability and then demonstrate its absence — that wastes cycles and erodes trust. If uncertain, say so first.
 ## Morning Report
 
