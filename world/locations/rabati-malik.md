@@ -40,7 +40,13 @@ tileServer:
 geojson:
   - [[world/tarim-shaiel-routes.geojson]]|Routes
   - [[world/tarim-shaiel-locations.geojson]]|Locations
+
+imageOverlay:
+  - ["[[Rolmtown.png|Rolmtown]]", [40.1266, 65.1784], [40.1356, 65.1902]]
+
 ```
+
+    
 
 # Rabati Malik
 

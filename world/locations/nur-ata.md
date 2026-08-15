@@ -39,6 +39,10 @@ tileServer:
 geojson:
   - [[world/tarim-shaiel-routes.geojson]]|Routes
   - [[world/tarim-shaiel-locations.geojson]]|Locations
+    
+imageOverlay:
+  - ["[[Rolmtown.png|Rolmtown]]", [40.5626, 65.6900], [40.5634, 65.6908]]
+    
 ```
 
 # Nur-Ata

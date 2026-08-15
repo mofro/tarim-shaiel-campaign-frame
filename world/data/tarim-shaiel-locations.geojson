@@ -1318,6 +1318,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_waycross-map",
+      "properties": {
+        "kind": "location",
+        "category": "poi",
+        "slug": "waycross-map",
+        "label": "Waycross",
+        "title": "Waycross",
+        "fantasy_name": "Waycross",
+        "description": "Where the Samarqandh–Bukhara royal road gathers its travelers — a caravanserai, a river town, watch-heights, and open dune country, all within a day or so of each other.",
+        "visibility": "public",
+        "mapmarker": "poi",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Where the Samarqandh–Bukhara royal road gathers its travelers — a caravanserai, a river town, watch-heights, and open dune country, all within a day or so of each other.</p>",
+        "url": "/locations/waycross-map.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.12,
+          40.15
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_waycross",
       "properties": {
         "kind": "location",
