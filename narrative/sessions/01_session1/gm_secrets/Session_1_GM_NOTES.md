@@ -62,6 +62,8 @@ Picks up exactly where Session 0 cut: Volkath, mid-word, at the campfire.
 
 ---
 
+
+
 ## Cross-Refs
 
 | Need                             | File                                                                      |

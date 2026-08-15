@@ -1,7 +1,8 @@
 ---
-cssclasses: [newspaper, columns-2]
-title: "The Fork in the Road"
-date: "Haziran, 1199th Year of the Held Breath"
+cssclasses:
+  - newspaper
+title: The Fork in the Road
+date: Haziran, 1199th Year of the Held Breath
 session: 1
 ---
 # The Fork in the Road
@@ -18,19 +19,17 @@ Then the fork.
 
 Both paths pulled — that was what stopped him. Not one pull, the familiar singular certainty, but two, simultaneously, with equal weight. The Rahban vocabulary had no word for this. It wasn't being lost. It was something more like watching an instrument he'd relied on his entire life give two different readings, both authoritative, neither wrong enough to dismiss.
 
-> [!polaroid|right] Death Sorcerer
-> ![[Daggerheart-Sorcerer-portrait.png]]
-
+![[sahir_wayglass.webp|189x282]]
 
 He'd been standing there long enough that a small brown bird landed near his boot, concluded his toe wasn't food, and left. He'd barely registered it. When he finally looked up, a merchant's cart was planted at the center of the junction — a flat wagon with cases of small goods and a man who had been watching him stand here for some time.
 
 > [!fas-infobox|black-and-white float-left] The Merchant at the Junction
-> <p>**Name:** Kalas (with a K)</p>
-> <p>**Marks:** Jade-bead abacus, worn smooth from use — not decorative</p>
-> <p>**Carried:** Small curiosities; a compass in a balsa-wood case almost too light to be real</p>
-> <p>**Question:** *"Which pull do you usually trust?"*</p>
-> <p>**Answer:** *"The one not known."*</p>
-> <p>**Payment:** The compass. Not a gift. *"I took my payment in kind."*</p>
+> <p><b>Name:</b> Kallous</p>
+> <p><b>Marks:</b> Jade-bead abacus, worn smooth from use — not decorative</p>
+> <p><b>Carried:</b> Small curiosities; a compass in a balsa-wood case almost too light to be real</p>
+> <p><b>Question:</b> <i>"Which pull do you usually trust?"</i></p>
+> <p><b>Answer:</b> <i>"The one not known."</i></p>
+> <p><b>Payment:</b> The compass. Not a gift. <i>"I took my payment in kind."</i></p>
 
 The merchant explained that the world was a globe. A consistent field. The needle always knew where it converged. Sahir said the maps were flat. The merchant smiled without conceding anything, wrote something in a small notebook, and pocketed it without explaining what.
 
