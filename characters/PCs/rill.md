@@ -56,6 +56,7 @@ tags: [pc]
 > [!info] DaggerForge Sheet
 > Open this note in Obsidian, then use **DaggerForge → Export to Note** to insert the interactive character sheet here. It will render as a live, clickable sheet in this spot — HP, hope, stress, weapons, and experiences all interactive.
 
+
 ---
 
 ## Who They Are
@@ -110,7 +111,7 @@ Current tier: **Tier 1** *(experienced — patron-bond calm in the dead zone; ke
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; a month in the caravan means Rill knows his silences as well as his words |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; Cal's fascination with the patron-bond's dead zone behavior is something Rill is managing carefully |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; he watches her convictions with the attentiveness of someone taking inventory |
-| [[characters/PCs/rayzen\|Rayzen]] | Party — Pari-Kin Druid; their lantern going dark where his bond went calm — inverse signals; Rill has noted this |
+| [[raizen\|Rayzen]] | Party — Pari-Kin Druid; their lantern going dark where his bond went calm — inverse signals; Rill has noted this |
 | Patron | The patron-bond — functional, necessary, not entirely in Rill's control; calm in the dead zone in ways Rill cannot yet explain |
 | Temir | Volkath's son — Rill has caravan-familiarity, not established trust; baseline Difficulty on Thread B |
 

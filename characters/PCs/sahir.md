@@ -37,7 +37,7 @@ tags: [pc]
 
 
 > [!profile]+
-> ![[sahir_wayglass.png|250]]
+> ![[sahir_wayglass.webp|250]]
 > 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac enim ut sapien imperdiet gravida. Nulla sed turpis et neque tincidunt convallis. Phasellus posuere nisi eros, non tincidunt erat tincidunt ut. Morbi blandit vehicula nisl, laoreet pellentesque enim pellentesque eu.
 >
@@ -116,7 +116,7 @@ Current tier: **—** *(none yet — the two-pulls is compass behavior, not Wron
 | [[characters/PCs/veyra\|Veyra]] | Party — Warrior; her kind of steadiness is something he factors into any room she's in |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; Cal asks the questions Sahir usually already has answers to; useful mirror |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; she chooses a side quickly; he watches this with interest |
-| [[characters/PCs/rayzen\|Rayzen]] | Party — Pari-Kin Druid; quiet in the same way he is quiet; they may be reading the same rooms |
+| [[raizen\|Rayzen]] | Party — Pari-Kin Druid; quiet in the same way he is quiet; they may be reading the same rooms |
 | [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; the month together in the caravan means Sahir knows his silences |
 | Volkath | Caravan master — trusted; the Session 1 confession changes the texture of that trust |
 | Temir | Volkath's son — a stranger to Sahir specifically; the +2 Difficulty applies if he approaches Thread B |

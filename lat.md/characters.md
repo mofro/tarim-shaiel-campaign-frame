@@ -74,7 +74,7 @@ last_updated: 2026-08-01
 - [[characters/PCs/veyra.md]] — Warrior / Human / Lisa
 - [[characters/PCs/cal.md]] — Seeker / Tadbir (Clank) / Erik
 - [[characters/PCs/ariel.md]] — Visionary / Vaghri (Katari) / Marc
-- [[characters/PCs/rayzen.md]] — Sentinel / Pari-Kin (Faun) / Arno
+- [[raizen]] — Sentinel / Pari-Kin (Faun) / Arno
 - [[characters/PCs/sahir.md]] — Bridge / Rahban (Halfling) / Jim
 - [[characters/PCs/rill.md]] — Keeper / Vanara (Simiah) / Dave
 - Template: [[templates/world-building/_TEMPLATE_pc.md]]

@@ -9,7 +9,8 @@ archetype: Visionary
 surrendered_layer: "Perceptual — the right to look away"
 divine_tool: obsidian disk
 daggerheart_class: Seraph
-subclass:
+subclass: Winged Sentinel
+patron: "The Hunting Hour (Kara-Kartal / Shāhin-e Tārīk)"
 ancestry: "Vaghri (Katari)"
 community:
 level: 1
@@ -29,7 +30,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-08-01
+last_updated: 2026-08-12
 tags: [pc]
 ---
 
@@ -54,6 +55,12 @@ tags: [pc]
 
 > [!info] DaggerForge Sheet
 > Open this note in Obsidian, then use **DaggerForge → Export to Note** to insert the interactive character sheet here. It will render as a live, clickable sheet in this spot — HP, hope, stress, weapons, and experiences all interactive.
+
+
+```daggerforge-character
+id: CHR_1786742015512_ewnrl3qi
+code: DHC1.H4sIAAAAAAAAE81WS2_bMAz-Lzzr0LRrOvjWB7YeOmxoWuwwBAUrMbYWmfIoOWlQ5L8PspVXNyxbW2y72OJHipI_vvwI1kAB55fXd4OTt8OTN4cHg-PjweEdzVnc0TcLChhrggJOxZIDBY149i0HKAAUVCQ2Ykm9pB2GMGrvu3cPOZqR65dR0MYAxSNgaZ2Ni7ScoWvz7hplSgaKCbpASwUhCnEZqz1mE8sUAu2xshyiZR33mDVCgVjv8zZlP3dkyl_bLRXQDIP13GtRai8j7YW2ZecTKV-6LerFz3G6xFcvN5VQqLwz_VGBZiT0BKyaVz03xSu87qdUvqHfc5iN3xHGdsUvPTQkNoUz3eoRIj3EHCdv7MSSJGmp_pJmrKD0zlwim0nrnk1UdnOG5UtdnFcUYk7WXLw7_DXiJ1YnAhf7ThormBM2ntPXfWRae92gN3O_RhuxNcric6dMNZSbzKpLXCOveorBGku6sDrLk80NU48g7dm8iivU0c7oNNXkrpt7DJvKCRtsq5J3PVmeEUcvi165Fvs79rn4rFsqqJ7QW_2c2LW85mfdu_7d0WMF7CNlBjGVZZTFOYqBglvnFGhf1y3buAMaX6PlhCTmxol7PS3Ft2xOOcxJMqw9M-loPe_AfVjPCEOceKm3ptJtk-LceMsxfCK56ifVoYKG2FguoThQ4DDErBn0_T1NsNTata8bZPs06VBy7e-0_j_pjeP_sXNhjKinvU5-zJithOKOuo6iUBHFEcVouewGf40h2BlddLvWmVLjw2UDxXG3GmWmhj3eDYDhNiPXfh4649TCPniTjg4RU6oZ6NErvO9-Ot6nUadAtyLE2lJOCYcL38a8FdvoU9GmQN82BmOa36ufoaOD4XCw_A4v_oigJgkAAA
+```
 
 ---
 
@@ -108,7 +115,7 @@ Current tier: **—** *(none yet)*
 | [[characters/PCs/veyra\|Veyra]] | Party — Warrior; Ariel respects the dependability, sometimes wonders if they're waiting for the same moment |
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; his two-pulls navigation problem is something she finds significant |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; he asks questions, she already has answers — they're useful to each other |
-| [[characters/PCs/rayzen\|Rayzen]] | Party — Pari-Kin Druid; fellow traveler, fellow watcher |
+| [[raizen\|Rayzen]] | Party — Pari-Kin Druid; fellow traveler, fellow watcher |
 | [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; the patron arrangement interests her for reasons she hasn't articulated |
 | Captain Idris Kaan | Imperial patrol captain — she humiliated his patrol in the Session 0 courtyard tariff standoff; history, complicated |
 
