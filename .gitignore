@@ -56,6 +56,9 @@ utilities/world/natural_earth/ne_10m_rivers_lake_centerlines/
 *.pdf
 *.zip
 *.webarchive
+*.webm
+*.mp4
+*.mov
 
 # OSM / Overpass API response caches (local-only, not committed)
 world/data/.routes_cache.json
