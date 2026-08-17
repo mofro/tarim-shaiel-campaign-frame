@@ -1050,7 +1050,7 @@ function applyState(state) {
     if (d.t) el.setAttribute('transform', d.t);
     el.classList.toggle('revealed', !!d.r);
   });
-  // PCs: restore placed tokens; leave rest in tray
+  // PCs: place if in state, return to tray if absent
   PC_DATA.forEach(pc => {
     const d = state[pc.id];
     if (d && d.t) {
@@ -1062,6 +1062,12 @@ function applyState(state) {
       }
       el.setAttribute('transform', d.t);
       document.getElementById('slot-' + pc.key).classList.add('occupied');
+    } else {
+      // Not in state → remove from map and restore tray slot
+      const el = document.getElementById(pc.id);
+      if (el) el.remove();
+      document.getElementById('slot-' + pc.key).classList.remove('occupied');
+      document.getElementById('tray-tok-' + pc.key).style.opacity = '1';
     }
   });
 }
