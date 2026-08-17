@@ -7,13 +7,13 @@
 body {
   background: #3a2a14;
   font-family: Georgia, 'Times New Roman', serif;
-  padding: 0.75rem;
+  padding: 0;
   min-height: 100vh;
   color: #2a1e0e;
 }
 .page {
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   background: #e8e0c8;
   border: 2px solid #5a4030;
   border-radius: 3px;
@@ -217,7 +217,7 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
         <span class="pl-title">Rabati Malik — The Junction</span>
       </div>
       <div class="hd-sub">Session 2 · Encounter Terrain · Drag tokens to assign threads</div>
-      <div class="gm-hint">Click NPC to reveal/hide · Gold glow = visible to players · Space+drag or scroll to pan/zoom</div>
+      <div class="gm-hint">Click NPC to reveal/hide · Right-click NPC to reset · Dbl-click PC token to return · 2-finger swipe to pan · Pinch or Ctrl+scroll to zoom</div>
     </div>
     <div class="toggle">
       <button class="tbtn"        id="btn-gm"    onclick="requestGM()">⚔ GM</button>
@@ -576,9 +576,9 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
     </div>
     <div class="lg gm-only">
       <div class="lg-title">Controls</div>
-      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Scroll wheel — zoom · Space+drag — pan</div>
-      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">2-finger pinch/drag on touch</div>
-      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Ctrl+Shift+G — toggle GM/Player</div>
+      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">2-finger swipe or scroll — pan · Pinch or Ctrl+scroll — zoom</div>
+      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Space+drag — pan (mouse alt) · Ctrl+Shift+G — toggle GM</div>
+      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Dbl-click PC token — return to tray · Right-click NPC — home</div>
     </div>
     <div class="lg gm-only">
       <div class="lg-title">Threats</div>
@@ -718,15 +718,23 @@ function endDrag() {
 let spaceDown = false, panning = false;
 let panAnchor = null; // { svgX, svgY, panX, panY }
 
-// ── Scroll-wheel zoom ─────────────────────────────────────────
+// ── Scroll-wheel: pan (swipe) or zoom (pinch / Ctrl+scroll) ──
 svg.addEventListener('wheel', e => {
   e.preventDefault();
-  const factor = e.deltaY < 0 ? 1.1 : 0.9;
-  const p = svgRawPt(e.clientX, e.clientY);
-  const nz = Math.max(0.3, Math.min(5, zoom * factor));
-  panX = p.x - (p.x - panX) * (nz / zoom);
-  panY = p.y - (p.y - panY) * (nz / zoom);
-  zoom = nz;
+  if (e.ctrlKey || e.deltaMode === WheelEvent.DOM_DELTA_LINE) {
+    // Zoom: trackpad pinch (ctrlKey=true) or mouse scroll wheel (deltaMode=1)
+    const factor = e.deltaY < 0 ? 1.1 : 0.9;
+    const p = svgRawPt(e.clientX, e.clientY);
+    const nz = Math.max(0.3, Math.min(5, zoom * factor));
+    panX = p.x - (p.x - panX) * (nz / zoom);
+    panY = p.y - (p.y - panY) * (nz / zoom);
+    zoom = nz;
+  } else {
+    // Pan: trackpad two-finger swipe (deltaX/deltaY in CSS pixels)
+    const scale = svg.clientWidth > 0 ? 760 / svg.clientWidth : 1;
+    panX -= e.deltaX * scale;
+    panY -= e.deltaY * scale;
+  }
   applyViewport();
 }, { passive: false });
 
@@ -736,7 +744,8 @@ svg.addEventListener('mousedown', e => {
     e.preventDefault();
     panning = true;
     document.body.classList.add('panning');
-    panAnchor = { ...svgRawPt(e.clientX, e.clientY), panX, panY };
+    const raw = svgRawPt(e.clientX, e.clientY);
+    panAnchor = { x: raw.x, y: raw.y, panX, panY };
   }
 });
 
@@ -817,6 +826,13 @@ document.querySelectorAll('.npc-token').forEach(el => {
     if (!document.body.classList.contains('gm-mode') || e.touches.length > 1) return;
     e.preventDefault(); startDrag(el, e.touches[0].clientX, e.touches[0].clientY);
   }, { passive: false });
+  el.addEventListener('contextmenu', e => {
+    if (!document.body.classList.contains('gm-mode')) return;
+    e.preventDefault();
+    el.setAttribute('transform', `translate(${el.dataset.homeX},${el.dataset.homeY})`);
+    el.classList.remove('revealed');
+    saveState();
+  });
 });
 
 // ── PC token factory + wiring ─────────────────────────────────
@@ -851,6 +867,15 @@ function makePCSvgToken(pc) {
   return g;
 }
 
+function returnPCToTray(pc) {
+  const el = document.getElementById(pc.id);
+  if (el) el.remove();
+  document.getElementById('slot-' + pc.key).classList.remove('occupied');
+  document.getElementById('tray-tok-' + pc.key).style.opacity = '1';
+  clearTimeout(saveTimer);
+  saveState();
+}
+
 function wirePCToken(el, pc) {
   el.addEventListener('mousedown', e => {
     e.preventDefault(); startDrag(el, e.clientX, e.clientY);
@@ -859,6 +884,10 @@ function wirePCToken(el, pc) {
     if (e.touches.length > 1) return;
     e.preventDefault(); startDrag(el, e.touches[0].clientX, e.touches[0].clientY);
   }, { passive: false });
+  el.addEventListener('dblclick', e => {
+    e.preventDefault();
+    returnPCToTray(pc);
+  });
 }
 
 // ── Tray drag handoff ─────────────────────────────────────────
