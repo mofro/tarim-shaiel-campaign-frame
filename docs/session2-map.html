@@ -18,7 +18,7 @@ body {
   background: #1a1208;
 }
 
-/* ── Header — overlay at top ────────────────────────────────── */
+/* ── Header — overlay at top, auto-hides ────────────────────── */
 .hd {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -31,6 +31,15 @@ body {
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
+  transition: opacity 0.5s ease;
+}
+.hd.autohidden { opacity: 0; pointer-events: none; }
+/* Invisible strip at top — reveals header on hover when hidden */
+.hd-hover-zone {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 12px;
+  z-index: 22;
 }
 .hd-title {
   font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', serif;
@@ -159,8 +168,32 @@ body.gm-mode .rev-badge { display: block; }
 .pc-token:hover { filter: brightness(1.08); }
 body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-select: none; }
 
-/* ── Legend — hidden during play ────────────────────────────── */
-.legend { display: none; }
+/* ── Legend panel — floats above tray, toggled by Key button ── */
+#legend-panel {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 25;
+  background: rgba(14, 8, 2, 0.97);
+  border: 1px solid #4a3418;
+  border-left: 1px solid #4a3418;
+  border-radius: 2px 2px 0 0;
+  padding: 0.65rem 0.9rem 0.5rem;
+  min-width: 220px;
+  max-height: 55vh;
+  overflow-y: auto;
+  display: none;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.55);
+}
+#legend-panel.open { display: block; }
+
+/* ── Tray bar layout ─────────────────────────────────────────── */
+.tray-bar-left, .tray-bar-right { display: flex; align-items: center; }
+#zoom-controls { display: flex; align-items: center; gap: 0.25rem; }
+#zoom-pct {
+  font-size: 0.58rem; letter-spacing: 0.05em; color: #a09070;
+  min-width: 36px; text-align: center; font-family: Georgia, serif;
+}
 .lg { display: flex; flex-direction: column; gap: 0.2rem; }
 .lg-title { font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: #8a7050; font-weight: bold; margin-bottom: 0.1rem; }
 .lg-row { display: flex; align-items: center; gap: 0.4rem; font-size: 0.67rem; color: #3a2e1a; }
@@ -219,6 +252,7 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
 
 <body class="player-mode">
 <div class="page">
+<div class="hd-hover-zone" id="hd-hover-zone"></div>
 
   <div class="hd">
     <div>
@@ -481,9 +515,60 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
 
   <!-- ── HTML TOKEN TRAY ──────────────────────────────────────── -->
   <div id="tray-wrap">
+
+    <!-- Legend panel — sits above tray-wrap via position:absolute bottom:100% -->
+    <div id="legend-panel">
+      <div class="lg">
+        <div class="lg-title">Player Characters</div>
+        <div class="lg-row"><span class="dot" style="background:#4e78c0;outline:2px solid #2d4a7a;outline-offset:1px"></span>Ariel (ARL) — Seraph</div>
+        <div class="lg-row"><span class="dot" style="background:#4a8040;outline:2px solid #2a5020;outline-offset:1px"></span>Raizen (RZN) — Faun Druid · Thread A</div>
+        <div class="lg-row"><span class="dot" style="background:#b8782a;outline:2px solid #7a4e10;outline-offset:1px"></span>Sahir (SHR) — Bard</div>
+        <div class="lg-row"><span class="dot" style="background:#5a4890;outline:2px solid #3a2870;outline-offset:1px"></span>Cal (CAL) — Sorcerer</div>
+        <div class="lg-row"><span class="dot" style="background:#c06030;outline:2px solid #7a3e1a;outline-offset:1px"></span>Rill (RLL) — Warlock</div>
+      </div>
+      <div class="lg gm-only">
+        <div class="lg-title">Thread A — Imperial</div>
+        <div class="lg-row"><span class="dot" style="background:#162440"></span>Kaan — Leader D13</div>
+        <div class="lg-row"><span class="dot" style="background:#2d4a7a"></span>Riders R1–R3 — Standard D11</div>
+      </div>
+      <div class="lg gm-only">
+        <div class="lg-title">Thread B — Temir's Crew</div>
+        <div class="lg-row"><span class="dot" style="background:#7a3e1a"></span>Temir (TEM) — Leader D12</div>
+        <div class="lg-row"><span class="dot" style="background:#5a2a0c"></span>Sanem (SN) — Support D10</div>
+        <div class="lg-row"><span class="dot" style="background:#7a3e1a"></span>Ambushers A1–A4 — Minion D10</div>
+        <div class="lg-note">Dim = hidden from players · Gold glow = revealed · Click to toggle</div>
+      </div>
+      <div class="lg gm-only">
+        <div class="lg-title">Controls</div>
+        <div class="lg-row" style="font-size:0.6rem;color:#5a4828">2-finger swipe or scroll — pan · Pinch or Ctrl+scroll — zoom</div>
+        <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Space+drag — pan (mouse alt) · Ctrl+Shift+G — toggle GM</div>
+        <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Dbl-click PC token — return to tray · Right-click NPC — home</div>
+      </div>
+      <div class="lg gm-only">
+        <div class="lg-title">Threats</div>
+        <div class="lg-row">
+          <span class="swatch" style="background:rgba(139,26,26,0.22)"></span>
+          Rooftop drop zone (1d8, first action)
+        </div>
+        <div class="lg-row" style="font-size:0.6rem;color:#7a3e1a">
+          A1–A3 on parapet · A4 controls alley mouth
+        </div>
+      </div>
+    </div><!-- #legend-panel -->
+
     <div id="tray-bar">
-      <span class="tray-hint">Drag tokens onto map to place them · ↺ Reset returns them here</span>
-      <button class="tbtn" id="tray-toggle-btn" onclick="toggleTray()">▲ Tokens</button>
+      <div class="tray-bar-left">
+        <button class="tbtn" id="btn-legend" onclick="toggleLegend()">◉ Key</button>
+      </div>
+      <div id="zoom-controls">
+        <button class="tbtn" onclick="adjustZoom(0.833)" title="Zoom out">−</button>
+        <span id="zoom-pct">100%</span>
+        <button class="tbtn" onclick="adjustZoom(1.2)" title="Zoom in">+</button>
+        <button class="tbtn" onclick="fitMapToViewport()" title="Fit map to screen">⌖ Fit</button>
+      </div>
+      <div class="tray-bar-right">
+        <button class="tbtn" id="tray-toggle-btn" onclick="toggleTray()">▲ Tokens</button>
+      </div>
     </div>
     <div id="tray-inner" class="collapsed">
 
@@ -560,45 +645,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
     </div><!-- #tray-inner -->
   </div><!-- #tray-wrap -->
 
-  <!-- LEGEND -->
-  <div class="legend">
-    <div class="lg">
-      <div class="lg-title">Player Characters</div>
-      <div class="lg-row"><span class="dot" style="background:#4e78c0;outline:2px solid #2d4a7a;outline-offset:1px"></span>Ariel (ARL) — Seraph</div>
-      <div class="lg-row"><span class="dot" style="background:#4a8040;outline:2px solid #2a5020;outline-offset:1px"></span>Raizen (RZN) — Faun Druid · Thread A</div>
-      <div class="lg-row"><span class="dot" style="background:#b8782a;outline:2px solid #7a4e10;outline-offset:1px"></span>Sahir (SHR) — Bard</div>
-      <div class="lg-row"><span class="dot" style="background:#5a4890;outline:2px solid #3a2870;outline-offset:1px"></span>Cal (CAL) — Sorcerer</div>
-      <div class="lg-row"><span class="dot" style="background:#c06030;outline:2px solid #7a3e1a;outline-offset:1px"></span>Rill (RLL) — Warlock</div>
-    </div>
-    <div class="lg gm-only">
-      <div class="lg-title">Thread A — Imperial</div>
-      <div class="lg-row"><span class="dot" style="background:#162440"></span>Kaan — Leader D13</div>
-      <div class="lg-row"><span class="dot" style="background:#2d4a7a"></span>Riders R1–R3 — Standard D11</div>
-    </div>
-    <div class="lg gm-only">
-      <div class="lg-title">Thread B — Temir's Crew</div>
-      <div class="lg-row"><span class="dot" style="background:#7a3e1a"></span>Temir (TEM) — Leader D12</div>
-      <div class="lg-row"><span class="dot" style="background:#5a2a0c"></span>Sanem (SN) — Support D10</div>
-      <div class="lg-row"><span class="dot" style="background:#7a3e1a"></span>Ambushers A1–A4 — Minion D10</div>
-      <div class="lg-note">Dim = hidden from players · Gold glow = revealed · Click to toggle</div>
-    </div>
-    <div class="lg gm-only">
-      <div class="lg-title">Controls</div>
-      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">2-finger swipe or scroll — pan · Pinch or Ctrl+scroll — zoom</div>
-      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Space+drag — pan (mouse alt) · Ctrl+Shift+G — toggle GM</div>
-      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Dbl-click PC token — return to tray · Right-click NPC — home</div>
-    </div>
-    <div class="lg gm-only">
-      <div class="lg-title">Threats</div>
-      <div class="lg-row">
-        <span class="swatch" style="background:rgba(139,26,26,0.22)"></span>
-        Rooftop drop zone (1d8, first action)
-      </div>
-      <div class="lg-row" style="font-size:0.6rem;color:#7a3e1a">
-        A1–A3 on parapet · A4 controls alley mouth
-      </div>
-    </div>
-  </div>
 
 </div><!-- .page -->
 
@@ -639,10 +685,34 @@ const topLayer  = document.getElementById('top-layer');
 
 // ── Viewport state ────────────────────────────────────────────
 let zoom = 1, panX = 0, panY = 0;
+const VP_STORE_KEY = 'tarim-s2-vp';
 
+let vpSaveTimer = null;
 function applyViewport() {
   viewportG.setAttribute('transform',
     `translate(${panX.toFixed(2)},${panY.toFixed(2)}) scale(${zoom.toFixed(4)})`);
+  updateZoomDisplay();
+  clearTimeout(vpSaveTimer);
+  vpSaveTimer = setTimeout(saveViewport, 300);
+}
+
+function updateZoomDisplay() {
+  const el = document.getElementById('zoom-pct');
+  if (el) el.textContent = Math.round(zoom * 100) + '%';
+}
+
+function saveViewport() {
+  try { localStorage.setItem(VP_STORE_KEY, JSON.stringify({ zoom, panX, panY })); } catch(_) {}
+}
+
+function adjustZoom(factor) {
+  const svgW = svg.clientWidth, svgH = svg.clientHeight;
+  const p = svgRawPt(svgW / 2, svgH / 2);
+  const nz = Math.max(0.3, Math.min(5, zoom * factor));
+  panX = p.x - (p.x - panX) * (nz / zoom);
+  panY = p.y - (p.y - panY) * (nz / zoom);
+  zoom = nz;
+  applyViewport();
 }
 
 // Screen coords → SVG viewBox coords (ignores viewport transform)
@@ -1062,7 +1132,18 @@ if (bc) {
   } catch(_) {}
   if (bc) try { bc.postMessage({ type: 'hello' }); } catch(_) {}
   window.addEventListener('load', initRealtime);
-  requestAnimationFrame(fitMapToViewport);
+  // Restore saved viewport; fall back to fit-to-screen
+  requestAnimationFrame(() => {
+    try {
+      const vp = JSON.parse(localStorage.getItem(VP_STORE_KEY));
+      if (vp && typeof vp.zoom === 'number') {
+        zoom = vp.zoom; panX = vp.panX; panY = vp.panY;
+        applyViewport();
+        return;
+      }
+    } catch(_) {}
+    fitMapToViewport();
+  });
 })();
 
 // ── PIN overlay ───────────────────────────────────────────────
@@ -1107,7 +1188,11 @@ function resetPositions() {
     el.setAttribute('transform', `translate(${el.dataset.homeX},${el.dataset.homeY})`);
     el.classList.remove('revealed');
   });
+  // Broadcast clean token state
   saveState();
+  // Reset viewport to fit and sync all clients to it
+  fitMapToViewport();
+  syncView();
 }
 
 let trayOpen = false;
@@ -1116,6 +1201,36 @@ function toggleTray() {
   document.getElementById('tray-inner').classList.toggle('collapsed', !trayOpen);
   document.getElementById('tray-toggle-btn').textContent = trayOpen ? '▼ Tokens' : '▲ Tokens';
 }
+
+function toggleLegend() {
+  const panel = document.getElementById('legend-panel');
+  const btn   = document.getElementById('btn-legend');
+  const open  = panel.classList.toggle('open');
+  if (btn) btn.classList.toggle('active', open);
+}
+
+// ── Header auto-hide ──────────────────────────────────────────
+(function () {
+  const hd = document.querySelector('.hd');
+  const zone = document.getElementById('hd-hover-zone');
+  let hideTimer = null;
+
+  function scheduleHide(delay) {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => hd.classList.add('autohidden'), delay);
+  }
+  function revealHd() {
+    hd.classList.remove('autohidden');
+    scheduleHide(3500);
+  }
+
+  zone.addEventListener('mouseenter', revealHd);
+  hd.addEventListener('mouseenter', () => { clearTimeout(hideTimer); hd.classList.remove('autohidden'); });
+  hd.addEventListener('mouseleave', () => scheduleHide(2500));
+
+  // Auto-hide after 5s on load
+  scheduleHide(5000);
+})();
 
 // ── Fit map to viewport on load ───────────────────────────────
 function fitMapToViewport() {
