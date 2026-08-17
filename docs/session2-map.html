@@ -1105,6 +1105,12 @@ function initRealtime() {
     .on('broadcast', { event: 'viewport' }, ({ payload }) => {
       if (payload) animateToViewport(payload.zoom, payload.panX, payload.panY);
     })
+    .on('broadcast', { event: 'reset' }, () => {
+      clearTimeout(saveTimer);
+      clearPCTokensLocal();
+      clearNPCsLocal();
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(getCurrentState())); } catch(_) {}
+    })
     .on('broadcast', { event: 'hello' }, () => {
       realtimeChannel.send({ type: 'broadcast', event: 'state',
         payload: { state: getCurrentState() } });
@@ -1122,6 +1128,11 @@ if (bc) {
     if (e.data.type === 'state') {
       applyState(e.data.state);
       try { localStorage.setItem(STORE_KEY, JSON.stringify(e.data.state)); } catch(_) {}
+    } else if (e.data.type === 'reset') {
+      clearTimeout(saveTimer);
+      clearPCTokensLocal();
+      clearNPCsLocal();
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(getCurrentState())); } catch(_) {}
     } else if (e.data.type === 'hello') {
       try { bc.postMessage({ type: 'state', state: getCurrentState() }); } catch(_) {}
     } else if (e.data.type === 'viewport') {
@@ -1181,22 +1192,36 @@ function setView(v) {
   document.getElementById('btn-pl').classList.toggle('active', v === 'player');
 }
 
-function resetPositions() {
-  // Return all PCs to tray
+// ── Local-only clear helpers (no broadcast) ───────────────────
+function clearPCTokensLocal() {
   PC_DATA.forEach(pc => {
     const el = document.getElementById(pc.id);
     if (el) el.remove();
     document.getElementById('slot-' + pc.key).classList.remove('occupied');
     document.getElementById('tray-tok-' + pc.key).style.opacity = '1';
   });
-  // Return NPCs to home
+}
+function clearNPCsLocal() {
   document.querySelectorAll('.npc-token').forEach(el => {
     el.setAttribute('transform', `translate(${el.dataset.homeX},${el.dataset.homeY})`);
     el.classList.remove('revealed');
   });
-  // Broadcast clean token state
+}
+
+function resetPositions() {
+  clearPCTokensLocal();
+  clearNPCsLocal();
+  // Cancel any pending saves so a stale state can't re-place tokens
+  clearTimeout(saveTimer);
+  // Broadcast an explicit reset command — clients clear immediately,
+  // no reliance on absent-key inference in applyState()
+  if (realtimeChannel) {
+    realtimeChannel.send({ type: 'broadcast', event: 'reset', payload: {} });
+  }
+  if (bc) try { bc.postMessage({ type: 'reset' }); } catch(_) {}
+  // Persist clean state to localStorage (for late-joiners via hello sync)
   saveState();
-  // Reset viewport to fit and sync all clients to it
+  // Reset and sync viewport
   fitMapToViewport();
   syncView();
 }
