@@ -4,20 +4,23 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body { height: 100%; }
 body {
   background: #3a2a14;
   font-family: Georgia, 'Times New Roman', serif;
   padding: 0;
-  min-height: 100vh;
   color: #2a1e0e;
+  overflow: hidden;
 }
 .page {
   max-width: 100%;
   margin: 0;
   background: #e8e0c8;
   border: 2px solid #5a4030;
-  border-radius: 3px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* ── Header ─────────────────────────────────────────────────── */
@@ -67,8 +70,22 @@ body.player-mode .gm-only  { display: none; }
 body.gm-mode     .pl-only  { display: none; }
 
 /* ── Map ────────────────────────────────────────────────────── */
-.map-surround { background: #c0aa7a; padding: 0.6rem 0.6rem 0; }
-.map-svg { width: 100%; height: auto; display: block; overflow: hidden; }
+.map-surround {
+  background: #c0aa7a;
+  padding: 0.6rem 0.6rem 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.map-svg {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: block;
+  overflow: hidden;
+}
 
 /* Pan cursor */
 body.space-held .map-svg { cursor: grab; }
