@@ -1147,6 +1147,9 @@ if (bc) {
     const raw = localStorage.getItem(STORE_KEY);
     if (raw) applyState(JSON.parse(raw));
   } catch(_) {}
+  try {
+    if (localStorage.getItem('tarim-s2-mode') === 'gm') setView('gm');
+  } catch(_) {}
   if (bc) try { bc.postMessage({ type: 'hello' }); } catch(_) {}
   window.addEventListener('load', initRealtime);
   // Restore saved viewport; fall back to fit-to-screen
@@ -1190,6 +1193,7 @@ function setView(v) {
   document.body.className = v + '-mode';
   document.getElementById('btn-gm').classList.toggle('active', v === 'gm');
   document.getElementById('btn-pl').classList.toggle('active', v === 'player');
+  try { localStorage.setItem('tarim-s2-mode', v); } catch(_) {}
 }
 
 // ── Local-only clear helpers (no broadcast) ───────────────────
