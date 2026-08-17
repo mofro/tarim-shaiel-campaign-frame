@@ -1074,11 +1074,18 @@ function applyState(state) {
 
 function saveState() {
   const state = getCurrentState();
+  // Broadcast full state (PCs + NPCs) for live cross-device sync
   if (realtimeChannel) {
     realtimeChannel.send({ type: 'broadcast', event: 'state', payload: { state } });
   }
   if (bc) try { bc.postMessage({ type: 'state', state }); } catch(_) {}
-  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(_) {}
+  // Persist NPC state only — PC positions are ephemeral and must not
+  // survive a page reload. They re-populate via the hello sync.
+  const npcState = {};
+  document.querySelectorAll('.npc-token').forEach(el => {
+    npcState[el.id] = { t: el.getAttribute('transform'), r: el.classList.contains('revealed') };
+  });
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(npcState)); } catch(_) {}
 }
 
 function syncView() {
@@ -1099,7 +1106,11 @@ function initRealtime() {
     .on('broadcast', { event: 'state' }, ({ payload }) => {
       if (payload?.state) {
         applyState(payload.state);
-        try { localStorage.setItem(STORE_KEY, JSON.stringify(payload.state)); } catch(_) {}
+        const npcState = {};
+        document.querySelectorAll('.npc-token').forEach(el => {
+          npcState[el.id] = { t: el.getAttribute('transform'), r: el.classList.contains('revealed') };
+        });
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(npcState)); } catch(_) {}
       }
     })
     .on('broadcast', { event: 'viewport' }, ({ payload }) => {
@@ -1109,7 +1120,7 @@ function initRealtime() {
       clearTimeout(saveTimer);
       clearPCTokensLocal();
       clearNPCsLocal();
-      try { localStorage.setItem(STORE_KEY, JSON.stringify(getCurrentState())); } catch(_) {}
+      try { localStorage.removeItem(STORE_KEY); } catch(_) {}
     })
     .on('broadcast', { event: 'hello' }, () => {
       realtimeChannel.send({ type: 'broadcast', event: 'state',
@@ -1127,12 +1138,16 @@ if (bc) {
     if (!e.data) return;
     if (e.data.type === 'state') {
       applyState(e.data.state);
-      try { localStorage.setItem(STORE_KEY, JSON.stringify(e.data.state)); } catch(_) {}
+      const npcState = {};
+      document.querySelectorAll('.npc-token').forEach(el => {
+        npcState[el.id] = { t: el.getAttribute('transform'), r: el.classList.contains('revealed') };
+      });
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(npcState)); } catch(_) {}
     } else if (e.data.type === 'reset') {
       clearTimeout(saveTimer);
       clearPCTokensLocal();
       clearNPCsLocal();
-      try { localStorage.setItem(STORE_KEY, JSON.stringify(getCurrentState())); } catch(_) {}
+      try { localStorage.removeItem(STORE_KEY); } catch(_) {}
     } else if (e.data.type === 'hello') {
       try { bc.postMessage({ type: 'state', state: getCurrentState() }); } catch(_) {}
     } else if (e.data.type === 'viewport') {
@@ -1145,7 +1160,12 @@ if (bc) {
 (function () {
   try {
     const raw = localStorage.getItem(STORE_KEY);
-    if (raw) applyState(JSON.parse(raw));
+    if (raw) {
+      const saved = JSON.parse(raw);
+      // Strip any stale PC positions — only NPC state is persisted across reloads
+      PC_DATA.forEach(pc => delete saved[pc.id]);
+      applyState(saved);
+    }
   } catch(_) {}
   try {
     if (localStorage.getItem('tarim-s2-mode') === 'gm') setView('gm');
