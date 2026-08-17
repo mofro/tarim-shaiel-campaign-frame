@@ -4,29 +4,28 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body { height: 100%; }
+html, body { height: 100%; overflow: hidden; }
 body {
-  background: #3a2a14;
+  background: #1a1208;
   font-family: Georgia, 'Times New Roman', serif;
-  padding: 0;
-  color: #2a1e0e;
-  overflow: hidden;
+  color: #e8e0c8;
 }
 .page {
-  max-width: 100%;
-  margin: 0;
-  background: #e8e0c8;
-  border: 2px solid #5a4030;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  width: 100%;
   height: 100%;
+  overflow: hidden;
+  background: #1a1208;
 }
 
-/* ── Header ─────────────────────────────────────────────────── */
+/* ── Header — overlay at top ────────────────────────────────── */
 .hd {
-  background: #1e1408;
-  padding: 0.55rem 1rem 0.45rem;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 20;
+  background: rgba(20, 12, 4, 0.94);
+  border-bottom: 1px solid #3a2810;
+  padding: 0.45rem 1rem 0.38rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -69,20 +68,18 @@ body.player-mode #btn-reset { display: none; }
 body.player-mode .gm-only  { display: none; }
 body.gm-mode     .pl-only  { display: none; }
 
-/* ── Map ────────────────────────────────────────────────────── */
+/* ── Map canvas — fills viewport behind overlays ────────────── */
 .map-surround {
-  background: #c0aa7a;
-  padding: 0.6rem 0.6rem 0;
-  flex: 1;
-  min-height: 0;
+  position: absolute;
+  inset: 0;
+  background: #1a1208;
+  padding: 0;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  z-index: 1;
 }
 .map-svg {
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  height: 100%;
   display: block;
   overflow: hidden;
 }
@@ -91,34 +88,36 @@ body.gm-mode     .pl-only  { display: none; }
 body.space-held .map-svg { cursor: grab; }
 body.space-held.panning  .map-svg { cursor: grabbing; }
 
-/* ── Token tray (HTML) ───────────────────────────────────────── */
-#tray-wrap { background: #c0aa7a; padding: 0 0.6rem 0.6rem; }
+/* ── Token tray — overlay at bottom ──────────────────────────── */
+#tray-wrap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 20;
+  background: rgba(14, 8, 2, 0.9);
+  border-top: 1px solid #4a3418;
+}
 
 #tray-bar {
-  background: #ccc4a0;
-  border-top: 1.5px solid #7a6840;
-  border-left: 1.5px solid #5a4030;
-  border-right: 1.5px solid #5a4030;
+  background: transparent;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.25rem 0.6rem;
+  padding: 0.2rem 0.8rem;
 }
 .tray-hint {
-  font-size: 0.56rem; letter-spacing: 0.08em; color: #7a6040;
+  font-size: 0.52rem; letter-spacing: 0.08em; color: #8a7050;
 }
 
 #tray-inner {
-  background: #ccc4a0;
-  border: 1.5px solid #5a4030; border-top: none;
+  background: transparent;
   display: flex; justify-content: space-around; align-items: center;
-  padding: 0.5rem 0.4rem 0.65rem;
+  padding: 0.4rem 0.4rem 0.5rem;
   overflow: hidden;
-  max-height: 110px;
-  transition: max-height 0.2s ease, padding 0.2s ease;
+  max-height: 90px;
+  transition: max-height 0.18s ease, padding 0.18s ease;
 }
 #tray-inner.collapsed { max-height: 0; padding-top: 0; padding-bottom: 0; }
 
 .tray-slot {
-  display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.15rem;
   width: 54px;
 }
 .tray-tok {
@@ -127,14 +126,14 @@ body.space-held.panning  .map-svg { cursor: grabbing; }
   transition: opacity 0.15s;
   touch-action: none;
 }
-.tray-tok:hover { filter: brightness(1.1); }
+.tray-tok:hover { filter: brightness(1.2); }
 .tray-tok svg { display: block; overflow: visible; }
 .tray-slot.occupied .tray-tok { opacity: 0.18; cursor: default; pointer-events: none; }
 .tray-name {
-  font-size: 0.52rem; letter-spacing: 0.12em; color: #7a6040;
+  font-size: 0.5rem; letter-spacing: 0.1em; color: #a09070;
   text-transform: uppercase; text-align: center;
 }
-.tray-slot.occupied .tray-name { color: #a09070; }
+.tray-slot.occupied .tray-name { color: #5a4838; }
 
 /* Ghost slot circle — always present, visible when occupied */
 .tray-ghost { display: none; }
@@ -160,13 +159,8 @@ body.gm-mode .rev-badge { display: block; }
 .pc-token:hover { filter: brightness(1.08); }
 body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-select: none; }
 
-/* ── Legend ─────────────────────────────────────────────────── */
-.legend {
-  padding: 0.45rem 1rem 0.5rem;
-  border-top: 1px solid #8a7050;
-  background: #f0e8d0;
-  display: flex; gap: 1.5rem; flex-wrap: wrap;
-}
+/* ── Legend — hidden during play ────────────────────────────── */
+.legend { display: none; }
 .lg { display: flex; flex-direction: column; gap: 0.2rem; }
 .lg-title { font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: #8a7050; font-weight: bold; margin-bottom: 0.1rem; }
 .lg-row { display: flex; align-items: center; gap: 0.4rem; font-size: 0.67rem; color: #3a2e1a; }
@@ -245,7 +239,7 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
   </div>
 
   <div class="map-surround">
-  <svg id="main-svg" class="map-svg" viewBox="0 0 760 665"
+  <svg id="main-svg" class="map-svg"
        role="img"
        aria-label="Draggable tactical map of the Rabati Malik junction. Drag player tokens from the tray to the lane (Thread A) or courtyard (Thread B).">
 
@@ -482,9 +476,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
 
     </g><!-- /viewport -->
 
-    <!-- Border frame — outside viewport, always at SVG edge -->
-    <rect x="0" y="0" width="760" height="665" fill="none" stroke="#5a3e28" stroke-width="3"/>
-
   </svg>
   </div>
 
@@ -492,9 +483,9 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
   <div id="tray-wrap">
     <div id="tray-bar">
       <span class="tray-hint">Drag tokens onto map to place them · ↺ Reset returns them here</span>
-      <button class="tbtn" id="tray-toggle-btn" onclick="toggleTray()">▼ Tray</button>
+      <button class="tbtn" id="tray-toggle-btn" onclick="toggleTray()">▲ Tokens</button>
     </div>
-    <div id="tray-inner">
+    <div id="tray-inner" class="collapsed">
 
       <div class="tray-slot" id="slot-arl">
         <div class="tray-tok" id="tray-tok-arl">
@@ -747,10 +738,9 @@ svg.addEventListener('wheel', e => {
     panY = p.y - (p.y - panY) * (nz / zoom);
     zoom = nz;
   } else {
-    // Pan: trackpad two-finger swipe (deltaX/deltaY in CSS pixels)
-    const scale = svg.clientWidth > 0 ? 760 / svg.clientWidth : 1;
-    panX -= e.deltaX * scale;
-    panY -= e.deltaY * scale;
+    // Pan: trackpad two-finger swipe — pixel-perfect, no viewBox scaling needed
+    panX -= e.deltaX;
+    panY -= e.deltaY;
   }
   applyViewport();
 }, { passive: false });
@@ -1072,6 +1062,7 @@ if (bc) {
   } catch(_) {}
   if (bc) try { bc.postMessage({ type: 'hello' }); } catch(_) {}
   window.addEventListener('load', initRealtime);
+  requestAnimationFrame(fitMapToViewport);
 })();
 
 // ── PIN overlay ───────────────────────────────────────────────
@@ -1119,11 +1110,26 @@ function resetPositions() {
   saveState();
 }
 
-let trayOpen = true;
+let trayOpen = false;
 function toggleTray() {
   trayOpen = !trayOpen;
   document.getElementById('tray-inner').classList.toggle('collapsed', !trayOpen);
-  document.getElementById('tray-toggle-btn').textContent = trayOpen ? '▼ Tray' : '▲ Tray';
+  document.getElementById('tray-toggle-btn').textContent = trayOpen ? '▼ Tokens' : '▲ Tokens';
+}
+
+// ── Fit map to viewport on load ───────────────────────────────
+function fitMapToViewport() {
+  const svgW = svg.clientWidth || 1200;
+  const svgH = svg.clientHeight || 800;
+  const hdH  = (document.querySelector('.hd') || {offsetHeight: 50}).offsetHeight;
+  const trayBarH = 38;
+  const mapW = 760, mapH = 665;
+  const avW  = svgW - 40;
+  const avH  = svgH - hdH - trayBarH - 16;
+  zoom = Math.min(avW / mapW, avH / mapH);
+  panX = (svgW - mapW * zoom) / 2;
+  panY = hdH + 8 + (avH - mapH * zoom) / 2;
+  applyViewport();
 }
 
 // Keyboard shortcuts
