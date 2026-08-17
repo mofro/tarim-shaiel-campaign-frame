@@ -1,4 +1,5 @@
 <title>Rabati Malik — The Junction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,19 +41,17 @@ body {
 .hd-icon { color: #b8922c; margin-right: 0.4rem; }
 .hd-sub { font-size: 0.58rem; color: #b8922c; letter-spacing: 0.1em; margin-top: 0.12rem; }
 
-/* GM hint bar — only in GM mode */
 .gm-hint {
   font-size: 0.55rem; color: #8a6830; letter-spacing: 0.08em;
   margin-top: 0.1rem;
   display: none;
 }
 
-/* Title / hint toggling by mode */
 body.gm-mode   .pl-title  { display: none; }
 body.player-mode .gm-title { display: none; }
 body.gm-mode   .gm-hint   { display: block; }
 
-.toggle { display: flex; gap: 0.35rem; flex-shrink: 0; padding-top: 0.1rem; }
+.toggle { display: flex; gap: 0.35rem; flex-shrink: 0; padding-top: 0.1rem; flex-wrap: wrap; }
 .tbtn {
   font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
   padding: 0.28em 0.75em; border-radius: 2px; cursor: pointer;
@@ -62,32 +61,76 @@ body.gm-mode   .gm-hint   { display: block; }
 .tbtn.active { background: #b8922c; color: #1e1408; }
 .tbtn:focus-visible { outline: 2px solid #b8922c; outline-offset: 2px; }
 
-/* In player mode: hide Players and Reset buttons, leave only GM button */
 body.player-mode #btn-pl,
 body.player-mode #btn-reset { display: none; }
-
-/* ── Map ────────────────────────────────────────────────────── */
-.map-surround { background: #c0aa7a; padding: 0.6rem; }
-.map-svg { width: 100%; height: auto; display: block; border: 1.5px solid #5a4030; }
-
-/* ── Visibility logic ───────────────────────────────────────── */
-/* GM-only static overlays (drop zones, arrows, ROOF labels, etc.) */
 body.player-mode .gm-only  { display: none; }
-/* Player-only helpers */
 body.gm-mode     .pl-only  { display: none; }
 
-/* NPC tokens: hidden unless .revealed; stat text always GM-only */
+/* ── Map ────────────────────────────────────────────────────── */
+.map-surround { background: #c0aa7a; padding: 0.6rem 0.6rem 0; }
+.map-svg { width: 100%; height: auto; display: block; overflow: hidden; }
+
+/* Pan cursor */
+body.space-held .map-svg { cursor: grab; }
+body.space-held.panning  .map-svg { cursor: grabbing; }
+
+/* ── Token tray (HTML) ───────────────────────────────────────── */
+#tray-wrap { background: #c0aa7a; padding: 0 0.6rem 0.6rem; }
+
+#tray-bar {
+  background: #ccc4a0;
+  border-top: 1.5px solid #7a6840;
+  border-left: 1.5px solid #5a4030;
+  border-right: 1.5px solid #5a4030;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.25rem 0.6rem;
+}
+.tray-hint {
+  font-size: 0.56rem; letter-spacing: 0.08em; color: #7a6040;
+}
+
+#tray-inner {
+  background: #ccc4a0;
+  border: 1.5px solid #5a4030; border-top: none;
+  display: flex; justify-content: space-around; align-items: center;
+  padding: 0.5rem 0.4rem 0.65rem;
+  overflow: hidden;
+  max-height: 110px;
+  transition: max-height 0.2s ease, padding 0.2s ease;
+}
+#tray-inner.collapsed { max-height: 0; padding-top: 0; padding-bottom: 0; }
+
+.tray-slot {
+  display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+  width: 54px;
+}
+.tray-tok {
+  cursor: grab;
+  user-select: none; -webkit-user-select: none;
+  transition: opacity 0.15s;
+  touch-action: none;
+}
+.tray-tok:hover { filter: brightness(1.1); }
+.tray-tok svg { display: block; overflow: visible; }
+.tray-slot.occupied .tray-tok { opacity: 0.18; cursor: default; pointer-events: none; }
+.tray-name {
+  font-size: 0.52rem; letter-spacing: 0.12em; color: #7a6040;
+  text-transform: uppercase; text-align: center;
+}
+.tray-slot.occupied .tray-name { color: #a09070; }
+
+/* Ghost slot circle — always present, visible when occupied */
+.tray-ghost { display: none; }
+.tray-slot.occupied .tray-ghost { display: block; }
+.tray-slot.occupied .tray-tok-inner { display: none; }
+
+/* ── Visibility logic ───────────────────────────────────────── */
 body.player-mode .npc-token:not(.revealed) { display: none; }
 body.player-mode .gm-stat  { display: none; }
-
-/* ── NPC reveal visual states (GM mode only) ────────────────── */
-/* Hidden from players: dimmed */
 body.gm-mode .npc-token:not(.revealed) { opacity: 0.55; }
-/* Revealed to players: full + gold glow */
 body.gm-mode .npc-token.revealed       { opacity: 1; }
 body.gm-mode .npc-token.revealed circle { filter: drop-shadow(0 0 4px rgba(184,146,44,0.75)); }
 
-/* Reveal badge (always-GM-mode only; shows state at a glance) */
 .rev-badge { display: none; }
 body.gm-mode .rev-badge { display: block; }
 .rev-eye    { display: none; }
@@ -174,17 +217,18 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
         <span class="pl-title">Rabati Malik — The Junction</span>
       </div>
       <div class="hd-sub">Session 2 · Encounter Terrain · Drag tokens to assign threads</div>
-      <div class="gm-hint">Click any NPC token once to reveal/hide from players · Gold glow = players can see it · Drag to move</div>
+      <div class="gm-hint">Click NPC to reveal/hide · Gold glow = visible to players · Space+drag or scroll to pan/zoom</div>
     </div>
     <div class="toggle">
       <button class="tbtn"        id="btn-gm"    onclick="requestGM()">⚔ GM</button>
       <button class="tbtn active" id="btn-pl"    onclick="setView('player')">◎ Players</button>
+      <button class="tbtn gm-only" id="btn-sync" onclick="syncView()">⊡ Sync View</button>
       <button class="tbtn"        id="btn-reset" onclick="resetPositions()">↺ Reset</button>
     </div>
   </div>
 
   <div class="map-surround">
-  <svg id="main-svg" class="map-svg" viewBox="0 0 760 665"
+  <svg id="main-svg" class="map-svg" viewBox="0 0 760 560"
        role="img"
        aria-label="Draggable tactical map of the Rabati Malik junction. Drag player tokens from the tray to the lane (Thread A) or courtyard (Thread B).">
 
@@ -199,6 +243,9 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
         <polygon points="0 0, 6 2.5, 0 5" fill="#8b1a1a"/>
       </marker>
     </defs>
+
+    <!-- ── VIEWPORT GROUP — all map content transforms here ─── -->
+    <g id="viewport">
 
     <!-- ── GROUND ─────────────────────────────────────────── -->
     <rect width="760" height="560" fill="#e0d8be"/>
@@ -244,17 +291,12 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
     <text x="748" y="266" font-family="Georgia,serif" font-size="9"  fill="#6a5838" text-anchor="end">→</text>
     <text x="748" y="277" font-family="Georgia,serif" font-size="6.5" fill="#6a5838" letter-spacing="0.5" text-anchor="end">E. QUARTER</text>
 
-    <!-- ══════════════════════════════════════════════════════
-         GM ANNOTATIONS — static overlays, always GM-only
-    ══════════════════════════════════════════════════════════ -->
+    <!-- ══ GM ANNOTATIONS ════════════════════════════════════ -->
     <g class="gm-only">
-      <!-- Drop zones -->
       <rect x="94"  y="205" width="52" height="70" fill="rgba(139,26,26,0.14)" rx="3"/>
       <rect x="244" y="205" width="52" height="70" fill="rgba(139,26,26,0.14)" rx="3"/>
       <rect x="573" y="205" width="52" height="70" fill="rgba(139,26,26,0.14)" rx="3"/>
       <rect x="320" y="205" width="90" height="110" fill="rgba(139,26,26,0.09)"/>
-
-      <!-- Approach vectors -->
       <line x1="5"   y1="258" x2="36"  y2="258" stroke="#2d4a7a" stroke-width="2.5" marker-end="url(#arr-b)"/>
       <line x1="182" y1="258" x2="510" y2="258" stroke="#2d4a7a" stroke-width="1.5"
             stroke-dasharray="7,4" marker-end="url(#arr-b)" opacity="0.3"/>
@@ -263,14 +305,10 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       <line x1="472" y1="549" x2="472" y2="483" stroke="#7a3e1a" stroke-width="2"
             stroke-dasharray="5,3" marker-end="url(#arr-r)" opacity="0.8"/>
       <text x="472" y="556" font-family="Georgia,serif" font-size="6.5" fill="#7a3e1a" text-anchor="middle">THREAD B ENTRY</text>
-
-      <!-- Signal line Temir→A4 -->
       <line x1="335" y1="428" x2="362" y2="332" stroke="#7a3e1a" stroke-width="1.2"
             stroke-dasharray="3,5" opacity="0.45"/>
       <text x="336" y="384" font-family="Georgia,serif" font-size="6" fill="#7a3e1a"
             opacity="0.55" transform="rotate(-75 336 384)">signal</text>
-
-      <!-- Drop arrows + ROOF labels -->
       <line x1="120" y1="211" x2="120" y2="228" stroke="#8b1a1a" stroke-width="1.5" marker-end="url(#arr-dk)" opacity="0.55"/>
       <line x1="270" y1="211" x2="270" y2="228" stroke="#8b1a1a" stroke-width="1.5" marker-end="url(#arr-dk)" opacity="0.55"/>
       <line x1="600" y1="211" x2="600" y2="228" stroke="#8b1a1a" stroke-width="1.5" marker-end="url(#arr-dk)" opacity="0.55"/>
@@ -279,20 +317,10 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       <text x="600" y="193" font-family="Georgia,serif" font-size="5.5" fill="#7a3e1a" text-anchor="middle" letter-spacing="0.5" opacity="0.8">ROOF</text>
     </g>
 
-    <!-- ══════════════════════════════════════════════════════
-         NPC TOKENS — individually revealable
-         • Hidden (default): dim in GM view, invisible in player view
-         • Revealed (.revealed class): bright in GM view, visible in player view
-         • Stat text (.gm-stat): always GM-only
-         • Reveal badge (.rev-badge): GM-only indicator of current state
-         • Click (no drag) in GM mode: toggles revealed/hidden
-    ══════════════════════════════════════════════════════════ -->
-
-    <!-- R3 — rear -->
+    <!-- ══ NPC TOKENS ═════════════════════════════════════════ -->
     <g class="npc-token" id="tok-r3" transform="translate(52,258)" data-home-x="52" data-home-y="258">
       <circle r="12" fill="#2d4a7a" stroke="#182840" stroke-width="1.5"/>
       <text x="0" y="4" font-family="Georgia,serif" font-size="8" fill="#ddeeff" text-anchor="middle" font-weight="bold">R3</text>
-      <!-- GM reveal badge: top-right corner -->
       <g class="rev-badge" transform="translate(10,-10)">
         <circle class="rev-dot" r="5" fill="#4a3020" stroke="#786040" stroke-width="1"/>
         <text   class="rev-dot" x="0" y="3.5" font-size="6" fill="#a08858" text-anchor="middle">—</text>
@@ -301,7 +329,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- R1 — north flank -->
     <g class="npc-token" id="tok-r1" transform="translate(83,231)" data-home-x="83" data-home-y="231">
       <circle r="12" fill="#2d4a7a" stroke="#182840" stroke-width="1.5"/>
       <text x="0" y="4" font-family="Georgia,serif" font-size="8" fill="#ddeeff" text-anchor="middle" font-weight="bold">R1</text>
@@ -313,7 +340,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- R2 — south flank -->
     <g class="npc-token" id="tok-r2" transform="translate(83,285)" data-home-x="83" data-home-y="285">
       <circle r="12" fill="#2d4a7a" stroke="#182840" stroke-width="1.5"/>
       <text x="0" y="4" font-family="Georgia,serif" font-size="8" fill="#ddeeff" text-anchor="middle" font-weight="bold">R2</text>
@@ -325,7 +351,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- KAAN — lead, larger -->
     <g class="npc-token" id="tok-kaan" transform="translate(114,258)" data-home-x="114" data-home-y="258">
       <circle r="15" fill="#162440" stroke="#0a1020" stroke-width="2"/>
       <text x="0" y="5"  font-family="Georgia,serif" font-size="8"   fill="white"   text-anchor="middle" font-weight="bold">KAN</text>
@@ -339,7 +364,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- A1 — rooftop NW west -->
     <g class="npc-token" id="tok-a1" transform="translate(120,202)" data-home-x="120" data-home-y="202">
       <circle r="12" fill="#7a3e1a" stroke="#401808" stroke-width="1.5"/>
       <text x="0" y="4" font-family="Georgia,serif" font-size="8" fill="#fae8d8" text-anchor="middle" font-weight="bold">A1</text>
@@ -351,7 +375,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- A2 — rooftop NW east -->
     <g class="npc-token" id="tok-a2" transform="translate(270,202)" data-home-x="270" data-home-y="202">
       <circle r="12" fill="#7a3e1a" stroke="#401808" stroke-width="1.5"/>
       <text x="0" y="4" font-family="Georgia,serif" font-size="8" fill="#fae8d8" text-anchor="middle" font-weight="bold">A2</text>
@@ -363,7 +386,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- A3 — rooftop NE -->
     <g class="npc-token" id="tok-a3" transform="translate(600,202)" data-home-x="600" data-home-y="202">
       <circle r="12" fill="#7a3e1a" stroke="#401808" stroke-width="1.5"/>
       <text x="0" y="4" font-family="Georgia,serif" font-size="8" fill="#fae8d8" text-anchor="middle" font-weight="bold">A3</text>
@@ -375,7 +397,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- A4 — alley mouth, ground -->
     <g class="npc-token" id="tok-a4" transform="translate(365,323)" data-home-x="365" data-home-y="323">
       <circle r="12" fill="#7a3e1a" stroke="#401808" stroke-width="1.5"/>
       <text x="0" y="4"  font-family="Georgia,serif" font-size="8" fill="#fae8d8" text-anchor="middle" font-weight="bold">A4</text>
@@ -388,7 +409,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- SANEM -->
     <g class="npc-token" id="tok-sanem" transform="translate(282,323)" data-home-x="282" data-home-y="323">
       <circle r="12" fill="#5a2a0c" stroke="#301408" stroke-width="1.5"/>
       <text x="0" y="4"  font-family="Georgia,serif" font-size="7.5" fill="#f0dcc8" text-anchor="middle" font-weight="bold">SN</text>
@@ -401,7 +421,6 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       </g>
     </g>
 
-    <!-- TEMIR -->
     <g class="npc-token" id="tok-temir" transform="translate(332,435)" data-home-x="332" data-home-y="435">
       <circle r="15" fill="#7a3e1a" stroke="#401808" stroke-width="2"/>
       <text x="0" y="5"   font-family="Georgia,serif" font-size="8.5" fill="white"   text-anchor="middle" font-weight="bold">TEM</text>
@@ -441,69 +460,97 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
     <text x="28" y="553" font-family="Georgia,serif" font-size="6" fill="#8a7050"
           font-style="italic" opacity="0.8">Approximate scale: ~3–5m per token space</text>
 
-    <!-- ══════════════════════════════════════════════════════
-         TOKEN TRAY (before PC tokens so tokens render on top)
-    ══════════════════════════════════════════════════════════ -->
-    <line x1="0" y1="563" x2="760" y2="563" stroke="#7a6840" stroke-width="1.5"/>
-    <rect x="0" y="563" width="760" height="102" fill="#ccc4a0"/>
-    <text x="380" y="578" font-family="Georgia,serif" font-size="6.5" fill="#8a7050"
-          text-anchor="middle" letter-spacing="1.2">DRAG TOKENS TO POSITION · ↺ RESET RETURNS THEM HERE</text>
-
-    <!-- Slot ghost circles -->
-    <circle cx="92"  cy="618" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
-    <circle cx="236" cy="618" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
-    <circle cx="380" cy="618" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
-    <circle cx="524" cy="618" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
-    <circle cx="668" cy="618" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
-
-    <!-- Slot name labels -->
-    <text x="92"  y="640" font-family="Georgia,serif" font-size="5.5" fill="#988060" text-anchor="middle">ARIEL</text>
-    <text x="236" y="640" font-family="Georgia,serif" font-size="5.5" fill="#988060" text-anchor="middle">RAIZEN</text>
-    <text x="380" y="640" font-family="Georgia,serif" font-size="5.5" fill="#988060" text-anchor="middle">SAHIR</text>
-    <text x="524" y="640" font-family="Georgia,serif" font-size="5.5" fill="#988060" text-anchor="middle">CAL</text>
-    <text x="668" y="640" font-family="Georgia,serif" font-size="5.5" fill="#988060" text-anchor="middle">RILL</text>
-
-    <!-- ══════════════════════════════════════════════════════
-         PC TOKENS — always visible, always draggable
-    ══════════════════════════════════════════════════════════ -->
-    <g class="pc-token" id="tok-arl" transform="translate(92,618)" data-home-x="92" data-home-y="618">
-      <circle r="14" fill="#4e78c0" stroke="#2d4a7a" stroke-width="2.5"/>
-      <text x="0" y="4"  font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">ARL</text>
-      <text x="0" y="-19" font-family="Georgia,serif" font-size="6.5" fill="#2d4a7a" text-anchor="middle" font-weight="bold">ARIEL</text>
-    </g>
-
-    <g class="pc-token" id="tok-rzn" transform="translate(236,618)" data-home-x="236" data-home-y="618">
-      <circle r="14" fill="#4a8040" stroke="#2a5020" stroke-width="2.5"/>
-      <text x="0" y="4"  font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">RZN</text>
-      <text x="0" y="-19" font-family="Georgia,serif" font-size="6.5" fill="#2a5020" text-anchor="middle" font-weight="bold">RAIZEN</text>
-    </g>
-
-    <g class="pc-token" id="tok-shr" transform="translate(380,618)" data-home-x="380" data-home-y="618">
-      <circle r="14" fill="#b8782a" stroke="#7a4e10" stroke-width="2.5"/>
-      <text x="0" y="4"  font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">SHR</text>
-      <text x="0" y="-19" font-family="Georgia,serif" font-size="6.5" fill="#7a4e10" text-anchor="middle" font-weight="bold">SAHIR</text>
-    </g>
-
-    <g class="pc-token" id="tok-cal" transform="translate(524,618)" data-home-x="524" data-home-y="618">
-      <circle r="14" fill="#5a4890" stroke="#3a2870" stroke-width="2.5"/>
-      <text x="0" y="4"  font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">CAL</text>
-      <text x="0" y="-19" font-family="Georgia,serif" font-size="6.5" fill="#3a2870" text-anchor="middle" font-weight="bold">CAL</text>
-    </g>
-
-    <g class="pc-token" id="tok-rll" transform="translate(668,618)" data-home-x="668" data-home-y="618">
-      <circle r="14" fill="#c06030" stroke="#7a3e1a" stroke-width="2.5"/>
-      <text x="0" y="4"  font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">RLL</text>
-      <text x="0" y="-19" font-family="Georgia,serif" font-size="6.5" fill="#904020" text-anchor="middle" font-weight="bold">RILL</text>
-    </g>
-
-    <!-- Top-layer: dragged PC tokens float here to stay above everything -->
+    <!-- PC tokens land here when placed (dynamically added) -->
     <g id="top-layer"/>
 
-    <!-- Border (must be last — renders on top of everything as the frame) -->
-    <rect x="0" y="0" width="760" height="665" fill="none" stroke="#5a3e28" stroke-width="3"/>
+    </g><!-- /viewport -->
+
+    <!-- Border frame — outside viewport, always at SVG edge -->
+    <rect x="0" y="0" width="760" height="560" fill="none" stroke="#5a3e28" stroke-width="3"/>
 
   </svg>
   </div>
+
+  <!-- ── HTML TOKEN TRAY ──────────────────────────────────────── -->
+  <div id="tray-wrap">
+    <div id="tray-bar">
+      <span class="tray-hint">Drag tokens onto map to place them · ↺ Reset returns them here</span>
+      <button class="tbtn" id="tray-toggle-btn" onclick="toggleTray()">▼ Tray</button>
+    </div>
+    <div id="tray-inner">
+
+      <div class="tray-slot" id="slot-arl">
+        <div class="tray-tok" id="tray-tok-arl">
+          <svg viewBox="-18 -24 36 32" width="54" height="48" style="overflow:visible">
+            <circle class="tray-ghost" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+            <g class="tray-tok-inner">
+              <circle r="14" fill="#4e78c0" stroke="#2d4a7a" stroke-width="2.5"/>
+              <text x="0" y="4" font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">ARL</text>
+              <text x="0" y="-18" font-family="Georgia,serif" font-size="6.5" fill="#2d4a7a" text-anchor="middle" font-weight="bold">ARIEL</text>
+            </g>
+          </svg>
+        </div>
+        <div class="tray-name">Ariel</div>
+      </div>
+
+      <div class="tray-slot" id="slot-rzn">
+        <div class="tray-tok" id="tray-tok-rzn">
+          <svg viewBox="-18 -24 36 32" width="54" height="48" style="overflow:visible">
+            <circle class="tray-ghost" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+            <g class="tray-tok-inner">
+              <circle r="14" fill="#4a8040" stroke="#2a5020" stroke-width="2.5"/>
+              <text x="0" y="4" font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">RZN</text>
+              <text x="0" y="-18" font-family="Georgia,serif" font-size="6.5" fill="#2a5020" text-anchor="middle" font-weight="bold">RAIZEN</text>
+            </g>
+          </svg>
+        </div>
+        <div class="tray-name">Raizen</div>
+      </div>
+
+      <div class="tray-slot" id="slot-shr">
+        <div class="tray-tok" id="tray-tok-shr">
+          <svg viewBox="-18 -24 36 32" width="54" height="48" style="overflow:visible">
+            <circle class="tray-ghost" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+            <g class="tray-tok-inner">
+              <circle r="14" fill="#b8782a" stroke="#7a4e10" stroke-width="2.5"/>
+              <text x="0" y="4" font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">SHR</text>
+              <text x="0" y="-18" font-family="Georgia,serif" font-size="6.5" fill="#7a4e10" text-anchor="middle" font-weight="bold">SAHIR</text>
+            </g>
+          </svg>
+        </div>
+        <div class="tray-name">Sahir</div>
+      </div>
+
+      <div class="tray-slot" id="slot-cal">
+        <div class="tray-tok" id="tray-tok-cal">
+          <svg viewBox="-18 -24 36 32" width="54" height="48" style="overflow:visible">
+            <circle class="tray-ghost" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+            <g class="tray-tok-inner">
+              <circle r="14" fill="#5a4890" stroke="#3a2870" stroke-width="2.5"/>
+              <text x="0" y="4" font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">CAL</text>
+              <text x="0" y="-18" font-family="Georgia,serif" font-size="6.5" fill="#3a2870" text-anchor="middle" font-weight="bold">CAL</text>
+            </g>
+          </svg>
+        </div>
+        <div class="tray-name">Cal</div>
+      </div>
+
+      <div class="tray-slot" id="slot-rll">
+        <div class="tray-tok" id="tray-tok-rll">
+          <svg viewBox="-18 -24 36 32" width="54" height="48" style="overflow:visible">
+            <circle class="tray-ghost" r="14" fill="none" stroke="#a09070" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+            <g class="tray-tok-inner">
+              <circle r="14" fill="#c06030" stroke="#7a3e1a" stroke-width="2.5"/>
+              <text x="0" y="4" font-family="Palatino,'Palatino Linotype',Georgia,serif" font-size="8" fill="white" text-anchor="middle" font-weight="bold">RLL</text>
+              <text x="0" y="-18" font-family="Georgia,serif" font-size="6.5" fill="#904020" text-anchor="middle" font-weight="bold">RILL</text>
+            </g>
+          </svg>
+        </div>
+        <div class="tray-name">Rill</div>
+      </div>
+
+    </div><!-- #tray-inner -->
+  </div><!-- #tray-wrap -->
 
   <!-- LEGEND -->
   <div class="legend">
@@ -528,6 +575,12 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
       <div class="lg-note">Dim = hidden from players · Gold glow = revealed · Click to toggle</div>
     </div>
     <div class="lg gm-only">
+      <div class="lg-title">Controls</div>
+      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Scroll wheel — zoom · Space+drag — pan</div>
+      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">2-finger pinch/drag on touch</div>
+      <div class="lg-row" style="font-size:0.6rem;color:#5a4828">Ctrl+Shift+G — toggle GM/Player</div>
+    </div>
+    <div class="lg gm-only">
       <div class="lg-title">Threats</div>
       <div class="lg-row">
         <span class="swatch" style="background:rgba(139,26,26,0.22)"></span>
@@ -541,7 +594,7 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
 
 </div><!-- .page -->
 
-<!-- PIN overlay (replaces prompt() which is blocked in sandboxed iframes) -->
+<!-- PIN overlay -->
 <div id="pin-overlay">
   <div id="pin-box">
     <h3>⚔ GM Access</h3>
@@ -556,43 +609,354 @@ body.gm-mode .npc-token { cursor: pointer; user-select: none; -webkit-user-selec
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// ── Config ───────────────────────────────────────────────────
-const GM_PIN    = '2468';   // change to anything you'll remember
+// ── Config ────────────────────────────────────────────────────
+const GM_PIN    = '2468';
 const STORE_KEY = 'tarim-s2-tokens';
-
-// ── State ────────────────────────────────────────────────────
-const svg      = document.getElementById('main-svg');
-const topLayer = document.getElementById('top-layer');
-let dragging   = null, offsetX = 0, offsetY = 0;
-let dragStartX = 0, dragStartY = 0, dragMoved = false;
-let saveTimer  = null;
-
-// ── Cross-device sync (Supabase Realtime) ────────────────────
-// Primary: Supabase Realtime broadcast — works across devices/networks.
-// Fallback: BroadcastChannel — same-browser same-device only.
-// Persistence: localStorage — reload recovery only.
 const SUPABASE_URL = 'https://wmrxfhxkcbkjipvuyazw.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_Pwfgf511j9OhfeVbdGF3Dg_ltJKdjAX';
 
+// ── PC Roster ─────────────────────────────────────────────────
+const PC_DATA = [
+  { id: 'tok-arl', key: 'arl', name: 'ARIEL',  abbr: 'ARL', fill: '#4e78c0', stroke: '#2d4a7a' },
+  { id: 'tok-rzn', key: 'rzn', name: 'RAIZEN', abbr: 'RZN', fill: '#4a8040', stroke: '#2a5020' },
+  { id: 'tok-shr', key: 'shr', name: 'SAHIR',  abbr: 'SHR', fill: '#b8782a', stroke: '#7a4e10' },
+  { id: 'tok-cal', key: 'cal', name: 'CAL',    abbr: 'CAL', fill: '#5a4890', stroke: '#3a2870' },
+  { id: 'tok-rll', key: 'rll', name: 'RILL',   abbr: 'RLL', fill: '#c06030', stroke: '#7a3e1a' },
+];
+
+// ── DOM refs ──────────────────────────────────────────────────
+const svg       = document.getElementById('main-svg');
+const viewportG = document.getElementById('viewport');
+const topLayer  = document.getElementById('top-layer');
+
+// ── Viewport state ────────────────────────────────────────────
+let zoom = 1, panX = 0, panY = 0;
+
+function applyViewport() {
+  viewportG.setAttribute('transform',
+    `translate(${panX.toFixed(2)},${panY.toFixed(2)}) scale(${zoom.toFixed(4)})`);
+}
+
+// Screen coords → SVG viewBox coords (ignores viewport transform)
+function svgRawPt(clientX, clientY) {
+  const pt = svg.createSVGPoint();
+  pt.x = clientX; pt.y = clientY;
+  return pt.matrixTransform(svg.getScreenCTM().inverse());
+}
+
+// Screen coords → viewport-group local coords (accounts for pan/zoom)
+function svgPt(clientX, clientY) {
+  const pt = svg.createSVGPoint();
+  pt.x = clientX; pt.y = clientY;
+  return pt.matrixTransform(viewportG.getScreenCTM().inverse());
+}
+
+// ── Animated viewport transition (for Sync View) ──────────────
+function animateToViewport(tz, tx, ty) {
+  const sz = zoom, sx = panX, sy = panY;
+  const dur = 420, t0 = performance.now();
+  function step(now) {
+    const t = Math.min(1, (now - t0) / dur);
+    const e = t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+    zoom = sz + (tz - sz) * e;
+    panX = sx + (tx - sx) * e;
+    panY = sy + (ty - sy) * e;
+    applyViewport();
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// ── Token drag ────────────────────────────────────────────────
+let dragging = null, offsetX = 0, offsetY = 0;
+let dragStartX = 0, dragStartY = 0, dragMoved = false;
+let saveTimer  = null;
+
+function getTranslate(el) {
+  const m = (el.getAttribute('transform') || '').match(/translate\(([-\d.]+)[,\s]+([-\d.]+)\)/);
+  return m ? [parseFloat(m[1]), parseFloat(m[2])] : [0, 0];
+}
+
+function startDrag(el, clientX, clientY) {
+  dragging   = el;
+  dragStartX = clientX;
+  dragStartY = clientY;
+  dragMoved  = false;
+  topLayer.appendChild(el);
+  const p = svgPt(clientX, clientY);
+  const [cx, cy] = getTranslate(el);
+  offsetX = p.x - cx;
+  offsetY = p.y - cy;
+}
+
+function moveDrag(clientX, clientY) {
+  if (!dragging) return;
+  if (!dragMoved) {
+    if (Math.abs(clientX - dragStartX) > 4 || Math.abs(clientY - dragStartY) > 4) dragMoved = true;
+  }
+  if (!dragMoved) return;
+  const p = svgPt(clientX, clientY);
+  dragging.setAttribute('transform',
+    `translate(${(p.x - offsetX).toFixed(1)},${(p.y - offsetY).toFixed(1)})`);
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveState, 60);
+}
+
+function endDrag() {
+  if (!dragging) return;
+  if (!dragMoved && dragging.classList.contains('npc-token')) {
+    if (document.body.classList.contains('gm-mode')) {
+      dragging.classList.toggle('revealed');
+    }
+  }
+  clearTimeout(saveTimer);
+  saveState();
+  dragging = null;
+}
+
+// ── Canvas pan — Space+drag (desktop) ────────────────────────
+let spaceDown = false, panning = false;
+let panAnchor = null; // { svgX, svgY, panX, panY }
+
+// ── Scroll-wheel zoom ─────────────────────────────────────────
+svg.addEventListener('wheel', e => {
+  e.preventDefault();
+  const factor = e.deltaY < 0 ? 1.1 : 0.9;
+  const p = svgRawPt(e.clientX, e.clientY);
+  const nz = Math.max(0.3, Math.min(5, zoom * factor));
+  panX = p.x - (p.x - panX) * (nz / zoom);
+  panY = p.y - (p.y - panY) * (nz / zoom);
+  zoom = nz;
+  applyViewport();
+}, { passive: false });
+
+// ── Mouse handlers ────────────────────────────────────────────
+svg.addEventListener('mousedown', e => {
+  if (spaceDown && !dragging) {
+    e.preventDefault();
+    panning = true;
+    document.body.classList.add('panning');
+    panAnchor = { ...svgRawPt(e.clientX, e.clientY), panX, panY };
+  }
+});
+
+document.addEventListener('mousemove', e => {
+  if (trayDrag) {
+    handleTrayMove(e.clientX, e.clientY);
+  } else if (panning) {
+    const p = svgRawPt(e.clientX, e.clientY);
+    panX = panAnchor.panX + (p.x - panAnchor.x);
+    panY = panAnchor.panY + (p.y - panAnchor.y);
+    applyViewport();
+  } else {
+    moveDrag(e.clientX, e.clientY);
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  if (trayDrag) { finishTrayDrag(); return; }
+  if (panning) { panning = false; document.body.classList.remove('panning'); return; }
+  endDrag();
+});
+
+// ── Touch handlers ────────────────────────────────────────────
+let pinching = false, pinch0 = {};
+
+svg.addEventListener('touchstart', e => {
+  if (e.touches.length >= 2) {
+    e.preventDefault();
+    dragging = null;
+    pinching = true;
+    const t0 = e.touches[0], t1 = e.touches[1];
+    const dist = Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY);
+    const mx = (t0.clientX + t1.clientX) / 2;
+    const my = (t0.clientY + t1.clientY) / 2;
+    const m0 = svgRawPt(mx, my);
+    pinch0 = { zoom, panX, panY, dist,
+               mapX: (m0.x - panX) / zoom,
+               mapY: (m0.y - panY) / zoom };
+  }
+}, { passive: false });
+
+svg.addEventListener('touchmove', e => {
+  e.preventDefault();
+  if (pinching && e.touches.length >= 2) {
+    const t0 = e.touches[0], t1 = e.touches[1];
+    const dist = Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY);
+    const mc = svgRawPt((t0.clientX + t1.clientX) / 2, (t0.clientY + t1.clientY) / 2);
+    const nz = Math.max(0.3, Math.min(5, pinch0.zoom * (dist / pinch0.dist)));
+    panX = mc.x - pinch0.mapX * nz;
+    panY = mc.y - pinch0.mapY * nz;
+    zoom = nz;
+    applyViewport();
+  } else if (!pinching && e.touches.length === 1) {
+    moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+  }
+}, { passive: false });
+
+// Tray drag touchmove — fires on document since touch started on HTML element
+document.addEventListener('touchmove', e => {
+  if (!trayDrag) return;
+  e.preventDefault();
+  handleTrayMove(e.touches[0].clientX, e.touches[0].clientY);
+}, { passive: false });
+
+document.addEventListener('touchend', e => {
+  if (trayDrag) { finishTrayDrag(); return; }
+  if (e.touches.length < 2) pinching = false;
+  if (e.touches.length === 0) endDrag();
+});
+
+// ── NPC token wiring ──────────────────────────────────────────
+document.querySelectorAll('.npc-token').forEach(el => {
+  el.addEventListener('mousedown', e => {
+    if (!document.body.classList.contains('gm-mode')) return;
+    e.preventDefault(); startDrag(el, e.clientX, e.clientY);
+  });
+  el.addEventListener('touchstart', e => {
+    if (!document.body.classList.contains('gm-mode') || e.touches.length > 1) return;
+    e.preventDefault(); startDrag(el, e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: false });
+});
+
+// ── PC token factory + wiring ─────────────────────────────────
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+function makePCSvgToken(pc) {
+  const g = document.createElementNS(SVG_NS, 'g');
+  g.classList.add('pc-token');
+  g.id = pc.id;
+
+  const c = document.createElementNS(SVG_NS, 'circle');
+  c.setAttribute('r', '14'); c.setAttribute('fill', pc.fill);
+  c.setAttribute('stroke', pc.stroke); c.setAttribute('stroke-width', '2.5');
+  g.appendChild(c);
+
+  const ta = document.createElementNS(SVG_NS, 'text');
+  ta.setAttribute('x','0'); ta.setAttribute('y','4');
+  ta.setAttribute('font-family',"Palatino,'Palatino Linotype',Georgia,serif");
+  ta.setAttribute('font-size','8'); ta.setAttribute('fill','white');
+  ta.setAttribute('text-anchor','middle'); ta.setAttribute('font-weight','bold');
+  ta.textContent = pc.abbr;
+  g.appendChild(ta);
+
+  const tn = document.createElementNS(SVG_NS, 'text');
+  tn.setAttribute('x','0'); tn.setAttribute('y','-19');
+  tn.setAttribute('font-family','Georgia,serif'); tn.setAttribute('font-size','6.5');
+  tn.setAttribute('fill', pc.stroke); tn.setAttribute('text-anchor','middle');
+  tn.setAttribute('font-weight','bold');
+  tn.textContent = pc.name;
+  g.appendChild(tn);
+
+  return g;
+}
+
+function wirePCToken(el, pc) {
+  el.addEventListener('mousedown', e => {
+    e.preventDefault(); startDrag(el, e.clientX, e.clientY);
+  });
+  el.addEventListener('touchstart', e => {
+    if (e.touches.length > 1) return;
+    e.preventDefault(); startDrag(el, e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: false });
+}
+
+// ── Tray drag handoff ─────────────────────────────────────────
+let trayDrag = null;
+
+function startTrayDrag(e, pc) {
+  const slot = document.getElementById('slot-' + pc.key);
+  if (slot.classList.contains('occupied')) return;
+  e.preventDefault();
+  const trayTok = document.getElementById('tray-tok-' + pc.key);
+  trayTok.style.opacity = '0.12';
+  trayDrag = { pc, svgTok: null, trayTok, overSVG: false };
+}
+
+function handleTrayMove(clientX, clientY) {
+  if (!trayDrag) return;
+  const r = svg.getBoundingClientRect();
+  const over = clientX >= r.left && clientX <= r.right && clientY >= r.top && clientY <= r.bottom;
+
+  if (over) {
+    if (!trayDrag.svgTok) {
+      trayDrag.svgTok = makePCSvgToken(trayDrag.pc);
+      topLayer.appendChild(trayDrag.svgTok);
+    }
+    trayDrag.svgTok.style.visibility = 'visible';
+    const p = svgPt(clientX, clientY);
+    trayDrag.svgTok.setAttribute('transform',
+      `translate(${p.x.toFixed(1)},${p.y.toFixed(1)})`);
+    trayDrag.overSVG = true;
+  } else {
+    if (trayDrag.svgTok) trayDrag.svgTok.style.visibility = 'hidden';
+    trayDrag.overSVG = false;
+  }
+}
+
+function finishTrayDrag() {
+  if (!trayDrag) return;
+  const { pc, svgTok, trayTok, overSVG } = trayDrag;
+  trayDrag = null;
+  if (overSVG && svgTok) {
+    svgTok.style.visibility = '';
+    wirePCToken(svgTok, pc);
+    document.getElementById('slot-' + pc.key).classList.add('occupied');
+    saveState();
+  } else {
+    if (svgTok) svgTok.remove();
+    trayTok.style.opacity = '1';
+  }
+}
+
+// Wire tray tokens
+PC_DATA.forEach(pc => {
+  const el = document.getElementById('tray-tok-' + pc.key);
+  el.addEventListener('mousedown',  e => startTrayDrag(e, pc));
+  el.addEventListener('touchstart', e => { if (e.touches.length === 1) startTrayDrag(e, pc); },
+    { passive: false });
+});
+
+// ── Sync / State ──────────────────────────────────────────────
 let bc = null;
 try { bc = new BroadcastChannel('tarim-s2-map'); } catch(_) {}
-
 let realtimeChannel = null;
 
 function getCurrentState() {
   const state = {};
-  document.querySelectorAll('.pc-token, .npc-token').forEach(el => {
+  // PCs: only if placed on map (element exists in SVG)
+  PC_DATA.forEach(pc => {
+    const el = document.getElementById(pc.id);
+    if (el) state[pc.id] = { t: el.getAttribute('transform') };
+  });
+  // NPCs: always include
+  document.querySelectorAll('.npc-token').forEach(el => {
     state[el.id] = { t: el.getAttribute('transform'), r: el.classList.contains('revealed') };
   });
   return state;
 }
 
 function applyState(state) {
-  Object.entries(state).forEach(([id, data]) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (data.t) el.setAttribute('transform', data.t);
-    if (el.classList.contains('npc-token')) el.classList.toggle('revealed', !!data.r);
+  // NPCs
+  document.querySelectorAll('.npc-token').forEach(el => {
+    const d = state[el.id];
+    if (!d) return;
+    if (d.t) el.setAttribute('transform', d.t);
+    el.classList.toggle('revealed', !!d.r);
+  });
+  // PCs: restore placed tokens; leave rest in tray
+  PC_DATA.forEach(pc => {
+    const d = state[pc.id];
+    if (d && d.t) {
+      let el = document.getElementById(pc.id);
+      if (!el) {
+        el = makePCSvgToken(pc);
+        topLayer.appendChild(el);
+        wirePCToken(el, pc);
+      }
+      el.setAttribute('transform', d.t);
+      document.getElementById('slot-' + pc.key).classList.add('occupied');
+    }
   });
 }
 
@@ -603,6 +967,14 @@ function saveState() {
   }
   if (bc) try { bc.postMessage({ type: 'state', state }); } catch(_) {}
   try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(_) {}
+}
+
+function syncView() {
+  const vp = { zoom, panX, panY };
+  if (realtimeChannel) {
+    realtimeChannel.send({ type: 'broadcast', event: 'viewport', payload: vp });
+  }
+  if (bc) try { bc.postMessage({ type: 'viewport', ...vp }); } catch(_) {}
 }
 
 function initRealtime() {
@@ -618,8 +990,12 @@ function initRealtime() {
         try { localStorage.setItem(STORE_KEY, JSON.stringify(payload.state)); } catch(_) {}
       }
     })
+    .on('broadcast', { event: 'viewport' }, ({ payload }) => {
+      if (payload) animateToViewport(payload.zoom, payload.panX, payload.panY);
+    })
     .on('broadcast', { event: 'hello' }, () => {
-      realtimeChannel.send({ type: 'broadcast', event: 'state', payload: { state: getCurrentState() } });
+      realtimeChannel.send({ type: 'broadcast', event: 'state',
+        payload: { state: getCurrentState() } });
     })
     .subscribe(status => {
       if (status === 'SUBSCRIBED') {
@@ -636,11 +1012,13 @@ if (bc) {
       try { localStorage.setItem(STORE_KEY, JSON.stringify(e.data.state)); } catch(_) {}
     } else if (e.data.type === 'hello') {
       try { bc.postMessage({ type: 'state', state: getCurrentState() }); } catch(_) {}
+    } else if (e.data.type === 'viewport') {
+      animateToViewport(e.data.zoom, e.data.panX, e.data.panY);
     }
   };
 }
 
-// Restore from localStorage on load, then connect Supabase Realtime.
+// ── Init: restore state, connect ─────────────────────────────
 (function () {
   try {
     const raw = localStorage.getItem(STORE_KEY);
@@ -650,120 +1028,29 @@ if (bc) {
   window.addEventListener('load', initRealtime);
 })();
 
-// ── Drag core ────────────────────────────────────────────────
-function svgPt(clientX, clientY) {
-  const pt = svg.createSVGPoint();
-  pt.x = clientX; pt.y = clientY;
-  return pt.matrixTransform(svg.getScreenCTM().inverse());
-}
-
-function getTranslate(el) {
-  const m = (el.getAttribute('transform') || '').match(/translate\(([-\d.]+)[,\s]+([-\d.]+)\)/);
-  return m ? [parseFloat(m[1]), parseFloat(m[2])] : [0, 0];
-}
-
-function startDrag(el, clientX, clientY, toTopLayer) {
-  dragging    = el;
-  dragStartX  = clientX;
-  dragStartY  = clientY;
-  dragMoved   = false;
-  if (toTopLayer) topLayer.appendChild(el);
-  else            el.parentNode.appendChild(el);
-  const p = svgPt(clientX, clientY);
-  const [cx, cy] = getTranslate(el);
-  offsetX = p.x - cx;
-  offsetY = p.y - cy;
-}
-
-function moveDrag(clientX, clientY) {
-  if (!dragging) return;
-  if (!dragMoved) {
-    const dx = clientX - dragStartX, dy = clientY - dragStartY;
-    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) dragMoved = true;
-  }
-  if (!dragMoved) return;
-  const p = svgPt(clientX, clientY);
-  dragging.setAttribute('transform',
-    `translate(${(p.x - offsetX).toFixed(1)},${(p.y - offsetY).toFixed(1)})`);
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(saveState, 60);
-}
-
-function endDrag() {
-  if (dragging) {
-    if (!dragMoved && dragging.classList.contains('npc-token')) {
-      // Click (not drag) on NPC token — toggle reveal
-      dragging.classList.toggle('revealed');
-    }
-    clearTimeout(saveTimer);
-    saveState();
-  }
-  dragging = null;
-}
-
-svg.addEventListener('mousemove', e => moveDrag(e.clientX, e.clientY));
-svg.addEventListener('touchmove', e => {
-  e.preventDefault();
-  moveDrag(e.touches[0].clientX, e.touches[0].clientY);
-}, {passive: false});
-
-document.addEventListener('mouseup',  endDrag);
-document.addEventListener('touchend', endDrag);
-
-// ── Wire tokens ──────────────────────────────────────────────
-document.querySelectorAll('.pc-token').forEach(el => {
-  el.addEventListener('mousedown', e => { e.preventDefault(); startDrag(el, e.clientX, e.clientY, true); });
-  el.addEventListener('touchstart', e => { e.preventDefault(); startDrag(el, e.touches[0].clientX, e.touches[0].clientY, true); }, {passive: false});
-});
-
-document.querySelectorAll('.npc-token').forEach(el => {
-  el.addEventListener('mousedown', e => {
-    if (!document.body.classList.contains('gm-mode')) return;
-    e.preventDefault(); startDrag(el, e.clientX, e.clientY, false);
-  });
-  el.addEventListener('touchstart', e => {
-    if (!document.body.classList.contains('gm-mode')) return;
-    e.preventDefault(); startDrag(el, e.touches[0].clientX, e.touches[0].clientY, false);
-  }, {passive: false});
-});
-
-// ── PIN overlay ──────────────────────────────────────────────
+// ── PIN overlay ───────────────────────────────────────────────
 const pinOverlay = document.getElementById('pin-overlay');
 const pinInput   = document.getElementById('pin-input');
 const pinError   = document.getElementById('pin-error');
 
 function requestGM() {
   if (document.body.classList.contains('gm-mode')) return;
-  pinInput.value = '';
-  pinError.textContent = '';
+  pinInput.value = ''; pinError.textContent = '';
   pinOverlay.classList.add('open');
   setTimeout(() => pinInput.focus(), 30);
 }
-
 function checkPin() {
-  if (pinInput.value === GM_PIN) {
-    closePin();
-    setView('gm');
-  } else {
-    pinError.textContent = 'Incorrect code.';
-    pinInput.value = '';
-    pinInput.focus();
-  }
+  if (pinInput.value === GM_PIN) { closePin(); setView('gm'); }
+  else { pinError.textContent = 'Incorrect code.'; pinInput.value = ''; pinInput.focus(); }
 }
-
-function closePin() {
-  pinOverlay.classList.remove('open');
-}
-
+function closePin() { pinOverlay.classList.remove('open'); }
 pinInput.addEventListener('keydown', e => {
-  if (e.key === 'Enter')  checkPin();
+  if (e.key === 'Enter') checkPin();
   if (e.key === 'Escape') closePin();
 });
-
-// Click backdrop to cancel
 pinOverlay.addEventListener('click', e => { if (e.target === pinOverlay) closePin(); });
 
-// ── Controls ─────────────────────────────────────────────────
+// ── Controls ──────────────────────────────────────────────────
 function setView(v) {
   document.body.className = v + '-mode';
   document.getElementById('btn-gm').classList.toggle('active', v === 'gm');
@@ -771,17 +1058,45 @@ function setView(v) {
 }
 
 function resetPositions() {
-  document.querySelectorAll('.pc-token, .npc-token').forEach(el => {
+  // Return all PCs to tray
+  PC_DATA.forEach(pc => {
+    const el = document.getElementById(pc.id);
+    if (el) el.remove();
+    document.getElementById('slot-' + pc.key).classList.remove('occupied');
+    document.getElementById('tray-tok-' + pc.key).style.opacity = '1';
+  });
+  // Return NPCs to home
+  document.querySelectorAll('.npc-token').forEach(el => {
     el.setAttribute('transform', `translate(${el.dataset.homeX},${el.dataset.homeY})`);
+    el.classList.remove('revealed');
   });
   saveState();
 }
 
-// Keyboard shortcut: Ctrl+Shift+G to toggle GM/player
+let trayOpen = true;
+function toggleTray() {
+  trayOpen = !trayOpen;
+  document.getElementById('tray-inner').classList.toggle('collapsed', !trayOpen);
+  document.getElementById('tray-toggle-btn').textContent = trayOpen ? '▼ Tray' : '▲ Tray';
+}
+
+// Keyboard shortcuts
 document.addEventListener('keydown', e => {
+  if (e.target.matches('input, textarea')) return;
+  if (e.code === 'Space') {
+    e.preventDefault();
+    spaceDown = true;
+    document.body.classList.add('space-held');
+  }
   if (e.ctrlKey && e.shiftKey && e.key === 'G') {
     if (document.body.classList.contains('gm-mode')) setView('player');
     else requestGM();
+  }
+});
+document.addEventListener('keyup', e => {
+  if (e.code === 'Space') {
+    spaceDown = false; panning = false;
+    document.body.classList.remove('space-held', 'panning');
   }
 });
 </script>
