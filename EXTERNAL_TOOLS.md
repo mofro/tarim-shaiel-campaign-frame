@@ -10,6 +10,66 @@ Operational reference for tools, services, and assets used in building and maint
 
 ---
 
+## Pipeline Commands (Tarim-Shaiel Generator Scripts)
+
+All commands run from the repo root (`/Users/mo/Documents/Games/HeroHeaven/`).
+
+### Add a location
+1. Create `world/locations/<slug>.md` with `location: [lat, lon]` frontmatter (lat-first).
+2. Run the generator: `python3 utilities/locations/generate_locations_html.py`
+
+### Add a route segment
+```bash
+# Interactive (prompts for slugs, description, color)
+python3 utilities/routes/add_route.py
+
+# Two endpoints
+python3 utilities/routes/add_route.py <slug-a> <slug-b>
+
+# Multi-hop (creates N-1 consecutive segments)
+python3 utilities/routes/add_route.py karmana nur-ata rabati-malik
+
+# With overrides
+python3 utilities/routes/add_route.py <slug-a> <slug-b> --description "..." --color "#b8922c" --spur
+```
+
+### Snap routes to roads (OSRM)
+```bash
+python3 utilities/routes/generate_routes.py                              # all segments
+python3 utilities/routes/generate_routes.py --segment route_seg_karmana_rabati-malik
+```
+
+### Place waystation candidates
+```bash
+python3 utilities/routes/place_waystations.py                            # all segments
+python3 utilities/routes/place_waystations.py --segment route_seg_karmana_rabati-malik
+python3 utilities/routes/place_waystations.py --interval 30 --radius 15 --deviation 4
+```
+
+### Rebuild specific output layers
+```bash
+python3 utilities/locations/generate_locations_html.py   # world map + all location pages
+python3 utilities/world/generate_world_html.py           # world map only
+python3 utilities/lore/generate_lore_html.py             # lore pages
+python3 utilities/sessions/generate_sessions_html.py     # session pages
+python3 utilities/newspaper/generate_newspaper_html.py   # newspaper pages
+```
+
+### Full site rebuild (what Netlify runs)
+```bash
+python3 utilities/build.py
+```
+
+### Find coordinates (GM mode)
+Serve docs locally and open the world map with the coord picker:
+```bash
+python3 -m http.server 8000 --directory docs
+# → http://localhost:8000/world.html?gm=1
+# Click anywhere on the map — coordinates appear top-left.
+```
+
+---
+
 ## Map Making Apps
 
 - [Wonderdraft](https://www.wonderdraft.net/) — Paid desktop fantasy map maker; primary world map tool
