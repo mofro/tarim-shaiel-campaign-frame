@@ -1,5 +1,23 @@
 # Map Pipeline Skill
 
+## Quick Command Reference
+
+| What you type | What happens |
+|---|---|
+| `/map-pipeline` | Load this skill (no-op beyond loading) |
+| `/map-pipeline add location` | Walk through creating a new location file |
+| `/map-pipeline add route` | Run `add_route.py` interactively |
+| `/map-pipeline snap routes` | Run `generate_routes.py` on all segments |
+| `/map-pipeline snap route <id>` | Run `generate_routes.py --segment <id>` |
+| `/map-pipeline waystations` | Run `place_waystations.py` on all segments |
+| `/map-pipeline waystations <id>` | Run `place_waystations.py --segment <id>` |
+| `/map-pipeline build` | Run `utilities/build.py` (full site rebuild) |
+| `/map-pipeline rebuild locations` | Run `generate_locations_html.py` |
+| `/map-pipeline coords` | Print GM-mode local server instructions |
+| `/map-pipeline help` | Show this reference |
+
+---
+
 Use this skill when the user asks to:
 - Add a location to the world map
 - Add a route or road segment
