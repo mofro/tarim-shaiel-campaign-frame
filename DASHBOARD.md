@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-07-31
+last_updated: 2026-08-22
 
 critical_path:
   - Resolve cosmological architecture

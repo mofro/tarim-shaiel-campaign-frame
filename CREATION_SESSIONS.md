@@ -6,7 +6,7 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-08-02
+last_updated: 2026-08-22
 ---
 
 # Creation Session Log
@@ -15,6 +15,26 @@ _Authoring and design work sessions. Newest first. Trim to last 10 sessions; old
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
 
 ---
+
+### Session 2026-08-22 (continued)
+- Daggerheart Obsidian plugin — Phase 2 complete (`mofro/daggerheart-sheet`)
+  - Phase 2 goal: replace all Phase 1 stubs with real Daggerheart UI; all four content tabs functional
+  - **CombatTab** (Phase 2a): `PipTracker` for HP/Stress/Hope (click-to-fill); evasion shield (computed); damage thresholds Minor/Major/Severe; condition chips (Vulnerable/Hidden/Restrained/Frightened/Disadvantaged) + lazy notes textarea; weapons quick-ref
+  - **TraitsTab** (Phase 2b): identity line (class/subclass/tier/level); all 6 trait rows — editable base score + computed signed modifier; XP mark pips (6 slots); heritage display
+  - **ClassTab** (Phase 2c): textarea sections for all class features (foundation/specialization/mastery/extra); domain badges + domain card list; ancestry + community features; connections list
+  - **EquipmentTab** (Phase 2d): primary + secondary weapon forms (name/trait/damage/range/feature); armor block (+evasion bonus); gold tracker (handfuls/bags/chests); inventory list with remove
+  - Three new SCSS partials (`_dh-combat.scss`, `_dh-traits.scss`, `_dh-class.scss`, `_dh-equipment.scss`); App.tsx fully wired
+  - `tsc --noEmit` exits 0; ESLint 0 errors across all commits. [PR #1](https://github.com/mofro/daggerheart-sheet/pull/1) updated
+
+### Session 2026-08-22
+- Daggerheart Obsidian plugin — Phase 1 complete (`mofro/daggerheart-sheet`)
+  - Phase 1 goal: write Daggerheart character schema + calc layer, then fix all TypeScript errors caused by Phase 0 (PF1e content removal)
+  - Added `src/types/daggerheart.ts` — `DaggerheartCharacter` interface: 6 traits, evasion, HP/Stress/Hope, damage thresholds, domain cards, equipment, class features, ancestry/community, connections, rule-links
+  - Added `src/calc/daggerheart.ts` — compute layer: trait modifiers, effective evasion, tier-from-level; nothing derived stored in schema
+  - Rewrote bridge files: `src/types/character.ts` (CharacterRecord alias), `src/types/data-file.ts` (DaggerheartData), `src/state/store.ts`, `src/state/migrations.ts`, `src/main.ts`, `src/settings.ts`, `src/components/App.tsx`
+  - Stubbed ~55 PF1e components for Phase 2 replacement
+  - Fixed ESLint config: disabled `no-deprecated` for Phase 1 bridge stubs; added test-layer relaxations; added sentence-case ignoreWords (Daggerheart, Carrel)
+  - `tsc --noEmit` exits 0; ESLint 0 errors. [PR #1](https://github.com/mofro/daggerheart-sheet/pull/1) open on daggerheart-sheet
 
 ### Session 2026-08-02
 - Character files + session close
