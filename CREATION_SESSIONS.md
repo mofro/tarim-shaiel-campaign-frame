@@ -16,6 +16,16 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-08-22
+- Daggerheart Obsidian plugin — Phase 1 complete (`mofro/daggerheart-sheet`)
+  - Phase 1 goal: write Daggerheart character schema + calc layer, then fix all TypeScript errors caused by Phase 0 (PF1e content removal)
+  - Added `src/types/daggerheart.ts` — `DaggerheartCharacter` interface: 6 traits, evasion, HP/Stress/Hope, damage thresholds, domain cards, equipment, class features, ancestry/community, connections, rule-links
+  - Added `src/calc/daggerheart.ts` — compute layer: trait modifiers, effective evasion, tier-from-level; nothing derived stored in schema
+  - Rewrote bridge files: `src/types/character.ts` (CharacterRecord alias), `src/types/data-file.ts` (DaggerheartData), `src/state/store.ts`, `src/state/migrations.ts`, `src/main.ts`, `src/settings.ts`, `src/components/App.tsx`
+  - Stubbed ~55 PF1e components for Phase 2 replacement
+  - Fixed ESLint config: disabled `no-deprecated` for Phase 1 bridge stubs; added test-layer relaxations; added sentence-case ignoreWords (Daggerheart, Carrel)
+  - `tsc --noEmit` exits 0; ESLint 0 errors. [PR #1](https://github.com/mofro/daggerheart-sheet/pull/1) open on daggerheart-sheet
+
 ### Session 2026-08-02
 - Character files + session close
   - Added `[!profile]+` callout (portrait, bio placeholder, DataviewJS stats) to `sahir.md` and `_TEMPLATE_pc.md`
