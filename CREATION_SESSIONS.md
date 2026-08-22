@@ -25,7 +25,6 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - **EquipmentTab** (Phase 2d): primary + secondary weapon forms (name/trait/damage/range/feature); armor block (+evasion bonus); gold tracker (handfuls/bags/chests); inventory list with remove
   - Three new SCSS partials (`_dh-combat.scss`, `_dh-traits.scss`, `_dh-class.scss`, `_dh-equipment.scss`); App.tsx fully wired
   - `tsc --noEmit` exits 0; ESLint 0 errors across all commits. [PR #1](https://github.com/mofro/daggerheart-sheet/pull/1) updated
-
 ### Session 2026-08-22
 - Daggerheart Obsidian plugin — Phase 1 complete (`mofro/daggerheart-sheet`)
   - Phase 1 goal: write Daggerheart character schema + calc layer, then fix all TypeScript errors caused by Phase 0 (PF1e content removal)
