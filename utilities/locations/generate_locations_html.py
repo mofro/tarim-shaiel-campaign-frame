@@ -48,6 +48,7 @@ from locations.location_components import (
     MAPTILER_STYLE_URL,
 )
 from locations.map_icons import icon_registration_js
+from locations.categories import build_icon_match_js
 from shared.renderer import render_page
 from shared.html_render import render_body
 
@@ -152,23 +153,7 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     # below, not here -- MapLibre's style spec forbids nesting a zoom-based
     # interpolate (used for icon-opacity's fade) inside a "case", so hiding
     # via opacity isn't legal; filtering the feature out entirely is.
-    icon_match = (
-        '"icon-image":["case",'
-        '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
-        '["match",["get","category"],'
-        '"city","cat-city",'
-        '"caravanserai","cat-route-node",'
-        '"chokepoint","cat-fortress",'
-        '"mountain-pass","cat-landmark",'
-        '"oasis","cat-oasis",'
-        '"power-site","cat-sacred-site",'
-        '"route-node","cat-route-node",'
-        '"ruins","cat-dungeon",'
-        '"sacred-site","cat-sacred-site",'
-        '"site","cat-poi",'
-        '"cat-poi"]],'
-        '"icon-size":1.3,"icon-allow-overlap":true,"icon-anchor":"center"'
-    )
+    icon_match = build_icon_match_js()
 
     # fmt: off
     tiers = [
@@ -270,23 +255,7 @@ def _gm_secrets_layers_js() -> str:
     # icon: a string -> "cat-<string>" directly, unset/null -> the category
     # match. false (no icon) is handled via filter exclusion below, not here
     # — see the comment in _locations_layers_js for why.
-    icon_match = (
-        '"icon-image":["case",'
-        '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
-        '["match",["get","category"],'
-        '"city","cat-city",'
-        '"caravanserai","cat-route-node",'
-        '"chokepoint","cat-fortress",'
-        '"mountain-pass","cat-landmark",'
-        '"oasis","cat-oasis",'
-        '"power-site","cat-sacred-site",'
-        '"route-node","cat-route-node",'
-        '"ruins","cat-dungeon",'
-        '"sacred-site","cat-sacred-site",'
-        '"site","cat-poi",'
-        '"cat-poi"]],'
-        '"icon-size":1.3,"icon-allow-overlap":true,"icon-anchor":"center"'
-    )
+    icon_match = build_icon_match_js()
 
     js = ''
     gm_layer_ids = []
