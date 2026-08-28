@@ -3,7 +3,23 @@ Canvas-drawn MapLibre marker icon registration JS.
 
 Shared by generate_locations_html.py (world home map) and
 location_components.py (mini-maps on location/region detail pages).
+
+REGISTERED_ICONS lists every icon name registered by icon_registration_js().
+It is used by categories.check_icon_coverage() to cross-validate the category→icon
+mapping in categories.ICON_MAP against what is actually available at runtime.
+Keep this set in sync with the _mk() calls below.
 """
+
+REGISTERED_ICONS: frozenset[str] = frozenset({
+    "cat-city",
+    "cat-route-node",
+    "cat-sacred-site",
+    "cat-fortress",
+    "cat-oasis",
+    "cat-landmark",
+    "cat-poi",
+    "cat-dungeon",
+})
 
 
 def icon_registration_js() -> str:
