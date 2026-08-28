@@ -12,6 +12,7 @@ Keep this set in sync with the _mk() calls below.
 
 REGISTERED_ICONS: frozenset[str] = frozenset({
     "cat-city",
+    "cat-town",
     "cat-route-node",
     "cat-sacred-site",
     "cat-fortress",
@@ -34,6 +35,11 @@ def icon_registration_js() -> str:
           'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.fillStyle="#7a1f1f";'
           'ctx.beginPath();ctx.arc(16,16,13,0,Math.PI*2);ctx.stroke();'
           'ctx.beginPath();ctx.arc(16,16,6,0,Math.PI*2);ctx.fill();'
+        '});'
+        '_mk("cat-town",function(ctx){'
+          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.fillStyle="#7a1f1f";'
+          'ctx.beginPath();ctx.rect(4,4,24,24);ctx.stroke();'
+          'ctx.beginPath();ctx.arc(16,16,5,0,Math.PI*2);ctx.fill();'
         '});'
         '_mk("cat-route-node",function(ctx){'
           'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.fillStyle="#7a1f1f";'

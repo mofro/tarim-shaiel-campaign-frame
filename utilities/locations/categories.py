@@ -14,6 +14,8 @@ CATEGORIES: list[str] = [
     "city",
     "landmark",
     "fortress",
+    # Towns — visible from zoom 4
+    "town",
     # Secondary locations — visible from zoom 5
     "sacred-site",
     "oasis",
@@ -34,6 +36,7 @@ CATEGORIES: list[str] = [
 # visual equivalent — that is intentional, not an error.
 ICON_MAP: dict[str, str] = {
     "city":          "cat-city",
+    "town":          "cat-town",
     "landmark":      "cat-landmark",
     "fortress":      "cat-fortress",
     "sacred-site":   "cat-sacred-site",
@@ -54,6 +57,7 @@ VALID_CATEGORIES: frozenset[str] = frozenset(CATEGORIES)
 # Keep in sync with that file — used by check_icon_coverage().
 REGISTERED_ICONS: frozenset[str] = frozenset({
     "cat-city",
+    "cat-town",
     "cat-route-node",
     "cat-sacred-site",
     "cat-fortress",

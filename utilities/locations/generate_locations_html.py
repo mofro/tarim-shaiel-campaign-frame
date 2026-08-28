@@ -159,6 +159,7 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     tiers = [
         # layer_id               categories                                  mz  fs   fe  font                                      size
         ('locations-major',     ['city', 'landmark', 'fortress'],            3,  3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],  15),
+        ('locations-towns',     ['town'],                                     4,  4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Regular'], 13),
         ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    5,  5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 13),
         ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                     0),
         ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],      7,  7.5, 8,  None,                                     0),
@@ -347,7 +348,7 @@ def _build_world_map_html(
         layers_js += (
             'map.addLayer({id:"routes",type:"line",minzoom:4,source:"routes",'
             'layout:{"line-cap":"butt"},'
-            'paint:{"line-color":"#b8892a","line-width":1.5,"line-opacity":0.5,"line-dasharray":[4,4]}});\n'
+            'paint:{"line-color":"#1a1208","line-width":3,"line-opacity":0.8,"line-dasharray":[4,4]}});\n'
         )
     if waystations_geojson:
         data_js += f'var _waystationGJ = {json.dumps(waystations_geojson)};\n'

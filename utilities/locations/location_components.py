@@ -156,7 +156,8 @@ def _load_dotenv() -> None:
 
 _load_dotenv()
 
-MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'
+# MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'  # custom campaign style
+MAPTILER_STYLE_ID = 'topo-v2'  # TEMP: richer reference map for route planning
 MAPTILER_KEY = os.environ.get('MAPTILER_KEY', '')
 if not MAPTILER_KEY:
     print(
@@ -187,6 +188,7 @@ MAP_ATTRIBUTION_HTML = (
 _MINI_MAP_TIERS = [
     # layer_id            categories                                    mz  fs   fe   label_font                                     size
     ('mm-locations-major',     ['city', 'landmark', 'fortress'],             3, 3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
+    ('mm-locations-towns',     ['town'],                                      4, 4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Regular'], 11),
     ('mm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5, 5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
     ('mm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                       0),
     ('mm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7, 7.5, 8,  None,                                       0),
@@ -204,7 +206,7 @@ def _mini_map_icon_match() -> str:
         '["case",'
         '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
         '["match",["get","category"],'
-        '"city","cat-city","caravanserai","cat-route-node",'
+        '"city","cat-city","town","cat-town","caravanserai","cat-route-node",'
         '"chokepoint","cat-fortress","mountain-pass","cat-landmark",'
         '"oasis","cat-oasis","power-site","cat-sacred-site",'
         '"route-node","cat-route-node","ruins","cat-dungeon",'
@@ -306,7 +308,7 @@ def render_mini_map(
         sources_js += f'map.addSource("routes-overlay",{{type:"geojson",data:{json.dumps(routes_geojson)}}});\n'
         layers_js += (
             'map.addLayer({id:"routes-overlay",type:"line",source:"routes-overlay",minzoom:4,'
-            'paint:{"line-color":"#b8892a","line-width":2,"line-opacity":0.6}});\n'
+            'paint:{"line-color":"#1a1208","line-width":4,"line-opacity":0.85}});\n'
         )
 
     if waystations_geojson or locations_geojson:
