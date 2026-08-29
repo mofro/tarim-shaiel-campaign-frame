@@ -56,3 +56,20 @@ lat.md/             AI navigation layer — read before diving into domain conte
 Three of eleven Session 0 awakening scenarios are complete (Warrior, Seeker, Breaker). Cosmological architecture is fully locked. The HTML publishing pipeline is live. See [TODO.md](TODO.md) for the active critical path.
 
 **AI authoring:** Two personas are active — *Lore Keeper* (consistency, documentation) and *Mythweaver* (cosmological and mythic work). See [CLAUDE.md](CLAUDE.md) for full persona protocols and hard constraints.
+
+---
+
+## Infrastructure
+
+| Service | Identifier | Purpose |
+|---|---|---|
+| Netlify (public) | `tarim-shaiel-campaign` · `f0034da8` | Public player-facing site (`netlify.toml`) |
+| Netlify (GM) | `tarim-shaiel-gm` · `ea2db802` | GM-only build (`netlify-gm.toml`); Netlify Identity |
+| Netlify (public player) | `tarim-shaiel-public` · `71a7b6c3` | Custom domain (`tarim-shaiel.world`) |
+| Supabase Realtime | `wmrxfhxkcbkjipvuyazw` | Session 2 live map sync (`docs/session2-map.html`) |
+| MapTiler | env `MAPTILER_KEY`; style `topo-v2` | Location map tiles (local only; not injected in CI) |
+| Mapbox | Studio style `mofro/cmjjblqtk000r01pc1m2fhq7c` | Account-owned map style (see `EXTERNAL_TOOLS.md`) |
+| OSRM | `router.project-osrm.org` | Route snapping utility (build-time only; no key) |
+| GitHub Actions | `.github/workflows/generate-html.yml` | Auto-commits regenerated `docs/` on push to main |
+
+Full details, env vars, and notes in [`services.json`](services.json).

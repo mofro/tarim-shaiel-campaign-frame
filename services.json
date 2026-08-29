@@ -1,0 +1,73 @@
+{
+  "services": [
+    {
+      "name": "Netlify — tarim-shaiel-campaign",
+      "type": "hosting",
+      "site_id": "f0034da8-1eb0-4461-bd29-1edc8cd21849",
+      "site_name": "tarim-shaiel-campaign",
+      "url": "https://tarim-shaiel.netlify.app",
+      "netlify_config": "netlify.toml",
+      "purpose": "Public player-facing campaign site (default build)",
+      "env_vars": ["TS_GM_MODE"]
+    },
+    {
+      "name": "Netlify — tarim-shaiel-gm",
+      "type": "hosting",
+      "site_id": "ea2db802-f724-4430-ac95-04fa1e2da4c6",
+      "site_name": "tarim-shaiel-gm",
+      "netlify_config": "netlify-gm.toml",
+      "purpose": "GM-only build (full content including gm_secrets/)",
+      "access": "Netlify Identity — invite-only"
+    },
+    {
+      "name": "Netlify — tarim-shaiel-public",
+      "type": "hosting",
+      "site_id": "71a7b6c3-3a7b-4910-9113-e127d624fe9f",
+      "site_name": "tarim-shaiel-public",
+      "url": "https://tarim-shaiel.world",
+      "netlify_config": "netlify.toml",
+      "purpose": "Player-facing public build (custom domain)"
+    },
+    {
+      "name": "Supabase Realtime",
+      "type": "realtime-broadcast",
+      "project_id": "wmrxfhxkcbkjipvuyazw",
+      "url": "https://wmrxfhxkcbkjipvuyazw.supabase.co",
+      "channel": "tarim-s2-map",
+      "purpose": "Live cross-device token sync for Session 2 battle maps",
+      "file": "docs/session2-map.html",
+      "note": "Anon/publishable key hardcoded in HTML (intentional for browser use). Project must exist with Realtime enabled."
+    },
+    {
+      "name": "MapTiler",
+      "type": "map-tiles",
+      "env_vars": ["MAPTILER_KEY"],
+      "style": "topo-v2",
+      "custom_style_id": "019e13d9-26c8-7cd9-bf8d-64d83f66624e",
+      "purpose": "Map tiles for generated location HTML pages",
+      "file": "utilities/locations/location_components.py",
+      "note": "MAPTILER_KEY is local-run only — not injected in CI. Custom style is commented out (marked TEMP) — will break if account or style is deleted."
+    },
+    {
+      "name": "Mapbox",
+      "type": "map-styles",
+      "studio_style": "mofro/cmjjblqtk000r01pc1m2fhq7c",
+      "purpose": "Account-owned map style (referenced in EXTERNAL_TOOLS.md; not yet in production code)",
+      "file": "EXTERNAL_TOOLS.md"
+    },
+    {
+      "name": "OSRM",
+      "type": "routing-api",
+      "endpoint": "http://router.project-osrm.org/route/v1/foot",
+      "purpose": "Road/path route snapping for map overlays (build-time utility only, no API key required)",
+      "file": "utilities/routes/generate_routes.py"
+    },
+    {
+      "name": "GitHub Actions",
+      "type": "ci-cd",
+      "workflow": ".github/workflows/generate-html.yml",
+      "purpose": "Auto-regenerates docs/ HTML on push to main and commits back to repo",
+      "note": "Requires contents:write permission on repo. Does not inject MAPTILER_KEY — CI-built pages lack map tiles."
+    }
+  ]
+}
