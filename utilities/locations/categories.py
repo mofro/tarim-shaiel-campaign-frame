@@ -70,13 +70,16 @@ REGISTERED_ICONS: frozenset[str] = frozenset({
 _DEFAULT_ICON = "cat-poi"
 
 
-def build_icon_match_js() -> str:
+def build_icon_match_js(icon_size_expr: str = "1.3") -> str:
     """Build the MapLibre icon-image case/match expression as a JSON-fragment string.
 
     Priority:
       1. mapMarker frontmatter override — concat("cat-", mapMarker value)
       2. Category → icon alias via ICON_MAP
       3. Default: cat-poi
+
+    icon_size_expr: a MapLibre expression string or bare number for icon-size.
+    Pass a zoom-interpolate expression per layer tier for scaled sizing.
 
     Returns the full "icon-image": ... fragment plus icon-size / icon-allow-overlap /
     icon-anchor, ready to embed inside a MapLibre layout object literal.
@@ -86,7 +89,7 @@ def build_icon_match_js() -> str:
         '"icon-image":["case",'
         '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
         f'["match",["get","category"],{pairs}"{_DEFAULT_ICON}"]],'
-        '"icon-size":1.3,"icon-allow-overlap":true,"icon-anchor":"center"'
+        f'"icon-size":{icon_size_expr},"icon-allow-overlap":true,"icon-anchor":"center"'
     )
 
 

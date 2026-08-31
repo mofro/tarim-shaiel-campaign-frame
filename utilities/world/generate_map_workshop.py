@@ -145,7 +145,7 @@ _CSS = """\
 html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   background: #0a0805; color: #e8dcc4; }
 #app { display: flex; height: 100vh; }
-#sidebar { width: 340px; min-width: 340px; display: flex; flex-direction: column;
+#sidebar { min-width: 340px; display: flex; flex-direction: column;
   background: #120f08; border-right: 1px solid rgba(184,146,44,0.3); overflow: hidden; }
 #sidebar-header { padding: 12px 14px 0; border-bottom: 1px solid rgba(184,146,44,0.2);
   flex-shrink: 0; }
@@ -504,20 +504,22 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         '"site","cat-poi","cat-poi"]];\n'
 
         # Five-tier location layers (matching generate_locations_html.py tiers)
-        '[["locations-major",["city","landmark","fortress"],3,3.5,4,["Roboto Serif Regular","Noto Sans Bold"],1.4],'
-        '["locations-towns",["town"],4,4.5,5,["Roboto Serif Regular","Noto Sans Regular"],1.3],'
-        '["locations-secondary",["sacred-site","oasis","caravanserai"],5,5.5,6,["Roboto Serif Regular","Noto Sans Italic"],1.3],'
-        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,6.5,7,null,0],'
-        '["locations-detail",["ruins","poi","power-site","site"],7,7.5,8,null,0]]'
+        # t: [id, cats, minzoom, fadeStart, fadeEnd, font|null, minIconSz, textSz]
+        '[["locations-major",["city","landmark","fortress"],3,3.5,4,["Roboto Serif Regular","Noto Sans Bold"],0.65,15],'
+        '["locations-towns",["town"],4,4.5,5,["Roboto Serif Regular","Noto Sans Regular"],0.55,13],'
+        '["locations-secondary",["sacred-site","oasis","caravanserai"],5,5.5,6,["Roboto Serif Regular","Noto Sans Italic"],0.5,13],'
+        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,6.5,7,null,0.45,0],'
+        '["locations-detail",["ruins","poi","power-site","site"],7,7.5,8,null,0.4,0]]'
         '.forEach(function(t){'
-        'var id=t[0],cats=t[1],mz=t[2],fs=t[3],fe=t[4],font=t[5],sz=t[6];'
+        'var id=t[0],cats=t[1],mz=t[2],fs=t[3],fe=t[4],font=t[5],minSz=t[6],tSz=t[7];'
+        'var szExpr=["interpolate",["linear"],["zoom"],mz,minSz,10,minSz+0.5];'
         'var opExpr=["interpolate",["linear"],["zoom"],fs,0,fe,0.95];'
         'var catsFilter=["all",["match",["get","category"],cats,true,false],["!=",["get","mapMarker"],false]];'
-        'var layout={"icon-image":_iconMatch,"icon-size":1.3,"icon-allow-overlap":true,"icon-anchor":"center"};'
+        'var layout={"icon-image":_iconMatch,"icon-size":szExpr,"icon-allow-overlap":true,"icon-anchor":"center"};'
         'var paint={"icon-opacity":opExpr};'
         'if(font){'
         'layout["text-field"]=["case",["==",["get","mapLabel"],false],"",["get","label"]];'
-        'layout["text-font"]=font;layout["text-size"]=sz*12;'
+        'layout["text-font"]=font;layout["text-size"]=tSz;'
         'layout["text-offset"]=[0,1.1];layout["text-anchor"]="top";layout["text-max-width"]=8;'
         'layout["text-allow-overlap"]=false;'
         'paint["text-color"]="#ffffff";paint["text-halo-color"]="rgba(10,8,5,0.95)";'
@@ -707,3 +709,11 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+from shared.base_generator import make_generator
+generator = make_generator(
+    "workshop",
+    "Map workshop HTML (requires MAPTILER_KEY; skipped in 'all' when key is absent)",
+    main,
+)

@@ -28,6 +28,7 @@ Read the relevant `lat.md/` file before diving into domain content — one read 
 | Locations HTML generator, GM reveal mechanic, slug→region map | [[lat.md/locations]] | Any locations build / generator / gm_revealed question |
 | Daggerheart integration, current mechanics, Wrongness | [[lat.md/mechanics]] | Rules questions, mechanical identity |
 | All locked decisions + hard constraints (summary) | [[lat.md/decisions]] | Verifying lock status before any design work |
+| Build commands by scenario — what to run when | [[lat.md/build-workflows]] | Any build / generator / pipeline question |
 
 ---
 
