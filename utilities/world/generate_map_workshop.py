@@ -145,7 +145,7 @@ _CSS = """\
 html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   background: #0a0805; color: #e8dcc4; }
 #app { display: flex; height: 100vh; }
-#sidebar { width: 340px; min-width: 340px; display: flex; flex-direction: column;
+#sidebar { min-width: 340px; display: flex; flex-direction: column;
   background: #120f08; border-right: 1px solid rgba(184,146,44,0.3); overflow: hidden; }
 #sidebar-header { padding: 12px 14px 0; border-bottom: 1px solid rgba(184,146,44,0.2);
   flex-shrink: 0; }
