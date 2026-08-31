@@ -35,6 +35,7 @@ Registered generators (in pipeline order):
     world-all       Batch all world docs + index
     geojson         Location GeoJSON (world/data/tarim-shaiel-locations.geojson)
     locations       Location detail pages, region indexes, and world home map
+    workshop        Map workshop HTML (requires MAPTILER_KEY; skipped when absent)
 
 The LegendKeeper pipeline (generate_lk_json, generate_lk_markdown) is
 handled separately by utilities/legendkeeper-pipeline/publish.py.
@@ -81,12 +82,13 @@ def _load_registry() -> dict:
     from locations.generate_locations_html import generator as locations
     from sessions.generate_sessions_html import generator as sessions
     from newspaper.generate_newspaper_html import generator as newspaper
+    from world.generate_map_workshop import generator as workshop
 
     return {
         g.name: g for g in [
             homepage, dashboard, campaign_frame, lore, ancestry, class_primer,
             search_index, search, world, world_all, geojson, locations, sessions,
-            newspaper,
+            newspaper, workshop,
         ]
     }
 
@@ -137,6 +139,16 @@ def _run_one(name: str, generator, args: argparse.Namespace) -> int:
             argv = ["--public"]
         elif args.gm:
             argv = ["--gm"]
+
+    elif name == "workshop":
+        # The workshop generator hard-exits (rc=1) when MAPTILER_KEY is absent,
+        # which would abort the whole 'all' pipeline. Pre-check here so 'all'
+        # treats a missing key as a soft skip rather than a fatal failure.
+        # By this point, location_components._load_dotenv() has already run
+        # (it fires at import time), so os.environ reflects any .env file too.
+        if not os.environ.get("MAPTILER_KEY", ""):
+            print("  WARNING: MAPTILER_KEY not set — skipping workshop build", file=sys.stderr)
+            return 0
 
     else:
         if args.out:

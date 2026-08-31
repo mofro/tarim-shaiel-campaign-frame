@@ -709,3 +709,11 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+from shared.base_generator import make_generator
+generator = make_generator(
+    "workshop",
+    "Map workshop HTML (requires MAPTILER_KEY; skipped in 'all' when key is absent)",
+    main,
+)
