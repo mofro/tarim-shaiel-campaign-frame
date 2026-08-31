@@ -8,6 +8,10 @@ REGISTERED_ICONS lists every icon name registered by icon_registration_js().
 It is used by categories.check_icon_coverage() to cross-validate the category→icon
 mapping in categories.ICON_MAP against what is actually available at runtime.
 Keep this set in sync with the _mk() calls below.
+
+Icons are drawn at 64×64 px and registered with { pixelRatio: 2 } so MapLibre
+treats them as 32 logical px at @2x density — sharp on retina and standard displays.
+All stroke widths are 2.5 px on the 64×64 canvas, which appears as ~1.25 px visually.
 """
 
 REGISTERED_ICONS: frozenset[str] = frozenset({
@@ -30,64 +34,83 @@ def icon_registration_js() -> str:
     """
     return (
         '(function(){'
-        'function _mk(name,draw){var c=document.createElement("canvas");c.width=32;c.height=32;var ctx=c.getContext("2d");draw(ctx);var d=ctx.getImageData(0,0,32,32);map.addImage(name,{width:32,height:32,data:d.data});}'
+        # _mk draws at 64×64 and registers at pixelRatio:2 (32 logical px, @2x sharp)
+        'function _mk(name,draw){var c=document.createElement("canvas");c.width=64;c.height=64;var ctx=c.getContext("2d");draw(ctx);map.addImage(name,c,{pixelRatio:2});}'
+
+        # city — thin outer ring + filled inner dot (crimson); the canonical "major settlement"
         '_mk("cat-city",function(ctx){'
           'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.fillStyle="#7a1f1f";'
-          'ctx.beginPath();ctx.arc(16,16,13,0,Math.PI*2);ctx.stroke();'
-          'ctx.beginPath();ctx.arc(16,16,6,0,Math.PI*2);ctx.fill();'
+          'ctx.beginPath();ctx.arc(32,32,24,0,Math.PI*2);ctx.stroke();'
+          'ctx.beginPath();ctx.arc(32,32,9,0,Math.PI*2);ctx.fill();'
         '});'
+
+        # town — open ring only, smaller radius (no inner dot distinguishes from city)
         '_mk("cat-town",function(ctx){'
-          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.fillStyle="#7a1f1f";'
-          'ctx.beginPath();ctx.rect(4,4,24,24);ctx.stroke();'
-          'ctx.beginPath();ctx.arc(16,16,5,0,Math.PI*2);ctx.fill();'
+          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;'
+          'ctx.beginPath();ctx.arc(32,32,18,0,Math.PI*2);ctx.stroke();'
         '});'
+
+        # route-node / caravanserai — diamond outline + inner dot (waypoint convention)
         '_mk("cat-route-node",function(ctx){'
           'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.fillStyle="#7a1f1f";'
-          'ctx.beginPath();ctx.moveTo(16,2);ctx.lineTo(30,16);ctx.lineTo(16,30);ctx.lineTo(2,16);ctx.closePath();ctx.stroke();'
-          'ctx.beginPath();ctx.arc(16,16,4,0,Math.PI*2);ctx.fill();'
+          'ctx.beginPath();ctx.moveTo(32,4);ctx.lineTo(60,32);ctx.lineTo(32,60);ctx.lineTo(4,32);ctx.closePath();ctx.stroke();'
+          'ctx.beginPath();ctx.arc(32,32,7,0,Math.PI*2);ctx.fill();'
         '});'
+
+        # sacred-site — arch/dome silhouette (Silk Road mosque/shrine form); gold fill, crimson outline
         '_mk("cat-sacred-site",function(ctx){'
-          'ctx.beginPath();ctx.moveTo(7,29);ctx.lineTo(7,17);'
-          'ctx.quadraticCurveTo(7,3,16,3);ctx.quadraticCurveTo(25,3,25,17);'
-          'ctx.lineTo(25,29);ctx.closePath();'
-          'ctx.fillStyle="#b8892a";ctx.fill();'
-          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=1.5;ctx.stroke();'
+          'ctx.beginPath();ctx.moveTo(14,58);ctx.lineTo(14,34);'
+          'ctx.quadraticCurveTo(14,6,32,6);ctx.quadraticCurveTo(50,6,50,34);'
+          'ctx.lineTo(50,58);ctx.closePath();'
+          'ctx.fillStyle="rgba(184,137,42,0.25)";ctx.fill();'
+          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.stroke();'
+          'ctx.beginPath();ctx.moveTo(14,58);ctx.lineTo(50,58);'
+          'ctx.strokeStyle="#b8892a";ctx.lineWidth=2.0;ctx.stroke();'
         '});'
+
+        # fortress — crenellated battlement plan (universal castle/fort symbol)
         '_mk("cat-fortress",function(ctx){'
           'ctx.beginPath();'
-          'ctx.moveTo(4,8);ctx.lineTo(10,8);ctx.lineTo(10,16);ctx.lineTo(13,16);'
-          'ctx.lineTo(13,8);ctx.lineTo(19,8);ctx.lineTo(19,16);ctx.lineTo(22,16);'
-          'ctx.lineTo(22,8);ctx.lineTo(28,8);ctx.lineTo(28,28);ctx.lineTo(4,28);ctx.closePath();'
+          'ctx.moveTo(8,16);ctx.lineTo(20,16);ctx.lineTo(20,32);ctx.lineTo(26,32);'
+          'ctx.lineTo(26,16);ctx.lineTo(38,16);ctx.lineTo(38,32);ctx.lineTo(44,32);'
+          'ctx.lineTo(44,16);ctx.lineTo(56,16);ctx.lineTo(56,56);ctx.lineTo(8,56);ctx.closePath();'
           'ctx.fillStyle="#7a1f1f";ctx.fill();'
-          'ctx.strokeStyle="#b8892a";ctx.lineWidth=1.5;ctx.stroke();'
+          'ctx.strokeStyle="#b8892a";ctx.lineWidth=2.5;ctx.stroke();'
         '});'
+
+        # oasis — two concentric rings (water ripple/source convention); gold outer, crimson inner
         '_mk("cat-oasis",function(ctx){'
-          'var pts=[[16,16,16,3],[16,16,26.9,9.5],[16,16,22.5,23.5],[16,16,9.5,23.5],[16,16,5.1,9.5]];'
-          'ctx.lineCap="round";'
-          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=6;'
-          'pts.forEach(function(p){ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(p[2],p[3]);ctx.stroke();});'
-          'ctx.strokeStyle="#b8892a";ctx.lineWidth=4;'
-          'pts.forEach(function(p){ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(p[2],p[3]);ctx.stroke();});'
-          'ctx.fillStyle="#b8892a";ctx.beginPath();ctx.arc(16,16,5,0,Math.PI*2);ctx.fill();'
-          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(16,16,5,0,Math.PI*2);ctx.stroke();'
+          'ctx.strokeStyle="#b8892a";ctx.lineWidth=2.5;'
+          'ctx.beginPath();ctx.arc(32,32,22,0,Math.PI*2);ctx.stroke();'
+          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;'
+          'ctx.beginPath();ctx.arc(32,32,12,0,Math.PI*2);ctx.stroke();'
+          'ctx.fillStyle="#b8892a";'
+          'ctx.beginPath();ctx.arc(32,32,4,0,Math.PI*2);ctx.fill();'
         '});'
+
+        # landmark — mountain silhouette (universal topographic convention)
         '_mk("cat-landmark",function(ctx){'
-          'ctx.beginPath();ctx.moveTo(2,28);'
-          'ctx.quadraticCurveTo(5,14,11,12);ctx.quadraticCurveTo(14,6,17,12);'
-          'ctx.quadraticCurveTo(22,14,30,28);ctx.closePath();'
+          'ctx.beginPath();ctx.moveTo(4,56);'
+          'ctx.quadraticCurveTo(10,28,22,24);ctx.quadraticCurveTo(28,12,34,24);'
+          'ctx.quadraticCurveTo(44,28,60,56);ctx.closePath();'
           'ctx.fillStyle="#7a1f1f";ctx.fill();'
-          'ctx.strokeStyle="#b8892a";ctx.lineWidth=1.5;ctx.stroke();'
+          'ctx.strokeStyle="#b8892a";ctx.lineWidth=2.5;ctx.stroke();'
         '});'
+
+        # poi — small filled dot (generic unclassified point)
         '_mk("cat-poi",function(ctx){'
           'ctx.fillStyle="#7a1f1f";'
-          'ctx.beginPath();ctx.arc(16,16,9,0,Math.PI*2);ctx.fill();'
+          'ctx.beginPath();ctx.arc(32,32,10,0,Math.PI*2);ctx.fill();'
         '});'
+
+        # dungeon / ruins — partial arc (270°, gap at upper-right) + inner dot;
+        # the broken ring reads as "place, but damaged/abandoned"
         '_mk("cat-dungeon",function(ctx){'
-          'ctx.strokeStyle="#5a4020";ctx.lineWidth=2;ctx.lineCap="round";ctx.fillStyle="#5a4020";'
-          'var sa=Math.atan2(4.2-16,21.5-16),ea=Math.atan2(4.2-16,10.5-16);'
-          'ctx.beginPath();ctx.arc(16,16,13,sa,ea,true);ctx.stroke();'
-          'ctx.beginPath();ctx.arc(16,16,8,0,Math.PI*2);ctx.stroke();'
-          'ctx.beginPath();ctx.arc(16,16,3.5,0,Math.PI*2);ctx.fill();'
+          'ctx.strokeStyle="#5a4020";ctx.lineWidth=2.5;ctx.lineCap="round";'
+          'ctx.beginPath();ctx.arc(32,32,22,0,Math.PI*1.5,false);ctx.stroke();'
+          'ctx.fillStyle="#5a4020";'
+          'ctx.beginPath();ctx.arc(32,32,6,0,Math.PI*2);ctx.fill();'
         '});'
+
         '})();\n'
     )

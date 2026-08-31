@@ -153,7 +153,16 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     # below, not here -- MapLibre's style spec forbids nesting a zoom-based
     # interpolate (used for icon-opacity's fade) inside a "case", so hiding
     # via opacity isn't legal; filtering the feature out entirely is.
-    icon_match = build_icon_match_js()
+
+    # Per-tier zoom-interpolated icon sizes: smaller at overview zooms to reduce
+    # crowding, growing as the user zooms in. Major features are always largest.
+    _ICON_SIZE: dict[str, str] = {
+        'locations-major':     '["interpolate",["linear"],["zoom"],3,0.65,8,1.1]',
+        'locations-towns':     '["interpolate",["linear"],["zoom"],4,0.55,8,0.95]',
+        'locations-secondary': '["interpolate",["linear"],["zoom"],5,0.5,8,0.9]',
+        'locations-routes':    '["interpolate",["linear"],["zoom"],6,0.45,9,0.85]',
+        'locations-detail':    '["interpolate",["linear"],["zoom"],7,0.4,10,0.8]',
+    }
 
     # fmt: off
     tiers = [
@@ -169,6 +178,7 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     js = ''
     layer_ids = []
     for layer_id, cats, minzoom, fade_start, fade_end, label_font, label_size in tiers:
+        icon_match = build_icon_match_js(_ICON_SIZE[layer_id])
         cats_json = str(cats).replace("'", '"')
         opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.95]'
 
@@ -256,11 +266,19 @@ def _gm_secrets_layers_js() -> str:
     # icon: a string -> "cat-<string>" directly, unset/null -> the category
     # match. false (no icon) is handled via filter exclusion below, not here
     # — see the comment in _locations_layers_js for why.
-    icon_match = build_icon_match_js()
+
+    # GM secret layers mirror the same size expressions as their public counterparts.
+    _GM_ICON_SIZE: dict[str, str] = {
+        'gm-locations-major':     '["interpolate",["linear"],["zoom"],3,0.65,8,1.1]',
+        'gm-locations-secondary': '["interpolate",["linear"],["zoom"],5,0.5,8,0.9]',
+        'gm-locations-routes':    '["interpolate",["linear"],["zoom"],6,0.45,9,0.85]',
+        'gm-locations-detail':    '["interpolate",["linear"],["zoom"],7,0.4,10,0.8]',
+    }
 
     js = ''
     gm_layer_ids = []
     for layer_id, cats, minzoom, fade_start, fade_end in tiers:
+        icon_match = build_icon_match_js(_GM_ICON_SIZE[layer_id])
         cats_json = str(cats).replace("'", '"')
         # Fade in to 0.4 (not 0.95) — visually distinct from public markers
         opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.4]'
