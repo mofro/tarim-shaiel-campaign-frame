@@ -9,8 +9,10 @@ It is used by categories.check_icon_coverage() to cross-validate the category→
 mapping in categories.ICON_MAP against what is actually available at runtime.
 Keep this set in sync with the _mk() calls below.
 
-Icons are drawn at 64×64 px and registered with { pixelRatio: 2 } so MapLibre
-treats them as 32 logical px at @2x density — sharp on retina and standard displays.
+Icons are drawn at 64×64 px and registered via ImageData + { pixelRatio: 2 } so
+MapLibre treats them as 32 logical px at @2x density — sharp on retina and standard
+displays. Note: MapLibre's addImage() accepts ImageData / {width,height,data}, not a
+raw HTMLCanvasElement; getImageData() is used to extract pixel bytes before adding.
 All stroke widths are 2.5 px on the 64×64 canvas, which appears as ~1.25 px visually.
 """
 
@@ -35,7 +37,7 @@ def icon_registration_js() -> str:
     return (
         '(function(){'
         # _mk draws at 64×64 and registers at pixelRatio:2 (32 logical px, @2x sharp)
-        'function _mk(name,draw){var c=document.createElement("canvas");c.width=64;c.height=64;var ctx=c.getContext("2d");draw(ctx);map.addImage(name,c,{pixelRatio:2});}'
+        'function _mk(name,draw){var c=document.createElement("canvas");c.width=64;c.height=64;var ctx=c.getContext("2d");draw(ctx);var d=ctx.getImageData(0,0,64,64);map.addImage(name,{width:64,height:64,data:d.data},{pixelRatio:2});}'
 
         # city — thin outer ring + filled inner dot (crimson); the canonical "major settlement"
         '_mk("cat-city",function(ctx){'
