@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-05-07
+last_updated: 2026-08-31
 ---
 
 > _Derived from CLAUDE.md and `lat.md/` files — update in the same commit when those change. Inject into spawned agent prompts; this file is not automatically read by any session._
@@ -35,6 +35,7 @@ Read the relevant `lat.md/` file before diving into domain content — one read 
 | Locations HTML generator, GM reveal mechanic, slug→region map | [[lat.md/locations]] | Any locations build / generator / gm_revealed question |
 | Daggerheart integration, current mechanics, Wrongness | [[lat.md/mechanics]] | Rules questions, mechanical identity |
 | All locked decisions + hard constraints (summary) | [[lat.md/decisions]] | Verifying lock status before any design work |
+| Build commands by scenario — what to run when | [[lat.md/build-workflows]] | Any build / generator / pipeline question |
 
 ## Hard Constraints (Do Not Violate)
 
