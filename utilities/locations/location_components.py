@@ -231,7 +231,8 @@ def _mini_map_tiered_layers_js(own_slug: str = '') -> str:
     for layer_id, cats, minzoom, fade_start, fade_end, label_font, label_size in _MINI_MAP_TIERS:
         cats_json = str(cats).replace("'", '"')
         opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.9]'
-        layout = f'"icon-image":{icon_match},"icon-size":1,"icon-allow-overlap":true,"icon-anchor":"center"'
+        sz_expr = '["interpolate",["linear"],["zoom"],5,0.5,9,0.85]'
+        layout = f'"icon-image":{icon_match},"icon-size":{sz_expr},"icon-allow-overlap":true,"icon-anchor":"center"'
         paint = f'"icon-opacity":{opacity_expr}'
         if label_font:
             font_json = str(label_font).replace("'", '"')

@@ -437,12 +437,8 @@ def _build_world_map_html(
             '});\n'
         )
 
-    # Public: fixed single zoom, non-zoomable (original design intent).
-    # GM mode: real zoom range so the coordinate picker can be used precisely
-    # -- one pixel at the fixed zoom 5 view is ~3.7km of real ground, far too
-    # coarse for siting a new location.
-    world_min_zoom = 3 if gm_mode else 5
-    world_max_zoom = 14 if gm_mode else 5
+    world_min_zoom = 3
+    world_max_zoom = 14
 
     return f"""<div id="world-map-inner-wrap" style="position:relative;">
 <div id="world-map"></div>
