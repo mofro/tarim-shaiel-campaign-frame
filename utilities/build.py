@@ -35,7 +35,7 @@ Registered generators (in pipeline order):
     world-all       Batch all world docs + index
     geojson         Location GeoJSON (world/data/tarim-shaiel-locations.geojson)
     locations       Location detail pages, region indexes, and world home map
-    workshop        Map workshop HTML (GM-only; excluded from --public; skipped when MAPTILER_KEY absent)
+    workshop        Map workshop HTML (local-only; excluded from 'all'; invoke explicitly; requires MAPTILER_KEY)
 
 The LegendKeeper pipeline (generate_lk_json, generate_lk_markdown) is
 handled separately by utilities/legendkeeper-pipeline/publish.py.
@@ -298,11 +298,9 @@ def main() -> int:
     if args.targets == ["all"]:
         # 'world' requires --source so is excluded from the full pipeline run;
         # invoke it explicitly: build.py world --source path/to/doc.md
-        # 'workshop' is GM-only (outputs to vault root, not docs/) so is also
-        # excluded from public builds; it runs in full 'all' and 'all --gm'.
-        exclude = {"world"}
-        if args.public:
-            exclude.add("workshop")
+        # 'workshop' is a local-only GM tool (outputs to vault root, not docs/,
+        # and is gitignored); invoke it explicitly: build.py workshop
+        exclude = {"world", "workshop"}
         pipeline = [k for k in registry if k not in exclude]
         return _cmd_run(pipeline, registry, args)
 

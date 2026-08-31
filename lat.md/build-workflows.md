@@ -50,10 +50,10 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 Both read location `.md` files, but they are **independent generators**:
 
 - `locations` builds `docs/world.html` (the public-facing world map) and all location detail pages. Location data is built **in-memory** from `.md` files and inlined into the HTML at build time. It does **not** read `world/data/tarim-shaiel-locations.geojson`.
-- `workshop` builds `docs/map-workshop.html` (the GM route-planning tool). Also inlines location data in-memory from `.md` files. Routes come from `world/data/tarim-shaiel-routes.geojson`.
+- `workshop` builds `map-workshop.html` in vault root (GM route-planning tool, gitignored). Also inlines location data in-memory from `.md` files. Routes come from `world/data/tarim-shaiel-routes.geojson`. **Excluded from `build.py all`** — invoke explicitly as `build.py workshop`.
 - `geojson` generates `world/data/tarim-shaiel-locations.geojson` as a standalone snapshot — used by external tools, not by either HTML generator.
 
-Running `build.py locations` does **not** update the workshop. Running `build.py workshop` does **not** update `world.html`. Run both, or use `build.py all`.
+Running `build.py locations` does **not** update the workshop. Running `build.py workshop` does **not** update `world.html`. Run both explicitly, or use `build.py all` for the Netlify-publishable generators.
 
 ### MAPTILER_KEY
 
