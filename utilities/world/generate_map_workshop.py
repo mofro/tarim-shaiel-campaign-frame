@@ -159,10 +159,12 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #app-title { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
   color: #b8922c; margin-bottom: 10px; }
 #tab-bar { display: flex; gap: 2px; }
-.tab-btn { flex: 1; padding: 7px 4px; font-size: 11px; letter-spacing: 0.06em;
+.tab-btn { flex: 1; padding: 7px 2px; font-size: 10px; letter-spacing: 0.05em;
   text-transform: uppercase; background: #1a1410; border: 1px solid rgba(184,146,44,0.2);
   border-bottom: none; color: #8a7a60; cursor: pointer; border-radius: 3px 3px 0 0;
   transition: background 0.15s; }
+.edit-badge { display: inline-block; background: #6a9a2c; color: #fff; font-size: 9px;
+  border-radius: 8px; padding: 0 4px; margin-left: 3px; line-height: 14px; vertical-align: middle; }
 .tab-btn:hover { background: #221c12; color: #c8a84a; }
 .tab-btn.active { background: #0a0805; color: #e8dcc4; border-color: rgba(184,146,44,0.4);
   border-bottom-color: #0a0805; font-weight: bold; }
@@ -234,6 +236,26 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .ts-popup__type { font-size: 11px; color: #6a5a3a; margin-top: 2px; }
 .ts-map-popup .maplibregl-popup-content { background: #f5f0e8; padding: 8px 12px;
   border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+/* Edit Coords panel */
+.list-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
+  color: #9a8a6a; margin-bottom: 6px; margin-top: 8px; }
+.edit-toggle { width: 100%; text-align: center; transition: background 0.15s, border-color 0.15s; }
+.edit-toggle.active { background: #1a2a0a; border-color: #6a9a2c; color: #a8d840; }
+.edit-toggle.active:hover { background: #263d12; border-color: #8aba40; }
+#unsaved-list { list-style: none; display: flex; flex-direction: column; gap: 3px;
+  max-height: 140px; overflow-y: auto; }
+.unsaved-item { font-size: 11px; padding: 5px 8px; background: #1a1410;
+  border: 1px solid rgba(184,146,44,0.15); border-radius: 2px; }
+.ui-slug { font-family: monospace; color: #e8dcc4; }
+.ui-coords { color: #7a6a50; margin-left: 6px; }
+.rebuild-section { margin-top: 8px; }
+#api-status { min-height: 16px; color: #9a8a6a; }
+#api-status.ok { color: #6a9a2c; }
+#api-status.err { color: #b83c3c; }
+.drag-edit-marker { width: 22px; height: 22px; background: #f5d060;
+  border: 2.5px solid #2a1e08; border-radius: 50%; cursor: grab;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6); }
+.drag-edit-marker:active { cursor: grabbing; }
 """
 
 
@@ -335,6 +357,26 @@ def _build_panel_plan_route() -> str:
   <button id="route-copy-btn" class="btn btn-sm">Copy to Clipboard</button>
 </div>
 <p class="hint">Runs route-snapping then regenerate workshop.</p>
+"""
+
+
+def _build_panel_edit_coords() -> str:
+    return """
+<button id="edit-mode-btn" class="btn edit-toggle">Enable Edit Mode</button>
+<p class="hint" style="margin-top:6px;">When edit mode is on, click any location marker on the map to create a draggable pin. Drop it in the new position, then confirm to write the coordinates back to the <code>.md</code> file.</p>
+<p class="hint" style="color:#5a4a30;">Requires the devserver: <code>python utilities/devserver.py</code></p>
+<div id="unsaved-section" class="hidden">
+  <div class="list-heading">Saved This Session</div>
+  <ul id="unsaved-list"></ul>
+</div>
+<div class="rebuild-section">
+  <div class="list-heading">Rebuild</div>
+  <div class="btn-row">
+    <button id="rebuild-locations-btn" class="btn btn-sm">Rebuild Locations</button>
+    <button id="rebuild-workshop-btn" class="btn btn-sm">Rebuild Workshop</button>
+  </div>
+  <p id="api-status" class="hint" style="margin-top:6px;"></p>
+</div>
 """
 
 
@@ -656,8 +698,10 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'map.on("click",lyr,function(e){'
         'var slug=e.features[0].properties._slug||e.features[0].properties.slug||"";'
         'if(!slug)return;'
-        'if(_activeTab==="plan-route"){_addToQueue(slug);}'
-        # Tab 1 + Tab 3: no click action on markers
+        'if(_activeTab==="plan-route"){_addToQueue(slug);return;}'
+        'if(_activeTab==="edit-coords"&&_editMode){'
+        'var coords=e.features[0].geometry.coordinates;'
+        '_startDragEdit(slug,{lng:coords[0],lat:coords[1]});}'
         '});});\n'
 
         '});\n'  # end map.on('load')
@@ -678,6 +722,122 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         '_setTab("route-index");'
         'map.fitBounds([[minLon,minLat],[maxLon,maxLat]],{padding:60,duration:800});'
         '});});\n'
+
+        # -- Edit Coords panel --
+        'var _editMode=false;\n'
+        'var _pendingEdits={};\n'
+        'var _dragMarker=null;\n'
+        'var _editModeBtn=document.getElementById("edit-mode-btn");'
+        'var _editBadge=document.getElementById("edit-badge");'
+        'var _unsavedSection=document.getElementById("unsaved-section");'
+        'var _unsavedList=document.getElementById("unsaved-list");'
+        'var _rebuildLocBtn=document.getElementById("rebuild-locations-btn");'
+        'var _rebuildWsBtn=document.getElementById("rebuild-workshop-btn");'
+        'var _apiStatus=document.getElementById("api-status");\n'
+
+        'function _setApiStatus(msg,cls){'
+        '_apiStatus.textContent=msg;'
+        '_apiStatus.className="hint";'
+        'if(cls)_apiStatus.classList.add(cls);'
+        '}\n'
+
+        '_editModeBtn.addEventListener("click",function(){'
+        '_editMode=!_editMode;'
+        '_editModeBtn.textContent=_editMode?"✓ Edit Mode ON":"Enable Edit Mode";'
+        '_editModeBtn.classList.toggle("active",_editMode);'
+        'if(!_editMode&&_dragMarker){_dragMarker.remove();_dragMarker=null;}'
+        'map.getCanvas().style.cursor=_editMode?"crosshair":"";'
+        '});\n'
+
+        'function _startDragEdit(slug,lngLat){'
+        'if(_dragMarker){_dragMarker.remove();_dragMarker=null;}'
+        'var el=document.createElement("div");'
+        'el.className="drag-edit-marker";'
+        '_dragMarker=new maplibregl.Marker({element:el,draggable:true})'
+        '.setLngLat(lngLat).addTo(map);'
+        '_dragMarker.on("dragend",function(){'
+        'var ll=_dragMarker.getLngLat();'
+        '_showConfirmPopover(slug,ll);'
+        '});'
+        '}\n'
+
+        'function _showConfirmPopover(slug,lngLat){'
+        'var lat=lngLat.lat.toFixed(6);'
+        'var lon=lngLat.lng.toFixed(6);'
+        'var html=\'<div class="ts-popup"><div class="ts-popup__title">\'+slug+\'</div>\''
+        '+\'<div class="ts-popup__type" style="font-family:monospace">\'+lat+\', \'+lon+\'</div>\''
+        '+\'<div style="display:flex;gap:6px;margin-top:8px;">\''
+        '+\'<button id="ec-save" style="padding:4px 12px;background:#1a2a0a;border:1px solid #6a9a2c;color:#a8d840;font-size:11px;cursor:pointer;border-radius:2px;">Save</button>\''
+        '+\'<button id="ec-cancel" style="padding:4px 10px;background:#2a1e08;border:1px solid rgba(184,146,44,0.3);color:#9a8a6a;font-size:11px;cursor:pointer;border-radius:2px;">Cancel</button>\''
+        '+\'</div></div>\';'
+        'var popup=new maplibregl.Popup({className:"ts-map-popup",offset:18,closeButton:false})'
+        '.setLngLat(lngLat).setHTML(html).addTo(map);'
+        'setTimeout(function(){'
+        'var sb=document.getElementById("ec-save");'
+        'var cb=document.getElementById("ec-cancel");'
+        'if(sb)sb.addEventListener("click",function(){'
+        'popup.remove();_saveCoordinate(slug,parseFloat(lat),parseFloat(lon));});'
+        'if(cb)cb.addEventListener("click",function(){'
+        'popup.remove();if(_dragMarker){_dragMarker.remove();_dragMarker=null;}});'
+        '},40);'
+        '}\n'
+
+        'function _saveCoordinate(slug,lat,lon){'
+        '_setApiStatus("Saving "+slug+"...");'
+        'fetch("/api/locations/"+slug+"/coordinates",{'
+        'method:"PUT",'
+        'headers:{"Content-Type":"application/json"},'
+        'body:JSON.stringify({lat:lat,lon:lon})})'
+        '.then(function(r){return r.json();})'
+        '.then(function(data){'
+        'if(data.ok){'
+        '_pendingEdits[slug]={lat:lat,lon:lon};'
+        '_updateUnsavedList();'
+        '_setApiStatus("✓ Saved "+slug,"ok");'
+        '_updateLocationInSource(slug,lat,lon);'
+        'if(_dragMarker){_dragMarker.remove();_dragMarker=null;}'
+        '}else{_setApiStatus("✗ "+( data.error||"unknown error"),"err");}'
+        '})'
+        '.catch(function(){_setApiStatus("✗ Network error — devserver running?","err");});'
+        '}\n'
+
+        'function _updateLocationInSource(slug,lat,lon){'
+        'var src=map.getSource("locations");'
+        'if(!src)return;'
+        'var gj=JSON.parse(JSON.stringify(_locGJ));'
+        'gj.features.forEach(function(f){'
+        'if((f.properties._slug||f.properties.slug)===slug){'
+        'f.geometry.coordinates=[lon,lat];}});'
+        'src.setData(gj);'
+        '}\n'
+
+        'function _updateUnsavedList(){'
+        'var slugs=Object.keys(_pendingEdits);'
+        'var count=slugs.length;'
+        'if(count===0){_editBadge.classList.add("hidden");_unsavedSection.classList.add("hidden");return;}'
+        '_editBadge.textContent=count;_editBadge.classList.remove("hidden");'
+        '_unsavedSection.classList.remove("hidden");'
+        '_unsavedList.innerHTML=slugs.map(function(s){'
+        'var e=_pendingEdits[s];'
+        'return\'<li class="unsaved-item"><span class="ui-slug">\'+s+\'</span><span class="ui-coords">\''
+        '+e.lat.toFixed(5)+\', \'+e.lon.toFixed(5)+\'</span></li>\';'
+        '}).join("");'
+        '}\n'
+
+        'function _apiRebuild(target,btn){'
+        'btn.disabled=true;'
+        '_setApiStatus("Rebuilding "+target+"...");'
+        'fetch("/api/rebuild/"+target,{method:"POST"})'
+        '.then(function(r){return r.json();})'
+        '.then(function(data){'
+        'btn.disabled=false;'
+        '_setApiStatus(data.ok?"✓ Rebuilt "+target:"✗ Rebuild failed — see devserver log",data.ok?"ok":"err");'
+        '})'
+        '.catch(function(){btn.disabled=false;_setApiStatus("✗ Network error","err");});'
+        '}\n'
+
+        '_rebuildLocBtn.addEventListener("click",function(){_apiRebuild("locations",_rebuildLocBtn);});\n'
+        '_rebuildWsBtn.addEventListener("click",function(){_apiRebuild("workshop",_rebuildWsBtn);});\n'
     )
     # fmt: on
 
@@ -711,6 +871,7 @@ def _build_html(
 
     panel_add = _build_panel_add_point(cat_options, region_options)
     panel_route = _build_panel_plan_route()
+    panel_edit = _build_panel_edit_coords()
     app_js = _build_app_js(style_url, icons_js)
 
     return (
@@ -731,6 +892,7 @@ def _build_html(
         '        <button class="tab-btn active" data-tab="add-point">Add Point</button>\n'
         '        <button class="tab-btn" data-tab="plan-route">Plan Route</button>\n'
         '        <button class="tab-btn" data-tab="route-index">Route Index</button>\n'
+        '        <button class="tab-btn" data-tab="edit-coords">Edit Coords <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
         "      </div>\n"
         "    </div>\n"
         '    <div id="panel-add-point" class="panel active">\n'
@@ -741,6 +903,9 @@ def _build_html(
         + "\n    </div>\n"
         '    <div id="panel-route-index" class="panel">\n'
         + route_index_html
+        + "\n    </div>\n"
+        '    <div id="panel-edit-coords" class="panel">\n'
+        + panel_edit
         + "\n    </div>\n"
         "  </div>\n"
         '  <div id="map"></div>\n'
