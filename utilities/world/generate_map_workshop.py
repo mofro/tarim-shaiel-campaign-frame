@@ -119,7 +119,14 @@ def _route_index_html(route_index: list) -> str:
         p = "~" if r["is_approx"] else ""
         d = f'{p}{int(r["dist_km"])} km'
         t = f'{p}{r["days"]:.0f} days'
-        return f'<tr><td class="ri-id">{r["id"]}</td><td>{r["label"]}</td><td>{d}</td><td>{t}</td></tr>'
+        return (
+            f'<tr class="ri-row" data-id="{r["id"]}" style="cursor:pointer">'
+            f'<td class="ri-id">{r["id"]}</td>'
+            f'<td>{r["label"]}</td>'
+            f'<td>{d}</td>'
+            f'<td>{t}</td>'
+            f'</tr>'
+        )
 
     def section(title: str, rows: list) -> str:
         if not rows:
@@ -215,6 +222,10 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #panel-route-index td { padding: 4px 6px; border-bottom: 1px solid rgba(255,255,255,0.04); }
 #panel-route-index .ri-id { font-family: monospace; color: #7a6a50; font-size: 10px; }
 .ri-note { font-size: 10px; color: #5a4a30; margin-top: 4px; }
+.ri-row:hover td { background: rgba(184,146,44,0.07); }
+.ri-row.active td { background: rgba(184,146,44,0.14); }
+/* Route section separator */
+.route-or { text-align: center; color: #5a4a30; font-size: 11px; margin: 4px 0; }
 /* Map */
 #map { flex: 1; }
 .maplibregl-map { font: inherit; }
@@ -287,20 +298,43 @@ def _build_panel_plan_route() -> str:
   <button id="route-remove-btn" class="btn btn-sm btn-danger" disabled>Remove Last</button>
   <button id="route-clear-btn" class="btn btn-sm btn-danger" disabled>Clear All</button>
 </div>
+<div class="field-group" style="margin-top:8px;">
+  <label>Route Name</label>
+  <input id="route-name" type="text" placeholder="Northern Silk Road">
+</div>
+<div class="field-group">
+  <label>Description</label>
+  <textarea id="route-desc" rows="2" placeholder="optional"></textarea>
+</div>
+<div class="field-group">
+  <label>Route Type</label>
+  <select id="route-type">
+    <option value="trade-route">Trade Route</option>
+    <option value="pilgrimage">Pilgrimage</option>
+    <option value="military">Military</option>
+    <option value="other">Other</option>
+  </select>
+</div>
 <div class="field-group">
   <label style="flex-direction:row;align-items:center;gap:8px;cursor:pointer;">
     <input type="checkbox" id="route-spur-cb" style="accent-color:#b8922c;">
     Spur route (branch)
   </label>
 </div>
-<button id="route-generate-btn" class="btn" disabled>Generate Command</button>
+<button id="route-copy-gj-btn" class="btn" disabled>Copy GeoJSON Feature</button>
+<div id="route-gj-block" class="command-block hidden">
+  <pre id="route-gj-text" style="max-height:120px;overflow-y:auto;"></pre>
+  <button id="route-copy-gj2-btn" class="btn btn-sm">Copy to Clipboard</button>
+</div>
+<p class="hint" style="margin-top:2px;">Paste into <code>world/data/tarim-shaiel-routes.geojson</code> → features array, then:<br>
+<code>python utilities/build.py workshop</code></p>
+<div class="route-or">— or generate CLI command —</div>
+<button id="route-generate-btn" class="btn" disabled>Generate map.py Command</button>
 <div id="route-command-block" class="command-block hidden">
   <pre id="route-command-text"></pre>
   <button id="route-copy-btn" class="btn btn-sm">Copy to Clipboard</button>
 </div>
-<p class="hint">After running:<br>
-<code>python utilities/routes/generate_routes.py</code><br>
-to snap to roads, then regenerate.</p>
+<p class="hint">Runs route-snapping then regenerate workshop.</p>
 """
 
 
@@ -411,16 +445,32 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'var _routeSpurCb=document.getElementById("route-spur-cb");'
         'var _routeCmdBlock=document.getElementById("route-command-block");'
         'var _routeCmdText=document.getElementById("route-command-text");'
-        'var _routeCopyBtn=document.getElementById("route-copy-btn");\n'
+        'var _routeCopyBtn=document.getElementById("route-copy-btn");'
+        'var _routeNameEl=document.getElementById("route-name");'
+        'var _routeDescEl=document.getElementById("route-desc");'
+        'var _routeTypeEl=document.getElementById("route-type");'
+        'var _routeCopyGjBtn=document.getElementById("route-copy-gj-btn");'
+        'var _routeGjBlock=document.getElementById("route-gj-block");'
+        'var _routeGjText=document.getElementById("route-gj-text");'
+        'var _routeCopyGj2Btn=document.getElementById("route-copy-gj2-btn");\n'
 
         'function _updateQueueDisplay(){'
         'var enabled=_queue.length>0;'
         '_routeRemoveBtn.disabled=!enabled;'
         '_routeClearBtn.disabled=!enabled;'
-        '_routeGenBtn.disabled=_queue.length<2;'
+        'var canExport=_queue.length>=2;'
+        '_routeGenBtn.disabled=!canExport;'
+        '_routeCopyGjBtn.disabled=!canExport;'
         '_routeCmdBlock.classList.add("hidden");'
+        '_routeGjBlock.classList.add("hidden");'
+        # Auto-suggest route name from first/last slugs if field is empty
+        'if(canExport&&!_routeNameEl.value.trim()){'
+        'var first=_queue[0].label,last=_queue[_queue.length-1].label;'
+        '_routeNameEl.placeholder=first+" → "+last;'
+        '}'
         'if(!enabled){'
         '_routeQueueList.innerHTML=\'<li class="queue-empty">No waypoints yet.</li>\';'
+        '_routeNameEl.placeholder="Northern Silk Road";'
         'return;}'
         '_routeQueueList.innerHTML=_queue.map(function(item,i){'
         'var distStr="";'
@@ -445,6 +495,16 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'return{type:"Feature",properties:{index:i+1},'
         'geometry:{type:"Point",coordinates:[item.lon,item.lat]}};});'
         'map.getSource("highlight-source").setData({type:"FeatureCollection",features:features});'
+        # Update preview polyline
+        'if(map.getSource("route-preview")){'
+        'if(_queue.length>=2){'
+        'var coords=_queue.map(function(item){return[item.lon,item.lat];});'
+        'map.getSource("route-preview").setData({type:"FeatureCollection",'
+        'features:[{type:"Feature",properties:{},'
+        'geometry:{type:"LineString",coordinates:coords}}]});'
+        '}else{'
+        'map.getSource("route-preview").setData({type:"FeatureCollection",features:[]});'
+        '}}'
         '}\n'
 
         'function _addToQueue(slug){'
@@ -460,6 +520,44 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
 
         '_routeClearBtn.addEventListener("click",function(){'
         '_queue=[];_updateQueueDisplay();_updateHighlights();});\n'
+
+        # Build GeoJSON feature from current queue + metadata
+        'function _buildRouteFeature(){'
+        'if(_queue.length<2)return null;'
+        'var isSpur=_routeSpurCb.checked;'
+        'var prefix=isSpur?"route_spur_":"route_seg_";'
+        'var slug0=_queue[0].slug,slugN=_queue[_queue.length-1].slug;'
+        'var fid=prefix+slug0+"_"+slugN;'
+        'var name=_routeNameEl.value.trim()||(_queue[0].label+" → "+_queue[_queue.length-1].label);'
+        'var desc=_routeDescEl.value.trim();'
+        'var rtype=_routeTypeEl.value;'
+        'var coords=_queue.map(function(item){return[item.lon,item.lat];});'
+        'return{'
+        '"type":"Feature",'
+        '"id":fid,'
+        '"properties":{'
+        '"kind":"route",'
+        '"label":name,'
+        '"title":name,'
+        '"description":desc,'
+        '"route_type":rtype,'
+        '"stroke":"#1f77b4",'
+        '"stroke-width":15,'
+        '"stroke-opacity":0.6'
+        '},'
+        '"geometry":{"type":"LineString","coordinates":coords}'
+        '};'
+        '}\n'
+
+        '_routeCopyGjBtn.addEventListener("click",function(){'
+        'var feat=_buildRouteFeature();'
+        'if(!feat){alert("Add at least 2 waypoints.");return;}'
+        'var json=JSON.stringify(feat,null,2);'
+        '_routeGjText.textContent=json;'
+        '_routeGjBlock.classList.remove("hidden");'
+        '});\n'
+
+        '_routeCopyGj2Btn.addEventListener("click",function(){_copyText(_routeGjText.textContent,_routeCopyGj2Btn);});\n'
 
         '_routeGenBtn.addEventListener("click",function(){'
         'if(_queue.length<2)return;'
@@ -533,6 +631,12 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'paint:{"circle-radius":16,"circle-color":"rgba(0,0,0,0)",'
         '"circle-stroke-width":3,"circle-stroke-color":"#f5d060","circle-stroke-opacity":0.9}});\n'
 
+        # Route preview polyline for Tab 2 waypoint builder
+        'map.addSource("route-preview",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
+        'map.addLayer({id:"route-preview-line",type:"line",source:"route-preview",'
+        'layout:{"line-cap":"round","line-join":"round"},'
+        'paint:{"line-color":"#f5d060","line-width":2.5,"line-opacity":0.85,"line-dasharray":[3,3]}});\n'
+
         # Shared hover popup + click handlers across all location tiers
         'var _hoverPopup=new maplibregl.Popup({className:"ts-map-popup",offset:12,closeButton:false,closeOnClick:false});\n'
         'var _locLayerIds=["locations-major","locations-secondary","locations-routes","locations-detail"];\n'
@@ -557,6 +661,23 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         '});});\n'
 
         '});\n'  # end map.on('load')
+
+        # Route Index: fly-to on row click (uses _routeGJ which is available immediately)
+        'document.querySelectorAll("#panel-route-index .ri-row").forEach(function(row){'
+        'row.addEventListener("click",function(){'
+        'var routeId=row.dataset.id;'
+        'var feat=_routeGJ.features.find(function(f){return f.id===routeId;});'
+        'if(!feat)return;'
+        'var coords=feat.geometry.coordinates;'
+        'var lons=coords.map(function(c){return c[0];});'
+        'var lats=coords.map(function(c){return c[1];});'
+        'var minLon=Math.min.apply(null,lons),maxLon=Math.max.apply(null,lons);'
+        'var minLat=Math.min.apply(null,lats),maxLat=Math.max.apply(null,lats);'
+        'document.querySelectorAll(".ri-row").forEach(function(r){r.classList.remove("active");});'
+        'row.classList.add("active");'
+        '_setTab("route-index");'
+        'map.fitBounds([[minLon,minLat],[maxLon,maxLat]],{padding:60,duration:800});'
+        '});});\n'
     )
     # fmt: on
 
