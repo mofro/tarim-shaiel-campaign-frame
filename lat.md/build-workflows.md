@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-08-31
+last_updated: 2026-09-01
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -29,7 +29,7 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 | Public-facing rebuild only (no GM content) | `python utilities/build.py all --public` |
 | GM-mode rebuild (auth-gated, all content) | `python utilities/build.py all --gm` |
 | Netlify production build | runs `build.py all --public` automatically on push — no manual step |
-| Interactive location/route editing (drag-to-update) | `python utilities/devserver.py` *(not yet built — see GitHub #294)* |
+| Interactive location/route editing (drag-to-update) | `python utilities/devserver.py` — site at `localhost:8000/`, workshop at `localhost:8000/workshop` |
 | See all registered generators | `python utilities/build.py list` |
 
 ---
