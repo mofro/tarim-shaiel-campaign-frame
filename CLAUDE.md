@@ -259,6 +259,8 @@ bd close <id>         # Complete work
 - Run `bd prime` for detailed command reference and session close protocol
 - Use `bd remember` for persistent knowledge — do NOT use MEMORY.md files
 - **Always pass `--labels heroheaven`** when creating issues — every issue must carry this label so `bdg list --label-pattern 'heroheaven'` works correctly in beads-global
+- **Close GitHub and Beads together, same turn.** When a GitHub issue closes (by you or by finding it already closed), close its linked Beads issue immediately — don't leave it as a follow-up. Treating them as two disconnected steps is exactly how issues go stale (2026-09-02: 7 map/workshop issues sat open in Beads for weeks after their GitHub counterparts closed or their code shipped).
+- **Periodically audit for drift**, not just when something feels off: cross-check Beads issue status against `gh issue view <n> --json state` for any issue with a linked GitHub URL, and spot-check "open"/"in_progress" issues against the actual code — a feature can ship under a design that evolved past the issue's original acceptance criteria (e.g. a spec'd clipboard-copy CLI workflow superseded by a one-click devserver POST) without anyone updating or closing the issue.
 
 ### Review Intent — set at claim time
 
