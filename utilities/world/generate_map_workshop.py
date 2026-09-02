@@ -278,6 +278,15 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .list-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
   color: #9a8a6a; margin-bottom: 6px; margin-top: 8px; }
 .edit-toggle { width: 100%; text-align: center; transition: background 0.15s, border-color 0.15s; }
+/* Layer overlay control */
+#layer-control { position:absolute; bottom:36px; left:10px; z-index:10;
+  background:rgba(26,18,8,0.88); color:#f0e6c8; padding:7px 11px; border-radius:5px;
+  border:1px solid rgba(184,146,44,0.35); font-size:11px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px); }
+#layer-control label { display:flex; align-items:center; gap:6px; cursor:pointer;
+  white-space:nowrap; color:#c8a84a; text-transform:uppercase; letter-spacing:0.06em; }
+#topo-toggle { accent-color:#b8922c; cursor:pointer; }
+#topo-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
 .edit-toggle.active { background: #1a2a0a; border-color: #6a9a2c; color: #a8d840; }
 .edit-toggle.active:hover { background: #263d12; border-color: #8aba40; }
 #unsaved-list { list-style: none; display: flex; flex-direction: column; gap: 3px;
@@ -403,7 +412,7 @@ def _build_panel_edit_coords() -> str:
 """
 
 
-def _build_app_js(style_url: str, icons_js: str) -> str:
+def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
     # Build as string concatenation to avoid f-string {{ }} escaping for JS blocks.
     # fmt: off
     return (
@@ -623,6 +632,15 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         # -- Map load --
         'map.on("load",function(){\n'
 
+        # Topo overlay — raster tiles from MapTiler, hidden by default, sits below all custom data
+        'var _topoTiles=["https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key='
+        + maptiler_key +
+        '"];'
+        'map.addSource("topo-overlay",{type:"raster",tiles:_topoTiles,tileSize:256,'
+        'attribution:"© MapTiler"});\n'
+        'map.addLayer({id:"topo-overlay",type:"raster",source:"topo-overlay",'
+        'layout:{visibility:"none"},paint:{"raster-opacity":0.55}});\n'
+
         # Region overlay
         'map.addSource("regions",{type:"geojson",data:_regionGJ});\n'
         'map.addLayer({id:"regions-fill",type:"fill",minzoom:2,source:"regions",'
@@ -731,6 +749,24 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'var coords=e.features[0].geometry.coordinates;'
         '_startDragEdit(slug,{lng:coords[0],lat:coords[1]});}'
         '});});\n'
+
+        # Topo overlay toggle + opacity wiring (sessionStorage-persisted)
+        'var _topoToggle=document.getElementById("topo-toggle");'
+        'var _topoOpacity=document.getElementById("topo-opacity");'
+        'try{'
+        'var _sv=sessionStorage.getItem("_wsTopoOn");'
+        'var _so=sessionStorage.getItem("_wsTopoOp");'
+        'if(_sv==="1"){_topoToggle.checked=true;map.setLayoutProperty("topo-overlay","visibility","visible");}'
+        'if(_so!=null){_topoOpacity.value=_so;map.setPaintProperty("topo-overlay","raster-opacity",parseFloat(_so)/100);}'
+        '}catch(e){}'
+        '_topoToggle.addEventListener("change",function(){'
+        'map.setLayoutProperty("topo-overlay","visibility",_topoToggle.checked?"visible":"none");'
+        'try{sessionStorage.setItem("_wsTopoOn",_topoToggle.checked?"1":"0");}catch(e){}'
+        '});'
+        '_topoOpacity.addEventListener("input",function(){'
+        'map.setPaintProperty("topo-overlay","raster-opacity",parseInt(_topoOpacity.value)/100);'
+        'try{sessionStorage.setItem("_wsTopoOp",_topoOpacity.value);}catch(e){}'
+        '});\n'
 
         '});\n'  # end map.on('load')
 
@@ -965,7 +1001,7 @@ def _build_html(
     panel_add = _build_panel_add_point(cat_options, region_options)
     panel_route = _build_panel_plan_route()
     panel_edit = _build_panel_edit_coords()
-    app_js = _build_app_js(style_url, icons_js)
+    app_js = _build_app_js(style_url, icons_js, maptiler_key=maptiler_key)
 
     return (
         "<!DOCTYPE html>\n"
@@ -1007,6 +1043,13 @@ def _build_html(
         '    <button id="route-panel-regenerate">🔄 Regenerate</button>\n'
         '    <button id="route-panel-delete">🗑 Delete Route</button>\n'
         '    <button id="route-panel-close">✕</button>\n'
+        '  </div>\n'
+        '  <div id="layer-control">\n'
+        '    <label>\n'
+        '      <input type="checkbox" id="topo-toggle">\n'
+        '      Topo overlay\n'
+        '      <input type="range" id="topo-opacity" min="0" max="100" value="55" title="Opacity">\n'
+        '    </label>\n'
         '  </div>\n'
         "</div>\n"
         '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'

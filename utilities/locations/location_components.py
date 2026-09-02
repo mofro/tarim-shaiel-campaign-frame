@@ -156,8 +156,8 @@ def _load_dotenv() -> None:
 
 _load_dotenv()
 
-# MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'  # custom campaign style
-MAPTILER_STYLE_ID = 'topo-v2'  # TEMP: richer reference map for route planning
+MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'  # custom campaign style
+# MAPTILER_STYLE_ID = 'topo-v2'  # richer reference — use topo overlay toggle in workshop instead
 MAPTILER_KEY = os.environ.get('MAPTILER_KEY', '')
 if not MAPTILER_KEY:
     print(
