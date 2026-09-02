@@ -118,17 +118,13 @@ Open at `http://localhost:8000/workshop`. Without the devserver, open `map-works
 
 ### The Four Tabs
 
-#### Add Point
-For adding new location stubs with coordinates. Provides a form (title, category, fantasy name, description, lat/lon). Clicking the map drops a crosshair at that point and populates the coordinate fields. Does NOT write to disk directly — outputs a YAML frontmatter block to copy into a new `.md` file.
+#### Add Point *(devserver required for one-click creation)*
+For adding new location stubs with coordinates. Provides a form (title, category, fantasy name, description, lat/lon). Clicking the map drops a crosshair at that point and populates the coordinate fields. Click **Create Location** — the button POSTs to `POST /api/locations/create`, which runs `map.py location` end-to-end: writes the `.md` stub, rebuilds the GeoJSON snapshot, then triggers a workshop rebuild. Status shown inline; reload the workshop to see the new pin.
 
-#### Plan Route
-For building new routes between locations. Pick two or more locations from a searchable list, or click the map to add waypoints. Generates an `add_route.py` CLI command to run locally — the command calls OSRM to snap the points to actual roads and appends the result to `world/data/tarim-shaiel-routes.geojson`. After running the command, regenerate the workshop to see the new route.
+#### Plan Route *(devserver required for one-click adding)*
+For building new routes between locations. Click location markers on the map to queue waypoints. The queue shows straight-line distance and travel time between each pair. Click **Add Route** — the button POSTs to `POST /api/routes/add`, which runs `map.py route` end-to-end: writes segments to `world/data/tarim-shaiel-routes.geojson`, snaps to roads via OSRM, rebuilds GeoJSON and workshop. Status shown inline; reload to see the new route.
 
-Workflow:
-1. Select waypoints in the Plan Route tab
-2. Copy the generated command
-3. Run it in terminal: `python utilities/routes/add_route.py ...`
-4. Regenerate: `python utilities/build.py workshop`
+Check "Spur route (branch)" before clicking Add Route to use the `route_spur_` id prefix.
 
 #### Route Index
 A table of all routes currently in `world/data/tarim-shaiel-routes.geojson`. Columns: route ID, label, distance (km), estimated travel time (at 30 km/day caravan pace). Straight-line (2-point) segments are flagged with `~`. Clicking a row flies the map to that route and highlights it.
@@ -143,24 +139,29 @@ For updating the lat/lon of an existing location without editing YAML by hand. C
 | Endpoint | Method | What it does |
 |---|---|---|
 | `/api/locations/{slug}/coordinates` | PUT | Writes new lat/lon into `world/locations/{slug}.md` frontmatter |
+| `/api/locations/create` | POST | Creates a new location stub via `map.py location` (writes `.md`, rebuilds GeoJSON) |
+| `/api/routes/add` | POST | Adds route segments via `map.py route` (writes GeoJSON, snaps to roads) |
 | `/api/rebuild/locations` | POST | Runs `build.py locations` — regenerates `docs/world.html` |
-| `/api/rebuild/workshop` | POST | Runs `build.py workshop` — regenerates `map-workshop.html` and reloads |
+| `/api/rebuild/workshop` | POST | Runs `build.py workshop` — regenerates `map-workshop.html` |
 
-The workshop sidebar has **Rebuild Locations** and **Rebuild Workshop** buttons that call these endpoints in-browser.
+The workshop sidebar exposes these as buttons: **Create Location** (Add Point tab), **Add Route** (Plan Route tab), **Edit Coords** drag-and-confirm (Edit Coords tab), **Rebuild Locations** and **Rebuild Workshop** (Edit Coords tab). All show inline status and fall back gracefully when the devserver is not running.
 
 ---
 
 ### Authoring New Routes
 
-Routes are LineString features in `world/data/tarim-shaiel-routes.geojson`. Two ways to add them:
+Routes are LineString features in `world/data/tarim-shaiel-routes.geojson`. Three ways to add them:
 
-**Via Plan Route tab + add_route.py** (recommended):
-Uses OSRM routing to snap waypoints to real road geometry. Produces multi-vertex polylines rather than straight lines.
+**Via Plan Route tab → Add Route button** (recommended, devserver required):
+Click waypoints on the map, click Add Route. The devserver runs `map.py route` which calls OSRM to snap to real road geometry and rebuilds everything. No terminal needed.
+
+**Via terminal** (fallback when devserver is not running):
+```bash
+python utilities/map.py route slug-a slug-b slug-c   # snaps + rebuilds
+```
 
 **Hand-edit the GeoJSON** (for simple or approximate routes):
-Add a feature directly to the file. A 2-point segment (start → end only) is flagged in the Route Index as `~` (straight-line estimate).
-
-After either method: `python utilities/build.py workshop` to regenerate.
+Add a feature directly to the file. A 2-point segment (start → end only) is flagged in the Route Index as `~` (straight-line estimate). Then: `python utilities/build.py workshop`.
 
 ---
 
