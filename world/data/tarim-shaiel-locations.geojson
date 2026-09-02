@@ -351,8 +351,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          79.870771,
-          41.177004
+          79.823884,
+          41.127075
         ]
       }
     },
@@ -503,6 +503,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_balcony",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "balcony",
+        "label": "Balcony",
+        "title": "Balcony",
+        "fantasy_name": "Balcony",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/balcony.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.211797,
+          39.016338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_balkh-kamen",
       "properties": {
         "kind": "location",
@@ -619,6 +648,35 @@
         "coordinates": [
           80.369279,
           40.801559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_bila-ul-cha",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "bila-ul-cha",
+        "label": "Bila'ul chā",
+        "title": "Bila'ul chā",
+        "fantasy_name": "Bila'ul chā",
+        "description": "Bila' ul Fork",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Bila' ul Fork</p>",
+        "url": "/locations/bila-ul-cha.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          89.983098,
+          39.139405
         ]
       }
     },
@@ -1198,6 +1256,64 @@
         "coordinates": [
           68.786562,
           38.574199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_egerchi-bridge",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "egerchi-bridge",
+        "label": "Egerchi Bridge",
+        "title": "Egerchi Bridge",
+        "fantasy_name": "Egerchi Bridge",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "landmark",
+        "marker-symbol": "mountain",
+        "marker-color": "#9CA3AF",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/egerchi-bridge.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.214446,
+          41.11215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_egerchi",
+      "properties": {
+        "kind": "location",
+        "category": "fortress",
+        "slug": "egerchi",
+        "label": "Egerchi",
+        "title": "Egerchi",
+        "fantasy_name": "Egerchi",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "fortress",
+        "marker-symbol": "castle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/egerchi.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.258218,
+          41.14129
         ]
       }
     },
@@ -2068,6 +2184,35 @@
         "coordinates": [
           89.390955,
           37.550877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_last-water",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "last-water",
+        "label": "Last Water",
+        "title": "Last Water",
+        "fantasy_name": "Last Water",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/last-water.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.227325,
+          39.050599
         ]
       }
     },
@@ -3228,6 +3373,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_shorkol",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "shorkol",
+        "label": "Xiao'erkule Lake",
+        "title": "Xiao'erkule Lake",
+        "fantasy_name": "Xiao'erkule Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/shorkol.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.347223,
+          40.099271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_shuangcheng",
       "properties": {
         "kind": "location",
@@ -3820,6 +3994,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_turn",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "turn",
+        "label": "Turn",
+        "title": "Turn",
+        "fantasy_name": "Turn",
+        "description": "Bila' ul Fork",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Bila' ul Fork</p>",
+        "url": "/locations/turn.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.184223,
+          39.089937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_uchturpan",
       "properties": {
         "kind": "location",
@@ -3844,6 +4047,35 @@
         "coordinates": [
           79.231474,
           41.214343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_walls",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "walls",
+        "label": "Walls",
+        "title": "Walls",
+        "fantasy_name": "Walls",
+        "description": "Bila' ul Fork",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Bila' ul Fork</p>",
+        "url": "/locations/walls.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.118914,
+          39.128789
         ]
       }
     },
@@ -3907,6 +4139,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_wind-bazar",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "wind-bazar",
+        "label": "Wind Bazar",
+        "title": "Wind Bazar",
+        "fantasy_name": "Wind Bazar",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/wind-bazar.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.454862,
+          40.526998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_wind-cut-narrows",
       "properties": {
         "kind": "location",
@@ -3931,6 +4192,35 @@
         "coordinates": [
           94.55,
           40.33
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_x-xo-canyon-mouth",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "x-xo-canyon-mouth",
+        "label": "X'Xo Canyon Mouth",
+        "title": "X'Xo Canyon Mouth",
+        "fantasy_name": "X'Xo Canyon Mouth",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/x-xo-canyon-mouth.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          89.893618,
+          39.158076
         ]
       }
     },
