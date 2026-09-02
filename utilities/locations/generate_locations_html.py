@@ -642,9 +642,9 @@ def generate(
     # geojson generator (utilities/geojson/generate_geojson.py) — do not write it here.
     locs_gj = _build_locations_geojson(locations)
 
-    routes_gj      = _load_geojson(_ROUTES_GEOJSON)
-    regions_gj     = _load_geojson(_REGIONS_GEOJSON)
-    waystations_gj = _load_geojson(_WAYSTATIONS_GEOJSON)
+    routes_gj      = None
+    regions_gj     = None
+    waystations_gj = None
 
     # Filter to public-only locations for public builds
     if public_only:
