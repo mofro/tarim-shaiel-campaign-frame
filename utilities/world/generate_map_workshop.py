@@ -27,8 +27,6 @@ from locations.map_icons import icon_registration_js
 from locations.location_components import MAPTILER_STYLE_URL, MAPTILER_KEY, MAPTILER_STYLE_ID
 
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
-ROUTES_PATH   = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
-REGIONS_PATH  = VAULT_ROOT / "world" / "data" / "tarim-shaiel-regions.geojson"
 OUTPUT_PATH   = VAULT_ROOT / "map-workshop.html"
 
 CATEGORIES = [
@@ -556,21 +554,6 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         # -- Map load --
         'map.on("load",function(){\n'
 
-        # Region overlay
-        'map.addSource("regions",{type:"geojson",data:_regionGJ});\n'
-        'map.addLayer({id:"regions-fill",type:"fill",minzoom:2,source:"regions",'
-        'paint:{"fill-color":["coalesce",["get","fill"],"#b8892a"],'
-        '"fill-opacity":["interpolate",["linear"],["zoom"],3,0.07,7,0]}});\n'
-        'map.addLayer({id:"regions-line",type:"line",minzoom:2,source:"regions",'
-        'paint:{"line-color":["coalesce",["get","stroke"],"#b8892a"],"line-width":2,'
-        '"line-opacity":["interpolate",["linear"],["zoom"],3,0.6,7,0]}});\n'
-
-        # Routes
-        'map.addSource("routes",{type:"geojson",data:_routeGJ});\n'
-        'map.addLayer({id:"routes",type:"line",minzoom:4,source:"routes",'
-        'layout:{"line-cap":"butt"},'
-        'paint:{"line-color":"#1a1208","line-width":3,"line-opacity":0.8,"line-dasharray":[4,4]}});\n'
-
         # Icons + location symbol layers
         + icons_js +
         'map.addSource("locations",{type:"geojson",data:_locGJ});\n'
@@ -785,11 +768,8 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
 
 def _build_html(
     loc_geojson: dict,
-    routes_geojson: dict,
-    regions_geojson: dict,
     region_names: list,
     loc_list: list,
-    route_index_html: str,
     maptiler_key: str,
 ) -> str:
     style_url = (
@@ -799,8 +779,6 @@ def _build_html(
 
     data_js = (
         f"var _locGJ = {json.dumps(loc_geojson)};\n"
-        f"var _routeGJ = {json.dumps(routes_geojson)};\n"
-        f"var _regionGJ = {json.dumps(regions_geojson)};\n"
         f"var _locList = {json.dumps(loc_list)};\n"
         f"var _regionList = {json.dumps(region_names)};\n"
     )
@@ -832,7 +810,6 @@ def _build_html(
         '      <div id="tab-bar">\n'
         '        <button class="tab-btn active" data-tab="add-point">Add Point</button>\n'
         '        <button class="tab-btn" data-tab="plan-route">Plan Route</button>\n'
-        '        <button class="tab-btn" data-tab="route-index">Route Index</button>\n'
         '        <button class="tab-btn" data-tab="edit-coords">Edit Coords <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
         "      </div>\n"
         "    </div>\n"
@@ -841,9 +818,6 @@ def _build_html(
         + "\n    </div>\n"
         '    <div id="panel-plan-route" class="panel">\n'
         + panel_route
-        + "\n    </div>\n"
-        '    <div id="panel-route-index" class="panel">\n'
-        + route_index_html
         + "\n    </div>\n"
         '    <div id="panel-edit-coords" class="panel">\n'
         + panel_edit
@@ -893,38 +867,12 @@ def main() -> int:
         key=lambda l: l["label"],
     )
 
-    routes_geojson: dict = {"type": "FeatureCollection", "features": []}
-    if ROUTES_PATH.exists():
-        routes_geojson = json.loads(ROUTES_PATH.read_text(encoding="utf-8"))
-        print(f"  {len(routes_geojson.get('features', []))} route features loaded")
-    else:
-        print("  WARN: routes GeoJSON not found", file=sys.stderr)
-
-    regions_geojson: dict = {"type": "FeatureCollection", "features": []}
     region_names: list = []
-    if REGIONS_PATH.exists():
-        regions_geojson = json.loads(REGIONS_PATH.read_text(encoding="utf-8"))
-        for f in regions_geojson.get("features", []):
-            title = f.get("properties", {}).get("title", "")
-            fid = f.get("id", "")
-            slug = fid.replace("region_", "") if fid else ""
-            if title:
-                region_names.append({"slug": slug, "title": title})
-        region_names.sort(key=lambda r: r["title"])
-        print(f"  {len(region_names)} regions loaded")
-    else:
-        print("  WARN: regions GeoJSON not found", file=sys.stderr)
-
-    route_index = _build_route_index(routes_geojson)
-    ri_html = _route_index_html(route_index)
 
     html = _build_html(
         loc_geojson=loc_geojson,
-        routes_geojson=routes_geojson,
-        regions_geojson=regions_geojson,
         region_names=region_names,
         loc_list=loc_list,
-        route_index_html=ri_html,
         maptiler_key=MAPTILER_KEY,
     )
 
