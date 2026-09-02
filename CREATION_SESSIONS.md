@@ -6,7 +6,7 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-08-22
+last_updated: 2026-09-02
 ---
 
 # Creation Session Log
@@ -15,6 +15,16 @@ _Authoring and design work sessions. Newest first. Trim to last 10 sessions; old
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
 
 ---
+
+### Session 2026-09-02
+- Fixed "Regenerate Route" doing nothing when a connected location had been repositioned via Edit Coords
+  - Root cause: `generate_routes.py` always re-routed between a route's own stale stored coordinates; nothing ever resynced route endpoints to a moved location's current `.md` position
+  - Added `_resync_endpoints()` — looks up both of a route ID's location slugs, replaces stale endpoints with current coordinates when moved > 0.25km (haversine, not decimal rounding — avoids false-flagging every route from 4-vs-6-decimal precision noise between frontmatter and OSRM output)
+  - Found and fixed a second bug this exposed: OSRM silently snaps an endpoint with no nearby road/path data to a wrong nearby point instead of erroring; added a snap-tolerance check that falls back to a straight line between the real endpoints when this happens
+  - Added `--force` to bypass the routes cache (which previously stored failed OSRM lookups as permanent `None`); wired into the devserver's `/api/routes/{id}/regenerate` handler
+  - Regenerated 3 routes that were stale on disk: `route_spur_refugee-rill_redirect`, `route_spur_redirect_qizil`, `route_seg_apu-nengkapu_niye`
+  - Documented the Regenerate Route endpoint and its resync/fallback behavior in `lat.md/build-workflows.md` (previously undocumented) and added a note that Edit Coords does not cascade to connected routes
+  - Commits: `c42e491` (pipeline fix), `6eca685` (route data resync), `dea156f` (added missing `redirect.md` location stub)
 
 ### Session 2026-08-22 (continued)
 - Daggerheart Obsidian plugin — Phase 2 complete (`mofro/daggerheart-sheet`)

@@ -127,10 +127,19 @@ For building new routes between locations. Click location markers on the map to 
 Check "Spur route (branch)" before clicking Add Route to use the `route_spur_` id prefix.
 
 #### Route Index
-A table of all routes currently in `world/data/tarim-shaiel-routes.geojson`. Columns: route ID, label, distance (km), estimated travel time (at 30 km/day caravan pace). Straight-line (2-point) segments are flagged with `~`. Clicking a row flies the map to that route and highlights it.
+A table of all routes currently in `world/data/tarim-shaiel-routes.geojson`. Columns: route ID, label, distance (km), estimated travel time (at 30 km/day caravan pace). Straight-line (2-point) segments are flagged with `~`. Clicking a row flies the map to that route and highlights it. Each row has a **Regenerate** button — see below.
 
 #### Edit Coords *(devserver required)*
 For updating the lat/lon of an existing location without editing YAML by hand. Click any pin on the map → the location loads in the Edit Coords panel. Drag the pin to its correct position, or type new coordinates directly. A badge on the tab shows how many unsaved edits are pending. "Save" sends a `PUT /api/locations/{slug}/coordinates` to the devserver, which writes the new coordinates into the `.md` file's frontmatter.
+
+**Moving a location does NOT update any routes connected to it.** Route geometry is a frozen snapshot from when the route was created/last regenerated — coordinates live independently in `world/data/tarim-shaiel-routes.geojson`. After repositioning a location, click **Regenerate** (Route Index tab) on each route touching it to bring the route's endpoints back in sync.
+
+#### Regenerate Route
+`POST /api/routes/{route_id}/regenerate` runs `generate_routes.py --segment {route_id} --force`. This does two things, not just a re-snap:
+1. **Resyncs endpoints** — reads the route ID's two location slugs (`route_seg_{a}_{b}` / `route_spur_{a}_{b}`), looks up each location's *current* `.md` coordinates, and replaces the route's stored start/end with them if they've moved more than ~250m (a threshold chosen to sit above the rounding noise between 4-decimal frontmatter and 6-decimal OSRM output — real moves are almost always multi-km).
+2. **Re-routes via OSRM** — `--force` bypasses the cache (including a previously cached failure) so a stale/failed lookup can never block a retry. If OSRM has no road/path coverage near an endpoint, it can silently snap to a nearby-but-wrong point instead of erroring; a snap-tolerance check (0.5km) detects this and falls back to a straight 2-point line between the real endpoints rather than accepting the wrong geometry.
+
+Net effect: Regenerate always ends with the route correctly touching both locations' current positions, road-snapped where OSRM has coverage and a straight line where it doesn't.
 
 ---
 
@@ -141,6 +150,7 @@ For updating the lat/lon of an existing location without editing YAML by hand. C
 | `/api/locations/{slug}/coordinates` | PUT | Writes new lat/lon into `world/locations/{slug}.md` frontmatter |
 | `/api/locations/create` | POST | Creates a new location stub via `map.py location` (writes `.md`, rebuilds GeoJSON) |
 | `/api/routes/add` | POST | Adds route segments via `map.py route` (writes GeoJSON, snaps to roads) |
+| `/api/routes/{route_id}/regenerate` | POST | Resyncs the route's endpoints to its locations' current coordinates and re-snaps via OSRM (`--force`, bypasses cache) |
 | `/api/rebuild/locations` | POST | Runs `build.py locations` — regenerates `docs/world.html` |
 | `/api/rebuild/workshop` | POST | Runs `build.py workshop` — regenerates `map-workshop.html` |
 
