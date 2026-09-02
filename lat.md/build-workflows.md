@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-09-01
+last_updated: 2026-09-02
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -95,6 +95,80 @@ python utilities/build.py geojson      # writes world/data/tarim-shaiel-location
 ```bash
 python utilities/build.py all
 ```
+
+---
+
+## Map Workshop — What It Is and How to Use It
+
+The map workshop is a **local GM-only tool**. It is gitignored (contains the MapTiler API key baked in), never deployed to Netlify, and only accessible to whoever regenerates it on their local machine.
+
+### What it is
+
+A full-screen interactive map (`map-workshop.html` at vault root) with a left-panel sidebar. It shows all placed locations as pins, all routes as polylines, and region polygons when present. It is not a viewer — it is an **authoring and planning environment** for the GM.
+
+Run it with the devserver for write-back capability (drag-to-update, in-browser rebuilds):
+
+```bash
+python utilities/devserver.py
+```
+
+Open at `http://localhost:8000/workshop`. Without the devserver, open `map-workshop.html` directly in a browser — read-only, no write-back.
+
+---
+
+### The Four Tabs
+
+#### Add Point
+For adding new location stubs with coordinates. Provides a form (title, category, fantasy name, description, lat/lon). Clicking the map drops a crosshair at that point and populates the coordinate fields. Does NOT write to disk directly — outputs a YAML frontmatter block to copy into a new `.md` file.
+
+#### Plan Route
+For building new routes between locations. Pick two or more locations from a searchable list, or click the map to add waypoints. Generates an `add_route.py` CLI command to run locally — the command calls OSRM to snap the points to actual roads and appends the result to `world/data/tarim-shaiel-routes.geojson`. After running the command, regenerate the workshop to see the new route.
+
+Workflow:
+1. Select waypoints in the Plan Route tab
+2. Copy the generated command
+3. Run it in terminal: `python utilities/routes/add_route.py ...`
+4. Regenerate: `python utilities/build.py workshop`
+
+#### Route Index
+A table of all routes currently in `world/data/tarim-shaiel-routes.geojson`. Columns: route ID, label, distance (km), estimated travel time (at 30 km/day caravan pace). Straight-line (2-point) segments are flagged with `~`. Clicking a row flies the map to that route and highlights it.
+
+#### Edit Coords *(devserver required)*
+For updating the lat/lon of an existing location without editing YAML by hand. Click any pin on the map → the location loads in the Edit Coords panel. Drag the pin to its correct position, or type new coordinates directly. A badge on the tab shows how many unsaved edits are pending. "Save" sends a `PUT /api/locations/{slug}/coordinates` to the devserver, which writes the new coordinates into the `.md` file's frontmatter.
+
+---
+
+### Devserver Write-Back Endpoints
+
+| Endpoint | Method | What it does |
+|---|---|---|
+| `/api/locations/{slug}/coordinates` | PUT | Writes new lat/lon into `world/locations/{slug}.md` frontmatter |
+| `/api/rebuild/locations` | POST | Runs `build.py locations` — regenerates `docs/world.html` |
+| `/api/rebuild/workshop` | POST | Runs `build.py workshop` — regenerates `map-workshop.html` and reloads |
+
+The workshop sidebar has **Rebuild Locations** and **Rebuild Workshop** buttons that call these endpoints in-browser.
+
+---
+
+### Authoring New Routes
+
+Routes are LineString features in `world/data/tarim-shaiel-routes.geojson`. Two ways to add them:
+
+**Via Plan Route tab + add_route.py** (recommended):
+Uses OSRM routing to snap waypoints to real road geometry. Produces multi-vertex polylines rather than straight lines.
+
+**Hand-edit the GeoJSON** (for simple or approximate routes):
+Add a feature directly to the file. A 2-point segment (start → end only) is flagged in the Route Index as `~` (straight-line estimate).
+
+After either method: `python utilities/build.py workshop` to regenerate.
+
+---
+
+### What the Workshop Is NOT
+
+- Not the public-facing world map (`docs/world.html`) — that is built by `generate_locations_html.py` and served by Netlify
+- Not accessible to players — it is gitignored and never pushed
+- Not a replacement for editing `.md` files — it is a coordinate and route authoring aid
 
 ---
 
