@@ -67,20 +67,27 @@ def _segment_id(slug_a: str, slug_b: str, spur: bool) -> str:
 
 
 def _make_feature(seg_id: str, slug_a: str, slug_b: str,
-                  loc_a: dict, loc_b: dict, spur: bool) -> dict:
+                  loc_a: dict, loc_b: dict, spur: bool,
+                  route_name: str = "", description: str = "",
+                  route_type: str = "") -> dict:
     label = f"{loc_a['label']} → {loc_b['label']}"
+    props = {
+        "kind": "spur" if spur else "route",
+        "label": label,
+        "title": label,
+        "description": description,
+        "stroke": DEFAULT_STROKE,
+        "stroke-width": DEFAULT_STROKE_WIDTH,
+        "stroke-opacity": DEFAULT_STROKE_OPACITY,
+    }
+    if route_name:
+        props["route_name"] = route_name
+    if route_type:
+        props["route_type"] = route_type
     return {
         "type": "Feature",
         "id": seg_id,
-        "properties": {
-            "kind": "spur" if spur else "route",
-            "label": label,
-            "title": label,
-            "description": "",
-            "stroke": DEFAULT_STROKE,
-            "stroke-width": DEFAULT_STROKE_WIDTH,
-            "stroke-opacity": DEFAULT_STROKE_OPACITY,
-        },
+        "properties": props,
         "geometry": {
             "type": "LineString",
             "coordinates": [loc_a["coords"], loc_b["coords"]],
@@ -106,6 +113,12 @@ def main() -> None:
                         help="Location slugs in order (2 = one segment, N = N-1 segments)")
     parser.add_argument("--spur", action="store_true",
                         help="Mark as a spur route (route_spur_… id prefix)")
+    parser.add_argument("--name", default="",
+                        help="Custom route name, shown in place of the auto A → B label")
+    parser.add_argument("--description", default="",
+                        help="Route description")
+    parser.add_argument("--route-type", default="",
+                        help="Route type, e.g. trade-route, pilgrimage, military")
     parser.add_argument("--dry-run", action="store_true",
                         help="Show what would be added without writing")
     args = parser.parse_args()
@@ -137,7 +150,9 @@ def main() -> None:
         if seg_id in existing:
             skipped.append(seg_id)
             continue
-        feat = _make_feature(seg_id, slug_a, slug_b, locs[slug_a], locs[slug_b], args.spur)
+        feat = _make_feature(seg_id, slug_a, slug_b, locs[slug_a], locs[slug_b], args.spur,
+                             route_name=args.name, description=args.description,
+                             route_type=args.route_type)
         new_features.append(feat)
 
     # Report

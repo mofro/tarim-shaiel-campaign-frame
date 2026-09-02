@@ -98,7 +98,7 @@ def _build_route_index(routes_geojson: dict) -> list:
         fid = feat.get("id", "")
         props = feat.get("properties", {})
         coords = feat.get("geometry", {}).get("coordinates", [])
-        label = props.get("label") or props.get("title") or fid
+        label = props.get("route_name") or props.get("label") or props.get("title") or fid
         kind = "spur" if fid.startswith("route_spur_") else "main"
         is_approx = len(coords) <= 2
         dist_km = path_length_km(coords) if len(coords) >= 2 else 0.0
@@ -598,7 +598,9 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         '_routeAddBtn.addEventListener("click",function(){'
         'if(_queue.length<2)return;'
         'var slugs=_queue.map(function(i){return i.slug;});'
-        'var body={slugs:slugs,spur:_routeSpurCb.checked};'
+        'var body={slugs:slugs,spur:_routeSpurCb.checked,'
+        'name:_routeNameEl.value.trim(),description:_routeDescEl.value.trim(),'
+        'routeType:_routeTypeEl.value};'
         '_routeStatus.textContent="Adding route…";'
         '_routeAddBtn.disabled=true;'
         'fetch("/api/routes/add",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})'
@@ -667,7 +669,7 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
 
         # Five-tier location layers (matching generate_locations_html.py tiers)
         # t: [id, cats, minzoom, fadeStart, fadeEnd, font|null, minIconSz, textSz]
-        '[["locations-major",["city","landmark","fortress"],3,3.5,4,["Roboto Serif Regular","Noto Sans Bold"],0.65,15],'
+        '[["locations-major",["city","landmark","fortress"],3,3.5,4,["Roboto Serif Regular","Noto Sans Regular"],0.65,15],'
         '["locations-towns",["town"],4,4.5,5,["Roboto Serif Regular","Noto Sans Regular"],0.55,13],'
         '["locations-secondary",["sacred-site","oasis","caravanserai"],5,5.5,6,["Roboto Serif Regular","Noto Sans Italic"],0.5,13],'
         '["locations-routes",["route-node","chokepoint","mountain-pass"],6,6.5,7,null,0.45,0],'
@@ -684,8 +686,8 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'layout["text-font"]=font;layout["text-size"]=tSz;'
         'layout["text-offset"]=[0,1.1];layout["text-anchor"]="top";layout["text-max-width"]=8;'
         'layout["text-allow-overlap"]=false;'
-        'paint["text-color"]="#ffffff";paint["text-halo-color"]="rgba(10,8,5,0.95)";'
-        'paint["text-halo-width"]=2;paint["text-opacity"]=opExpr;}'
+        'paint["text-color"]="rgba(10,8,5,0.95)";paint["text-halo-color"]="#ffffff";'
+        'paint["text-halo-width"]=1;paint["text-opacity"]=opExpr;}'
         'map.addLayer({id:id,type:"symbol",minzoom:mz,source:"locations",'
         'filter:catsFilter,layout:layout,paint:paint});});\n'
 
@@ -778,7 +780,7 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'function _showRoutePanel(feature){'
         '_selectedRouteId=feature.id||feature.properties._route_id||"";'
         'document.getElementById("route-panel-label").textContent='
-        'feature.properties.label||_selectedRouteId||"";'
+        'feature.properties.route_name||feature.properties.label||_selectedRouteId||"";'
         'document.getElementById("route-panel").hidden=false;'
         '}\n'
         'function _hideRoutePanel(){'

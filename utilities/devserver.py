@@ -189,6 +189,9 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             data = self._read_json()
             slugs = [str(s) for s in data["slugs"]]
             spur  = bool(data.get("spur", False))
+            name  = str(data.get("name", "")).strip()
+            description = str(data.get("description", "")).strip()
+            route_type = str(data.get("routeType", "")).strip()
         except (ValueError, KeyError, TypeError):
             return self.send_error(400, 'Body must include slugs array')
         if len(slugs) < 2:
@@ -197,6 +200,12 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         cmd = [sys.executable, str(VAULT_ROOT / "utilities" / "map.py"), "route"] + slugs
         if spur:
             cmd.append("--spur")
+        if name:
+            cmd += ["--name", name]
+        if description:
+            cmd += ["--description", description]
+        if route_type:
+            cmd += ["--route-type", route_type]
 
         print(f"  Adding route: {' → '.join(slugs)} ...")
         result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(VAULT_ROOT))
