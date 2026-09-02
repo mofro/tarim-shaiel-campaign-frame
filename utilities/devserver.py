@@ -271,7 +271,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
 
         cmd = [
             sys.executable, str(VAULT_ROOT / "utilities" / "routes" / "generate_routes.py"),
-            "--segment", route_id,
+            "--segment", route_id, "--force",
         ]
         print(f"  Regenerating route: {route_id} ...")
         result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(VAULT_ROOT))
