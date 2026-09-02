@@ -418,17 +418,39 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'var _locBySlug={};\n'
         '_locList.forEach(function(l){_locBySlug[l.slug]=l;});\n'
 
+        # Mirror route feature id into properties — MapLibre click events don't
+        # reliably surface a string top-level `id` back on e.features[0].id
+        '_routeGJ.features.forEach(function(f){if(f.id)f.properties._route_id=f.id;});\n'
+
         # -- Active tab state --
         'var _activeTab="add-point";\n'
 
         # -- Map init --
+        # Restore last view (center/zoom) across reloads triggered by add/delete
+        # actions, or a manual refresh, so the workshop doesn't snap back to the
+        # default view every time.
+        'var _wsSavedCenter=null,_wsSavedZoom=null;\n'
+        'try{'
+        'var _wsSc=sessionStorage.getItem("_wsCenter");'
+        'var _wsSz=sessionStorage.getItem("_wsZoom");'
+        'if(_wsSc&&_wsSz){_wsSavedCenter=JSON.parse(_wsSc);_wsSavedZoom=parseFloat(_wsSz);}'
+        '}catch(e){}\n'
+
         'var map=new maplibregl.Map({'
         'container:"map",'
         'style:"' + style_url + '",'
-        'center:[75.0,40.0],'
-        'zoom:5,'
+        'center:_wsSavedCenter||[75.0,40.0],'
+        'zoom:_wsSavedZoom!=null?_wsSavedZoom:5,'
         'minZoom:3,'
         'maxZoom:14'
+        '});\n'
+
+        'window.addEventListener("beforeunload",function(){'
+        'try{'
+        'var ctr=map.getCenter();'
+        'sessionStorage.setItem("_wsCenter",JSON.stringify([ctr.lng,ctr.lat]));'
+        'sessionStorage.setItem("_wsZoom",String(map.getZoom()));'
+        '}catch(e){}'
         '});\n'
 
         # -- Tab switching --
@@ -747,9 +769,9 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         # Route panel (map click) functions + button listeners
         'var _selectedRouteId=null;\n'
         'function _showRoutePanel(feature){'
-        '_selectedRouteId=feature.id;'
+        '_selectedRouteId=feature.id||feature.properties._route_id||"";'
         'document.getElementById("route-panel-label").textContent='
-        'feature.properties.label||feature.id||"";'
+        'feature.properties.label||_selectedRouteId||"";'
         'document.getElementById("route-panel").hidden=false;'
         '}\n'
         'function _hideRoutePanel(){'
