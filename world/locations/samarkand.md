@@ -15,8 +15,8 @@ factions_visible:
 fantasy_name: Samarqandh
 last_updated: 2025-12-13
 location:
-- 39.65
-- 66.97
+- 39.654587
+- 66.975141
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: city

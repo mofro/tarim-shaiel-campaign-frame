@@ -17,8 +17,8 @@ fantasy_name: Aksu
 historical_basis: Tarim Basin - Oasis waypoint on northern corridor
 last_updated: 2025-12-13
 location:
-- 41.17
-- 80.26
+- 41.167908
+- 80.258248
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: caravanserai

@@ -11,8 +11,8 @@ last_updated: 2026-07-22
 fantasy_name: TBD
 real_world_name: Almaty
 location:
-- 43.2220
-- 76.8512
+- 43.233835
+- 76.947054
 type: city
 parent_region: null
 tags:
