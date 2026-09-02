@@ -30,7 +30,7 @@ class LocationData(TypedDict):
     title: str
     fantasy_name: str
     description: str
-    location_type: str       # city | route-node | oasis | dungeon | landmark | poi | sacred-site | fortress
+    location_type: str       # city | town | route-node | oasis | dungeon | landmark | poi | sacred-site | fortress
     visibility: str          # public | gm_secrets
     status: str
     parent_region: Optional[str]
@@ -58,6 +58,7 @@ class LocationData(TypedDict):
 
 _TYPE_FIELD_MAP: dict[str, str] = {
     "city": "city",
+    "town": "town",
     "route-node": "route-node",
     "oasis": "oasis",
     "dungeon": "dungeon",
@@ -77,6 +78,7 @@ _CONTENT_TYPE_MAP: dict[str, str] = {
 
 _TAG_TYPE_MAP: dict[str, str] = {
     "type-city": "city",
+    "type-town": "town",
     "type-route-node": "route-node",
     "type-oasis": "oasis",
     "type-dungeon": "dungeon",

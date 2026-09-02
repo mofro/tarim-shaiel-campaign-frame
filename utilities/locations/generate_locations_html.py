@@ -157,11 +157,11 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     # Per-tier zoom-interpolated icon sizes: smaller at overview zooms to reduce
     # crowding, growing as the user zooms in. Major features are always largest.
     _ICON_SIZE: dict[str, str] = {
-        'locations-major':     '["interpolate",["linear"],["zoom"],3,0.65,8,1.1]',
-        'locations-towns':     '["interpolate",["linear"],["zoom"],4,0.55,8,0.95]',
-        'locations-secondary': '["interpolate",["linear"],["zoom"],5,0.5,8,0.9]',
-        'locations-routes':    '["interpolate",["linear"],["zoom"],6,0.45,9,0.85]',
-        'locations-detail':    '["interpolate",["linear"],["zoom"],7,0.4,10,0.8]',
+        'locations-major':     '["interpolate",["linear"],["zoom"],3,0.5,8,0.85]',
+        'locations-towns':     '["interpolate",["linear"],["zoom"],4,0.45,8,0.78]',
+        'locations-secondary': '["interpolate",["linear"],["zoom"],5,0.4,8,0.72]',
+        'locations-routes':    '["interpolate",["linear"],["zoom"],6,0.35,9,0.66]',
+        'locations-detail':    '["interpolate",["linear"],["zoom"],7,0.3,10,0.6]',
     }
 
     # fmt: off
@@ -180,7 +180,7 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     for layer_id, cats, minzoom, fade_start, fade_end, label_font, label_size in tiers:
         icon_match = build_icon_match_js(_ICON_SIZE[layer_id])
         cats_json = str(cats).replace("'", '"')
-        opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.95]'
+        opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},1]'
 
         if label_font:
             font_json = str(label_font).replace("'", '"')
@@ -269,10 +269,10 @@ def _gm_secrets_layers_js() -> str:
 
     # GM secret layers mirror the same size expressions as their public counterparts.
     _GM_ICON_SIZE: dict[str, str] = {
-        'gm-locations-major':     '["interpolate",["linear"],["zoom"],3,0.65,8,1.1]',
-        'gm-locations-secondary': '["interpolate",["linear"],["zoom"],5,0.5,8,0.9]',
-        'gm-locations-routes':    '["interpolate",["linear"],["zoom"],6,0.45,9,0.85]',
-        'gm-locations-detail':    '["interpolate",["linear"],["zoom"],7,0.4,10,0.8]',
+        'gm-locations-major':     '["interpolate",["linear"],["zoom"],3,0.5,8,0.85]',
+        'gm-locations-secondary': '["interpolate",["linear"],["zoom"],5,0.4,8,0.72]',
+        'gm-locations-routes':    '["interpolate",["linear"],["zoom"],6,0.35,9,0.66]',
+        'gm-locations-detail':    '["interpolate",["linear"],["zoom"],7,0.3,10,0.6]',
     }
 
     js = ''
@@ -366,7 +366,7 @@ def _build_world_map_html(
         layers_js += (
             'map.addLayer({id:"routes",type:"line",minzoom:4,source:"routes",'
             'layout:{"line-cap":"butt"},'
-            'paint:{"line-color":"#1a1208","line-width":3,"line-opacity":0.8,"line-dasharray":[4,4]}});\n'
+            'paint:{"line-color":"#b0592a","line-width":3,"line-opacity":0.75,"line-dasharray":[2.7,2.7]}});\n'
         )
     if waystations_geojson:
         data_js += f'var _waystationGJ = {json.dumps(waystations_geojson)};\n'

@@ -42,14 +42,15 @@ def icon_registration_js() -> str:
         # city — thin outer ring + filled inner dot (crimson); the canonical "major settlement"
         '_mk("cat-city",function(ctx){'
           'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;ctx.fillStyle="#7a1f1f";'
-          'ctx.beginPath();ctx.arc(32,32,24,0,Math.PI*2);ctx.stroke();'
-          'ctx.beginPath();ctx.arc(32,32,9,0,Math.PI*2);ctx.fill();'
+          'ctx.beginPath();ctx.arc(32,32,20,0,Math.PI*2);ctx.stroke();'
+          'ctx.beginPath();ctx.arc(32,32,7,0,Math.PI*2);ctx.fill();'
         '});'
 
-        # town — open ring only, smaller radius (no inner dot distinguishes from city)
+        # town — open ring, smaller radius than city (no inner dot distinguishes from city);
+        # radius kept proportional to MapTiler's own city:town native sprite ratio (21px:13px)
         '_mk("cat-town",function(ctx){'
           'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=2.5;'
-          'ctx.beginPath();ctx.arc(32,32,18,0,Math.PI*2);ctx.stroke();'
+          'ctx.beginPath();ctx.arc(32,32,13,0,Math.PI*2);ctx.stroke();'
         '});'
 
         # route-node / caravanserai — diamond outline + inner dot (waypoint convention)

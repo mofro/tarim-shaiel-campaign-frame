@@ -255,10 +255,14 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   border:1px solid #b8922c; min-width:180px; font-size:12px;
   box-shadow:0 2px 12px rgba(0,0,0,0.6); }
 #route-panel-label { font-weight:bold; margin-bottom:8px; word-break:break-word; }
-#route-panel-delete { background:#c0392b; color:#fff; border:none;
+#route-panel-regenerate { background:#4a3418; color:#e8dcc4; border:1px solid #b8922c;
   padding:4px 10px; border-radius:4px; cursor:pointer; font-size:11px; }
+#route-panel-regenerate:hover { background:#5a4020; }
+#route-panel-regenerate:disabled { opacity:0.5; cursor:default; }
+#route-panel-delete { background:#c0392b; color:#fff; border:none;
+  margin-left:6px; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:11px; }
 #route-panel-delete:hover { background:#e74c3c; }
-#route-panel-close { margin-left:8px; background:none; color:#b8922c;
+#route-panel-close { margin-left:6px; background:none; color:#b8922c;
   border:1px solid rgba(184,146,44,0.5); padding:3px 7px; border-radius:4px;
   cursor:pointer; font-size:11px; }
 #route-panel-close:hover { border-color:#b8922c; color:#e8dcc4; }
@@ -632,7 +636,7 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'map.addSource("routes",{type:"geojson",data:_routeGJ});\n'
         'map.addLayer({id:"routes",type:"line",minzoom:4,source:"routes",'
         'layout:{"line-cap":"butt"},'
-        'paint:{"line-color":"#1a1208","line-width":3,"line-opacity":0.8,"line-dasharray":[4,4]}});\n'
+        'paint:{"line-color":"#b0592a","line-width":3,"line-opacity":0.75,"line-dasharray":[2.7,2.7]}});\n'
 
         # Route-selected highlight layer (orange)
         'map.addSource("route-selected",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
@@ -669,15 +673,15 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
 
         # Five-tier location layers (matching generate_locations_html.py tiers)
         # t: [id, cats, minzoom, fadeStart, fadeEnd, font|null, minIconSz, textSz]
-        '[["locations-major",["city","landmark","fortress"],3,3.5,4,["Roboto Serif Regular","Noto Sans Regular"],0.65,15],'
-        '["locations-towns",["town"],4,4.5,5,["Roboto Serif Regular","Noto Sans Regular"],0.55,13],'
-        '["locations-secondary",["sacred-site","oasis","caravanserai"],5,5.5,6,["Roboto Serif Regular","Noto Sans Italic"],0.5,13],'
-        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,6.5,7,null,0.45,0],'
-        '["locations-detail",["ruins","poi","power-site","site"],7,7.5,8,null,0.4,0]]'
+        '[["locations-major",["city","landmark","fortress"],3,3.5,4,["Roboto Serif Regular","Noto Sans Regular"],0.5,15],'
+        '["locations-towns",["town"],4,4.5,5,["Roboto Serif Regular","Noto Sans Regular"],0.45,13],'
+        '["locations-secondary",["sacred-site","oasis","caravanserai"],5,5.5,6,["Roboto Serif Regular","Noto Sans Italic"],0.4,13],'
+        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,6.5,7,null,0.35,0],'
+        '["locations-detail",["ruins","poi","power-site","site"],7,7.5,8,null,0.3,0]]'
         '.forEach(function(t){'
         'var id=t[0],cats=t[1],mz=t[2],fs=t[3],fe=t[4],font=t[5],minSz=t[6],tSz=t[7];'
-        'var szExpr=["interpolate",["linear"],["zoom"],mz,minSz,10,minSz+0.5];'
-        'var opExpr=["interpolate",["linear"],["zoom"],fs,0,fe,0.95];'
+        'var szExpr=["interpolate",["linear"],["zoom"],mz,minSz,10,minSz+0.35];'
+        'var opExpr=["interpolate",["linear"],["zoom"],fs,0,fe,1];'
         'var catsFilter=["all",["match",["get","category"],cats,true,false],["!=",["get","mapMarker"],false]];'
         'var layout={"icon-image":_iconMatch,"icon-size":szExpr,"icon-allow-overlap":true,"icon-anchor":"center"};'
         'var paint={"icon-opacity":opExpr};'
@@ -788,6 +792,18 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'document.getElementById("route-panel").hidden=true;'
         '}\n'
         'document.getElementById("route-panel-close").addEventListener("click",_hideRoutePanel);\n'
+        'document.getElementById("route-panel-regenerate").addEventListener("click",function(){'
+        'if(!_selectedRouteId)return;'
+        'var btn=document.getElementById("route-panel-regenerate");'
+        'btn.disabled=true;btn.textContent="🔄 Regenerating…";'
+        'fetch("/api/routes/"+encodeURIComponent(_selectedRouteId)+"/regenerate",{method:"POST"})'
+        '.then(function(r){return r.json();})'
+        '.then(function(d){'
+        'if(!d.ok){alert("Regenerate failed: "+(d.error||d.output||"unknown"));btn.disabled=false;btn.textContent="🔄 Regenerate";return;}'
+        'fetch("/api/rebuild/workshop",{method:"POST"}).then(function(){location.reload();});'
+        '})'
+        '.catch(function(){alert("Devserver not running.");btn.disabled=false;btn.textContent="🔄 Regenerate";});'
+        '});\n'
         'document.getElementById("route-panel-delete").addEventListener("click",function(){'
         'if(!_selectedRouteId)return;'
         'if(!confirm("Delete route \\""+_selectedRouteId+"\\"?"))return;'
@@ -988,6 +1004,7 @@ def _build_html(
         '  <div id="map"></div>\n'
         '  <div id="route-panel" hidden>\n'
         '    <div id="route-panel-label"></div>\n'
+        '    <button id="route-panel-regenerate">🔄 Regenerate</button>\n'
         '    <button id="route-panel-delete">🗑 Delete Route</button>\n'
         '    <button id="route-panel-close">✕</button>\n'
         '  </div>\n'

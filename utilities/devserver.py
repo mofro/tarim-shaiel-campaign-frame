@@ -17,6 +17,7 @@ Endpoints:
     POST   /api/routes/add                    — add route segment(s) to routes.geojson
     DELETE /api/routes/{route_id}             — delete one route by ID
     POST   /api/routes/delete-bulk            — delete multiple routes: {"ids": [...]}
+    POST   /api/routes/{route_id}/regenerate  — re-snap one route to roads via OSRM
     POST   /api/rebuild/locations             — run build.py locations
     POST   /api/rebuild/workshop              — run build.py workshop
 """
@@ -78,6 +79,9 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self._add_route()
         elif self.path == "/api/routes/delete-bulk":
             self._delete_routes_bulk()
+        elif re.match(r"^/api/routes/([^/?]+)/regenerate(?:\?.*)?$", self.path):
+            m = re.match(r"^/api/routes/([^/?]+)/regenerate(?:\?.*)?$", self.path)
+            self._regenerate_route(m.group(1))
         elif self.path == "/api/rebuild/locations":
             self._rebuild("locations")
         elif self.path == "/api/rebuild/workshop":
@@ -257,6 +261,27 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             tmp.unlink(missing_ok=True)
         print(f"  Deleted {len(deleted)} route(s): {', '.join(deleted)}")
         self._json({"ok": True, "deleted": deleted, "count": len(deleted)})
+
+    def _regenerate_route(self, route_id: str):
+        if not ROUTES_PATH.exists():
+            return self._json({"ok": False, "error": "routes.geojson not found"}, 404)
+        gj = json.loads(ROUTES_PATH.read_text(encoding="utf-8"))
+        if not any(f.get("id") == route_id for f in gj.get("features", [])):
+            return self._json({"ok": False, "error": f"route not found: {route_id}"}, 404)
+
+        cmd = [
+            sys.executable, str(VAULT_ROOT / "utilities" / "routes" / "generate_routes.py"),
+            "--segment", route_id,
+        ]
+        print(f"  Regenerating route: {route_id} ...")
+        result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(VAULT_ROOT))
+        ok = result.returncode == 0
+        print(f"  {'OK' if ok else 'FAILED'}: regenerate route {route_id}")
+        self._json({
+            "ok": ok,
+            "returncode": result.returncode,
+            "output": result.stdout + result.stderr,
+        })
 
     # ---- Helpers ----
 
