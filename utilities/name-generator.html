@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Silk Road Names</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Noto+Sans:wght@400;500&display=swap">
+
+<style>
+/* ── tokens ── */
+:root {
+  --bg:       #f0e6c8;
+  --surface:  #faf4e4;
+  --card:     #fffdf5;
+  --border:   #c8a860;
+  --border-s: #e0c888;
+  --gold:     #9a7020;
+  --gold-h:   #7a5010;
+  --text:     #2a1808;
+  --text-m:   #7a5828;
+  --tab-bg:   #e4d4a8;
+  --tab-a:    #9a7020;
+  --tab-at:   #fffdf5;
+  --result:   #faf4e4;
+  --name-hov: #7a5010;
+  --btn-bg:   #e4d4a8;
+  --btn-hov:  #9a7020;
+  --btn-hot:  #fffdf5;
+  --city-h:   #9a7020;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:       #1a1208;
+    --surface:  #251a0d;
+    --card:     #2d2010;
+    --border:   #5a3e18;
+    --border-s: #3a2810;
+    --gold:     #b8922c;
+    --gold-h:   #d4aa44;
+    --text:     #e8d5a8;
+    --text-m:   #8a7048;
+    --tab-bg:   #2d2010;
+    --tab-a:    #b8922c;
+    --tab-at:   #1a1208;
+    --result:   #251a0d;
+    --name-hov: #d4aa44;
+    --btn-bg:   #2d2010;
+    --btn-hov:  #b8922c;
+    --btn-hot:  #1a1208;
+    --city-h:   #b8922c;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:       #1a1208;
+  --surface:  #251a0d;
+  --card:     #2d2010;
+  --border:   #5a3e18;
+  --border-s: #3a2810;
+  --gold:     #b8922c;
+  --gold-h:   #d4aa44;
+  --text:     #e8d5a8;
+  --text-m:   #8a7048;
+  --tab-bg:   #2d2010;
+  --tab-a:    #b8922c;
+  --tab-at:   #1a1208;
+  --result:   #251a0d;
+  --name-hov: #d4aa44;
+  --btn-bg:   #2d2010;
+  --btn-hov:  #b8922c;
+  --btn-hot:  #1a1208;
+  --city-h:   #b8922c;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans', system-ui, sans-serif;
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+/* ── header ── */
+.hdr {
+  background: var(--surface);
+  border-bottom: 2px solid var(--gold);
+  padding: 12px 20px 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.hdr-title {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.hdr-sub {
+  font-size: 0.75rem;
+  color: var(--text-m);
+}
+
+/* ── tabs ── */
+.tabs {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 2px;
+}
+.tab {
+  padding: 5px 13px 6px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--tab-bg);
+  color: var(--text-m);
+  border: 1px solid var(--border-s);
+  border-bottom: none;
+  transition: color 0.12s, background 0.12s;
+  user-select: none;
+  white-space: nowrap;
+}
+.tab:hover { color: var(--text); }
+.tab.active { background: var(--tab-a); color: var(--tab-at); border-color: var(--tab-a); }
+
+/* ── panel ── */
+.panel { display: none; padding: 22px 22px 32px; max-width: 640px; }
+.panel.active { display: block; }
+
+.panel-head {
+  margin-bottom: 14px;
+}
+.panel-title {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  margin-bottom: 3px;
+}
+.panel-note {
+  font-size: 0.78rem;
+  color: var(--text-m);
+  line-height: 1.5;
+}
+
+/* ── controls ── */
+.controls { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
+
+.btn {
+  padding: 7px 22px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  background: var(--btn-bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  letter-spacing: 0.02em;
+}
+.btn:hover { background: var(--btn-hov); color: var(--btn-hot); border-color: var(--btn-hov); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.btn-ghost {
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--border-s);
+  background: transparent;
+  color: var(--text-m);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-family: inherit;
+  transition: color 0.1s, border-color 0.1s;
+}
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ── results ── */
+.results {
+  background: var(--result);
+  border: 1px solid var(--border-s);
+  border-radius: 4px;
+  padding: 14px 16px;
+  min-height: 230px;
+}
+.empty {
+  color: var(--text-m);
+  font-style: italic;
+  font-size: 0.88rem;
+  padding: 20px 0;
+  text-align: center;
+}
+.name-list { list-style: none; }
+.name-item {
+  padding: 6px 0;
+  font-size: 1rem;
+  letter-spacing: 0.025em;
+  border-bottom: 1px solid var(--border-s);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.1s;
+  line-height: 1.4;
+}
+.name-item:last-child { border-bottom: none; }
+.name-item:hover { color: var(--name-hov); }
+.name-text { flex: 1; min-width: 0; }
+.copy-label {
+  font-size: 0.7rem;
+  color: var(--text-m);
+  opacity: 0;
+  transition: opacity 0.1s;
+  white-space: nowrap;
+  padding-left: 8px;
+  flex-shrink: 0;
+}
+.name-item:hover .copy-label { opacity: 1; }
+.copied { color: var(--gold) !important; }
+
+/* ── chosen / mark button ── */
+.mark-btn {
+  font-size: 0.72rem;
+  color: var(--border);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 1px 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: 8px;
+  line-height: 1.5;
+  font-family: inherit;
+  transition: color 0.1s, border-color 0.1s;
+}
+.mark-btn:hover { color: var(--gold); border-color: var(--border-s); }
+.name-item.is-chosen .name-text { text-decoration: line-through; opacity: 0.4; }
+.name-item.is-chosen .copy-label { display: none; }
+.name-item.is-chosen .mark-btn { color: var(--gold); border-color: var(--gold); }
+.name-item.is-chosen:hover { color: inherit; }
+.clear-marks {
+  font-size: 0.7rem;
+  color: var(--text-m);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.clear-marks:hover { color: var(--gold); }
+
+/* ── used-count badge ── */
+.used-count {
+  font-size: 0.72rem;
+  cursor: pointer;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-family: inherit;
+  margin-left: 10px;
+  vertical-align: middle;
+  color: var(--text-m);
+  transition: color 0.1s, border-color 0.1s;
+}
+.used-count.has-items { color: var(--gold); border-color: var(--border); }
+.used-count:hover { color: var(--gold-h, var(--gold)); border-color: var(--gold); }
+
+/* ── used-names modal ── */
+.used-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.used-overlay.visible { display: flex; }
+.used-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 22px 24px 18px;
+  max-width: 400px;
+  width: 92%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+.used-box h3 {
+  font-family: 'IM Fell English SC', serif;
+  color: var(--gold);
+  font-size: 1rem;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+.used-list {
+  list-style: none;
+  overflow-y: auto;
+  flex: 1;
+  margin-bottom: 14px;
+}
+.used-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border-s);
+  font-size: 0.92rem;
+}
+.used-list li:last-child { border-bottom: none; }
+.used-remove {
+  font-size: 0.7rem;
+  color: var(--text-m);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 5px;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+.used-remove:hover { color: var(--gold); }
+.used-empty {
+  font-size: 0.85rem;
+  color: var(--text-m);
+  font-style: italic;
+  padding: 16px 0;
+  text-align: center;
+}
+.used-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border-s);
+  padding-top: 12px;
+}
+
+/* ── import modal ── */
+.import-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.import-overlay.visible { display: flex; }
+.import-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 22px 24px 18px;
+  max-width: 440px;
+  width: 92%;
+}
+.import-box h3 {
+  font-family: 'IM Fell English SC', serif;
+  color: var(--gold);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.import-hint {
+  font-size: 0.76rem;
+  color: var(--text-m);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.import-hint code {
+  font-family: monospace;
+  background: var(--card);
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid var(--border-s);
+}
+.import-ta {
+  width: 100%;
+  height: 120px;
+  background: var(--card);
+  border: 1px solid var(--border-s);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 8px;
+  resize: vertical;
+}
+.import-ta:focus { outline: 1px solid var(--gold); }
+.import-actions { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; }
+.import-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  z-index: 200;
+  white-space: nowrap;
+}
+
+/* ── cities ── */
+.city-intro { font-size: 0.82rem; color: var(--text-m); margin-bottom: 18px; line-height: 1.6; }
+
+.region-block { margin-bottom: 22px; }
+.region-hdr {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 0.8rem;
+  color: var(--city-h);
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.region-hdr::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-s);
+}
+.city-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.city-pill {
+  padding: 4px 11px;
+  border-radius: 3px;
+  border: 1px solid var(--border-s);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.1s;
+  letter-spacing: 0.02em;
+}
+.city-pill:hover { border-color: var(--gold); color: var(--gold); background: var(--result); }
+.city-pill.copied-city { border-color: var(--gold); color: var(--gold); }
+
+.divider-glyph {
+  text-align: center;
+  color: var(--border);
+  font-size: 1rem;
+  letter-spacing: 0.5em;
+  margin: 4px 0 20px;
+  user-select: none;
+}
+
+/* ── filter bar ── */
+.filter-bar {
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+  padding: 8px 20px 6px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.fsep { color: var(--border); font-size: 0.8rem; padding: 0 3px; user-select: none; }
+.fpill {
+  padding: 3px 14px 4px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border-s);
+  background: transparent;
+  color: var(--text-m);
+  transition: all 0.1s;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  user-select: none;
+}
+.fpill:hover { color: var(--text); border-color: var(--border); }
+.fpill.active { background: var(--gold); color: var(--tab-at); border-color: var(--gold); }
+.tab.tab-hidden { display: none !important; }
+.empty-cat {
+  display: none;
+  padding: 48px 22px;
+  color: var(--text-m);
+  font-style: italic;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+/* ── attribution ── */
+.attr {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-s);
+  font-size: 0.72rem;
+  color: var(--text-m);
+  line-height: 1.6;
+}
+</style>
+
+<div class="hdr">
+  <span class="hdr-title">✦ Tarim-Shaiel Names</span>
+  <span class="hdr-sub">Personal GM tool · click name to copy · ✦ to mark used<button class="clear-marks" onclick="showImport()" title="Import vault names">import vault</button><button class="used-count" id="used-count-btn" onclick="showUsed()" title="View used names">✦ 0 used</button></span>
+</div>
+
+<div class="filter-bar">
+  <span class="fpill active" data-cat="all" onclick="setFilter('all')">All</span>
+  <span class="fsep">·</span>
+  <span class="fpill" data-cat="tarim" onclick="setFilter('tarim')">Tarim-Shaiel</span>
+  <span class="fsep">·</span>
+  <span class="fpill" data-cat="ancestries" onclick="setFilter('ancestries')">Ancestries</span>
+  <span class="fsep">·</span>
+  <span class="fpill" data-cat="regional" onclick="setFilter('regional')">Regional</span>
+  <span class="fsep">·</span>
+  <span class="fpill" data-cat="places" onclick="setFilter('places')">Places</span>
+</div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" data-panel="shu" data-category="tarim">Grishaverse Shu</div>
+  <div class="tab" data-panel="suli" data-category="tarim">Grishaverse Suli</div>
+  <div class="tab" data-panel="persian" data-category="regional">Persian</div>
+  <div class="tab" data-panel="turkish" data-category="regional">Turkish</div>
+  <div class="tab" data-panel="mongolian" data-category="regional">Mongolian</div>
+  <div class="tab" data-panel="kazakh" data-category="regional">Kazakh</div>
+  <div class="tab" data-panel="uzbek" data-category="regional">Uzbek</div>
+  <div class="tab" data-panel="muslim" data-category="regional">Muslim / Arabic</div>
+  <div class="tab" data-panel="chinese" data-category="regional">Chinese / Hmong</div>
+  <div class="tab" data-panel="zoroastrian" data-category="regional">Zoroastrian</div>
+  <div class="tab" data-panel="japanese" data-category="regional">Japanese</div>
+  <div class="tab" data-panel="tadbir" data-category="ancestries">Tadbir (Golem)</div>
+  <div class="tab" data-panel="tulpar" data-category="ancestries">Tulpar (Orc)</div>
+  <div class="tab" data-panel="vanara" data-category="ancestries">Vanara (Simiah)</div>
+  <div class="tab" data-panel="rahban" data-category="ancestries">Rahban (Halfling)</div>
+  <div class="tab" data-panel="vaghri" data-category="ancestries">Vaghri (Katari)</div>
+  <div class="tab" data-panel="kuhban" data-category="ancestries">Kuhban (Dwarf)</div>
+  <div class="tab" data-panel="parikin" data-category="ancestries">Pari-Kin (Faun)</div>
+  <div class="tab" data-panel="cities" data-category="places">✦ Cities & Settlements</div>
+</div>
+<div class="empty-cat" id="empty-cat">No generators in this category yet — they'll appear here when added.</div>
+
+<div id="shu" class="panel active">
+  <div class="panel-head">
+    <div class="panel-title">Grishaverse Shu</div>
+    <div class="panel-note">Phoneme-generated. Format: <em>Given-name Yul-Surname</em> (male) or <em>Given-name Kir-Surname</em> (female).</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('shu', false)">Male</button>
+    <button class="btn" onclick="showNames('shu', true)">Female</button>
+  </div>
+  <div class="results" id="shu-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="suli" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Grishaverse Suli</div>
+    <div class="panel-note">Phoneme-generated. Format: <em>Given-name Surname</em>. Map these to whichever regions or ancestries fit your campaign.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('suli', false)">Male</button>
+    <button class="btn" onclick="showNames('suli', true)">Female</button>
+  </div>
+  <div class="results" id="suli-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="persian" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Persian Names</div>
+    <div class="panel-note">Historical and contemporary Iranian names with surnames.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('persian', false)">Male</button>
+    <button class="btn" onclick="showNames('persian', true)">Female</button>
+  </div>
+  <div class="results" id="persian-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="turkish" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Turkish Names</div>
+    <div class="panel-note">Turkish names with surnames.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('turkish', false)">Male</button>
+    <button class="btn" onclick="showNames('turkish', true)">Female</button>
+  </div>
+  <div class="results" id="turkish-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="mongolian" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Mongolian Names</div>
+    <div class="panel-note">Historical Mongolian names. Mongolian naming traditions did not use hereditary surnames in this era.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('mongolian', false)">Male</button>
+    <button class="btn" onclick="showNames('mongolian', true)">Female</button>
+  </div>
+  <div class="results" id="mongolian-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="kazakh" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Kazakh Names</div>
+    <div class="panel-note">Kazakh first names with patronymic-style surnames.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('kazakh', false)">Male</button>
+    <button class="btn" onclick="showNames('kazakh', true)">Female</button>
+  </div>
+  <div class="results" id="kazakh-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="uzbek" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Uzbek Names</div>
+    <div class="panel-note">Uzbek first names with surnames. Relevant for the Silk Road heartland — Samarkand, Bukhara, Khiva.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('uzbek', false)">Male</button>
+    <button class="btn" onclick="showNames('uzbek', true)">Female</button>
+  </div>
+  <div class="results" id="uzbek-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="muslim" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Muslim / Arabic Names</div>
+    <div class="panel-note">Arabic-origin Muslim names with <em>al-</em> / <em>el-</em> prefixed surnames. Cross-cultural across the Islamic world.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('muslim', false)">Male</button>
+    <button class="btn" onclick="showNames('muslim', true)">Female</button>
+  </div>
+  <div class="results" id="muslim-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="cities" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Cities & Settlements</div>
+    <div class="panel-note">Historical cities (~1200–1500 CE) and fantasy settlements. Click to copy. Use as-is or adapt for your setting.</div>
+  </div>
+  <div class="divider-glyph">✦ ✦ ✦</div>
+
+  <div class="region-block">
+    <div class="region-hdr">Transoxiana — Uzbek Heartland</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Samarkand</span>
+      <span class="city-pill" onclick="copyCity(this)">Bukhara</span>
+      <span class="city-pill" onclick="copyCity(this)">Khiva</span>
+      <span class="city-pill" onclick="copyCity(this)">Marv</span>
+      <span class="city-pill" onclick="copyCity(this)">Kesh</span>
+      <span class="city-pill" onclick="copyCity(this)">Termez</span>
+      <span class="city-pill" onclick="copyCity(this)">Nasaf</span>
+      <span class="city-pill" onclick="copyCity(this)">Paykend</span>
+      <span class="city-pill" onclick="copyCity(this)">Ziyaudin</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Khorasan — Afghan Highlands</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Balkh</span>
+      <span class="city-pill" onclick="copyCity(this)">Herat</span>
+      <span class="city-pill" onclick="copyCity(this)">Ghazni</span>
+      <span class="city-pill" onclick="copyCity(this)">Zaranj</span>
+      <span class="city-pill" onclick="copyCity(this)">Nishapur</span>
+      <span class="city-pill" onclick="copyCity(this)">Kandahar</span>
+      <span class="city-pill" onclick="copyCity(this)">Kabul</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Ferghana Valley</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Khojend</span>
+      <span class="city-pill" onclick="copyCity(this)">Osh</span>
+      <span class="city-pill" onclick="copyCity(this)">Andijan</span>
+      <span class="city-pill" onclick="copyCity(this)">Kasan</span>
+      <span class="city-pill" onclick="copyCity(this)">Akhsikent</span>
+      <span class="city-pill" onclick="copyCity(this)">Marghinan</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Tarim Basin — Eastern Routes</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Kashgar</span>
+      <span class="city-pill" onclick="copyCity(this)">Khotan</span>
+      <span class="city-pill" onclick="copyCity(this)">Yarkand</span>
+      <span class="city-pill" onclick="copyCity(this)">Dunhuang</span>
+      <span class="city-pill" onclick="copyCity(this)">Turfan</span>
+      <span class="city-pill" onclick="copyCity(this)">Aksu</span>
+      <span class="city-pill" onclick="copyCity(this)">Kucha</span>
+      <span class="city-pill" onclick="copyCity(this)">Almaliq</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Steppe — Kipchak &amp; Mongol</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Otrar</span>
+      <span class="city-pill" onclick="copyCity(this)">Signak</span>
+      <span class="city-pill" onclick="copyCity(this)">Sauran</span>
+      <span class="city-pill" onclick="copyCity(this)">Jend</span>
+      <span class="city-pill" onclick="copyCity(this)">Yangikent</span>
+      <span class="city-pill" onclick="copyCity(this)">Karakorum</span>
+      <span class="city-pill" onclick="copyCity(this)">Beshbalik</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Persian Heartland</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Isfahan</span>
+      <span class="city-pill" onclick="copyCity(this)">Tabriz</span>
+      <span class="city-pill" onclick="copyCity(this)">Shiraz</span>
+      <span class="city-pill" onclick="copyCity(this)">Yazd</span>
+      <span class="city-pill" onclick="copyCity(this)">Kirman</span>
+      <span class="city-pill" onclick="copyCity(this)">Qazvin</span>
+      <span class="city-pill" onclick="copyCity(this)">Rey</span>
+      <span class="city-pill" onclick="copyCity(this)">Hamadan</span>
+      <span class="city-pill" onclick="copyCity(this)">Ardabil</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Caspian &amp; Caucasus</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Derbent</span>
+      <span class="city-pill" onclick="copyCity(this)">Baku</span>
+      <span class="city-pill" onclick="copyCity(this)">Shamakhi</span>
+      <span class="city-pill" onclick="copyCity(this)">Tbilisi</span>
+      <span class="city-pill" onclick="copyCity(this)">Ganja</span>
+      <span class="city-pill" onclick="copyCity(this)">Maragheh</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Indian Subcontinent</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Delhi</span>
+      <span class="city-pill" onclick="copyCity(this)">Agra</span>
+      <span class="city-pill" onclick="copyCity(this)">Lahore</span>
+      <span class="city-pill" onclick="copyCity(this)">Multan</span>
+      <span class="city-pill" onclick="copyCity(this)">Thatta</span>
+      <span class="city-pill" onclick="copyCity(this)">Ahmedabad</span>
+      <span class="city-pill" onclick="copyCity(this)">Cambay</span>
+      <span class="city-pill" onclick="copyCity(this)">Calicut</span>
+      <span class="city-pill" onclick="copyCity(this)">Vijayanagara</span>
+      <span class="city-pill" onclick="copyCity(this)">Bidar</span>
+      <span class="city-pill" onclick="copyCity(this)">Jaunpur</span>
+      <span class="city-pill" onclick="copyCity(this)">Gaur</span>
+      <span class="city-pill" onclick="copyCity(this)">Quilon</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">East Asia — Ming China</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Beijing</span>
+      <span class="city-pill" onclick="copyCity(this)">Nanjing</span>
+      <span class="city-pill" onclick="copyCity(this)">Hangzhou</span>
+      <span class="city-pill" onclick="copyCity(this)">Suzhou</span>
+      <span class="city-pill" onclick="copyCity(this)">Guangzhou</span>
+      <span class="city-pill" onclick="copyCity(this)">Quanzhou</span>
+      <span class="city-pill" onclick="copyCity(this)">Yangzhou</span>
+      <span class="city-pill" onclick="copyCity(this)">Xi'an</span>
+      <span class="city-pill" onclick="copyCity(this)">Chengdu</span>
+      <span class="city-pill" onclick="copyCity(this)">Kaifeng</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Maritime Southeast Asia</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Malacca</span>
+      <span class="city-pill" onclick="copyCity(this)">Ayutthaya</span>
+      <span class="city-pill" onclick="copyCity(this)">Palembang</span>
+      <span class="city-pill" onclick="copyCity(this)">Majapahit</span>
+      <span class="city-pill" onclick="copyCity(this)">Brunei</span>
+      <span class="city-pill" onclick="copyCity(this)">Champa</span>
+    </div>
+  </div>
+
+  <div class="divider-glyph">✦ ✦ ✦</div>
+
+  <div class="region-block">
+    <div class="region-hdr">Elven Enclaves</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Aelindhar</span>
+      <span class="city-pill" onclick="copyCity(this)">Vaelenmere</span>
+      <span class="city-pill" onclick="copyCity(this)">Tharindis</span>
+      <span class="city-pill" onclick="copyCity(this)">Galindra</span>
+      <span class="city-pill" onclick="copyCity(this)">Ilsavar</span>
+      <span class="city-pill" onclick="copyCity(this)">Miraleth</span>
+      <span class="city-pill" onclick="copyCity(this)">Shaelindra</span>
+      <span class="city-pill" onclick="copyCity(this)">Kethis</span>
+      <span class="city-pill" onclick="copyCity(this)">Arendoth</span>
+      <span class="city-pill" onclick="copyCity(this)">Calethis</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Halfling Settlements</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Copperbell</span>
+      <span class="city-pill" onclick="copyCity(this)">Dusthaven</span>
+      <span class="city-pill" onclick="copyCity(this)">Kettlewick</span>
+      <span class="city-pill" onclick="copyCity(this)">Nimblecroft</span>
+      <span class="city-pill" onclick="copyCity(this)">Wanderswick</span>
+      <span class="city-pill" onclick="copyCity(this)">Threadsgate</span>
+      <span class="city-pill" onclick="copyCity(this)">Bazarholm</span>
+      <span class="city-pill" onclick="copyCity(this)">Saffronton</span>
+      <span class="city-pill" onclick="copyCity(this)">Tumbleton</span>
+      <span class="city-pill" onclick="copyCity(this)">Fernmarket</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Orc Strongholds</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Khargrund</span>
+      <span class="city-pill" onclick="copyCity(this)">Ashgarak</span>
+      <span class="city-pill" onclick="copyCity(this)">Ironmaw</span>
+      <span class="city-pill" onclick="copyCity(this)">Grimholt</span>
+      <span class="city-pill" onclick="copyCity(this)">Volgrath</span>
+      <span class="city-pill" onclick="copyCity(this)">Dunthrak</span>
+      <span class="city-pill" onclick="copyCity(this)">Khorrak</span>
+      <span class="city-pill" onclick="copyCity(this)">Bloodspire</span>
+      <span class="city-pill" onclick="copyCity(this)">Skullmark</span>
+      <span class="city-pill" onclick="copyCity(this)">Graash</span>
+    </div>
+  </div>
+
+  <div class="region-block">
+    <div class="region-hdr">Dwarven Holds</div>
+    <div class="city-pills">
+      <span class="city-pill" onclick="copyCity(this)">Kharak Duun</span>
+      <span class="city-pill" onclick="copyCity(this)">Irondeep</span>
+      <span class="city-pill" onclick="copyCity(this)">Stonecroft</span>
+      <span class="city-pill" onclick="copyCity(this)">Hammerfall</span>
+      <span class="city-pill" onclick="copyCity(this)">Deepforge</span>
+      <span class="city-pill" onclick="copyCity(this)">Anvilhold</span>
+      <span class="city-pill" onclick="copyCity(this)">Granitekeep</span>
+      <span class="city-pill" onclick="copyCity(this)">Coppervault</span>
+      <span class="city-pill" onclick="copyCity(this)">Duskholt</span>
+      <span class="city-pill" onclick="copyCity(this)">Blacksteel</span>
+    </div>
+  </div>
+
+  <div class="attr">
+    Name data sourced from <em>fantasynamegenerators.com</em> for personal use only. City list compiled from historical sources; fantasy settlements original.
+  </div>
+</div>
+
+<div id="chinese" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Chinese & Hmong Names</div>
+    <div class="panel-note">Mandarin Chinese given names with surnames, blended with Hmong clan names. Format: <em>Given-name Surname</em>.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('chinese', false)">Male</button>
+    <button class="btn" onclick="showNames('chinese', true)">Female</button>
+  </div>
+  <div class="results" id="chinese-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="zoroastrian" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Zoroastrian Names</div>
+    <div class="panel-note">Avestan and Old Persian names used in Zoroastrian communities. Format: <em>Given-name Surname</em>.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('zoroastrian', false)">Male</button>
+    <button class="btn" onclick="showNames('zoroastrian', true)">Female</button>
+  </div>
+  <div class="results" id="zoroastrian-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="japanese" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Japanese Names</div>
+    <div class="panel-note">Historical Japanese and Edo-period names. Format: <em>Given-name Surname</em>.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('japanese', false)">Male</button>
+    <button class="btn" onclick="showNames('japanese', true)">Female</button>
+  </div>
+  <div class="results" id="japanese-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="tadbir" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Tadbir Names</div>
+    <div class="panel-note">Daggerheart ancestry: <em>Clank</em>. First 5 names are constructed phoneme names; last 5 are Hebrew-influenced spirit names.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('tadbir', false)">Male</button>
+    <button class="btn" onclick="showNames('tadbir', true)">Female</button>
+  </div>
+  <div class="results" id="tadbir-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="tulpar" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Tulpar Names</div>
+    <div class="panel-note">Daggerheart ancestry: <em>Orc</em>. Single given names; no hereditary surnames.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('tulpar', false)">Male</button>
+    <button class="btn" onclick="showNames('tulpar', true)">Female</button>
+  </div>
+  <div class="results" id="tulpar-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="vanara" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Vanara Names</div>
+    <div class="panel-note">Daggerheart ancestry: <em>Simiah</em>. Punjabi and Gujarati given names with Indian surnames.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('vanara', false)">Male</button>
+    <button class="btn" onclick="showNames('vanara', true)">Female</button>
+  </div>
+  <div class="results" id="vanara-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="rahban" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Rahban Names</div>
+    <div class="panel-note">Daggerheart ancestry: <em>Halfling</em>. Tolkien-style Shire names with family surnames.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('rahban', false)">Male</button>
+    <button class="btn" onclick="showNames('rahban', true)">Female</button>
+  </div>
+  <div class="results" id="rahban-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="vaghri" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Vaghri Names</div>
+    <div class="panel-note">Daggerheart ancestry: <em>Katari</em>. First 5 are Japanese-style given names; last 5 are phoneme-generated fantasy cat-folk names.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('vaghri', false)">Male</button>
+    <button class="btn" onclick="showNames('vaghri', true)">Female</button>
+  </div>
+  <div class="results" id="vaghri-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="kuhban" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Kuhban Names</div>
+    <div class="panel-note">Daggerheart ancestry: <em>Dwarf</em>. Phoneme-generated given name + compound clan name.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('kuhban', false)">Male</button>
+    <button class="btn" onclick="showNames('kuhban', true)">Female</button>
+  </div>
+  <div class="results" id="kuhban-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<div id="parikin" class="panel">
+  <div class="panel-head">
+    <div class="panel-title">Pari-Kin Names</div>
+    <div class="panel-note">Daggerheart ancestry: <em>Faun</em>. Greek and Roman mythology-inspired single names.</div>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="showNames('parikin', false)">Male</button>
+    <button class="btn" onclick="showNames('parikin', true)">Female</button>
+  </div>
+  <div class="results" id="parikin-results"><div class="empty">Choose Male or Female to generate names.</div></div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// UTILITY
+// ─────────────────────────────────────────────
+const pick = arr => arr[Math.random() * arr.length | 0];
+const cap  = s  => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+
+function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).catch(() => copyFallback(text));
+  } else {
+    copyFallback(text);
+  }
+}
+function copyFallback(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+// ── chosen names (persisted) ──
+let chosenNames;
+try { chosenNames = new Set(JSON.parse(localStorage.getItem('chosen-names') || '[]')); }
+catch(e) { chosenNames = new Set(); }
+
+function saveChosen() {
+  try { localStorage.setItem('chosen-names', JSON.stringify([...chosenNames])); } catch(e) {}
+  updateUsedCount();
+}
+
+function updateUsedCount() {
+  const btn = document.getElementById('used-count-btn');
+  if (!btn) return;
+  const n = chosenNames.size;
+  btn.textContent = `✦ ${n} used`;
+  btn.classList.toggle('has-items', n > 0);
+}
+
+function toggleChosen(name, li, btn) {
+  if (chosenNames.has(name)) {
+    chosenNames.delete(name);
+    li.classList.remove('is-chosen');
+    btn.textContent = '✦';
+    btn.title = 'Mark as used';
+  } else {
+    chosenNames.add(name);
+    li.classList.add('is-chosen');
+    btn.textContent = '✦';
+    btn.title = 'Unmark';
+  }
+  saveChosen();
+}
+
+function clearAllChosen() {
+  chosenNames.clear();
+  saveChosen();
+  document.querySelectorAll('.name-item.is-chosen').forEach(li => {
+    li.classList.remove('is-chosen');
+    const btn = li.querySelector('.mark-btn');
+    if (btn) { btn.textContent = '✦'; btn.title = 'Mark as used'; }
+  });
+}
+
+// ── used-names viewer ──
+function showUsed() {
+  renderUsedList();
+  document.getElementById('used-count-hdr').textContent =
+    `Used Names (${chosenNames.size})`;
+  document.getElementById('used-overlay').classList.add('visible');
+}
+
+function hideUsed() {
+  document.getElementById('used-overlay').classList.remove('visible');
+}
+
+function renderUsedList() {
+  const ul = document.getElementById('used-list-el');
+  ul.innerHTML = '';
+  const sorted = [...chosenNames].sort((a, b) => a.localeCompare(b));
+  if (!sorted.length) {
+    ul.innerHTML = '<li class="used-empty">No names marked yet.</li>';
+    return;
+  }
+  sorted.forEach(name => {
+    const li = document.createElement('li');
+    const span = document.createElement('span');
+    span.textContent = name;
+    const rm = document.createElement('button');
+    rm.className = 'used-remove';
+    rm.textContent = '✕';
+    rm.title = 'Remove mark';
+    rm.onclick = () => removeChosen(name, li);
+    li.appendChild(span);
+    li.appendChild(rm);
+    ul.appendChild(li);
+  });
+}
+
+function removeChosen(name, li) {
+  chosenNames.delete(name);
+  saveChosen();
+  li.remove();
+  // unmark in any rendered panel
+  document.querySelectorAll('.name-item').forEach(item => {
+    const span = item.querySelector('.name-text');
+    if (span && span.textContent === name) {
+      item.classList.remove('is-chosen');
+      const btn = item.querySelector('.mark-btn');
+      if (btn) { btn.textContent = '✦'; btn.title = 'Mark as used'; }
+    }
+  });
+  // update empty state
+  if (!chosenNames.size) {
+    document.getElementById('used-list-el').innerHTML =
+      '<li class="used-empty">No names marked yet.</li>';
+  }
+  document.getElementById('used-count-hdr').textContent =
+    `Used Names (${chosenNames.size})`;
+}
+
+function renderNames(panelId, names) {
+  const el = document.getElementById(panelId + '-results');
+  const ul = document.createElement('ul');
+  ul.className = 'name-list';
+  names.forEach(n => {
+    const li = document.createElement('li');
+    li.className = 'name-item';
+    if (chosenNames.has(n)) li.classList.add('is-chosen');
+
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'name-text';
+    nameSpan.textContent = n;
+
+    const copyLbl = document.createElement('span');
+    copyLbl.className = 'copy-label';
+    copyLbl.textContent = 'copy';
+
+    const markBtn = document.createElement('button');
+    markBtn.className = 'mark-btn';
+    markBtn.textContent = '✦';
+    markBtn.title = chosenNames.has(n) ? 'Unmark' : 'Mark as used';
+
+    markBtn.onclick = (e) => {
+      e.stopPropagation();
+      toggleChosen(n, li, markBtn);
+    };
+
+    // clicking the name text (or copy label) copies
+    const copyArea = document.createElement('span');
+    copyArea.style.cssText = 'display:flex;align-items:center;flex:1;min-width:0;cursor:pointer;';
+    copyArea.appendChild(nameSpan);
+    copyArea.appendChild(copyLbl);
+    copyArea.onclick = () => {
+      copyText(n);
+      li.classList.add('copied');
+      copyLbl.textContent = 'copied!';
+      setTimeout(() => {
+        li.classList.remove('copied');
+        copyLbl.textContent = 'copy';
+      }, 1200);
+    };
+
+    li.appendChild(copyArea);
+    li.appendChild(markBtn);
+    ul.appendChild(li);
+  });
+  el.innerHTML = '';
+  el.appendChild(ul);
+}
+
+function showNames(gen, female) {
+  const names = GENERATORS[gen](female);
+  renderNames(gen, names);
+}
+
+function copyCity(el) {
+  copyText(el.textContent);
+  el.classList.add('copied-city');
+  const orig = el.textContent;
+  el.textContent = '✓ ' + orig;
+  setTimeout(() => { el.textContent = orig; el.classList.remove('copied-city'); }, 1000);
+}
+
+// ─────────────────────────────────────────────
+// GRISHAVERSE SHU — phoneme generator
+// ─────────────────────────────────────────────
+const SHU = {
+  nm1:  ["","b","ch","d","g","gh","j","k","kh","m","n","r","s","t","y","z"],
+  nm2:  ["aa","ai","oa","ua","a","e","o","u","a","e","o","u","i","a","e","o","u","i","a","e","o","u","a","e","o","u","i","a","e","o","u","i"],
+  nm3:  ["b","d","j","l","lb","lt","ly","m","n","rb","rg","rs","rt","s","t","tk","w","y","z"],
+  nm4:  ["a","e","i","u"],
+  nm5:  ["j","m","n","r","s","z"],
+  nm6:  ["aa","ei","ai","a","e","i","u","a","e","i","u","o"],
+  nm7:  ["","","","","g","k","m","n","r","s","t"],
+  nm8:  ["","","","","b","j","jh","k","kh","l","m","n","s","t","y"],
+  nm9:  ["a","a","e","e","i","o"],
+  nm10: ["b","g","gh","hr","j","k","kh","l","lt","m","ny","r","rg","ry","s","y","yt"],
+  nm11: ["a","e","u"],
+  nm12: ["d","kh","n","n","q","t","y"],
+  nm13: ["a","e","i","u"],
+  nm14: ["","","","","","","","","","","","","","","","","l","m","n","r"],
+
+  masc() {
+    const tp = Math.random() * 6 | 0;
+    let r1 = Math.random() * this.nm1.length | 0;
+    let r2 = Math.random() * this.nm2.length | 0;
+    if (tp === 0) {
+      let s = 0; while (this.nm1[r1] === "" && s++ < 30) r1 = Math.random() * this.nm1.length | 0;
+      return this.nm1[r1] + this.nm2[r2];
+    }
+    let r3 = Math.random() * this.nm7.length | 0;
+    let r4 = Math.random() * this.nm3.length | 0;
+    let r5 = Math.random() * this.nm6.length | 0;
+    let s = 0;
+    while ((this.nm3[r4]===this.nm1[r1]||this.nm3[r4]===this.nm7[r3]) && s++<30) r4=Math.random()*this.nm3.length|0;
+    s=0; while (r2<4 && r5<3 && s++<30) r5=Math.random()*this.nm6.length|0;
+    if (tp < 5) return this.nm1[r1]+this.nm2[r2]+this.nm3[r4]+this.nm6[r5]+this.nm7[r3];
+    let r6=Math.random()*this.nm5.length|0, r7=Math.random()*this.nm4.length|0;
+    s=0; while ((this.nm3[r4]===this.nm5[r6]||this.nm5[r6]===this.nm7[r3])&&s++<30) r6=Math.random()*this.nm5.length|0;
+    return this.nm1[r1]+this.nm2[r2]+this.nm3[r4]+this.nm6[r5]+this.nm5[r6]+this.nm4[r7]+this.nm7[r3];
+  },
+
+  fem() {
+    const tp = Math.random() * 6 | 0;
+    let r1=Math.random()*this.nm8.length|0, r2=Math.random()*this.nm9.length|0, r3=Math.random()*this.nm14.length|0;
+    if (tp===0) {
+      let s=0; while ((this.nm8[r1]===this.nm14[r3]||this.nm8[r1]==="")&&s++<30) r1=Math.random()*this.nm8.length|0;
+      return this.nm8[r1]+this.nm9[r2]+this.nm14[r3];
+    }
+    let r4=Math.random()*this.nm10.length|0, r5=Math.random()*this.nm13.length|0;
+    let s=0; while ((this.nm8[r1]===this.nm10[r4]||this.nm10[r4]===this.nm14[r3])&&s++<30) r4=Math.random()*this.nm10.length|0;
+    if (tp<5) return this.nm8[r1]+this.nm9[r2]+this.nm10[r4]+this.nm13[r5]+this.nm14[r3];
+    let r6=Math.random()*this.nm12.length|0, r7=Math.random()*this.nm11.length|0;
+    s=0; while ((this.nm10[r4]===this.nm12[r6]||this.nm12[r6]===this.nm14[r3])&&s++<30) r6=Math.random()*this.nm12.length|0;
+    return this.nm8[r1]+this.nm9[r2]+this.nm10[r4]+this.nm11[r7]+this.nm12[r6]+this.nm13[r5]+this.nm14[r3];
+  },
+
+  gen(female) {
+    const m = () => { let n; let s=0; do { n=this.masc(); } while(!n&&s++<20); return cap(n); };
+    const f = () => { let n; let s=0; do { n=this.fem();  } while(!n&&s++<20); return cap(n); };
+    return Array.from({length:10}, () => {
+      const sur = m();
+      return female ? `${f()} Kir-${sur}` : `${m()} Yul-${sur}`;
+    });
+  }
+};
+
+// ─────────────────────────────────────────────
+// GRISHAVERSE SULI — phoneme generator
+// ─────────────────────────────────────────────
+const SULI = {
+  nm1:  ["","","","b","bh","d","dh","h","k","kh","kr","ks","m","n","p","pr","r","s","sh","t","v","y"],
+  nm2:  ["a","a","e","e","i","o","u","u"],
+  nm3:  ["bh","d","h","j","l","m","n","nd","nt","nz","rb","rbh","rh","sn","sr","t","th"],
+  nm4:  ["a","e","e","i","i","o","u"],
+  nm5:  ["","","","","j","m","n","nt","s","t"],
+  nm8:  ["","","","","c","d","dh","g","h","k","kh","l","m","n","p","pr","r","s","sh","v","y"],
+  nm9:  ["a","a","a","e","e","i","i","i","o","u","u"],
+  nm10: ["bh","bj","d","dj","h","j","l","m","mr","ms","n","nd","p","pt","r","ry","s","sh","t","v"],
+  nm11: ["a","a","i","o","u"],
+  nm12: ["d","j","l","m","n","nd","nt","t","tr"],
+  nm13: ["a","a","a","e","i","u"],
+  nm14: ["","","","","","","","","","h","j","sh"],
+  nm15: ["","","b","d","dh","gh","k","kh","m","n","r","s","sh","t","v","y"],
+  nm16: ["a","a","e","i","o","a","a","e","i","o","u"],
+  nm17: ["br","d","dj","dr","f","h","j","l","m","mr","n","nd","nr","pt","r","s","sh","sr","t","th","tr"],
+  nm18: ["a","a","e","i","i","u"],
+  nm19: ["","","","","d","h","j","l","m","n","n","t","t"],
+
+  masc() {
+    let r1=Math.random()*this.nm1.length|0, r2=Math.random()*this.nm2.length|0,
+        r3=Math.random()*this.nm3.length|0, r4=Math.random()*this.nm4.length|0,
+        r5=Math.random()*this.nm5.length|0;
+    let s=0; while (this.nm1[r1]===""&&this.nm5[r5]===""&&s++<30) r1=Math.random()*this.nm1.length|0;
+    s=0; while ((this.nm3[r3]===this.nm1[r1]||this.nm3[r3]===this.nm5[r5])&&s++<30) r3=Math.random()*this.nm3.length|0;
+    return this.nm1[r1]+this.nm2[r2]+this.nm3[r3]+this.nm4[r4]+this.nm5[r5];
+  },
+
+  fem() {
+    const tp=Math.random()*5|0;
+    let r1=Math.random()*this.nm8.length|0, r2=Math.random()*this.nm9.length|0,
+        r3=Math.random()*this.nm10.length|0, r4=Math.random()*this.nm13.length|0,
+        r5=Math.random()*this.nm14.length|0;
+    let s=0; while ((this.nm10[r3]===this.nm8[r1]||this.nm10[r3]===this.nm14[r5])&&s++<30) r3=Math.random()*this.nm10.length|0;
+    if (tp<4) return this.nm8[r1]+this.nm9[r2]+this.nm10[r3]+this.nm13[r4]+this.nm14[r5];
+    let r6=Math.random()*this.nm11.length|0, r7=Math.random()*this.nm12.length|0;
+    s=0; while ((this.nm10[r3]===this.nm12[r7]||this.nm12[r7]===this.nm14[r5])&&s++<30) r7=Math.random()*this.nm12.length|0;
+    return this.nm8[r1]+this.nm9[r2]+this.nm10[r3]+this.nm11[r6]+this.nm12[r7]+this.nm13[r4]+this.nm14[r5];
+  },
+
+  sur() {
+    let r1=Math.random()*this.nm15.length|0, r2=Math.random()*this.nm16.length|0,
+        r3=Math.random()*this.nm17.length|0, r4=Math.random()*this.nm18.length|0,
+        r5=Math.random()*this.nm19.length|0;
+    let s=0; while (this.nm15[r1]===""&&this.nm19[r5]===""&&s++<30) r1=Math.random()*this.nm15.length|0;
+    s=0; while ((this.nm17[r3]===this.nm15[r1]||this.nm17[r3]===this.nm19[r5])&&s++<30) r3=Math.random()*this.nm17.length|0;
+    return this.nm15[r1]+this.nm16[r2]+this.nm17[r3]+this.nm18[r4]+this.nm19[r5];
+  },
+
+  gen(female) {
+    const m = () => { let n; let s=0; do { n=this.masc(); } while(!n&&s++<20); return cap(n); };
+    const f = () => { let n; let s=0; do { n=this.fem();  } while(!n&&s++<20); return cap(n); };
+    const su= () => { let n; let s=0; do { n=this.sur();  } while(!n&&s++<20); return cap(n); };
+    return Array.from({length:10}, () => `${female?f():m()} ${su()}`);
+  }
+};
+
+// ─────────────────────────────────────────────
+// TADBIR (Golem / Clank) — phoneme + Hebrew-inspired spirit names
+// ─────────────────────────────────────────────
+function genTadbir(female) {
+  const nm1 = ["b","br","bh","d","dr","dh","g","gr","gh","kh","r","rh","v","z"];
+  const nm2 = ["a","e","o","u","a","o","u","a","e","o","u","a","o","u","a","e","o","u","a","o","u","aa","au"];
+  const nm3 = ["b","bb","br","d","dd","dl","dr","fl","g","gg","gn","gm","gl","ggl","gv","gz","k","kk","kl","kv","l","ll","lg","lgr","lv","lb","ld","ldr","ng","nk","rb","rd","rg","zg","zzg","zzl","zl"];
+  const nm4 = ["","","","","c","d","hm","hk","hn","k","m","mm","n","nn","r"];
+  const nm5 = ["A","Abra","Aki","Al","Am","Ami","Av","Avi","Aza","Ba","Bin","Cha","Da","De","Di","Do","Ei","El","Ela","Ev","Ga","Ge","Gi","Ha","Hil","I","Ita","Ja","La","Le","Li","Ma","Me","Mena","Mo","Na","Ne","No","O","Ova","Pin","Ra","Ro","Sha","Shi","U","Ya","Ye","Yis","Yissa","Yo","Ze","Zo"];
+  const nm6 = ["chai","chem","chin","dam","dan","dar","den","deon","di","dia","dir","don","gam","ham","har","hem","khael","kiva","kov","lachi","lad","lai","lam","lan","lel","lev","lior","lom","mar","mi","mir","mog","na","nah","nan","nashe","nat","nen","ner","niv","non","rael","raim","rak","ram","ran","ria","riel","rik","ron","ror","ruch","rukh","sed","sef","shai","tai","tan","ven","vi","via","vid","vidan","viel","viram","yah","yahu","yal","yim","zar","zer"];
+  const nm7 = ["A","Achi","Adi","Ali","Ata","Avi","Aye","Aza","Ba","Be","Cha","Che","Da","De","Di","Do","Dro","Dvo","Eli","Elia","Elio","Ga","Ha","Han","He","I","Ila","In","Ke","Ki","Kin","Kine","Lea","Li","Lio","Liv","Ma","Me","Mei","Menu","Mi","Mo","Na","Nao","Nis","Nit","Nu","O","Of","Ofi","Or","Ra","Ri","Riv","Ro","Sa","Sha","Shi","Sho","Shu","Si","Ta","Te","Ti","To","Ya","Yar","Yo","Za","Zaha","Zi","Zo"];
+  const nm8 = ["cha","dah","dar","dara","den","dena","di","dina","fen","har","hel","hi","hila","kira","la","lach","lah","lana","lel","let","lev","li","lia","lila","lit","lita","lona","ly","ma","mi","mima","min","mira","na","nah","neret","ni","nit","nita","noam","pora","ra","racha","rah","ran","raz","ren","ret","ri","ria","rit","sa","sah","shana","shet","sheva","sia","tal","va","vah","vana","ved","via","vorah","ya","yah","za","ziela"];
+  const neut = () => {
+    const p = pick(nm1), v = pick(nm2), e = pick(nm4);
+    return cap(Math.random() < 0.4 ? p+v+e : p+v+pick(nm3)+pick(nm2)+e);
+  };
+  return Array.from({length:10}, (_, i) =>
+    i < 5 ? neut() : (female ? pick(nm7)+pick(nm8) : pick(nm5)+pick(nm6))
+  );
+}
+
+// ─────────────────────────────────────────────
+// TULPAR (Orc) — list-based, no surname
+// ─────────────────────────────────────────────
+const TULPAR_M = ["Abrosh","Agrakh","Angrat","Arakh","Arkash","Arkog","Azgat","Azgul","Azrak","Bagnak","Balgruk","Barak","Bargul","Barzak","Bashak","Bashruk","Bograk","Bolgur","Borgak","Dakrak","Darkash","Drakash","Dragnur","Garakh","Gharzak","Ghornak","Golbag","Gorzak","Gorzan","Gorznak","Graknar","Grashnak","Grimbak","Grongor","Grulk","Gruntal","Gurakh","Hurakh","Kargash","Kargul","Karnak","Khorzak","Korakh","Korgash","Kragnor","Kragrak","Largash","Margash","Morak","Morgash","Nagzak","Nargash","Narghul","Norgruk","Rakhnar","Raknar","Rorgash","Skragnak","Targak","Torgash","Ugrak","Urgash","Vargrash","Vorgash","Yagrak","Zagrath","Zargash","Zorgak"];
+const TULPAR_F = ["Agrob","Badbog","Bashuk","Bolgrush","Brakha","Darbog","Droza","Gashnak","Gishka","Gorgra","Gorsha","Grakha","Grasha","Gusha","Kagra","Karsha","Khasha","Korgra","Krakha","Larsha","Nagra","Narsha","Norgra","Orsha","Rakha","Rarsha","Sarsha","Skarsha","Torgra","Torsha","Ugrasha","Urgra","Varsha","Yagra","Zagra","Zarsha","Zorsha"];
+
+// ─────────────────────────────────────────────
+// VANARA (Simiah) — Punjabi / Gujarati
+// ─────────────────────────────────────────────
+const VANARA_M = ["Aarav","Amar","Amardeep","Amrik","Arjun","Arpit","Arvind","Baldev","Bhavesh","Chirag","Davinder","Deep","Deepak","Dev","Devinder","Dhruv","Dilbag","Gaurav","Govind","Gurdev","Gurmeet","Gurpreet","Gursewak","Hardev","Hardip","Harinder","Harjit","Harjinder","Harman","Harmeet","Harpal","Harpreet","Harshit","Himanshu","Hitesh","Jagdev","Jagdip","Jagdish","Jaginder","Jagmeet","Jagtar","Jasmeet","Jaspinder","Jasraj","Jass","Jasvir","Jatinder","Jatin","Jaydev","Jigar","Jitendra","Joginder","Jugraj","Karan","Karanvir","Kashyap","Kuldeep","Kulvinder","Kulwant","Kunwar","Lakhvir","Lovepreet","Mahinder","Maninder","Manjit","Manmeet","Manpreet","Manvir","Mihir","Milap","Mithun","Navdeep","Navjot","Navneet","Navpreet","Nirmal","Parminder","Pawan","Prabhdeep","Pradeep","Rajinder","Rajveer","Ranjit","Ravinder","Ronak","Rupinder","Sahil","Sandeep","Sanjeev","Satinder","Satvinder","Saurabh","Shubh","Surinder","Sukhdev","Sukhwinder","Sukhjinder","Tejpal","Upinder","Varinder","Vikram","Vineet","Vishal","Yuvraj"];
+const VANARA_F = ["Aashna","Aditi","Aishwarya","Amrit","Amrita","Asha","Ashpreet","Baljit","Bhavna","Bhumika","Chandni","Charu","Damini","Deepa","Deepika","Devika","Disha","Divya","Ekta","Gauri","Gunjan","Gurjit","Gurpreet","Gurseerat","Harjit","Harleen","Harmeet","Harpreet","Harseerat","Himani","Indira","Isha","Jagjit","Jasmeet","Jyoti","Kaajal","Kajal","Karamjit","Kavita","Khushi","Kirandeep","Kiranpreet","Komal","Kulwant","Lakhvir","Lovepreet","Madhuri","Mahima","Mandeep","Maninder","Manjeet","Manpreet","Mansi","Maya","Meera","Mehak","Minakshi","Mitali","Namrata","Navdeep","Navneet","Navpreet","Neha","Nimrat","Nisha","Niti","Palak","Poonam","Pooja","Preeti","Preetinder","Priya","Priyanka","Pushpa","Radha","Rajinder","Ramneek","Rashmi","Riya","Roshni","Rupinder","Sadhna","Sakshi","Sandhya","Sangeeta","Sapna","Sarika","Seema","Shabnam","Shruti","Simran","Sonal","Sonali","Sonam","Sukhmeet","Sukhpreet","Surbhi","Sushma","Swati","Tanvi","Taranjit","Varsha","Vinita","Yasmin","Zara"];
+const VANARA_S = ["Acharya","Adani","Ahuja","Ajmera","Arora","Bahl","Bajaj","Bakshi","Bali","Batra","Bhatt","Bhatia","Chaudhary","Chopra","Dalal","Datta","Desai","Doshi","Gandhi","Garg","Ghosh","Gill","Gupta","Iyer","Jain","Johal","Joshi","Kamboj","Kapoor","Kapila","Khanna","Kumar","Malhotra","Mangat","Mehta","Mistry","Modi","Nanda","Oberoi","Patel","Pathak","Raina","Rao","Rathi","Rekhi","Roy","Sahota","Sandhu","Seth","Shah","Sharma","Shukla","Singh","Sinha","Sodhi","Suri","Tandon","Varma","Verma","Walia"];
+
+// ─────────────────────────────────────────────
+// RAHBAN (Halfling) — Tolkien-style Shire names
+// ─────────────────────────────────────────────
+const RAHBAN_M = ["Adalard","Adelard","Aldor","Ander","Andwise","Antioch","Balbo","Bandobras","Bilbo","Bingo","Blanco","Bodo","Bowman","Brand","Brodda","Bungo","Carl","Cosimo","Cotton","Dante","Darien","Dodinas","Drogo","Dudo","Everard","Falco","Fastred","Ferdinand","Filibert","Folco","Foster","Fosco","Frodo","Gander","Gerontius","Griffo","Hamfast","Hamson","Hildifons","Hugo","Isembard","Jago","Jasper","Jolly","Largo","Libo","Lotho","Marcho","Marmadas","Meriadoc","Merimac","Merimas","Merry","Minto","Mondo","Moro","Morton","Mosco","Mungo","Murdoc","Nob","Olo","Orgulas","Paladin","Peregrin","Polo","Ponto","Porto","Posco","Robin","Rorimac","Rudolph","Rufus","Saradoc","Sigismund","Silvester","Tolly","Tobold","Todo","Vigo","Vasco","Wilibald","Wiseman"];
+const RAHBAN_F = ["Adallinda","Alison","Amelia","Arabella","Aria","Asphodel","Augusta","Belba","Bertha","Berylla","Bluebell","Briar","Camellia","Camomile","Clover","Dahlia","Daisy","Dela","Delphinium","Diamond","Dolly","Donnamira","Esmie","Estella","Fern","Flora","Flower","Fuchsia","Goldie","Goldilocks","Grace","Holly","Honeysuckle","Hyacinth","Iris","Ivy","Jasmine","Lily","Linda","Lobelia","Lottie","Louella","Magnolia","Maribel","Marigold","Mariota","Marjorie","Martha","May","Melia","Merry","Mimosa","Mirabella","Miranda","Mulberry","Muriel","Nettle","Nora","Peony","Plum","Poppy","Primrose","Rosy","Rosalind","Ruby","Salvia","Sapphire","Sweetbriar","Tansy","Tilly","Tulip","Valeria","Vera","Victoria"];
+const RAHBAN_S = ["Baggins","Banks","Bolger","Brandybuck","Boffin","Brockhouse","Brown","Brownlock","Bunce","Burrows","Chubb","Clayhanger","Cotton","Diggle","Gamgee","Gardner","Goodbody","Goodchild","Greenbottle","Greenhand","Grubb","Hayward","Headstrong","Hornblower","Lightfoot","Longhole","Longbottom","Maggot","Mugwort","Noakes","Overhill","Pott","Puddifoot","Roper","Rushlight","Sackville","Sandheaver","Sandybanks","Shoveler","Smallburrow","Springleap","Stonebow","Tanner","Took","Tunnelly","Underhill","Whitfoot","Woodruff","Zaragamba"];
+
+// ─────────────────────────────────────────────
+// VAGHRI (Katari) — Nekojin / Cat-people
+// ─────────────────────────────────────────────
+const VAGHRI_M = ["Aiko","Aki","Akihiko","Akihiro","Akiko","Akina","Akira","Anda","Aneko","Aoi","Ayame","Bento","Chika","Chiko","Chiyo","Cho","Dai","Daiki","Daisuke","Domo","Eriko","Gin","Haiku","Hana","Haru","Haruki","Haruko","Hideki","Hideo","Hikaru","Hiro","Hiroki","Hiroshi","Hisa","Hisashi","Hisoka","Honcho","Hoshi","Hoshiko","Ichiro","Isamu","Isao","Jiro","Judo","Jun","Juro","Kabuki","Kaede","Kameko","Katsumi","Katsuo","Katsuro","Keiji","Keiko","Ken","Kenji","Kin","Kioko","Kioshi","Ko","Kobe","Kohaku","Koji","Koto","Kou","Kumiko","Kuro","Kyo","Kyoko","Leiko","Madoka","Maeko","Makoto","Masa","Masaaki","Masaki","Masi","Masumi","Masuru","Matsui","Michiko","Michio","Minoru","Mitsuo","Mitsuru","Nami","Nao","Naoki","Nariko","Natsuko","Nikki","Nobu","Nori","Noriko","Norio","Nyoko","Oki","Orino","Ran","Rei","Ryu","Sachi","Sachiko","Sake","Sakura","Satu","Shig","Shika","Shin","Shina","Shino","Shiro","Sho","Suki","Sumi","Sumo","Suzu","Taiki","Taiko","Taji","Taka","Takara","Tamae","Toshi","Yoshi","Yukio"];
+const VAGHRI_F = ["Aiko","Aimi","Aio","Akane","Aki","Akina","Akira","Amaya","Ame","Aoi","Aozora","Asa","Asami","Aya","Ayaka","Chi","Chie","Chika","Chikako","Chiyo","Cho","Choji","Dai","Eiko","Emi","Emiko","Eri","Fujiko","Fuyu","Ginkgo","Haiku","Hana","Hanako","Haru","Haruki","Haruko","Hideko","Hikari","Hikaru","Hiro","Hiromi","Hisanori","Hisoka","Hitomi","Hoshi","Hoshinka","Hotaru","Junko","Kabuki","Kaede","Kameko","Kaori","Kasumi","Katsu","Kazumi","Kei","Keiko","Kimi","Kimiko","Kioko","Kiyoshi","Ko","Kohaku","Kohana","Koko","Kou","Kuro","Kyo","Kyoko","Leiko","Madoka","Mai","Maiya","Masa","Masako","Masami","Masumi","Mi","Michi","Michiko","Midori","Mika","Miki","Miku","Misuki","Mitsuru","Miyoshi","Miyuki","Moe","Momo","Momoe","Moriko","Nami","Naoki","Naoko","Naomi","Nari","Nariko","Natsu","Natsumi","Neka","Nobu","Nori","Noriko","Oki","Rei","Reiko","Riko","Rin","Ryoko","Saki","Sakura","Sayomi","Sayuri","Shig","Shinju","Shiori","Shizumi","Shoji","Sora","Suki","Sumiko","Susumu","Suzaku","Suzu","Tamika","Tanaka","Tokiwa","Tora","Toshiko","Tsuki","Tsukiko","Umeko","Usagi","Yoi","Yoki","Yoko","Yori","Yoshie","Yuki","Yukiko","Yumi","Yumiko","Yuri","Yuuki","Zakuro"];
+const VAGHRI_P = ["ch","c","f","g","h","k","m","n","pr","r","s","sh","th","x","z"];
+const VAGHRI_V = ["a","e","i","o","u","a","e","i","o","u","a","e","i","o","u","a","e","i","o","u","ea","ia","au","iau","aa","ee","ie","y","y"];
+const VAGHRI_C = ["ch","c","f","fr","cr","k","ks","cs","kr","m","mm","mn","ms","mz","kz","n","nm","ns","nz","nx","nch","mch","pr","gr","s","ss","sh","sz","shr","sr","th","tr","t","x","z","zz","zs","zr","c","f","k","m","n","s","t","x","z"];
+const VAGHRI_EM = ["","","","r","rr","s","ss","sh","x","z"];
+const VAGHRI_EF = ["","","","","","","","th","h","s","ss","sh"];
+function genVaghri(female) {
+  const real = female ? VAGHRI_F : VAGHRI_M;
+  const end  = female ? VAGHRI_EF : VAGHRI_EM;
+  return Array.from({length:10}, (_, i) => {
+    if (i < 5) return pick(real);
+    const v1 = pick(VAGHRI_V), c1 = pick(VAGHRI_C), v2 = pick(VAGHRI_V), e = pick(end);
+    return cap(pick(VAGHRI_P) + v1 + c1 + (Math.random() < 0.55 ? '' : pick(VAGHRI_C) + v2) + e);
+  });
+}
+
+// ─────────────────────────────────────────────
+// KUHBAN (Dwarf) — phoneme + compound clan name
+// ─────────────────────────────────────────────
+const KUHBAN_P  = ["A","Ara","Alfo","Bari","Be","Bo","Bha","Bu","Ba","Bra","Bro","Brou","Bru","Da","Dalo","Dare","De","Dhu","Dho","Do","Dora","Dwo","Dou","Duri","Du","El","Eri","Fi","Fo","Fo","Ga","Gi","Gla","Glori","Go","Gra","Gro","Groo","Gru","Grou","Ha","Ha","He","He","Ho","Hou","Hu","Ja","Jo","Ka","Khe","Khu","Khou","Ko","Ku","Ki","Kra","Kro","Lo","Lu","Lo","Ma","Mo","Mu","Na","No","Nu","Nora","Nura","Ne","No","O","Ori","Rei","Ra","Ru","Sa","Si","Sna","Sko","Ska","Stro","The","Thi","Tho","Thra","Tha","Tore","Tha","Thra","Thro","Thu","Tu","U","Umi","Va","Vo","Whu","We","Wera","Yu","Yo","Ya"];
+const KUHBAN_CM = ["b","br","dd","d","dr","dm","dgr","f","fr","gr","gg","gh","gn","k","kh","kgr","kdr","kk","kh","kr","l","lg","lgr","ldr","lm","md","mn","m","mm","mr","n","nd","ndr","ngr","nm","r","rr","rgr","rdr","rb","rg","rn","rh","rd","rm","rs","rf","s","ss","sdr","sgr","st","str","t","tr","tm","th","tdr","tgr","v","vr","z","zm","zn","zz"];
+const KUHBAN_EM = ["ac","aic","aec","ec","eac","ic","oc","oic","ouc","ack","aeck","eck","eack","ick","ock","oick","ouck","uck","uc","ad","aed","ed","ead","id","od","oid","oud","ud","uid","ag","aeg","eg","eag","ig","og","oug","ug","ak","aek","ek","eak","ik","ok","oki","uk","uik","ouk","uki","al","ael","el","eal","il","ol","oli","olin","olim","olir","oul","ul","uli","ulim","ulir","uil","am","ami","amli","amri","aem","em","eam","im","om","omli","omri","omi","oum","um","umi","umir","umin","umli","umlir","umlin","umri","an","aen","en","ean","in","on","onlim","onlir","oun","un","unli","unri","ar","arlum","arlun","arlug","arlig","aer","er","erlum","erlun","erlug","erlig","ear","ir","irlum","irlun","or","orli","orlim","orlum","orlun","orlig","orlug","oir","our","ur","uri","urim","urum","us","as","ous","aes","eas","at","atir","atum","atin","aet","et","eat","it","ot","otir","atin","otum","out","ut","ath","aeth","eth","eath","ith","oth","outh","uth"];
+const KUHBAN_CF = ["b","br","dd","d","dr","dm","dgr","dw","f","fr","gr","gg","gh","gn","k","kh","kgr","kdr","kk","kw","kh","kr","l","lg","lgr","ldr","lm","md","mw","mn","m","mm","mr","n","nd","ndr","nw","ngr","nm","r","rr","rgr","rdr","rb","rg","rn","rh","rd","rm","rs","rf","s","ss","sdr","sgr","st","str","t","tr","tm","th","tdr","tgr","v","vr","w","z","zm","zn","zz"];
+const KUHBAN_EF = ["abelle","aebelle","ebelle","ibelle","obelle","ubelle","alyn","aelyn","elyn","ealyn","ilyn","olyn","oulyn","ulyn","uilyn","alynn","aelynn","elynn","ealynn","ilynn","olynn","oulynn","ulynn","uilynn","abelyn","aebelyn","ebelyn","eabelyn","ibelyn","obelyn","oubelyn","ubelyn","uibelyn","abelynn","aebelynn","ebelynn","eabelynn","ibelynn","obelynn","oubelynn","ubelynn","uibelyn","anelyn","aenelyn","enelyn","eanelyn","inelyn","onelyn","ounelyn","unelyn","uinelyn","anelynn","aenelynn","enelynn","eanelynn","inelynn","onelynn","ounelynn","unelynn","uinelynn","agit","aegit","egit","eagit","igit","ogit","ugit","uigit","agith","aegith","egith","eagith","igith","ogith","ugith","uigith","irgit","irgith","uirgit","uirgith","airgit","airgith","arika","aerika","erika","earika","irika","orika","urika","atain","aetain","etain","eatain","itain","otain","utain","ataine","aetaine","etaine","eataine","itaine","otaine","utaine","ahilda","aehilda","ehilda","eahilda","ohilda","ihilda","uhilda","ahulda","aehulda","ehulda","eahulda","ohulda","ihulda","uhulda","agar","aegar","egar","eagar","igar","ogar","ugar","agaer","egaer","igaer","ogaer","ugaer","atrud","aetrud","etrud","eatrud","itrud","otrud","utrud","atrude","aetrude","etrude","eatrude","itrude","otrude","utrude","ada","aeda","eda","eada","ida","oda","uda","alda","aelda","elda","ealda","ilda","olda","oulda","ulda","alin","aelin","elin","ealin","ilin","olin","oulin","ulin","aline","aeline","eline","ealine","iline","oline","ouline","uline","atalin","aetalin","etalin","eatalin","italin","otalin","outalin","utalin","atalyn","aetalyn","etalyn","eatalyn","italyn","otalyn","outalyn","utalyn","atelin","aetelin","etelin","eatelin","itelin","otelin","outelin","utelin","atelyn","aetelyn","etelyn","eatelyn","itelyn","otelyn","outelyn","utelyn","angrid","aengrid","engrid","eangrid","ingrid","ongrid","oungrid","ungrid","ani","aeni","eni","eani","ini","oni","ouni","uni","ana","aena","ena","eana","ina","ona","ouna","una","alsia","aelsia","elsia","ealsia","ilsia","olsia","oulsia","ulsia","ala","aela","ela","eala","ila","ola","oula","ula","abella","aebella","ebella","eabella","ibella","obella","oubella","ubella","abela","aebela","ebela","eabela","ibela","obela","oubela","ubela","astr","aestr","estr","eastr","istr","ostr","oustr","ustr","abo","aebo","ebo","eabo","ibo","obo","oubo","ubo","abena","aebena","ebena","eabena","ibena","obena","oubena","ubena","abera","aebera","ebera","eabera","ibera","obera","oubera","ubera","adeth","aedeth","edeth","eadeth","ideth","odeth","oudeth","udeth","adrid","aedrid","edrid","eadrid","idrid","odrid","oudrid","udrid","abyrn","aebyrn","ebyrn","eabyrn","ibyrn","obyrn","oubyrn","ubyrn","agrett","aegrett","egrett","eagrett","igrett","ogrett","ougrett","ugrett","agret","aegret","egret","eagret","igret","ogret","ougret","ugret","asli","aesli","esli","easli","isli","osli","ousli","usli","ahilda","aehilda","ehilda","eahilda","ihilda","ohilda","ouhilda","uhilda","ahilde","aehilde","ehilde","eahilde","ihilde","ohilde","ouhilde","uhilde","aginn","aeginn","eginn","eaginn","iginn","oginn","ouginn","uginn","amora","aemora","emora","eamora","imora","omora","oumora","umora","alydd","aelydd","elydd","ealydd","ilydd","olydd","oulydd","ulydd","akara","aekara","ekara","eakara","ikara","okara","oukara","ukara","aren","aeren","eren","earen","iren","oren","ouren","uren","arra","aerra","erra","earra","irra","orra","ourra","urra","are","aere","ere","eare","ire","ore","oure","ure","awynn","aewynn","ewynn","eawynn","iwynn","owynn","ouwynn","uwynn","atryd","aetryd","etryd","eatryd","itryd","otryd","outryd","utryd","athra","aethra","ethra","eathra","ithra","othra","outhra","uthra","aserd","aeserd","eserd","easerd","iserd","oserd","ouserd","userd","tryd"];
+const KUHBAN_CP = ["Ale","Amber","Anvil","Ash","Axe","Barbed","Barrel","Battle","Beast","Bone","Beryl","Bitter","Black","Blazing","Blessed","Blood","Blunt","Bone","Bottle","Boulder","Brew","Brick","Bright","Bristle","Broad","Bronze","Brown","Cave","Cask","Chain","Crag","Chaos","Coal","Coin","Copper","Dark","Deep","Dim","Dragon","Drake","Dusk","Earth","Ember","Fiery","Flint","Flask","Flint","Flat","Forge","Frost","Giant","Gold","Golden","Granite","Gravel","Gray","Great","Grey","Grim","Grumble","Hammer","Hard","Heavy","Hill","Honor","Horn","Ice","Ingot","Iron","Jade","Keg","Kobold","Krag","Lead","Large","Lava","Leather","Light","Long","Marble","Magma","Merry","Metal","Mithril","Mine","Mountain","Mud","Night","Noble","Oak","Oaken","Onyx","Opal","Ore","Orc","Plate","Pebble","Red","Rune","Ruby","Sapphire","Shadow","Shatter","Smelt","Silver","Snow","Steel","Storm","Strong","Troll","Thunder","Twilight","Treasure","Under","War","Warm","Whit","Wind","Wold","Wraith","Wyvern"];
+const KUHBAN_CS = ["arm","armour","axe","back","bane","beard","basher","belly","belt","bender","blade","born","bow","braid","braids","branch","brand","breaker","brew","brewer","bringer","brow","buckle","buster","chest","chin","cloak","coat","delver","digger","foot","fall","fury","finger","flayer","feet","forge","forged","grog","grip","guard","gut","granite","hand","head","heart","helm","hide","hood","horn","jaw","mace","mail","maker","mantle","mane","master","maul","miner","pike","rock","river","shield","shaper","sword","shoulder","stone","spine","sunder","thane","toe","tank","view"];
+function genKuhban(female) {
+  const clan = () => pick(KUHBAN_CP) + pick(KUHBAN_CS);
+  return Array.from({length:10}, () => {
+    const fn = female
+      ? cap(pick(KUHBAN_P) + pick(KUHBAN_CF) + pick(KUHBAN_EF))
+      : cap(pick(KUHBAN_P) + pick(KUHBAN_CM) + pick(KUHBAN_EM));
+    return `${fn} ${clan()}`;
+  });
+}
+
+// ─────────────────────────────────────────────
+// PARI-KIN (Faun) — Greek / Roman mythology-inspired
+// ─────────────────────────────────────────────
+const PARIKIN_M = ["Aegipan","Ampelos","Aristaios","Chromis","Comos","Croton","Diophobus","Dodon","Dryops","Echion","Epopeus","Etalion","Glaukos","Hylas","Lamos","Leneus","Lycos","Lykos","Lycus","Marathos","Marsyas","Maron","Mekon","Melas","Mnaseas","Moros","Nikodromos","Oinopion","Oreios","Pan","Panoptes","Pherespondos","Philamnos","Phorbas","Polyphemos","Priapos","Rhoikos","Satyros","Silenos","Silenus","Silvanus","Skelmis","Skopos","Staphylos","Thyrsus","Tigris","Tylos","Faustus","Faunus","Liber","Lupercus","Silvius","Consus","Vertumnus","Picus"];
+const PARIKIN_F = ["Achaea","Aegle","Aethra","Amphitrite","Anaxo","Antheis","Arethousa","Autonoe","Calliphae","Chloe","Chryse","Daphne","Echo","Egle","Erato","Flora","Galene","Galatea","Gorge","Hesperis","Hippo","Hyale","Ianthe","Kalypso","Korymbia","Leiagora","Lethaia","Limnaeia","Loxa","Lysippe","Maera","Makareis","Melete","Meliboea","Menestho","Nikaia","Oeneis","Parnassia","Pegaia","Periboea","Phaenna","Phryne","Polyxo","Rhode","Rhodo","Sagaritis","Salmakis","Semele","Silene","Sinoe","Syrinx","Thaleia","Thyia","Xyline","Flora","Fauna","Pomona","Feronia","Pales","Inuus"];
+
+// ─────────────────────────────────────────────
+// CHINESE / HMONG
+// ─────────────────────────────────────────────
+const CHINESE_M = ["Bao","Bo","Chang","Chao","Chen","Cheng","Da","De","Dong","Fang","Fei","Feng","Fu","Gang","Gao","Guang","Gui","Hao","He","Hong","Hu","Hua","Huan","Huang","Hui","Jun","Junlong","Kai","Kang","Lang","Lei","Liang","Lin","Long","Lu","Lun","Ming","Peng","Qiang","Qing","Ren","Sheng","Tao","Wei","Wen","Xi","Xiang","Xiao","Xin","Xing","Xu","Yan","Yang","Yi","Ying","Yu","Yuan","Yun","Zhen","Zheng","Zhi","Zhong","Zhu"];
+const CHINESE_F = ["Bao","Biyun","Chunhua","Cuifen","Dan","Die","Fang","Feng","Hong","Hua","Hui","Jia","Jiao","Jin","Jing","Ju","Juan","Lan","Li","Lian","Ling","Liu","Mei","Min","Ming","Nuan","Ping","Qian","Rui","Rong","Shan","Shu","Shuang","Si","Tingting","Wei","Wen","Xi","Xia","Xian","Xiao","Xin","Xiu","Xue","Xueying","Yan","Yang","Yanmei","Yi","Ying","Yu","Yuan","Yue","Yulan","Yun","Zhen","Zhi","Zhu"];
+const CHINESE_S = ["Bai","Cao","Chang","Chen","Cheng","Chu","Cui","Deng","Dong","Du","Fan","Fang","Feng","Fu","Gao","Gong","Guo","Han","He","Hou","Hu","Huang","Jiang","Jin","Kong","Lei","Li","Liang","Lin","Liu","Lu","Luo","Ma","Mao","Peng","Qian","Qin","Qiu","Ruan","Shen","Song","Su","Sun","Tan","Tang","Tian","Wang","Wei","Wen","Wu","Xie","Xiong","Xu","Yan","Yang","Ye","Yi","Yin","Yu","Yuan","Zeng","Zhang","Zhao","Zheng","Zhou","Zhu","Zhuang",
+  "Cha","Chang","Her","Hang","Khang","Kong","Kue","Lor","Lo","Ly","Moua","Pha","Thao","Vang","Vue","Xiong","Yang"];
+
+// ─────────────────────────────────────────────
+// ZOROASTRIAN
+// ─────────────────────────────────────────────
+const ZORO_M = ["Adarbad","Ardashir","Ardeshir","Artaxerxes","Aspandyar","Bahram","Cyrus","Darius","Esfandiyar","Fariborz","Farrokh","Firoze","Gotarzes","Hormuz","Hormazd","Jamshid","Jamshed","Kaikavus","Kaikhusrow","Kavadh","Khosrow","Lohrasp","Manuchehr","Mehrab","Mehrdad","Narseh","Naryosang","Nowruz","Ohrmuzd","Rostam","Sam","Shapour","Shapur","Siavash","Sorab","Spandyar","Tahmasp","Tahmuras","Varahram","Vishtasp","Wahram","Xerxes","Yazdegerd","Zarathustra","Zartosht","Zrvan","Ardavan","Bahman","Isfandyar","Khorshid","Mardanshah","Nariman"];
+const ZORO_F = ["Anahita","Armaiti","Asha","Atossa","Aveh","Banu","Chista","Daena","Gaochira","Havovi","Hutaosa","Khurshid","Ladan","Mahruk","Mandana","Meher","Narmada","Nushin","Paridokht","Parveen","Pourusista","Roshanak","Roxana","Shahrbanu","Simin","Tara","Vanuhi","Zarrin","Dinbanu","Drafshi","Fravashi","Ardehsir","Gavar","Tanaz"];
+const ZORO_S = ["Anklesaria","Balsara","Billimoria","Cama","Chiniwala","Contractor","Cooper","Davar","Desai","Divecha","Dubash","Eduljee","Engineer","Framjee","Godrej","Irani","Jamshedji","Kapadia","Katrak","Khambatta","Master","Mehta","Minwalla","Mistry","Modi","Motiwala","Nariman","Nusserwanji","Panthaky","Parikh","Petit","Poonawalla","Sethna","Talati","Tata","Vakil","Vimadalal","Wadia"];
+
+// ─────────────────────────────────────────────
+// JAPANESE (historical + Edo-period)
+// ─────────────────────────────────────────────
+const JAPANESE_M = ["Akihiko","Akira","Chikara","Daisuke","Etsuro","Fumio","Goro","Hajime","Hideo","Hideki","Hiroaki","Hiroshi","Ichiro","Isamu","Jiro","Jun","Junichi","Kanjiro","Katsuji","Katsuro","Keiji","Kenji","Ken","Kenta","Kichisaburo","Koji","Kosuke","Makoto","Masa","Masao","Masaru","Michio","Minoru","Mitsuru","Motoki","Naoki","Nobu","Nori","Osamu","Ryu","Saburo","Shigeru","Shin","Shiro","Sho","Shoji","Shosuke","Taro","Tatsuya","Tomio","Toru","Yasuo","Yoshio","Yuki","Yukio","Yutaka","Zentaro"];
+const JAPANESE_F = ["Akemi","Akiko","Aya","Ayako","Chieko","Emiko","Fumi","Fumiko","Hanako","Haruko","Hiroko","Hisako","Ito","Junko","Kazuko","Keiko","Kimiko","Kumiko","Kyoko","Maki","Masako","Michiko","Midori","Misako","Miyuki","Nana","Naoko","Noriko","Reiko","Riko","Sachiko","Saki","Satoko","Shizuka","Sumiko","Tamiko","Tomoko","Tomoe","Ume","Umeko","Yasuko","Yoshiko","Yukiko","Yumi","Yuriko"];
+const JAPANESE_S = ["Abe","Aoki","Fujita","Fujiwara","Goto","Hayashi","Honda","Inoue","Ishikawa","Ito","Iwata","Kato","Kimura","Kobayashi","Matsuda","Matsumoto","Miki","Miyamoto","Mori","Nakamura","Nakata","Nishimura","Ogawa","Okamoto","Saito","Sato","Sugiyama","Suzuki","Takahashi","Tanaka","Ueda","Watanabe","Yamamoto","Yamashita","Yamamura","Yamazaki","Yoshida","Oda","Shimazu","Takeda","Date","Uesugi","Imagawa","Hosokawa","Otomo","Chosokabe","Hojo","Tokugawa"];
+
+// ─────────────────────────────────────────────
+// PERSIAN
+// ─────────────────────────────────────────────
+const PERSIAN_M = ["Abbas","Afshin","Ahmad","Akbar","Ali","Ali Reza","Amin","Amir","Amir Ali","Amir Hossein","Amir Mohammad","Amir Reza","Anooshirvan","Arash","Aref","Arman","Arsalan","Arzhang","Asghar","Aziz","Babak","Bagher","Bahman","Bahram","Bairam","Behnam","Behrad","Behrouz","Behzad","Benyamin","Bijan","Borzou","Changiz","Dariush","Davoud","Ebrahim","Ehsan","Enayat","Erfan","Esfandiyar","Esmaeel","Faramarz","Farhad","Fariborz","Farid","Farrokh","Farzad","Farzin","Fazel","Ferdous","Firooz","Freydoun","Habib","Hadi","Hamed","Hamid","Hamidreza","Hashem","Hassan","Hesam","Heshmat","Heydar","Homayoun","Hooman","Hossein","Houshang","Iraj","Jaffar","Jahangir","Jallal","Jamshid","Javad","Kambiz","Kamran","Kamyar","Kannan","Karim","Kaveh","Kazem","Keyhan","Keykavous","Khashayar","Khosrow","Kioumars","Kooroush","Latif","Mahdi","Mahyar","Majid","Mamad","Mani","Manouchehr","Mansour","Mazyar","Mehdi","Mehran","Mehrdad","Meysam","Milad","Moein","Mohammad Ali","Mohammad Reza","Mohsen","Mojtaba","Morteza","Mostafa","Nader","Naghi","Naser","Nima","Nouzar","Nozar","Omid","Parsa","Parviz","Payam","Pejman","Peyman","Pouria","Pouya","Qobad","Ramin","Rasoul","Reza","Rostam","Sadeq","Saeed","Sahand","Salar","Salman","Sam","Saman","Sasan","Sattar","Sepand","Shadmehr","Shahab","Shahin","Shahram","Shapoor","Siamak","Siavash","Sina","Sirvan","Soheil","Sohrab","Soroosh","Taghi","Vahid","Youssef","Zakaria"];
+const PERSIAN_F = ["Afagh","Afsaneh","Afsoon","Aida","Akhtar","Akram","Anahita","Anna","Aram","Arezoo","Asal","Atefeh","Atena","Athar","Azadeh","Azar","Azita","Bahar","Bahareh","Baran","Behnaz","Behnoosh","Bita","Darya","Dorsa","Ehteram","Elahe","Elham","Elnaz","Fahime","Fakhri","Falamak","Farahnaz","Faranak","Fariba","Farzaneh","Fatemeh","Fereshteh","Foroogh","Frouzan","Ghazal","Gohar","Golchehreh","Goli","Golrokh","Golsa","Hadis","Halimeh","Hamideh","Hanieh","Hannaneh","Hasti","Hedieh","Hengameh","Homa","Jamileh","Katayoun","Khatereh","Khatoun","Kheyri","Kobra","Ladan","Leila","Leyli","Mahboobeh","Mahdieh","Mahnaz","Mahtab","Mahya","Malihe","Maryam","Marzieh","Mehraveh","Melika","Mitra","Mohadese","Mohtaram","Monir","Mozhde","Mozhgan","Naghme","Narges","Nasim","Nasrin","Nassim","Nastaran","Nazanin","Negar","Negin","Niki","Nikou","Niloofar","Ozraa","Parastoo","Pardis","Pari","Parichehr","Parisa","Parvaneh","Parvin","Pegah","Poopak","Pooran","Pouri","Raha","Rahele","Razieh","Reyhaneh","Roohangiz","Roushanak","Rouya","Roya","Saba","Sadaf","Sadiqe","Sahar","Sakineh","Samira","Sara","Setareh","Shabnam","Shahin","Shahla","Shamsi","Shaqayegh","Sharareh","Shila","Shirin","Shiva","Sima","Simin","Soheila","Somayeh","Soraya","Susan","Tahmine","Tannaz","Taraneh","Touran","Vida","Yasaman","Yekta","Youkhavid","Zahra","Zari","Ziba","Zohreh"];
+const PERSIAN_S = ["Abbasi","Abdi","Abedi","Adib","Afshani","Afshar","Aghili","Ahangar","Ahmadi","Alidoosti","Almasi","Amini","Arabnia","Arjmand","Asadi","Asayesh","Askari","Aslani","Atlasi","Azadeh","Azari","Baghaii","Bagherzadeh","Bahadori","Bahreini","Barbarz","Bayat","Behdad","Beheshti","Bina","Blourian","Boromand","Bozorgi","Chavoshi","Danesh","Dara","Darvishi","Dehghan","Deljou","Derakhshani","Diba","Dirbaz","Eftekhar","Eghbali","Entezami","Ershadi","Esfahani","Eshtiaq","Eskandari","Faghih","Fallah","Farahani","Faramarzian","Fardin","Farzin","Fathi","Fatollahi","Foroutan","Freydooni","Frootan","Froozan","Ghaffari","Gharibian","Golchin","Golshani","Golzar","Haghighi","Haghjoo","Haghshenas","Hajar","Hashemi","Hashempour","Hatami","Hayaii","Hayati","Hedayati","Hematti","Hosseini","Jabarzadeh","Jafarnejad","Jahangiri","Kamran","Kardan","Karimi","Kasebi","Kashkouli","Kaviani","Keramati","Keshavarz","Khaledi","Khalili","Khodadad","Khoshkam","Khosravi","Kiaei","Kianian","Layegh","Lotfi","Mahdavi","Mahmoodi","Malakooti","Manesh","Mashayekhi","Mehrian","Mehrjoo","Mehrnia","Meskini","Miri","Mirzaii","Modiri","Mofid","Moghadam","Mohebi","Momeni","Moshiri","Mostofi","Mousavi","Mozafari","Najafi","Nasirian","Nazeri","Nemati","Noori","Pahlevan","Pakdel","Panahi","Parastui","Pasdar","Pirdoost","Pirouzfar","Poozesh","Qaderi","Qajar","Qanbari","Qasemi","Radan","Raeisi","Rahnema","Raoufi","Rashidi","Rastegar","Razavian","Riahi","Rostami","Rouhani","Sadeghi","Sadiq","Safavi","Salehi","Sayyad","Sayyadi","Shahi","Shajarian","Shariati","Shojaii","Shokoohi","Sobhani","Soleymani","Tabatabaii","Taghipour","Taheri","Tahmasb","Tajik","Tarokh","Tavakoli","Torabi","Vahdat","Vakili","Yazdani","Yeganeh","Zamani","Zand","Zangane","Zareii"];
+
+// ─────────────────────────────────────────────
+// TURKISH (abbreviated representative sample)
+// ─────────────────────────────────────────────
+const TURKISH_M = ["Adem","Adil","Ahmet","Alp","Alparslan","Altan","Altay","Arslan","Aslan","Ata","Ates","Atilla","Ayaz","Aydin","Aydogan","Bahadir","Baran","Baris","Barlas","Batu","Batuhan","Bayram","Berk","Berkay","Berke","Bilal","Bilge","Bilgin","Boran","Burak","Bulent","Cagatay","Can","Caner","Cem","Cemal","Cemil","Cengiz","Cenk","Cetin","Cevdet","Cihan","Cumhur","Cuneyt","Davut","Demir","Demirel","Deniz","Dogan","Doruk","Emrah","Emre","Engin","Enver","Erbay","Ercan","Erdal","Erdem","Erdogan","Eren","Ergin","Ergun","Erhan","Erkan","Erol","Ersin","Ertugrul","Evren","Fahri","Fatih","Ferhat","Ferit","Fethi","Fevzi","Fikret","Firat","Fuat","Furkan","Giray","Gokhan","Gorkem","Guven","Hakan","Halil","Halit","Haluk","Hamdi","Hamza","Hasan","Hikmet","Hooman","Huseyin","Ibrahim","Ilhan","Ismail","Kaan","Kadir","Kagan","Kahraman","Kemal","Kenan","Kerem","Kerim","Kilic","Koray","Korkut","Levent","Mahir","Mahmut","Mehmet","Melih","Mert","Metin","Murat","Musa","Mustafa","Naci","Nadir","Necip","Nihat","Oguz","Okan","Oktay","Omer","Onur","Oral","Orhan","Osman","Ozcan","Ozdemir","Ozgur","Polat","Recep","Rustem","Sahin","Salih","Samet","Selcuk","Selim","Semih","Sercan","Serdar","Serhan","Serhat","Sinan","Suleyman","Tamer","Tarik","Tolga","Tugrul","Turgut","Ufuk","Ugur","Umit","Umut","Volkan","Yahya","Yavuz","Yigit","Yilmaz","Yusuf","Zafer","Zeki"];
+const TURKISH_F = ["Arzu","Asli","Aylin","Ayse","Aysegul","Bahar","Basak","Beren","Betul","Beyza","Burcu","Buse","Busra","Cagla","Canan","Ceyda","Ceylan","Cigdem","Damla","Deniz","Derya","Didem","Dilara","Dilek","Duygu","Ebru","Ece","Eda","Elif","Elif","Emel","Emine","Esra","Fatma","Filiz","Gamze","Gizem","Gonul","Gozde","Gul","Guler","Gunes","Hatice","Hulya","Idil","Ilayda","Ilgin","Irem","Ipek","Jale","Kardelen","Kubra","Lale","Leyla","Melek","Melis","Melisa","Meltem","Meral","Merve","Meryem","Muge","Nalan","Narin","Naz","Nazan","Nazli","Nil","Nilay","Nilufer","Nur","Nuray","Nurcan","Oya","Oyku","Pelin","Pinar","Rabia","Reyhan","Sabiha","Selin","Selma","Sera","Sevda","Sevgi","Sevil","Sibel","Sila","Sinem","Sirin","Solmaz","Sule","Sultan","Suna","Tuba","Tugba","Tugce","Tulay","Tulin","Turkan","Zehra","Zeynep","Zeyno"];
+const TURKISH_S = ["Aktas","Aksoy","Akdemir","Albayrak","Arslan","Aslan","Ata","Atay","Aydin","Aydogan","Aygun","Ayhan","Bahadir","Bayrak","Bayraktar","Bayram","Bilge","Bilgin","Bilici","Bolat","Boz","Bozkurt","Budak","Bulut","Cagatay","Caglar","Cakir","Cakmak","Can","Celik","Cetin","Cetinkaya","Cevdet","Cevik","Ceylan","Cicek","Demir","Demirci","Demirel","Dogan","Doruk","Ekinci","Emre","Engin","Ercan","Erdal","Erdem","Erdogan","Eren","Ergin","Ergun","Erkan","Erol","Ersoy","Ertugrul","Evren","Firat","Genc","Gokce","Gokmen","Guler","Gumus","Gunay","Gundogdu","Gunduz","Gunes","Guney","Gurbuz","Guven","Kahraman","Kara","Karadag","Karaman","Kartal","Kaya","Kayhan","Keskin","Kilic","Koc","Kocaman","Korkmaz","Korkut","Kurt","Kutlu","Ozcan","Ozcelik","Ozdemir","Ozgur","Ozkan","Ozturk","Pamuk","Parlak","Polat","Saglam","Sahin","Sancak","Sanli","Sarikaya","Savas","Selcuk","Simsek","Sinan","Soysal","Taskin","Tekin","Terim","Turgut","Turk","Turkmen","Yavuz","Yildirim","Yildiz","Yilmaz","Zaim","Zengin","Zorlu"];
+
+// ─────────────────────────────────────────────
+// MONGOLIAN
+// ─────────────────────────────────────────────
+const MONGOLIAN_M = ["Abaka","Achighhirun","Achujam Bugural","Adarkidai","Adkiragh","Adya","Agasiletai","Agsaldai","Aguchu","Agujam","Ajai","Ajinai","Ajir","Ajirai","Akhutai","Alagh","Alchidai","Alchigh","Alghu","Aljaiemur","Altan","Altun Ashugh","Amal","Amasar","Ambaghai","Arabuccha","Arasen","Argasar","Argat","Argun","Arik Boge","Arik Buka","Ariunbold","Arkhai Khasar","Arslan","Asugbal","Baasan","Baavgai","Badai","Baidar","Baidu","Baiju","Bala","Balagachi","Baltu","Bardam","Bartan","Bartu","Bat","Bat-Erdene","Bataar","Batachikhan","Batbayar","Bati","Batsaikhan","Batu","Batukhan","Bayan","Bayar","Begter","Begugtei","Belgeltei","Berke","Bilge","Boal","Bodonchar","Boge","Bogen","Bogorchu","Bold","Bora","Borachu","Boroghul","Bortei","Boshigt","Bughu Khatagi","Bujeg","Bujir","Bukha","Bultechu","Bultger","Bulugan","Buri","Buyant","Buyantu","Buyirugh","Caikhatu","Chagadai","Chaghagan","Chagurkhai","Chakhurkhan","Chanai","Chanar","Chapar","Chidukhul","Chigu","Chilagun","Chiledu","Chilger","Chimbai","Chingay","Chingis","Chingkim","Choban","Chormakhan","Chuluun","Chuluunbold","Dagun","Daidukul","Dalantai","Darbai","Daritai","Dash","Dayan","Dayir","Degei","Delbeg","Delger","Dinget","Dobun","Dodai","Dogar","Dogshin","Dologadai","Donoi","Dorbei","Duua","Elbek","Eldegai","Eljigidei","Enebish","Enkhjargal","Erdeni","Erke","Erketu","Esen Boge","Esenaij","Esugen","Gal","Galdan","Ganbaatar","Ganbataar","Ganbold","Gansukh","Gantulga","Ganzorig","Gerel","Geser","Ghazan","Guchlug","Guchu","Guchugur","Gugun","Guntomor","Gur","Guyug","Hobogetur","Hulegu","Huslen","Husun","Hutagt","Idughadai","Ilugei","Inalchi","Jajiradai","Jali Bukha","Jamugha","Jarchigudai","Jebe","Jelme","Jetei","Jochi","Jochi Khasar","Jubkhan","Jurchedei","Kara","Kepek","Kete","Khabichi","Khabul","Khachi","Khada","Khadagan","Khadagh","Khaidu","Khaishan","Khal","Khaligudar","Khara Gulug","Kharachar","Kharchu","Khasar","Khengkhai","Khongkhai","Khorchi","Khubilai","Khuchar","Khudu","Khudus","Khulan","Khutula","Khuyildar","Koko","Kokochu","Korun","Kotyan","Ligdan","Luvsan","Mahamu","Maral","Mauci","Megetu","Megujin","Menggetu","Mengu","Mergen","Molon","Mongke","Muge","Mukhali","Mungetu","Mungke","Munglig","Myagmar","Nachin","Naranbaatar","Nayaga","Nayan","Nekun","Nogai","Odchigin","Ogodei","Okin","Olai Anda","Olzii","Orda","Osol","Otgonbayar","Oyuun","Ozbeg","Sacha","Sagra","Sain","Sanchir","Sartak","Senggum","Shiban","Shikigur","Shirgugetu","Sibaguchu","Siban","Sokhor","Sorkhanhira","Subetei","Suke","Sukh","Sukhbataar","Sukhebaatar","Tabudai","Taghai","Tahar","Taichar","Taichu","Tamachag","Tamachi","Taragai","Tarmashirin","Tartu","Tatar","Tatatunga","Tayang","Teguder Ahmad","Temuge","Temujin","Temur","Terbish","Timurolie","Togh","Toghoril","Tokhtamysh","Tole-Buqa","Tolon","Tolui","Tolun","Tudan","Tugan","Tumbinai","Tungge","Tutei","Udutai","Uighurtai","Ulagchi","Urgamal","Uriangkadai","Urus","Usun","Yalavech","Yargai","Yedge","Yegu","Yeke","Yekeheren","Yesugei","Yesun","Yesunge","Yul","Zayaat"];
+const MONGOLIAN_F = ["Alagh Yid","Alan","Alan Ghoa","Alaqa","Altan","Altani","Altantsetseg","Altun","Barghujin","Battsetseg","Bayarma","Bayarmaa","Berude","Bolormaa","Boragchin","Borte","Borte Jusin","Budan","Chagur","Chakha","Chambui","Checheyigen","Chotan","Cirina","Dagasi","Dokuz Khatum","Dorgene","Ebegei","Enebish","Enkhjargal","Enkhtuya","Enkhtuyaa","Erdenechimeg","Erdenetungalag","Ergene","Ganzorig","Gerelma","Ghoa","Gorbeljin","Gurbesu","Hogelun","Holuikhan","Hongorzul","Hujaghur","Ibakha","Jaliqai","Khadagan","Khenbish","Khogaghchin","Khojin","Khongordzol","Khorijin","Khugurchin","Khulan","Maa","Maral","Mide","Mongoljin","Munkhtsetseg","Narangerel","Narantsetseg","Narantuyaa","Nomolun","Odtsetseg","Odval","Oghul","Ogul","Ogul Gaimysh","Orbei","Oyunbileg","Oyunchimeg","Oyuun","Oyuunchimeg","Samga","Saran","Sarangerel","Sarantsatsral","Sarantuya","Sechen","Seruuntungalag","Sokhatai","Solongo","Sorghaghtani Beki","Sorkhaghtani","Sorocan","Tegusken","Temulun","Terbish","Togene","Toragana","Tsetsegmaa","Turakina","Uranchimeg","Yesugen","Yesui","Yesuntei","Yisu Qatun","Yisugei Qatun"];
+
+// ─────────────────────────────────────────────
+// KAZAKH
+// ─────────────────────────────────────────────
+const KAZAKH_M  = ["Abai","Ablai","Abzal","Achmedjan","Adil","Aidos","Aidyn","Akhmet","Akmetzhan","Alen","Alibek","Alibi","Almas","Amanet","Amir","Aniyar","Ardager","Arman","Askar","Assyl","Assylhan","Ayan","Ayat","Azamat","Bakhytzhan","Baltabek","Batyrkhan","Baurzhan","Beibitzhan","Bekbolat","Bekzhan","Bolat","Camran","Daniar","Daniyar","Daniyarbek","Dastan","Daulet","Dauren","Dias","Erkin","Ershat","Erzhan","Iliyas","Iskander","Kairat","Kemhebek","Kenes","Khazretgali","Kuanysh","Kuanyshbek","Madi","Madiyar","Magjan","Marat","Marlen","Maulen","Medet","Murat","Nariman","Nazer","Nurbek","Nurbolat","Nurjigit","Nurlan","Nursultan","Nurzhan","Olzhas","Oraz","Rasul","Ruslan","Rustam","Rustem","Saken","Samat","Serik","Serikbek","Sultan","Tahir","Tair","Talgat","Temirzhan","Timour","Turlan","Yedil","Yeldos","Yerbol","Yerbolat","Yerik","Yermek","Yerzhan","Zhanbolat","Zhandos"];
+const KAZAKH_F  = ["Ademi","Aibala","Aibanu","Aida","Aidana","Aiganim","Aigerim","Aigul","Aiman","Ainagul","Ainash","Ainur","Ainura","Aisana","Aisha","Aisulu","Aizhan","Ajar","Akbota","Akmaral","Aktoty","Aliya","Alma","Altyn","Altynai","Alua","Amangul","Amina","Anar","Aral","Arailym","Aruzhan","Asel","Asem","Asil","Asiya","Assel","Assem","Asyl","Ayagoz","Aziza","Bayan","Bota","Botagoz","Botakoz","Damira","Dana","Danagul","Daniya","Dariga","Dariya","Didar","Didara","Dilara","Dina","Dinara","Erke","Farida","Fatima","Gaukhar","Gaziza","Gul","Gulayim","Gulbanu","Guldana","Gulfiya","Gulim","Guljan","Gulmira","Gulnaz","Gulnur","Gulsara","Gulsezim","Gulzada","Gulziya","Hadisha","Halima","Hamida","Inabat","Indira","Inkar","Irada","Jaina","Jamal","Jamilya","Janar","Janat","Jangul","Janiya","Janna","Jansaule","Jansaya","Jansulu","Jazira","Jibek","Juldiz","Jupar","Kamila","Kamshat","Karima","Karina","Kumis","Kunsulu","Leyla","Lyazzat","Madina","Maira","Malika","Manshuk","Maqpal","Maral","Mariam","Marjan","Marzhan","Meruert","Mira","Munira","Nagima","Nazgul","Nazira","Nurai","Nurgul","Nuriya","Nurjamal","Nursulu","Oryngul","Perizat","Qazyna","Raikhan","Raushan","Raziya","Roza","Sabira","Sagida","Saida","Saltanat","Samal","Sandugash","Sara","Saule","Sezim","Sholpan","Shynar","Sulu","Symbat","Tolganai","Tomiris","Uldana","Uljan","Umit","Zamira","Zarina","Zaure","Zere","Zeynep","Zulfiya"];
+const KAZAKH_SM = ["Abaiev","Ablaiov","Abzalov","Adilev","Aidosov","Aidynov","Akhmetov","Alen","Alibekov","Almasov","Amanetov","Amirov","Aniyarov","Ardagerov","Armanov","Askarov","Assylov","Ayanev","Azamatov","Bakhytzhanov","Baltabekov","Batyrkhanov","Baurzhanov","Bekbolatov","Bekzhanov","Bolatov","Camranov","Daniarov","Daniyarov","Daniyarbekov","Dastanov","Dauletov","Daurenov","Erkinov","Ershatov","Erzhanov","Iliyasov","Iskanderov","Kairatov","Kemhebekov","Kenesov","Khazretgaliov","Kuanyshov","Kuanyshbekov","Madiov","Madiyarov","Magjanov","Maratov","Marlenov","Maulenov","Medetov","Muratov","Narimanov","Nazerov","Nurbekov","Nurbolatov","Nurjigitov","Nurlanov","Nursultanov","Nurzhanov","Olzhasov","Orazov","Rasulov","Ruslanov","Rustamov","Rustemov","Sakenov","Samatov","Serikov","Sultanov","Tahirov","Tairov","Talgatov","Temirzhanov","Timourov","Turlanov","Yedilov","Yeldosov","Yerbolov","Yerbolatov","Yermekev","Yerzhanov","Zhanbolatov"];
+const KAZAKH_SF = ["Abaieva","Ablaieva","Abzaleva","Adileva","Aidoseva","Aidyneva","Akhmeteva","Aleneva","Alibekeva","Almaseva","Amaneteva","Amireva","Aniyareva","Ardagereva","Armaneva","Askareva","Assyleva","Ayaneva","Azamateva","Bakhytzhaneva","Baltabekeva","Batyrkhaneva","Baurzhaneva","Bekbolateva","Bekzhaneva","Bolateva","Camraneva","Daniareva","Daniyareva","Daniyarbekeva","Dastaneva","Dauleteva","Daureneva","Erkineva","Ershateva","Erzhaneva","Iliyaseva","Iskandereva","Kairateva","Kemhebekeva","Keneseva","Khazretgalieva","Kuanysheva","Kuanyshbekeva","Madieva","Madiyareva","Magjaneva","Marateva","Marleneva","Mauleneva","Medeteva","Murateva","Narimaneva","Nazereva","Nurbekeva","Nurbolateva","Nurjigiteva","Nurlaneva","Nursultaneva","Nurzhaneva","Olzhaseva","Orazeva","Rasuleva","Ruslaneva","Rustameva","Rustemeva","Sakeneva","Samateva","Serikeva","Sultaneva","Tahireva","Taireva","Talgateva","Temirzhaneva","Timoureva","Turlaneva","Yedileva","Yeldoseva","Yerboleva","Yerbolateva","Yermekeva","Yerzhaneva","Zhanbolateva"];
+
+// ─────────────────────────────────────────────
+// UZBEK
+// ─────────────────────────────────────────────
+const UZBEK_M  = ["Abdulaziz","Abdulghafur","Abdullah","Abdulqhafur","Abubakir","Ali","Alisher","Aminjon","Arslon","Ashur","Ataboy","Aziz","Bakir","Batir","Bekmirza","Dadajon","Davlat","Dehoan","Elyor","Erwat","Fattah","Ghafur","Ghani","Ghulam","Hakim","Hamra","Hasan","Hilol","Husan","Ilyas","Jora","Jura","Kamol","Karim","Khafiz","Khudayberdi","Kimsan","Kodir","Komil","Latif","Mahkam","Malik","Mamtqul","Mannon","Manzur","Mirzali","Muhiddin","Munavvar","Murtaza","Musa","Muzafar","Nabi","Narzuqul","Nasiv","Niyaz","Nurmat","Omar","Oqil","Orif","Otkir","Parpi","Qasim","Qodir","Rahim","Rahmat","Ruslan","Rustam","Saidjahon","Salim","Sandjar","Sattar","Shakir","Sharif","Shavkat","Shodman","Shovruk","Shukrulla","Sodyq","Sulaymon","Tahir","Tesha","Timur","Tohta","Toshmat","Toychi","Tursan","Tursun","Ulfat","Umid","Usman","Usmon","Vali","Yarmat","Yoldash","Yusuf","Zahid","Zakir","Zarif","Zokirjan"];
+const UZBEK_F  = ["Adalat","Adolat","Anora","Aziza","Bahri","Binafsha","Chinara","Dilbar","Diloram","Durdona","Elnura","Faroghat","Fatima","Feruza","Gulchehra","Guldasta","Guli","Gulnara","Gulnora","Habiba","Hadicha","Hakima","Hamra","Indira","Inoyat","Jamila","Khafiza","Khoslyat","Kimsan","Komila","Latifa","Lola","Malika","Malike","Manzura","Mariyam","Mastura","Mehri","Muhabhat","Mukarrama","Munavvara","Nafis","Nargiza","Nasiba","Nazira","Nazokat","Nigara","Nozanin","Oydin","Ozoda","Parizod","Parizoda","Qumri","Qundus","Roziya","Sabira","Sadoqat","Salima","Salomat","Sanobar","Shahlo","Shahnoza","Shakar","Sharifa","Soliya","Tahmina","Tursunoy","Ulfat","Umida","Vasila","Yulduz","Zahida","Zamira","Zarifa","Zarina","Zebi","Zulayho","Zulfiya"];
+const UZBEK_SM = ["Abdulghafurov","Abdullayev","Abdulqhafurov","Alimov","Alisherov","Aliyev","Aminjonov","Arslonov","Ashurov","Askarov","Ataboyev","Bakirov","Batirov","Bazarov","Bekmirzayev","Berdiyev","Dadajonov","Davlatov","Dehoanov","Elyorov","Ergashev","Ermatov","Fattayev","Ghaffarov","Ghafurov","Ghaniyev","Ghulamov","Hakimov","Hamrayev","Hasanov","Hilolev","Holiyev","Husanov","Jamalov","Jorayev","Jurayev","Kamolov","Karimov","Khudayberdiyev","Kimsanov","Kodirov","Komilov","Latifov","Mahkamov","Mahmudov","Malikov","Mamtqulov","Mannonov","Manzurov","Mirzaliyev","Muhiddinov","Munavvarov","Muradov","Murtazayev","Musayev","Muzafarov","Nabiyev","Narzuqulov","Nurmatov","Olimov","Omarov","Oqilov","Otkirov","Parpiyev","Qasimov","Qodirov","Rahimov","Rahmatov","Ruslanov","Rustamov","Saidjahonov","Salimov","Sandjarov","Sattarov","Shakirov","Shavkatov","Shodmanov","Shovrukov","Shukrullayev","Shukurov","Soliyev","Sulaymonov","Suratov","Tahirov","Teshayev","Timurov","Tohtayev","Toshmatov","Toychiyev","Turdiyev","Tursunov","Ulfatov","Umidov","Usmanov","Usmonov","Valiyev","Yahyayev","Yakubov","Yarmatov","Yoldashev","Zakirov","Zokirjanov"];
+const UZBEK_SF = ["Abdulghafurova","Abdullayeva","Abdulqhafurova","Alimova","Alisherova","Aliyeva","Aminjonova","Arslonova","Ashurova","Askarova","Ataboyeva","Bakirova","Batirova","Bazarova","Bekmirzayeva","Berdiyeva","Dadajonova","Davlatova","Dehoanova","Elyorova","Ergasheva","Ermatova","Fattayeva","Ghaffarova","Ghafurova","Ghaniyeva","Ghulamova","Hakimova","Hamrayeva","Hasanova","Hilolova","Holiyeva","Husanova","Jamalova","Jorayeva","Jurayeva","Kamalova","Kamolova","Karimova","Khudayberdiyeva","Kimsanova","Kodirova","Komilova","Latifova","Mahkamova","Mahmudova","Malikova","Mamtqulova","Mannonova","Manzurova","Mirzaliyeva","Muhiddinova","Munavvarova","Muradova","Murtazayeva","Musayeva","Muzafarova","Nabiyeva","Narzuqulova","Nurmatova","Olimova","Omarova","Oqilova","Otkirova","Parpiyeva","Qasimova","Qodirova","Rahimova","Rahmatova","Ruslanova","Rustamova","Saidjahonova","Salimova","Sandjarova","Sattarova","Shakirova","Shavkatova","Shodmanova","Shovrukova","Shukrullayeva","Shukurova","Soliyeva","Sulaymonova","Suratova","Tahirova","Teshayeva","Timurova","Tohtayeva","Toshmatova","Toychiyeva","Turdiyeva","Tursunova","Ulfatova","Umidova","Usmanova","Usmonova","Valiyeva","Yahyayeva","Yakubova","Yarmatova","Yoldasheva","Zakirova","Zokirjanova"];
+
+// ─────────────────────────────────────────────
+// MUSLIM / ARABIC
+// ─────────────────────────────────────────────
+const MUSLIM_M = ["Aabdeen","Aabid","Aadam","Aadil","Aamir","Aaqil","Aarif","Aasim","Aatif","Abbaas","Abdul Azeez","Abdul Baari","Abdul Fattaah","Abdul Ghafoor","Abdul Ghani","Abdul Haadi","Abdul Hakeem","Abdul Haleem","Abdul Hameed","Abdul Jabbaar","Abdul Jaleel","Abdul Kader","Abdul Kareem","Abdul Khaliq","Abdul Lateef","Abdul Maalik","Abdul Majeed","Abdul Rauf","Abdul Waahid","Abdul Wadood","Abdul Wahaab","Abdullah","Abdur Raheem","Abdur Rahmaan","Abdur Rasheed","Abdur Razzaaq","Abdus Salam","Abood","Adeeb","Adham","Adnaan","Afeef","Ahmed","Aiman","Akram","Alawi","Ali","Amaan","Ameen","Ameer","Amjad","Ammaar","Amru","Anas","Anwar","Aqeel","Arshad","Asad","Asghar","Ashraf","Aslam","Awad","Ayyoob","Azmi","Azzaam","Baahir","Baaqir","Baasim","Badr","Badraan","Badri","Bakar","Bandar","Basheer","Bilaal","Bishr","Burhaan","Daawood","Dhaafir","Dhaakir","Dhaki","Faadi","Faadil","Faarooq","Faatih","Fahd","Faheem","Faisal","Faraj","Fareed","Farhaan","Fawzi","Fuaad","Furqaan","Ghaali","Ghaalib","Ghaazi","Ghassaan","Haamid","Haani","Haarith","Haaroon","Haashim","Haatim","Haazim","Haitham","Hakam","Hamad","Hamdaan","Hamdi","Hamood","Hamza","Haneef","Hasan","Hilaal","Hilmi","Hishaam","Hudhaifa","Humaid","Husaam","Husain","Ibrahim","Idrees","Ikram","Ilyaas","Imaad","Imraan","Irfaan","Isaam","Ishaaq","Ismaeel","Jaabir","Jaasim","Jaasir","Jafar","Jalaal","Jamaal","Jameel","Jareer","Jawaad","Jihaad","Jubair","Junaid","Kaamil","Kaarim","Kabeer","Kaleem","Kamaal","Kanaan","Khaalid","Khairi","Khaleel","Labeeb","Luqmaan","Lutfi","Maahir","Maajid","Mahboob","Mahdi","Mahfooz","Mahmood","Mansoor","Marwaan","Marzooq","Masood","Muhammad","Muhsin","Mujahid","Mukhtaar","Muneer","Muneeb","Murshid","Muslim","Muzammil","Naadir","Najeeb","Nabeel","Nadeem","Naseem","Naseer","Nawfal","Nizaar","Nu'maan","Qaasim","Qais","Raashid","Rafeeq","Raihaan","Rajab","Rashaad","Rayyaan","Ridwaan","Rushdi","Saadiq","Saalih","Saalim","Saami","Saeed","Safwaan","Saif","Salaah","Saleem","Salmaan","Samir","Shaafi","Shaakir","Shafeeq","Shaheer","Shakeel","Shawqi","Shihaab","Shuaib","Shujaa","Shukri","Siraaj","Subhi","Sufyaan","Suhail","Sulaimaan","Sultan","Taahir","Taariq","Talha","Tameem","Tawfeeq","Tawheed","Tayyib","Tufail","Turki","Umar","Usaama","Uwais","Wajeeh","Waleed","Waseem","Wisaam","Yaasir","Yahya","Yoonus","Yoosuf","Zaahid","Zaahir","Zaid","Zain","Zakariyya","Zaki","Ziyaad","Zubair","Zuhair"];
+const MUSLIM_F = ["Aadila","Aaida","Aaisha","Aamina","Aanisa","Aarifa","Aasima","Aasiya","Aatika","Abeer","Adeeba","Afaaf","Afeefa","Afnaan","Ahlaam","Aliyya","Amaani","Amal","Amatullah","Ameena","Ameera","Aneesa","Aqeela","Arwa","Aseela","Asmaa","Atheer","Atiyya","Azeeza","Azza","Faraah","Fareeda","Farha","Farhaana","Fateena","Fawzaana","Fawzia","Firdaus","Ghaada","Ghaaliya","Ghazaala","Haafiza","Haajara","Haala","Haamida","Haaniya","Habeeba","Hadeel","Hadiyya","Hafsa","Hakeema","Haleema","Hamaama","Hamda","Hameeda","Hamna","Hanaan","Haniyya","Hasana","Haseena","Hiba","Hikma","Humaina","Humaira","Husniyya","Ibtisaama","Iffat","Ilhaam","Inaaya","Insaaf","Intisaar","Israa","Izza","Jaleela","Jameela","Jannat","Jawhara","Juhaina","Jumaana","Juwairiya","Kaazima","Kabeera","Kameela","Kareema","Kawkab","Kawthar","Khaalida","Khadeeja","Khairiya","Khaleel","Khawla","Khulood","Labeeba","Laila","Lateefa","Lubna","Maajida","Maariya","Madeeha","Mahbooba","Mahmaoda","Maimoona","Majeeda","Maleeha","Maleeka","Manaal","Marwa","Marzooqa","Mas'ooda","Mawhiba","Minnat","Mubaaraka","Mubeena","Mufeeda","Mufliha","Mujeeba","Mumina","Muna","Muneera","Munisa","Muntaha","Musfira","Musheera","Naadiya","Naaila","Nabeeha","Nabeela","Nada","Nadeera","Nafeesa","Nahla","Najeeba","Najlaa","Najma","Najwa","Naseeba","Naseema","Naseera","Nawaal","Nawaar","Nawfa","Nazeeha","Nisma","Noora","Nooriyya","Nusaiba","Nuzha","Qamraaa","Raabia","Raadiya","Raafida","Raaniya","Radwa","Rafeeda","Rafeeqa","Raheema","Rahma","Raihaana","Ramla","Rasheeqa","Rawda","Rayyana","Reema","Ruqayya","Ruwaida","Saafiyya","Saahira","Saaliha","Saalima","Saara","Sabaaha","Sabeeha","Sabreen","Sadeeda","Sadeeqa","Safiyya","Sahar","Sahla","Sakeena","Saleema","Salma","Salwa","Sameera","Sanaaa","Sanad","Shaakira","Shahla","Shaheera","Shakeela","Shareefa","Sireen","Suhaa","Suhaila","Sukaina","Sultana","Sumayya","Sundus","Tahiyya","Tamanna","Tasneem","Tawheeda","Tayyiba","Tharwa","Tuhfa","Umaima","Umaira","Urwa","Waajida","Wafaaa","Waheeba","Waheeda","Wajeeha","Waneesa","Warda","Waseema","Yaasmeen","Zaahira","Zaaida","Zahra","Zainab","Zakiyya","Zeena","Zubaida","Zulfa"];
+const MUSLIM_S = ["Abad","Abbas","Abbasi","Abdalla","Abdellah","Abdelrahman","Abdi","Abdo","Abdul","Abdulla","Abdullah","Abed","Abid","Abraham","Abu","Adel","Afzal","Agha","Ahmad","Ahmadi","Ahmed","Ahsan","Akbar","Akbari","Akhtar","Akram","Alam","Ali","Allam","Aly","Aman","Amara","Ameen","Amer","Amin","Amini","Amir","Amiri","Ammar","Ansari","Anwar","Arafat","Arif","Arshad","Asad","Ashraf","Aslam","Assad","Assaf","Atallah","Attar","Awan","Ayoub","Ayub","Azad","Azam","Aziz","Azizi","Azzam","Badie","Bagheri","Bahri","Baig","Baluch","Barakat","Bari","Basha","Bashir","Begum","Bilal","Chahine","Daoud","Dar","Darwish","Dawood","Diab","Din","Ebrahimi","Edris","Eid","Elamin","El-Sayed","Fadel","Fahmy","Farag","Farah","Faraj","Fares","Farhat","Farid","Faris","Farooq","Farooqui","Farra","Fawaz","Gaber","Ghaffari","Ghanem","Ghani","Ghazal","Ghazi","Habeeb","Habib","Habibi","Hadi","Hafeez","Haidar","Haider","Hakeem","Hakim","Halim","Hamad","Hamdan","Hamed","Hameed","Hamid","Hamidi","Hammad","Hammoud","Hanif","Hannan","Haq","Haque","Hares","Hariri","Hasan","Hashem","Hashemi","Hashim","Hassan","Hatem","Hoque","Hosein","Hossain","Hosseini","Huda","Husain","Hussain","Hussein","Ibrahim","Idris","Imam","Iqbal","Ishak","Islam","Ismail","Jabara","Jabbar","Jaber","Jabour","Jafari","Jaffer","Jalil","Jamal","Jamil","Javed","Kabir","Kader","Kamal","Kamali","Kamara","Kamel","Karam","Karim","Karimi","Kassem","Kazemi","Kazi","Khalaf","Khalid","Khalifa","Khalil","Khan","Khatib","Khawaja","Latif","Madani","Mahdavi","Mahdi","Mahfouz","Mahmoud","Mahmud","Majeed","Majid","Malak","Malek","Malik","Mannan","Mansoor","Mansour","Mansouri","Masih","Masood","Masri","Massoud","Matar","Matin","Meer","Miah","Mian","Mir","Mirza","Moghaddam","Mohamad","Mohamed","Mohammad","Mohammadi","Mohammed","Molla","Momin","Morad","Moradi","Mostafa","Mourad","Mousa","Moussa","Moustafa","Muhammad","Muhammed","Munir","Murad","Musa","Mustafa","Naderi","Nagi","Naim","Naqvi","Nasir","Nasr","Nasrallah","Nasser","Nassif","Nawaz","Nazar","Nazir","Niazi","Noor","Noorani","Noori","Nour","Nouri","Obeid","Omar","Omer","Othman","Parsa","Pasha","Popal","Qadir","Qasim","Qazi","Raad","Rabbani","Rad","Radi","Radwan","Rafiq","Rahim","Rahimi","Rahman","Rahmani","Ramadan","Rashed","Rasheed","Rashid","Rasul","Rauf","Rehman","Reza","Riaz","Saab","Saad","Saba","Saber","Sabir","Sadek","Sadiq","Saeed","Safar","Safi","Saidi","Salah","Salam","Salama","Saleem","Saleh","Salehi","Salim","Salman","Samad","Samara","Sami","Sattar","Sayed","Selim","Shaban","Shah","Shahin","Shahid","Shaikh","Shakir","Shakoor","Shams","Sharaf","Shareef","Sharif","Sheikh","Siddiqi","Siddiqui","Soliman","Soltani","Sulaiman","Suleiman","Sultan","Syed","Taha","Taheri","Tahir","Tariq","Tawil","Uddin","Ullah","Usman","Wahab","Waheed","Wali","Yacoub","Yasin","Yassin","Younes","Younis","Yousef","Youssef","Yousuf","Yusuf","Zaher","Zaidi","Zakaria","Zaman","Zamani","Zia"];
+const MUSLIM_PRE = ["al-","al-","al-","el-"];
+
+// ─────────────────────────────────────────────
+// DISPATCH
+// ─────────────────────────────────────────────
+function genSimple(mFirst, fFirst, mSur, fSur, opts={}) {
+  return (female) => {
+    const first = female ? pick(fFirst) : pick(mFirst);
+    const sur   = fSur && female ? pick(fSur) : pick(mSur);
+    const pre   = opts.prefix ? pick(opts.prefix) : '';
+    return Array.from({length:10}, () => {
+      const fn = female ? pick(fFirst) : pick(mFirst);
+      const sn = fSur && female ? pick(fSur) : pick(mSur);
+      const pr = opts.prefix ? pick(opts.prefix) : '';
+      return opts.surFirst ? (`${sn} ${fn}`).trim() : (`${fn} ${pr}${sn}`).trim();
+    });
+  };
+}
+
+function genMongo(female) {
+  const src = female ? MONGOLIAN_F : MONGOLIAN_M;
+  const seen = new Set();
+  const out  = [];
+  let attempts = 0;
+  while (out.length < 10 && attempts++ < 200) {
+    const n = pick(src);
+    if (!seen.has(n)) { seen.add(n); out.push(n); }
+  }
+  return out;
+}
+
+function genUniq(src) {
+  const seen = new Set(), out = [];
+  let attempts = 0;
+  while (out.length < 10 && attempts++ < 200) {
+    const n = pick(src);
+    if (!seen.has(n)) { seen.add(n); out.push(n); }
+  }
+  return out;
+}
+
+const GENERATORS = {
+  shu:      (f) => SHU.gen(f),
+  suli:     (f) => SULI.gen(f),
+  persian:  genSimple(PERSIAN_M,  PERSIAN_F,  PERSIAN_S,  null),
+  turkish:  genSimple(TURKISH_M,  TURKISH_F,  TURKISH_S,  null),
+  mongolian: genMongo,
+  kazakh:   genSimple(KAZAKH_M,   KAZAKH_F,   KAZAKH_SM,  KAZAKH_SF),
+  uzbek:    genSimple(UZBEK_M,    UZBEK_F,    UZBEK_SM,   UZBEK_SF),
+  muslim:   genSimple(MUSLIM_M,   MUSLIM_F,   MUSLIM_S,   null, {prefix: MUSLIM_PRE}),
+  chinese:  genSimple(CHINESE_M,  CHINESE_F,  CHINESE_S,  null, {surFirst: true}),
+  zoroastrian: genSimple(ZORO_M,  ZORO_F,     ZORO_S,     null),
+  japanese: genSimple(JAPANESE_M, JAPANESE_F, JAPANESE_S, null, {surFirst: true}),
+  tadbir:   genTadbir,
+  tulpar:   (f) => genUniq(f ? TULPAR_F : TULPAR_M),
+  vanara:   genSimple(VANARA_M,   VANARA_F,   VANARA_S,   null),
+  rahban:   genSimple(RAHBAN_M,   RAHBAN_F,   RAHBAN_S,   null),
+  vaghri:   genVaghri,
+  kuhban:   genKuhban,
+  parikin:  (f) => genUniq(f ? PARIKIN_F : PARIKIN_M),
+};
+
+// initialise count badge from persisted state
+updateUsedCount();
+
+// ─────────────────────────────────────────────
+// TAB NAVIGATION
+// ─────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.panel).classList.add('active');
+    document.getElementById('empty-cat').style.display = 'none';
+  });
+});
+
+// ─────────────────────────────────────────────
+// VAULT IMPORT
+// ─────────────────────────────────────────────
+function showImport() {
+  document.getElementById('import-overlay').classList.add('visible');
+}
+
+function hideImport() {
+  document.getElementById('import-overlay').classList.remove('visible');
+  document.getElementById('import-file').value = '';
+  document.getElementById('import-ta').value = '';
+  document.getElementById('import-status').textContent = '';
+}
+
+function applyNamesList(names) {
+  let added = 0;
+  names.forEach(n => {
+    if (typeof n === 'string' && n.trim() && !chosenNames.has(n)) {
+      chosenNames.add(n); added++;
+    }
+  });
+  saveChosen();
+  document.querySelectorAll('.name-item').forEach(li => {
+    const span = li.querySelector('.name-text');
+    if (span && chosenNames.has(span.textContent)) {
+      li.classList.add('is-chosen');
+      const btn = li.querySelector('.mark-btn');
+      if (btn) btn.title = 'Unmark';
+    }
+  });
+  hideImport();
+  const toast = document.createElement('div');
+  toast.className = 'import-toast';
+  toast.textContent = `${names.length} vault names loaded · ${added} new marks applied`;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2800);
+}
+
+function loadImportFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const status = document.getElementById('import-status');
+  status.textContent = 'Reading…';
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      const names = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.names) ? parsed.names : []);
+      if (!names.length) { status.textContent = 'No names found in file.'; return; }
+      applyNamesList(names);
+    } catch(err) {
+      status.textContent = 'Invalid JSON file.';
+    }
+  };
+  reader.onerror = () => { status.textContent = 'Could not read file.'; };
+  reader.readAsText(file);
+}
+
+function applyVaultNames() {
+  const raw = document.getElementById('import-ta').value.trim();
+  if (!raw) return;
+  let names;
+  try {
+    const parsed = JSON.parse(raw);
+    names = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.names) ? parsed.names : []);
+  } catch(e) {
+    document.getElementById('import-status').textContent = 'Invalid JSON — check paste.';
+    return;
+  }
+  applyNamesList(names);
+}
+
+// ─────────────────────────────────────────────
+// CATEGORY FILTER
+// ─────────────────────────────────────────────
+function setFilter(cat) {
+  document.querySelectorAll('.fpill').forEach(p => p.classList.remove('active'));
+  document.querySelector(`.fpill[data-cat="${cat}"]`).classList.add('active');
+
+  const tabs = Array.from(document.querySelectorAll('.tab'));
+  const visible = tabs.filter(t => {
+    const show = cat === 'all' || t.dataset.category === cat;
+    t.classList.toggle('tab-hidden', !show);
+    return show;
+  });
+
+  const emptyMsg = document.getElementById('empty-cat');
+  if (visible.length === 0) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    emptyMsg.style.display = 'block';
+    return;
+  }
+  emptyMsg.style.display = 'none';
+
+  const activeStillVisible = visible.some(t => t.classList.contains('active'));
+  if (!activeStillVisible) visible[0].click();
+}
+</script>
+
+<div class="import-overlay" id="import-overlay" onclick="if(event.target===this)hideImport()">
+  <div class="import-box">
+    <h3>Import Vault Names</h3>
+    <p class="import-hint">Select <code>utilities/used-names.json</code> (run the scraper first). Names that exactly match a generated name will be marked as used.</p>
+    <label style="display:block;margin-bottom:14px;">
+      <span style="font-size:0.76rem;color:var(--text-m);display:block;margin-bottom:6px;">Choose file</span>
+      <input type="file" id="import-file" accept=".json" onchange="loadImportFile(this)"
+        style="font-size:0.8rem;color:var(--text);width:100%;">
+    </label>
+    <details style="margin-bottom:10px;">
+      <summary style="font-size:0.74rem;color:var(--text-m);cursor:pointer;user-select:none;">Or paste JSON</summary>
+      <textarea class="import-ta" id="import-ta" placeholder='{"names":["Sahir","Raizen","Veyra",...]}'
+        style="margin-top:8px;"></textarea>
+      <div style="text-align:right;margin-top:6px;">
+        <button class="btn" onclick="applyVaultNames()">Apply paste</button>
+      </div>
+    </details>
+    <div id="import-status" style="font-size:0.76rem;color:var(--gold);min-height:1.2em;"></div>
+    <div class="import-actions">
+      <button class="btn" onclick="hideImport()">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="used-overlay" id="used-overlay" onclick="if(event.target===this)hideUsed()">
+  <div class="used-box">
+    <h3 id="used-count-hdr">Used Names (0)</h3>
+    <ul class="used-list" id="used-list-el"></ul>
+    <div class="used-footer">
+      <button class="btn" onclick="clearAllChosen();renderUsedList();document.getElementById('used-count-hdr').textContent='Used Names (0)'">Clear all</button>
+      <button class="btn" onclick="hideUsed()">Close</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
