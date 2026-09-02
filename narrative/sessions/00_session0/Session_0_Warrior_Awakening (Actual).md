@@ -84,6 +84,8 @@ The camp adjusted. Not full acceptance. Adjusted distance.
 
 ## The Child and the Old Woman
 
+^3419b1
+
 The child watched from behind the fighter for a long time — tracking movement, cataloging threat. Eventually curiosity started winning.
 
 Child: "Are you like the ones who burned the village?"

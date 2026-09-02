@@ -36,27 +36,25 @@ tags: [pc]
 # Sahir
 
 
-> [!profile]+
-> ![[sahir_wayglass.webp|250]]
-> 
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac enim ut sapien imperdiet gravida. Nulla sed turpis et neque tincidunt convallis. Phasellus posuere nisi eros, non tincidunt erat tincidunt ut. Morbi blandit vehicula nisl, laoreet pellentesque enim pellentesque eu.
->
-> Level `$= dv.current().level` `$= dv.current().daggerheart_class`/(`$= dv.current().subclass`). `$= dv.current().ancestry ` ancestry, `$= dv.current().community `
-
----
-
+ >[!profile]+
+> ![[sahir_wayglass.webp|Sahir Wayglass]]
 > A Rahban who looks at you the way someone looks at a room they are still reading — warm, genuinely interested, not yet decided.
+>
+*Jim · Level 1 Bard/(Wordsmith). 
+Rahban (Halfling)  · [[characters/archetypes#2-the-bridge-the-diplomatmediator|Bridge]]*
+ 
 
-*Jim · Rahban (Halfling) · Bard (Wordsmith) · [[characters/archetypes#2-the-bridge-the-diplomatmediator|Bridge]]*
+
+
+
+
+
+
+
 
 ---
 
 ## Character Sheet
-
-> [!info] DaggerForge Sheet
-> Open this note in Obsidian, then use **DaggerForge → Export to Note** to insert the interactive character sheet here. It will render as a live, clickable sheet in this spot — HP, hope, stress, weapons, and experiences all interactive.
-
-
 ```daggerforge-character
 id: CHR_1785605609450_j2mdti2u
 code: DHC1.H4sIAAAAAAAAE8VY628ctxH_Vwb8EhddXSQ_5Pa-FH6gUQAbDiwHQlAJwRw5u8uIy1kPuXveGvrfi-Hune5sJ2kTA_0i3ZHz_M2DM_fReGfW5sXF25_Pnv7tyfnpk_PTvz9-cvrzLw87l_3DwVQmYkdmbS6x9QJXODUBUzKV6YUjDzGZtTGVaUl8xkYpLzDUwccGXrHQhiWSqYxVrsthU_6btXmO4uBbuGJxqfO5NZUJNFIwa3NqKpMFfU5m_dFg44PPk34cMQy0EHQot-TMusaQ6K4yKQvFJreHdCdnXyCsfaSU6JDuS2Q-puyjzb9H1wslivZI3sMv0N1G3gZyDf22I3eVoRGT5zjDitKxXFoWJX-0Pwis4Pyr8FR_-u-NWvELy7tWKLUcNCWemsokGkno8PTssYa6_6qqNXLp63rTck__ncCF-J-EeSgYm8rQh57Ea1DVqo8m04esRcIxks2eIzy4NgrNlFtNc5_AznfkVqvVtcro2Pnak5i1-euZuav2Ur7vek6ZBNIUnXBHx8QnR8SXeXCeh6QKA7Wj55PLZxfXBk7gYgXfCcaG5C-_pe7arFarzZDh6uKnf1wbeJBuqc_e-tR9xvftsfLja3N3U5mGg7vA6Ooh_OGALWKeY_NnRbxoKeWlcJYGcxTHXrj2VgM5_Z6mm8psCXuO6t2bSGadZaDDw3db3qvqxXco01W51HpeWuSub73VuMzfHXbY0Etvl-_1vYHatMhydF9FFNrsR3qm3eFYzAbTfQmn-7NdU_lMko8jxcwymbV5Bj2GLp2E0lshY09CDrbMjiKk3t9SBVufW0Cw3PckYLEHjsCRgKKDBy-46zElzba95Nndubr-kMOVaXeBWmLSfjlG--97qPct-f-n-qYykTMtwUBtNFmmFyjuIHS7V1StoWTF93l-FXYXCVAIUochQDt0GNm7NAcjoDQELXqZoCbKgNFBL9z5SDGD8BAdOSCUtII3EXAkwYYqaI9kP4LM8HiW4CO05Js2V0VYbslLEVBB5ETz6axLaDZAlKkX7llK18ysbCCUMnC9iNiwm1bwmroNSZqPfYIdJhD8SFCzABaj4ezJKUyzWlWIe4u_SYB9TyjKqi05-FsKkyoV6tBHmHjIbT0EoJEiYFIDJrWv0fcHauEO0A0ht8wOfMwMHBxgQys4xjxqMmAIE2DOQyS3c63DJlL2FmpPwS3uELxmyRjgLWHoKmgEY9Z3I7fUAULKwvqKxEwSMYCdC2YF79Q-DImh55TURrRDJkgUExXhLaGoJIUidRTCjIrFCFxniuAok82QW04E25aL-TV2PniUxeoONlMxMxWE95HpeKSOYk6r-wLQlH012NuNqiVZw7M8s2aUElRC24La6jlWUB5J7QQz_AI9Sp6gQR8TIFxwT6vreB2_3_m-NIs1XLVUWEA4BEA4055SRCgTvPRUlWt1VagQ-bzS9mW564bo86f1dDiMHhfUc1IM-8UDhLCjhL0s6AhjUo3fKIAlVSCx9ZQVO8xQ48iSdsFEi446b4EFeg4-e4tBc21LGtlXn2nwlKD1TRsmKMMh7OfFCmqh9wPFHCbFUeGuWboSf58yyyKbEsmIuQB_rxPdqBWhgawg6WuYfe0tpDy4qYJ060MAp5M39zMRS0GgZFI35ZYDN1PJSh-K-BW85pShO6xZSse-qDUotlWLyyidB2VNsBl8KN1kg2k-4RqsH33w_16M37Y-aDZ2BGSDjlwWatpCbkW7gY_QYNZ9o1SNYlEY57AoPEt9wpYluJJglyqswwk22ht49sOnnCrgngTzLGvupiRA0QYcKSlkLXNIBZZm8FrVpdNxCLxdqtgL8DbCEP37gYC02lbwRk3UhFCAt9oPFtJ9ZDWlcdcqk8VAFXR4q0Id1fkgiB1GGkYVh1Y4JWh4JIkaLwwQMLpksadUfL1PLi32pQ94IZsroMAllSrw8f3gk9ehoYIesy-n0mKf2Hk7N5Ktz3n6pPyvKISTt4RuDT_xAC2ONCeZbn_qkhZjmovCx5HDSCUoc65OFdghqKzqoDbSXHj3L1RPknSIEOgDWiqF7VjbuFa1Dg43OsXY26Y8C89i2pIsx3Y_px8dzwPSc8KUNWXmt7esnD_22iZ69jGnH0hezWvow8r0FJ2-wOvTygRMebk5m5c23U7v5obTY_Sfjm8oyxB9tM_9L8vOza-uIp-O5r8-tH_dG4UxZ7S38518PjAdzFOxQFcgSi1RvqSsZVaW-g5T8iO9LFz7QanDDxe9WT8pny4XpM7n87LRnR8i8pa3qRDrLvCanapOGXXScmY-fYWb8ovCd7q9VsYOIhStpyUlAupMsLDikFnTTAP9Y-8w61JefhR59Oj88aOnZ-d3_wHyhrc0LhEAAA
@@ -144,3 +142,15 @@ The compass is the surrendered layer made manifest — it always found the corre
 The two-pulls at the fork is Act I's planted seed for Sahir specifically. The fork's significance should deepen as the campaign progresses — one of those two pulls goes somewhere the compass has been before.
 
 Surrendered layer — *Relational*: he gave up the right to have a side; the compass gave him certainty instead; now neither is holding.
+
+```daggerforge-character
+id: CHR_1786742015512_ewnrl3qi
+code: DHC1.H4sIAAAAAAAAE81WS2_bMAz-Lzzr0LRrOvjWB7YeOmxoWuwwBAUrMbYWmfIoOWlQ5L8PspVXNyxbW2y72OJHipI_vvwI1kAB55fXd4OTt8OTN4cHg-PjweEdzVnc0TcLChhrggJOxZIDBY149i0HKAAUVCQ2Ykm9pB2GMGrvu3cPOZqR65dR0MYAxSNgaZ2Ni7ScoWvz7hplSgaKCbpASwUhCnEZqz1mE8sUAu2xshyiZR33mDVCgVjv8zZlP3dkyl_bLRXQDIP13GtRai8j7YW2ZecTKV-6LerFz3G6xFcvN5VQqLwz_VGBZiT0BKyaVz03xSu87qdUvqHfc5iN3xHGdsUvPTQkNoUz3eoRIj3EHCdv7MSSJGmp_pJmrKD0zlwim0nrnk1UdnOG5UtdnFcUYk7WXLw7_DXiJ1YnAhf7ThormBM2ntPXfWRae92gN3O_RhuxNcric6dMNZSbzKpLXCOveorBGku6sDrLk80NU48g7dm8iivU0c7oNNXkrpt7DJvKCRtsq5J3PVmeEUcvi165Fvs79rn4rFsqqJ7QW_2c2LW85mfdu_7d0WMF7CNlBjGVZZTFOYqBglvnFGhf1y3buAMaX6PlhCTmxol7PS3Ft2xOOcxJMqw9M-loPe_AfVjPCEOceKm3ptJtk-LceMsxfCK56ifVoYKG2FguoThQ4DDErBn0_T1NsNTata8bZPs06VBy7e-0_j_pjeP_sXNhjKinvU5-zJithOKOuo6iUBHFEcVouewGf40h2BlddLvWmVLjw2UDxXG3GmWmhj3eDYDhNiPXfh4649TCPniTjg4RU6oZ6NErvO9-Ot6nUadAtyLE2lJOCYcL38a8FdvoU9GmQN82BmOa36ufoaOD4XCw_A4v_oigJgkAAA
+```
+
+```daggerforge-character
+id: CHR_1786742015512_ewnrl3qi
+code: DHC1.H4sIAAAAAAAAE81WS2_bMAz-Lzzr0LRrOvjWB7YeOmxoWuwwBAUrMbYWmfIoOWlQ5L8PspVXNyxbW2y72OJHipI_vvwI1kAB55fXd4OTt8OTN4cHg-PjweEdzVnc0TcLChhrggJOxZIDBY149i0HKAAUVCQ2Ykm9pB2GMGrvu3cPOZqR65dR0MYAxSNgaZ2Ni7ScoWvz7hplSgaKCbpASwUhCnEZqz1mE8sUAu2xshyiZR33mDVCgVjv8zZlP3dkyl_bLRXQDIP13GtRai8j7YW2ZecTKV-6LerFz3G6xFcvN5VQqLwz_VGBZiT0BKyaVz03xSu87qdUvqHfc5iN3xHGdsUvPTQkNoUz3eoRIj3EHCdv7MSSJGmp_pJmrKD0zlwim0nrnk1UdnOG5UtdnFcUYk7WXLw7_DXiJ1YnAhf7ThormBM2ntPXfWRae92gN3O_RhuxNcric6dMNZSbzKpLXCOveorBGku6sDrLk80NU48g7dm8iivU0c7oNNXkrpt7DJvKCRtsq5J3PVmeEUcvi165Fvs79rn4rFsqqJ7QW_2c2LW85mfdu_7d0WMF7CNlBjGVZZTFOYqBglvnFGhf1y3buAMaX6PlhCTmxol7PS3Ft2xOOcxJMqw9M-loPe_AfVjPCEOceKm3ptJtk-LceMsxfCK56ifVoYKG2FguoThQ4DDErBn0_T1NsNTata8bZPs06VBy7e-0_j_pjeP_sXNhjKinvU5-zJithOKOuo6iUBHFEcVouewGf40h2BlddLvWmVLjw2UDxXG3GmWmhj3eDYDhNiPXfh4649TCPniTjg4RU6oZ6NErvO9-Ot6nUadAtyLE2lJOCYcL38a8FdvoU9GmQN82BmOa36ufoaOD4XCw_A4v_oigJgkAAA
+```
+
+

@@ -8,7 +8,7 @@ visibility: gm_secrets
 status: draft
 created: 2026-07-22
 last_updated: 2026-07-22
-fantasy_name: TBD
+fantasy_name: 
 real_world_name: Almaty
 location:
 - 43.233835

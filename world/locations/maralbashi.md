@@ -17,8 +17,8 @@ fantasy_name: Maralbashi
 historical_basis: Tarim Basin - Mountain gateway on northern route
 last_updated: 2025-12-13
 location:
-- 39.77193
-- 78.53602
+- 39.797866
+- 78.546379
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: route-node

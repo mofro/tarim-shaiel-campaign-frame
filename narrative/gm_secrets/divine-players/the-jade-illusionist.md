@@ -153,3 +153,10 @@ First appearance: a traveling merchant offering something of peculiar relevance.
 - Cosmological architecture: [[world/diagrams/cosmological-architecture]]
 - Related factions: [[world/factions/celestial-court]]
 - Related events: [[narrative/STORY_ARC_SYNTHESIS]]
+
+## Aliases
+*  [[Calberri Davis]]
+*  [[Session_0_Jim_Introduction#The Merchant|The Road Merchant]]
+*  [[Session_0_Warrior_Awakening (Actual)#^3419b1|The Old Soup Woman]]
+* 
+* 
