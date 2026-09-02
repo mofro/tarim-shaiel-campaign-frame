@@ -11,8 +11,8 @@ last_updated: 2026-07-22
 fantasy_name: Dush'nbe
 real_world_name: Dushanbe
 location:
-  - 38.5598
-  - 68.787
+- 38.574199
+- 68.786562
 type: city
 parent_region:
 tags:

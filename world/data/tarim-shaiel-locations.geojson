@@ -34,6 +34,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_akesalai",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "akesalai",
+        "label": "Akesalai",
+        "title": "Akesalai",
+        "fantasy_name": "Akesalai",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/akesalai.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.211808,
+          41.861765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_aksu",
       "properties": {
         "kind": "location",
@@ -61,8 +90,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          80.26,
-          41.17
+          80.258248,
+          41.167908
         ]
       }
     },
@@ -97,6 +126,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_alar",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "alar",
+        "label": "Aral",
+        "title": "Alar",
+        "fantasy_name": "Aral",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/alar.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.276979,
+          40.54151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_almaty",
       "properties": {
         "kind": "location",
@@ -119,8 +177,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          76.8512,
-          43.222
+          76.947054,
+          43.233835
         ]
       }
     },
@@ -179,6 +237,93 @@
         "coordinates": [
           58.3261,
           37.9601
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_awat",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "awat",
+        "label": "Awat",
+        "title": "Awat",
+        "fantasy_name": "Awat",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/awat.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.369085,
+          40.635303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_aybak",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "aybak",
+        "label": "Aybak",
+        "title": "Aybak",
+        "fantasy_name": "Aybak",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/aybak.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.021851,
+          36.272926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_baghlan",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "baghlan",
+        "label": "Baghlan",
+        "title": "Baghlan",
+        "fantasy_name": "Baghlan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/baghlan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.68103,
+          36.117354
         ]
       }
     },
@@ -276,6 +421,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_besheriq",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "besheriq",
+        "label": "Besheriq",
+        "title": "Besheriq",
+        "fantasy_name": "Besheriq",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/besheriq.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.369279,
+          40.801559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_bishkek",
       "properties": {
         "kind": "location",
@@ -327,8 +501,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          82.3,
-          41.05
+          82.320416,
+          41.039914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_bosten-lake",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "bosten-lake",
+        "label": "Lake Bustel",
+        "title": "Bosten Lake",
+        "fantasy_name": "Lake Bustel",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/bosten-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.032954,
+          41.974492
         ]
       }
     },
@@ -494,6 +697,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_charikar",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "charikar",
+        "label": "Charikar",
+        "title": "Charikar",
+        "fantasy_name": "Charikar",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/charikar.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.174042,
+          35.008628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_charklik",
       "properties": {
         "kind": "location",
@@ -522,6 +754,35 @@
         "coordinates": [
           88.15,
           39.0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_chedir",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "chedir",
+        "label": "Chedir",
+        "title": "Chedir",
+        "fantasy_name": "Chedir",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/chedir.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.895832,
+          41.986484
         ]
       }
     },
@@ -589,6 +850,122 @@
     },
     {
       "type": "Feature",
+      "id": "location_chimen",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "chimen",
+        "label": "Chimen",
+        "title": "Chimen",
+        "fantasy_name": "Chimen",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/chimen.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.893537,
+          41.5238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_chumpaq",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "chumpaq",
+        "label": "Chumpaq",
+        "title": "Chumpaq",
+        "fantasy_name": "Chumpaq",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/chumpaq.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.09623,
+          41.87736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_dehdadi",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "dehdadi",
+        "label": "Dehdadi",
+        "title": "Dehdadi",
+        "fantasy_name": "Dehdadi",
+        "description": "",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "",
+        "url": "/locations/dehdadi.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.9953,
+          36.6622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_dry-kulekro",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "dry-kulekro",
+        "label": "Dry Kulekro",
+        "title": "Dry Kulekro",
+        "fantasy_name": "Dry Kulekro",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/dry-kulekro.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.380179,
+          39.922476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_dunhuang",
       "properties": {
         "kind": "location",
@@ -645,8 +1022,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          68.787,
-          38.5598
+          68.786562,
+          38.574199
         ]
       }
     },
@@ -714,6 +1091,188 @@
     },
     {
       "type": "Feature",
+      "id": "location_erbatai",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "erbatai",
+        "label": "Erbatai",
+        "title": "Erbatai",
+        "fantasy_name": "Erbatai",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/erbatai.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.833856,
+          41.817868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_galaosiyal",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "galaosiyal",
+        "label": "Galaosiyal",
+        "title": "Galaosiyo",
+        "fantasy_name": "Galaosiyal",
+        "description": "An isolated waypoint on the southern route through harsh desert.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [
+          "Desert Survivors"
+        ],
+        "resources": [
+          "oasis goods"
+        ],
+        "popup_html": "<p>An isolated waypoint on the southern route through harsh desert.</p><p class=\"popup-factions\"><em>Factions:</em> Desert Survivors</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods</p>",
+        "url": "/locations/galaosiyal.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          64.274185,
+          39.519451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_gijduvel",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "gijduvel",
+        "label": "Gijduvel",
+        "title": "Gijduvan",
+        "fantasy_name": "Gijduvel",
+        "description": "An isolated waypoint on the southern route through harsh desert.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Desert Survivors"
+        ],
+        "resources": [
+          "oasis goods"
+        ],
+        "popup_html": "<p>An isolated waypoint on the southern route through harsh desert.</p><p class=\"popup-factions\"><em>Factions:</em> Desert Survivors</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods</p>",
+        "url": "/locations/gijduvel.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          64.682693,
+          40.102498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_ha-budale",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "ha-budale",
+        "label": "Ha Budale",
+        "title": "Ha Budale",
+        "fantasy_name": "Ha Budale",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/ha-budale.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.173709,
+          40.372706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_hongqi",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "hongqi",
+        "label": "Hongqi",
+        "title": "Hongqi",
+        "fantasy_name": "Hongqi",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/hongqi.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.88169,
+          41.436286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_hongqiao",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "hongqiao",
+        "label": "Hongqiao",
+        "title": "Hongqiao",
+        "fantasy_name": "Hongqiao",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/hongqiao.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.560076,
+          40.626401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_isyk-zhel",
       "properties": {
         "kind": "location",
@@ -771,6 +1330,151 @@
         "coordinates": [
           94.5855,
           40.339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_jinlu-village",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "jinlu-village",
+        "label": "Jinlu Village",
+        "title": "Jinlu Village",
+        "fantasy_name": "Jinlu Village",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/jinlu-village.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.396823,
+          40.719543
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_jinyang",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "jinyang",
+        "label": "Jinyang",
+        "title": "Jinyang",
+        "fantasy_name": "Jinyang",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/jinyang.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.768079,
+          40.690317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kabul",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "kabul",
+        "label": "Kabul",
+        "title": "Kabul",
+        "fantasy_name": "Kabul",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "capital",
+        "marker-symbol": "star",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/kabul.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.185028,
+          34.526924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kadi-er-kuduke",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "kadi-er-kuduke",
+        "label": "Kadi'er Kuduke",
+        "title": "Kadi'er Kuduke",
+        "fantasy_name": "Kadi'er Kuduke",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/kadi-er-kuduke.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.251528,
+          40.252526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_karakoshun-lake",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "karakoshun-lake",
+        "label": "Karakoshun Lake",
+        "title": "Karakoshun Lake",
+        "fantasy_name": "Karakoshun Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/karakoshun-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.101573,
+          39.508958
         ]
       }
     },
@@ -841,6 +1545,93 @@
     },
     {
       "type": "Feature",
+      "id": "location_kingpin",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "kingpin",
+        "label": "Kingpin",
+        "title": "Kingpin",
+        "fantasy_name": "Kingpin",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/kingpin.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.192629,
+          40.830707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_korla",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "korla",
+        "label": "Korla",
+        "title": "Korla",
+        "fantasy_name": "Korla",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "capital",
+        "marker-symbol": "star",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/korla.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.173356,
+          41.722384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_ku-ergan",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "ku-ergan",
+        "label": "Ku'ergan",
+        "title": "Ku'ergan",
+        "fantasy_name": "Ku'ergan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/ku-ergan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.424962,
+          39.664613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_kucha",
       "properties": {
         "kind": "location",
@@ -871,6 +1662,180 @@
         "coordinates": [
           82.95,
           41.73
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kuqa",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "kuqa",
+        "label": "Kuqa",
+        "title": "Kuqa",
+        "fantasy_name": "Kuqa",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/kuqa.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.998228,
+          41.707173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_lake-ayakum",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "lake-ayakum",
+        "label": "Lake of Dragons",
+        "title": "Lake Ayakum",
+        "fantasy_name": "Lake of Dragons",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/lake-ayakum.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          89.390955,
+          37.550877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_linua",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "linua",
+        "label": "Linua",
+        "title": "Linua",
+        "fantasy_name": "Linua",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/linua.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.118267,
+          40.550083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_luntai",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "luntai",
+        "label": "Luntai",
+        "title": "Luntai",
+        "fantasy_name": "Luntai",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/luntai.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.250386,
+          41.776576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_luoyang",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "luoyang",
+        "label": "Luoyang",
+        "title": "Luoyang",
+        "fantasy_name": "Luoyang",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/luoyang.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.948502,
+          40.883865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_mangnai",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "mangnai",
+        "label": "Mangnai",
+        "title": "Mangnai",
+        "fantasy_name": "Mangnai",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/mangnai.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.852528,
+          38.251495
         ]
       }
     },
@@ -909,6 +1874,64 @@
     },
     {
       "type": "Feature",
+      "id": "location_matan",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "matan",
+        "label": "Matan",
+        "title": "Matan",
+        "fantasy_name": "Matan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/matan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.677051,
+          40.590314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_mazar-i-sharif",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "mazar-i-sharif",
+        "label": "Mazar-i-Sharif",
+        "title": "Mazar-i-Sharif",
+        "fantasy_name": "Mazar-i-Sharif",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "capital,capital",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/mazar-i-sharif.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.110925,
+          36.707285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_merv",
       "properties": {
         "kind": "location",
@@ -938,6 +1961,35 @@
         "coordinates": [
           61.83,
           37.66
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_milan",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "milan",
+        "label": "Milan",
+        "title": "Milan",
+        "fantasy_name": "Milan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/milan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.89822,
+          39.243017
         ]
       }
     },
@@ -1097,6 +2149,209 @@
     },
     {
       "type": "Feature",
+      "id": "location_old-town",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "old-town",
+        "label": "Old Town",
+        "title": "Old Town",
+        "fantasy_name": "Old Town",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/old-town.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.791567,
+          40.581895
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_puchang",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "puchang",
+        "label": "Puchang",
+        "title": "Puchang",
+        "fantasy_name": "Puchang",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/puchang.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.691376,
+          40.644946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_qiala-shuiku",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "qiala-shuiku",
+        "label": "Qiala Shuiku",
+        "title": "Qiala Shuiku",
+        "fantasy_name": "Qiala Shuiku",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/qiala-shuiku.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.673072,
+          41.028395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_qiongkule-village",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "qiongkule-village",
+        "label": "Qiongkule Village",
+        "title": "Qiongkule Village",
+        "fantasy_name": "Qiongkule Village",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/qiongkule-village.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.331243,
+          41.232801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_quli",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "quli",
+        "label": "Quli",
+        "title": "Quli",
+        "fantasy_name": "Quli",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/quli.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.460098,
+          41.924853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_qumbash",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "qumbash",
+        "label": "Qumbash",
+        "title": "Qumbash",
+        "fantasy_name": "Qumbash",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/qumbash.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.279412,
+          40.910067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_qunke-er-shisu-station",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "qunke-er-shisu-station",
+        "label": "Hard Yueng",
+        "title": "Qunke'er Shisu Station",
+        "fantasy_name": "Hard Yueng",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/qunke-er-shisu-station.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.492452,
+          41.107487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_rabati-malik",
       "properties": {
         "kind": "location",
@@ -1121,6 +2376,35 @@
         "coordinates": [
           65.184288,
           40.131083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_river-bend",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "river-bend",
+        "label": "River Bend",
+        "title": "River Bend",
+        "fantasy_name": "River Bend",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/river-bend.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.90183,
+          40.447789
         ]
       }
     },
@@ -1183,8 +2467,124 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          66.97,
-          39.65
+          66.975141,
+          39.654587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_shanghu",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "shanghu",
+        "label": "Shanghu",
+        "title": "Shanghu",
+        "fantasy_name": "Shanghu",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/shanghu.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.0223,
+          41.810308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_shayar",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "shayar",
+        "label": "Shayar",
+        "title": "Shayar",
+        "fantasy_name": "Shayar",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/shayar.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.766596,
+          41.220859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_shinigha",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "shinigha",
+        "label": "Shinigha",
+        "title": "Shinigha",
+        "fantasy_name": "Shinigha",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/shinigha.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.179256,
+          41.612809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_shuangcheng",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "shuangcheng",
+        "label": "Shuangcheng",
+        "title": "Shuangcheng",
+        "fantasy_name": "Shuangcheng",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/shuangcheng.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.470353,
+          40.956144
         ]
       }
     },
@@ -1214,6 +2614,209 @@
         "coordinates": [
           75.2,
           40.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_talimu",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "talimu",
+        "label": "Talimu",
+        "title": "Talimu",
+        "fantasy_name": "Talimu",
+        "description": "South staging area outside the city",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>South staging area outside the city</p>",
+        "url": "/locations/talimu.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.270555,
+          41.290499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_talimuhe-bridge",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "talimuhe-bridge",
+        "label": "Talimuhe Bridge",
+        "title": "Talimuhe Bridge",
+        "fantasy_name": "Talimuhe Bridge",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "landmark",
+        "marker-symbol": "mountain",
+        "marker-color": "#9CA3AF",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/talimuhe-bridge.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.144168,
+          40.86512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_talimuhe-station",
+      "properties": {
+        "kind": "location",
+        "category": "fortress",
+        "slug": "talimuhe-station",
+        "label": "Talimuhe Station",
+        "title": "Talimuhe Station",
+        "fantasy_name": "Talimuhe Station",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "fortress",
+        "marker-symbol": "castle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/talimuhe-station.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.169212,
+          40.905442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tamen",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "tamen",
+        "label": "Tamen",
+        "title": "Tamen",
+        "fantasy_name": "Tamen",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tamen.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.854583,
+          40.594242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tanan",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "tanan",
+        "label": "Tanan",
+        "title": "Tanan",
+        "fantasy_name": "Tanan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tanan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.305012,
+          40.508906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tarlak",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "tarlak",
+        "label": "Tarlak",
+        "title": "Tarlak",
+        "fantasy_name": "Tarlak",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tarlak.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.1795,
+          41.919904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tashidiel",
+      "properties": {
+        "kind": "location",
+        "category": "fortress",
+        "slug": "tashidiel",
+        "label": "Tashidian",
+        "title": "Tashidian",
+        "fantasy_name": "Tashidian",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "fortress",
+        "marker-symbol": "castle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tashidiel.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.277582,
+          41.837579
         ]
       }
     },
@@ -1254,6 +2857,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_terakbazar",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "terakbazar",
+        "label": "Terakbazar",
+        "title": "Terakbazar",
+        "fantasy_name": "Terakbazar",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/terakbazar.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.615663,
+          41.918719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_the-glass-dunes",
       "properties": {
         "kind": "location",
@@ -1278,6 +2910,93 @@
         "coordinates": [
           65.4,
           40.35
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tiemenguan",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "tiemenguan",
+        "label": "Tiemenguan",
+        "title": "Tiemenguan",
+        "fantasy_name": "Tiemenguan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tiemenguan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.66817,
+          41.861692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_topluq",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "topluq",
+        "label": "Topluq",
+        "title": "Topluq",
+        "fantasy_name": "Topluq",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/topluq.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.265162,
+          41.024442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_toqsu",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "toqsu",
+        "label": "Toqsu",
+        "title": "Toqsu",
+        "fantasy_name": "Toqsu",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/toqsu.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.609782,
+          41.540748
         ]
       }
     },
@@ -1405,6 +3124,151 @@
     },
     {
       "type": "Feature",
+      "id": "location_xoliel-send",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "xoliel-send",
+        "label": "Xoliel Send",
+        "title": "Xoliel Send",
+        "fantasy_name": "Xoliel Send",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/xoliel-send.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.285791,
+          40.165821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yaga",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "yaga",
+        "label": "Yaga",
+        "title": "Yaga",
+        "fantasy_name": "Yaga",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/yaga.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.23423,
+          41.750061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yangxia",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "yangxia",
+        "label": "Yungxiel",
+        "title": "Yangxia",
+        "fantasy_name": "Yungxiel",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/yangxia.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.575719,
+          41.95023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yanqi-bridge",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "yanqi-bridge",
+        "label": "Bridge of Winter",
+        "title": "Yanqi Bridge",
+        "fantasy_name": "Bridge of Winter",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "landmark",
+        "marker-symbol": "mountain",
+        "marker-color": "#9CA3AF",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/yanqi-bridge.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.554354,
+          42.053977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yanqi",
+      "properties": {
+        "kind": "location",
+        "category": "fortress",
+        "slug": "yanqi",
+        "label": "Yanqi",
+        "title": "Yanqi",
+        "fantasy_name": "Yanqi",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "fortress",
+        "marker-symbol": "castle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/yanqi.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.568276,
+          42.064033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_yarkand",
       "properties": {
         "kind": "location",
@@ -1435,6 +3299,93 @@
         "coordinates": [
           77.2411,
           38.417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yeyungou",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "yeyungou",
+        "label": "Yeyungou",
+        "title": "Yeyungou",
+        "fantasy_name": "Yeyungou",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/yeyungou.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.076119,
+          42.011478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yongning",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "yongning",
+        "label": "Yongning",
+        "title": "Yongning",
+        "fantasy_name": "Yongning",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/yongning.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.55087,
+          42.040232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yuli",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "yuli",
+        "label": "Yuli",
+        "title": "Yuli",
+        "fantasy_name": "Yuli",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/yuli.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.25756,
+          41.339709
         ]
       }
     },

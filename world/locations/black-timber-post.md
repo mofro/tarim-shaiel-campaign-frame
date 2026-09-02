@@ -13,8 +13,8 @@ description: Fortified overnight station with stables and a small shrine; a safe
 fantasy_name: Black-Timber Post
 last_updated: 2025-12-13
 location:
-- 41.05
-- 82.3
+- 41.039914
+- 82.320416
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: route-node
