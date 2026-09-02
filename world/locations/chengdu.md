@@ -8,17 +8,17 @@ visibility: gm_secrets
 status: draft
 created: 2026-07-22
 last_updated: 2026-07-22
-fantasy_name: TBD
+fantasy_name:
 real_world_name: Chengdu
 location:
-- 30.5728
-- 104.0668
+  - 30.5728
+  - 104.0668
 type: city
-parent_region: null
+parent_region:
 tags:
-- gcp-anchor
-- stub
-- real-world-city
+  - gcp-anchor
+  - stub
+  - real-world-city
 ---
 
 Stub entry — real-world coordinates only, no narrative development yet. `fantasy_name: TBD` marks this for replacement once named properly.
