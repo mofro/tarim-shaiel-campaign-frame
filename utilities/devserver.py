@@ -12,11 +12,13 @@ Usage:
     Workshop: http://localhost:8000/workshop
 
 Endpoints:
-    PUT  /api/locations/{slug}/coordinates  — update lat/lon in .md frontmatter
-    POST /api/locations/create              — create a new location stub
-    POST /api/routes/add                    — add route segment(s) to routes.geojson
-    POST /api/rebuild/locations             — run build.py locations
-    POST /api/rebuild/workshop              — run build.py workshop
+    PUT    /api/locations/{slug}/coordinates  — update lat/lon in .md frontmatter
+    POST   /api/locations/create              — create a new location stub
+    POST   /api/routes/add                    — add route segment(s) to routes.geojson
+    DELETE /api/routes/{route_id}             — delete one route by ID
+    POST   /api/routes/delete-bulk            — delete multiple routes: {"ids": [...]}
+    POST   /api/rebuild/locations             — run build.py locations
+    POST   /api/rebuild/workshop              — run build.py workshop
 """
 
 import http.server
@@ -32,6 +34,7 @@ VAULT_ROOT = SCRIPT_DIR.parent
 DOCS_DIR = VAULT_ROOT / "docs"
 WORKSHOP_PATH = VAULT_ROOT / "map-workshop.html"
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
+ROUTES_PATH = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
 DEFAULT_PORT = 8000
 
 
@@ -61,11 +64,20 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         else:
             self.send_error(404)
 
+    def do_DELETE(self):
+        m = re.match(r"^/api/routes/([^/?]+)(?:\?.*)?$", self.path)
+        if m:
+            self._delete_route(m.group(1))
+        else:
+            self.send_error(404)
+
     def do_POST(self):
         if self.path == "/api/locations/create":
             self._create_location()
         elif self.path == "/api/routes/add":
             self._add_route()
+        elif self.path == "/api/routes/delete-bulk":
+            self._delete_routes_bulk()
         elif self.path == "/api/rebuild/locations":
             self._rebuild("locations")
         elif self.path == "/api/rebuild/workshop":
@@ -196,6 +208,47 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             "output": result.stdout + result.stderr,
         })
 
+    def _delete_route(self, route_id: str):
+        if not ROUTES_PATH.exists():
+            return self._json({"ok": False, "error": "routes.geojson not found"}, 404)
+        gj = json.loads(ROUTES_PATH.read_text(encoding="utf-8"))
+        features = gj.get("features", [])
+        gj["features"] = [f for f in features if f.get("id") != route_id]
+        if len(gj["features"]) == len(features):
+            return self._json({"ok": False, "error": f"route not found: {route_id}"}, 404)
+        tmp = ROUTES_PATH.with_suffix(".tmp")
+        try:
+            tmp.write_text(json.dumps(gj, indent=2, ensure_ascii=False), encoding="utf-8")
+            os.replace(tmp, ROUTES_PATH)
+        finally:
+            tmp.unlink(missing_ok=True)
+        print(f"  Deleted route: {route_id}")
+        self._json({"ok": True, "deleted": route_id})
+
+    def _delete_routes_bulk(self):
+        try:
+            data = self._read_json()
+            ids = [str(i) for i in data["ids"]]
+        except (ValueError, KeyError, TypeError):
+            return self.send_error(400, 'Body must be {"ids": [...]}')
+        if not ids:
+            return self._json({"ok": False, "error": "ids array is empty"}, 400)
+        if not ROUTES_PATH.exists():
+            return self._json({"ok": False, "error": "routes.geojson not found"}, 404)
+        id_set = set(ids)
+        gj = json.loads(ROUTES_PATH.read_text(encoding="utf-8"))
+        features = gj.get("features", [])
+        deleted = [f["id"] for f in features if f.get("id") in id_set]
+        gj["features"] = [f for f in features if f.get("id") not in id_set]
+        tmp = ROUTES_PATH.with_suffix(".tmp")
+        try:
+            tmp.write_text(json.dumps(gj, indent=2, ensure_ascii=False), encoding="utf-8")
+            os.replace(tmp, ROUTES_PATH)
+        finally:
+            tmp.unlink(missing_ok=True)
+        print(f"  Deleted {len(deleted)} route(s): {', '.join(deleted)}")
+        self._json({"ok": True, "deleted": deleted, "count": len(deleted)})
+
     # ---- Helpers ----
 
     def _read_json(self) -> dict:
@@ -213,7 +266,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
 
     def _cors(self):
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, PUT, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
 
     def log_message(self, fmt, *args):
@@ -289,11 +342,13 @@ def main() -> None:
     print(f"  Workshop:    http://localhost:{port}/workshop")
     print()
     print("  Endpoints:")
-    print(f"    PUT  http://localhost:{port}/api/locations/{{slug}}/coordinates")
-    print(f"    POST http://localhost:{port}/api/locations/create")
-    print(f"    POST http://localhost:{port}/api/routes/add")
-    print(f"    POST http://localhost:{port}/api/rebuild/locations")
-    print(f"    POST http://localhost:{port}/api/rebuild/workshop")
+    print(f"    PUT    http://localhost:{port}/api/locations/{{slug}}/coordinates")
+    print(f"    POST   http://localhost:{port}/api/locations/create")
+    print(f"    POST   http://localhost:{port}/api/routes/add")
+    print(f"    DELETE http://localhost:{port}/api/routes/{{route_id}}")
+    print(f"    POST   http://localhost:{port}/api/routes/delete-bulk")
+    print(f"    POST   http://localhost:{port}/api/rebuild/locations")
+    print(f"    POST   http://localhost:{port}/api/rebuild/workshop")
     print()
     _stale_workshop_warning()
     print()

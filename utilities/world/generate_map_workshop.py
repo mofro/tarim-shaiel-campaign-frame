@@ -121,6 +121,7 @@ def _route_index_html(route_index: list) -> str:
         t = f'{p}{r["days"]:.0f} days'
         return (
             f'<tr class="ri-row" data-id="{r["id"]}" style="cursor:pointer">'
+            f'<td class="ri-check"><input type="checkbox" class="ri-cb" data-id="{r["id"]}"></td>'
             f'<td class="ri-id">{r["id"]}</td>'
             f'<td>{r["label"]}</td>'
             f'<td>{d}</td>'
@@ -131,13 +132,22 @@ def _route_index_html(route_index: list) -> str:
     def section(title: str, rows: list) -> str:
         if not rows:
             return ""
-        thead = "<thead><tr><th>ID</th><th>Label</th><th>Distance</th><th>Travel (30 km/d)</th></tr></thead>"
+        thead = '<thead><tr><th class="ri-check"></th><th>ID</th><th>Label</th><th>Distance</th><th>Travel (30 km/d)</th></tr></thead>'
         tbody = "<tbody>" + "".join(row(r) for r in rows) + "</tbody>"
         return f"<h3>{title}</h3><table>{thead}{tbody}</table>"
 
+    header = (
+        '<div class="ri-header">'
+        '<label class="ri-select-all-label">'
+        '<input type="checkbox" id="ri-select-all"> Select All'
+        '</label>'
+        '<button id="ri-delete-btn" hidden>🗑 Delete Selected (0)</button>'
+        '</div>'
+    )
     note = '<p class="ri-note">~ = straight-line estimate (2-point segment, not road-routed)</p>'
     return (
-        section("Main Routes", main_routes)
+        header
+        + section("Main Routes", main_routes)
         + section("Spurs", spurs)
         + note
     )
@@ -151,7 +161,7 @@ _CSS = """\
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   background: #0a0805; color: #e8dcc4; }
-#app { display: flex; height: 100vh; }
+#app { display: flex; height: 100vh; position: relative; }
 #sidebar { min-width: 340px; display: flex; flex-direction: column;
   background: #120f08; border-right: 1px solid rgba(184,146,44,0.3); overflow: hidden; }
 #sidebar-header { padding: 12px 14px 0; border-bottom: 1px solid rgba(184,146,44,0.2);
@@ -230,6 +240,28 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .ri-row.active td { background: rgba(184,146,44,0.14); }
 /* Route section separator */
 .route-or { text-align: center; color: #5a4a30; font-size: 11px; margin: 4px 0; }
+/* Route index delete controls */
+.ri-header { display:flex; align-items:center; gap:8px; padding:4px 0 8px; }
+.ri-select-all-label { font-size:11px; color:#9a8a6a; display:flex; align-items:center; gap:5px; cursor:pointer; }
+.ri-select-all-label input { accent-color:#b8922c; }
+#ri-delete-btn { padding:4px 10px; font-size:11px; background:#2a0e08;
+  border:1px solid rgba(180,60,60,0.5); color:#e8a090; cursor:pointer; border-radius:2px; }
+#ri-delete-btn:hover { background:#3a1010; border-color:#b83c3c; }
+.ri-check { width:28px; text-align:center; }
+.ri-check input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
+/* Route panel overlay (map-click selection) */
+#route-panel { position:absolute; top:10px; right:10px; z-index:10;
+  background:#1a1208; color:#f0e6c8; padding:10px 14px; border-radius:6px;
+  border:1px solid #b8922c; min-width:180px; font-size:12px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.6); }
+#route-panel-label { font-weight:bold; margin-bottom:8px; word-break:break-word; }
+#route-panel-delete { background:#c0392b; color:#fff; border:none;
+  padding:4px 10px; border-radius:4px; cursor:pointer; font-size:11px; }
+#route-panel-delete:hover { background:#e74c3c; }
+#route-panel-close { margin-left:8px; background:none; color:#b8922c;
+  border:1px solid rgba(184,146,44,0.5); padding:3px 7px; border-radius:4px;
+  cursor:pointer; font-size:11px; }
+#route-panel-close:hover { border-color:#b8922c; color:#e8dcc4; }
 /* Map */
 #map { flex: 1; }
 .maplibregl-map { font: inherit; }
@@ -571,6 +603,26 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'layout:{"line-cap":"butt"},'
         'paint:{"line-color":"#1a1208","line-width":3,"line-opacity":0.8,"line-dasharray":[4,4]}});\n'
 
+        # Route-selected highlight layer (orange)
+        'map.addSource("route-selected",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
+        'map.addLayer({id:"route-selected",type:"line",minzoom:4,source:"route-selected",'
+        'paint:{"line-color":"#e05a2b","line-width":5,"line-opacity":0.95}});\n'
+
+        # Route cursor + click-to-select
+        'map.on("mousemove","routes",function(){map.getCanvas().style.cursor="pointer";});\n'
+        'map.on("mouseleave","routes",function(){map.getCanvas().style.cursor="";});\n'
+        'map.on("click","routes",function(e){'
+        'var f=e.features[0];'
+        'map.getSource("route-selected").setData({type:"FeatureCollection",features:[f]});'
+        '_showRoutePanel(f);'
+        '});\n'
+        'map.on("click",function(e){'
+        'if(!map.queryRenderedFeatures(e.point,{layers:["routes"]}).length){'
+        'if(map.getSource("route-selected")){'
+        'map.getSource("route-selected").setData({type:"FeatureCollection",features:[]});}'
+        '_hideRoutePanel();}'
+        '});\n'
+
         # Icons + location symbol layers
         + icons_js +
         'map.addSource("locations",{type:"geojson",data:_locGJ});\n'
@@ -649,7 +701,8 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
 
         # Route Index: fly-to on row click (uses _routeGJ which is available immediately)
         'document.querySelectorAll("#panel-route-index .ri-row").forEach(function(row){'
-        'row.addEventListener("click",function(){'
+        'row.addEventListener("click",function(e){'
+        'if(e.target.closest(".ri-check"))return;'
         'var routeId=row.dataset.id;'
         'var feat=_routeGJ.features.find(function(f){return f.id===routeId;});'
         'if(!feat)return;'
@@ -663,6 +716,58 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         '_setTab("route-index");'
         'map.fitBounds([[minLon,minLat],[maxLon,maxLat]],{padding:60,duration:800});'
         '});});\n'
+
+        # Route Index: select-all checkbox + delete-bulk button
+        'document.getElementById("ri-select-all").addEventListener("change",function(e){'
+        'document.querySelectorAll(".ri-cb").forEach(function(cb){cb.checked=e.target.checked;});'
+        '_updateDeleteBtn();'
+        '});\n'
+        'document.querySelectorAll(".ri-cb").forEach(function(cb){'
+        'cb.addEventListener("change",_updateDeleteBtn);'
+        '});\n'
+        'function _updateDeleteBtn(){'
+        'var checked=Array.prototype.slice.call(document.querySelectorAll(".ri-cb:checked"));'
+        'var btn=document.getElementById("ri-delete-btn");'
+        'btn.hidden=checked.length===0;'
+        'btn.textContent="🗑 Delete Selected ("+checked.length+")";'
+        '}\n'
+        'document.getElementById("ri-delete-btn").addEventListener("click",function(){'
+        'var ids=Array.prototype.slice.call(document.querySelectorAll(".ri-cb:checked")).map(function(cb){return cb.dataset.id;});'
+        'if(!ids.length)return;'
+        'if(!confirm("Delete "+ids.length+" route(s)?"))return;'
+        'fetch("/api/routes/delete-bulk",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ids:ids})})'
+        '.then(function(r){return r.json();})'
+        '.then(function(d){'
+        'if(!d.ok){alert("Delete failed: "+(d.error||"unknown"));return;}'
+        'fetch("/api/rebuild/workshop",{method:"POST"}).then(function(){location.reload();});'
+        '})'
+        '.catch(function(){alert("Devserver not running.");});'
+        '});\n'
+
+        # Route panel (map click) functions + button listeners
+        'var _selectedRouteId=null;\n'
+        'function _showRoutePanel(feature){'
+        '_selectedRouteId=feature.id;'
+        'document.getElementById("route-panel-label").textContent='
+        'feature.properties.label||feature.id||"";'
+        'document.getElementById("route-panel").hidden=false;'
+        '}\n'
+        'function _hideRoutePanel(){'
+        '_selectedRouteId=null;'
+        'document.getElementById("route-panel").hidden=true;'
+        '}\n'
+        'document.getElementById("route-panel-close").addEventListener("click",_hideRoutePanel);\n'
+        'document.getElementById("route-panel-delete").addEventListener("click",function(){'
+        'if(!_selectedRouteId)return;'
+        'if(!confirm("Delete route \\""+_selectedRouteId+"\\"?"))return;'
+        'fetch("/api/routes/"+encodeURIComponent(_selectedRouteId),{method:"DELETE"})'
+        '.then(function(r){return r.json();})'
+        '.then(function(d){'
+        'if(!d.ok){alert("Delete failed: "+(d.error||"unknown"));return;}'
+        'fetch("/api/rebuild/workshop",{method:"POST"}).then(function(){location.reload();});'
+        '})'
+        '.catch(function(){alert("Devserver not running.");});'
+        '});\n'
 
         # -- Edit Coords panel --
         'var _editMode=false;\n'
@@ -850,6 +955,11 @@ def _build_html(
         + "\n    </div>\n"
         "  </div>\n"
         '  <div id="map"></div>\n'
+        '  <div id="route-panel" hidden>\n'
+        '    <div id="route-panel-label"></div>\n'
+        '    <button id="route-panel-delete">🗑 Delete Route</button>\n'
+        '    <button id="route-panel-close">✕</button>\n'
+        '  </div>\n'
         "</div>\n"
         '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'
         "<script>\n"
