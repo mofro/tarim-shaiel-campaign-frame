@@ -1,4 +1,421 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "id": "route_spur_kashgar_artux",
+      "properties": {
+        "kind": "spur",
+        "label": "Kashgar → Artux",
+        "title": "Kashgar → Artux",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            75.989158,
+            39.465313
+          ],
+          [
+            76.165631,
+            39.714007
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_artux_hongshiliu",
+      "properties": {
+        "kind": "spur",
+        "label": "Artux → Hongshiliu",
+        "title": "Artux → Hongshiliu",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.165631,
+            39.714007
+          ],
+          [
+            76.429152,
+            39.799011
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_hongshiliu_qarajol",
+      "properties": {
+        "kind": "spur",
+        "label": "Hongshiliu → Qarajol",
+        "title": "Hongshiliu → Qarajol",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.429152,
+            39.799011
+          ],
+          [
+            76.830955,
+            40.172611
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_qarajol_qarabulaq",
+      "properties": {
+        "kind": "spur",
+        "label": "Qarajol → Qarabulaq",
+        "title": "Qarajol → Qarabulaq",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            76.830955,
+            40.172611
+          ],
+          [
+            77.576866,
+            40.786629
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_qarabulaq_qarachi",
+      "properties": {
+        "kind": "spur",
+        "label": "Qarabulaq → Qarachi",
+        "title": "Qarabulaq → Qarachi",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.576866,
+            40.786629
+          ],
+          [
+            77.937655,
+            40.839486
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_qarachi_somtash",
+      "properties": {
+        "kind": "spur",
+        "label": "Qarachi → Somtash",
+        "title": "Qarachi → Somtash",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            77.937655,
+            40.839486
+          ],
+          [
+            78.240772,
+            40.896666
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_somtash_akqi",
+      "properties": {
+        "kind": "spur",
+        "label": "Somtash → Akqi",
+        "title": "Somtash → Akqi",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            78.240772,
+            40.896666
+          ],
+          [
+            78.434048,
+            40.93258
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_akqi_saparbay",
+      "properties": {
+        "kind": "spur",
+        "label": "Akqi → Saparbay",
+        "title": "Akqi → Saparbay",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            78.434048,
+            40.93258
+          ],
+          [
+            78.699857,
+            40.975535
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_saparbay_singing-straights",
+      "properties": {
+        "kind": "spur",
+        "label": "Saparbay → Singing Straights",
+        "title": "Saparbay → Singing Straights",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            78.699857,
+            40.975535
+          ],
+          [
+            78.911342,
+            41.05911
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_singing-straights_otbeshi",
+      "properties": {
+        "kind": "spur",
+        "label": "Singing Straights → Otbéshi",
+        "title": "Singing Straights → Otbéshi",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            78.911342,
+            41.05911
+          ],
+          [
+            79.14353,
+            41.182402
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_otbeshi_uchturpan",
+      "properties": {
+        "kind": "spur",
+        "label": "Otbéshi → Uchturpan",
+        "title": "Otbéshi → Uchturpan",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            79.14353,
+            41.182402
+          ],
+          [
+            79.231474,
+            41.214343
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_uchturpan_yakowruk",
+      "properties": {
+        "kind": "spur",
+        "label": "Uchturpan → Yaköwrük",
+        "title": "Uchturpan → Yaköwrük",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            79.231474,
+            41.214343
+          ],
+          [
+            79.42996,
+            41.206047
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_yakowruk_achatagh",
+      "properties": {
+        "kind": "spur",
+        "label": "Yaköwrük → Achatagh",
+        "title": "Yaköwrük → Achatagh",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            79.42996,
+            41.206047
+          ],
+          [
+            79.568668,
+            41.244896
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_achatagh_aqyar",
+      "properties": {
+        "kind": "spur",
+        "label": "Achatagh → Aqyar",
+        "title": "Achatagh → Aqyar",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            79.568668,
+            41.244896
+          ],
+          [
+            79.706215,
+            41.207794
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_aqyar_aral",
+      "properties": {
+        "kind": "spur",
+        "label": "Aqyar → Aral",
+        "title": "Aqyar → Aral",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            79.706215,
+            41.207794
+          ],
+          [
+            79.870771,
+            41.177004
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route_spur_aral_aksu",
+      "properties": {
+        "kind": "spur",
+        "label": "Aral → Aksu",
+        "title": "Aral → Aksu",
+        "description": "",
+        "stroke": "#1a1208",
+        "stroke-width": 5,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            79.870771,
+            41.177004
+          ],
+          [
+            80.258248,
+            41.167908
+          ]
+        ]
+      }
+    }
+  ]
 }
