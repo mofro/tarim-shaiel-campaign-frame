@@ -423,12 +423,15 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         '_routeGJ.features.forEach(function(f){if(f.id)f.properties._route_id=f.id;});\n'
 
         # -- Active tab state --
-        'var _activeTab="add-point";\n'
+        # Restore last active tab across reloads triggered by add/delete actions,
+        # or a manual refresh, so the workshop doesn't snap back to "Add Point"
+        # every time.
+        'var _wsSavedTab=null;\n'
+        'try{_wsSavedTab=sessionStorage.getItem("_wsTab");}catch(e){}\n'
+        'var _activeTab=_wsSavedTab||"add-point";\n'
 
         # -- Map init --
-        # Restore last view (center/zoom) across reloads triggered by add/delete
-        # actions, or a manual refresh, so the workshop doesn't snap back to the
-        # default view every time.
+        # Restore last view (center/zoom) across the same reloads.
         'var _wsSavedCenter=null,_wsSavedZoom=null;\n'
         'try{'
         'var _wsSc=sessionStorage.getItem("_wsCenter");'
@@ -450,6 +453,7 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'var ctr=map.getCenter();'
         'sessionStorage.setItem("_wsCenter",JSON.stringify([ctr.lng,ctr.lat]));'
         'sessionStorage.setItem("_wsZoom",String(map.getZoom()));'
+        'sessionStorage.setItem("_wsTab",_activeTab);'
         '}catch(e){}'
         '});\n'
 
@@ -465,6 +469,9 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         '}\n'
         'document.querySelectorAll(".tab-btn").forEach(function(b){'
         'b.addEventListener("click",function(){_setTab(b.dataset.tab);});});\n'
+        # Apply the restored (or default) tab now that _setTab exists — the
+        # server-rendered HTML always marks "Add Point" active by default.
+        '_setTab(_activeTab);\n'
 
         # -- Tab 1: coordinate picker --
         'var _addLat=document.getElementById("add-lat");'
