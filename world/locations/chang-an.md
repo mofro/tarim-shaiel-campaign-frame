@@ -21,8 +21,8 @@ fantasy_name: Chang'an
 historical_basis: Central China - Han and Tang dynasty capitals; major imperial center
 last_updated: 2025-12-13
 location:
-- 34.34
-- 109.26
+- 34.260179
+- 108.942245
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: city
