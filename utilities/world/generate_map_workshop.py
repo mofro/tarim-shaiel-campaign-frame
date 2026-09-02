@@ -214,6 +214,8 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .queue-item .qi-label { color: #e8dcc4; }
 .queue-item .qi-dist { color: #7a6a50; font-size: 11px; margin-top: 2px; }
 .queue-empty { color: #5a4a30; font-size: 12px; font-style: italic; }
+/* Edit coords panel */
+#panel-edit-coords { max-width: 450px; }
 /* Route index */
 .panel#panel-route-index { gap: 8px; }
 #panel-route-index h3 { font-size: 12px; text-transform: uppercase;
