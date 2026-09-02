@@ -190,9 +190,9 @@ def cmd_location(args: list[str]) -> int:
 def cmd_route(args: list[str]) -> int:
     if not step_add_route(args):
         return 1
+    step_snap()   # best-effort; falls back to straight line if OSRM unreachable
     step_workshop()
-    print(f"\n{green('✓')} Route added and workshop refreshed.")
-    print(f"  Run  {dim('python utilities/map.py snap')}  to road-snap via OSRM.")
+    print(f"\n{green('✓')} Route added, snapped to roads, and workshop refreshed.")
     return 0
 
 def cmd_rebuild(_args: list[str]) -> int:
