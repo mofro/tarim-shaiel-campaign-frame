@@ -303,14 +303,9 @@ def _build_panel_add_point(cat_options: str, region_options: str) -> str:
   <label>Description</label>
   <textarea id="add-description" rows="2" placeholder="optional"></textarea>
 </div>
-<button id="add-generate-btn" class="btn">Generate Command</button>
-<div id="add-command-block" class="command-block hidden">
-  <pre id="add-command-text"></pre>
-  <button id="add-copy-btn" class="btn btn-sm">Copy to Clipboard</button>
-</div>
-<p class="hint">After running:<br>
-<code>python utilities/build.py geojson</code><br>
-then regenerate this workshop.</p>
+<button id="add-create-btn" class="btn">Create Location</button>
+<p id="add-status" class="hint" style="margin-top:6px;"></p>
+<p class="hint" style="color:#5a4a30;">Requires devserver: <code>python utilities/devserver.py</code></p>
 """
 
 
@@ -345,20 +340,10 @@ def _build_panel_plan_route() -> str:
     Spur route (branch)
   </label>
 </div>
-<button id="route-copy-gj-btn" class="btn" disabled>Copy GeoJSON Feature</button>
-<div id="route-gj-block" class="command-block hidden">
-  <pre id="route-gj-text" style="max-height:120px;overflow-y:auto;"></pre>
-  <button id="route-copy-gj2-btn" class="btn btn-sm">Copy to Clipboard</button>
-</div>
-<p class="hint" style="margin-top:2px;">Paste into <code>world/data/tarim-shaiel-routes.geojson</code> → features array, then:<br>
-<code>python utilities/build.py workshop</code></p>
-<div class="route-or">— or generate CLI command —</div>
-<button id="route-generate-btn" class="btn" disabled>Generate map.py Command</button>
-<div id="route-command-block" class="command-block hidden">
-  <pre id="route-command-text"></pre>
-  <button id="route-copy-btn" class="btn btn-sm">Copy to Clipboard</button>
-</div>
-<p class="hint">Runs route-snapping then regenerate workshop.</p>
+<button id="route-add-btn" class="btn" disabled>Add Route</button>
+<p id="route-status" class="hint" style="margin-top:6px;"></p>
+<p class="hint" style="color:#5a4a30;">Requires devserver: <code>python utilities/devserver.py</code><br>
+Adds segments, snaps to roads, rebuilds workshop automatically.</p>
 """
 
 
@@ -434,79 +419,63 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         'var _addFantasy=document.getElementById("add-fantasy");'
         'var _addCat=document.getElementById("add-category");'
         'var _addRegion=document.getElementById("add-region");'
-        'var _addDesc=document.getElementById("add-description");'
-        'var _addCmdBlock=document.getElementById("add-command-block");'
-        'var _addCmdText=document.getElementById("add-command-text");'
-        'var _addCopyBtn=document.getElementById("add-copy-btn");'
-        'var _addGenBtn=document.getElementById("add-generate-btn");\n'
+        'var _addDesc=document.getElementById("add-description");\n'
 
         # mouseup: set coords when Tab 1 is active
         'map.on("mouseup",function(e){'
         'if(_activeTab!=="add-point")return;'
         '_addLat.value=e.lngLat.lat.toFixed(6);'
         '_addLon.value=e.lngLat.lng.toFixed(6);'
-        '_addCmdBlock.classList.add("hidden");'
         '});\n'
 
-        'function _buildAddCmd(){'
+        'var _addCreateBtn=document.getElementById("add-create-btn");'
+        'var _addStatus=document.getElementById("add-status");\n'
+
+        '_addCreateBtn.addEventListener("click",function(){'
         'var lat=_addLat.value,lon=_addLon.value;'
-        'if(!lat||!lon)return null;'
         'var name=_addName.value.trim();'
-        'if(!name)return null;'
         'var cat=_addCat.value;'
-        'if(!cat)return null;'
-        'var parts=["python utilities/map.py location"];'
-        'parts.push("  --name \\""+name+"\\"");'
-        'parts.push("  --lat "+lat+" --lon "+lon);'
-        'parts.push("  --category "+cat);'
-        'var fantasy=_addFantasy.value.trim();'
-        'if(fantasy)parts.push("  --fantasy-name \\""+fantasy+"\\"");'
-        'var region=_addRegion.value;'
-        'if(region)parts.push("  --region "+region);'
-        'var vis=document.querySelector("input[name=\'add-vis\']:checked");'
-        'if(vis&&vis.value!=="public")parts.push("  --visibility "+vis.value);'
-        'var desc=_addDesc.value.trim();'
-        'if(desc)parts.push("  --description \\""+desc+"\\"");'
-        'return parts.join(" \\\\'
-        '\\n");'
-        '}\n'
-
-        '_addGenBtn.addEventListener("click",function(){'
-        'var cmd=_buildAddCmd();'
-        'if(!cmd){alert("Fill in: coordinates (click map), Name, and Category.");return;}'
-        '_addCmdText.textContent=cmd;'
-        '_addCmdBlock.classList.remove("hidden");'
+        'if(!lat||!lon||!name||!cat){alert("Fill in: coordinates (click map), Name, and Category.");return;}'
+        'var body={'
+        '"name":name,"lat":parseFloat(lat),"lon":parseFloat(lon),"category":cat,'
+        '"fantasy_name":_addFantasy.value.trim(),'
+        '"region":_addRegion.value,'
+        '"visibility":(document.querySelector("input[name=\'add-vis\']:checked")||{value:"public"}).value,'
+        '"description":_addDesc.value.trim()'
+        '};'
+        '_addStatus.textContent="Creating...";'
+        '_addCreateBtn.disabled=true;'
+        'fetch("/api/locations/create",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})'
+        '.then(function(r){return r.json();})'
+        '.then(function(d){'
+        '_addCreateBtn.disabled=false;'
+        'if(d.ok){'
+        '_addStatus.textContent="Created. Rebuilding GeoJSON and workshop…";'
+        'fetch("/api/rebuild/workshop",{method:"POST"}).then(function(){_addStatus.textContent="Done — reload to see new pin.";});'
+        '}else{'
+        '_addStatus.textContent="Error: "+(d.error||d.output||"unknown");'
+        '}})'
+        '.catch(function(e){_addCreateBtn.disabled=false;_addStatus.textContent="Devserver not running.";});'
         '});\n'
-
-        '_addCopyBtn.addEventListener("click",function(){_copyText(_addCmdText.textContent,_addCopyBtn);});\n'
 
         # -- Tab 2: route planner --
         'var _queue=[];\n'
         'var _routeQueueList=document.getElementById("route-queue-list");'
         'var _routeRemoveBtn=document.getElementById("route-remove-btn");'
         'var _routeClearBtn=document.getElementById("route-clear-btn");'
-        'var _routeGenBtn=document.getElementById("route-generate-btn");'
+        'var _routeAddBtn=document.getElementById("route-add-btn");'
+        'var _routeStatus=document.getElementById("route-status");'
         'var _routeSpurCb=document.getElementById("route-spur-cb");'
-        'var _routeCmdBlock=document.getElementById("route-command-block");'
-        'var _routeCmdText=document.getElementById("route-command-text");'
-        'var _routeCopyBtn=document.getElementById("route-copy-btn");'
         'var _routeNameEl=document.getElementById("route-name");'
         'var _routeDescEl=document.getElementById("route-desc");'
-        'var _routeTypeEl=document.getElementById("route-type");'
-        'var _routeCopyGjBtn=document.getElementById("route-copy-gj-btn");'
-        'var _routeGjBlock=document.getElementById("route-gj-block");'
-        'var _routeGjText=document.getElementById("route-gj-text");'
-        'var _routeCopyGj2Btn=document.getElementById("route-copy-gj2-btn");\n'
+        'var _routeTypeEl=document.getElementById("route-type");\n'
 
         'function _updateQueueDisplay(){'
         'var enabled=_queue.length>0;'
         '_routeRemoveBtn.disabled=!enabled;'
         '_routeClearBtn.disabled=!enabled;'
         'var canExport=_queue.length>=2;'
-        '_routeGenBtn.disabled=!canExport;'
-        '_routeCopyGjBtn.disabled=!canExport;'
-        '_routeCmdBlock.classList.add("hidden");'
-        '_routeGjBlock.classList.add("hidden");'
+        '_routeAddBtn.disabled=!canExport;'
         # Auto-suggest route name from first/last slugs if field is empty
         'if(canExport&&!_routeNameEl.value.trim()){'
         'var first=_queue[0].label,last=_queue[_queue.length-1].label;'
@@ -565,54 +534,24 @@ def _build_app_js(style_url: str, icons_js: str) -> str:
         '_routeClearBtn.addEventListener("click",function(){'
         '_queue=[];_updateQueueDisplay();_updateHighlights();});\n'
 
-        # Build GeoJSON feature from current queue + metadata
-        'function _buildRouteFeature(){'
-        'if(_queue.length<2)return null;'
-        'var isSpur=_routeSpurCb.checked;'
-        'var prefix=isSpur?"route_spur_":"route_seg_";'
-        'var slug0=_queue[0].slug,slugN=_queue[_queue.length-1].slug;'
-        'var fid=prefix+slug0+"_"+slugN;'
-        'var name=_routeNameEl.value.trim()||(_queue[0].label+" → "+_queue[_queue.length-1].label);'
-        'var desc=_routeDescEl.value.trim();'
-        'var rtype=_routeTypeEl.value;'
-        'var coords=_queue.map(function(item){return[item.lon,item.lat];});'
-        'return{'
-        '"type":"Feature",'
-        '"id":fid,'
-        '"properties":{'
-        '"kind":"route",'
-        '"label":name,'
-        '"title":name,'
-        '"description":desc,'
-        '"route_type":rtype,'
-        '"stroke":"#1f77b4",'
-        '"stroke-width":15,'
-        '"stroke-opacity":0.6'
-        '},'
-        '"geometry":{"type":"LineString","coordinates":coords}'
-        '};'
-        '}\n'
-
-        '_routeCopyGjBtn.addEventListener("click",function(){'
-        'var feat=_buildRouteFeature();'
-        'if(!feat){alert("Add at least 2 waypoints.");return;}'
-        'var json=JSON.stringify(feat,null,2);'
-        '_routeGjText.textContent=json;'
-        '_routeGjBlock.classList.remove("hidden");'
-        '});\n'
-
-        '_routeCopyGj2Btn.addEventListener("click",function(){_copyText(_routeGjText.textContent,_routeCopyGj2Btn);});\n'
-
-        '_routeGenBtn.addEventListener("click",function(){'
+        '_routeAddBtn.addEventListener("click",function(){'
         'if(_queue.length<2)return;'
-        'var spurFlag=_routeSpurCb.checked?" --spur":"";'
-        'var slugs=_queue.map(function(i){return i.slug;}).join(" ");'
-        'var cmd="python utilities/map.py route "+slugs+spurFlag;'
-        '_routeCmdText.textContent=cmd;'
-        '_routeCmdBlock.classList.remove("hidden");'
+        'var slugs=_queue.map(function(i){return i.slug;});'
+        'var body={slugs:slugs,spur:_routeSpurCb.checked};'
+        '_routeStatus.textContent="Adding route…";'
+        '_routeAddBtn.disabled=true;'
+        'fetch("/api/routes/add",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})'
+        '.then(function(r){return r.json();})'
+        '.then(function(d){'
+        '_routeAddBtn.disabled=false;'
+        'if(d.ok){'
+        '_routeStatus.textContent="Route added. Rebuilding workshop…";'
+        'fetch("/api/rebuild/workshop",{method:"POST"}).then(function(){_routeStatus.textContent="Done — reload to see new route.";});'
+        '}else{'
+        '_routeStatus.textContent="Error: "+(d.error||d.output||"unknown");'
+        '}})'
+        '.catch(function(e){_routeAddBtn.disabled=false;_routeStatus.textContent="Devserver not running.";});'
         '});\n'
-
-        '_routeCopyBtn.addEventListener("click",function(){_copyText(_routeCmdText.textContent,_routeCopyBtn);});\n'
 
         # -- Map load --
         'map.on("load",function(){\n'

@@ -13,6 +13,8 @@ Usage:
 
 Endpoints:
     PUT  /api/locations/{slug}/coordinates  — update lat/lon in .md frontmatter
+    POST /api/locations/create              — create a new location stub
+    POST /api/routes/add                    — add route segment(s) to routes.geojson
     POST /api/rebuild/locations             — run build.py locations
     POST /api/rebuild/workshop              — run build.py workshop
 """
@@ -60,7 +62,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404)
 
     def do_POST(self):
-        if self.path == "/api/rebuild/locations":
+        if self.path == "/api/locations/create":
+            self._create_location()
+        elif self.path == "/api/routes/add":
+            self._add_route()
+        elif self.path == "/api/rebuild/locations":
             self._rebuild("locations")
         elif self.path == "/api/rebuild/workshop":
             self._rebuild("workshop")
@@ -126,6 +132,69 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
                 "output": result.stdout + result.stderr,
             }
         )
+
+    def _create_location(self):
+        try:
+            data = self._read_json()
+            name = str(data.get("name", "")).strip()
+            lat  = float(data["lat"])
+            lon  = float(data["lon"])
+            cat  = str(data.get("category", "")).strip()
+        except (ValueError, KeyError, TypeError):
+            return self.send_error(400, 'Body must include name, lat, lon, category')
+        if not name or not cat:
+            return self._json({"ok": False, "error": "name and category are required"}, 400)
+
+        cmd = [
+            sys.executable, str(VAULT_ROOT / "utilities" / "map.py"), "location",
+            "--name", name, "--lat", str(lat), "--lon", str(lon), "--category", cat,
+        ]
+        fantasy = str(data.get("fantasy_name", "")).strip()
+        if fantasy:
+            cmd += ["--fantasy-name", fantasy]
+        region = str(data.get("region", "")).strip()
+        if region:
+            cmd += ["--region", region]
+        vis = str(data.get("visibility", "public")).strip()
+        if vis:
+            cmd += ["--visibility", vis]
+        desc = str(data.get("description", "")).strip()
+        if desc:
+            cmd += ["--description", desc]
+
+        print(f"  Creating location: {name!r} ...")
+        result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(VAULT_ROOT))
+        ok = result.returncode == 0
+        print(f"  {'OK' if ok else 'FAILED'}: create location {name!r}")
+        self._json({
+            "ok": ok,
+            "returncode": result.returncode,
+            "output": result.stdout + result.stderr,
+        })
+
+    def _add_route(self):
+        try:
+            data = self._read_json()
+            slugs = [str(s) for s in data["slugs"]]
+            spur  = bool(data.get("spur", False))
+        except (ValueError, KeyError, TypeError):
+            return self.send_error(400, 'Body must include slugs array')
+        if len(slugs) < 2:
+            return self._json({"ok": False, "error": "at least 2 slugs required"}, 400)
+
+        cmd = [sys.executable, str(VAULT_ROOT / "utilities" / "map.py"), "route"] + slugs
+        if spur:
+            cmd.append("--spur")
+
+        print(f"  Adding route: {' → '.join(slugs)} ...")
+        result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(VAULT_ROOT))
+        ok = result.returncode == 0
+        print(f"  {'OK' if ok else 'FAILED'}: add route")
+        self._json({
+            "ok": ok,
+            "returncode": result.returncode,
+            "output": result.stdout + result.stderr,
+        })
 
     # ---- Helpers ----
 
@@ -221,6 +290,8 @@ def main() -> None:
     print()
     print("  Endpoints:")
     print(f"    PUT  http://localhost:{port}/api/locations/{{slug}}/coordinates")
+    print(f"    POST http://localhost:{port}/api/locations/create")
+    print(f"    POST http://localhost:{port}/api/routes/add")
     print(f"    POST http://localhost:{port}/api/rebuild/locations")
     print(f"    POST http://localhost:{port}/api/rebuild/workshop")
     print()

@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-09-01
+last_updated: 2026-09-02
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -95,6 +95,81 @@ python utilities/build.py geojson      # writes world/data/tarim-shaiel-location
 ```bash
 python utilities/build.py all
 ```
+
+---
+
+## Map Workshop — What It Is and How to Use It
+
+The map workshop is a **local GM-only tool**. It is gitignored (contains the MapTiler API key baked in), never deployed to Netlify, and only accessible to whoever regenerates it on their local machine.
+
+### What it is
+
+A full-screen interactive map (`map-workshop.html` at vault root) with a left-panel sidebar. It shows all placed locations as pins, all routes as polylines, and region polygons when present. It is not a viewer — it is an **authoring and planning environment** for the GM.
+
+Run it with the devserver for write-back capability (drag-to-update, in-browser rebuilds):
+
+```bash
+python utilities/devserver.py
+```
+
+Open at `http://localhost:8000/workshop`. Without the devserver, open `map-workshop.html` directly in a browser — read-only, no write-back.
+
+---
+
+### The Four Tabs
+
+#### Add Point *(devserver required for one-click creation)*
+For adding new location stubs with coordinates. Provides a form (title, category, fantasy name, description, lat/lon). Clicking the map drops a crosshair at that point and populates the coordinate fields. Click **Create Location** — the button POSTs to `POST /api/locations/create`, which runs `map.py location` end-to-end: writes the `.md` stub, rebuilds the GeoJSON snapshot, then triggers a workshop rebuild. Status shown inline; reload the workshop to see the new pin.
+
+#### Plan Route *(devserver required for one-click adding)*
+For building new routes between locations. Click location markers on the map to queue waypoints. The queue shows straight-line distance and travel time between each pair. Click **Add Route** — the button POSTs to `POST /api/routes/add`, which runs `map.py route` end-to-end: writes segments to `world/data/tarim-shaiel-routes.geojson`, snaps to roads via OSRM, rebuilds GeoJSON and workshop. Status shown inline; reload to see the new route.
+
+Check "Spur route (branch)" before clicking Add Route to use the `route_spur_` id prefix.
+
+#### Route Index
+A table of all routes currently in `world/data/tarim-shaiel-routes.geojson`. Columns: route ID, label, distance (km), estimated travel time (at 30 km/day caravan pace). Straight-line (2-point) segments are flagged with `~`. Clicking a row flies the map to that route and highlights it.
+
+#### Edit Coords *(devserver required)*
+For updating the lat/lon of an existing location without editing YAML by hand. Click any pin on the map → the location loads in the Edit Coords panel. Drag the pin to its correct position, or type new coordinates directly. A badge on the tab shows how many unsaved edits are pending. "Save" sends a `PUT /api/locations/{slug}/coordinates` to the devserver, which writes the new coordinates into the `.md` file's frontmatter.
+
+---
+
+### Devserver Write-Back Endpoints
+
+| Endpoint | Method | What it does |
+|---|---|---|
+| `/api/locations/{slug}/coordinates` | PUT | Writes new lat/lon into `world/locations/{slug}.md` frontmatter |
+| `/api/locations/create` | POST | Creates a new location stub via `map.py location` (writes `.md`, rebuilds GeoJSON) |
+| `/api/routes/add` | POST | Adds route segments via `map.py route` (writes GeoJSON, snaps to roads) |
+| `/api/rebuild/locations` | POST | Runs `build.py locations` — regenerates `docs/world.html` |
+| `/api/rebuild/workshop` | POST | Runs `build.py workshop` — regenerates `map-workshop.html` |
+
+The workshop sidebar exposes these as buttons: **Create Location** (Add Point tab), **Add Route** (Plan Route tab), **Edit Coords** drag-and-confirm (Edit Coords tab), **Rebuild Locations** and **Rebuild Workshop** (Edit Coords tab). All show inline status and fall back gracefully when the devserver is not running.
+
+---
+
+### Authoring New Routes
+
+Routes are LineString features in `world/data/tarim-shaiel-routes.geojson`. Three ways to add them:
+
+**Via Plan Route tab → Add Route button** (recommended, devserver required):
+Click waypoints on the map, click Add Route. The devserver runs `map.py route` which calls OSRM to snap to real road geometry and rebuilds everything. No terminal needed.
+
+**Via terminal** (fallback when devserver is not running):
+```bash
+python utilities/map.py route slug-a slug-b slug-c   # snaps + rebuilds
+```
+
+**Hand-edit the GeoJSON** (for simple or approximate routes):
+Add a feature directly to the file. A 2-point segment (start → end only) is flagged in the Route Index as `~` (straight-line estimate). Then: `python utilities/build.py workshop`.
+
+---
+
+### What the Workshop Is NOT
+
+- Not the public-facing world map (`docs/world.html`) — that is built by `generate_locations_html.py` and served by Netlify
+- Not accessible to players — it is gitignored and never pushed
+- Not a replacement for editing `.md` files — it is a coordinate and route authoring aid
 
 ---
 
