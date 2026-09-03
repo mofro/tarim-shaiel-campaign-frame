@@ -287,6 +287,9 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   white-space:nowrap; color:#c8a84a; text-transform:uppercase; letter-spacing:0.06em; }
 #topo-toggle { accent-color:#b8922c; cursor:pointer; }
 #topo-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
+#sat-toggle { accent-color:#b8922c; cursor:pointer; }
+#sat-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
+#layer-control label + label { margin-top:5px; }
 .edit-toggle.active { background: #1a2a0a; border-color: #6a9a2c; color: #a8d840; }
 .edit-toggle.active:hover { background: #263d12; border-color: #8aba40; }
 #unsaved-list { list-style: none; display: flex; flex-direction: column; gap: 3px;
@@ -632,7 +635,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # -- Map load --
         'map.on("load",function(){\n'
 
-        # Topo overlay — raster tiles from MapTiler, hidden by default, sits below all custom data
+        # Raster overlays — hidden by default, sit below all custom data
         'var _topoTiles=["https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key='
         + maptiler_key +
         '"];'
@@ -640,6 +643,13 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'attribution:"© MapTiler"});\n'
         'map.addLayer({id:"topo-overlay",type:"raster",source:"topo-overlay",'
         'layout:{visibility:"none"},paint:{"raster-opacity":0.55}});\n'
+        'var _satTiles=["https://api.maptiler.com/tiles/satellite-v2/{z}/{x}/{y}.jpg?key='
+        + maptiler_key +
+        '"];'
+        'map.addSource("sat-overlay",{type:"raster",tiles:_satTiles,tileSize:256,'
+        'attribution:"© MapTiler"});\n'
+        'map.addLayer({id:"sat-overlay",type:"raster",source:"sat-overlay",'
+        'layout:{visibility:"none"},paint:{"raster-opacity":0.6}});\n'
 
         # Region overlay
         'map.addSource("regions",{type:"geojson",data:_regionGJ});\n'
@@ -750,23 +760,22 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_startDragEdit(slug,{lng:coords[0],lat:coords[1]});}'
         '});});\n'
 
-        # Topo overlay toggle + opacity wiring (sessionStorage-persisted)
-        'var _topoToggle=document.getElementById("topo-toggle");'
-        'var _topoOpacity=document.getElementById("topo-opacity");'
+        # Overlay toggle + opacity wiring (sessionStorage-persisted)
+        'function _wireOverlay(toggleId,opacityId,layerId,ssOn,ssOp,defaultOp){'
+        'var tog=document.getElementById(toggleId),opc=document.getElementById(opacityId);'
         'try{'
-        'var _sv=sessionStorage.getItem("_wsTopoOn");'
-        'var _so=sessionStorage.getItem("_wsTopoOp");'
-        'if(_sv==="1"){_topoToggle.checked=true;map.setLayoutProperty("topo-overlay","visibility","visible");}'
-        'if(_so!=null){_topoOpacity.value=_so;map.setPaintProperty("topo-overlay","raster-opacity",parseFloat(_so)/100);}'
+        'var sv=sessionStorage.getItem(ssOn),so=sessionStorage.getItem(ssOp);'
+        'if(sv==="1"){tog.checked=true;map.setLayoutProperty(layerId,"visibility","visible");}'
+        'if(so!=null){opc.value=so;map.setPaintProperty(layerId,"raster-opacity",parseFloat(so)/100);}'
         '}catch(e){}'
-        '_topoToggle.addEventListener("change",function(){'
-        'map.setLayoutProperty("topo-overlay","visibility",_topoToggle.checked?"visible":"none");'
-        'try{sessionStorage.setItem("_wsTopoOn",_topoToggle.checked?"1":"0");}catch(e){}'
-        '});'
-        '_topoOpacity.addEventListener("input",function(){'
-        'map.setPaintProperty("topo-overlay","raster-opacity",parseInt(_topoOpacity.value)/100);'
-        'try{sessionStorage.setItem("_wsTopoOp",_topoOpacity.value);}catch(e){}'
-        '});\n'
+        'tog.addEventListener("change",function(){'
+        'map.setLayoutProperty(layerId,"visibility",tog.checked?"visible":"none");'
+        'try{sessionStorage.setItem(ssOn,tog.checked?"1":"0");}catch(e){}});'
+        'opc.addEventListener("input",function(){'
+        'map.setPaintProperty(layerId,"raster-opacity",parseInt(opc.value)/100);'
+        'try{sessionStorage.setItem(ssOp,opc.value);}catch(e){}});}'
+        '_wireOverlay("topo-toggle","topo-opacity","topo-overlay","_wsTopoOn","_wsTopoOp",55);'
+        '_wireOverlay("sat-toggle","sat-opacity","sat-overlay","_wsSatOn","_wsSatOp",60);\n'
 
         '});\n'  # end map.on('load')
 
@@ -1049,6 +1058,11 @@ def _build_html(
         '      <input type="checkbox" id="topo-toggle">\n'
         '      Topo overlay\n'
         '      <input type="range" id="topo-opacity" min="0" max="100" value="55" title="Opacity">\n'
+        '    </label>\n'
+        '    <label>\n'
+        '      <input type="checkbox" id="sat-toggle">\n'
+        '      Satellite Plain Tarim\n'
+        '      <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity">\n'
         '    </label>\n'
         '  </div>\n'
         "</div>\n"
