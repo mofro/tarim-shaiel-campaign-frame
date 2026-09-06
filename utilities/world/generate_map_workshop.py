@@ -636,7 +636,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.on("load",function(){\n'
 
         # Raster overlays — hidden by default, sit below all custom data
-        'var _topoTiles=["https://api.maptiler.com/maps/01a074c7-536a-71cb-b0d8-9e7fe4fd1100/{z}/{x}/{y}.png?key='
+        'var _topoTiles=["https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key='
         + maptiler_key +
         '"];'
         'map.addSource("topo-overlay",{type:"raster",tiles:_topoTiles,tileSize:256,'
