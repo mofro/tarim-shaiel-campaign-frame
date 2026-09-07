@@ -1,31 +1,31 @@
 ---
-title: Karakoshun Lake
+title: Poskam
 project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
 visibility: public
 status: draft
-created: 2026-08-29
+created: 2026-09-05
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-08-29
+last_updated: 2026-09-05
 location:
-- 39.508958
-- 88.101573
+- 38.183283
+- 77.256718
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: lake
-name: Karakoshun Lake
-real_world_name: Karakoshun Lake
+mapmarker: city
+name: Poskam
+real_world_name: Poskam
 tags:
 - placeholder
-- type-water-body
-type: water-body
+- type-city
+type: city
 ---
 
 ```leaflet
-id: location-karakoshun-lake
-coordinates: [[world/locations/karakoshun-lake]]
+id: location-poskam
+coordinates: [[world/locations/poskam]]
 defaultZoom: 10
 minZoom: 4.5
 maxZoom: 18
@@ -39,7 +39,7 @@ geojson:
   - [[world/tarim-shaiel-locations.geojson]]|Locations
 ```
 
-# Karakoshun Lake
+# Poskam
 
 > **PLACEHOLDER.** Coordinates, marker, and region are locked; prose has not been written. Do not treat any narrative detail below as canon — there isn't any yet.
 

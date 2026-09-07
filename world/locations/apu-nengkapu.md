@@ -10,8 +10,8 @@ created: 2026-09-02
 description: "Perki Kin druid awakening"
 last_updated: 2026-09-02
 location:
-- 36.606547
-- 82.870061
+- 36.57649
+- 82.744946
 map_min_zoom: 5
 map_max_zoom: 14
 mapmarker: mythic-landscape

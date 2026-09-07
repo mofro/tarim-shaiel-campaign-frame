@@ -322,8 +322,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          82.870061,
-          36.606547
+          82.744946,
+          36.57649
         ]
       }
     },
@@ -1621,6 +1621,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_greg",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "greg",
+        "label": "Greg",
+        "title": "Greg",
+        "fantasy_name": "Greg",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "landmark",
+        "marker-symbol": "mountain",
+        "marker-color": "#9CA3AF",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/greg.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.975643,
+          38.505201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_guma",
       "properties": {
         "kind": "location",
@@ -1708,6 +1737,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_he-an",
+      "properties": {
+        "kind": "location",
+        "category": "town",
+        "slug": "he-an",
+        "label": "He'an",
+        "title": "He'an",
+        "fantasy_name": "He'an",
+        "description": "Hongliu",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Hongliu</p>",
+        "url": "/locations/he-an.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.18808,
+          35.982938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_hongqi",
       "properties": {
         "kind": "location",
@@ -1790,6 +1848,35 @@
         "coordinates": [
           76.429152,
           39.799011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_islamabad",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "islamabad",
+        "label": "Islamabad",
+        "title": "Islamabad",
+        "fantasy_name": "Islamabad",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/islamabad.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.061829,
+          33.685496
         ]
       }
     },
@@ -2084,6 +2171,64 @@
         "coordinates": [
           64.778568,
           39.49882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kargilik",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "kargilik",
+        "label": "kargilik",
+        "title": "kargilik",
+        "fantasy_name": "kargilik",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/kargilik.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.416105,
+          37.886506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_karkash-river",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "karkash-river",
+        "label": "Karkash River",
+        "title": "Karkash River",
+        "fantasy_name": "Karkash River",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "water-body",
+        "marker-symbol": "water",
+        "marker-color": "#4A90D9",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/karkash-river.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.123278,
+          36.019323
         ]
       }
     },
@@ -3164,6 +3309,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_poskam",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "poskam",
+        "label": "Poskam",
+        "title": "Poskam",
+        "fantasy_name": "Poskam",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/poskam.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.256718,
+          38.183283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_puchang",
       "properties": {
         "kind": "location",
@@ -3563,8 +3737,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          76.31796,
-          38.619141
+          76.347453,
+          38.624284
         ]
       }
     },

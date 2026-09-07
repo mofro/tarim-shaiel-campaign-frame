@@ -16,8 +16,8 @@ fantasy_name: Galaosiyal
 historical_basis: Tarim Basin - Remote southern route waypoint
 last_updated: 2026-08-12
 location:
-  - 39.519451
-  - 64.274185
+- 38.505781
+- 86.977757
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: city

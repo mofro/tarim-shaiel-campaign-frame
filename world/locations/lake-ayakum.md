@@ -15,7 +15,7 @@ location:
 - 89.390955
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: water-body
+mapmarker: lake
 name: Lake Ayakum
 real_world_name: Lake Ayakum
 tags:

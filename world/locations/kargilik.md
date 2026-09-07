@@ -1,31 +1,31 @@
 ---
-title: Karakoshun Lake
+title: kargilik
 project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
 visibility: public
 status: draft
-created: 2026-08-29
-description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-08-29
+created: 2026-09-05
+description: PLACEHOLDER — location pending. Prose pass pending.
+last_updated: 2026-09-05
 location:
-- 39.508958
-- 88.101573
+  - 37.886506
+  - 77.416105
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: lake
-name: Karakoshun Lake
-real_world_name: Karakoshun Lake
+mapmarker: city
+name: kargilik
+real_world_name: kargilik
 tags:
-- placeholder
-- type-water-body
-type: water-body
+  - placeholder
+  - type-city
+type: city
 ---
 
 ```leaflet
-id: location-karakoshun-lake
-coordinates: [[world/locations/karakoshun-lake]]
+id: location-pokargilikskam
+coordinates: [[world/locations/pokargilikskam]]
 defaultZoom: 10
 minZoom: 4.5
 maxZoom: 18
@@ -39,7 +39,7 @@ geojson:
   - [[world/tarim-shaiel-locations.geojson]]|Locations
 ```
 
-# Karakoshun Lake
+# Kargilik
 
 > **PLACEHOLDER.** Coordinates, marker, and region are locked; prose has not been written. Do not treat any narrative detail below as canon — there isn't any yet.
 
