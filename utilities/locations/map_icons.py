@@ -47,10 +47,10 @@ def icon_registration_js() -> str:
           'for(var i=0;i<10;i++){var r=(i%2===0)?30:12;var a=i*Math.PI/5-Math.PI/2;'
           'i===0?ctx.moveTo(32+r*Math.cos(a),32+r*Math.sin(a)):ctx.lineTo(32+r*Math.cos(a),32+r*Math.sin(a));}'
           'ctx.closePath();ctx.fill();'
-          'ctx.fillStyle="rgba(255,255,255,0.60)";ctx.beginPath();ctx.arc(32,32,21,0,Math.PI*2);ctx.fill();'
+          'ctx.fillStyle="rgba(255,255,255,0.60)";ctx.beginPath();ctx.arc(32,32,28,0,Math.PI*2);ctx.fill();'
           'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=5.5;ctx.fillStyle="#7a1f1f";'
-          'ctx.beginPath();ctx.arc(32,32,16,0,Math.PI*2);ctx.stroke();'
-          'ctx.beginPath();ctx.arc(32,32,7,0,Math.PI*2);ctx.fill();'
+          'ctx.beginPath();ctx.arc(32,32,22,0,Math.PI*2);ctx.stroke();'
+          'ctx.beginPath();ctx.arc(32,32,9,0,Math.PI*2);ctx.fill();'
         '});'
 
         # city — white backing + outer ring + filled inner dot (crimson)
