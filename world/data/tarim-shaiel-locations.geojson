@@ -1621,35 +1621,6 @@
     },
     {
       "type": "Feature",
-      "id": "location_greg",
-      "properties": {
-        "kind": "location",
-        "category": "landmark",
-        "slug": "greg",
-        "label": "Greg",
-        "title": "Greg",
-        "fantasy_name": "Greg",
-        "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "public",
-        "mapmarker": "landmark",
-        "marker-symbol": "mountain",
-        "marker-color": "#9CA3AF",
-        "marker-size": "medium",
-        "factions": [],
-        "resources": [],
-        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
-        "url": "/locations/greg.html"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          86.893846,
-          38.649905
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "location_guma",
       "properties": {
         "kind": "location",
@@ -2899,9 +2870,9 @@
         "fantasy_name": "Mazar-i-Sharif",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "capital,capital",
-        "marker-symbol": "circle",
-        "marker-color": "#6B7280",
+        "mapmarker": "capital",
+        "marker-symbol": "star",
+        "marker-color": "#8B6914",
         "marker-size": "medium",
         "factions": [],
         "resources": [],

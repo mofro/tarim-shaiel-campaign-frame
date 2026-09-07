@@ -709,7 +709,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Five-tier location layers
         # t: [id, cats, minzoom, _unused_fs, _unused_fe, font|null, iconSz, textSz]
         # Fades removed: opExpr=1, flat icon sizes (no zoom scaling). Refactor later.
-        '[["locations-major",["city","landmark","fortress"],3,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.75,15],'
+        '[["locations-major",["city","capital","landmark","fortress"],3,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.75,15],'
         '["locations-towns",["town"],4,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.65,13],'
         '["locations-secondary",["sacred-site","oasis","caravanserai","lake","water-body"],5,0,0,["Roboto Serif Regular","Noto Sans Italic"],0.70,13],'
         '["locations-routes",["route-node","chokepoint","mountain-pass"],6,0,0,null,0.60,0],'

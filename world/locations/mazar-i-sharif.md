@@ -14,7 +14,7 @@ location:
 - 67.110925
 map_min_zoom: 6
 map_max_zoom: 7
-mapmarker: capital,capital
+mapmarker: capital
 name: Mazar-i-Sharif
 real_world_name: Mazar-i-Sharif
 tags:
