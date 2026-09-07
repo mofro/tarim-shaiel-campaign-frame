@@ -281,17 +281,18 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 /* Layer overlay control */
 #layer-control { position:absolute; bottom:36px; left:0; z-index:10;
   display:flex; flex-direction:row; align-items:stretch; font-size:11px; }
-#drawer-handle { width:22px; min-height:80px; background:rgba(26,18,8,0.88);
-  border:1px solid rgba(184,146,44,0.35); border-radius:0 4px 4px 0;
+#drawer-handle { width:42px; min-height:80px; background:rgba(26,18,8,0.88);
+  border:1px solid rgba(184,146,44,0.35); border-radius:0 5px 5px 0;
   display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-  cursor:pointer; padding:6px 0 6px; gap:8px;
+  cursor:pointer; padding:8px 0 10px; gap:0;
   box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
   user-select:none; flex-shrink:0; }
-#drawer-arrow { font-size:9px; color:#b8922c; line-height:1; transition:transform 0.2s; }
+#drawer-arrow { font-size:11px; color:#b8922c; line-height:1;
+  transition:transform 0.2s; margin-bottom:8px; }
 #layer-control.collapsed #drawer-arrow { transform:rotate(180deg); }
-#zoom-readout-v { writing-mode:vertical-rl; font-size:10px; color:#8a7a5a;
-  letter-spacing:0.08em; margin-top:2px; }
-#zoom-val-v { color:#c8a84a; font-weight:bold; }
+#zoom-readout-v { display:flex; flex-direction:column; align-items:center; gap:2px; }
+#zoom-lbl-v { font-size:9px; color:#8a7a5a; letter-spacing:0.1em; }
+#zoom-val-v { font-size:14px; color:#c8a84a; font-weight:bold; line-height:1; }
 #drawer-body { background:rgba(26,18,8,0.88); color:#f0e6c8; padding:7px 11px;
   border:1px solid rgba(184,146,44,0.35); border-left:none; border-radius:0 5px 5px 0;
   box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
@@ -311,9 +312,6 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .it-grid label { display:flex; align-items:center; gap:5px; cursor:pointer; color:#c8b890;
   font-size:10px; text-transform:none; letter-spacing:0; white-space:nowrap; margin-top:0; }
 .it-grid input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
-#zoom-readout { font-size:10px; color:#8a7a5a; letter-spacing:0.08em; text-align:right;
-  padding-bottom:4px; border-bottom:1px solid #2a2010; margin-bottom:4px; }
-#zoom-val { color:#c8a84a; font-weight:bold; }
 .overlay-err { display:inline-flex; align-items:center; background:#7a1f00; color:#ffcc88;
   font-size:9px; padding:1px 4px; border-radius:3px; cursor:help; margin-left:2px; vertical-align:middle; }
 .edit-toggle.active { background: #1a2a0a; border-color: #6a9a2c; color: #a8d840; }
@@ -914,10 +912,9 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'try{sessionStorage.setItem("_ws"+src+"On","0");}catch(_){}'
         '_showOverlayErr(tid,status);});\n'
 
-        # Zoom readout (body + handle)
-        'var _zv=document.getElementById("zoom-val");'
+        # Zoom readout (handle only)
         'var _zvv=document.getElementById("zoom-val-v");'
-        'function _updateZoom(){var z=map.getZoom().toFixed(2);if(_zv)_zv.textContent=z;if(_zvv)_zvv.textContent=z;}'
+        'function _updateZoom(){if(_zvv)_zvv.textContent=map.getZoom().toFixed(2);}'
         '_updateZoom();'
         'map.on("zoom",_updateZoom);\n'
 
@@ -1291,10 +1288,12 @@ def _build_html(
         '  <div id="layer-control">\n'
         '    <div id="drawer-handle" title="Toggle layer panel">\n'
         '      <span id="drawer-arrow">&#9664;</span>\n'
-        '      <span id="zoom-readout-v">Z<br><span id="zoom-val-v">—</span></span>\n'
+        '      <span id="zoom-readout-v">'
+        '<span id="zoom-lbl-v">Z</span>'
+        '<span id="zoom-val-v">—</span>'
+        '</span>\n'
         '    </div>\n'
         '    <div id="drawer-body">\n'
-        '      <div id="zoom-readout">Z <span id="zoom-val">—</span></div>\n'
         '      <label>\n'
         '        <input type="checkbox" id="topo-toggle">\n'
         '        Topo overlay\n'
@@ -1302,7 +1301,7 @@ def _build_html(
         '      </label>\n'
         '      <label>\n'
         '        <input type="checkbox" id="sat-toggle">\n'
-        '        Satellite Plain Tarim\n'
+        '        Satellite Plain\n'
         '        <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity">\n'
         '      </label>\n'
         '      <hr>\n'
