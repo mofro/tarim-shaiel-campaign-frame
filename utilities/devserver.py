@@ -13,6 +13,7 @@ Usage:
 
 Endpoints:
     PUT    /api/locations/{slug}/coordinates  — update lat/lon in .md frontmatter
+    PATCH  /api/locations/{slug}/frontmatter  — patch name/fantasy_name/type/mapmarker/visibility
     POST   /api/locations/create              — create a new location stub
     POST   /api/routes/add                    — add route segment(s) to routes.geojson
     DELETE /api/routes/{route_id}             — delete one route by ID
@@ -62,6 +63,13 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         m = re.match(r"^/api/locations/([^/?]+)/coordinates(?:\?.*)?$", self.path)
         if m:
             self._put_coordinates(m.group(1))
+        else:
+            self.send_error(404)
+
+    def do_PATCH(self):
+        m = re.match(r"^/api/locations/([^/?]+)/frontmatter(?:\?.*)?$", self.path)
+        if m:
+            self._patch_frontmatter(m.group(1))
         else:
             self.send_error(404)
 
@@ -132,6 +140,36 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         rel = str(md_path.relative_to(VAULT_ROOT))
         print(f"  Updated: {rel}  [{lat}, {lon}]")
         self._json({"ok": True, "file": rel, "lat": lat, "lon": lon})
+
+    def _patch_frontmatter(self, slug: str):
+        ALLOWED = {"name", "fantasy_name", "type", "mapmarker", "visibility"}
+        try:
+            data = self._read_json()
+        except Exception:
+            return self.send_error(400, "Invalid JSON body")
+
+        fields = {k: v for k, v in data.items() if k in ALLOWED}
+        if not fields:
+            return self._json({"ok": False, "error": "no recognised fields"}, 400)
+
+        md_path = _find_slug(slug)
+        if md_path is None:
+            return self._json({"ok": False, "error": f"slug not found: {slug}"}, 404)
+
+        text = md_path.read_text(encoding="utf-8")
+        updated = _set_frontmatter_fields(text, fields)
+
+        tmp = md_path.with_suffix(".tmp")
+        try:
+            tmp.write_text(updated, encoding="utf-8")
+            os.replace(tmp, md_path)
+        finally:
+            if tmp.exists():
+                tmp.unlink(missing_ok=True)
+
+        rel = str(md_path.relative_to(VAULT_ROOT))
+        print(f"  Patched: {rel}  {list(fields.keys())}")
+        self._json({"ok": True, "file": rel, "fields": list(fields.keys())})
 
     def _rebuild(self, target: str):
         cmd = [sys.executable, str(VAULT_ROOT / "utilities" / "build.py"), target]
@@ -300,7 +338,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
 
     def _cors(self):
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
 
     def log_message(self, fmt, *args):
@@ -343,6 +381,64 @@ def _set_location(text: str, lat: float, lon: float) -> str:
         fm2 = fm + new
 
     return f"---\n{fm2}---\n{body}"
+
+
+def _yaml_scalar(value) -> str:
+    """Format a Python value as a safe YAML scalar string."""
+    if value is None:
+        return "~"
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    s = str(value)
+    # Quote if the value contains YAML special characters or looks like a bool/null
+    needs_quote = (
+        not s
+        or s.lower() in ("true", "false", "null", "~", "yes", "no", "on", "off")
+        or any(c in s for c in ":#\n[]{}|>&*!,%@`'\"")
+    )
+    if needs_quote:
+        return '"' + s.replace('\\', '\\\\').replace('"', '\\"') + '"'
+    return s
+
+
+def _set_frontmatter_fields(text: str, fields: dict) -> str:
+    """Patch named scalar fields in YAML frontmatter.
+
+    Handles name, fantasy_name, type, mapmarker, visibility.
+    Uses regex line-replacement so block scalars elsewhere are untouched.
+    """
+    m = re.match(r"^---\n(.*?\n)---\n", text, re.DOTALL)
+    if not m:
+        return text  # no frontmatter
+    fm = m.group(1)
+    body = text[m.end():]
+
+    for key, value in fields.items():
+        if key == "name":
+            # The parser accepts title: or name:; update whichever is present
+            scalar = _yaml_scalar(value)
+            new_title = f"title: {scalar}\n"
+            new_name  = f"name: {scalar}\n"
+            fm2 = re.sub(r"^title:[^\n]*\n", new_title, fm, flags=re.MULTILINE)
+            if fm2 != fm:
+                fm = fm2
+            else:
+                fm2 = re.sub(r"^name:[^\n]*\n", new_name, fm, flags=re.MULTILINE)
+                fm = fm2 if fm2 != fm else fm + new_title
+        elif value is None:
+            # Remove field entirely
+            fm = re.sub(rf"^{re.escape(key)}:[^\n]*\n", "", fm, flags=re.MULTILINE)
+        else:
+            scalar = _yaml_scalar(value)
+            new_line = f"{key}: {scalar}\n"
+            fm2 = re.sub(rf"^{re.escape(key)}:[^\n]*\n", new_line, fm, flags=re.MULTILINE)
+            fm = fm2 if fm2 != fm else fm + new_line
+
+    # Bump last_updated
+    today = __import__("datetime").date.today().isoformat()
+    fm = re.sub(r"^last_updated:[^\n]*\n", f"last_updated: {today}\n", fm, flags=re.MULTILINE)
+
+    return f"---\n{fm}---\n{body}"
 
 
 # ---------------------------------------------------------------------------

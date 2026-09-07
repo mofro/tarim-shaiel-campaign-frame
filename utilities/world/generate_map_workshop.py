@@ -407,11 +407,66 @@ Adds segments, snaps to roads, rebuilds workshop automatically.</p>
 
 
 def _build_panel_edit_coords() -> str:
-    return """
+    type_opts = "\n".join(
+        f'      <option value="{v}">{label}</option>'
+        for v, label in [
+            ("city", "City"), ("capital", "Capital"), ("town", "Town"),
+            ("bridge", "Bridge"), ("fortress", "Fortress"), ("landmark", "Landmark"),
+            ("sacred-site", "Sacred Site"), ("oasis", "Oasis"), ("lake", "Lake"),
+            ("route-node", "Route Node"), ("poi", "POI"), ("dungeon", "Dungeon"),
+        ]
+    )
+    marker_opts = "\n".join(
+        f'      <option value="{v}">{label}</option>'
+        for v, label in [
+            ("", "— auto (from type) —"),
+            ("city", "city"), ("capital", "capital"), ("town", "town"),
+            ("bridge", "bridge"), ("fortress", "fortress"), ("landmark", "landmark"),
+            ("sacred-site", "sacred-site"), ("oasis", "oasis"), ("lake", "lake"),
+            ("route-node", "route-node"), ("poi", "poi"), ("dungeon", "dungeon"),
+            ("false", "false (hidden)"),
+        ]
+    )
+    return f"""
 <button id="edit-mode-btn" class="btn edit-toggle">Enable Edit Mode</button>
-<p class="hint" style="margin-top:6px;">When edit mode is on, click any location marker on the map to create a draggable pin. Drop it in the new position, then confirm to write the coordinates back to the <code>.md</code> file.</p>
-<p class="hint" style="color:#5a4a30;">Requires the devserver: <code>python utilities/devserver.py</code></p>
-<div id="unsaved-section" class="hidden">
+<p class="hint" style="margin-top:6px;">Click a marker to edit its fields. Use <em>Move Pin</em> to reposition coordinates.</p>
+<p class="hint" style="color:#5a4a30;">Requires devserver: <code>python utilities/devserver.py</code></p>
+<div id="ef-panel" class="hidden" style="margin-top:10px;border-top:1px solid rgba(184,146,44,0.2);padding-top:8px;">
+  <div class="list-heading">Editing: <span id="ef-slug" style="color:#c8a84a;font-family:monospace;text-transform:none;letter-spacing:0"></span></div>
+  <div class="field-group">
+    <label>Real Name</label>
+    <input id="ef-name" type="text">
+  </div>
+  <div class="field-group" style="margin-top:5px;">
+    <label>Fantasy Name <span style="color:#5a4a30;text-transform:none;letter-spacing:0;">(blank = use real name)</span></label>
+    <input id="ef-fantasy" type="text" placeholder="optional">
+  </div>
+  <div class="field-group" style="margin-top:5px;">
+    <label>Type</label>
+    <select id="ef-type">
+{type_opts}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:5px;">
+    <label>Map Marker</label>
+    <select id="ef-marker">
+{marker_opts}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:5px;">
+    <label>Visibility</label>
+    <div class="radio-row">
+      <label><input type="radio" name="ef-vis" value="public" checked> public</label>
+      <label><input type="radio" name="ef-vis" value="gm_secrets"> GM only</label>
+    </div>
+  </div>
+  <div class="btn-row" style="margin-top:8px;">
+    <button id="ef-save-btn" class="btn">Save Fields</button>
+    <button id="ef-move-btn" class="btn btn-sm">Move Pin</button>
+  </div>
+  <p id="ef-status" class="hint" style="margin-top:5px;min-height:14px;"></p>
+</div>
+<div id="unsaved-section" class="hidden" style="margin-top:6px;">
   <div class="list-heading">Saved This Session</div>
   <ul id="unsaved-list"></ul>
 </div>
@@ -470,15 +525,22 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _tierCats={'
         '"locations-major":["city","capital","bridge","landmark","fortress"],'
         '"locations-towns":["town"],'
-        '"locations-secondary":["sacred-site","oasis","lake"],'
+        '"locations-secondary":["oasis","lake"],'
+        '"locations-spiritual":["sacred-site"],'
         '"locations-routes":["route-node"],'
         '"locations-detail":["poi"]'
         '};\n'
         'function _rebuildTierFilters(){'
         'Object.keys(_tierCats).forEach(function(lyr){'
         'var on=_tierCats[lyr].filter(function(c){return _typeEnabled[c];});'
-        'var f=on.length===0?["==",1,0]:["match",["get","category"],on,true,false];'
-        'map.setFilter(lyr,["all",f,["!=",["get","mapMarker"],false]]);'
+        'if(on.length===0){'
+        'map.setLayoutProperty(lyr,"visibility","none");'
+        '}else{'
+        'map.setLayoutProperty(lyr,"visibility","visible");'
+        'var eqs=on.map(function(c){return["==",["get","category"],c];});'
+        'var catF=on.length===1?eqs[0]:["any"].concat(eqs);'
+        'map.setFilter(lyr,["all",catF,["!=",["get","mapMarker"],false]]);'
+        '}'
         '});'
         'try{sessionStorage.setItem("_wsIt",JSON.stringify(_typeEnabled));}catch(_e){}}\n'
 
@@ -737,28 +799,28 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '"route-node","cat-route-node","ruins","cat-dungeon","sacred-site","cat-sacred-site",'
         '"site","cat-poi","cat-poi"]];\n'
 
-        # Five-tier location layers
-        # t: [id, cats, minzoom, _unused_fs, _unused_fe, font|null, iconSz, textSz]
-        # Fades removed: opExpr=1, flat icon sizes (no zoom scaling). Refactor later.
-        '[["locations-major",["city","capital","bridge","landmark","fortress"],3,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.75,15],'
-        '["locations-towns",["town"],4,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.65,13],'
-        '["locations-secondary",["sacred-site","oasis","caravanserai","lake","water-body"],5,0,0,["Roboto Serif Regular","Noto Sans Italic"],0.70,13],'
-        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,0,0,null,0.60,0],'
-        '["locations-detail",["ruins","poi","power-site","site"],7,0,0,null,0.75,0]]'
+        # Six-tier location layers — labels pre-fade 1 zoom before icons
+        # t: [id, cats, type_mz, font, iconSz, textSz]
+        # layer minzoom = type_mz-1; icon fades in [type_mz, type_mz+1]; text fades in [type_mz-1, type_mz]
+        '[["locations-major",["city","capital","bridge","landmark","fortress"],3,["Roboto Serif Regular","Noto Sans Regular"],0.75,14],'
+        '["locations-towns",["town"],5,["Roboto Serif Regular","Noto Sans Regular"],0.65,12],'
+        '["locations-secondary",["oasis","lake","caravanserai","water-body"],5,["Roboto Serif Regular","Noto Sans Italic"],0.70,12],'
+        '["locations-spiritual",["sacred-site","power-site"],6,["Roboto Serif Regular","Noto Sans Italic"],0.70,12],'
+        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,["Roboto Serif Regular","Noto Sans Regular"],0.60,11],'
+        '["locations-detail",["ruins","poi","site"],7,["Roboto Serif Regular","Noto Sans Regular"],0.75,10]]'
         '.forEach(function(t){'
-        'var id=t[0],cats=t[1],mz=t[2],font=t[5],minSz=t[6],tSz=t[7];'
-        'var szExpr=minSz;'
+        'var id=t[0],cats=t[1],typeMz=t[2],font=t[3],minSz=t[4],tSz=t[5];'
+        'var iconOp=["interpolate",["linear"],["zoom"],typeMz,0,typeMz+1,1];'
+        'var textOp=["interpolate",["linear"],["zoom"],typeMz-1,0,typeMz,1];'
         'var catsFilter=["all",["match",["get","category"],cats,true,false],["!=",["get","mapMarker"],false]];'
-        'var layout={"icon-image":_iconMatch,"icon-size":szExpr,"icon-allow-overlap":true,"icon-anchor":"center"};'
-        'var paint={"icon-opacity":1};'
-        'if(font){'
+        'var layout={"icon-image":_iconMatch,"icon-size":minSz,"icon-allow-overlap":true,"icon-anchor":"center"};'
         'layout["text-field"]=["case",["==",["get","mapLabel"],false],"",["get","label"]];'
         'layout["text-font"]=font;layout["text-size"]=tSz;'
         'layout["text-offset"]=[0,1.1];layout["text-anchor"]="top";layout["text-max-width"]=8;'
         'layout["text-allow-overlap"]=false;layout["text-optional"]=true;'
-        'paint["text-color"]="#1a1208";paint["text-halo-color"]="#ffffff";'
-        'paint["text-halo-width"]=1.5;paint["text-opacity"]=1;}'
-        'map.addLayer({id:id,type:"symbol",minzoom:mz,source:"locations",'
+        'var paint={"icon-opacity":iconOp,"text-color":"#1a1208","text-halo-color":"#ffffff",'
+        '"text-halo-width":1.5,"text-opacity":textOp};'
+        'map.addLayer({id:id,type:"symbol",minzoom:typeMz-1,source:"locations",'
         'filter:catsFilter,layout:layout,paint:paint});});\n'
 
         # Highlight source/layer for Tab 2 selected markers
@@ -775,7 +837,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # Shared hover popup + click handlers across all location tiers
         'var _hoverPopup=new maplibregl.Popup({className:"ts-map-popup",offset:12,closeButton:false,closeOnClick:false});\n'
-        'var _locLayerIds=["locations-major","locations-towns","locations-secondary","locations-routes","locations-detail"];\n'
+        'var _locLayerIds=["locations-major","locations-towns","locations-secondary","locations-spiritual","locations-routes","locations-detail"];\n'
         '_locLayerIds.forEach(function(lyr){'
         'map.on("mouseenter",lyr,function(e){'
         'map.getCanvas().style.cursor="pointer";'
@@ -794,8 +856,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(!slug)return;'
         'if(_activeTab==="plan-route"){_addToQueue(slug);return;}'
         'if(_activeTab==="edit-coords"&&_editMode){'
-        'var coords=e.features[0].geometry.coordinates;'
-        '_startDragEdit(slug,{lng:coords[0],lat:coords[1]});}'
+        '_openFieldEditor(e.features[0]);}'
         '});});\n'
 
         # Overlay toggle + opacity wiring (sessionStorage-persisted)
@@ -1028,15 +1089,16 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '}\n'
 
         'function _updateUnsavedList(){'
-        'var slugs=Object.keys(_pendingEdits);'
-        'var count=slugs.length;'
+        'var allSlugs=[...new Set([...Object.keys(_pendingEdits),...Object.keys(_pendingFieldEdits||{})])];'
+        'var count=allSlugs.length;'
         'if(count===0){_editBadge.classList.add("hidden");_unsavedSection.classList.add("hidden");return;}'
         '_editBadge.textContent=count;_editBadge.classList.remove("hidden");'
         '_unsavedSection.classList.remove("hidden");'
-        '_unsavedList.innerHTML=slugs.map(function(s){'
-        'var e=_pendingEdits[s];'
-        'return\'<li class="unsaved-item"><span class="ui-slug">\'+s+\'</span><span class="ui-coords">\''
-        '+e.lat.toFixed(5)+\', \'+e.lon.toFixed(5)+\'</span></li>\';'
+        '_unsavedList.innerHTML=allSlugs.map(function(s){'
+        'var parts=[];'
+        'if(_pendingEdits[s]){var e=_pendingEdits[s];parts.push(e.lat.toFixed(5)+", "+e.lon.toFixed(5));}'
+        'if(_pendingFieldEdits&&_pendingFieldEdits[s])parts.push("fields");'
+        'return\'<li class="unsaved-item"><span class="ui-slug">\'+s+\'</span><span class="ui-coords">\'+parts.join(" · ")+\'</span></li>\';'
         '}).join("");'
         '}\n'
 
@@ -1054,6 +1116,74 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         '_rebuildLocBtn.addEventListener("click",function(){_apiRebuild("locations",_rebuildLocBtn);});\n'
         '_rebuildWsBtn.addEventListener("click",function(){_apiRebuild("workshop",_rebuildWsBtn);});\n'
+
+        # -- Field editor (Phase 1+2+visibility) --
+        'var _efSlug=null;\n'
+        'var _efCurrentCoords=null;\n'
+        'var _pendingFieldEdits={};\n'
+        'var _efPanel=document.getElementById("ef-panel");\n'
+        'var _efSlugEl=document.getElementById("ef-slug");\n'
+        'var _efName=document.getElementById("ef-name");\n'
+        'var _efFantasy=document.getElementById("ef-fantasy");\n'
+        'var _efType=document.getElementById("ef-type");\n'
+        'var _efMarker=document.getElementById("ef-marker");\n'
+        'var _efStatus=document.getElementById("ef-status");\n'
+        'var _efSaveBtn=document.getElementById("ef-save-btn");\n'
+        'var _efMoveBtn=document.getElementById("ef-move-btn");\n'
+
+        'function _openFieldEditor(feature){'
+        'var p=feature.properties;'
+        '_efSlug=p.slug||p._slug||"";'
+        '_efCurrentCoords={lng:feature.geometry.coordinates[0],lat:feature.geometry.coordinates[1]};'
+        '_efSlugEl.textContent=_efSlug;'
+        '_efName.value=p.title||"";'
+        'var fn=p.fantasyName||(p.label!==p.title?p.label:"");'
+        '_efFantasy.value=(fn&&fn!==p.title)?fn:"";'
+        'if(_efType.querySelector(\'option[value="\'+p.category+\'"]\'))_efType.value=p.category;'
+        'var mm=p.mapMarker;'
+        'var mmVal=mm===false?"false":(mm||"");'
+        'if(_efMarker.querySelector(\'option[value="\'+mmVal+\'"]\'))_efMarker.value=mmVal;'
+        'else _efMarker.value="";'
+        'var visVal=p.visibility==="gm_secrets"?"gm_secrets":"public";'
+        'document.querySelectorAll(\'input[name="ef-vis"]\').forEach(function(r){r.checked=r.value===visVal;});'
+        '_efStatus.textContent="";_efStatus.className="hint";'
+        '_efPanel.classList.remove("hidden");'
+        '}\n'
+
+        'function _patchFrontmatter(slug,fields){'
+        '_efStatus.textContent="Saving…";_efStatus.className="hint";'
+        'fetch("/api/locations/"+slug+"/frontmatter",{'
+        'method:"PATCH",'
+        'headers:{"Content-Type":"application/json"},'
+        'body:JSON.stringify(fields)})'
+        '.then(function(r){return r.json();})'
+        '.then(function(data){'
+        'if(data.ok){'
+        '_efStatus.textContent="✓ Saved";_efStatus.className="hint ok";'
+        '_pendingFieldEdits[slug]=Object.assign(_pendingFieldEdits[slug]||{},fields);'
+        '_updateUnsavedList();'
+        '}else{_efStatus.textContent="✗ "+(data.error||"error");_efStatus.className="hint err";}'
+        '})'
+        '.catch(function(){_efStatus.textContent="✗ Network error";_efStatus.className="hint err";});'
+        '}\n'
+
+        '_efSaveBtn.addEventListener("click",function(){'
+        'if(!_efSlug)return;'
+        'var mm=_efMarker.value;'
+        'var vis=document.querySelector(\'input[name="ef-vis"]:checked\').value;'
+        'var fields={'
+        'name:_efName.value.trim(),'
+        'fantasy_name:_efFantasy.value.trim()||null,'
+        'type:_efType.value,'
+        'mapmarker:mm==="false"?false:(mm||null),'
+        'visibility:vis};'
+        '_patchFrontmatter(_efSlug,fields);'
+        '});\n'
+
+        '_efMoveBtn.addEventListener("click",function(){'
+        'if(!_efSlug||!_efCurrentCoords)return;'
+        '_startDragEdit(_efSlug,_efCurrentCoords);'
+        '});\n'
     )
     # fmt: on
 
