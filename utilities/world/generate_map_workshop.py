@@ -744,7 +744,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # Shared hover popup + click handlers across all location tiers
         'var _hoverPopup=new maplibregl.Popup({className:"ts-map-popup",offset:12,closeButton:false,closeOnClick:false});\n'
-        'var _locLayerIds=["locations-major","locations-secondary","locations-routes","locations-detail"];\n'
+        'var _locLayerIds=["locations-major","locations-towns","locations-secondary","locations-routes","locations-detail"];\n'
         '_locLayerIds.forEach(function(lyr){'
         'map.on("mouseenter",lyr,function(e){'
         'map.getCanvas().style.cursor="pointer";'
