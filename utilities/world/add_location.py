@@ -20,19 +20,8 @@ SCRIPT_DIR = Path(__file__).parent
 VAULT_ROOT = SCRIPT_DIR.parent.parent
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 
-VALID_CATEGORIES = {
-    "caravanserai",
-    "capital",
-    "city",
-    "town",
-    "fortress",
-    "sacred-site",
-    "ruins",
-    "route-node",
-    "water-body",
-    "landmark",
-    "mythic-landscape",
-}
+sys.path.insert(0, str(SCRIPT_DIR.parent))
+from locations.categories import VALID_CATEGORIES  # noqa: E402
 
 VALID_VISIBILITY = {"public", "gm_secrets"}
 

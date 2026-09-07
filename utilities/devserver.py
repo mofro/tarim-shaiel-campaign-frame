@@ -54,7 +54,9 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        if self.path.rstrip("/") == "/workshop":
+        if self.path == "/api/health":
+            self._json({"ok": True})
+        elif self.path.rstrip("/") == "/workshop":
             self._serve_workshop()
         else:
             super().do_GET()

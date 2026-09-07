@@ -12,6 +12,8 @@ REGISTERED_ICONS — icon names declared in map_icons.py (for cross-validation)
 CATEGORIES: list[str] = [
     # Major locations — visible from zoom 3
     "city",
+    "capital",
+    "bridge",
     "landmark",
     "fortress",
     # Towns — visible from zoom 4
@@ -19,6 +21,7 @@ CATEGORIES: list[str] = [
     # Secondary locations — visible from zoom 5
     "sacred-site",
     "oasis",
+    "lake",
     "caravanserai",
     # Route network — visible from zoom 6
     "route-node",
@@ -36,11 +39,14 @@ CATEGORIES: list[str] = [
 # visual equivalent — that is intentional, not an error.
 ICON_MAP: dict[str, str] = {
     "city":          "cat-city",
+    "capital":       "cat-city",
+    "bridge":        "cat-landmark",
     "town":          "cat-town",
     "landmark":      "cat-landmark",
     "fortress":      "cat-fortress",
     "sacred-site":   "cat-sacred-site",
     "oasis":         "cat-oasis",
+    "lake":          "cat-oasis",
     "caravanserai":  "cat-route-node",
     "route-node":    "cat-route-node",
     "chokepoint":    "cat-fortress",

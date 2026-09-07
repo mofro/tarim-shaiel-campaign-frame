@@ -278,6 +278,14 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .list-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
   color: #9a8a6a; margin-bottom: 6px; margin-top: 8px; }
 .edit-toggle { width: 100%; text-align: center; transition: background 0.15s, border-color 0.15s; }
+/* Devserver banner */
+#ds-banner { display:flex; align-items:center; gap:8px; padding:5px 14px;
+  background:#3a1a00; border-bottom:1px solid rgba(220,100,30,0.5);
+  font-size:11px; color:#e8a060; flex-shrink:0; }
+#ds-banner code { font-family:monospace; background:rgba(255,255,255,0.08);
+  padding:1px 5px; border-radius:2px; color:#f0c090; }
+#ds-banner-close { margin-left:auto; background:none; border:none; color:#e8a060;
+  cursor:pointer; font-size:14px; line-height:1; padding:0 2px; }
 /* Subheader toolbar */
 #ws-subheader { display:flex; align-items:center; gap:8px; padding:5px 0 6px;
   border-bottom:1px solid rgba(184,146,44,0.15); position:relative; margin-bottom:6px; }
@@ -1035,6 +1043,16 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _rebuildWsBtn=document.getElementById("rebuild-workshop-btn");'
         'var _apiStatus=document.getElementById("api-status");\n'
 
+        # Devserver health check
+        '(function(){'
+        'var _ban=document.getElementById("ds-banner");'
+        'document.getElementById("ds-banner-close").addEventListener("click",function(){'
+        '_ban.hidden=true;});'
+        'fetch("http://localhost:8000/api/health",{signal:AbortSignal.timeout(2000)})'
+        '.then(function(r){if(!r.ok)throw new Error();_ban.hidden=true;})'
+        '.catch(function(){_ban.hidden=false;});'
+        '})();\n'
+
         'function _setApiStatus(msg,cls){'
         '_apiStatus.textContent=msg;'
         '_apiStatus.className="hint";'
@@ -1256,6 +1274,11 @@ def _build_html(
         "<body>\n"
         '<div id="app">\n'
         '  <div id="sidebar">\n'
+        '    <div id="ds-banner" hidden>\n'
+        '      ⚠ Devserver not running — edits unavailable.\n'
+        '      Run: <code>python utilities/devserver.py</code>\n'
+        '      <button id="ds-banner-close" title="Dismiss">✕</button>\n'
+        '    </div>\n'
         '    <div id="sidebar-header">\n'
         '      <div id="app-title">Map Workshop</div>\n'
         '      <div id="ws-subheader">\n'
