@@ -226,6 +226,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .queue-empty { color: #5a4a30; font-size: 12px; font-style: italic; }
 /* Panel widths */
 #panel-plan-route, #panel-add-point, #panel-edit-coords { max-width: 340px; }
+#panel-edit-coords { padding-left: 32px; }
 /* Route index */
 .panel#panel-route-index { gap: 8px; }
 #panel-route-index h3 { font-size: 12px; text-transform: uppercase;
