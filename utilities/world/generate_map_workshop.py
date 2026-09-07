@@ -33,7 +33,7 @@ OUTPUT_PATH   = VAULT_ROOT / "map-workshop.html"
 
 CATEGORIES = [
     "city", "town", "caravanserai", "capital", "fortress", "sacred-site",
-    "ruins", "route-node", "water-body", "landmark", "mythic-landscape",
+    "ruins", "route-node", "water-body", "lake", "landmark", "mythic-landscape",
 ]
 
 
@@ -79,7 +79,7 @@ def _build_locations_geojson(locations: list) -> dict:
                 "fantasyName": loc["fantasy_name"],
                 "visibility":  loc["visibility"],
                 "mapLabel":    loc["map_label"],
-                "mapMarker":   loc["map_marker"],
+                "mapMarker":   loc["mapmarker"] or loc["map_marker"],
                 "slug":        loc["slug"],
                 "_slug":       loc["slug"],
             },

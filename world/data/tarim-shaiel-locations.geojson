@@ -187,7 +187,7 @@
       "id": "location_alak-mor",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "lake",
         "slug": "alak-mor",
         "label": "Alak-Mor",
         "title": "Alak-Mor",
@@ -593,7 +593,7 @@
       "id": "location_balkh-kamen",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "lake",
         "slug": "balkh-kamen",
         "label": "Balkh-Kamen",
         "title": "Balkh-Kamen",
@@ -801,7 +801,7 @@
       "id": "location_bosten-lake",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "lake",
         "slug": "bosten-lake",
         "label": "Lake Bustel",
         "title": "Bosten Lake",
@@ -1885,7 +1885,7 @@
       "id": "location_isyk-zhel",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "lake",
         "slug": "isyk-zhel",
         "label": "Isyk-Zhel",
         "title": "Isyk-Zhel",
@@ -2121,7 +2121,7 @@
       "id": "location_karakoshun-lake",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "lake",
         "slug": "karakoshun-lake",
         "label": "Karakoshun Lake",
         "title": "Karakoshun Lake",
@@ -2208,7 +2208,7 @@
       "id": "location_karkash-river",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "lake",
         "slug": "karkash-river",
         "label": "Karkash River",
         "title": "Karkash River",
@@ -2598,7 +2598,7 @@
       "id": "location_lake-ayakum",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "lake",
         "slug": "lake-ayakum",
         "label": "Lake of Dragons",
         "title": "Lake Ayakum",
@@ -3515,7 +3515,7 @@
       "id": "location_qiala-shuiku",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "lake",
         "slug": "qiala-shuiku",
         "label": "Qiala Shuiku",
         "title": "Qiala Shuiku",
@@ -4072,7 +4072,7 @@
       "id": "location_shorkol",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "lake",
         "slug": "shorkol",
         "label": "Xiao'erkule Lake",
         "title": "Xiao'erkule Lake",
