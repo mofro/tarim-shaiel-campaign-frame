@@ -279,18 +279,33 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   color: #9a8a6a; margin-bottom: 6px; margin-top: 8px; }
 .edit-toggle { width: 100%; text-align: center; transition: background 0.15s, border-color 0.15s; }
 /* Layer overlay control */
-#layer-control { position:absolute; bottom:36px; left:10px; z-index:10;
-  background:rgba(26,18,8,0.88); color:#f0e6c8; padding:7px 11px; border-radius:5px;
-  border:1px solid rgba(184,146,44,0.35); font-size:11px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px); }
-#layer-control label { display:flex; align-items:center; gap:6px; cursor:pointer;
+#layer-control { position:absolute; bottom:36px; left:0; z-index:10;
+  display:flex; flex-direction:row; align-items:stretch; font-size:11px; }
+#drawer-handle { width:22px; min-height:80px; background:rgba(26,18,8,0.88);
+  border:1px solid rgba(184,146,44,0.35); border-radius:0 4px 4px 0;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  cursor:pointer; padding:6px 0 6px; gap:8px;
+  box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
+  user-select:none; flex-shrink:0; }
+#drawer-arrow { font-size:9px; color:#b8922c; line-height:1; transition:transform 0.2s; }
+#layer-control.collapsed #drawer-arrow { transform:rotate(180deg); }
+#zoom-readout-v { writing-mode:vertical-rl; font-size:10px; color:#8a7a5a;
+  letter-spacing:0.08em; margin-top:2px; }
+#zoom-val-v { color:#c8a84a; font-weight:bold; }
+#drawer-body { background:rgba(26,18,8,0.88); color:#f0e6c8; padding:7px 11px;
+  border:1px solid rgba(184,146,44,0.35); border-left:none; border-radius:0 5px 5px 0;
+  box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
+  overflow:hidden; max-width:260px; opacity:1;
+  transition:max-width 0.2s ease, padding 0.15s ease, opacity 0.15s ease; }
+#layer-control.collapsed #drawer-body { max-width:0; padding-left:0; padding-right:0; opacity:0; }
+#drawer-body label { display:flex; align-items:center; gap:6px; cursor:pointer;
   white-space:nowrap; color:#c8a84a; text-transform:uppercase; letter-spacing:0.06em; }
 #topo-toggle { accent-color:#b8922c; cursor:pointer; }
 #topo-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
 #sat-toggle { accent-color:#b8922c; cursor:pointer; }
 #sat-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
-#layer-control label + label { margin-top:5px; }
-#layer-control hr { border:none; border-top:1px solid rgba(184,146,44,0.25); margin:6px 0 5px; }
+#drawer-body label + label { margin-top:5px; }
+#drawer-body hr { border:none; border-top:1px solid rgba(184,146,44,0.25); margin:6px 0 5px; }
 .it-heading { font-size:10px; text-transform:uppercase; letter-spacing:0.07em; color:#8a7a5a; margin-bottom:3px; }
 .it-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px 10px; }
 .it-grid label { display:flex; align-items:center; gap:5px; cursor:pointer; color:#c8b890;
@@ -899,11 +914,23 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'try{sessionStorage.setItem("_ws"+src+"On","0");}catch(_){}'
         '_showOverlayErr(tid,status);});\n'
 
-        # Zoom readout
+        # Zoom readout (body + handle)
         'var _zv=document.getElementById("zoom-val");'
-        'function _updateZoom(){if(_zv)_zv.textContent=map.getZoom().toFixed(2);}'
+        'var _zvv=document.getElementById("zoom-val-v");'
+        'function _updateZoom(){var z=map.getZoom().toFixed(2);if(_zv)_zv.textContent=z;if(_zvv)_zvv.textContent=z;}'
         '_updateZoom();'
         'map.on("zoom",_updateZoom);\n'
+
+        # Drawer toggle
+        '(function(){'
+        'var _lc=document.getElementById("layer-control");'
+        'var _dh=document.getElementById("drawer-handle");'
+        'try{if(sessionStorage.getItem("_wsDrawer")==="0")_lc.classList.add("collapsed");}catch(_e){}'
+        '_dh.addEventListener("click",function(){'
+        'var c=_lc.classList.toggle("collapsed");'
+        'try{sessionStorage.setItem("_wsDrawer",c?"0":"1");}catch(_e){}'
+        '});'
+        '})();\n'
 
         # Apply saved icon-type toggle state after layers are created
         '_rebuildTierFilters();\n'
@@ -1262,31 +1289,37 @@ def _build_html(
         '    <button id="route-panel-close">✕</button>\n'
         '  </div>\n'
         '  <div id="layer-control">\n'
-        '    <div id="zoom-readout">Z <span id="zoom-val">—</span></div>\n'
-        '    <label>\n'
-        '      <input type="checkbox" id="topo-toggle">\n'
-        '      Topo overlay\n'
-        '      <input type="range" id="topo-opacity" min="0" max="100" value="55" title="Opacity">\n'
-        '    </label>\n'
-        '    <label>\n'
-        '      <input type="checkbox" id="sat-toggle">\n'
-        '      Satellite Plain Tarim\n'
-        '      <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity">\n'
-        '    </label>\n'
-        '    <hr>\n'
-        '    <div class="it-heading">Locations</div>\n'
-        '    <div class="it-grid">\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="city" checked> Cities</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="capital" checked> Capitals</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="bridge" checked> Bridges</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="landmark" checked> Landmarks</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="fortress" checked> Fortresses</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="town" checked> Towns</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="sacred-site" checked> Sacred Sites</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="oasis" checked> Oases</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="lake" checked> Lakes</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="route-node" checked> Route Nodes</label>\n'
-        '      <label><input type="checkbox" class="it-cb" data-type="poi" checked> POIs</label>\n'
+        '    <div id="drawer-handle" title="Toggle layer panel">\n'
+        '      <span id="drawer-arrow">&#9664;</span>\n'
+        '      <span id="zoom-readout-v">Z<br><span id="zoom-val-v">—</span></span>\n'
+        '    </div>\n'
+        '    <div id="drawer-body">\n'
+        '      <div id="zoom-readout">Z <span id="zoom-val">—</span></div>\n'
+        '      <label>\n'
+        '        <input type="checkbox" id="topo-toggle">\n'
+        '        Topo overlay\n'
+        '        <input type="range" id="topo-opacity" min="0" max="100" value="55" title="Opacity">\n'
+        '      </label>\n'
+        '      <label>\n'
+        '        <input type="checkbox" id="sat-toggle">\n'
+        '        Satellite Plain Tarim\n'
+        '        <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity">\n'
+        '      </label>\n'
+        '      <hr>\n'
+        '      <div class="it-heading">Locations</div>\n'
+        '      <div class="it-grid">\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="city" checked> Cities</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="capital" checked> Capitals</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="bridge" checked> Bridges</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="landmark" checked> Landmarks</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="fortress" checked> Fortresses</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="town" checked> Towns</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="sacred-site" checked> Sacred Sites</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="oasis" checked> Oases</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="lake" checked> Lakes</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="route-node" checked> Route Nodes</label>\n'
+        '        <label><input type="checkbox" class="it-cb" data-type="poi" checked> POIs</label>\n'
+        '      </div>\n'
         '    </div>\n'
         '  </div>\n'
         "</div>\n"
