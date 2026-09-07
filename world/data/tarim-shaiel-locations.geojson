@@ -2005,7 +2005,7 @@
       "id": "location_kabul",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "capital",
         "slug": "kabul",
         "label": "Kabul",
         "title": "Kabul",
@@ -2418,7 +2418,7 @@
       "id": "location_korla",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "capital",
         "slug": "korla",
         "label": "Korla",
         "title": "Korla",
@@ -2863,7 +2863,7 @@
       "id": "location_mazar-i-sharif",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "capital",
         "slug": "mazar-i-sharif",
         "label": "Mazar-i-Sharif",
         "title": "Mazar-i-Sharif",

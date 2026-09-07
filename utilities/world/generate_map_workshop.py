@@ -23,7 +23,7 @@ VAULT_ROOT = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 
 from locations.location_parser import load_all_locations
-from locations.map_icons import icon_registration_js, REGISTERED_ICONS
+from locations.map_icons import icon_registration_js
 from locations.location_components import MAPTILER_STYLE_URL, MAPTILER_KEY, MAPTILER_STYLE_ID
 
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
@@ -79,7 +79,7 @@ def _build_locations_geojson(locations: list) -> dict:
                 "fantasyName": loc["fantasy_name"],
                 "visibility":  loc["visibility"],
                 "mapLabel":    loc["map_label"],
-                "mapMarker":   loc["mapmarker"] if f'cat-{loc["mapmarker"]}' in REGISTERED_ICONS else loc["map_marker"],
+                "mapMarker":   loc["map_marker"],
                 "slug":        loc["slug"],
                 "_slug":       loc["slug"],
             },
