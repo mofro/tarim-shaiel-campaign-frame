@@ -30,6 +30,7 @@ _DANGER_BY_TYPE: dict[str, int] = {
     "dungeon": 4,
     "landmark": 3,
     "fortress": 3,
+    "bridge": 2,
     "poi": 1,
     "lake": 1,
 }
@@ -43,6 +44,7 @@ _TYPE_LABELS: dict[str, str] = {
     "dungeon": "Dungeon",
     "landmark": "Landmark",
     "fortress": "Fortress",
+    "bridge": "Bridge",
     "poi": "Point of Interest",
     "lake": "Lake",
 }

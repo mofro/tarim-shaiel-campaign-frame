@@ -67,6 +67,7 @@ _TYPE_FIELD_MAP: dict[str, str] = {
     "sacred-site": "sacred-site",
     "fortress": "fortress",
     "capital": "capital",
+    "bridge": "bridge",
     "water-body": "lake",
     "lake": "lake",
     "caravanserai": "route-node",

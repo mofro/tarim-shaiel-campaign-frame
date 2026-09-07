@@ -32,7 +32,7 @@ REGIONS_PATH  = VAULT_ROOT / "world" / "data" / "tarim-shaiel-regions.geojson"
 OUTPUT_PATH   = VAULT_ROOT / "map-workshop.html"
 
 CATEGORIES = [
-    "city", "town", "caravanserai", "capital", "fortress", "sacred-site",
+    "city", "town", "caravanserai", "capital", "bridge", "fortress", "sacred-site",
     "ruins", "route-node", "water-body", "lake", "landmark", "mythic-landscape",
 ]
 
@@ -290,6 +290,12 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #sat-toggle { accent-color:#b8922c; cursor:pointer; }
 #sat-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
 #layer-control label + label { margin-top:5px; }
+#layer-control hr { border:none; border-top:1px solid rgba(184,146,44,0.25); margin:6px 0 5px; }
+.it-heading { font-size:10px; text-transform:uppercase; letter-spacing:0.07em; color:#8a7a5a; margin-bottom:3px; }
+.it-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px 10px; }
+.it-grid label { display:flex; align-items:center; gap:5px; cursor:pointer; color:#c8b890;
+  font-size:10px; text-transform:none; letter-spacing:0; white-space:nowrap; margin-top:0; }
+.it-grid input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
 #zoom-readout { font-size:10px; color:#8a7a5a; letter-spacing:0.08em; text-align:right;
   padding-bottom:4px; border-bottom:1px solid #2a2010; margin-bottom:4px; }
 #zoom-val { color:#c8a84a; font-weight:bold; }
@@ -450,6 +456,31 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _wsSavedTab=null;\n'
         'try{_wsSavedTab=sessionStorage.getItem("_wsTab");}catch(e){}\n'
         'var _activeTab=_wsSavedTab||"add-point";\n'
+
+        # -- Icon type visibility --
+        'var _typeEnabled={'
+        '"city":true,"capital":true,"bridge":true,"landmark":true,"fortress":true,'
+        '"town":true,"sacred-site":true,"oasis":true,"lake":true,"route-node":true,"poi":true'
+        '};\n'
+        'try{'
+        'var _itss=sessionStorage.getItem("_wsIt");'
+        'if(_itss){var _itsv=JSON.parse(_itss);'
+        'Object.keys(_itsv).forEach(function(k){if(k in _typeEnabled)_typeEnabled[k]=_itsv[k];});}'
+        '}catch(_e){}\n'
+        'var _tierCats={'
+        '"locations-major":["city","capital","bridge","landmark","fortress"],'
+        '"locations-towns":["town"],'
+        '"locations-secondary":["sacred-site","oasis","lake"],'
+        '"locations-routes":["route-node"],'
+        '"locations-detail":["poi"]'
+        '};\n'
+        'function _rebuildTierFilters(){'
+        'Object.keys(_tierCats).forEach(function(lyr){'
+        'var on=_tierCats[lyr].filter(function(c){return _typeEnabled[c];});'
+        'var f=on.length===0?["==",1,0]:["match",["get","category"],on,true,false];'
+        'map.setFilter(lyr,["all",f,["!=",["get","mapMarker"],false]]);'
+        '});'
+        'try{sessionStorage.setItem("_wsIt",JSON.stringify(_typeEnabled));}catch(_e){}}\n'
 
         # -- Map init --
         # Restore last view (center/zoom) across the same reloads.
@@ -701,7 +732,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '["match",["get","category"],'
         '"city","cat-city","capital","cat-capital","town","cat-town",'
         '"caravanserai","cat-route-node","fortress","cat-fortress","chokepoint","cat-fortress",'
-        '"landmark","cat-landmark","mountain-pass","cat-landmark",'
+        '"bridge","cat-bridge","landmark","cat-landmark","mountain-pass","cat-landmark",'
         '"oasis","cat-oasis","Oasis","cat-oasis","lake","cat-lake","water-body","cat-lake","power-site","cat-sacred-site",'
         '"route-node","cat-route-node","ruins","cat-dungeon","sacred-site","cat-sacred-site",'
         '"site","cat-poi","cat-poi"]];\n'
@@ -709,7 +740,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Five-tier location layers
         # t: [id, cats, minzoom, _unused_fs, _unused_fe, font|null, iconSz, textSz]
         # Fades removed: opExpr=1, flat icon sizes (no zoom scaling). Refactor later.
-        '[["locations-major",["city","capital","landmark","fortress"],3,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.75,15],'
+        '[["locations-major",["city","capital","bridge","landmark","fortress"],3,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.75,15],'
         '["locations-towns",["town"],4,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.65,13],'
         '["locations-secondary",["sacred-site","oasis","caravanserai","lake","water-body"],5,0,0,["Roboto Serif Regular","Noto Sans Italic"],0.70,13],'
         '["locations-routes",["route-node","chokepoint","mountain-pass"],6,0,0,null,0.60,0],'
@@ -813,7 +844,18 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_updateZoom();'
         'map.on("zoom",_updateZoom);\n'
 
+        # Apply saved icon-type toggle state after layers are created
+        '_rebuildTierFilters();\n'
+
         '});\n'  # end map.on('load')
+
+        # Wire icon type checkboxes (can run before or after map load)
+        'document.querySelectorAll(".it-cb").forEach(function(cb){'
+        'if(cb.dataset.type in _typeEnabled)cb.checked=_typeEnabled[cb.dataset.type];'
+        'cb.addEventListener("change",function(){'
+        '_typeEnabled[cb.dataset.type]=cb.checked;'
+        '_rebuildTierFilters();'
+        '});});\n'
 
         # Route Index: fly-to on row click (uses _routeGJ which is available immediately)
         'document.querySelectorAll("#panel-route-index .ri-row").forEach(function(row){'
@@ -1101,6 +1143,21 @@ def _build_html(
         '      Satellite Plain Tarim\n'
         '      <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity">\n'
         '    </label>\n'
+        '    <hr>\n'
+        '    <div class="it-heading">Locations</div>\n'
+        '    <div class="it-grid">\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="city" checked> Cities</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="capital" checked> Capitals</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="bridge" checked> Bridges</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="landmark" checked> Landmarks</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="fortress" checked> Fortresses</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="town" checked> Towns</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="sacred-site" checked> Sacred Sites</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="oasis" checked> Oases</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="lake" checked> Lakes</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="route-node" checked> Route Nodes</label>\n'
+        '      <label><input type="checkbox" class="it-cb" data-type="poi" checked> POIs</label>\n'
+        '    </div>\n'
         '  </div>\n'
         "</div>\n"
         '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'

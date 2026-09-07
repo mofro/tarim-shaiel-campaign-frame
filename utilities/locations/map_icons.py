@@ -25,6 +25,7 @@ REGISTERED_ICONS: frozenset[str] = frozenset({
     "cat-fortress",
     "cat-oasis",
     "cat-landmark",
+    "cat-bridge",
     "cat-lake",
     "cat-poi",
     "cat-dungeon",
@@ -114,15 +115,33 @@ def icon_registration_js() -> str:
           'ctx.beginPath();ctx.arc(32,32,4,0,Math.PI*2);ctx.fill();'
         '});'
 
-        # landmark — clean triangle mountain, gold peak cap, no curves
+        # landmark — 75% scale mountain; red peak → green base gradient, dark outline
         '_mk("cat-landmark",function(ctx){'
+          'ctx.save();ctx.translate(32,32);ctx.scale(0.75,0.75);ctx.translate(-32,-32);'
           'ctx.fillStyle="rgba(255,255,255,0.60)";'
           'ctx.beginPath();ctx.moveTo(3,61);ctx.lineTo(32,3);ctx.lineTo(61,61);ctx.closePath();ctx.fill();'
-          'ctx.fillStyle="#7a1f1f";'
+          'var g=ctx.createLinearGradient(32,7,32,58);'
+          'g.addColorStop(0,"#c44422");g.addColorStop(1,"#1a6030");'
+          'ctx.fillStyle=g;'
           'ctx.beginPath();ctx.moveTo(6,58);ctx.lineTo(32,7);ctx.lineTo(58,58);ctx.closePath();ctx.fill();'
-          'ctx.strokeStyle="#b8892a";ctx.lineWidth=3.5;ctx.stroke();'
-          'ctx.fillStyle="#b8892a";'
+          'ctx.strokeStyle="#0e3a1a";ctx.lineWidth=3.5;ctx.stroke();'
+          'ctx.fillStyle="#dd3311";'
           'ctx.beginPath();ctx.moveTo(20,38);ctx.lineTo(32,7);ctx.lineTo(44,38);ctx.closePath();ctx.fill();'
+          'ctx.restore();'
+        '});'
+
+        # bridge — tan/brown arch bridge at 80% scale; arch below deck
+        '_mk("cat-bridge",function(ctx){'
+          'ctx.save();ctx.translate(32,32);ctx.scale(0.80,0.80);ctx.translate(-32,-32);'
+          'ctx.fillStyle="rgba(255,255,255,0.60)";ctx.beginPath();ctx.arc(32,32,28,0,Math.PI*2);ctx.fill();'
+          'ctx.strokeStyle="#9B7340";ctx.lineWidth=7;ctx.lineCap="round";'
+          'ctx.beginPath();ctx.moveTo(11,33);ctx.quadraticCurveTo(32,54,53,33);ctx.stroke();'
+          'ctx.fillStyle="#9B7340";ctx.fillRect(9,23,46,10);'
+          'ctx.strokeStyle="#5a3f20";ctx.lineWidth=2.5;ctx.lineCap="butt";'
+          'ctx.strokeRect(9,23,46,10);'
+          'ctx.lineCap="round";'
+          'ctx.beginPath();ctx.moveTo(11,33);ctx.quadraticCurveTo(32,54,53,33);ctx.stroke();'
+          'ctx.restore();'
         '});'
 
         # lake — concentric blue ripple rings, light→dark toward center

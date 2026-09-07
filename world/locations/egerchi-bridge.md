@@ -14,13 +14,13 @@ location:
 - 80.214446
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: landmark
+mapmarker: bridge
 name: Egerchi Bridge
 real_world_name: Egerchi Bridge
 tags:
 - placeholder
 - type-landmark
-type: landmark
+type: bridge
 ---
 
 ```leaflet

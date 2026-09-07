@@ -15,13 +15,13 @@ location:
 - 86.554354
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: landmark
+mapmarker: bridge
 name: Yanqi Bridge
 real_world_name: Yanqi Bridge
 tags:
 - placeholder
 - type-landmark
-type: landmark
+type: bridge
 ---
 
 ```leaflet

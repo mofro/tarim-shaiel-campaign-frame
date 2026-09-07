@@ -14,13 +14,13 @@ location:
 - 82.144168
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: landmark
+mapmarker: bridge
 name: Talimuhe Bridge
 real_world_name: Talimuhe Bridge
 tags:
 - placeholder
 - type-landmark
-type: landmark
+type: bridge
 ---
 
 ```leaflet
