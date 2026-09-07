@@ -713,7 +713,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '["locations-towns",["town"],4,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.65,13],'
         '["locations-secondary",["sacred-site","oasis","caravanserai","lake","water-body"],5,0,0,["Roboto Serif Regular","Noto Sans Italic"],0.70,13],'
         '["locations-routes",["route-node","chokepoint","mountain-pass"],6,0,0,null,0.60,0],'
-        '["locations-detail",["ruins","poi","power-site","site"],7,0,0,null,0.50,0]]'
+        '["locations-detail",["ruins","poi","power-site","site"],7,0,0,null,0.75,0]]'
         '.forEach(function(t){'
         'var id=t[0],cats=t[1],mz=t[2],font=t[5],minSz=t[6],tSz=t[7];'
         'var szExpr=minSz;'
