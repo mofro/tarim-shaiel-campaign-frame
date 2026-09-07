@@ -156,8 +156,8 @@ def _load_dotenv() -> None:
 
 _load_dotenv()
 
-MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'  # custom campaign style
-# MAPTILER_STYLE_ID = 'topo-v2'  # richer reference — use topo overlay toggle in workshop instead
+MAPTILER_STYLE_ID = '01a074c7-536a-71cb-b0d8-9e7fe4fd1100'  # topo-tarim-copy (clean topo, no roads)
+# MAPTILER_STYLE_ID = '019e13d9-26c8-7cd9-bf8d-64d83f66624e'  # custom campaign style
 MAPTILER_KEY = os.environ.get('MAPTILER_KEY', '')
 if not MAPTILER_KEY:
     print(
@@ -206,9 +206,10 @@ def _mini_map_icon_match() -> str:
         '["case",'
         '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
         '["match",["get","category"],'
-        '"city","cat-city","town","cat-town","caravanserai","cat-route-node",'
-        '"chokepoint","cat-fortress","mountain-pass","cat-landmark",'
-        '"oasis","cat-oasis","power-site","cat-sacred-site",'
+        '"city","cat-city","capital","cat-capital","town","cat-town","caravanserai","cat-route-node",'
+        '"fortress","cat-fortress","chokepoint","cat-fortress",'
+        '"landmark","cat-landmark","mountain-pass","cat-landmark",'
+        '"oasis","cat-oasis","Oasis","cat-oasis","lake","cat-lake","water-body","cat-lake","power-site","cat-sacred-site",'
         '"route-node","cat-route-node","ruins","cat-dungeon",'
         '"sacred-site","cat-sacred-site","site","cat-poi","cat-poi"]]'
     )

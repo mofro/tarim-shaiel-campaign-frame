@@ -224,8 +224,8 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .queue-item .qi-label { color: #e8dcc4; }
 .queue-item .qi-dist { color: #7a6a50; font-size: 11px; margin-top: 2px; }
 .queue-empty { color: #5a4a30; font-size: 12px; font-style: italic; }
-/* Edit coords panel */
-#panel-edit-coords { max-width: 450px; }
+/* Panel widths */
+#panel-plan-route, #panel-add-point, #panel-edit-coords { max-width: 340px; }
 /* Route index */
 .panel#panel-route-index { gap: 8px; }
 #panel-route-index h3 { font-size: 12px; text-transform: uppercase;
@@ -290,6 +290,11 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #sat-toggle { accent-color:#b8922c; cursor:pointer; }
 #sat-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
 #layer-control label + label { margin-top:5px; }
+#zoom-readout { font-size:10px; color:#8a7a5a; letter-spacing:0.08em; text-align:right;
+  padding-bottom:4px; border-bottom:1px solid #2a2010; margin-bottom:4px; }
+#zoom-val { color:#c8a84a; font-weight:bold; }
+.overlay-err { display:inline-flex; align-items:center; background:#7a1f00; color:#ffcc88;
+  font-size:9px; padding:1px 4px; border-radius:3px; cursor:help; margin-left:2px; vertical-align:middle; }
 .edit-toggle.active { background: #1a2a0a; border-color: #6a9a2c; color: #a8d840; }
 .edit-toggle.active:hover { background: #263d12; border-color: #8aba40; }
 #unsaved-list { list-style: none; display: flex; flex-direction: column; gap: 3px;
@@ -694,32 +699,34 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _iconMatch=["case",'
         '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
         '["match",["get","category"],'
-        '"city","cat-city","town","cat-town","caravanserai","cat-route-node","chokepoint","cat-fortress",'
-        '"mountain-pass","cat-landmark","oasis","cat-oasis","power-site","cat-sacred-site",'
+        '"city","cat-city","capital","cat-capital","town","cat-town",'
+        '"caravanserai","cat-route-node","fortress","cat-fortress","chokepoint","cat-fortress",'
+        '"landmark","cat-landmark","mountain-pass","cat-landmark",'
+        '"oasis","cat-oasis","Oasis","cat-oasis","lake","cat-lake","water-body","cat-lake","power-site","cat-sacred-site",'
         '"route-node","cat-route-node","ruins","cat-dungeon","sacred-site","cat-sacred-site",'
         '"site","cat-poi","cat-poi"]];\n'
 
-        # Five-tier location layers (matching generate_locations_html.py tiers)
-        # t: [id, cats, minzoom, fadeStart, fadeEnd, font|null, minIconSz, textSz]
-        '[["locations-major",["city","landmark","fortress"],3,3.5,4,["Roboto Serif Regular","Noto Sans Regular"],0.5,15],'
-        '["locations-towns",["town"],4,4.5,5,["Roboto Serif Regular","Noto Sans Regular"],0.45,13],'
-        '["locations-secondary",["sacred-site","oasis","caravanserai"],5,5.5,6,["Roboto Serif Regular","Noto Sans Italic"],0.4,13],'
-        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,6.5,7,null,0.35,0],'
-        '["locations-detail",["ruins","poi","power-site","site"],7,7.5,8,null,0.3,0]]'
+        # Five-tier location layers
+        # t: [id, cats, minzoom, _unused_fs, _unused_fe, font|null, iconSz, textSz]
+        # Fades removed: opExpr=1, flat icon sizes (no zoom scaling). Refactor later.
+        '[["locations-major",["city","landmark","fortress"],3,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.75,15],'
+        '["locations-towns",["town"],4,0,0,["Roboto Serif Regular","Noto Sans Regular"],0.65,13],'
+        '["locations-secondary",["sacred-site","oasis","caravanserai","lake","water-body"],5,0,0,["Roboto Serif Regular","Noto Sans Italic"],0.70,13],'
+        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,0,0,null,0.60,0],'
+        '["locations-detail",["ruins","poi","power-site","site"],7,0,0,null,0.50,0]]'
         '.forEach(function(t){'
-        'var id=t[0],cats=t[1],mz=t[2],fs=t[3],fe=t[4],font=t[5],minSz=t[6],tSz=t[7];'
-        'var szExpr=["interpolate",["linear"],["zoom"],mz,minSz,10,minSz+0.35];'
-        'var opExpr=["interpolate",["linear"],["zoom"],fs,0,fe,1];'
+        'var id=t[0],cats=t[1],mz=t[2],font=t[5],minSz=t[6],tSz=t[7];'
+        'var szExpr=minSz;'
         'var catsFilter=["all",["match",["get","category"],cats,true,false],["!=",["get","mapMarker"],false]];'
         'var layout={"icon-image":_iconMatch,"icon-size":szExpr,"icon-allow-overlap":true,"icon-anchor":"center"};'
-        'var paint={"icon-opacity":opExpr};'
+        'var paint={"icon-opacity":1};'
         'if(font){'
         'layout["text-field"]=["case",["==",["get","mapLabel"],false],"",["get","label"]];'
         'layout["text-font"]=font;layout["text-size"]=tSz;'
         'layout["text-offset"]=[0,1.1];layout["text-anchor"]="top";layout["text-max-width"]=8;'
-        'layout["text-allow-overlap"]=false;'
-        'paint["text-color"]="rgba(10,8,5,0.95)";paint["text-halo-color"]="#ffffff";'
-        'paint["text-halo-width"]=1;paint["text-opacity"]=opExpr;}'
+        'layout["text-allow-overlap"]=true;layout["text-optional"]=true;'
+        'paint["text-color"]="#1a1208";paint["text-halo-color"]="#ffffff";'
+        'paint["text-halo-width"]=1.5;paint["text-opacity"]=1;}'
         'map.addLayer({id:id,type:"symbol",minzoom:mz,source:"locations",'
         'filter:catsFilter,layout:layout,paint:paint});});\n'
 
@@ -775,7 +782,36 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.setPaintProperty(layerId,"raster-opacity",parseInt(opc.value)/100);'
         'try{sessionStorage.setItem(ssOp,opc.value);}catch(e){}});}'
         '_wireOverlay("topo-toggle","topo-opacity","topo-overlay","_wsTopoOn","_wsTopoOp",55);'
-        '_wireOverlay("sat-toggle","sat-opacity","sat-overlay","_wsSatOn","_wsSatOp",60);\n'
+        '_wireOverlay("sat-toggle","sat-opacity","sat-overlay","_wsSatOn","_wsSatOp",60);'
+
+        # Error handler: auto-uncheck offending overlay, set visibility none, show badge
+        'function _showOverlayErr(toggleId,status){'
+        'var tog=document.getElementById(toggleId);if(!tog)return;'
+        'var lbl=tog.closest("label");if(!lbl)return;'
+        'var prev=lbl.querySelector(".overlay-err");if(prev)prev.remove();'
+        'var b=document.createElement("span");b.className="overlay-err";'
+        'b.dataset.status=status!=null?String(status):"";'
+        'b.title=status?"Layer failed to load (HTTP "+status+")":"Layer failed to load";'
+        'b.textContent="⚠ "+(status||"ERR");'
+        'lbl.appendChild(b);}'
+
+        'map.on("error",function(e){'
+        'var src=e&&e.sourceId;'
+        'var _cfg={"topo-overlay":"topo-toggle","sat-overlay":"sat-toggle"};'
+        'if(!src||!_cfg[src])return;'
+        'var status=e.error&&(e.error.status||e.error.statusCode||null);'
+        'var tid=_cfg[src];'
+        'var tog=document.getElementById(tid);if(!tog)return;'
+        'tog.checked=false;'
+        'map.setLayoutProperty(src,"visibility","none");'
+        'try{sessionStorage.setItem("_ws"+src+"On","0");}catch(_){}'
+        '_showOverlayErr(tid,status);});\n'
+
+        # Zoom readout
+        'var _zv=document.getElementById("zoom-val");'
+        'function _updateZoom(){if(_zv)_zv.textContent=map.getZoom().toFixed(2);}'
+        '_updateZoom();'
+        'map.on("zoom",_updateZoom);\n'
 
         '});\n'  # end map.on('load')
 
@@ -1054,6 +1090,7 @@ def _build_html(
         '    <button id="route-panel-close">✕</button>\n'
         '  </div>\n'
         '  <div id="layer-control">\n'
+        '    <div id="zoom-readout">Z <span id="zoom-val">—</span></div>\n'
         '    <label>\n'
         '      <input type="checkbox" id="topo-toggle">\n'
         '      Topo overlay\n'
