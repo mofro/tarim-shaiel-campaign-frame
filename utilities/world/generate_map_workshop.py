@@ -1043,13 +1043,13 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _rebuildWsBtn=document.getElementById("rebuild-workshop-btn");'
         'var _apiStatus=document.getElementById("api-status");\n'
 
-        # Devserver health check
+        # Devserver health check (relative URL, no AbortSignal to avoid browser compat issues)
         '(function(){'
         'var _ban=document.getElementById("ds-banner");'
         'document.getElementById("ds-banner-close").addEventListener("click",function(){'
         '_ban.hidden=true;});'
-        'fetch("http://localhost:8000/api/health",{signal:AbortSignal.timeout(2000)})'
-        '.then(function(r){if(!r.ok)throw new Error();_ban.hidden=true;})'
+        'fetch("/api/health")'
+        '.then(function(r){_ban.hidden=r.ok;})'
         '.catch(function(){_ban.hidden=false;});'
         '})();\n'
 
