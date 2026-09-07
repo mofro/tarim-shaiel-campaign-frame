@@ -281,18 +281,17 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 /* Layer overlay control */
 #layer-control { position:absolute; bottom:36px; left:0; z-index:10;
   display:flex; flex-direction:row; align-items:stretch; font-size:11px; }
-#drawer-handle { width:42px; min-height:80px; background:rgba(26,18,8,0.88);
+#drawer-handle { width:28px; min-height:80px; background:rgba(26,18,8,0.88);
   border:1px solid rgba(184,146,44,0.35); border-radius:0 5px 5px 0;
   display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-  cursor:pointer; padding:8px 0 10px; gap:0;
+  cursor:pointer; padding:8px 0 10px; gap:6px;
   box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
   user-select:none; flex-shrink:0; }
-#drawer-arrow { font-size:11px; color:#b8922c; line-height:1;
-  transition:transform 0.2s; margin-bottom:8px; }
+#drawer-arrow { font-size:10px; color:#b8922c; line-height:1; transition:transform 0.2s; }
 #layer-control.collapsed #drawer-arrow { transform:rotate(180deg); }
-#zoom-readout-v { display:flex; flex-direction:column; align-items:center; gap:2px; }
-#zoom-lbl-v { font-size:9px; color:#8a7a5a; letter-spacing:0.1em; }
-#zoom-val-v { font-size:14px; color:#c8a84a; font-weight:bold; line-height:1; }
+#zoom-readout-v { writing-mode:vertical-rl; font-size:11px; color:#8a7a5a;
+  letter-spacing:0.08em; white-space:nowrap; }
+#zoom-val-v { color:#c8a84a; font-weight:bold; }
 #drawer-body { background:rgba(26,18,8,0.88); color:#f0e6c8; padding:7px 11px;
   border:1px solid rgba(184,146,44,0.35); border-left:none; border-radius:0 5px 5px 0;
   box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
@@ -1288,10 +1287,7 @@ def _build_html(
         '  <div id="layer-control">\n'
         '    <div id="drawer-handle" title="Toggle layer panel">\n'
         '      <span id="drawer-arrow">&#9664;</span>\n'
-        '      <span id="zoom-readout-v">'
-        '<span id="zoom-lbl-v">Z</span>'
-        '<span id="zoom-val-v">—</span>'
-        '</span>\n'
+        '      <span id="zoom-readout-v">Z <span id="zoom-val-v">—</span></span>\n'
         '    </div>\n'
         '    <div id="drawer-body">\n'
         '      <label>\n'
