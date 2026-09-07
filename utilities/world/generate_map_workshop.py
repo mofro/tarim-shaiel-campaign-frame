@@ -167,7 +167,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #sidebar-header { padding: 12px 14px 0; border-bottom: 1px solid rgba(184,146,44,0.2);
   flex-shrink: 0; }
 #app-title { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: #b8922c; margin-bottom: 10px; }
+  color: #b8922c; margin-bottom: 6px; }
 #tab-bar { display: flex; gap: 2px; }
 .tab-btn { flex: 1; padding: 7px 2px; font-size: 10px; letter-spacing: 0.05em;
   text-transform: uppercase; background: #1a1410; border: 1px solid rgba(184,146,44,0.2);
@@ -226,7 +226,6 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .queue-empty { color: #5a4a30; font-size: 12px; font-style: italic; }
 /* Panel widths */
 #panel-plan-route, #panel-add-point, #panel-edit-coords { max-width: 340px; }
-#panel-edit-coords { padding-left: 32px; }
 /* Route index */
 .panel#panel-route-index { gap: 8px; }
 #panel-route-index h3 { font-size: 12px; text-transform: uppercase;
@@ -279,34 +278,28 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .list-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
   color: #9a8a6a; margin-bottom: 6px; margin-top: 8px; }
 .edit-toggle { width: 100%; text-align: center; transition: background 0.15s, border-color 0.15s; }
-/* Layer overlay control */
-#layer-control { position:absolute; bottom:36px; left:0; z-index:10;
-  display:flex; flex-direction:row; align-items:stretch; font-size:11px; }
-#drawer-handle { width:28px; min-height:80px; background:rgba(26,18,8,0.88);
-  border:1px solid rgba(184,146,44,0.35); border-radius:0 5px 5px 0;
-  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-  cursor:pointer; padding:8px 0 10px; gap:6px;
-  box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
-  user-select:none; flex-shrink:0; }
-#drawer-arrow { font-size:13px; color:#b8922c; line-height:1; transition:transform 0.2s; }
-#layer-control.collapsed #drawer-arrow { transform:rotate(180deg); }
-#zoom-readout-v { writing-mode:vertical-rl; font-size:14px; color:#8a7a5a;
-  letter-spacing:0.08em; white-space:nowrap; }
-#zoom-val-v { color:#c8a84a; font-weight:bold; }
-#drawer-body { background:rgba(26,18,8,0.88); color:#f0e6c8; padding:7px 11px;
-  border:1px solid rgba(184,146,44,0.35); border-left:none; border-radius:0 5px 5px 0;
-  box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
-  overflow:hidden; max-width:260px; opacity:1;
-  transition:max-width 0.2s ease, padding 0.15s ease, opacity 0.15s ease; }
-#layer-control.collapsed #drawer-body { max-width:0; padding-left:0; padding-right:0; opacity:0; }
-#drawer-body label { display:flex; align-items:center; gap:6px; cursor:pointer;
+/* Subheader toolbar */
+#ws-subheader { display:flex; align-items:center; gap:8px; padding:5px 0 6px;
+  border-bottom:1px solid rgba(184,146,44,0.15); position:relative; margin-bottom:6px; }
+#layers-btn { background:none; border:1px solid rgba(184,146,44,0.4); color:#c8a84a;
+  padding:3px 9px; border-radius:3px; font-size:11px; cursor:pointer;
+  letter-spacing:0.05em; text-transform:uppercase; font-family:inherit; }
+#layers-btn:hover { border-color:#b8922c; color:#e8dcc4; }
+#layers-btn.open { background:rgba(184,146,44,0.1); border-color:#b8922c; }
+#layers-dropdown { position:absolute; top:calc(100% + 1px); left:0; z-index:20;
+  background:rgba(22,14,5,0.97); border:1px solid rgba(184,146,44,0.4);
+  border-radius:0 5px 5px 5px; padding:10px 14px;
+  min-width:280px; box-shadow:2px 6px 18px rgba(0,0,0,0.7);
+  backdrop-filter:blur(4px); color:#f0e6c8; }
+#layers-dropdown label { display:flex; align-items:center; gap:6px; cursor:pointer;
   white-space:nowrap; color:#c8a84a; text-transform:uppercase; letter-spacing:0.06em; }
-#topo-toggle { accent-color:#b8922c; cursor:pointer; }
-#topo-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
-#sat-toggle { accent-color:#b8922c; cursor:pointer; }
-#sat-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
-#drawer-body label + label { margin-top:5px; }
-#drawer-body hr { border:none; border-top:1px solid rgba(184,146,44,0.25); margin:6px 0 5px; }
+#layers-dropdown label + label { margin-top:5px; }
+#layers-dropdown hr { border:none; border-top:1px solid rgba(184,146,44,0.25); margin:6px 0 5px; }
+#topo-toggle,#sat-toggle { accent-color:#b8922c; cursor:pointer; }
+#topo-opacity,#sat-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
+#ws-zoom { margin-left:auto; color:#8a7a5a; font-size:12px; letter-spacing:0.06em; }
+#ws-zoom-val { color:#c8a84a; font-weight:bold; }
+#ws-edit-dot { font-size:11px; color:#a8d840; letter-spacing:0.04em; white-space:nowrap; }
 .it-heading { font-size:10px; text-transform:uppercase; letter-spacing:0.07em; color:#8a7a5a; margin-bottom:3px; }
 .it-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px 10px; }
 .it-grid label { display:flex; align-items:center; gap:5px; cursor:pointer; color:#c8b890;
@@ -912,20 +905,25 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'try{sessionStorage.setItem("_ws"+src+"On","0");}catch(_){}'
         '_showOverlayErr(tid,status);});\n'
 
-        # Zoom readout (handle only)
-        'var _zvv=document.getElementById("zoom-val-v");'
+        # Zoom readout (subheader)
+        'var _zvv=document.getElementById("ws-zoom-val");'
         'function _updateZoom(){if(_zvv)_zvv.textContent=map.getZoom().toFixed(2);}'
         '_updateZoom();'
         'map.on("zoom",_updateZoom);\n'
 
-        # Drawer toggle
+        # Layers dropdown toggle
         '(function(){'
-        'var _lc=document.getElementById("layer-control");'
-        'var _dh=document.getElementById("drawer-handle");'
-        'try{if(sessionStorage.getItem("_wsDrawer")==="0")_lc.classList.add("collapsed");}catch(_e){}'
-        '_dh.addEventListener("click",function(){'
-        'var c=_lc.classList.toggle("collapsed");'
-        'try{sessionStorage.setItem("_wsDrawer",c?"0":"1");}catch(_e){}'
+        'var _lb=document.getElementById("layers-btn");'
+        'var _ld=document.getElementById("layers-dropdown");'
+        '_lb.addEventListener("click",function(e){'
+        'e.stopPropagation();'
+        'var open=_ld.hidden;'
+        '_ld.hidden=!open;'
+        '_lb.classList.toggle("open",!open);'
+        '});'
+        'document.addEventListener("click",function(e){'
+        'if(!_ld.hidden&&!_ld.contains(e.target)&&e.target!==_lb){'
+        '_ld.hidden=true;_lb.classList.remove("open");}'
         '});'
         '})();\n'
 
@@ -1030,6 +1028,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _dragMarker=null;\n'
         'var _editModeBtn=document.getElementById("edit-mode-btn");'
         'var _editBadge=document.getElementById("edit-badge");'
+        'var _wsEditDot=document.getElementById("ws-edit-dot");'
         'var _unsavedSection=document.getElementById("unsaved-section");'
         'var _unsavedList=document.getElementById("unsaved-list");'
         'var _rebuildLocBtn=document.getElementById("rebuild-locations-btn");'
@@ -1046,6 +1045,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_editMode=!_editMode;'
         '_editModeBtn.textContent=_editMode?"✓ Edit Mode ON":"Enable Edit Mode";'
         '_editModeBtn.classList.toggle("active",_editMode);'
+        'if(_wsEditDot)_wsEditDot.classList.toggle("hidden",!_editMode);'
         'if(!_editMode&&_dragMarker){_dragMarker.remove();_dragMarker=null;}'
         'map.getCanvas().style.cursor=_editMode?"crosshair":"";'
         '});\n'
@@ -1258,6 +1258,32 @@ def _build_html(
         '  <div id="sidebar">\n'
         '    <div id="sidebar-header">\n'
         '      <div id="app-title">Map Workshop</div>\n'
+        '      <div id="ws-subheader">\n'
+        '        <button id="layers-btn">⊞ Layers</button>\n'
+        '        <div id="layers-dropdown" hidden>\n'
+        '          <label><input type="checkbox" id="topo-toggle"> Topo overlay\n'
+        '            <input type="range" id="topo-opacity" min="0" max="100" value="55" title="Opacity"></label>\n'
+        '          <label><input type="checkbox" id="sat-toggle"> Satellite Plain\n'
+        '            <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity"></label>\n'
+        '          <hr>\n'
+        '          <div class="it-heading">Locations</div>\n'
+        '          <div class="it-grid">\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="city" checked> Cities</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="capital" checked> Capitals</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="bridge" checked> Bridges</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="landmark" checked> Landmarks</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="fortress" checked> Fortresses</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="town" checked> Towns</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="sacred-site" checked> Sacred Sites</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="oasis" checked> Oases</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="lake" checked> Lakes</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="route-node" checked> Route Nodes</label>\n'
+        '            <label><input type="checkbox" class="it-cb" data-type="poi" checked> POIs</label>\n'
+        '          </div>\n'
+        '        </div>\n'
+        '        <span id="ws-zoom">zoom <span id="ws-zoom-val">—</span></span>\n'
+        '        <span id="ws-edit-dot" class="hidden">● Edit</span>\n'
+        '      </div>\n'
         '      <div id="tab-bar">\n'
         '        <button class="tab-btn active" data-tab="add-point">Add Point</button>\n'
         '        <button class="tab-btn" data-tab="plan-route">Plan Route</button>\n'
@@ -1284,39 +1310,6 @@ def _build_html(
         '    <button id="route-panel-regenerate">🔄 Regenerate</button>\n'
         '    <button id="route-panel-delete">🗑 Delete Route</button>\n'
         '    <button id="route-panel-close">✕</button>\n'
-        '  </div>\n'
-        '  <div id="layer-control">\n'
-        '    <div id="drawer-handle" title="Toggle layer panel">\n'
-        '      <span id="drawer-arrow">&#9664;</span>\n'
-        '      <span id="zoom-readout-v">zoom <span id="zoom-val-v">—</span></span>\n'
-        '    </div>\n'
-        '    <div id="drawer-body">\n'
-        '      <label>\n'
-        '        <input type="checkbox" id="topo-toggle">\n'
-        '        Topo overlay\n'
-        '        <input type="range" id="topo-opacity" min="0" max="100" value="55" title="Opacity">\n'
-        '      </label>\n'
-        '      <label>\n'
-        '        <input type="checkbox" id="sat-toggle">\n'
-        '        Satellite Plain\n'
-        '        <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity">\n'
-        '      </label>\n'
-        '      <hr>\n'
-        '      <div class="it-heading">Locations</div>\n'
-        '      <div class="it-grid">\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="city" checked> Cities</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="capital" checked> Capitals</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="bridge" checked> Bridges</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="landmark" checked> Landmarks</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="fortress" checked> Fortresses</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="town" checked> Towns</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="sacred-site" checked> Sacred Sites</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="oasis" checked> Oases</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="lake" checked> Lakes</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="route-node" checked> Route Nodes</label>\n'
-        '        <label><input type="checkbox" class="it-cb" data-type="poi" checked> POIs</label>\n'
-        '      </div>\n'
-        '    </div>\n'
         '  </div>\n'
         "</div>\n"
         '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'
