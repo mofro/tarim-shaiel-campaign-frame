@@ -1287,7 +1287,7 @@ def _build_html(
         '  <div id="layer-control">\n'
         '    <div id="drawer-handle" title="Toggle layer panel">\n'
         '      <span id="drawer-arrow">&#9664;</span>\n'
-        '      <span id="zoom-readout-v">Z <span id="zoom-val-v">—</span></span>\n'
+        '      <span id="zoom-readout-v">zoom <span id="zoom-val-v">—</span></span>\n'
         '    </div>\n'
         '    <div id="drawer-body">\n'
         '      <label>\n'
