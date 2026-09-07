@@ -287,9 +287,9 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   cursor:pointer; padding:8px 0 10px; gap:6px;
   box-shadow:2px 2px 8px rgba(0,0,0,0.5); backdrop-filter:blur(3px);
   user-select:none; flex-shrink:0; }
-#drawer-arrow { font-size:10px; color:#b8922c; line-height:1; transition:transform 0.2s; }
+#drawer-arrow { font-size:13px; color:#b8922c; line-height:1; transition:transform 0.2s; }
 #layer-control.collapsed #drawer-arrow { transform:rotate(180deg); }
-#zoom-readout-v { writing-mode:vertical-rl; font-size:11px; color:#8a7a5a;
+#zoom-readout-v { writing-mode:vertical-rl; font-size:14px; color:#8a7a5a;
   letter-spacing:0.08em; white-space:nowrap; }
 #zoom-val-v { color:#c8a84a; font-weight:bold; }
 #drawer-body { background:rgba(26,18,8,0.88); color:#f0e6c8; padding:7px 11px;
