@@ -14,7 +14,7 @@ location:
   - 77.347223
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: water-body
+mapmarker: lake
 name: Xiao'erkule Lake
 real_world_name: Xiao'erkule Lake
 tags:

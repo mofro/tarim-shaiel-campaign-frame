@@ -14,7 +14,7 @@ location:
 - 86.673072
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: water-body
+mapmarker: lake
 name: Qiala Shuiku
 real_world_name: Qiala Shuiku
 tags:

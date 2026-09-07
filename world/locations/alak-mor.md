@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 parent_region: steppe-confederations
 domain: world
 doc_type: canon
-content_type: landmark
+content_type: location
 visibility: public
 status: draft
 created: 2026-01-05
@@ -16,7 +16,7 @@ location:
 - 81.5
 map_min_zoom: 6
 map_max_zoom: 7
-mapmarker: water-body
+mapmarker: lake
 name: Alak-Mor
 real_world_name: Lake Alakol
 tags:
