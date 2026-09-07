@@ -724,7 +724,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'layout["text-field"]=["case",["==",["get","mapLabel"],false],"",["get","label"]];'
         'layout["text-font"]=font;layout["text-size"]=tSz;'
         'layout["text-offset"]=[0,1.1];layout["text-anchor"]="top";layout["text-max-width"]=8;'
-        'layout["text-allow-overlap"]=true;layout["text-optional"]=true;'
+        'layout["text-allow-overlap"]=false;layout["text-optional"]=true;'
         'paint["text-color"]="#1a1208";paint["text-halo-color"]="#ffffff";'
         'paint["text-halo-width"]=1.5;paint["text-opacity"]=1;}'
         'map.addLayer({id:id,type:"symbol",minzoom:mz,source:"locations",'

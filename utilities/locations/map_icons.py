@@ -44,7 +44,7 @@ def icon_registration_js() -> str:
         # capital — gold 5-pointed star backing + city ring + inner dot
         '_mk("cat-capital",function(ctx){'
           'ctx.fillStyle="#b8892a";ctx.beginPath();'
-          'for(var i=0;i<10;i++){var r=(i%2===0)?30:12;var a=i*Math.PI/5-Math.PI/2;'
+          'for(var i=0;i<10;i++){var r=(i%2===0)?32:12;var a=i*Math.PI/5-Math.PI/2;'
           'i===0?ctx.moveTo(32+r*Math.cos(a),32+r*Math.sin(a)):ctx.lineTo(32+r*Math.cos(a),32+r*Math.sin(a));}'
           'ctx.closePath();ctx.fill();'
           'ctx.fillStyle="rgba(255,255,255,0.60)";ctx.beginPath();ctx.arc(32,32,28,0,Math.PI*2);ctx.fill();'
