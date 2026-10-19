@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-08-22
+last_updated: 2026-10-19
 
 critical_path:
   - Resolve cosmological architecture
@@ -41,7 +41,7 @@ domain_overrides:
   # Update these when significant bodies of work complete — bd issue close rate drives
   # incremental progress; major milestones (scenario complete, section shipped) warrant
   # bumping the value manually.
-  narrative: 50
+  narrative: 65
   mechanics: 95
   world: 97
   infra: 96
@@ -53,9 +53,10 @@ blockers:
 
 ## Quick Summary
 
-- 🔄 **In review (2026-07-04):** LK Bridge — vault↔LegendKeeper converter (`utilities/lk-bridge/`), validator, 24 tests; all four round-trip questions verified live (secrets survive, hidden pages preserved, additive sync works). [PR #273](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/273); HeroHeaven-x1i stays open pending LK API. Pre-existing bugs filed: HeroHeaven-zqo (tests broken on main), HeroHeaven-bl5 (geojson build).
+- 🔄 **In review (2026-07-04):** LK Bridge — vault↔LegendKeeper converter (`utilities/lk-bridge/`), validator, 24 tests; all four round-trip questions verified live (secrets survive, hidden pages preserved, additive sync works). [PR #273](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/273). **⚠️ LK API blocker CLEARED (2026-10-19):** LegendKeeper v3 REST API is live — resources, documents, maps, timelines, assets; TypeScript SDK (`@legendkeeper/sdk`); project API key auth. HeroHeaven-x1i ready to resume. Pre-existing bugs filed: HeroHeaven-zqo (tests broken on main), HeroHeaven-bl5 (geojson build).
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, Orc cultural framework, Silk Road weapons, Cosmological architecture (all 8 decisions locked 2026-03-17), World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10), Preliminary world diagrams (2026-03-13), HTML publishing pipeline + Netlify deployment (2026-03-15), Visibility gating + Obsidian Shell Commands integration (2026-03-17)
-- 🔄 **Active work:** Session 0 scenarios (3/11 complete: Warrior, Seeker, Breaker; 7 have design framework only; Keeper surrendered layer pending Decision 15), STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual entity files to be created from indexes
+- ✅ **Campaign active (2026-06-26+):** Session 0 ran 2026-06-26; Sessions 1 & 2 ran July 2026. Players: Lisa/Warrior, Arno/Sentinel, Erik/Seeker, Marc/Visionary (committed); Dave/Rill (Warlock), Jim/Sahir (Bard) as new heroes; Bruce deciding.
+- 🔄 **Active work:** Session 0 scenarios — 5/11 complete (Warrior, Seeker, Breaker, Sentinel, Visionary); 6 have design framework only (Bridge, Sacrificer, Trickster, Crafter, Healer, Keeper pending Decision 15). STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual divine entity files to be created from indexes.
 - ✅ **Resolved (2026-04-05):** liberation_aftermath.md rewrite — v2.0 complete; Warren disturbance framing + 1,000-year timeline. [#106](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/106)
 - ✅ **Completed (2026-04-11):** lat.md/ AI navigation layer — 6 dense, path-forward orientation files + CLAUDE.md Quick Navigation table. [#121](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/121)
 - ✅ **Completed (2026-04-11):** CLAUDE.md audit + subagent context block — created lat.md/subagent-context.md; CLAUDE.md slimmed 258→174 lines; stale Wizard constraint corrected. [#128](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/128)
