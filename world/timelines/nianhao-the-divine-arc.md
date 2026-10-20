@@ -8,11 +8,10 @@ tags: [timeline, history]
 visibility: gm_secrets
 status: draft
 created: 2026-03-16
-last_updated: 2026-05-02
+last_updated: 2026-10-20
 calendar: Menology of Epochs
 lk_project_id: cml606e6t0s8o0io13yhs8f1t
 lk_resource_id: xew0xgj2
-last_updated: 2026-10-20
 ---
 
 ## Calendar Eras
