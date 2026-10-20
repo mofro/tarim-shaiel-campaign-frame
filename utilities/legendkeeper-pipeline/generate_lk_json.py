@@ -364,6 +364,7 @@ def build_timeline_json(fm: dict, body: str) -> dict:
                 if line.strip().startswith('-'):
                     ev = parse_event_line(line, secret_lane_id, len(lanes) - 1, event_index)
                     if ev:
+                        ev['isHidden'] = True
                         all_events.append(ev)
                         event_index += 1
 
