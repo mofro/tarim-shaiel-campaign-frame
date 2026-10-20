@@ -11,7 +11,7 @@ created: 2026-03-16
 last_updated: 2026-10-20
 calendar: Menology of Epochs
 lk_project_id: cmlmsqvco0vug0toncbom5qfh
-lk_resource_id: xew0xgj2
+lk_resource_id: qtmalwr6
 ---
 
 ## Calendar Eras
