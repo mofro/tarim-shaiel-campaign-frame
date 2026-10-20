@@ -614,9 +614,8 @@ def push_to_legendkeeper(export: dict, fm: dict) -> None:
 
     for ev in desired_events:
         lk_lane_id = lane_id_map.get(ev["laneId"], ev["laneId"])
-        payload: dict = {
+        base_payload: dict = {
             "laneId": lk_lane_id,
-            "type": "event",
             "name": ev["name"],
             "start": ev["start"],
             "color": ev.get("color", "#6B7280"),
@@ -624,27 +623,28 @@ def push_to_legendkeeper(export: dict, fm: dict) -> None:
             "isHidden": ev.get("isHidden", False),
         }
         if "end" in ev:
-            payload["end"] = ev["end"]
+            base_payload["end"] = ev["end"]
 
         if ev["name"] in existing_by_name:
             existing = existing_by_name[ev["name"]]
             # Only PATCH if something actually changed
             needs_update = (
-                existing.get("start") != payload["start"]
-                or existing.get("end") != payload.get("end")
-                or existing.get("color") != payload["color"]
-                or existing.get("iconGlyph") != payload["iconGlyph"]
-                or existing.get("isHidden") != payload["isHidden"]
+                existing.get("start") != base_payload["start"]
+                or existing.get("end") != base_payload.get("end")
+                or existing.get("color") != base_payload["color"]
+                or existing.get("iconGlyph") != base_payload["iconGlyph"]
+                or existing.get("isHidden") != base_payload["isHidden"]
                 or existing.get("laneId") != lk_lane_id
             )
             if needs_update:
                 _lk_request(
                     api_key, project_id, "PATCH",
-                    f"{base}/events/{existing['id']}", payload,
+                    f"{base}/events/{existing['id']}", base_payload,
                 )
                 updated += 1
         else:
-            _lk_request(api_key, project_id, "POST", f"{base}/events", payload)
+            _lk_request(api_key, project_id, "POST", f"{base}/events",
+                        {"type": "event", **base_payload})
             created += 1
 
     # Delete events in LK that are no longer in the Markdown
