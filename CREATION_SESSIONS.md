@@ -16,6 +16,19 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-10-20
+- LegendKeeper timeline pipeline — full sync operational (PR #305)
+  - Applied ancestry renames throughout `nianhao-the-divine-arc.md`: Orc→Tulpar, Elf→Serenvar, Goblin→Jivar, Dwarf/Dwarven→Khuban
+  - Fixed duplicate `last_updated` frontmatter key in the timeline file
+  - Corrected stale LK IDs in timeline frontmatter: project `cml606e6t0s8o0io13yhs8f1t`→`cmlmsqvco0vug0toncbom5qfh`, resource `xew0xgj2`→`qtmalwr6`
+  - Debugged and fixed three API errors in `generate_lk_json.py --push`:
+    - Cloudflare bot block (error 1010): added browser-like User-Agent header
+    - `WRONG_PROJECT` 403: old project ID in EXTERNAL_TOOLS.md; corrected via share URL
+    - `VALIDATION_ERROR` on PATCH: `type` field valid on POST but rejected on PATCH; removed from base payload
+  - Successful push: 27 events created, 31 updated, 27 deleted; all 4 Netlify deploys green
+  - Updated EXTERNAL_TOOLS.md: stale LK timeline link replaced with correct project/resource/doc IDs
+  - Next step: verify 9 SECRET events appear hidden in LK GM view, absent in player/share view → record in GH #213
+
 ### Session 2026-09-02
 - Fixed "Regenerate Route" doing nothing when a connected location had been repositioned via Edit Coords
   - Root cause: `generate_routes.py` always re-routed between a route's own stale stored coordinates; nothing ever resynced route endpoints to a moved location's current `.md` position
