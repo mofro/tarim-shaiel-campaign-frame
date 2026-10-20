@@ -1,0 +1,1710 @@
+{
+  "version": 1,
+  "exportId": "co87e12a",
+  "exportedAt": "2026-08-21T00:46:57.536Z",
+  "resources": [
+    {
+      "schemaVersion": 1,
+      "aliases": [],
+      "banner": {
+        "enabled": false,
+        "url": "",
+        "yPosition": 50
+      },
+      "createdBy": "cml2gce5mkeo90876am5qn6na",
+      "documents": [
+        {
+          "id": "lkp7ictn",
+          "pos": "A",
+          "createdAt": "2026-02-03T02:52:15.528Z",
+          "updatedAt": "2026-02-03T02:52:15.528Z",
+          "locatorId": "document:lkp7ictn",
+          "name": "Overview",
+          "type": "page",
+          "isHidden": false,
+          "tableOfContents": false,
+          "isFirst": true,
+          "transforms": [],
+          "sources": [],
+          "content": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "panel",
+                "attrs": {
+                  "panelType": "info"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "A template for a specific person. For example, a merchant, a prince, a scientist--anyone who has an important role to play in your world. "
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "blockquote",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Something the character has said.",
+                        "marks": [
+                          {
+                            "type": "em",
+                            "attrs": {}
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "infoboxPm",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-infobox",
+                  "parameters": {},
+                  "layout": "default"
+                },
+                "content": [
+                  {
+                    "type": "infoboxPmRow",
+                    "attrs": {
+                      "value": {
+                        "type": "KEY_VALUE",
+                        "title": "PROPERTIES",
+                        "data": {
+                          "rows": [
+                            {
+                              "id": "bhd6e80g",
+                              "pos": "R",
+                              "key": "<class>",
+                              "value": {
+                                "type": "doc",
+                                "content": [
+                                  {
+                                    "type": "paragraph",
+                                    "attrs": {
+                                      "ychange": null,
+                                      "textAlign": null
+                                    },
+                                    "content": [
+                                      {
+                                        "type": "text",
+                                        "text": "<subclass>"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "layout": "list",
+                          "align": "left"
+                        },
+                        "isTitleHidden": true,
+                        "id": "xansi6fc",
+                        "pos": "S"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "table",
+                "attrs": {
+                  "isNumberColumnEnabled": false,
+                  "layout": "banded",
+                  "__autoSize": false
+                },
+                "content": [
+                  {
+                    "type": "tableRow",
+                    "content": [
+                      {
+                        "type": "tableHeader",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1,
+                          "colwidth": [
+                            120
+                          ]
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 6
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "AGILITY"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableHeader",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1,
+                          "colwidth": [
+                            120
+                          ]
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 6
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "STRENGTH"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableHeader",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 6
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "FINESSE"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableHeader",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 6
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "INSTINCT"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableHeader",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 6
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "PRESENCE"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableHeader",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1,
+                          "colwidth": [
+                            123
+                          ]
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 6
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "KNOWLEDGE"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableRow",
+                    "content": [
+                      {
+                        "type": "tableCell",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1,
+                          "colwidth": [
+                            120
+                          ]
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 2
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "0",
+                                "marks": [
+                                  {
+                                    "type": "strong",
+                                    "attrs": {}
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableCell",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1,
+                          "colwidth": [
+                            120
+                          ]
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 2
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "0",
+                                "marks": [
+                                  {
+                                    "type": "strong",
+                                    "attrs": {}
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableCell",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 2
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "0",
+                                "marks": [
+                                  {
+                                    "type": "strong",
+                                    "attrs": {}
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableCell",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 2
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "0",
+                                "marks": [
+                                  {
+                                    "type": "strong",
+                                    "attrs": {}
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableCell",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 2
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "0",
+                                "marks": [
+                                  {
+                                    "type": "strong",
+                                    "attrs": {}
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "tableCell",
+                        "attrs": {
+                          "colspan": 1,
+                          "rowspan": 1,
+                          "colwidth": [
+                            123
+                          ]
+                        },
+                        "content": [
+                          {
+                            "type": "heading",
+                            "attrs": {
+                              "level": 2
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "0",
+                                "marks": [
+                                  {
+                                    "type": "strong",
+                                    "attrs": {}
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "layoutSection",
+                "content": [
+                  {
+                    "type": "layoutColumn",
+                    "attrs": {
+                      "width": 50
+                    },
+                    "content": [
+                      {
+                        "type": "extension",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-image",
+                          "parameters": {
+                            "nodeId": "block-image-vb3s3i3o",
+                            "extensionTitle": "Image",
+                            "blockTitle": "Image",
+                            "isTitleHidden": true,
+                            "fixedWidth": true,
+                            "blockWidth": 280,
+                            "fill": true,
+                            "url": "https://assets.legendkeeper.com/256251b7-aacd-4dd9-88a7-78694a4e4e1e.png",
+                            "displayAspectRatio": 1.3275862068965518,
+                            "naturalAspect": 1.3275862068965518,
+                            "fadeBottom": true
+                          },
+                          "text": "Image",
+                          "layout": "default"
+                        }
+                      },
+                      {
+                        "type": "infoboxPm",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-infobox",
+                          "parameters": {
+                            "blockWidth": 100
+                          },
+                          "layout": "wrap-right"
+                        },
+                        "content": [
+                          {
+                            "type": "infoboxPmRow",
+                            "attrs": {
+                              "value": {
+                                "type": "KEY_VALUE",
+                                "title": "Properties",
+                                "data": {
+                                  "rows": [
+                                    {
+                                      "id": "biy6cxju",
+                                      "pos": "0|aaaaaa:",
+                                      "key": "Evasion"
+                                    },
+                                    {
+                                      "id": "wsp6t8te",
+                                      "pos": "0|aaaaaa<",
+                                      "key": "Minor"
+                                    },
+                                    {
+                                      "id": "ebkxfe7y",
+                                      "pos": "0|aaaaaa@",
+                                      "key": "Major"
+                                    },
+                                    {
+                                      "id": "ub8ljszu",
+                                      "pos": "0|aaaaaaE",
+                                      "key": "Severe"
+                                    }
+                                  ],
+                                  "align": "left",
+                                  "showIcons": true,
+                                  "layout": "list",
+                                  "isTitleHidden": true,
+                                  "backgroundColor": "#A855F7"
+                                },
+                                "isTitleHidden": true,
+                                "backgroundColor": "#A855F7",
+                                "id": "pkyy1vt0",
+                                "pos": "R"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "layoutColumn",
+                    "attrs": {
+                      "width": 50
+                    },
+                    "content": [
+                      {
+                        "type": "extension",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-meter",
+                          "parameters": {
+                            "nodeId": "block-meter-b9utuscn",
+                            "extensionTitle": "Progress Bar",
+                            "blockTitle": "Progress Bar",
+                            "isTitleHidden": true,
+                            "mode": "bar",
+                            "items": [
+                              {
+                                "id": "bar-1",
+                                "name": "HP",
+                                "icon": "heart",
+                                "current": 6,
+                                "max": 12,
+                                "color": "#EC4899"
+                              },
+                              {
+                                "id": "bar-2",
+                                "name": "Stress",
+                                "icon": "bolt-lightning",
+                                "current": 0,
+                                "max": 9,
+                                "color": "#F59E0B"
+                              },
+                              {
+                                "id": "1787189606981",
+                                "name": "Armor",
+                                "icon": "shield",
+                                "current": 2,
+                                "max": 9,
+                                "color": "none"
+                              },
+                              {
+                                "id": "1787190458412",
+                                "name": "Hope",
+                                "icon": "fa-solid fa-circle",
+                                "current": 4,
+                                "max": 6,
+                                "color": "none"
+                              }
+                            ],
+                            "format": "a",
+                            "showText": true,
+                            "showIcon": true
+                          },
+                          "text": "Progress Bar",
+                          "layout": "default"
+                        }
+                      },
+                      {
+                        "type": "bodiedExtension",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-text-field",
+                          "parameters": {
+                            "nodeId": "block-text-field-e0vn8ggv",
+                            "extensionTitle": "TEXT",
+                            "blockTitle": "TEXT",
+                            "isTitleHidden": true
+                          },
+                          "text": "TEXT",
+                          "layout": "default"
+                        },
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "MAIN",
+                                "marks": [
+                                  {
+                                    "type": "strong",
+                                    "attrs": {}
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": ": lorem ipsum dolor sit amet consectetur adipiscing elit occaecat et laborum maxime duis eos enim minim excepturi aliqua fugiat mollit quo est officia accusamus molestias eum consequatur dolores possimus est assumenda maxime do omnis est "
+                              }
+                            ]
+                          },
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "type": "text",
+                                "text": "SECONDARY",
+                                "marks": [
+                                  {
+                                    "type": "strong",
+                                    "attrs": {}
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "text",
+                                "text": ": tempore veniam et quidem quibusdam dolor quibusdam cillum ut voluptas dolor voluptas nulla laborum addjlkjdlksajdlksajkl asjdk kjas. dsajkl asd jklsad asdl jas djkl dsa jl as as ljasdl  alsd jkl  adjk lajsk ld"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "layoutSection",
+                "content": [
+                  {
+                    "type": "layoutColumn",
+                    "attrs": {
+                      "width": 50
+                    },
+                    "content": [
+                      {
+                        "type": "heading",
+                        "attrs": {
+                          "level": 2
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Experience (+2)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "bulletList",
+                        "content": [
+                          {
+                            "type": "listItem",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "content": [
+                                  {
+                                    "type": "text",
+                                    "text": "ashdljhsjlahdlhsdlsa"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "listItem",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "content": [
+                                  {
+                                    "type": "text",
+                                    "text": "sdjlksajkldjlskjdklsjakld"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "listItem",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "content": [
+                                  {
+                                    "type": "text",
+                                    "text": "sahjdhjsahkdjhsakjhdkjshadkas"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "listItem",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "content": [
+                                  {
+                                    "type": "text",
+                                    "text": "asjkdhkjashdjkhsjkahdjksahdkas"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "listItem",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "content": [
+                                  {
+                                    "type": "text",
+                                    "text": "sahjdhsjkahdkashjksd"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "heading",
+                        "attrs": {
+                          "level": 2
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Active Armor (+2)"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "extension",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-key-value",
+                          "parameters": {
+                            "nodeId": "block-key-value-1787192553508-gjabmb2rs",
+                            "extensionTitle": "Properties",
+                            "blockTitle": "Properties",
+                            "isTitleHidden": true,
+                            "rows": [
+                              {
+                                "id": "pyfake25",
+                                "pos": "0|aaaaaa:",
+                                "key": "Name"
+                              },
+                              {
+                                "id": "je5b73qe",
+                                "pos": "0|aaaaaa;",
+                                "key": "Base Score"
+                              },
+                              {
+                                "id": "p7thf8qp",
+                                "pos": "0|aaaaaa<",
+                                "key": "Feature"
+                              }
+                            ],
+                            "align": "left",
+                            "showIcons": true
+                          },
+                          "text": "Properties",
+                          "layout": "default"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "layoutColumn",
+                    "attrs": {
+                      "width": 50
+                    },
+                    "content": [
+                      {
+                        "type": "heading",
+                        "attrs": {
+                          "level": 2
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Active Weapons "
+                          },
+                          {
+                            "type": "inlineExtension",
+                            "attrs": {
+                              "extensionType": "com.algorific.legendkeeper.extensions",
+                              "extensionKey": "inline-icon",
+                              "parameters": {
+                                "icon": "hand-back-fist"
+                              },
+                              "text": "Icon"
+                            }
+                          },
+                          {
+                            "type": "inlineExtension",
+                            "attrs": {
+                              "extensionType": "com.algorific.legendkeeper.extensions",
+                              "extensionKey": "inline-icon",
+                              "parameters": {
+                                "icon": "hand-fist"
+                              },
+                              "text": "Icon"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "heading",
+                        "attrs": {
+                          "level": 3
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Primary"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "extension",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-key-value",
+                          "parameters": {
+                            "nodeId": "block-key-value-a6pq2bja",
+                            "extensionTitle": "Properties",
+                            "blockTitle": "Properties",
+                            "isTitleHidden": true,
+                            "rows": [
+                              {
+                                "id": "pyfake25",
+                                "pos": "0|aaaaaa:",
+                                "key": "Name"
+                              },
+                              {
+                                "id": "je5b73qe",
+                                "pos": "0|aaaaaa;",
+                                "key": "Trait & Range"
+                              },
+                              {
+                                "id": "oy0a24ld",
+                                "pos": "0|aaaaaa?",
+                                "key": "Damage Dice"
+                              },
+                              {
+                                "id": "p7thf8qp",
+                                "pos": "0|aaaaaaB",
+                                "key": "Feature"
+                              }
+                            ],
+                            "align": "left",
+                            "showIcons": true
+                          },
+                          "text": "Properties",
+                          "layout": "default"
+                        }
+                      },
+                      {
+                        "type": "heading",
+                        "attrs": {
+                          "level": 3
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Secondary"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "extension",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-key-value",
+                          "parameters": {
+                            "nodeId": "block-key-value-1787192497518-6xamhcfpu",
+                            "extensionTitle": "Properties",
+                            "blockTitle": "Properties",
+                            "isTitleHidden": true,
+                            "rows": [
+                              {
+                                "id": "pyfake25",
+                                "pos": "0|aaaaaa:",
+                                "key": "Name"
+                              },
+                              {
+                                "id": "je5b73qe",
+                                "pos": "0|aaaaaa;",
+                                "key": "Trait & Range"
+                              },
+                              {
+                                "id": "oy0a24ld",
+                                "pos": "0|aaaaaa?",
+                                "key": "Damage Dice"
+                              },
+                              {
+                                "id": "p7thf8qp",
+                                "pos": "0|aaaaaaB",
+                                "key": "Feature"
+                              }
+                            ],
+                            "align": "left",
+                            "showIcons": true
+                          },
+                          "text": "Properties",
+                          "layout": "default"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "layoutSection",
+                "content": [
+                  {
+                    "type": "layoutColumn",
+                    "attrs": {
+                      "width": 50
+                    },
+                    "content": [
+                      {
+                        "type": "heading",
+                        "attrs": {
+                          "level": 2
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Class Feature"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Your character's physical description; things like eye color, hair color, hair style, physical mannerisms, distinguishing features, fitness, strengths, and weaknesses."
+                          }
+                        ]
+                      },
+                      {
+                        "type": "paragraph"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "layoutColumn",
+                    "attrs": {
+                      "width": 50
+                    },
+                    "content": [
+                      {
+                        "type": "heading",
+                        "attrs": {
+                          "level": 2
+                        },
+                        "content": []
+                      },
+                      {
+                        "type": "extension",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-meter",
+                          "parameters": {
+                            "nodeId": "meter-omhavsvt",
+                            "extensionTitle": "COIN",
+                            "blockTitle": "Progress Bar",
+                            "isTitleHidden": false,
+                            "mode": "pool",
+                            "items": [
+                              {
+                                "id": "k1a9l3z7",
+                                "name": "Gold",
+                                "icon": "circle",
+                                "current": 2,
+                                "max": 50,
+                                "color": "#F59E0B"
+                              }
+                            ],
+                            "format": "a",
+                            "showText": true,
+                            "showIcon": false,
+                            "showMax": false
+                          },
+                          "text": "Token Pool",
+                          "layout": "default"
+                        }
+                      },
+                      {
+                        "type": "extension",
+                        "attrs": {
+                          "extensionType": "com.algorific.legendkeeper.extensions",
+                          "extensionKey": "block-meter",
+                          "parameters": {
+                            "nodeId": "block-meter-1787193490685-xr7qj3muf",
+                            "extensionTitle": "COIN",
+                            "blockTitle": "Progress Bar",
+                            "isTitleHidden": false,
+                            "mode": "pool",
+                            "items": [
+                              {
+                                "id": "1787192077709",
+                                "name": "Silver",
+                                "icon": "fa-solid fa-circle",
+                                "current": 0,
+                                "max": 50,
+                                "color": "#D4D4D4"
+                              },
+                              {
+                                "id": "1787192080575",
+                                "name": "Copper",
+                                "icon": "fa-solid fa-circle",
+                                "current": 0,
+                                "max": 50,
+                                "color": "#78350F"
+                              }
+                            ],
+                            "format": "a",
+                            "showText": true,
+                            "showIcon": false,
+                            "showMax": false
+                          },
+                          "text": "Token Pool",
+                          "layout": "default"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 2
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Inventory"
+                  }
+                ]
+              },
+              {
+                "type": "infoboxPm",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-infobox",
+                  "parameters": {},
+                  "layout": "default"
+                },
+                "content": [
+                  {
+                    "type": "infoboxPmRow",
+                    "attrs": {
+                      "value": {
+                        "type": "TEXT_FIELD",
+                        "title": "TEXT",
+                        "data": {
+                          "fragment": {
+                            "type": "doc",
+                            "content": [
+                              {
+                                "type": "paragraph",
+                                "attrs": {
+                                  "id": null,
+                                  "visibility": null,
+                                  "ychange": null,
+                                  "textAlign": null
+                                }
+                              },
+                              {
+                                "type": "paragraph",
+                                "attrs": {
+                                  "id": null,
+                                  "visibility": null,
+                                  "ychange": null,
+                                  "textAlign": null
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "isTitleHidden": true,
+                        "id": "sasdgqrc",
+                        "pos": "S"
+                      }
+                    }
+                  },
+                  {
+                    "type": "infoboxPmRow",
+                    "attrs": {
+                      "value": {
+                        "type": "KEY_VALUE",
+                        "title": "Inventory Weapon",
+                        "data": {
+                          "rows": [
+                            {
+                              "id": "pyfake25",
+                              "pos": "0|aaaaaa:",
+                              "key": "Name"
+                            },
+                            {
+                              "id": "je5b73qe",
+                              "pos": "0|aaaaaa;",
+                              "key": "Trait & Range"
+                            },
+                            {
+                              "id": "p7thf8qp",
+                              "pos": "0|aaaaaa<",
+                              "key": "Damage Dice"
+                            },
+                            {
+                              "id": "hmum7mvv",
+                              "pos": "0|aaaaaa@",
+                              "key": "Feature"
+                            }
+                          ],
+                          "align": "left",
+                          "showIcons": true,
+                          "isTitleHidden": true
+                        },
+                        "isTitleHidden": false,
+                        "pos": "W",
+                        "id": "rh06lzch"
+                      }
+                    }
+                  },
+                  {
+                    "type": "infoboxPmRow",
+                    "attrs": {
+                      "value": {
+                        "type": "KEY_VALUE",
+                        "title": "Inventory Armor",
+                        "data": {
+                          "rows": [
+                            {
+                              "id": "pyfake25",
+                              "pos": "0|aaaaaa:",
+                              "key": "Name"
+                            },
+                            {
+                              "id": "je5b73qe",
+                              "pos": "0|aaaaaa;",
+                              "key": "Base Score"
+                            },
+                            {
+                              "id": "p7thf8qp",
+                              "pos": "0|aaaaaa<",
+                              "key": "Feature"
+                            }
+                          ],
+                          "align": "left",
+                          "showIcons": true,
+                          "isTitleHidden": true
+                        },
+                        "isTitleHidden": false,
+                        "resourceId": "knkm2u6a",
+                        "pos": "Y",
+                        "id": "odxagcpd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 2
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Description"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Your character's physical description; things like eye color, hair color, hair style, physical mannerisms, distinguishing features, fitness, strengths, and weaknesses."
+                  }
+                ]
+              },
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 2
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Traits and Motivations"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "What is their personality type? Are they funny? Do they have a temper? Are they motivated to protect a loved one? Do they have particular virtues? Bad habits? Any fears or phobias?"
+                  }
+                ]
+              },
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 2
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Routine"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "What does your character's normal day look like? What do they do? What do they think about?"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ]
+              },
+              {
+                "type": "bodiedExtension",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-secret",
+                  "parameters": {
+                    "extensionTitle": "Secret"
+                  },
+                  "layout": "default"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Content in this block is a secret; information that only admins can see. By the way, this is an example template! Modify it to fit your needs."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "bodiedExtension",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-secret",
+                  "parameters": {
+                    "extensionTitle": "Secret"
+                  },
+                  "layout": "default"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "More Secrets"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph"
+              },
+              {
+                "type": "extension",
+                "attrs": {
+                  "extensionType": "com.algorific.legendkeeper.extensions",
+                  "extensionKey": "block-key-value",
+                  "parameters": {
+                    "nodeId": "block-key-value-r7qsfqq2",
+                    "extensionTitle": "Inventory Weapon",
+                    "blockTitle": "Inventory Weapon",
+                    "rows": [],
+                    "isTitleHidden": false
+                  },
+                  "text": "Inventory Weapon",
+                  "layout": "default"
+                }
+              },
+              {
+                "type": "paragraph"
+              }
+            ]
+          }
+        },
+        {
+          "id": "k7ikjran",
+          "pos": "B",
+          "createdAt": "2026-02-03T02:52:15.551Z",
+          "updatedAt": "2026-02-03T02:52:15.551Z",
+          "locatorId": "document:k7ikjran",
+          "name": "Backstory",
+          "type": "page",
+          "isHidden": true,
+          "isFirst": false,
+          "transforms": [],
+          "sources": [],
+          "content": {
+            "type": "doc",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Here's a space for elaborating on this character's backstory. This is an opportunity for a brief dossier or microfiction featuring your character, fleshing out defining events in their life. This particular tab has been marked as hidden, so only admins can see it. You can unhide it by right-clicking the tab and toggling the hidden option."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "iconColor": "#FFFFFF",
+      "iconGlyph": "fas fa-user",
+      "iconShape": "pin-icon",
+      "id": "knkm2u6a",
+      "isHidden": false,
+      "isLocked": false,
+      "name": "Character",
+      "parentId": "ob3yi51l",
+      "pos": "m",
+      "properties": [
+        {
+          "id": "ciclix8g",
+          "pos": "Q",
+          "title": "IMAGE",
+          "type": "IMAGE",
+          "data": {
+            "url": "https://assets.legendkeeper.com/d2dd5d4e-a5da-4920-8d2c-25d2dce03246.png",
+            "displayHeight": 272,
+            "scale": 1.25,
+            "origin": [
+              0.5149694286316675,
+              0.4849567784102892
+            ],
+            "naturalAspect": 1
+          }
+        },
+        {
+          "id": "jaid6l8h",
+          "pos": "S",
+          "title": "VIBE",
+          "type": "SPOTIFY_SINGLE",
+          "data": {
+            "url": ""
+          }
+        },
+        {
+          "id": "a4njho9z",
+          "pos": "W",
+          "title": "SUMMARY",
+          "type": "TEXT_FIELD",
+          "data": {
+            "fragment": {
+              "type": "doc",
+              "content": [
+                {
+                  "type": "paragraph"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "vd7sykno",
+          "pos": "X",
+          "title": "FRIENDS",
+          "type": "RESOURCE_LINK",
+          "data": {
+            "items": []
+          }
+        },
+        {
+          "id": "tqc10f9r",
+          "pos": "\\",
+          "title": "ENEMIES",
+          "type": "RESOURCE_LINK",
+          "data": {
+            "items": []
+          }
+        },
+        {
+          "id": "xv6t7kqk",
+          "pos": "`",
+          "title": "TAGS",
+          "type": "TAGS"
+        },
+        {
+          "type": "METER",
+          "title": "Token Pool",
+          "data": {
+            "mode": "pool",
+            "showIcon": false,
+            "items": [
+              {
+                "id": "osxsrqed",
+                "name": "Currency",
+                "icon": "circle",
+                "current": 45,
+                "max": 76,
+                "color": "#3B82F6"
+              }
+            ],
+            "format": "a"
+          },
+          "id": "rvcgpo27",
+          "pos": "c"
+        }
+      ],
+      "showPropertyBar": false,
+      "tags": [
+        "character"
+      ]
+    }
+  ],
+  "calendars": [
+    {
+      "id": "c1kuyu04",
+      "name": "Menology of Eras",
+      "hasZeroYear": true,
+      "maxMinutes": 657092160,
+      "months": [
+        {
+          "id": "jan",
+          "name": "January",
+          "isIntercalary": false,
+          "length": 31,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "feb",
+          "name": "February",
+          "isIntercalary": false,
+          "length": 28,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "mar",
+          "name": "March",
+          "isIntercalary": false,
+          "length": 31,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "apr",
+          "name": "April",
+          "isIntercalary": false,
+          "length": 30,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "may",
+          "name": "May",
+          "isIntercalary": false,
+          "length": 31,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "jun",
+          "name": "June",
+          "isIntercalary": false,
+          "length": 30,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "jul",
+          "name": "July",
+          "isIntercalary": false,
+          "length": 31,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "aug",
+          "name": "August",
+          "isIntercalary": false,
+          "length": 31,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "sep",
+          "name": "September",
+          "isIntercalary": false,
+          "length": 30,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "oct",
+          "name": "October",
+          "isIntercalary": false,
+          "length": 31,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "nov",
+          "name": "November",
+          "isIntercalary": false,
+          "length": 30,
+          "interval": 1,
+          "offset": 0
+        },
+        {
+          "id": "dec",
+          "name": "December",
+          "isIntercalary": false,
+          "length": 31,
+          "interval": 1,
+          "offset": 0
+        }
+      ],
+      "leapDays": [
+        {
+          "id": "leap-day",
+          "name": "Leap Day",
+          "intercalary": false,
+          "month": 1,
+          "addsWeekDay": false,
+          "day": 0,
+          "weekDay": "",
+          "interval": "400,!100,4",
+          "offset": 0
+        }
+      ],
+      "weekdays": [
+        {
+          "id": "sun",
+          "name": "Sunday"
+        },
+        {
+          "id": "mon",
+          "name": "Monday"
+        },
+        {
+          "id": "tue",
+          "name": "Tuesday"
+        },
+        {
+          "id": "wed",
+          "name": "Wednesday"
+        },
+        {
+          "id": "thu",
+          "name": "Thursday"
+        },
+        {
+          "id": "fri",
+          "name": "Friday"
+        },
+        {
+          "id": "sat",
+          "name": "Saturday"
+        }
+      ],
+      "epochWeekday": 1,
+      "weekResetsEachMonth": false,
+      "hoursInDay": 24,
+      "minutesInHour": 60,
+      "negativeEra": {
+        "id": "bc",
+        "name": "Jibîrkirina Hêdî (The Slow Forgetting)",
+        "abbr": "HJ",
+        "hideAbbr": false,
+        "startsAt": -1051552800,
+        "resetMode": "none"
+      },
+      "positiveEras": [
+        {
+          "id": "common-era",
+          "name": "Împeratoriya Nû (New Empire)",
+          "abbr": "NI",
+          "hideAbbr": false,
+          "startsAt": 0,
+          "resetMode": "none"
+        },
+        {
+          "id": "fmsxs34x",
+          "name": "The Age of Chains (Era 0: ~200-250)",
+          "abbr": "AC",
+          "hideAbbr": false,
+          "startsAt": 104840640,
+          "resetMode": "none"
+        },
+        {
+          "id": "zf6b91mm",
+          "name": "The Scattering (Era 1: ~250-400 CE)",
+          "abbr": "TS",
+          "hideAbbr": false,
+          "startsAt": 131315040,
+          "resetMode": "none"
+        },
+        {
+          "id": "jcazzj8a",
+          "name": "The Flowering (Era 2: ~400-700 CE)",
+          "abbr": "TF",
+          "hideAbbr": false,
+          "startsAt": 214064640,
+          "resetMode": "none"
+        },
+        {
+          "id": "m63jrd0g",
+          "name": "The Consolidation (Era 3: ~700-1000 CE)",
+          "abbr": "CE",
+          "hideAbbr": false,
+          "startsAt": 366586560,
+          "resetMode": "none"
+        },
+        {
+          "id": "p5ody4eh",
+          "name": "The Gathering Storm (Era 4: ~1000-1200 CE)",
+          "abbr": "CE",
+          "hideAbbr": false,
+          "startsAt": 526124160,
+          "resetMode": "none"
+        },
+        {
+          "id": "h50rvhjp",
+          "name": "The Age of Reckoning (Era 5: ~1200-1250 CE) Campaign Present",
+          "abbr": "CE",
+          "hideAbbr": false,
+          "startsAt": 630964800,
+          "resetMode": "none"
+        }
+      ],
+      "moons": [
+        {
+          "id": "8706b02f-74c1-496e-8577-1a60f88dee30",
+          "name": "New Moon",
+          "phase": 42524.0463,
+          "shift": 15238,
+          "color": "#FFFFFF"
+        }
+      ],
+      "format": {
+        "id": "custom-1771100402501",
+        "year": "E YYYY",
+        "month": "MMMM, E YYYY",
+        "day": "DDDD, D^ MMMM, [the] SYYYY^ [Year of] EE",
+        "time": "DDDD, D^ MMMM, EE SYYYY, HH:mm"
+      },
+      "halfClock": false
+    }
+  ],
+  "resourceCount": 1,
+  "hash": "7e7d7fc4c2a81e3a5f93e17d1b944f73fde54fa16aedd2c776b781db630b183f"
+}

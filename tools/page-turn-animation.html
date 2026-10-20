@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Turn Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f8f8f8;
+            perspective: 1500px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .book {
+            width: 350px;
+            height: 500px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .page {
+            position: absolute;
+            width: 330px;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .page:before, .page:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            backface-visibility: hidden;
+        }
+        
+        .page:before {
+            /* Front of page */
+            background: #fff;
+        }
+        
+        .page:after {
+            /* Back of page */
+            transform: rotateY(180deg);
+            background: #f5f5f5;
+        }
+        
+        .page-content-front, .page-content-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            backface-visibility: hidden;
+        }
+        
+        .page-content-back {
+            transform: rotateY(180deg);
+        }
+        
+        .page.turned {
+            transform: rotateY(-180deg);
+        }
+        
+        /* Page curl shadow effect */
+        .page:not(.turned):hover {
+            transform: rotateY(-15deg);
+            box-shadow: 
+                15px 10px 20px rgba(0, 0, 0, 0.2),
+                inset -15px 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .book-cover {
+            position: absolute;
+            width: 350px;
+            height: 500px;
+            background: #334455;
+            z-index: -1;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Content styling */
+        h2 {
+            color: #334455;
+            margin-top: 0;
+        }
+        
+        p {
+            line-height: 1.5;
+        }
+        
+        /* Multiple pages */
+        .page:nth-child(1) { z-index: 5; }
+        .page:nth-child(2) { z-index: 4; }
+        .page:nth-child(3) { z-index: 3; }
+        
+        /* Staggered page edges */
+        .page:nth-child(2) {
+            width: 325px;
+            right: 5px;
+        }
+        
+        .page:nth-child(3) {
+            width: 320px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="book-cover"></div>
+        
+        <div class="page" id="page1">
+            <div class="page-content-front">
+                <h2>Page 1 Front</h2>
+                <p>This is the front of page 1. Click to turn the page and see the animation effect. The animation is created using CSS 3D transforms.</p>
+                <p>Notice how the page curls slightly when you hover over it, giving a preview of the turn.</p>
+            </div>
+            <div class="page-content-back">
+                <h2>Page 1 Back</h2>
+                <p>This is the back of page 1. It becomes visible as the page turns.</p>
+                <p>The realistic page turn is achieved with carefully tuned CSS transitions and transform-origin properties.</p>
+            </div>
+        </div>
+        
+        <div class="page" id="page2">
+            <div class="page-content-front">
+                <h2>Page 2 Front</h2>
+                <p>This is the front of page 2. Each page is a div element with front and back faces.</p>
+                <p>The 3D effect is created using CSS perspective and preserve-3d properties.</p>
+            </div>
+            <div class="page-content-back">
+                <h2>Page 2 Back</h2>
+                <p>This is the back of page 2. You can customize the content of each page.</p>
+                <p>Adding more pages is as simple as duplicating the page elements with different content.</p>
+            </div>
+        </div>
+        
+        <div class="page" id="page3">
+            <div class="page-content-front">
+                <h2>Page 3 Front</h2>
+                <p>This is the front of page 3. The staggered edges of the pages add to the realistic book appearance.</p>
+                <p>Each page is slightly narrower than the one before it.</p>
+            </div>
+            <div class="page-content-back">
+                <h2>Page 3 Back</h2>
+                <p>This is the back of page 3. The animation timing is controlled with cubic-bezier for a natural feel.</p>
+                <p>The shadow effects change during the page turn to enhance the 3D illusion.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add click event listeners to all pages
+        document.querySelectorAll('.page').forEach(page => {
+            page.addEventListener('click', function() {
+                this.classList.toggle('turned');
+            });
+        });
+    </script>
+</body>
+</html>
