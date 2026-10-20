@@ -284,9 +284,9 @@ python3 -m http.server 8000 --directory docs
 ### My Worlds on LegendKeeper
 
 - [HeroHeaven (Tarim-Shaeil)](https://app.legendkeeper.com/a/worlds/cmlmsqvco0vug0toncbom5qfh/eexxn5m5) — Primary campaign world
-- [Tarim Shaeil — Timeline View](https://app.legendkeeper.com/a/worlds/cml606e6t0s8o0io13yhs8f1t/xew0xgj2/?mode=list&start=2000-08-28+00%3A00&end=3198-05-05+00%3A00) — Campaign timeline spanning full history
-- [Tarim Shaeil — Character Page](https://app.legendkeeper.com/a/worlds/cml606e6t0s8o0io13yhs8f1t/knkm2u6a/) — Character entry in LK
-- [Tarim Shaeil — Games Notes Template](https://app.legendkeeper.com/a/worlds/cml606e6t0s8o0io13yhs8f1t/mj3qqoun/) — Session notes template
+- [Tarim Shaeil — Timeline View (Nianhao)](https://www.legendkeeper.com/a/cmlmsqvco0vug0toncbom5qfh/qtmalwr6/?mode=list) — Campaign timeline synced via `--push`; project `cmlmsqvco0vug0toncbom5qfh`, resource `qtmalwr6`, doc `isov5prl`
+- [Tarim Shaeil — Character Page](https://app.legendkeeper.com/a/worlds/cmlmsqvco0vug0toncbom5qfh/knkm2u6a/) — Character entry in LK (resource ID may need verification in new project)
+- [Tarim Shaeil — Games Notes Template](https://app.legendkeeper.com/a/worlds/cmlmsqvco0vug0toncbom5qfh/mj3qqoun/) — Session notes template (resource ID may need verification in new project)
 - [Vor-Ktekt](https://app.legendkeeper.com/a/worlds/cmlmsqvco0vug0toncbom5qfh/pgssihwz/z5n5r4zy) — Named entry in HeroHeaven world
 - [Laniera](https://www.legendkeeper.com/app/cmamv4xnr23e40zl96jp9f9o7/gkoo8y98/) — Laniera campaign/world
 - [Riverrun (Capital City)](https://www.legendkeeper.com/app/cm32wh8i825es0jmy7s6m4bz3/cm3dknzes044a033b5rh6ki35/) — Capital city entry

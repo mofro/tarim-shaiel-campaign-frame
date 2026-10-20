@@ -3,6 +3,7 @@
 LegendKeeper JSON Generator
 =============================
 Converts an Obsidian source .md file → LegendKeeper JSON (importable .json or .lk).
+With --push, syncs the timeline directly to LegendKeeper via the v3 REST API.
 
 Currently supports: timeline (type: timeline)
 Phase 2: prose pages (type: myth/lore) — requires ProseMirror schema.
@@ -22,14 +23,18 @@ Usage:
     python generate_lk_json.py source.md
     python generate_lk_json.py source.md --output timeline.json
     python generate_lk_json.py source.md --lk          # gzip-compressed .lk
+    python generate_lk_json.py source.md --push        # sync to LK via API
 """
 
+import os
 import re
 import sys
 import json
 import gzip
 import hashlib
 import argparse
+import urllib.request
+import urllib.error
 from pathlib import Path
 from datetime import datetime, timezone
 from uuid import uuid4
@@ -364,6 +369,7 @@ def build_timeline_json(fm: dict, body: str) -> dict:
                 if line.strip().startswith('-'):
                     ev = parse_event_line(line, secret_lane_id, len(lanes) - 1, event_index)
                     if ev:
+                        ev['isHidden'] = True
                         all_events.append(ev)
                         event_index += 1
 
@@ -468,6 +474,191 @@ def build_timeline_json(fm: dict, body: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Dotenv loader (mirrors location_components._load_dotenv)
+# ---------------------------------------------------------------------------
+
+def _load_dotenv() -> None:
+    env_path = Path(__file__).resolve().parent.parent.parent / '.env'
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, _, value = line.partition('=')
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+_load_dotenv()
+
+
+# ---------------------------------------------------------------------------
+# LegendKeeper API push
+# ---------------------------------------------------------------------------
+
+_LK_BASE = "https://www.legendkeeper.com"
+_LK_API  = "/api/v3"
+
+
+def _lk_request(
+    api_key: str,
+    project_id: str,
+    method: str,
+    path: str,
+    body: dict | None = None,
+) -> dict | list | None:
+    url = f"{_LK_BASE}{_LK_API}/projects/{project_id}/{path}"
+    data = json.dumps(body).encode() if body is not None else None
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (compatible; tarim-shaiel-pipeline/1.0)",
+    }
+    req = urllib.request.Request(url, data=data, headers=headers, method=method)
+    try:
+        with urllib.request.urlopen(req) as resp:
+            raw = resp.read()
+            return json.loads(raw) if raw else None
+    except urllib.error.HTTPError as e:
+        body_text = e.read().decode(errors='replace')
+        raise RuntimeError(f"LK API {method} {path} → {e.code}: {body_text}") from e
+
+
+def _lk_list_all(api_key: str, project_id: str, path: str) -> list:
+    """Paginate through a LK list endpoint, returning all items."""
+    results = []
+    cursor = None
+    while True:
+        qs = f"limit=100{'&cursor=' + cursor if cursor else ''}"
+        resp = _lk_request(api_key, project_id, "GET", f"{path}?{qs}")
+        data = resp.get("data", []) if isinstance(resp, dict) else []
+        results.extend(data)
+        if not resp.get("hasMore"):
+            break
+        cursor = resp.get("nextCursor")
+        if not cursor:
+            break
+    return results
+
+
+def _find_time_doc_id(api_key: str, project_id: str, resource_id: str) -> str:
+    """Return the ID of the first 'time' document in the resource."""
+    docs = _lk_list_all(api_key, project_id, f"resources/{resource_id}/docs")
+    time_docs = [d for d in docs if d.get("type") == "time"]
+    if not time_docs:
+        raise RuntimeError(f"No timeline document found in resource {resource_id}")
+    return time_docs[0]["id"]
+
+
+def push_to_legendkeeper(export: dict, fm: dict) -> None:
+    """Sync the generated timeline to LegendKeeper via the v3 API.
+
+    Strategy: upsert lanes and events by name. Events in LK that are no
+    longer in the Markdown are deleted. isHidden is respected per event.
+    """
+    api_key = os.environ.get("LEGENDKEEPER_API_KEY", "")
+    if not api_key:
+        print("ERROR: LEGENDKEEPER_API_KEY not set — cannot push", file=sys.stderr)
+        raise SystemExit(1)
+
+    project_id = str(fm.get("lk_project_id", "")).strip()
+    resource_id = str(fm.get("lk_resource_id", "")).strip()
+    if not project_id or not resource_id:
+        print(
+            "ERROR: frontmatter missing lk_project_id or lk_resource_id\n"
+            "  Add these to the timeline .md file to enable --push",
+            file=sys.stderr,
+        )
+        raise SystemExit(1)
+
+    print(f"  Connecting to LK project {project_id}, resource {resource_id}…")
+    doc_id = _find_time_doc_id(api_key, project_id, resource_id)
+    print(f"  Timeline document: {doc_id}")
+
+    base = f"resources/{resource_id}/docs/{doc_id}"
+
+    # --- Sync lanes -------------------------------------------------------
+    existing_lanes_raw = _lk_request(api_key, project_id, "GET", f"{base}/lanes")
+    existing_lanes: dict[str, str] = {
+        l["name"]: l["id"]
+        for l in (existing_lanes_raw.get("data", []) if existing_lanes_raw else [])
+    }
+
+    doc = export["resources"][0]["documents"][0]
+    desired_lanes: list[dict] = doc["content"]["lanes"]
+    lane_id_map: dict[str, str] = {}  # local short_id → LK lane id
+
+    for i, lane in enumerate(desired_lanes):
+        name = lane["name"]
+        if name in existing_lanes:
+            lk_lane_id = existing_lanes[name]
+        else:
+            resp = _lk_request(api_key, project_id, "POST", f"{base}/lanes", {
+                "name": name,
+                "rank": f"{chr(ord('a') + i)}0",
+                "size": lane.get("size", "sm"),
+            })
+            lk_lane_id = resp["id"]
+            print(f"    + lane  {name!r}")
+        lane_id_map[lane["id"]] = lk_lane_id
+
+    # --- Sync events ------------------------------------------------------
+    existing_events_raw = _lk_list_all(api_key, project_id, f"{base}/events")
+    existing_by_name: dict[str, dict] = {e["name"]: e for e in existing_events_raw}
+
+    desired_events: list[dict] = doc["content"]["events"]
+    desired_names: set[str] = {e["name"] for e in desired_events}
+
+    created = updated = deleted = 0
+
+    for ev in desired_events:
+        lk_lane_id = lane_id_map.get(ev["laneId"], ev["laneId"])
+        base_payload: dict = {
+            "laneId": lk_lane_id,
+            "name": ev["name"],
+            "start": ev["start"],
+            "color": ev.get("color", "#6B7280"),
+            "iconGlyph": ev.get("iconGlyph", "circle"),
+            "isHidden": ev.get("isHidden", False),
+        }
+        if "end" in ev:
+            base_payload["end"] = ev["end"]
+
+        if ev["name"] in existing_by_name:
+            existing = existing_by_name[ev["name"]]
+            # Only PATCH if something actually changed
+            needs_update = (
+                existing.get("start") != base_payload["start"]
+                or existing.get("end") != base_payload.get("end")
+                or existing.get("color") != base_payload["color"]
+                or existing.get("iconGlyph") != base_payload["iconGlyph"]
+                or existing.get("isHidden") != base_payload["isHidden"]
+                or existing.get("laneId") != lk_lane_id
+            )
+            if needs_update:
+                _lk_request(
+                    api_key, project_id, "PATCH",
+                    f"{base}/events/{existing['id']}", base_payload,
+                )
+                updated += 1
+        else:
+            _lk_request(api_key, project_id, "POST", f"{base}/events",
+                        {"type": "event", **base_payload})
+            created += 1
+
+    # Delete events in LK that are no longer in the Markdown
+    for name, ev in existing_by_name.items():
+        if name not in desired_names:
+            _lk_request(
+                api_key, project_id, "DELETE", f"{base}/events/{ev['id']}"
+            )
+            deleted += 1
+
+    print(f"  Events: {created} created, {updated} updated, {deleted} deleted")
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
@@ -483,6 +674,11 @@ def main() -> None:
     parser.add_argument(
         '--lk', action='store_true',
         help='Output as gzip-compressed .lk file instead of plain .json',
+    )
+    parser.add_argument(
+        '--push', action='store_true',
+        help='Sync timeline to LegendKeeper via the v3 API (requires LEGENDKEEPER_API_KEY '
+             'and lk_project_id / lk_resource_id in frontmatter)',
     )
     args = parser.parse_args()
 
@@ -528,6 +724,11 @@ def main() -> None:
     print(f'  Lanes:  {len(lanes)} ({", ".join(l["name"] for l in lanes)})')
     print(f'  Events: {public_count} public + {secret_count} secret')
     print(f'  Hash:   {export["hash"][:16]}…')
+
+    if args.push:
+        print('Pushing to LegendKeeper…')
+        push_to_legendkeeper(export, fm)
+        print('Push complete.')
 
 
 if __name__ == '__main__':
