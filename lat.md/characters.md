@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-10-19
+last_updated: 2026-08-01
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -21,17 +21,17 @@ last_updated: 2026-10-19
 ## Archetypes 🔒
 | Archetype | One-line description | Awakening scenario status | File |
 |---|---|---|---|
-| Breaker | Solves problems through direct action; dismantles barriers | ✅ Complete | [[narrative/sessions/00_session0/Session_0_Breaker_Awakening (Actual).md]] |
+| Breaker | Solves problems through direct action; dismantles barriers | Mostly complete | [[characters/archetypes.md]] |
 | Bridge | Understands people; finds common ground; holds things together | Design framework only | [[characters/archetypes.md]] |
 | Crafter | Does what needs doing; craft as identity, service as purpose | Design framework only | [[characters/archetypes.md]] |
 | Healer | Tends wounds others don't name; sustains what would otherwise break | Design framework only | [[characters/archetypes.md]] |
 | Keeper | Preserves what matters; decides what is worth saving | Design framework only; tool pending Decision 15 | [[characters/archetypes.md]] |
 | Sacrificer | Takes care of people; notices what others need; sustains | Design framework only | [[characters/archetypes.md]] |
-| Seeker | Asks questions others don't; follows threads to their ends | ✅ Complete | [[narrative/sessions/00_session0/Session_0_Seeker_Awakening (Actual).md]] |
-| Sentinel | Stands watch so others don't have to; presence as protection | ✅ Complete | [[narrative/sessions/00_session0/Session_0_Sentinel_Awakening (Actual).md]] |
+| Seeker | Asks questions others don't; follows threads to their ends | Complete | [[characters/archetypes.md]] |
+| Sentinel | Stands watch so others don't have to; presence as protection | Complete | [[characters/archetypes.md]] |
 | Trickster | Finds the gap in every structure; survives by becoming whoever is needed | Design framework only | [[characters/archetypes.md]] |
-| Visionary | Sees what needs to happen; acts on conviction, not authority | ✅ Complete | [[narrative/sessions/00_session0/Session_0_Visionary_Awakening (Actual).md]] |
-| Warrior | Stands between others and harm; steady; reliable | ✅ Complete | [[narrative/sessions/00_session0/Session_0_Warrior_Awakening (Actual).md]] |
+| Visionary | Sees what needs to happen; acts on conviction, not authority | Complete | [[characters/archetypes.md]] |
+| Warrior | Stands between others and harm; steady; reliable | Complete | [[characters/archetypes.md]] |
 
 ## Tools-as-Animistic-Divine-Marks 🔒
 - Tools = externalized divine nature, not passive weapons

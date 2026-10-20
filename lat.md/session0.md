@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-10-19
+last_updated: 2026-04-11
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -18,28 +18,15 @@ last_updated: 2026-10-19
 - Heroes NOT punished — earned paradise, recalled for reasons unknown to them (possibly cosmic conscription — see ❓ in [[lat.md/cosmology]])
 - Dual-truth preserved: GM knows cosmological facts; players experience only emotional/sensory truth
 
-## Session Play Status
-**Session 0 ran: 2026-06-26** (files: [[narrative/sessions/hh_2026-06-26_session-0-awakening.md]] + epigraph/coda/summary)
-**Sessions 1 & 2 ran:** July 2026 — see [[narrative/sessions/01_session1/]] and [[narrative/sessions/02_session2/]]
-**New heroes (not 10 archetypes):** Dave → Rill (Vanara/Warlock, patron: Lord of Exhausted Seams); Jim → Sahir (Rahban/Bard)
-**Committed players:** Lisa/Warrior, Arno/Sentinel, Erik/Seeker, Marc/Visionary + Dave + Jim. Bruce still deciding.
-
 ## Scenario Completion Status
 | Archetype | Status | File |
 |---|---|---|
-| Warrior | ✅ complete (prose benchmark) | [[narrative/sessions/00_session0/Session_0_Warrior_Awakening (Actual).md]] |
-| Seeker | ✅ complete | [[narrative/sessions/00_session0/Session_0_Seeker_Awakening (Actual).md]] |
-| Breaker | ✅ complete | [[narrative/sessions/00_session0/Session_0_Breaker_Awakening (Actual).md]] |
-| Sentinel | ✅ complete | [[narrative/sessions/00_session0/Session_0_Sentinel_Awakening (Actual).md]] |
-| Visionary | ✅ complete | [[narrative/sessions/00_session0/Session_0_Visionary_Awakening (Actual).md]] |
+| Warrior | ✅ v2.0 complete (prose benchmark) | [[narrative/sessions/00_session0/Session_0_Warrior_Awakening.md]] |
+| Seeker | ✅ v0.4 complete | [[narrative/sessions/00_session0/Session_0_Seeker_Awakening.md]] |
+| Breaker | 🚧 v0.2.1 Segment 1 only | [[narrative/sessions/00_session0/Session_0_Breaker_Awakening.md]] |
 | Bridge | Design framework only | — |
 | Sacrificer | Design framework only | — |
-| Trickster | Design framework only | — |
-| Crafter | Design framework only | — |
-| Healer | Design framework only | — |
-| Keeper | Design framework only; tool pending Decision 15 | — |
-| Jim (new hero) | ✅ complete | [[narrative/sessions/00_session0/Session_0_Jim_Introduction.md]] |
-Version history: [[narrative/sessions/00_session0/versions/]]
+| Visionary | Design framework only | — |
 
 ## 7-Segment Pacing 🔒
 - ~145 minutes actual play; 4.5–5 hours with natural pacing
@@ -88,6 +75,3 @@ Version history: [[narrative/sessions/00_session0/versions/]]
 
 ## Only if the summary above doesn't answer it
 - [[narrative/Shared_Memory_Events.md]] — SME event stubs + CP distribution
-- [[narrative/sessions/01_session1/session-chronicle.html]] — Session 1 chronicle
-- [[narrative/sessions/01_session1/world_primer.md]] — in-world orientation doc used in session
-- [[narrative/sessions/00_session0/Session_0_NPC_Index.md]] — NPCs introduced in Session 0
