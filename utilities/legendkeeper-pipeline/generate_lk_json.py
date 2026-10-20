@@ -513,6 +513,7 @@ def _lk_request(
         "Authorization": f"Bearer {api_key}",
         "Accept": "application/json",
         "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (compatible; tarim-shaiel-pipeline/1.0)",
     }
     req = urllib.request.Request(url, data=data, headers=headers, method=method)
     try:
