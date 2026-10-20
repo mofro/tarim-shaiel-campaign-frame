@@ -34,8 +34,7 @@ tbd
 
 ## CULTURAL CHARACTERISTICS
 
-tbd
-
+Serenvar 
 ## SOCIAL STRUCTURE
 
 tbd

@@ -532,6 +532,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_aydarkul-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "aydarkul-lake",
+        "label": "Aydarkul Lake",
+        "title": "Aydarkul Lake",
+        "fantasy_name": "Aydarkul Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/aydarkul-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.00229,
+          40.872807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_baghlan",
       "properties": {
         "kind": "location",
@@ -915,6 +944,35 @@
         "coordinates": [
           83.6,
           41.9
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_catyr-kol",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "catyr-kol",
+        "label": "Çatyr-Kol",
+        "title": "Çatyr-Kol",
+        "fantasy_name": "Çatyr-Kol",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/catyr-kol.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.288167,
+          40.625162
         ]
       }
     },
@@ -1351,16 +1409,16 @@
       "id": "location_egerchi-bridge",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "bridge",
         "slug": "egerchi-bridge",
         "label": "Egerchi Bridge",
         "title": "Egerchi Bridge",
         "fantasy_name": "Egerchi Bridge",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "public",
-        "mapmarker": "landmark",
-        "marker-symbol": "mountain",
-        "marker-color": "#9CA3AF",
+        "mapmarker": "bridge",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -1430,6 +1488,35 @@
         "coordinates": [
           76.188636,
           38.658754
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_eling-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "eling-lake",
+        "label": "Eling Lake",
+        "title": "Eling Lake",
+        "fantasy_name": "Eling Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/eling-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.688251,
+          34.904827
         ]
       }
     },
@@ -1588,6 +1675,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_gasikule-man",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "gasikule-man",
+        "label": "Gasikule Man",
+        "title": "Gasikule Man",
+        "fantasy_name": "Gasikule Man",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/gasikule-man.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.78882,
+          38.120147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_gijduvel",
       "properties": {
         "kind": "location",
@@ -1616,6 +1732,35 @@
         "coordinates": [
           64.682693,
           40.102498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_guanzhuang",
+      "properties": {
+        "kind": "location",
+        "category": "town",
+        "slug": "guanzhuang",
+        "label": "Guanzhuang",
+        "title": "Guanzhuang",
+        "fantasy_name": "Guanzhuang",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/guanzhuang.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.870163,
+          34.958977
         ]
       }
     },
@@ -1679,6 +1824,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_gyaring-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "gyaring-lake",
+        "label": "Gyaring Lake",
+        "title": "Gyaring Lake",
+        "fantasy_name": "Gyaring Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/gyaring-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.267282,
+          34.926603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_ha-budale",
       "properties": {
         "kind": "location",
@@ -1703,6 +1877,35 @@
         "coordinates": [
           88.173709,
           40.372706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_haixin-mountain",
+      "properties": {
+        "kind": "location",
+        "category": "poi",
+        "slug": "haixin-mountain",
+        "label": "Star's Eye Lake",
+        "title": "Haixin Mountain",
+        "fantasy_name": "Star's Eye Lake",
+        "description": "3266 meters",
+        "visibility": "public",
+        "mapmarker": "poi",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>3266 meters</p>",
+        "url": "/locations/haixin-mountain.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.135812,
+          36.860735
         ]
       }
     },
@@ -1875,8 +2078,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          76.9,
-          42.4
+          77.367245,
+          42.427963
         ]
       }
     },
@@ -2084,6 +2287,35 @@
         "coordinates": [
           64.54416,
           39.723937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kalpan",
+      "properties": {
+        "kind": "location",
+        "category": "town",
+        "slug": "kalpan",
+        "label": "Kalpan",
+        "title": "Kalpan",
+        "fantasy_name": "Kalpan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/kalpan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.043883,
+          40.507308
         ]
       }
     },
@@ -2595,6 +2827,93 @@
     },
     {
       "type": "Feature",
+      "id": "location_lake-ebinur",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "lake-ebinur",
+        "label": "Lake Ebinur",
+        "title": "Lake Ebinur",
+        "fantasy_name": "Lake Ebinur",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/lake-ebinur.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.970543,
+          44.882565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_lake-marqakol",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "lake-marqakol",
+        "label": "Lake Marqakol",
+        "title": "Lake Marqakol",
+        "fantasy_name": "Lake Marqakol",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/lake-marqakol.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.710598,
+          48.733411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_lake-zaysan",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "lake-zaysan",
+        "label": "Lake Zaysan",
+        "title": "Lake Zaysan",
+        "fantasy_name": "Lake Zaysan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/lake-zaysan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.891352,
+          48.021992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_last-water",
       "properties": {
         "kind": "location",
@@ -2648,6 +2967,35 @@
         "coordinates": [
           81.118267,
           40.550083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_loqk-fi-jai",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "loqk-fi-jai",
+        "label": "Loqk fi jaî",
+        "title": "Loqk fi jaî",
+        "fantasy_name": "Loqk fi jaî",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/loqk-fi-jai.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.423935,
+          37.088497
         ]
       }
     },
@@ -3367,6 +3715,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_qapsagay-reservoir",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "qapsagay-reservoir",
+        "label": "Qapşağay reservoir",
+        "title": "Qapşağay reservoir",
+        "fantasy_name": "Qapşağay reservoir",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/qapsagay-reservoir.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.54141,
+          43.829435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_qarabulaq",
       "properties": {
         "kind": "location",
@@ -3507,6 +3884,35 @@
         "coordinates": [
           86.673072,
           41.028395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_qinghai-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "qinghai-lake",
+        "label": "Star's Eye Lake",
+        "title": "Qinghai Lake",
+        "fantasy_name": "Star's Eye Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/qinghai-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.182379,
+          36.919192
         ]
       }
     },
@@ -3924,6 +4330,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_sayram-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "sayram-lake",
+        "label": "Sayram Lake",
+        "title": "Sayram Lake",
+        "fantasy_name": "Sayram Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/sayram-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.175171,
+          44.592146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_shahrisabz",
       "properties": {
         "kind": "location",
@@ -4214,6 +4649,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_song-kol",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "song-kol",
+        "label": "Song Kol",
+        "title": "Song Kol",
+        "fantasy_name": "Song Kol",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/song-kol.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.138928,
+          41.853705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_stone-ledger-gate",
       "properties": {
         "kind": "location",
@@ -4224,9 +4688,9 @@
         "fantasy_name": "The Stone Ledger Gate",
         "description": "A controlled high pass where weights, measures, and cargo manifests are certified before crossing.",
         "visibility": "public",
-        "mapmarker": "route-node",
+        "mapmarker": "",
         "marker-symbol": "circle",
-        "marker-color": "#A78040",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -4236,8 +4700,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          75.2,
-          40.4
+          75.185694,
+          40.402897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tajik-sea",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "tajik-sea",
+        "label": "Tajik Sea",
+        "title": "Tajik Sea",
+        "fantasy_name": "Tajik Sea",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tajik-sea.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.035254,
+          40.281226
         ]
       }
     },
@@ -4275,16 +4768,16 @@
       "id": "location_talimuhe-bridge",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "bridge",
         "slug": "talimuhe-bridge",
         "label": "Talimuhe Bridge",
         "title": "Talimuhe Bridge",
         "fantasy_name": "Talimuhe Bridge",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "public",
-        "mapmarker": "landmark",
-        "marker-symbol": "mountain",
-        "marker-color": "#9CA3AF",
+        "mapmarker": "bridge",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -4568,6 +5061,64 @@
     },
     {
       "type": "Feature",
+      "id": "location_toktogul-reservoir",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "toktogul-reservoir",
+        "label": "Toktogul Reservoir",
+        "title": "Toktogul Reservoir",
+        "fantasy_name": "Toktogul Reservoir",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/toktogul-reservoir.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.86625,
+          41.799683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tongchuan",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "tongchuan",
+        "label": "Tongchuan",
+        "title": "Tongchuan",
+        "fantasy_name": "Tongchuan",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tongchuan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.940317,
+          34.896423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_topluq",
       "properties": {
         "kind": "location",
@@ -4719,6 +5270,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_tuzkan-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "tuzkan-lake",
+        "label": "Tuzkan Lake",
+        "title": "Tuzkan Lake",
+        "fantasy_name": "Tuzkan Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tuzkan-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.474074,
+          40.608314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_uchturpan",
       "properties": {
         "kind": "location",
@@ -4743,6 +5323,64 @@
         "coordinates": [
           79.231474,
           41.214343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_ulungur-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "ulungur-lake",
+        "label": "Ulungur Lake",
+        "title": "Ulungur Lake",
+        "fantasy_name": "Ulungur Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/ulungur-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.217064,
+          47.263775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_uvs-nuur",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "uvs-nuur",
+        "label": "Uvs Nuur",
+        "title": "Uvs Nuur",
+        "fantasy_name": "Uvs Nuur",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/uvs-nuur.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.727044,
+          50.293204
         ]
       }
     },
@@ -5070,16 +5708,16 @@
       "id": "location_yanqi-bridge",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "bridge",
         "slug": "yanqi-bridge",
         "label": "Bridge of Winter",
         "title": "Yanqi Bridge",
         "fantasy_name": "Bridge of Winter",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "public",
-        "mapmarker": "landmark",
-        "marker-symbol": "mountain",
-        "marker-color": "#9CA3AF",
+        "mapmarker": "bridge",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -5120,6 +5758,35 @@
         "coordinates": [
           86.568276,
           42.064033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_yaozhou",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "yaozhou",
+        "label": "Yaozhou",
+        "title": "Yaozhou",
+        "fantasy_name": "Yaozhou",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/yaozhou.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          108.97279,
+          34.911173
         ]
       }
     },

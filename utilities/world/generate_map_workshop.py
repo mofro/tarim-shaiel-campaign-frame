@@ -25,16 +25,12 @@ sys.path.insert(0, str(SCRIPT_DIR.parent))
 from locations.location_parser import load_all_locations
 from locations.map_icons import icon_registration_js
 from locations.location_components import MAPTILER_STYLE_URL, MAPTILER_KEY, MAPTILER_STYLE_ID
+from locations.categories import CATEGORIES
 
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 ROUTES_PATH   = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
 REGIONS_PATH  = VAULT_ROOT / "world" / "data" / "tarim-shaiel-regions.geojson"
 OUTPUT_PATH   = VAULT_ROOT / "map-workshop.html"
-
-CATEGORIES = [
-    "city", "town", "caravanserai", "capital", "bridge", "fortress", "sacred-site",
-    "ruins", "route-node", "water-body", "lake", "landmark", "mythic-landscape",
-]
 
 
 # ---------------------------------------------------------------------------
@@ -422,13 +418,8 @@ Adds segments, snaps to roads, rebuilds workshop automatically.</p>
 
 def _build_panel_edit_coords() -> str:
     type_opts = "\n".join(
-        f'      <option value="{v}">{label}</option>'
-        for v, label in [
-            ("city", "City"), ("capital", "Capital"), ("town", "Town"),
-            ("bridge", "Bridge"), ("fortress", "Fortress"), ("landmark", "Landmark"),
-            ("sacred-site", "Sacred Site"), ("oasis", "Oasis"), ("lake", "Lake"),
-            ("route-node", "Route Node"), ("poi", "POI"), ("dungeon", "Dungeon"),
-        ]
+        f'      <option value="{c}">{c}</option>'
+        for c in CATEGORIES
     )
     marker_opts = "\n".join(
         f'      <option value="{v}">{label}</option>'
@@ -1047,10 +1038,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '(function(){'
         'var _ban=document.getElementById("ds-banner");'
         'document.getElementById("ds-banner-close").addEventListener("click",function(){'
-        '_ban.hidden=true;});'
+        '_ban.classList.add("hidden");});'
         'fetch("/api/health")'
-        '.then(function(r){_ban.hidden=r.ok;})'
-        '.catch(function(){_ban.hidden=false;});'
+        '.then(function(r){if(r.ok){_ban.classList.add("hidden");}else{_ban.classList.remove("hidden");}})'
+        '.catch(function(){_ban.classList.remove("hidden");});'
         '})();\n'
 
         'function _setApiStatus(msg,cls){'
@@ -1274,7 +1265,7 @@ def _build_html(
         "<body>\n"
         '<div id="app">\n'
         '  <div id="sidebar">\n'
-        '    <div id="ds-banner" hidden>\n'
+        '    <div id="ds-banner" class="hidden">\n'
         '      ⚠ Devserver not running — edits unavailable.\n'
         '      Run: <code>python utilities/devserver.py</code>\n'
         '      <button id="ds-banner-close" title="Dismiss">✕</button>\n'

@@ -10,19 +10,25 @@ status: draft
 created: 2025-12-13
 description: A controlled high pass where weights, measures, and cargo manifests are
   certified before crossing.
-fantasy_name: The Stone Ledger Gate
-last_updated: 2025-12-13
+last_updated: 2026-09-07
 location:
-- 40.4
-- 75.2
+- 40.402897
+- 75.185694
 map_min_zoom: 6
 map_max_zoom: 7
-mapmarker: route-node
 name: The Stone Ledger Gate
 tags:
 - player-visible
 - type-mountain-pass
-type: mountain-pass
+type: route-node
+title: The Stone Ledger Gate
+visibility: public
+title: The Stone Ledger Gate
+type: route-node
+visibility: public
+title: The Stone Ledger Gate
+type: route-node
+visibility: public
 ---
 
 ```leaflet

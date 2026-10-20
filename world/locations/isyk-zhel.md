@@ -12,8 +12,8 @@ description: Warm Winds of the Mountain Realm
 fantasy_name: Isyk-Zhel
 last_updated: 2026-01-05
 location:
-- 42.4
-- 76.9
+- 42.427963
+- 77.367245
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: lake
