@@ -112,7 +112,7 @@ Current tier: **Tier 1** *(experienced — tome refused to open in the dead zone
 | [[characters/PCs/veyra\|Veyra]] | Party — her patience with his questions is something he has noticed and does not take for granted |
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; Cal finds his navigation instinct worth studying |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; she acts before she has all the information; Cal is not sure this is wrong |
-| [[raizen\|Rayzen]] | Party — Pari-Kin Druid; the shift-sense is a datum he's trying not to over-interpret |
+| [[raizen\|Reizan]] | Party — Pari-Kin Druid; the shift-sense is a datum he's trying not to over-interpret |
 | [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; the patron-bond's behavior in the dead zone is the most interesting thing Cal has encountered so far |
 
 ---

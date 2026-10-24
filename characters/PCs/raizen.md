@@ -1,5 +1,5 @@
 ---
-title: Raizen
+title: Reizan
 player: Arno
 project: TTRPG_Tarim_Shaiel
 domain: characters
@@ -33,7 +33,7 @@ last_updated: 2026-08-01
 tags: [pc]
 ---
 
-# Raizen
+# Reizan
 
 > [!profile]+
 > ![[F57C441E-3549-4302-BF42-D4806E70D8A0.png]]
@@ -65,7 +65,7 @@ code: DHC1.H4sIAAAAAAAAE81Y227cRhL9lUK_7K5Myx7FluV5MRzJsgDLSCA5NhYbQahp1pCdaXYx1
 
 ## Who They Are
 
-Rayzen maintains watch so others can stop watching. Their alertness is not anxiety — it is a form of service, the posture of someone who decided long ago that their particular contribution is to be the one who notices. They are not the first to speak in a room, but they are often the person who has already mapped it. When the lantern dims, they notice before anyone else does — and they do not announce it immediately, because they are first checking whether it matters.
+Reizan maintains watch so others can stop watching. Their alertness is not anxiety — it is a form of service, the posture of someone who decided long ago that their particular contribution is to be the one who notices. They are not the first to speak in a room, but they are often the person who has already mapped it. When the lantern dims, they notice before anyone else does — and they do not announce it immediately, because they are first checking whether it matters.
 
 ---
 
@@ -73,7 +73,7 @@ Rayzen maintains watch so others can stop watching. Their alertness is not anxie
 
 **Cracked lantern**
 
-A small iron lantern, the glass on one side cracked but not shattered, that burns without fuel once lit. It dims in places of genuine safety and brightens in places of hidden danger — which means it is rarely neutral. The crack in the glass lets light escape in a direction Rayzen cannot fully predict: it illuminates things they weren't looking at. In the Tier 1 dead zone near Rabati Malik, it guttered and would not reignite — the first time in Rayzen's memory it has gone entirely dark. During the same stretch, Rayzen's shift took two tries and felt wrong on the way through.
+A small iron lantern, the glass on one side cracked but not shattered, that burns without fuel once lit. It dims in places of genuine safety and brightens in places of hidden danger — which means it is rarely neutral. The crack in the glass lets light escape in a direction Reizan cannot fully predict: it illuminates things they weren't looking at. In the Tier 1 dead zone near Rabati Malik, it guttered and would not reignite — the first time in Reizan's memory it has gone entirely dark. During the same stretch, Reizan's shift took two tries and felt wrong on the way through.
 
 ---
 
@@ -110,9 +110,9 @@ Current tier: **Tier 1** *(experienced — lantern guttered; shift took two trie
 | person / faction | nature of relationship |
 |---|---|
 | [[characters/PCs/veyra\|Veyra]] | Party — two people who stand watch tend to notice each other |
-| [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; a navigator whose instrument gave contradictory readings; Rayzen has filed this |
+| [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; a navigator whose instrument gave contradictory readings; Reizan has filed this |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; his method is questions, theirs is observation; they overlap usefully |
-| [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; her conviction is something Rayzen watches for whether it is right |
+| [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; her conviction is something Reizan watches for whether it is right |
 | [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; the dead zone inversion — his calm where the lantern went dark — is noted |
 
 ---
@@ -132,7 +132,7 @@ The lantern going dark is the first time the protection-through-presence assumpt
 
 ## GM Notes
 
-Rayzen's arc runs through the Sentinel's core tension: presence is not always enough. The lantern's behavior is the surrendered layer made manifest — it illuminates what Rayzen wasn't watching, specifically to demonstrate that watching isn't sufficient.
+Reizan's arc runs through the Sentinel's core tension: presence is not always enough. The lantern's behavior is the surrendered layer made manifest — it illuminates what Reizan wasn't watching, specifically to demonstrate that watching isn't sufficient.
 
 The shift difficulty in the dead zone is a physical signal: what they can become is affected by whatever the dead zone is. This scales with Wrongness Tier — Tier 2, the shift produces a form slightly wrong, something observed; Tier 3, the form briefly shows something old.
 
