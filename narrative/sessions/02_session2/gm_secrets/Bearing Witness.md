@@ -1,16 +1,16 @@
 ---
-date:
-session_number: "01"
-opening_scene:
-broader_narrative_impact:
-narrative_focus:
-narrative_challenges_overcome:
-narrative_developments:
-potential_narrative_directions:
-knowledge_shared_discoveries:
-unresolved_threads:
-suggested_scene_focuses:
-world_state_changes:
+date: 2026-08-15
+session_number: "02"
+opening_scene: "Ariel on the precipice, wings furled, watching a dying mixed Tulpar/human ring. Triggered when she weighs taking on a defensively stanced Kaan with Raizen co-located."
+broader_narrative_impact: "Shows Ariel's impulse to end a losing fight by force, and Raizen's refusal to let her. The party has not yet seen this pattern in play."
+narrative_focus: "Ariel's urge to intervene by force against Raizen's restraint."
+narrative_challenges_overcome: "Raizen stops the dive with one hand and two words. No fight occurs."
+narrative_developments: "Prefigures the Rabati Malik choice between force and standing down. Characters do not yet connect the memory to Kaan."
+potential_narrative_directions: "Ariel or Raizen may later reveal what he refused to let her do, or why he was certain of what she would find below."
+knowledge_shared_discoveries: "None shared with players. Ariel has the memory; the party does not."
+unresolved_threads: "Whether the precipice is a real past event or a memory with a specific cause. Who the Tulpar warlord was. Why Raizen was certain."
+suggested_scene_focuses: "Hold until a scene gives Ariel a reason to connect the stance or Raizen's certainty to what she saw."
+world_state_changes: "None recorded."
 ---
 
 ## Narrative Summary
