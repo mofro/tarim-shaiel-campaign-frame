@@ -119,7 +119,7 @@ For general Rabati Malik color (market rhythm, the "look busy" reflex, rumors), 
 Once the immediate crisis is handled and the caravan is actually moving again, run the dead zone beat:
 
 - Tier 1 dead zone — Warren disturbance as absence (per `mechanics/GLOSSARY_GM.md`). Framed as absence only. Never "ecosystem damage." Never explained to players.
-- Practical effects, no exposition: a lit lantern gutters and won't reignite; Cal's tome refuses to open; Rayzen's shift takes two tries and feels wrong on the way through.
+- Practical effects, no exposition: a lit lantern gutters and won't reignite; Cal's tome refuses to open; Reizan's shift takes two tries and feels wrong on the way through.
 - **Rill is the inversion.** Whatever his patron-bond does, it's uncannily calm and clear here — the one stretch all session where he isn't straining. He has no frame yet for why. Play it as unsettling comfort, not relief.
 - Don't name the mechanism. This is Act I's first "dead zones" beat — it lands without a word of cosmology spoken aloud.
 

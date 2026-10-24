@@ -17,10 +17,11 @@ tags: [session2, summary, player-facing]
 
 Volkath's caravan reached Rabati Malik with trouble already on the road. Captain Idris Kaan and his soldiers were riding in to press the tariff dispute, and somebody had set a trap for them in the streets behind the market. The trap belonged to Temir, Volkath's son.
 
-The party split. Ariel and Raizen went up after Kaan. Rill and Cal went looking for the ambush. Sahir stayed at the gates.
+The party split. Ariel and Reizan went up after Kaan. Rill and Cal went looking for the ambush. Sahir stayed at the gates.
 
 - **Kaan** agreed to ride to the gates, but not through them. He wanted to see what he could see first. [GM: Kaan halted short; confirm this is how you want to play his stop.]
-- **Rill** found Temir's people before they moved, and talked them down. Temir was scolded in front of his group and then taken back in.
+- **Cal** found the ambush with Rill. Temir and at least one other young Tulpar threw things down at Cal from a roof and threatened him. The things hit him but did no real harm.
+- **Rill** talked them down. Temir was scolded in front of his group and then taken back in.
 - **Kaan** called the whole thing a misunderstanding.
 - **Volkath** gave you information, supplies, and his best wishes. The caravan moved on.
 

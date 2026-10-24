@@ -22,30 +22,40 @@ Session 2 record: `narrative/sessions/02_session2/Session_2_GM_Record.md`.
 ## 1. Session Frame
 
 - **Setting:** the Samarqandh–Bukhara royal road corridor, leaving Rabati Malik for Qarshi. Qarshi and Puli Khumri have placeholder files only.
-- **Time of year:** mid-to-late autumn. The register is dated Haziran (June) 1199 HB, so autumn is roughly four to five months later in the campaign calendar. The passes are starting to hold frost, and the road is busy before snow closes the high ground.
-- **Carry-over:** Veyra is provisionally with the party. The party has Volkath's supplies and information. Kaan and Temir both know the party exists.
+- **Time of year:** mid-to-late autumn. The passes are starting to hold frost, and the road is busy before snow closes the high ground.
+- **Carry-over:** Veyra is provisionally with the party. The party has Volkath's supplies and information. Kaan and Temir both know the party exists. Sanem and Temir remain with Volkath's caravan as far as the characters know.
 
 ---
 
 ## 2. Options
 
-The four sets are designed to combine. Recommended build: **B + C + D**, with **A** available as an interrupt.
+The option sets are designed to combine. Recommended build: **B + C + D**, with an interrupt slot for a fight option that is still to be chosen (see A).
 
-### A — Swarm Fight (interrupt)
+### A — Interrupt (replacement pending GM choice)
 
-The mass from Ariel's precipice memory, reaching the edge of a camp. No clean edges; it swallows light and delays sound.
+The swarm option is withdrawn. The "mass" from Ariel's precipice memory is not reused as a fight, and the word "mass" is not used for any Session 3 threat. Candidates, both **[INVENTED]**:
 
-- Use the core rules' **Swarm** or **Horde** adversary type. **[UNVERIFIED]** Confirm the exact stat block in the book before the session.
-- Keep it an interrupt, not the main event. It makes the flashback feel real without requiring the party to decide anything about it.
-- Tie it to the Warren framing only as absence: where the swarm goes, lines break and sound arrives late. No exposition.
+- **Regional pirates.** A crew working the corridor where the road meets water. A people-based threat: it can be negotiated, bought off, or fought.
+- **An animal threat.** A real-world analog (wolves in the high passes, a stampede at a water point) or a magical analog, shown only through practical effect.
 
-### B — Slow Crossing, Rabati Malik → Qarshi
+Whichever is chosen stays an interrupt, not the main event. Choose one, or neither.
 
-A long road where the pressure is time, water, and cold rather than a single enemy.
+### B — Slow Crossing, Rabati Malik → Qarshi (Daggerheart environment)
 
-- **Clock:** a Dynamic Countdown, the same shape as Session 2, with a fuse and a progress die for the crossing. **[INVENTED]** Proposed: progress die at 5 (distance to the next waypoint), fuse at 6 (water and cold).
-- **Waypoints to choose from:** the Sardoba cistern and the Nuratau spurs, both named in the corridor geography. **[UNVERIFIED]** Confirm which is on the true route before using either.
-- Each roll that moves progress also spends a little of the fuse, so the party is always choosing between speed and supplies.
+No clock. No progress die, no fuse. The crossing is run as a Daggerheart environment: the GM works from a menu of events and conditions and checks each one against the scene as the party moves. Nothing forces a result, and the party sets the pace.
+
+- **Conditions to check** **[INVENTED]** (at each waypoint, not on a timer):
+  - Cold after dark. Frost on the high passes; felt and lamp oil matter.
+  - Water at the next stop: the Sardoba cistern or the Nuratau spurs. **[UNVERIFIED]** Confirm which is on the true route before using either.
+  - Supplies and mule condition.
+- **Events to draw from** **[INVENTED]** (pick what fits the scene, or none):
+  - A levy checkpoint on the road.
+  - The Tulpar westbound levy column, passing the other way.
+  - The eastbound Iron Bell convoy (see C).
+  - A stranded traveler or a broken cart.
+  - A rockfall on a pass path.
+  - A Dwarven karez inspector checking water rights.
+- Each event has local stakes only. No event is mandatory, and none is a countdown.
 
 ### C — Local Political Flavor
 
@@ -60,13 +70,13 @@ Use the register and the regional factions to make the road feel governed. Nothi
 
 - High passes beginning to hold frost; cold nights on the crossing.
 - Lamps and felt matter more; the caravan has a reason to buy them.
-- Use this as the reason for the countdown in B, not as a separate threat.
+- Use this as the reason the cold condition in B is live, not as a separate threat.
 
 ---
 
 ## 3. Crew Proposal
 
-Volkath's three-person crew: two Tulpar and one human. **[INVENTED]** Proposed names, awaiting GM correction. Nicknames are task- or history-based.
+Volkath's three-person crew: two Tulpar and one human. Names approved by the GM. Nicknames are task- or history-based.
 
 | Name | Ancestry | Nickname | Basis |
 |---|---|---|---|
@@ -74,13 +84,15 @@ Volkath's three-person crew: two Tulpar and one human. **[INVENTED]** Proposed n
 | **Bekzod** | Tulpar | "Forty Mules" | History: drove forty mules through a bad pass in a storm. |
 | **Dilshod** | Human | "Second Seal" | History: was the second to put a seal on a contract, and the first to regret it. |
 
-**Note:** Not checked against earlier sessions for existing crew names. The GM should confirm none are already in play.
+**Second Seal:** **[INVENTED]** the nickname comes from the history in the basis column: Dilshod was the second person to seal a contract, and the first to regret it. Confirm this is the explanation you want.
+
+**Note:** Not yet checked against `Session_0_NPC_Index.md` for name collisions.
 
 ---
 
 ## 4. Caravan Inventory
 
-Drawn from the Kashkar register price list and mundane supplies. Prices as printed. The PDF table is partly garbled, so verify before quoting a price aloud.
+Drawn from the Kashkar register price list and mundane supplies. Prices as printed. The price table is flavor and is kept as-is. The PDF table is partly garbled, so verify before quoting a price aloud.
 
 | Item | Source | Register price |
 |---|---|---|
@@ -125,14 +137,17 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 
 **Live tensions for today:**
 - Tariff dispute: Volkath's caravan against the Imperial Road Authority. Seven-day documentation period.
+- **The road claim.** The Empire (Imperial Road Authority) thinks it still owns the road. The Tulpar know they control it. The tariff dispute comes from that gap. (Resolves conflict 7.)
 - Tulpar westbound levy, pending.
-- Waycross Junction disturbances. The register's Nestorian priest calls the place a "forgetting place." **[GM DECISION]** A real religion used in-world. Confirm you're comfortable with it, or change the attribution.
+- Waycross Junction disturbances. The register's Nestorian priest calls the place a "forgetting place." **GM: keep for now.** Own mythos religions to be interleaved later (conflict 6).
 
 ---
 
 ## 7. Nādir Qissakhān and "The Roads"
 
 **The Roads** (`world/lore/The Roads.md`, public, status canon) is a lore piece whose storyteller portrait is captioned: "Chronicles of Empires and Dust: Nādir Qissakhān — from the Azure Convocation, 1175th year of 'Held Breath'."
+
+**The Roads text.** The line "A thousand years, give or take, since the last empire crumbled" now reads "Since the last great empire crumbled." It carries no number, so it no longer conflicts with the regional doc's 150–200 years. (See conflict 1.)
 
 **From the gap-fill (GM-confirmed):**
 - Nādir is living.
@@ -145,8 +160,6 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 - **Why he wrote it:** to record the roads before the Convocation's knowledge is lost. **[INVENTED]**
 - **What he knows of the Night:** the Night is a folk memory in the Convocation archive. He can describe the falling stars and the Wizard's undead movements under cover of the omen, but not the Wizard's plan. **[INVENTED]**
 - **Puli Khumri placement:** the Azure outpost there is invented. **[INVENTED]** Confirm before the party finds it.
-
-**Conflict in the text (see section 9):** The Roads says "a thousand years, give or take" since the last empire fell. The regional doc says 150–200 years. Only one can stand.
 
 ---
 
@@ -163,48 +176,54 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 | NPC | Status | Next |
 |---|---|---|
 | Idris Kaan | Halted at the gates. Called it a misunderstanding. | Future role open. |
-| Temir | Dissuaded. Chastised, welcomed back. | **[UNCONFIRMED]** Whether he stays with Volkath's group. |
-| Sanem | Unknown. | **[UNCONFIRMED]** Session 2 appearance. |
+| Temir | Dissuaded. Chastised, welcomed back. Stays with Volkath's caravan as far as the characters know. | Eventually splits from Volkath and starts a rebellious Chain-follower group. Future thread. |
+| Sanem | Stays with Volkath's caravan as far as the characters know. | Splits with Temir later (future thread). **[UNCONFIRMED]** Session 2 appearance. |
 | Sahir | Stayed at the gates. | No change. |
-| Volkath | Gave information, supplies, and best wishes. | Back-fill to `Session_0_NPC_Index.md` deferred. |
-| Yurak, Bekzod, Dilshod | Crew proposal. | GM to correct names. |
+| Volkath | Gave information, supplies, and best wishes. | Back-fill to `Session_0_NPC_Index.md` deferred. When the players next meet him, he tells a remorseful tale of the final falling out with Temir. |
+| Yurak, Bekzod, Dilshod | Crew. GM-approved. | None. |
 | Kira, Aigul, Tomiris, Zere | Left open. | GM: "Don't know. Leave open." |
 | Nādir Qissakhān | Living. Educational role near Puli Khumri. | Section 7. |
 
 ---
 
-## 10. Conflicts to Resolve
+## 10. Conflicts
 
-| # | Conflict | Where | Proposed resolution |
+| # | Conflict | Where | Status |
 |---|---|---|---|
-| 1 | Regional doc: "~150–200 years after expulsion." The Roads: "a thousand years, give or take." Campaign present: 1199 HB. | `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`; `The Roads.md` | Pick one. Recommend the regional doc (150–200 years), and rewrite The Roads' line. |
-| 2 | Liberation of the Legions dated year 999 in the register, making 1199 its 200th anniversary. Expulsion is placed ~1190–1200 HB equivalent. | Register; `HISTORICAL_TIMELINE.md` | Decide whether the anniversary and the expulsion are the same event. |
+| 1 | Regional doc: "~150–200 years after expulsion." The Roads: "a thousand years, give or take." | `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`; `The Roads.md` | **Resolved.** The Roads now reads "Since the last great empire crumbled." The regional doc's 150–200 years stands. |
+| 2 | Liberation of the Legions dated year 999 in the register, making 1199 its 200th anniversary. Expulsion is placed ~1190–1200 HB equivalent. | Register; `HISTORICAL_TIMELINE.md` | **Open question for GM.** Which Legions does the register mean? Candidate: the Era 1 Liberation that freed the Orc slave-legions (`world/diagrams/historical-causal-chain.md`). The expulsion is simply the Awakening date. No correlation is intended. |
 | 3 | Session 3 notes frontmatter said Session 3; body said Session 2. | `Session_3_GM_NOTES.md` | **Resolved.** File deleted (see section 11). |
-| 4 | Dead cross-ref to `02_session2/session-chronicle.html`. | `Session_2_GM_NOTES.md` | Create the chronicle, or repoint to the record. |
-| 5 | Garbled price table in the register PDF. | `kashkar-merchant-register.pdf` | Verify prices against the `.pages` source (`kashkar-merchant-register.pages`) before quoting. |
-| 6 | Real-world religion (Nestorian) used in-world. | Register, Waycross notice | GM decision. |
-| 7 | Samarqandh Orc framing vs. Imperial Road Authority presence. | Regional doc vs. register | Reconcilable as remnant administration. Confirm. |
-| 8 | Raizen vs. Rayzen spelling. | Bearing Witness vs. Session 2 plan | Pick one. |
-| 9 | Rill has two character files. | `characters/PCs/rill.md` (GM record, 2026-08-01) and `characters/PCs/rill (player).md` (player sheet, 2026-08-15) | Recommend keep `rill.md` as the GM record, reconcile `rill (player).md` as the player sheet. **Not deleted.** Awaiting GM confirmation. |
+| 4 | Dead cross-ref to `02_session2/session-chronicle.html`. | `Session_2_GM_NOTES.md` | **Open.** Left open per GM. The Session 2 record is the source until the chronicle exists. |
+| 5 | Garbled price table in the register PDF. | `kashkar-merchant-register.pdf` | **Open, low priority.** Price table is flavor. Verify against the `.pages` source before quoting. |
+| 6 | Real-world religion (Nestorian) used in-world. | Register, Waycross notice | **Decided for now:** keep. Own mythos religions to be interleaved later. |
+| 7 | Samarqandh Orc framing vs. Imperial Road Authority presence. | Regional doc vs. register | **Resolved.** The Empire thinks it still owns the road. The Tulpar know they control it. The tariff dispute comes from that gap. |
+| 8 | Raizen vs. Rayzen spelling. | Bearing Witness vs. Session 2 plan | **Resolved.** "Reizan" everywhere in active files. The `characters/PCs/raizen.md` filename still uses the old slug; rename not done. |
+| 9 | Rill has two character files. | `characters/PCs/rill.md` (GM record, 2026-08-01) and `characters/PCs/rill (player).md` (player sheet, 2026-08-15) | **Deferred.** Cleanup noted for later. Nothing deleted. Use `rill.md` as the GM record. |
 
 ---
 
 ## 11. Housekeeping Done
 
-- **Deleted:** `narrative/sessions/02_session2/gm_secrets/Session_3_GM_NOTES.md`. A stale duplicate of the Session 2 plan with a mismatched title. Deletion staged in its own commit.
+- **Deleted:** `narrative/sessions/02_session2/gm_secrets/Session_3_GM_NOTES.md`. A stale duplicate of the Session 2 plan with a mismatched title. Committed separately (`1c8aa1b`).
 - **Frontmatter filled:** `narrative/sessions/02_session2/gm_secrets/Bearing Witness.md` (date, session number, narrative fields). Prose untouched.
 - **Created:** `Session_2_GM_Record.md`, `Session_2_Player_Summary.md`, this file.
+- **Spelling:** "Raizen" and "Rayzen" changed to "Reizan" across active files.
+- **Swarm option withdrawn.** Crossing restructured from a countdown to a Daggerheart environment.
+- **The Roads:** "A thousand years, give or take" replaced. Committed as its own lore pass.
 
 ---
 
 ## 12. Open Items
 
-- [ ] Choose today's option set (recommend B + C + D, A as interrupt).
-- [ ] Confirm or correct crew names (section 3).
+- [ ] Choose a fight option for the interrupt slot: regional pirates, an animal threat, or neither (section 2A).
+- [ ] Choose today's option set (recommend B + C + D, with the interrupt slot).
 - [ ] Confirm Kitabdara as the burned city (section 5).
-- [ ] Resolve conflicts 1, 2, 6, 7, 8, 9 (section 10).
+- [ ] Answer: which Legions does the register's "Liberation of the Legions" refer to? (conflict 2)
 - [ ] Choose the Night awakening anchor (section 8).
 - [ ] Confirm Nādir's placement and The Roads authorship (section 7).
-- [ ] Confirm Temir and Sanem status (section 9).
-- [ ] Verify the Swarm stat block and waypoint geography (section 2).
+- [ ] Confirm Sanem's Session 2 appearance (section 9).
+- [ ] Verify the stat block for whichever interrupt option is chosen (section 2A).
+- [ ] Verify waypoint geography (section 2B).
 - [ ] Back-fill Volkath into `Session_0_NPC_Index.md` (deferred by GM).
+- [ ] Rill cleanup (deferred; conflict 9).
+- [ ] Decide whether to rename `characters/PCs/raizen.md` to match the spelling. Not done.

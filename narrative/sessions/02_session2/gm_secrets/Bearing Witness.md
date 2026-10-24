@@ -1,15 +1,15 @@
 ---
 date: 2026-08-15
 session_number: "02"
-opening_scene: "Ariel on the precipice, wings furled, watching a dying mixed Tulpar/human ring. Triggered when she weighs taking on a defensively stanced Kaan with Raizen co-located."
-broader_narrative_impact: "Shows Ariel's impulse to end a losing fight by force, and Raizen's refusal to let her. The party has not yet seen this pattern in play."
-narrative_focus: "Ariel's urge to intervene by force against Raizen's restraint."
-narrative_challenges_overcome: "Raizen stops the dive with one hand and two words. No fight occurs."
+opening_scene: "Ariel on the precipice, wings furled, watching a dying mixed Tulpar/human ring. Triggered when she weighs taking on a defensively stanced Kaan with Reizan co-located."
+broader_narrative_impact: "Shows Ariel's impulse to end a losing fight by force, and Reizan's refusal to let her. The party has not yet seen this pattern in play."
+narrative_focus: "Ariel's urge to intervene by force against Reizan's restraint."
+narrative_challenges_overcome: "Reizan stops the dive with one hand and two words. No fight occurs."
 narrative_developments: "Prefigures the Rabati Malik choice between force and standing down. Characters do not yet connect the memory to Kaan."
-potential_narrative_directions: "Ariel or Raizen may later reveal what he refused to let her do, or why he was certain of what she would find below."
+potential_narrative_directions: "Ariel or Reizan may later reveal what he refused to let her do, or why he was certain of what she would find below."
 knowledge_shared_discoveries: "None shared with players. Ariel has the memory; the party does not."
-unresolved_threads: "Whether the precipice is a real past event or a memory with a specific cause. Who the Tulpar warlord was. Why Raizen was certain."
-suggested_scene_focuses: "Hold until a scene gives Ariel a reason to connect the stance or Raizen's certainty to what she saw."
+unresolved_threads: "Whether the precipice is a real past event or a memory with a specific cause. Who the Tulpar warlord was. Why Reizan was certain."
+suggested_scene_focuses: "Hold until a scene gives Ariel a reason to connect the stance or Reizan's certainty to what she saw."
 world_state_changes: "None recorded."
 ---
 
@@ -27,7 +27,7 @@ Her hands closed on nothing. Her jaw set. Bearing witness.
 
 "I must end this," she thought, weight shifting forward, the muscles of her legs already committed to the dive that would carry her down through a thousand feet of screaming air and into the middle of that dying ring, sword first, mercy after.
 
-Raizen's hand found her shoulder before her feet left the stone.
+Reizan's hand found her shoulder before her feet left the stone.
 It was not an overly strong grip. He'd never needed to show strength; his hands had always carried something heavier than force, some old patience worn into the calluses, and it stopped her more completely with it's tenderness. She turned on him, wings flaring half open, the question already sharp in her throat — and found no argument waiting in his face. Only sympathy, old and tired and entirely without apology, and beneath it something worse: certainty.
 
 He said nothing. He only shook his head, slowly, the smallest motion, the kind someone makes when the words would cost more than the silence.

@@ -38,21 +38,22 @@ Plan: `gm_secrets/Session_2_GM_NOTES.md`. Player draft: `Session_2_Player_Summar
 
 The fuse ("Blood in the Streets") did not go off. No fight occurred.
 
-1. **Ariel and Raizen flew to intercept Captain Kaan.** Kaan agreed to ride to the gates but not through them, "to see what they could see."
+1. **Ariel and Reizan flew to intercept Captain Kaan.** Kaan agreed to ride to the gates but not through them, "to see what they could see."
 2. **Rill and Cal located the ambush** in the residential streets behind the market row, as staged.
 3. **Sahir was left at the gates.**
-4. **Rill dissuaded Temir's group.** Temir was chastised and then welcomed back.
-5. **Kaan called the incident a "misunderstanding."**
-6. **Volkath gave information, supplies, and his best wishes.** The caravan moved on.
+4. **Temir and at least one other young Tulpar threw items off a roof at Cal and threatened him.** The items hit him and did no real damage.
+5. **Rill dissuaded Temir's group.** Temir was chastised and then welcomed back.
+6. **Kaan called the incident a "misunderstanding."**
+7. **Volkath gave information, supplies, and his best wishes.** The caravan moved on.
 
-**Branch:** Both threads resolved before the fuse hit 0, which is the clean-defusal branch in the plan. Kaan's halt at the gates is the one partial element: he stopped short, which is closer to "warned and postures defensively" than full stand-down. **[UNCONFIRMED: final positions of the three countdown dice were not recorded.]**
+**Branch:** Both threads resolved before the fuse hit 0, which is the clean-defusal branch in the plan. Kaan's halt at the gates is the one partial element: he stopped short, which is closer to "warned and postures defensively" than full stand-down.
 
 ---
 
 ## Flashback: Bearing Witness
 
 - **Classification:** memory fragment, not present-scene action.
-- **Trigger:** Ariel weighed taking on Kaan while he held a defensive stance, with Raizen co-located. The flashback fired at that point.
+- **Trigger:** Ariel weighed taking on Kaan while he held a defensive stance, with Reizan co-located. The flashback fired at that point.
 - **Connection:** Neither character has connected the memory to Kaan. Do not frame it as a parallel in play until a scene gives them a reason to.
 - **Players:** The party has not seen this. Include in the player summary only if the GM decides Ariel shares it.
 
@@ -69,17 +70,17 @@ The fuse ("Blood in the Streets") did not go off. No fight occurred.
 
 ## NPC State After Session 2
 
-| NPC | State | Notes |
+| Character | State | Notes |
 |---|---|---|
 | **Captain Idris Kaan** | Halted at the gates. Called the incident a misunderstanding. | Ongoing history with Ariel. Future role open. |
-| **Temir** | Dissuaded by Rill. Chastised, then welcomed back. | **[UNCONFIRMED: whether he remains with Volkath's group or has gone off on his own.]** |
-| **Sanem** | Not mentioned in the gap-fill. | **[UNCONFIRMED: whether she appeared in Session 2.]** |
+| **Temir** | Dissuaded by Rill. Chastised, then welcomed back. | Stays with Volkath's caravan as far as the characters know. Later splits off to start a rebellious Chain-follower group (future thread). |
+| **Sanem** | Stays with Volkath's caravan as far as the characters know. | Later splits off with Temir (future thread). **[UNCONFIRMED: whether she appeared in Session 2.]** |
 | **Sahir** | Stayed at the gates. | Not part of the Temir persuasion. |
 | **Volkath** | Gave information, supplies, and best wishes. | Back-fill to `Session_0_NPC_Index.md` deferred per GM. |
 | **Cal** | Located the ambush with Rill. | — |
 | **Rill** | Dissuaded Temir's group. | Two character files exist; see the Rill reconciliation note in the Session 3 prep. |
-| **Raizen** | Co-located with Ariel. Stopped her dive in the flashback. | Spelled "Rayzen" in the plan's dead-zone beat. Confirm the spelling. |
-| **Ariel** | Intercepted Kaan with Raizen. Had the flashback. | — |
+| **Reizan** | Co-located with Ariel. Stopped her dive in the flashback. | — |
+| **Ariel** | Intercepted Kaan with Reizan. Had the flashback. | — |
 | **Veyra** | Joined after Ariel's conversation. | Provisional. |
 | **Kira, Aigul, Tomiris, Zere** | Not in Session 2. | GM: "Don't know. Leave open." |
 
@@ -91,7 +92,7 @@ The plan calls for this after the crisis resolves. The gap-fill did not confirm 
 
 - A lit lantern gutters and will not reignite.
 - Cal's tome refuses to open.
-- Rayzen's (Raizen's) shift takes two tries and feels wrong on the way through.
+- Reizan's shift takes two tries and feels wrong on the way through.
 - Rill is the inversion: uncannily calm and clear, the one stretch with no strain. He has no frame for why.
 
 Framed as absence only. No mechanism named. Confirm before including anything in the player summary.
@@ -100,10 +101,8 @@ Framed as absence only. No mechanism named. Confirm before including anything in
 
 ## Open Items for This Record
 
-- [ ] Final countdown die positions at resolution.
 - [ ] Did the dead-zone beat run?
-- [ ] Temir's status with Volkath's group.
+- [x] Temir's status: stays with Volkath's caravan as far as the characters know; splits off later (future thread).
 - [ ] Sanem: present or absent in Session 2?
-- [ ] Raizen or Rayzen (spelling).
-- [ ] Rill canonical file (see Session 3 prep).
+- [x] Rill canonical file: `characters/PCs/rill.md` is the GM record; `rill (player).md` cleanup deferred.
 - [ ] Repair the dead cross-ref to `02_session2/session-chronicle.html` in `Session_2_GM_NOTES.md`, or create the chronicle.
