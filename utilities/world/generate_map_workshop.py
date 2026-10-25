@@ -1589,7 +1589,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var c=map.getCenter();'
         'fetch("/api/map-center",{method:"POST",'
         'headers:{"Content-Type":"application/json"},'
-        'body:JSON.stringify({lng:c.lng,lat:c.lat})})'
+        'body:JSON.stringify({lng:c.lng,lat:c.lat,zoom:map.getZoom()})})'
         '.catch(function(){});},400);});\n'
 
         # Player share bar — populate from health check
@@ -1778,7 +1778,7 @@ def _build_player_html(
         f"style:'{proxy_style_url}',"
         f"center:[70,40],zoom:4,"
         f"transformRequest:function(url,resourceType){{"
-        f"if(url.indexOf('api.maptiler.com')>-1){{"
+        f"if(url.indexOf('https://api.maptiler.com/')===0){{"
         f"return{{url:'/api/maptiler-proxy?url='+encodeURIComponent(url)}};}}"
         f"}}"
         f"}});\n"
@@ -1789,12 +1789,35 @@ def _build_player_html(
         "map.on('load', function() {\n"
         + icons_js
         + "\n"
+        "  var _iconMatch=['case',"
+        "['!=',['get','mapMarker'],null],['concat','cat-',['get','mapMarker']],"
+        "['match',['get','category'],"
+        "'city','cat-city','capital','cat-capital','town','cat-town',"
+        "'caravanserai','cat-route-node','fortress','cat-fortress','chokepoint','cat-fortress',"
+        "'bridge','cat-bridge','landmark','cat-landmark','mountain-pass','cat-landmark',"
+        "'oasis','cat-oasis','Oasis','cat-oasis','lake','cat-lake','water-body','cat-lake','power-site','cat-sacred-site',"
+        "'route-node','cat-route-node','ruins','cat-dungeon','sacred-site','cat-sacred-site',"
+        "'site','cat-poi','cat-poi']];\n"
         "  map.addSource('locations', {type:'geojson', data: _locGJ});\n"
-        "  map.addLayer({id:'loc-icons',type:'symbol',source:'locations',"
-        "  layout:{'icon-image':['get','mapmarker'],'icon-size':0.55,'icon-allow-overlap':true,"
-        "  'text-field':['get','label'],'text-size':11,'text-offset':[0,1.2],"
-        "  'text-anchor':'top','text-optional':true},"
-        "  paint:{'text-color':'#2a1c08','text-halo-color':'rgba(255,248,235,0.8)','text-halo-width':1.5}});\n"
+        "  [['locations-major',['city','capital','bridge','landmark','fortress'],3,0.75,14],"
+        "['locations-towns',['town'],5,0.65,12],"
+        "['locations-secondary',['oasis','lake','caravanserai','water-body'],5,0.70,12],"
+        "['locations-spiritual',['sacred-site','power-site'],6,0.70,12],"
+        "['locations-routes',['route-node','chokepoint','mountain-pass'],6,0.60,11],"
+        "['locations-detail',['ruins','poi','site'],7,0.75,10]]"
+        ".forEach(function(t){"
+        "var id=t[0],cats=t[1],mz=t[2],iSz=t[3],tSz=t[4];"
+        "var iconOp=['interpolate',['linear'],['zoom'],mz,0,mz+1,1];"
+        "var textOp=['interpolate',['linear'],['zoom'],mz-1,0,mz,1];"
+        "var flt=['all',['match',['get','category'],cats,true,false],['!=',['get','mapMarker'],false]];"
+        "map.addLayer({id:id,type:'symbol',source:'locations',minzoom:mz-1,filter:flt,"
+        "layout:{'icon-image':_iconMatch,'icon-size':iSz,'icon-allow-overlap':true,'icon-anchor':'center',"
+        "'text-field':['case',['==',['get','mapLabel'],false],'',['get','label']],"
+        "'text-font':['Roboto Serif Regular','Noto Sans Regular'],"
+        "'text-size':tSz,'text-offset':[0,1.1],'text-anchor':'top','text-max-width':8,"
+        "'text-allow-overlap':false,'text-optional':true},"
+        "paint:{'icon-opacity':iconOp,'text-color':'#1a1208','text-halo-color':'#ffffff',"
+        "'text-halo-width':1.5,'text-opacity':textOp}});});\n"
 
         "  map.addSource('routes', {type:'geojson', data: _routeGJ});\n"
         "  map.addLayer({id:'route-lines',type:'line',source:'routes',"
@@ -1822,10 +1845,12 @@ def _build_player_html(
         "    fetch('/api/map-center').then(function(r){return r.json();})\n"
         "    .then(function(d){\n"
         "      if(d.lng==null||d.lat==null)return;\n"
-        "      var key=d.lng.toFixed(5)+','+d.lat.toFixed(5);\n"
+        "      var key=d.lng.toFixed(5)+','+d.lat.toFixed(5)+(d.zoom!=null?','+d.zoom.toFixed(2):'');\n"
         "      if(key===_lastCenter)return;\n"
         "      _lastCenter=key;\n"
-        "      map.easeTo({center:[d.lng,d.lat],duration:800});\n"
+        "      var easeOpts={center:[d.lng,d.lat],duration:400};\n"
+        "      if(d.zoom!=null)easeOpts.zoom=d.zoom;\n"
+        "      map.easeTo(easeOpts);\n"
         "    }).catch(function(){});\n"
         "  },2000);\n"
         "}\n"
@@ -1912,6 +1937,8 @@ def main() -> int:
                 "lon": loc["lon"],
                 "region": loc["parent_region"] or "",
                 "category": loc["location_type"] or "",
+                "mapMarker": loc["map_marker"],
+                "mapLabel": loc["map_label"],
             }
             for loc in locations
             if loc["lat"] is not None and loc["lon"] is not None

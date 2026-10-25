@@ -48,7 +48,7 @@ DEFAULT_PORT = 8000
 # Shared state (GIL protects simple assignment; no heavy concurrency needed)
 # ---------------------------------------------------------------------------
 
-_map_center: "dict | None" = None  # {"lng": float, "lat": float}
+_map_center: "dict | None" = None  # {"lng": float, "lat": float, "zoom": float}
 _lan_ip: str = "127.0.0.1"         # set at startup
 
 
@@ -94,7 +94,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         elif self.path.rstrip("/") == "/player":
             self._serve_player()
         elif self.path == "/api/map-center":
-            self._json(_map_center if _map_center else {"lng": None, "lat": None})
+            self._json(_map_center if _map_center else {"lng": None, "lat": None, "zoom": None})
         elif self.path.startswith("/api/maptiler-proxy"):
             self._maptiler_proxy()
         else:
@@ -194,6 +194,8 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         target_url = qs.get("url", [None])[0]
         if not target_url:
             return self.send_error(400, "Missing ?url= parameter")
+        # parse_qs decodes %20 → literal space; re-encode so urlopen accepts the URL
+        target_url = urllib.parse.quote(target_url, safe=":/?=&#@,+")
         if not target_url.startswith("https://api.maptiler.com/"):
             return self.send_error(403, "Only maptiler.com URLs are proxied")
         try:
@@ -223,9 +225,10 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             data = self._read_json()
             lng = float(data["lng"])
             lat = float(data["lat"])
+            zoom = float(data.get("zoom", 4))
         except (ValueError, KeyError, TypeError):
-            return self.send_error(400, 'Body must be {"lng": number, "lat": number}')
-        _map_center = {"lng": lng, "lat": lat}
+            return self.send_error(400, 'Body must be {"lng": number, "lat": number, "zoom": number}')
+        _map_center = {"lng": lng, "lat": lat, "zoom": zoom}
         self._json({"ok": True})
 
     def _put_coordinates(self, slug: str):
