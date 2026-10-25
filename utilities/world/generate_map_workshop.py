@@ -15,6 +15,7 @@ import json
 import math
 import os
 import sys
+import urllib.parse
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
@@ -1765,13 +1766,22 @@ def _build_player_html(
         f"var _routeGJ = {json.dumps(routes_geojson)};\n"
     )
 
+    proxy_style_url = f"/api/maptiler-proxy?url={urllib.parse.quote(style_url, safe='')}"
+
     app_js = (
         "var _following = true;\n"
         "var _pollTimer = null;\n"
         "var _lastCenter = null;\n"
 
-        "maplibregl.accessToken = '';\n"
-        f"var map = new maplibregl.Map({{container:'map',style:'{style_url}',center:[70,40],zoom:4}});\n"
+        f"var map = new maplibregl.Map({{"
+        f"container:'map',"
+        f"style:'{proxy_style_url}',"
+        f"center:[70,40],zoom:4,"
+        f"transformRequest:function(url,resourceType){{"
+        f"if(url.indexOf('api.maptiler.com')>-1){{"
+        f"return{{url:'/api/maptiler-proxy?url='+encodeURIComponent(url)}};}}"
+        f"}}"
+        f"}});\n"
 
         "map.addControl(new maplibregl.NavigationControl(), 'top-right');\n"
         "map.addControl(new maplibregl.ScaleControl({maxWidth:100,unit:'metric'}), 'bottom-right');\n"

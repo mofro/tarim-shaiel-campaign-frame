@@ -31,6 +31,8 @@ import re
 import socket
 import subprocess
 import sys
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
@@ -93,6 +95,8 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self._serve_player()
         elif self.path == "/api/map-center":
             self._json(_map_center if _map_center else {"lng": None, "lat": None})
+        elif self.path.startswith("/api/maptiler-proxy"):
+            self._maptiler_proxy()
         else:
             super().do_GET()
 
@@ -180,6 +184,36 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self._cors()
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _maptiler_proxy(self):
+        """Proxy a MapTiler API request server-side to avoid key domain restrictions."""
+        parsed = urllib.parse.urlparse(self.path)
+        qs = urllib.parse.parse_qs(parsed.query)
+        target_url = qs.get("url", [None])[0]
+        if not target_url:
+            return self.send_error(400, "Missing ?url= parameter")
+        if not target_url.startswith("https://api.maptiler.com/"):
+            return self.send_error(403, "Only maptiler.com URLs are proxied")
+        try:
+            req = urllib.request.Request(
+                target_url,
+                headers={
+                    "User-Agent": "tarim-shaiel-devserver/1.0",
+                    "Referer": "http://localhost:8000/",
+                    "Origin": "http://localhost:8000",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                body = resp.read()
+                ct = resp.headers.get("Content-Type", "application/octet-stream")
+        except Exception as exc:
+            return self.send_error(502, f"Upstream error: {exc}")
+        self.send_response(200)
+        self.send_header("Content-Type", ct)
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(body)
 
