@@ -454,7 +454,7 @@ def _build_panel_add_point(cat_options: str, region_options: str) -> str:
 </div>
 <button id="add-create-btn" class="btn">Create Location</button>
 <p id="add-status" class="hint" style="margin-top:6px;"></p>
-<p class="hint" style="color:#5a4a30;">Requires devserver: <code>python utilities/devserver.py</code></p>
+<p class="hint" style="color:#5a4a30;">Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
 """
 
 
@@ -491,7 +491,7 @@ def _build_panel_plan_route() -> str:
 </div>
 <button id="route-add-btn" class="btn" disabled>Add Route</button>
 <p id="route-status" class="hint" style="margin-top:6px;"></p>
-<p class="hint" style="color:#5a4a30;">Requires devserver: <code>python utilities/devserver.py</code><br>
+<p class="hint" style="color:#5a4a30;">Requires devserver: <code>venv/bin/python utilities/devserver.py</code><br>
 Adds segments, snaps to roads, rebuilds workshop automatically.</p>
 """
 
@@ -520,7 +520,7 @@ def _build_panel_edit_coords() -> str:
     return f"""
 <button id="edit-mode-btn" class="btn edit-toggle">Enable Edit Mode</button>
 <p class="hint" style="margin-top:6px;">Click a marker to edit its fields. Use <em>Move Pin</em> to reposition coordinates.</p>
-<p class="hint" style="color:#5a4a30;">Requires devserver: <code>python utilities/devserver.py</code></p>
+<p class="hint" style="color:#5a4a30;">Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
 <div id="ef-panel" class="hidden" style="margin-top:10px;border-top:1px solid rgba(184,146,44,0.2);padding-top:8px;">
   <div class="list-heading">Editing: <span id="ef-slug" style="color:#c8a84a;font-family:monospace;text-transform:none;letter-spacing:0"></span></div>
   <div class="field-group">
@@ -1661,7 +1661,7 @@ def _build_html(
         '  <div id="sidebar">\n'
         '    <div id="ds-banner" hidden>\n'
         '      ⚠ Devserver not running — edits unavailable.\n'
-        '      Run: <code>python utilities/devserver.py</code>\n'
+        '      Run: <code>venv/bin/python utilities/devserver.py</code>\n'
         '      <button id="ds-banner-close" title="Dismiss">✕</button>\n'
         '    </div>\n'
         '    <div id="sidebar-header">\n'
