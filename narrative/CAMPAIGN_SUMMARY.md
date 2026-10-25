@@ -7,7 +7,7 @@ content_type: campaign_frame
 visibility: gm_secrets
 status: draft
 created: 2026-05-07
-last_updated: 2026-05-07
+last_updated: 2026-10-24
 tags: [timeline, plot, synthesis, orientation]
 ---
 
@@ -21,7 +21,7 @@ tags: [timeline, plot, synthesis, orientation]
 
 ## Era 0: The Heroes' Time (~200–250 HB) — "The Age of Chains"
 
-A human empire controls the Silk Road through tribute, bureaucracy, and enslaved Orc legions bound through magical compulsion. The heroes were a legendary party of archetypally distinct champions who:
+A human empire controls the Silk Road through tribute, bureaucracy, and enslaved Tulpar legions bound through magical compulsion. The heroes were a legendary party of archetypally distinct champions who:
 
 - Discovered the binding spell mechanism and systematically broke it across the continent, freeing tens of thousands
 - Defeated the empire militarily — destroying key infrastructure, rallying regional powers
@@ -32,7 +32,7 @@ They believed the work was complete. They were wrong.
 
 **The failure:** The Wizard survived, retreated, and was presumed gone. The heroes didn't recognize their charge as incomplete. They departed for the Celestial Peak without ensuring long-term stability.
 
-**World state at their departure:** Empire fragmenting into warlord states; freed Orcs suddenly autonomous with no cultural memory of self-governance; trade routes collapsing.
+**World state at their departure:** Empire fragmenting into warlord states; freed Tulpar suddenly autonomous with no cultural memory of self-governance; trade routes collapsing.
 
 ---
 
@@ -40,7 +40,7 @@ They believed the work was complete. They were wrong.
 
 The heroes rest in the Celestial Peak. The world bleeds.
 
-- ~70 years of Orc eruption — raids, inter-Orc warfare, depopulation of entire regions (the Breaker's specific fear: *was that blood on me?*)
+- ~70 years of Tulpar eruption — raids, inter-Tulpar warfare, depopulation of entire regions (the Breaker's specific fear: *was that blood on me?*)
 - High Elves nearly fully withdraw from mortal view; mortal Elves retreat into deep forests
 - Dwarves seal mountain passes; begin detailed record-keeping of the chaos (the Chronicle of Ages)
 - Halfling mediators and Dwarf record-keepers pioneer the first trade protocols
@@ -53,7 +53,7 @@ The heroes rest in the Celestial Peak. The world bleeds.
 
 The world stabilizes into something genuinely beautiful. No single hegemon; dozens of independent powers coexisting through trade rather than dominance. The heroes, still resting, become legend.
 
-- Multi-species governance becomes the norm in cosmopolitan hubs; Orc oral epic tradition emerges — the heroes become mythic figures sung before ancestors' names
+- Multi-species governance becomes the norm in cosmopolitan hubs; Tulpar oral epic tradition emerges — the heroes become mythic figures sung before ancestors' names
 - **~550 HB — The Convocation of Eleven Cities:** first pan-regional trade laws; creates institutions the Wizard later infiltrates
 - **~620 HB — The Great Drought:** a decade-long water crisis forces Dwarf engineers, Gnome inventors, and Elf water-mages into collaboration that forges lasting inter-species bonds
 - **~680 HB — The Scholar's Plague:** presented as disease; actually the Wizard eliminating researchers who were getting too close to ancient necromantic texts
@@ -63,7 +63,7 @@ The world stabilizes into something genuinely beautiful. No single hegemon; doze
 
 ## Era 3: The Consolidation (~700–1000 HB) — "The Age of Pacts and Suspicions"
 
-Loose alliances formalize into recognizable powers: the Northern Dwarven League, the Southern Orc Confederacy, the Eastern Human Dynasties, the Goblin Free Cities. The world looks increasingly stable. Beneath it, the Wizard is nearly ready.
+Loose alliances formalize into recognizable powers: the Northern Dwarven League, the Southern Tulpar Confederacy, the Eastern Human Dynasties, the Goblin Free Cities. The world looks increasingly stable. Beneath it, the Wizard is nearly ready.
 
 - **~780 HB — The Siege of Kalar's Gate:** three-year siege ends in negotiated settlement; the Wizard uses it as cover to collect thousands of corpses
 - **~850 HB — The Copper Accord:** major trade treaty standardising currency across species
@@ -97,7 +97,7 @@ The Celestial Peak expels the heroes. Not as punishment. As deployment.
 - **Humans** — no living memory; the heroes are pure myth, contradictory across cultures
 - **Dwarves** — extensive written records, no personal memory (oldest are ~230 years old); treat the heroes as historical figures requiring verification
 - **Mortal Elf elders (~300–350 years old)** — fragmented childhood memories of the era; emotional, not detailed
-- **Orcs** — the heroes are central mythology; their names spoken before ancestors'
+- **Tulpar** — the heroes are central mythology; their names spoken before ancestors'
 - **Goblins and Halflings** — pragmatic: *"Prove it, then we'll talk"*
 
 **What the world doesn't know:**
@@ -113,7 +113,7 @@ The heroes discover why they were expelled, who they are now, what the world has
 
 ### Act II — "Stop the Wizard"
 
-Rally factions, track the Wizard, fight escalating Lich-Legion incursions. Distributed knowledge surfaces: Dwarven archivists with 1,000 years of disturbing patterns; Orc shamans sensing the ancestors growing harder to reach; human scholars in hiding; Goblin networks sitting on continent-wide observational data they can't interpret. The heroes begin sensing the cosmological stress themselves. Act II climax: a localized ecosystem failure makes the real stakes visible — this is bigger than one man.
+Rally factions, track the Wizard, fight escalating Lich-Legion incursions. Distributed knowledge surfaces: Dwarven archivists with 1,000 years of disturbing patterns; Tulpar shamans sensing the ancestors growing harder to reach; human scholars in hiding; Goblin networks sitting on continent-wide observational data they can't interpret. The heroes begin sensing the cosmological stress themselves. Act II climax: a localized ecosystem failure makes the real stakes visible — this is bigger than one man.
 
 ### Act III — "The Real Charge"
 

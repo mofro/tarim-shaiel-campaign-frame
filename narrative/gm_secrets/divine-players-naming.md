@@ -6,7 +6,7 @@ content_type: lore
 visibility: gm_secrets
 status: canon
 created: 2026-03-19
-last_updated: 2026-03-19
+last_updated: 2026-10-24
 ---
 
 # Divine Names Across Cultures
@@ -31,7 +31,7 @@ last_updated: 2026-03-19
 - Dyaus Pitar *(Sky-Father — ancient, pre-Vedic; scholars consider it archaic)*
 - Antariksha-Swami *(Lord of the Between-Space — emphasizes his position above and apart)*
 
-**Orcish**
+**Tulpar**
 - Keth-Varal *(He Who Holds the Oldest Bargain)*
 - The First Creditor *(common usage in Bondkeeper oral tradition — he is owed, not worshipped)*
 
@@ -67,8 +67,8 @@ last_updated: 2026-03-19
 - Varuna-Chitra *(Varuna-the-Precise — Chitra means vivid/exact; this is the name used by astronomers and accountants)*
 - Karma-Dhara *(Holder of the Flow of Consequence — less personal, more systemic)*
 
-**Orcish**
-- The Ledger Before the Ledger *(the record that predates Orcish chain-keeping)*
+**Tulpar**
+- The Ledger Before the Ledger *(the record that predates Tulpar chain-keeping)*
 - Varath-Keth *(He Who Was Owed Before We Were Born)*
 
 **Elvish**
@@ -104,8 +104,8 @@ last_updated: 2026-03-19
 - Vibhīṣaṇa-Purva *(Before-Vibhishana — the dignity without the redemption arc)*
 - Kṣaya-Raja *(King of Diminishment/Decay)*
 
-**Orcish**
-- The Unchained One *(ironic — he was never in chains, but the Orc concept of liberation makes this a warning, not an honor)*
+**Tulpar**
+- The Unchained One *(ironic — he was never in chains, but the Tulpar concept of liberation makes this a warning, not an honor)*
 - Grath-Valon *(He Whose Domain Grows When Ours Ends)*
 
 **Elvish**
@@ -141,9 +141,9 @@ last_updated: 2026-03-19
 - Māyā-Siddha *(The Perfected Illusionist — one who has mastered illusion completely)*
 - Vetāla-Deva *(The Divine Vetala — the trickster-spirit at celestial elevation)*
 
-**Orcish**
+**Tulpar**
 - The Unbound Witness *(watches everything, owes nothing)*
-- Rel-Ashkar *(He Who Remembers the Joke — Orc humor, but the name is old and means something)*
+- Rel-Ashkar *(He Who Remembers the Joke — Tulpar humor, but the name is old and means something)*
 
 **Elvish**
 - The Amusing One *(said with genuine warmth and deep wariness)*
@@ -181,8 +181,8 @@ last_updated: 2026-03-19
 - Indra-Vijaya *(Victory-Indra — the martial aspect foregrounded)*
 - Dyu-Pati *(Lord of the Bright Sky — territorial claim)*
 
-**Orcish**
-- The Heaven That Charges Rent *(blunt; Orcs have dealt with territorial divine claims before and are unimpressed)*
+**Tulpar**
+- The Heaven That Charges Rent *(blunt; Tulpar have dealt with territorial divine claims before and are unimpressed)*
 - Keth-Doral *(He Whose Bargains Have Borders)*
 
 **Elvish**
@@ -218,8 +218,8 @@ last_updated: 2026-03-19
 - Nirākāra-Śakti *(The Formless Force)*
 - Pralaya-Mūla *(The Root of Dissolution — what is at the bottom of the end)*
 
-**Orcish**
-- The Unbargained Force *(cannot be negotiated with; the most frightening thing in the Orcish cosmological vocabulary)*
+**Tulpar**
+- The Unbargained Force *(cannot be negotiated with; the most frightening thing in the Tulpar cosmological vocabulary)*
 - Where the Chain Ends *(not a name — a location description that became a name)*
 
 **Elvish**
@@ -255,7 +255,7 @@ last_updated: 2026-03-19
 - Smṛti-Deva *(Memory-God — smṛti is specifically *remembered* tradition, passed down)*
 - Sākṣī-Purāṇa *(The Ancient Witness)*
 
-**Orcish**
+**Tulpar**
 - The Keeper Before the Keepers *(the Remembrancer tradition's source, whether they know it or not)*
 - Varath-Olan *(The Debt of Return — what is owed to memory when you finally come back)*
 
@@ -273,6 +273,6 @@ last_updated: 2026-03-19
 
 ---
 
->%%  *A few I'm particularly happy with and want to flag: **Spall** for the Chaos Weaver (Dwarven), **The Thousand-Year Lamp** for the Memory-Keeper (Tang Chinese), **The First Creditor** for the Sky-Father (Orcish), and **The Accountant** for the Weighmaster (Elvish) — that one is almost rude, which feels exactly right.* %%
+>%%  *A few I'm particularly happy with and want to flag: **Spall** for the Chaos Weaver (Dwarven), **The Thousand-Year Lamp** for the Memory-Keeper (Tang Chinese), **The First Creditor** for the Sky-Father (Tulpar), and **The Accountant** for the Weighmaster (Elvish) — that one is almost rude, which feels exactly right.* %%
 
 %% — What's landing and what needs reworking? %%

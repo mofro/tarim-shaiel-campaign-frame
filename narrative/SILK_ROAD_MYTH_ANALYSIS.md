@@ -7,7 +7,7 @@ content_type: reference
 visibility: gm_secrets
 status: draft
 created: 2026-03-05
-last_updated: 2026-03-05
+last_updated: 2026-10-24
 tags:
   - mythology
   - world-building
@@ -204,7 +204,7 @@ What Alpamysh adds that HH could incorporate: the **disguised return** as an int
 **HH Analog Note:**
 The Manas cycle inverts the Western hero-arc assumption (hero completes the quest, world is healed, end). In this framework, incompleteness is *generative* — it's why the story keeps going. The heroes of HH left work undone not as a failure but as the creation of a living obligation that the world has been carrying for 1,000 years.
 
-Strong application for NPC storytellers — particularly Orcish Remembrancers and Steppe bards who keep oral tradition. Their versions of the heroes' stories don't end with the heroes' ascension to paradise. They end with "and what they left undone is still waiting." These NPCs aren't mourning the heroes' absence. They are *maintaining the debt* on their behalf.
+Strong application for NPC storytellers — particularly Tulpar Remembrancers and Steppe bards who keep oral tradition. Their versions of the heroes' stories don't end with the heroes' ascension to paradise. They end with "and what they left undone is still waiting." These NPCs aren't mourning the heroes' absence. They are *maintaining the debt* on their behalf.
 
 ---
 
@@ -344,7 +344,7 @@ One Div as a specific NPC: an ancient being that has been observing the Silk Roa
 
 **HH Encounter Design:** In a Silk Road setting, the Jiangshi is cosmologically natural — the road is full of people who die far from home. A region plagued by Jiangshi isn't a dungeon encounter; it's a humanitarian crisis with a supernatural vector. The heroes can fight them, or they can ask: *why are so many people dying here without being returned?* The answer will lead somewhere.
 
-*Cultural texture:* Different ancestry communities have different rituals for ensuring the dead can get home. Orcish funerary rites (given their history of dying far from their original homeland) are likely particularly elaborate on this point. Orcs may have developed specific ritual practices around this during the Chaos Period.
+*Cultural texture:* Different ancestry communities have different rituals for ensuring the dead can get home. Tulpar funerary rites (given their history of dying far from their original homeland) are likely particularly elaborate on this point. Tulpar may have developed specific ritual practices around this during the Chaos Period.
 
 ---
 
@@ -409,7 +409,7 @@ This document is research scaffolding. The following actions will move this mate
 - [ ] **Create `WORLD_MYTHOLOGY_FRAMEWORK.md`** — A document that establishes *in-world* which myths exist as oral tradition vs. theological doctrine vs. suppressed heresy. This is separate from this research document; it is the world-building canon output of this research.
 - [ ] **Assign creatures to regions** — Albast → Steppe/Central Asian regions; Div → Persian-analog territories; Jiangshi → Eastern Gateway regions; Rakshasa/Vetala → Indian subcontinent-analog regions; Nagas → underground locations and subcontinent crossroads. Add to `WORLD_REGIONS_AND_LOCATIONS.md` creature/danger notes.
 - [ ] **Design one Vetala NPC** — This creature type is too useful as a recurring figure to leave undefined. Even a rough sketch (who they were, what body they inhabit, what they want to test) would be valuable before Session 0.
-- [ ] **Review Jiangshi encounter design against Orcish funerary rites** — The Orcish cultural framework (dying far from home, diaspora history) intersects naturally with Jiangshi mythology. This could produce a specifically Orcish relationship to this phenomenon worth documenting in `/world/ancestries/orcs.md`.
+- [ ] **Review Jiangshi encounter design against Tulpar funerary rites** — The Tulpar cultural framework (dying far from home, diaspora history) intersects naturally with Jiangshi mythology. This could produce a specifically Tulpar relationship to this phenomenon worth documenting in `/world/ancestries/orcs.md`.
 
 ### Long-Term
 - [ ] **Develop regional myth cycles** — One per major region, drawing from this material. Each cycle: 3-5 connected stories that define how that region's people understand heroism, death, and cosmic order. These become the oral tradition that NPCs cite, that bards perform, that temples preach.

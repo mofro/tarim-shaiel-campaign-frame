@@ -7,7 +7,7 @@ content_type: session
 visibility: public
 status: draft
 created: 2026-02-11
-last_updated: 2026-03-24
+last_updated: 2026-10-24
   - Sessions_Structure.md
   - CORE_CAMPAIGN_NARRATIVE.md
   - HERO_IDENTITY.md
@@ -40,7 +40,7 @@ last_updated: 2026-03-24
 
 *Read this section aloud to your players.*
 
-A thousand years ago, an empire fell. The peoples it had subjugated — Orcs, Dwarves, Elves, Humans, and others — rebuilt their world along the trade roads that had always connected them, long before any conqueror drew borders. Now those roads are thriving again: merchant caravans thread through mountain passes and desert basins, carrying silk, spices, stories, and secrets between cities that have learned to define themselves on their own terms.
+A thousand years ago, an empire fell. The peoples it had subjugated — Tulpar, Dwarves, Elves, Humans, and others — rebuilt their world along the trade roads that had always connected them, long before any conqueror drew borders. Now those roads are thriving again: merchant caravans thread through mountain passes and desert basins, carrying silk, spices, stories, and secrets between cities that have learned to define themselves on their own terms.
 
 But something is wrong. It lives in the silence between market calls, in the way old scholars pause mid-sentence and stare east, in the fact that certain ruins are avoided not because they are dangerous but because they feel *attentive*. The world is rich, alive, and beautiful — and underneath all of it, something unfinished is stirring. You don't know what it is yet. You only know that you arrive in a world that calls you to answer.
 
@@ -101,11 +101,11 @@ Each theme below is also a question the campaign will ask — of the characters,
 
 The world of Tarim Shaiel stretches along the great trade arteries that once connected an empire — and which now, a millennium after that empire's collapse, have reasserted themselves as the natural channels of commerce, culture, and connection between free peoples.
 
-To the east lies Chang'an, the old imperial capital: still vast, still grand, but fading. Its prestige rests on memories of administrative power that no longer flows through its halls. Westward, the great cities of Samarkand, Bukhara, and Tashkent have shed their garrison identities and become genuine crossroads — cosmopolitan, ambitious, and increasingly shaped by Orcish merchant influence. Between them, mountain passes guarded by Dwarven trade-strongholds control access with a merchant's precision: you may enter, but only on terms that serve the Vault. In the eastern borderlands, Elven sacred sites predate the empire entirely, their cave-temple complexes drawing pilgrims along routes that have been walked for millennia. And everywhere, along every road, the caravanserais — those way-stations of rest, trade, and information — serve as the connective tissue of a world that has learned to organize itself around movement rather than control.
+To the east lies Chang'an, the old imperial capital: still vast, still grand, but fading. Its prestige rests on memories of administrative power that no longer flows through its halls. Westward, the great cities of Samarkand, Bukhara, and Tashkent have shed their garrison identities and become genuine crossroads — cosmopolitan, ambitious, and increasingly shaped by Tulpar merchant influence. Between them, mountain passes guarded by Dwarven trade-strongholds control access with a merchant's precision: you may enter, but only on terms that serve the Vault. In the eastern borderlands, Elven sacred sites predate the empire entirely, their cave-temple complexes drawing pilgrims along routes that have been walked for millennia. And everywhere, along every road, the caravanserais — those way-stations of rest, trade, and information — serve as the connective tissue of a world that has learned to organize itself around movement rather than control.
 
-Magic exists here, but it is not tidy. It flows through channels that scholars have mapped imperfectly and that practitioners access through tradition, intuition, and risk. Some magic is structured and studied; some is wild, geographic, tied to places that predate any civilization's memory. The peoples of this world have their own relationships with these forces — the Elves through ancient contemplative practice, the Orcs through resonance with the land they have reclaimed, the Dwarves through craft that blurs the line between engineering and enchantment.
+Magic exists here, but it is not tidy. It flows through channels that scholars have mapped imperfectly and that practitioners access through tradition, intuition, and risk. Some magic is structured and studied; some is wild, geographic, tied to places that predate any civilization's memory. The peoples of this world have their own relationships with these forces — the Elves through ancient contemplative practice, the Tulpar through resonance with the land they have reclaimed, the Dwarves through craft that blurs the line between engineering and enchantment.
 
-The Empire that once controlled these lands is gone. Its fall was not clean. The seventy years that followed were marked by chaos, displacement, and the slow, painful work of peoples learning to govern themselves after generations of subjugation. That work is largely done — but its scars remain in ruined cities, in cultural memories, in the way certain peoples still regard each other with inherited wariness. The Orcs, in particular, carry the longest memory of what imperial "order" actually meant.
+The Empire that once controlled these lands is gone. Its fall was not clean. The seventy years that followed were marked by chaos, displacement, and the slow, painful work of peoples learning to govern themselves after generations of subjugation. That work is largely done — but its scars remain in ruined cities, in cultural memories, in the way certain peoples still regard each other with inherited wariness. The Tulpar, in particular, carry the longest memory of what imperial "order" actually meant.
 
 What the players need to know is this: the world is alive, functioning, and in many ways thriving. Trade flows. Cities grow. People build lives. And yet — there is something underneath it all that does not sit right. A wrongness that defies easy naming. Old scholars feel it in their research. Travelers sense it in the quality of the silence at certain crossroads. It is not a crisis. Not yet. It is the space where a crisis will eventually live, and some part of you — for reasons you cannot yet articulate — knows that you are meant to understand it.
 
@@ -182,7 +182,7 @@ What the players need to know is this: the world is alive, functioning, and in m
 
 **Lead With Sensation, Not Exposition** — When you describe a place, start with what the characters smell, hear, and feel underfoot. Let context emerge through detail, not summary. A refugee camp is not "about thirty people hiding in a ravine." It is the smell of fear-sweat, the sound of a child who has learned not to cry too loud, and the mud that has given up being soil.
 
-**Make Every Culture a Full Participant** — The Orcs are not "the warrior race." The Dwarves are not "the crafting race." Every people in this world has a complex relationship with the Empire's legacy, with trade, with magic, and with each other. When in doubt, ask yourself: what does this community want on its own terms?
+**Make Every Culture a Full Participant** — The Tulpar are not "the warrior race." The Dwarves are not "the crafting race." Every people in this world has a complex relationship with the Empire's legacy, with trade, with magic, and with each other. When in doubt, ask yourself: what does this community want on its own terms?
 
 **Weaponize Silence** — The most powerful moments in this campaign will not be combat encounters or dramatic reveals. They will be the pauses. The held eye contact. The moment when a character realizes they recognize something they shouldn't. Give those moments room to breathe. Do not fill them with narration.
 

@@ -6,7 +6,7 @@ content_type: concept
 visibility: gm_secrets
 status: canon
 created: 2026-03-17
-last_updated: 2026-05-07
+last_updated: 2026-10-24
 ---
 
 # HERO HEAVEN: HERO IDENTITY & COSMOLOGICAL FOUNDATION
@@ -294,7 +294,7 @@ Actual R/H/K revealed through mechanical choice
 
 **Historical Foundation:**
 - Real geography (Central Asia trade routes)
-- Real cultural dynamics (post-liberation Orcs as merchants)
+- Real cultural dynamics (post-liberation Tulpar as merchants)
 - Real political structures (Dwarven strongholds, Elvish withdrawal)
 - Fantasy elements grounded in historical analogs
 

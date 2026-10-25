@@ -7,7 +7,7 @@ content_type: campaign_frame
 visibility: gm_secrets
 status: canon
 created: 2025-12-14
-last_updated: 2026-05-07
+last_updated: 2026-10-24
 banner: images/places/1318668.png
 ---
 
@@ -38,7 +38,7 @@ The reward was premature. The work was left unfinished. And they failed to reali
 - They believed their great work was done.
 
 **Why They Had It:**
-- They liberated the enslaved people of their world, who including the Orc hoards, by breaking a Wizard's binding spells
+- They liberated the enslaved people of their world, who including the Tulpar hoards, by breaking a Wizard's binding spells
 - They defeated the Empire and its puppet despot through military and strategic victory
 - They prevented a would-be conqueror from maintaining absolute control
 - These were deeds worthy of reward.
@@ -86,7 +86,7 @@ Each hero carries a different burden of self-doubt. It's not generic guilt. **It
 **Their Method:** Shatters systems, breaks chains, destroys oppressive structures.
 
 **Their Fear:**
-*"The weapon that broke the Empire—did it also break the containment that was holding the Wizard? Every system I shattered may have been oppressive, but was something in that oppression also a restraint? In freeing the Orcs, did I inadvertently free something else? The 70-year chaos that followed—how much of that blood is on me?"*
+*"The weapon that broke the Empire—did it also break the containment that was holding the Wizard? Every system I shattered may have been oppressive, but was something in that oppression also a restraint? In freeing the Tulpar, did I inadvertently free something else? The 70-year chaos that followed—how much of that blood is on me?"*
 
 **The Deeper Question:**
 *"Is my gift for breaking the gift of liberation, or am I fundamentally destructive? Do I see chains to break, or do I see everything as chains? Can I trust my own judgment about what needs destruction?"*
@@ -216,7 +216,7 @@ The tool holds fragments of memory. It shows the hero pieces of what happened. I
 **Current State:**
 - **(A) Resists:** The weapon grows heavier when aimed at certain targets. Does it know what shouldn't be broken? Or is it preventing necessary destruction?
 - **(B) Hungers:** It craves destruction. The Breaker feels the hunger. Is this their desire or the weapon's? Can they tell the difference?
-- **(C) Knows:** It remembers breaking the Empire. Every structure that fell. It shows fragments: the Orcs freed, but also the chaos that followed. Did it break the right things?
+- **(C) Knows:** It remembers breaking the Empire. Every structure that fell. It shows fragments: the Tulpar freed, but also the chaos that followed. Did it break the right things?
 
 **The Question:**
 *"Is this weapon my strength, or a leash binding me to destruction? If I restore it fully, do I reclaim myself or repeat the cycle that caused this?"*

@@ -7,7 +7,7 @@ content_type: divine_environment
 visibility: gm_secrets
 status: draft
 created: 2026-05-02
-last_updated: 2026-05-02
+last_updated: 2026-10-24
 cosmological_layer: Celestial
 alignment: own-agenda
 tags:
@@ -32,7 +32,7 @@ type: lore
 | Persian / Zoroastrian | The Amesha Spenta (archival aspect) | Not the fire-principle but the preservation-principle; the Zoroastrian record of deeds that cannot be undone or forgotten. |
 | Tang Chinese | 史 (*Shi*, elevated) | The court historian elevated to divine scale; not the recording of events but the preservation of their true weight. Addressed through formal archive-ritual. |
 | Indian Subcontinent | Chitragupta (true aspect) | Not the ledger-keeper in the Weighmaster's sense; the memory that holds what actually happened rather than what was formally recorded. |
-| Orcish | The Old Remembering | Orc ancestor ceremonies often make contact with the Memory-Keeper without knowing it; the deep archive is accessible through correct practice. The Orcish tradition is the most reliable access route currently active. |
+| Tulpar | The Old Remembering | Tulpar ancestor ceremonies often make contact with the Memory-Keeper without knowing it; the deep archive is accessible through correct practice. The Tulpar tradition is the most reliable access route currently active. |
 | Elvish | The Undimmed | Elves understand the Memory-Keeper at a conceptual level. They are wary of direct access — what the Memory-Keeper holds includes things the Elves have not shared with other cultures. |
 | Dwarven | The Stone Record | Dwarven archives were built over places where the Memory-Keeper's roots emerge; the Dwarves do not know this. They believe their archives have unusual depth because of Dwarven craft. They are not entirely wrong. |
 | Wizard-Tradition | — | The Wizard does not address the Memory-Keeper. The Wizard has been working very carefully to ensure that what the Memory-Keeper holds does not surface. This effort has been the most precise and sustained work of the Wizard's campaign. |
@@ -67,7 +67,7 @@ Not a figure who appears and speaks. Accessed through the ritual of remembering 
 
 The Memory-Keeper's channels:
 - **Specific sacred sites** where the boundary between mortal memory and celestial preservation is thin. Not all ancestor sites — specific ones built over Memory-Keeper root-emergence points. The heroes must learn to distinguish these from ordinary sacred sites.
-- **Orcish ancestor ceremonies** that reach the deep archive without knowing it. The most reliable access route. The Orcs are not aware they are contacting something at this scale; they believe they are reaching their own ancestors. They are. The Memory-Keeper's roots run through Orc ancestral memory at extraordinary depth because the liberation happened in Orc history and because the Orc tradition of remembering has been preserving the Memory-Keeper's archive without knowing it for a thousand years.
+- **Tulpar ancestor ceremonies** that reach the deep archive without knowing it. The most reliable access route. The Tulpar are not aware they are contacting something at this scale; they believe they are reaching their own ancestors. They are. The Memory-Keeper's roots run through Tulpar ancestral memory at extraordinary depth because the liberation happened in Tulpar history and because the Tulpar tradition of remembering has been preserving the Memory-Keeper's archive without knowing it for a thousand years.
 - **Ancient Dwarven archives** built over root-emergence sites. The Dwarves believe their archives have depth because of their archival practice. The depth is real; the source is not entirely what they think.
 - **Dream-adjacent states** near significant Warren-sites where mortal memory and deep archive are briefly adjacent. Fragmentary, unreliable, but sometimes very precise.
 
@@ -156,7 +156,7 @@ The most significant challenge at Memory-Keeper sites is not opposition — it i
 
 *Initial state — update as campaign progresses.*
 
-The Memory-Keeper has been waiting. It noticed the heroes' return immediately — the archive's owners arriving after a thousand-year absence registers at every root-site simultaneously. It has been making itself available through Orcish ancestor ceremonies and certain Dwarven archives with unusual responsiveness in the weeks since the heroes woke.
+The Memory-Keeper has been waiting. It noticed the heroes' return immediately — the archive's owners arriving after a thousand-year absence registers at every root-site simultaneously. It has been making itself available through Tulpar ancestor ceremonies and certain Dwarven archives with unusual responsiveness in the weeks since the heroes woke.
 
 The Wizard's Scholar's Purge targeted Memory-Keeper access sites specifically — the Wizard knows what the Memory-Keeper holds. Several root-sites were destroyed; several more were obscured by building conflicting memory-layers over them (archives of misinformation built over truth-archives). The heroes recovering access to the Memory-Keeper is something the Wizard has been preventing for three hundred years. This means the heroes finding a clear root-site is worth more than the information received — it is proof that the Wizard's information suppression is not complete.
 
@@ -168,5 +168,5 @@ The Wizard's Scholar's Purge targeted Memory-Keeper access sites specifically �
 - Cultural names: [[narrative/gm_secrets/divine-players-naming]]
 - Cosmological architecture: [[world/diagrams/cosmological-architecture]]
 - Synthesis knowledge distribution: [[narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION]]
-- Related factions: [[world/factions/orc-steppe-confederations]], [[world/factions/chain-breakers-order]]
+- Related factions: [[world/factions/orc-steppe-confederations|Tulpar Steppe Confederations]], [[world/factions/chain-breakers-order]]
 - Related events: [[narrative/STORY_ARC_SYNTHESIS]]
