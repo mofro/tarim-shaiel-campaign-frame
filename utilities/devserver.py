@@ -487,7 +487,7 @@ def main() -> None:
     print("  Press Ctrl-C to stop.")
     print()
 
-    server = http.server.HTTPServer(("localhost", port), _Handler)
+    server = http.server.ThreadingHTTPServer(("localhost", port), _Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

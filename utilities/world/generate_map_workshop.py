@@ -598,7 +598,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'center:_wsSavedCenter||[75.0,40.0],'
         'zoom:_wsSavedZoom!=null?_wsSavedZoom:5,'
         'minZoom:3,'
-        'maxZoom:14'
+        'maxZoom:18'
         '});\n'
 
         'window.addEventListener("beforeunload",function(){'
@@ -963,6 +963,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Apply saved icon-type toggle state after layers are created
         '_rebuildTierFilters();\n'
 
+        'map.addControl(new maplibregl.ScaleControl({maxWidth:100,unit:"metric"}),"bottom-left");\n'
+
         '});\n'  # end map.on('load')
 
         # Wire icon type checkboxes (can run before or after map load)
@@ -1068,14 +1070,16 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _rebuildWsBtn=document.getElementById("rebuild-workshop-btn");'
         'var _apiStatus=document.getElementById("api-status");\n'
 
-        # Devserver health check (relative URL, no AbortSignal to avoid browser compat issues)
+        # Devserver health check — retry once after 1 s to survive single-threaded server races
         '(function(){'
         'var _ban=document.getElementById("ds-banner");'
         'document.getElementById("ds-banner-close").addEventListener("click",function(){'
         '_ban.hidden=true;});'
-        'fetch("/api/health")'
-        '.then(function(r){_ban.hidden=r.ok;})'
-        '.catch(function(){_ban.hidden=false;});'
+        'function _chk(){return fetch("/api/health").then(function(r){return r.ok;});}'
+        '_chk().then(function(ok){if(ok){_ban.hidden=true;}else{'
+        'setTimeout(function(){_chk().then(function(ok2){_ban.hidden=ok2;}).catch(function(){_ban.hidden=false;});},1000);}}'
+        '.catch(function(){setTimeout(function(){'
+        '_chk().then(function(ok2){_ban.hidden=ok2;}).catch(function(){_ban.hidden=false;});},1000);});'
         '})();\n'
 
         'function _setApiStatus(msg,cls){'
