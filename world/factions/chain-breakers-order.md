@@ -16,7 +16,7 @@ controls:
 narrative_weight: high
 status: canon
 created: 2026-04-30
-last_updated: 2026-04-30
+last_updated: 2026-10-24
 tags:
   - gm-only
   - campaign-arc-liberation
@@ -50,7 +50,7 @@ The Order does not have a headquarters. It has a practice. The rite of chain-bre
 
 ## Cultural Character
 
-The Order does not think of itself as a political organization, though others do. It thinks of itself as a memory-keeping practice — the obligation of those who know to remember, and to pass it on. The rite of chain-breaking is not merely symbolic: it is a claim about the nature of power, performed publicly in the presence of witnesses. They are multi-species but Orc-anchored. Their theology holds that the liberation was incomplete — that the heroes will return to finish what was started — which makes them either prophets or seditionists depending on who is in the room.
+The Order does not think of itself as a political organization, though others do. It thinks of itself as a memory-keeping practice — the obligation of those who know to remember, and to pass it on. The rite of chain-breaking is not merely symbolic: it is a claim about the nature of power, performed publicly in the presence of witnesses. They are multi-species but Tulpar-anchored. Their theology holds that the liberation was incomplete — that the heroes will return to finish what was started — which makes them either prophets or seditionists depending on who is in the room.
 
 ---
 
@@ -77,8 +77,8 @@ The Order does not think of itself as a political organization, though others do
 | [[the-wizard\|The Wizard]] | opposed / hunted by | The Scholar's Purge was specifically targeting Order memory; ongoing suppression |
 | [[lich-cadre\|Lich Cadre]] | opposed / hunted by | The Cadre executes the ongoing suppression; specific Liches may be assigned to Order operations |
 | [[human-imperial-remnants\|Human Imperial Remnants]] | opposed | The Remnants represent the bureaucratic legacy of what the Order was founded to resist |
-| [[orc-confederation-samarkand\|Orc Confederation (Samarkand)]] | complex — cultural roots shared | The Confederation rose from the same post-liberation military structures; the Order's Orc-anchored memory makes the relationship significant but not uncomplicated |
-| [[orc-steppe-confederations\|Orc Steppe Confederations]] | allied — oral tradition overlap | The ancestor spirit veneration tradition and the Order's liberation memory share deep roots |
+| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | complex — cultural roots shared | The Confederation rose from the same post-liberation military structures; the Order's Tulpar-anchored memory makes the relationship significant but not uncomplicated |
+| [[orc-steppe-confederations\|Tulpar Steppe Confederations]] | allied — oral tradition overlap | The ancestor spirit veneration tradition and the Order's liberation memory share deep roots |
 | [[scholars-remnant\|Scholars' Remnant]] | allied — parallel survival | Both are hunted by the Wizard; their knowledge domains are complementary; fragile solidarity |
 
 ---
@@ -91,7 +91,7 @@ The Order does not think of itself as a political organization, though others do
 
 **The Order's theology of return is the campaign's folk eschatology.** They believe the heroes will return. They are right. But the form of return they imagine may be so different from what actually happens that the encounter requires negotiation rather than recognition. This is a feature, not a problem — it forces the heroes to define themselves against the myth, not just inhabit it.
 
-**Multi-species but Orc-anchored.** The Order includes members of many ancestries, but its founding population was Orc, and its deepest oral traditions are Orc traditions. This matters for how the Order reads across different regions — it is not equally welcome everywhere.
+**Multi-species but Tulpar-anchored.** The Order includes members of many ancestries, but its founding population was Tulpar, and its deepest oral traditions are Tulpar traditions. This matters for how the Order reads across different regions — it is not equally welcome everywhere.
 
 ---
 

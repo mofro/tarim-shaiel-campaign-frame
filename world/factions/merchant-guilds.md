@@ -14,7 +14,7 @@ controls:
 narrative_weight: high
 status: canon
 created: 2026-04-30
-last_updated: 2026-04-30
+last_updated: 2026-10-24
 tags:
   - gm-only
 ---
@@ -65,7 +65,7 @@ Not a single organization but a category: multiethnic trading guilds with shared
 
 | faction | relationship | notes |
 |---------|-------------|-------|
-| [[orc-confederation-samarkand\|Orc Confederation (Samarkand)]] | transactional | The Confederation controls the Central Asian Hubs nodes; the Guilds need access |
+| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | transactional | The Confederation controls the Central Asian Hubs nodes; the Guilds need access |
 | [[dwarven-mountain-confederations\|Dwarven Mountain Confederations]] | rival / transactional | The Dwarves control the passes; competition over who sets terms for transit |
 | [[eastern-gateway-council\|Eastern Gateway Council]] | transactional | Checkpoint relationships; the Council's toll authority is the Guilds' primary friction point in the east |
 | [[peoples-of-the-nine-roads\|Peoples of the Nine Roads]] | parallel / complementary | The Peoples operate private networks the Guilds cannot access; information asymmetry cuts both ways |

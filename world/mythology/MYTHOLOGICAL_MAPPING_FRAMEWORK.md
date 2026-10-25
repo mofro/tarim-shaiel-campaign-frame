@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: world_building
 status: active_development
 created: 2026-01-07
-last_updated: 2026-01-07
+last_updated: 2026-10-24
 ---
 
 # Mythological Traditions → Fantasy Regions Mapping
@@ -17,7 +17,7 @@ This document maps real-world Silk Road mythological traditions onto Tarim-Shaie
 
 ## DECISIONS LOCKED (2026-01-07)
 
-### **Orcish Confederations (Samarkand Region + Steppe)**
+### **Tulpar Confederations (Samarkand Region + Steppe)**
 
 **Core Philosophy:** Cosmopolitan acceptance meets cultural confidence
 
@@ -27,7 +27,7 @@ This document maps real-world Silk Road mythological traditions onto Tarim-Shaie
 - **Post-Liberation Identity:** Cultural independence through selective integration
 
 **Narrative Character:**
-- Orcs engage deeply with philosophical/theological questions
+- Tulpar engage deeply with philosophical/theological questions
 - Accept other belief systems as "valid for those people"
 - Simultaneously assert their cultural truths as "better" (not superior, but more complete)
 - Create cognitive dissonance for players expecting "grunting killers"
@@ -35,7 +35,7 @@ This document maps real-world Silk Road mythological traditions onto Tarim-Shaie
 
 **Mythic Sources:**
 - **Tengri worship** (sky god, eternal blue heaven, cosmic balance)
-- **Warrior-hero epics** (Manas, Alpamysh, Köroğlu oral traditions adapted to Orcish victories)
+- **Warrior-hero epics** (Manas, Alpamysh, Köroğlu oral traditions adapted to Tulpar victories)
 - **Shamanic ancestor communication** (spirits guide, not command)
 - **Sufi-influenced mysticism** (adapted WITHOUT Islamic theology—focus on ecstatic unity, divine love)
 
@@ -280,7 +280,7 @@ Some locations should embody **multiple traditions simultaneously**:
 
 **Resonance Opportunities Identified:**
 
-- **Orcish cosmopolitan philosophy** creates surprising NPC encounters (subverts player expectations)
+- **Tulpar cosmopolitan philosophy** creates surprising NPC encounters (subverts player expectations)
 - **Dwarven fire/engineering mysticism** allows infrastructure as sacred (political weight + spiritual weight)
 - **Elven imperialistic enlightenment** justifies manipulation through "benevolent superiority" (morally complex antagonists)
 - **Human regional variation** creates internal cultural conflicts (faction complexity)

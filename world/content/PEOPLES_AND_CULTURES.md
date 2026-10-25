@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: world_building
 status: planned
 created: 2026-02-05
-last_updated: 2026-02-05
+last_updated: 2026-10-24
 ---
 
 # Peoples and Cultures: Species Overview
@@ -55,7 +55,7 @@ For each major species, document:
 - **Firbolg, Fungril, Katari, Infernis:** ~150-350 years
 
 **Human-Lifespan Species:**
-- **Humans, Orcs, Halflings, Gnomes, Goblins:** ~60-100 years
+- **Humans, Tulpar, Halflings, Gnomes, Goblins:** ~60-100 years
 
 **Short-Lived Species:**
 - **Fairies, Fauns, others:** ~50-75 years
@@ -94,7 +94,7 @@ For each major species, document:
 - No living memory but extensive written records
 - Academic interest; demand verification
 
-**Orcs:**
+**Tulpar:**
 - No living memory but central mythology
 - Heroes are core of liberation epic
 - Split between reverence and suspicion

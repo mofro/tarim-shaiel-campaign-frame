@@ -8,7 +8,7 @@ visibility: gm_secrets
 diagram_type: faction-web
 status: draft
 created: 2026-03-10
-last_updated: 2026-03-10
+last_updated: 2026-10-24
 source: world/factions/Index.md
 ---
 
@@ -91,7 +91,7 @@ graph LR
 ## Notes
 
 - Pan-regional factions (Merchant Guilds, Free Cities, Peoples of the Nine Roads, Gnome Guilds) are not shown in regional groups — they operate across all nodes
-- Steppe clan sub-factions (8 named clans) are folded under `Orc Steppe Confederations` until individually named
+- Steppe clan sub-factions (8 named clans) are folded under `Tulpar Steppe Confederations` until individually named
 - Subcontinent factions (Lotus Thrones, Eternal Courts, Houses of the Monsoon, Clans of the Roof) omitted — `color` status, not yet in play
 - Divine/Cosmic factions (Celestial Court, Held Breath, etc.) → see [[cosmological-architecture]]
 - Source data: [[world/factions/_category]]

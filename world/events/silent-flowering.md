@@ -7,7 +7,7 @@ content_type: event
 visibility: gm_secrets
 status: draft
 created: 2026-03-22
-last_updated: 2026-03-22
+last_updated: 2026-10-24
 tags: [event, elven-highland-enclaves, withdrawal, analog-ming-dynasty]
 timeline_start: 398
 timeline_end: 698
@@ -19,7 +19,7 @@ timeline_ref: nianhao-the-divine-arc
 
 > *Status: stub. Canon declaration name and date range are locked (Nianhao: 398–698 HB). Narrative content pending.*
 
-**Timeline position:** 398–698 HB — a 300-year arc beginning immediately after the Orc Diaspora stabilizes
+**Timeline position:** 398–698 HB — a 300-year arc beginning immediately after the Tulpar Diaspora stabilizes
 **Nianhao type:** Declaration (faction arc), not a single event
 **Nianhao icon:** `life-ring`
 
@@ -29,7 +29,7 @@ timeline_ref: nianhao-the-divine-arc
 
 The elves withdrew from active engagement with the world across a 300-year period. This coincides with:
 - The Mediator's Peace (318–398) — the post-Liberation stabilization
-- The Merchant's Rise (398–647) — Orc trade expansion fills the political vacuum
+- The Merchant's Rise (398–647) — Tulpar trade expansion fills the political vacuum
 - The Goblin Free Cities (418–698) — opportunistic city-states proliferate
 
 The withdrawal was gradual, not sudden. Something changed — or was decided — at the start of this period that set the elves on an inward course for three centuries.
