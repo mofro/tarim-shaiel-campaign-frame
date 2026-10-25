@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-05-14
+last_updated: 2026-10-25
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -89,7 +89,7 @@ That's it. Commit + push → Netlify rebuilds → players see the marker. The `r
 
 ## GeoJSON Structure
 
-- `world/data/tarim-shaiel-locations.geojson` — 32 features; IDs: `location_{slug}`
+- `world/data/tarim-shaiel-locations.geojson` — one Point per location (183 as of 2026-10-25); IDs: `location_{slug}`
 - `world/data/tarim-shaiel-routes.geojson` — trade route linestrings
 - `world/data/tarim-shaiel-regions.geojson` — 3 polygon features; IDs: `region_tarim_basin`, `region_eastern_gateway`, `region_central_asia`
 
