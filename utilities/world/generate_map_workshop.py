@@ -282,6 +282,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #ds-banner { display:flex; align-items:center; gap:8px; padding:5px 14px;
   background:#3a1a00; border-bottom:1px solid rgba(220,100,30,0.5);
   font-size:11px; color:#e8a060; flex-shrink:0; }
+#ds-banner[hidden] { display:none; }
 #ds-banner code { font-family:monospace; background:rgba(255,255,255,0.08);
   padding:1px 5px; border-radius:2px; color:#f0c090; }
 #ds-banner-close { margin-left:auto; background:none; border:none; color:#e8a060;
@@ -1078,7 +1079,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'function _chk(){return fetch("/api/health").then(function(r){return r.ok;});}'
         '_chk().then(function(ok){if(ok){_ban.hidden=true;}else{'
         'setTimeout(function(){_chk().then(function(ok2){_ban.hidden=ok2;}).catch(function(){_ban.hidden=false;});},1000);}}'
-        '.catch(function(){setTimeout(function(){'
+        ').catch(function(){setTimeout(function(){'
         '_chk().then(function(ok2){_ban.hidden=ok2;}).catch(function(){_ban.hidden=false;});},1000);});'
         '})();\n'
 
