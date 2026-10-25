@@ -6,8 +6,9 @@ Replaces 'python -m http.server' for interactive authoring sessions.
 Serves docs/ as the main site, the map workshop at /workshop, and
 exposes write-back API endpoints for coordinate updates and rebuilds.
 
-Usage:
-    python utilities/devserver.py [--port PORT]
+Usage (use the project venv — rebuild endpoints spawn build.py with this
+interpreter, and build.py needs PyYAML):
+    venv/bin/python utilities/devserver.py [--port PORT]
     Site:     http://localhost:8000/
     Workshop: http://localhost:8000/workshop
 
@@ -536,6 +537,19 @@ def _stale_workshop_warning() -> None:
         print("           Run: python utilities/build.py workshop  to refresh it.")
 
 
+def _require_pyyaml() -> None:
+    try:
+        import yaml  # noqa: F401
+    except ImportError:
+        sys.exit(
+            f"ERROR: PyYAML is not installed for {sys.executable}\n"
+            "  Write endpoints spawn build.py with this same interpreter, so every\n"
+            "  rebuild would fail after the .md file had already been written.\n"
+            "  Start the server with the project venv instead:\n"
+            "    venv/bin/python utilities/devserver.py"
+        )
+
+
 def main() -> None:
     import argparse
 
@@ -543,6 +557,8 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=DEFAULT_PORT)
     args = parser.parse_args()
     port = args.port
+
+    _require_pyyaml()
 
     global _lan_ip
     _lan_ip = _detect_lan_ip()
