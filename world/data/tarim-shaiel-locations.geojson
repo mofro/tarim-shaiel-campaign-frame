@@ -1256,6 +1256,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_dire-wolf-pass",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "dire-wolf-pass",
+        "label": "Dire Wolf Pass",
+        "title": "Dire Wolf Pass",
+        "fantasy_name": "Dire Wolf Pass",
+        "description": "Encounter with a pack of grumpy Dire Wolves. Release the Chaos!",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Encounter with a pack of grumpy Dire Wolves. Release the Chaos!</p>",
+        "url": "/locations/dire-wolf-pass.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.247829,
+          39.964047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_dry-kulekro",
       "properties": {
         "kind": "location",
@@ -1351,16 +1380,16 @@
       "id": "location_egerchi-bridge",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "bridge",
         "slug": "egerchi-bridge",
         "label": "Egerchi Bridge",
         "title": "Egerchi Bridge",
         "fantasy_name": "Egerchi Bridge",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "public",
-        "mapmarker": "landmark",
-        "marker-symbol": "mountain",
-        "marker-color": "#9CA3AF",
+        "mapmarker": "bridge",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -1521,6 +1550,35 @@
         "coordinates": [
           83.833856,
           41.817868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_foothill-crossroads",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "foothill-crossroads",
+        "label": "Foothill Crossroads",
+        "title": "Foothill Crossroads",
+        "fantasy_name": "Foothill Crossroads",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/foothill-crossroads.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.307015,
+          39.890274
         ]
       }
     },
@@ -4214,6 +4272,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_stashed-carts",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "stashed-carts",
+        "label": "Stashed Carts",
+        "title": "Stashed Carts",
+        "fantasy_name": "Stashed Carts",
+        "description": "Session 3: The location where the party chose to stash their carts prior to the overland shortcut. Forty, Kettle, and Second Seal covered and protected the carts and non-critical supplies in a rill here.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Session 3: The location where the party chose to stash their carts prior to the overland shortcut. Forty, Kettle, and Second Seal covered and protected the carts and non-critical supplies in a rill here.</p>",
+        "url": "/locations/stashed-carts.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.234994,
+          39.980951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_stone-ledger-gate",
       "properties": {
         "kind": "location",
@@ -4275,16 +4362,16 @@
       "id": "location_talimuhe-bridge",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "bridge",
         "slug": "talimuhe-bridge",
         "label": "Talimuhe Bridge",
         "title": "Talimuhe Bridge",
         "fantasy_name": "Talimuhe Bridge",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "public",
-        "mapmarker": "landmark",
-        "marker-symbol": "mountain",
-        "marker-color": "#9CA3AF",
+        "mapmarker": "bridge",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -5070,16 +5157,16 @@
       "id": "location_yanqi-bridge",
       "properties": {
         "kind": "location",
-        "category": "landmark",
+        "category": "bridge",
         "slug": "yanqi-bridge",
         "label": "Bridge of Winter",
         "title": "Yanqi Bridge",
         "fantasy_name": "Bridge of Winter",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "public",
-        "mapmarker": "landmark",
-        "marker-symbol": "mountain",
-        "marker-color": "#9CA3AF",
+        "mapmarker": "bridge",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],

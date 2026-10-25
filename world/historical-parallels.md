@@ -7,7 +7,7 @@ content_type: reference
 visibility: gm_secrets
 status: draft
 created: 2026-03-22
-last_updated: 2026-03-22
+last_updated: 2026-10-24
 tags: [analog, design-substrate, silk-road, historical-context]
 ---
 
@@ -75,21 +75,21 @@ The Ming at 1453 are *not in decline* — this is the critical distinction from 
 
 ---
 
-### The Mamluks → Orc Confederation (Samarkand) / Warrior-Caste Faction
+### The Mamluks → Tulpar Confederation (Samarkand) / Warrior-Caste Faction
 
 **Real world:** Mamluk Turks — slave-soldiers (mostly Kipchak Turk, some Circassian/Georgian) who seized Egypt and Syria, stopped the Mongols, protected Mecca and Medina
 **Tarim-Shaiel:** `orc-confederation-samarkand` (confirmed canon faction) — strong candidate for this model
 
 The Mamluks were purchased as children, raised as Muslim warriors, bonded to each other through training rather than blood. Their outsider status was *constitutive* — the system required non-native origin. They stopped the Mongols cold. They adopted Mongol firearms and used them better than the Mongols had. They ended up as the rulers of the most strategically important territory in the Islamic world, including the guardians of Mecca and Medina — *protectors of sacred space*.
 
-**What this gives the Orc Confederation:**
+**What this gives the Tulpar Confederation:**
 - Brotherhood-over-blood social structure (identity through training, not ancestry)
 - Radical adaptive pragmatism — won by appropriating enemy power, not resisting it
 - Legitimate rulership, not marauder status — *they ARE the system*
 - Sacred stewardship: the faction that controls the holiest sites is the outsider-warrior caste
 - The Janissaries (Ottoman parallel): Christian boys taken from Balkan villages, raised as Muslim soldier-administrators — *two* great empires simultaneously discovered that the most loyal warriors are those with no other identity to return to
 
-*Open question:* Do the Orcs hold a sacred site in Tarim-Shaiel? The Mamluk model becomes dramatically richer if they do.
+*Open question:* Do the Tulpar hold a sacred site in Tarim-Shaiel? The Mamluk model becomes dramatically richer if they do.
 
 ---
 
@@ -179,7 +179,7 @@ These were raised during the 2026-03-22 exploration session and are unresolved d
 
 1. **Ming/Elven withdrawal** — Is the elven-highland-enclaves withdrawal modeled as policy-choice (Ming) or something else? What was their "Zheng He moment" — when did they briefly expand before pulling back? Who is their Japan (the faction that refuses to acknowledge their cultural gravity)?
 
-2. **Mamluks/Orcs and sacred stewardship** — Do the Orcs hold a sacred site? The model becomes dramatically richer if they are guardians of something cosmologically significant, not just military rulers.
+2. **Mamluks/Tulpar and sacred stewardship** — Do the Tulpar hold a sacred site? The model becomes dramatically richer if they are guardians of something cosmologically significant, not just military rulers.
 
 3. **Arabs/Sufi substrate** — Is there a faction in Tarim-Shaiel that maps to the "dispersed network with no territory but enormous influence"? The Warren cosmology already implies something like Sufi mysticism exists — is there a named faction that carries it?
 

@@ -5,7 +5,7 @@ entity_type: factions
 visibility: gm_secrets
 status: active
 created: 2026-03-10
-last_updated: 2026-05-02
+last_updated: 2026-10-24
 published: true
 jump_nav: true
 ---
@@ -21,14 +21,14 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 
 | name | type | region | visible_control | hidden_control | rivals | controls | narrative_weight | status |
 |------|------|--------|-----------------|----------------|--------|----------|-----------------|--------|
-| [[orc-confederation-samarkand\|Orc Confederation (Samarkand)]] | confederation | Central Asian Hubs | yes — nominal warlord | — | human-imperial-remnants, orc-steppe-confederations | samarkand, bukhara, balkh, merv | high | canon |
+| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | confederation | Central Asian Hubs | yes — nominal warlord | — | human-imperial-remnants, orc-steppe-confederations | samarkand, bukhara, balkh, merv | high | canon |
 | [[human-imperial-remnants\|Human Imperial Remnants]] | network | Central Asian Hubs, Tarim Basin | no — administrative facade | — | orc-confederation-samarkand | merchant-networks, city-administration | medium | canon |
 | [[eastern-gateway-council\|Eastern Gateway Council]] | council | Eastern Gateway | yes — formal governance | elven-highland-enclaves | — | dunhuang, jade-gate | high | canon |
 | [[elven-highland-enclaves\|Elven Highland Enclaves]] | enclave | Elven Highlands, Eastern Gateway | no — invisible broker | eastern-gateway-council, eastern-imperial-dominion, jade-coast-realms | — | great-wall, mystical-infrastructure | very-high | canon |
 | [[dwarven-mountain-confederations\|Dwarven Mountain Confederations]] | confederation | Mountain Passes | yes — absolute | — | orc-confederation-samarkand, merchant-guilds | mountain-passes, anvil-sunder-switchbacks, stone-ledger-gate | medium | canon |
 | [[dwarven-tarim-authority\|Dwarven Tarim Authority]] | infrastructure | Tarim Basin | no — open secret | human-tarim-councils | — | karez-water-systems, kashkar, khotan, yarkand, turfan | medium-high | canon |
 | [[human-tarim-councils\|Human Tarim Councils]] | council | Tarim Basin | yes — administrative face | dwarven-tarim-authority | — | kashkar, khotan, yarkand, turfan | medium | canon |
-| [[orc-steppe-confederations\|Orc Steppe Confederations]] | confederation | The Steppe | yes — tribal/confederal | — | orc-confederation-samarkand | steppe-routes, nomadic-territories | medium | canon |
+| [[orc-steppe-confederations\|Tulpar Steppe Confederations]] | confederation | The Steppe | yes — tribal/confederal | — | orc-confederation-samarkand | steppe-routes, nomadic-territories | medium | canon |
 | [[goblin-free-cities\|The Free Cities]] | city-states | all regions (urban nodes) | yes — civic governance | — | peoples-of-the-nine-roads | free-city-markets, neutral-ground | medium | canon |
 | [[peoples-of-the-nine-roads\|Peoples of the Nine Roads]] | diaspora-compact | all regions | no — ubiquitous connective tissue | — | goblin-free-cities | private-networks, mediation-channels | medium | canon |
 | [[gnome-guilds\|The Gnome Guilds]] | technical-societies | all regions (urban) | no — practical influence | — | dwarven-mountain-confederations | caravanserai-networks, engineering-infrastructure | medium | canon |
@@ -80,7 +80,7 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 |------|------|--------|-----|-------------|--------|--------|
 | [[human-empire\|The Human Empire]] | empire | all regions | Era 0 (~200 CE) | heroes-liberation, military-defeat | human-imperial-remnants | canon |
 
-> **⚠️ The Human Empire needs a dedicated file.** What we know: aggressive expansionist state, tributary economy, military dependent on Orc slave-legions via binding magic, bureaucratic administration, controlled all major Silk Road hubs. Fantasy name TBD. Crucially — *who ran it?* A ruling dynasty? A priestly caste? A military aristocracy? The binding magic implies someone with cosmological knowledge. Does the Wizard predate the Empire or rise within it? These questions gate the individual file. See `_TEMPLATE_faction.md` for structure; this is a high-priority build.
+> **⚠️ The Human Empire needs a dedicated file.** What we know: aggressive expansionist state, tributary economy, military dependent on Tulpar slave-legions via binding magic, bureaucratic administration, controlled all major Silk Road hubs. Fantasy name TBD. Crucially — *who ran it?* A ruling dynasty? A priestly caste? A military aristocracy? The binding magic implies someone with cosmological knowledge. Does the Wizard predate the Empire or rise within it? These questions gate the individual file. See `_TEMPLATE_faction.md` for structure; this is a high-priority build.
 
 ---
 
@@ -111,7 +111,7 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 | [[celestial-court\|The Celestial Court]] | divine institution — distributed; the Sky-Father is its structural foundation, the Weighmaster its accounting function, the Conquering Heaven its military expression | Maintain the charge system; ensure heroes complete what they are sent to do; regulate Celestial Peak access | the-wizard (disrupts the system), lich-cadre | the-heroes (theoretically) | elven-highland-enclaves (partially), the-heroes (fragmentary memory) | very-high | draft |
 | [[held-breath\|The Held Breath]] | pre-cosmic force | None — not conscious; simply *is*; the pressure of dormant liminal consciousnesses | everything, if disturbed | — | elven-highland-enclaves (with dread), chain-breakers-order (oral tradition fragments) | very-high | proposed |
 | [[warren-intelligences\|The Warren Intelligences]] | quasi-sentient infrastructure | Unclear — possibly self-preservation; possibly something older; possibly they serve the Held Breath without knowing it | necromantic-energy (inverts their flow) | elven-highland-enclaves (partial understanding) | elven-highland-enclaves, scholars-remnant (fragments) | high | draft |
-| [[ancestor-spirits\|The Ancestor Spirits]] | cultural-divine — channel to the Memory-Keeper for those who practice correctly | Preserve Orc memory; guide descendants; maintain connection to liberation epic; some carry fragments of the original charge event via Memory-Keeper archive | the-wizard (suppresses memory), lich-cadre | orc-steppe-confederations, orc-confederation-samarkand, chain-breakers-order | orcs (veneration practice), chain-breakers-order | high | draft |
+| [[ancestor-spirits\|The Ancestor Spirits]] | cultural-divine — channel to the Memory-Keeper for those who practice correctly | Preserve Tulpar memory; guide descendants; maintain connection to liberation epic; some carry fragments of the original charge event via Memory-Keeper archive | the-wizard (suppresses memory), lich-cadre | orc-steppe-confederations, orc-confederation-samarkand, chain-breakers-order | Tulpar (veneration practice), chain-breakers-order | high | draft |
 | [[elder-gods\|The Elder Gods]] | resolved — see note below | — | — | — | — | very-high | draft |
 
 > **Celestial Court resolved (2026-03-19):** The Celestial Court is not a single governing body. It is a distributed structure: the Sky-Father as the structural foundation (the system expresses his will), the Weighmaster as its accounting function (the celestial ledger), and the Conquering Heaven as its military-territorial expression. These are distinct divine players with distinct interests, not a unified institution. The heroes were sent by this structure and expelled when the Gaes was exploited. They do not have a single patron; they have a cosmological system they were once part of. See [[narrative/gm_secrets/DIVINE_PLAYERS]] for full entries.
@@ -186,4 +186,4 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 
 ### On the Chain-Breakers Order
 
-Founded in the aftermath of the liberation by those who experienced the heroes' deeds but could not follow to the Celestial Peak. Multi-species but Orc-anchored. Theologically committed to the view that the liberation was incomplete — that the heroes will return to finish what was started — which makes them either prophets or seditionists depending on who is in the room. The Wizard's Scholar's Purge (~1175 CE) targeted them specifically, which tells you everything about how dangerous their institutional memory is. They hold fragments of the truth about the Gaes, the unfinished charge, and the Wizard's original intervention — not because they are scholars, but because they *were there*, and their oral tradition has kept the memory alive across 40 generations.
+Founded in the aftermath of the liberation by those who experienced the heroes' deeds but could not follow to the Celestial Peak. Multi-species but Tulpar-anchored. Theologically committed to the view that the liberation was incomplete — that the heroes will return to finish what was started — which makes them either prophets or seditionists depending on who is in the room. The Wizard's Scholar's Purge (~1175 CE) targeted them specifically, which tells you everything about how dangerous their institutional memory is. They hold fragments of the truth about the Gaes, the unfinished charge, and the Wizard's original intervention — not because they are scholars, but because they *were there*, and their oral tradition has kept the memory alive across 40 generations.

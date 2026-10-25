@@ -5,7 +5,7 @@ type: lore
 visibility: public
 status: canon
 created: 2026-03-21
-last_updated: 2026-03-22
+last_updated: 2026-10-24
 description: The roads were here before the empire. A lore piece on the world's ancient trade routes and the silence that has returned to them.
 banner: images/places/798802.jpg
 banner-height: 300
@@ -28,7 +28,7 @@ That is the thing people forget.
 
  The roads were always here. Under the paving stones and the marching boots and the bureaucratic waypoints, the roads were waiting. Patient as geography. Old as thirst.
 
- A thousand years, give or take, since the last empire crumbled. Long enough for the dust to settle. Long enough for the oasis cities to remember that they were oasis before they were garrison towns. Long enough for the mountain passes to be held by people who understand that a door is most valuable when you control who walks through it.
+ Since the last great empire crumbled. Long enough for the dust to settle. Long enough for the oasis cities to remember that they were oasis before they were garrison towns. Long enough for the mountain passes to be held by people who understand that a door is most valuable when you control who walks through it.
 
  Long enough for the caravans to return — not because anyone decreed it, but because people have always needed what other people have, and the roads have always served that need, stitching peoples together in it's skein.
 

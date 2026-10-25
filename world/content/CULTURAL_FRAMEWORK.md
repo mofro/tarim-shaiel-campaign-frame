@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: world_reference
 status: canon
 created: 2025-12-14
-last_updated: 2025-12-14
+last_updated: 2026-10-24
 ---
 
 # Tarim-Shaiel: Cultural & Political Framework
@@ -23,7 +23,7 @@ Tarim-Shaiel is set in the aftermath of a collapsed empire. The world is stabili
 **Empire Characteristics:**
 - Unified (or nearly unified) control over Silk Road trade
 - Control-based governance: military garrisons, extractive taxation, fear-based compliance
-- Reliance on enslaved/conscripted Orc military forces (magically bound by a powerful Wizard)
+- Reliance on enslaved/conscripted Tulpar military forces (magically bound by a powerful Wizard)
 - Attempted cultural suppression (imposed language, naming, aesthetics)
 - Ineffective in truly controlling large, geographically challenging regions
 
@@ -37,9 +37,9 @@ The Empire was **extractive and fear-based**, not consensual. It:
 In large, undefensible areas (deserts, steppes, highlands), the Empire relied on rumor and fear—a brittle foundation.
 
 **Key Event - The Heroes' Liberation (~1280s):**
-A legendary party of heroes liberated enslaved Orcs by breaking the Wizard's binding spells. This triggered:
+A legendary party of heroes liberated enslaved Tulpar by breaking the Wizard's binding spells. This triggered:
 - Collapse of the Wizard's magical control system
-- Orc uprising and uncontrolled violence
+- Tulpar uprising and uncontrolled violence
 - Military collapse of imperial forces
 - Rapid fragmentation of imperial authority
 - One team member (charismatic, upbeat) sacrificed themselves—their death became the rallying cry
@@ -47,24 +47,24 @@ A legendary party of heroes liberated enslaved Orcs by breaking the Wizard's bin
 ---
 
 ### Chaos Period (~1280s-1350s) — ~70 Years
-**The Age of Orcish Bloodshed & Instability**
+**The Age of Tulpar Bloodshed & Instability**
 
 **What Happened:**
-Freed Orcs, suddenly autonomous after generations of magical enslavement and military conscription, erupted into uncontrolled violence:
+Freed Tulpar, suddenly autonomous after generations of magical enslavement and military conscription, erupted into uncontrolled violence:
 - Raiding across the steppes and into adjacent regions
-- Territorial conflicts between Orc clans/tribes
+- Territorial conflicts between Tulpar clans/tribes
 - Revenge violence against former oppressors
 - Trade routes became dangerous and unreliable
-- Significant casualties on all sides (Orc, human, merchant, civilian)
+- Significant casualties on all sides (Tulpar, human, merchant, civilian)
 
 **How It Ended:**
 Not through military victory, but through **economic exhaustion and diplomatic pressure**:
 - Southern powers (Kuhban kingdoms, merchant leagues, some human city-states, Serenvar enclaves) recognized that raiding benefited no one
 - They collectively offered **economic incentives for stability over warfare**:
-  - Guaranteed trade partnerships for Orc confederations willing to establish order
+  - Guaranteed trade partnerships for Tulpar confederations willing to establish order
   - Mediation and negotiation services
-  - Protection and sponsorship for Orc groups establishing legitimacy
-- Gradually, Orc leaders realized that **trade was more profitable than raiding**
+  - Protection and sponsorship for Tulpar groups establishing legitimacy
+- Gradually, Tulpar leaders realized that **trade was more profitable than raiding**
 - Over generations, raiding culture transformed into merchant culture
 
 **Wizard's Activity During Chaos:**
@@ -90,7 +90,7 @@ Rather than empire or domination, the world reorganized around **actual economic
 
 **Regional Powers Stabilized:**
 Each major region found its role:
-- **Orc Confederations:** Transitioned from raiders to traders; confederations formed around trade rather than conquest
+- **Tulpar Confederations:** Transitioned from raiders to traders; confederations formed around trade rather than conquest
 - **Kuhban Kingdoms:** Maintained independence; became respected gatekeepers of mountain passes
 - **Human City-States:** Some thrived (Samarkand, Bukhara, Kashgar); others struggled (Chang'an lost relevance)
 - **Serenvar:** Remained withdrawn, producing luxury goods that everyone desired
@@ -98,8 +98,8 @@ Each major region found its role:
 
 **Mutual Dependency Model:**
 Rather than hierarchy, the system became **networked and reciprocal**:
-- Orc traders needed mountain pass access → Dwarves got tolls + respect
-- Merchants needed security on routes → Orcs got legitimate trade wealth
+- Tulpar traders needed mountain pass access → Dwarves got tolls + respect
+- Merchants needed security on routes → Tulpar got legitimate trade wealth
 - Dwarves needed goods → Traders supplied them
 - Serenvar provided luxury goods → Everyone needed them (but Serenvar remained socially withdrawn)
 - Jivar/Rahban facilitated trade → They became essential intermediaries
@@ -120,11 +120,11 @@ Rather than imperial imposition, cultures **naturally blended** in trade hubs:
 - The world has been stable for ~100 years (lifetime of shorter-lived races, living memory for long-lived ones)
 - Regional powers are established; no one threatens systemic collapse
 - Trade is robust; routes are safe (generally)
-- Orc integration is *recent* in historical terms—still within living memory
+- Tulpar integration is *recent* in historical terms—still within living memory
 - Old resentments and prejudices persist but are managed through mutual need
 
 **Fragility:**
-- The Orc integration, while successful, is still relatively new
+- The Tulpar integration, while successful, is still relatively new
 - Old imperial ideologies persist in some factions (particularly in Chang'an, where prestige is fading)
 - Trust between races/regions is pragmatic rather than deep
 - On the border regions, news is spreading of the impending impact of water trade and shipping
@@ -142,7 +142,7 @@ Rather than imperial imposition, cultures **naturally blended** in trade hubs:
 
 ## Racial & Cultural Positions
 
-### ORCS
+### TULPAR
 **From Enslaved to Merchant-Peers**
 
 **History:**
@@ -310,16 +310,16 @@ Essential but marginal; economically powerful but politically vulnerable; surviv
 
 ## Political Dynamics & Tensions
 
-### Tension 1: Orc Integration (Recent & Fragile)
-**The Issue:** Orcs are now merchant-peers, but this is only ~100 years old. Some southern populations still harbor prejudices or fear raiding will resume.
+### Tension 1: Tulpar Integration (Recent & Fragile)
+**The Issue:** Tulpar are now merchant-peers, but this is only ~100 years old. Some southern populations still harbor prejudices or fear raiding will resume.
 
 **Manifestation:**
-- Some merchants discriminate against Orc traders
-- Orc confederations are sensitive about being stereotyped as raiders
-- Younger Orcish generations have only known trading; older generations remember raiding
+- Some merchants discriminate against Tulpar traders
+- Tulpar confederations are sensitive about being stereotyped as raiders
+- Younger Tulpar generations have only known trading; older generations remember raiding
 - Risk of regression if economics collapse
 
-**Player Agency:** Heroes might smooth or complicate Orc-human/Orc-Kuhban relations through their actions
+**Player Agency:** Heroes might smooth or complicate Tulpar-human/Tulpar-Kuhban relations through their actions
 
 ---
 
@@ -355,7 +355,7 @@ Essential but marginal; economically powerful but politically vulnerable; surviv
 **Manifestation:**
 - Warriors/soldiers have less prestige than merchants
 - Military traditions feel outdated in peaceful trade era
-- Some Orc groups feel pressure to abandon martial traditions for merchant culture
+- Some Tulpar groups feel pressure to abandon martial traditions for merchant culture
 - Occasional warlords emerge promoting martial values
 
 **Player Agency:** Heroes from martial backgrounds might navigate this tension
@@ -367,7 +367,7 @@ Essential but marginal; economically powerful but politically vulnerable; surviv
 ### Trade-Based Interdependence
 The world runs on **mutual economic need**, not empire:
 
-- **Orc confederations** control steppe trade routes → others need their cooperation
+- **Tulpar confederations** control steppe trade routes → others need their cooperation
 - **Dwarves** control mountain passes → others pay tolls, need their maintenance
 - **Serenvar** produce luxury goods → everyone wants them
 - **Merchants** (Jivar, Rahban, Humans) facilitate trade → all depend on their networks
@@ -378,7 +378,7 @@ The world runs on **mutual economic need**, not empire:
 - **Central Asian hubs:** Prosperous; mixing of cultures and trade
 - **Mountain passes:** Steady, profitable; modest but stable
 - **Chang'an:** Prestigious but struggling for relevance
-- **Steppe:** Recently wealthy; Orc confederations accumulating merchant wealth
+- **Steppe:** Recently wealthy; Tulpar confederations accumulating merchant wealth
 
 ### Currency & Credit
 - Multiple currencies in circulation (gold, silver, local trade currencies)

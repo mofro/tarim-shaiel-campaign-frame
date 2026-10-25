@@ -113,7 +113,7 @@ Current tier: **—** *(none yet — walked east before the dead zone beat)*
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; reads people where she reads threats |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; her particular patience with his endless questions is genuine |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; respects the conviction, sometimes unsure about the method |
-| [[raizen\|Rayzen]] | Party — Pari-Kin Druid; two people who stand watch tend to notice each other |
+| [[raizen\|Reizan]] | Party — Pari-Kin Druid; two people who stand watch tend to notice each other |
 | [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; something about his patron-calm unsettles her in ways she hasn't named |
 | [[characters/NPCs/Narrator/Narrator\|Volkath]] | Caravan master — his Session 1 confession is why she walked east |
 

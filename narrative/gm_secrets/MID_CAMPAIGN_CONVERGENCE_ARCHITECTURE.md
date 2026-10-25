@@ -7,7 +7,7 @@ content_type: campaign_frame
 visibility: gm_secrets
 status: canon
 created: 2026-03-21
-last_updated: 2026-03-21
+last_updated: 2026-10-24
 ---
 
 # Mid-Campaign Convergence Point Architecture
@@ -43,7 +43,7 @@ Five phases — not sequentially enforced, but gravitationally arranged:
 
 - [CP1: "The Chain-Breakers Know" (Sessions 3-6)](#cp1-the-chain-breakers-know-sessions-3-6)
 - [CP2: "The Dwarven Archive Speaks" (Sessions 7-11)](#cp2-the-dwarven-archive-speaks-sessions-7-11)
-- [CP3: "The Orcish Songs Are Literal" (Sessions 10-14)](#cp3-the-orcish-songs-are-literal-sessions-10-14)
+- [CP3: "The Tulpar Songs Are Literal" (Sessions 10-14)](#cp3-the-tulpar-songs-are-literal-sessions-10-14)
 - [CP4 Variable: "The Mirror Cracks" (Sessions 13-18)](#cp4-variable-the-mirror-cracks-sessions-13-18)
 - [CP5: "The Wizard Is Already There" (Sessions 17-22)](#cp5-the-wizard-is-already-there-sessions-17-22)
 - [CP6: "The Companion Speaks Clearly" (Sessions 21-26)](#cp6-the-companion-speaks-clearly-sessions-21-26)
@@ -57,14 +57,14 @@ Five phases — not sequentially enforced, but gravitationally arranged:
 **World dynamics creating this convergence:**
 The Chain-Breakers Order has been moving toward the heroes since Session 0 — not by description (mythology has distorted that beyond recognition) but by tool resonance. Celestial-touched tools entering a region are felt by Chain-Breakers in that region. The Order finds the heroes; the heroes do not need to find the Order. Simultaneously, Goblin/Halfling trade network data is patterning dead zones across the continent. The Wizard's surveillance creates urgency, pushing heroes toward shelter communities — which puts them in contact with the dispersed networks (Free Cities, Chain-Breakers way-stations) where the Order operates.
 
-**Revelation delivered:** Layer 1 depth. The incomplete charge is named for the first time by a source with actual knowledge: not "stop the Wizard" but "reckon with what was woken when you liberated the Orcs." The Chain-Breakers name the gaes mechanics, the shape of what was left undone. The liberation was RIGHT. The beacon event was real. The heroes were expected — for a thousand years.
+**Revelation delivered:** Layer 1 depth. The incomplete charge is named for the first time by a source with actual knowledge: not "stop the Wizard" but "reckon with what was woken when you liberated the Tulpar." The Chain-Breakers name the gaes mechanics, the shape of what was left undone. The liberation was RIGHT. The beacon event was real. The heroes were expected — for a thousand years.
 
 **Mechanical anchor:** First Stage 1 tool evolutions. The Chain-Breakers' accurate naming of what the tools are (Warren ambassadors, exiled selves) triggers the first evolution. Shared Memory Events 1 and 2 ("The Warrior's Choice," "The Question of Sight") surface here — triggered by being in a space where the legendary past is named accurately for the first time.
 
 **Core doubt crystallized:** "We were expected. The expectation was built on a version of us that doesn't match who we are now. Are we what they need — or just the closest available echo of something they prepared for?"
 
 **Archetype-specific pressure:**
-- *Breaker:* Faces Orc-descended Chain-Breakers — people whose freedom the Breaker created, now asking the Breaker to reckon with what that freedom cost.
+- *Breaker:* Faces Tulpar-descended Chain-Breakers — people whose freedom the Breaker created, now asking the Breaker to reckon with what that freedom cost.
 - *Seeker:* Confronts the possibility that the Chain-Breakers' oral tradition holds truths the Seeker's own tools have been withholding.
 - *Sentinel (if present):* This community has been witnessing for a thousand years without the heroes — doing the work the Sentinel failed to do.
 
@@ -93,16 +93,16 @@ The Goblin/Halfling data from CP1 pattern-matches to mountain passes, pulling he
 
 ---
 
-## CP3: "The Orcish Songs Are Literal" (Sessions 10-14)
+## CP3: "The Tulpar Songs Are Literal" (Sessions 10-14)
 
 **Emotional phase:** Context without clarity → Held Breath named; beacon confirmed
 
 **World dynamics creating this convergence:**
-A specific Orcish ancestor — one from the Liberation era — goes completely silent in a confederation the heroes have befriended. Not degraded: gone. This correlates with dead zone data the heroes now hold. The Sky-Father's attention turns: weather in the Steppe clears or obscures in ways that feel deliberate; a senior shaman interprets this as the Sky-Father noticing the heroes. The Jade Illusionist makes their first named appearance as a traveling merchant — asks the shaman one question in the heroes' presence ("What happens to the dead when the channel that carries them is interrupted?") and is gone without waiting for an answer.
+A specific Tulpar ancestor — one from the Liberation era — goes completely silent in a confederation the heroes have befriended. Not degraded: gone. This correlates with dead zone data the heroes now hold. The Sky-Father's attention turns: weather in the Steppe clears or obscures in ways that feel deliberate; a senior shaman interprets this as the Sky-Father noticing the heroes. The Jade Illusionist makes their first named appearance as a traveling merchant — asks the shaman one question in the heroes' presence ("What happens to the dead when the channel that carries them is interrupted?") and is gone without waiting for an answer.
 
-**Revelation delivered:** The Held Breath named for the first time in a receivable form. The Orcish epic songs are not metaphors — they are eyewitness accounts of what was present when the Orcish binding spells were broken. The liberation was RIGHT. The incomplete charge: they did not reckon with what woke when the liberation happened, and it has had a thousand years to pursue its own agenda. **The Orcish community names this framing first. The heroes cannot name it before them.**
+**Revelation delivered:** The Held Breath named for the first time in a receivable form. The Tulpar epic songs are not metaphors — they are eyewitness accounts of what was present when the Tulpar binding spells were broken. The liberation was RIGHT. The incomplete charge: they did not reckon with what woke when the liberation happened, and it has had a thousand years to pursue its own agenda. **The Tulpar community names this framing first. The heroes cannot name it before them.**
 
-**Mechanical anchor:** Shared Memory Events 3 and 4 ("The Weight of Choice," "Aspirations Undone") trigger here. Orcish shamanic sensing matches what the heroes' tools have been reporting — trust shifts from "can I trust this data?" to "I trust the data, but can I trust the Warren's *framing* of the data?"
+**Mechanical anchor:** Shared Memory Events 3 and 4 ("The Weight of Choice," "Aspirations Undone") trigger here. Tulpar shamanic sensing matches what the heroes' tools have been reporting — trust shifts from "can I trust this data?" to "I trust the data, but can I trust the Warren's *framing* of the data?"
 
 **Core doubt crystallized (Warrior):** "Strength won the battle. Strength could not have addressed what the battle woke. What am I if not the instrument of decisive force?"
 
@@ -195,7 +195,7 @@ The companion's ghost, fragmentary and emotionally dense throughout, becomes coh
 |---|---|---|---|---|---|
 | CP1: "Chain-Breakers Know" | 3-6 | Order finds heroes; trade data patterns; being watched | Layer 1 depth: incomplete charge named | K (first structured memories) | "Are we what they needed — or just the available echo?" |
 | CP2: "Dwarven Archive Speaks" | 7-11 | Data + Lich encounter + Chaos Weaver effect | Layer 1 deepened: active suppression confirmed | K (pattern authentication) | "Did our methods and the Wizard's methods differ?" |
-| CP3: "Orcish Songs Literal" | 10-14 | Ancestor goes silent; Sky-Father stirs; Jade Illusionist | Held Breath named; beacon event confirmed | H + K (shamanic sensing matches tool data) | "We woke it, and it's had a thousand years" |
+| CP3: "Tulpar Songs Literal" | 10-14 | Ancestor goes silent; Sky-Father stirs; Jade Illusionist | Held Breath named; beacon event confirmed | H + K (shamanic sensing matches tool data) | "We woke it, and it's had a thousand years" |
 | CP4 Variable: "Mirror Cracks" | 13-18 | High Elf framework + Shattered King interference | Full cosmological architecture; synthesis complete | R (tools resist calcified plan) | "Knowledge wasn't the missing piece. We are." |
 | CP5: "Wizard Is Already There" | 17-22 | Lich multi-front + Scholar convergence + Wizard contact | Layer 2: Wizard's plan would breach containment | R (all tools against Wizard's claims) | "The most certain being is the most manipulated." |
 | CP6: "Companion Speaks Clearly" | 21-26 | Sky-Father via shaman; Memory-Keeper threshold | Layer 2 → 3: the deeper charge named | K final form (surrendered self returned as choice) | "We choose despite doubt. That is the charge." |

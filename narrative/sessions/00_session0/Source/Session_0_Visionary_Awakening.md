@@ -10,7 +10,7 @@ tool_form: obsidian disk
 location: Caravanserai on the western road
 status: canon
 created: 2026-06-19
-last_updated: 2026-06-19
+last_updated: 2026-10-24
 version: 0.4
 ---
 
@@ -49,12 +49,12 @@ The Visionary enters the convergence scene as *the one who stepped forward when 
 - The Seraph did not arrive at the caravanserai by ordinary travel — they simply were there, already standing, when awareness returned
 - The disk has been in their hand since before they were conscious of having a hand to hold it
 - The lead rider's formation is operating under imperial authority that has not been formally revoked but no longer applies to this road under the Merchant Council spring agreements — both the rider and the merchant know this; the rider does not care
-- The orc merchant's papers are legitimate and in order; the payment being demanded is a legal technicality being weaponized as leverage
-- The young orc in the crowd is a Chain-Breakers Order sympathizer — not an active operative, but someone with family history in the liberation and very specific readiness for situations that look like this one
+- The Tulpar merchant's papers are legitimate and in order; the payment being demanded is a legal technicality being weaponized as leverage
+- The young Tulpar in the crowd is a Chain-Breakers Order sympathizer — not an active operative, but someone with family history in the liberation and very specific readiness for situations that look like this one
 - External rescuers are not coming; this situation will resolve through the people present or not resolve cleanly
 
 **Contested-site context:**
-The caravanserai sits at a crossroads where imperial remnant authority overlaps with the new trade networks the orc merchant confederations have built since the liberation. The Wizard's agents have no specific presence here — but the structural tension being exploited is exactly the kind of fault line they seed and watch. If a divine figure visibly intervened in a volatile imperial-orc dispute in a public trade space, that is the kind of event that would be reported.
+The caravanserai sits at a crossroads where imperial remnant authority overlaps with the new trade networks the Tulpar merchant confederations have built since the liberation. The Wizard's agents have no specific presence here — but the structural tension being exploited is exactly the kind of fault line they seed and watch. If a divine figure visibly intervened in a volatile imperial-orc dispute in a public trade space, that is the kind of event that would be reported.
 
 **Passive hook:** The lead rider paused when he surveyed the courtyard. He noted the Seraph. He will report what he saw to whoever he reports to. What reaches that report and what is made of it is a thread the GM holds for later.
 
@@ -129,7 +129,7 @@ His survey stops at you. Not long. But it stops.
 
 Then continues, with the controlled neutrality of a man who has noted something and will return to it when he is ready.
 
-The formation moves toward the far stalls where an orc merchant has been managing the offload of three mule-loads of eastern goods — silk in wax-sealed parcels, dye-blocks stamped with a Khotan mark, tools wrapped in oiled leather. The merchant is built like thirty years of cargo work, and he watches the approaching horsemen with the expression of someone calculating distances and finding the numbers unsatisfactory.
+The formation moves toward the far stalls where a Tulpar merchant has been managing the offload of three mule-loads of eastern goods — silk in wax-sealed parcels, dye-blocks stamped with a Khotan mark, tools wrapped in oiled leather. The merchant is built like thirty years of cargo work, and he watches the approaching horsemen with the expression of someone calculating distances and finding the numbers unsatisfactory.
 
 ### GM Notes
 
@@ -170,17 +170,17 @@ And in the reflection — something is not what it claims to be. Not in the ride
 
 Then, at the edge of the crowd:
 
-Someone watching the confrontation with a quality of attention that is different from the crowd's studied avoidance. Young — teens or barely past. Orc, dressed as a traveler but not moving as travelers move. The stillness of someone who has already decided what they will do and is waiting to find out whether the conditions are being met.
+Someone watching the confrontation with a quality of attention that is different from the crowd's studied avoidance. Young — teens or barely past. Tulpar, dressed as a traveler but not moving as travelers move. The stillness of someone who has already decided what they will do and is waiting to find out whether the conditions are being met.
 
 The hand inside the coat.
 
-The crowd around this person has given them the same unconscious space it gave you — but different. The space around you is uncertainty. The space around the young orc is the instinct of people who have learned to read the specific stillness of someone who has already chosen.
+The crowd around this person has given them the same unconscious space it gave you — but different. The space around you is uncertainty. The space around the young Tulpar is the instinct of people who have learned to read the specific stillness of someone who has already chosen.
 
 ### GM Notes
 
 - The payment dispute: the merchant's papers ARE in order; the new rate the rider cites IS technically in effect but doesn't apply to this road; both are true and both are being weaponized. The rider doesn't need a clean legal answer. The power of the interaction is that he doesn't need one.
 - The disk's wrongness: felt, not analyzed. Do not name what it is responding to. It is the Warren showing the Seraph that something here is not what it presents itself as. The Seraph cannot yet identify this — only register it.
-- The young orc: do not draw the player's attention directly. It should arrive as a detail in the scanning of the scene — noticed because the Seraph is the kind of person who notices what others are avoiding.
+- The young Tulpar: do not draw the player's attention directly. It should arrive as a detail in the scanning of the scene — noticed because the Seraph is the kind of person who notices what others are avoiding.
 - The crowd's avoidance is the moral context: every person in that courtyard is making the same choice the Seraph will be asked to make. Most of them have already made it. The Seraph gets to see it in full before they choose.
 
 ---
@@ -195,7 +195,7 @@ Three silences happening simultaneously:
 
 The merchant has not answered. The rider has not moved. The space between the demand and the response that has not come is holding the shape of what happens next.
 
-The young orc is still.
+The young Tulpar is still.
 
 You, and the disk.
 
@@ -231,7 +231,7 @@ The watching is the only answer that comes.
 
 The rider's hand has moved to a writing tool. A ledger. The specific practiced motion of someone preparing to document a confiscation. His horse is still. The horse has done this before.
 
-The young orc's hand is inside the coat.
+The young Tulpar's hand is inside the coat.
 
 The crowd has found pressing business elsewhere.
 
@@ -245,7 +245,7 @@ One of the merchants near the well inhales.
 
 The lead rider looks up from his ledger.
 
-The young orc goes still in a different way — the stillness of someone who was waiting to see what would happen, and now something is happening, and it is not what they were waiting for.
+The young Tulpar goes still in a different way — the stillness of someone who was waiting to see what would happen, and now something is happening, and it is not what they were waiting for.
 
 ---
 
@@ -263,7 +263,7 @@ The disk catches the morning light.
 
 ### The Standoff Mechanic
 
-*Place two dice on the table. Both showing 4. One for the horsemen. One for the young orc.*
+*Place two dice on the table. Both showing 4. One for the horsemen. One for the young Tulpar.*
 
 **Counter starts at 4 (both dice).**
 
@@ -280,25 +280,25 @@ Each cycle: both sides speak or shift. The Seraph responds or acts.
 | Success with Fear | No change; GM gains 1 Fear |
 | Failure with Fear | Counter +1 on target die |
 
-**Counter hits 0:** That party stands down. Both at 0: the standoff resolves. The horsemen defer the payment issue — not satisfied, but the cost of pressing it has exceeded the value. The merchant exhales. The young orc's hand comes away from the coat.
+**Counter hits 0:** That party stands down. Both at 0: the standoff resolves. The horsemen defer the payment issue — not satisfied, but the cost of pressing it has exceeded the value. The merchant exhales. The young Tulpar's hand comes away from the coat.
 
 **The snippet fires at the moment of the first step forward.** See Segment 6.
 
 ---
 
-### Path A: Approaching the Young Orc with Authority (deviation)
+### Path A: Approaching the Young Tulpar with Authority (deviation)
 
-If the Seraph moves toward the young orc with the posture of someone with power addressing someone with a problem — borrowed authority, even unintentional — the disk shifts in the grip.
+If the Seraph moves toward the young Tulpar with the posture of someone with power addressing someone with a problem — borrowed authority, even unintentional — the disk shifts in the grip.
 
 Not heavier. Wrong.
 
-The reflection shows the young orc's posture before your mind has consciously read it: braced. The preparation for impact that belongs to someone who has learned authority as a word for *incoming.* The disk is showing you what you're reading as, from outside, before you can correct it.
+The reflection shows the young Tulpar's posture before your mind has consciously read it: braced. The preparation for impact that belongs to someone who has learned authority as a word for *incoming.* The disk is showing you what you're reading as, from outside, before you can correct it.
 
-The young orc's hand comes out of the coat. Not slowly.
+The young Tulpar's hand comes out of the coat. Not slowly.
 
 The horsemen do not intervene. They watch with the attention of professionals assessing whether a situation has resolved itself usefully.
 
-The scuffle is brief and not lethal — the young orc is not trying to kill anyone; they are trying to make the authority stop coming toward them. Resolve it appropriate to the situation and the Seraph's capabilities. When it ends, both parties are breathing harder than the violence warranted.
+The scuffle is brief and not lethal — the young Tulpar is not trying to kill anyone; they are trying to make the authority stop coming toward them. Resolve it appropriate to the situation and the Seraph's capabilities. When it ends, both parties are breathing harder than the violence warranted.
 
 **What the disk says:** In the moment of impact, the snippet arrives fragmented — the full memory begins but does not complete. What surfaces is the voice of the comrade: *He's solid. I know him. Let it go.* And then the weight of afterward. Not the betrayal itself — just the quality of the space after, when the thing that was seen and not spoken had come to pass. The disk delivering its note: *you have done this before. You read the room. You chose the borrowed frame. You know how this ends.*
 
@@ -325,8 +325,8 @@ The scuffle is more significant than Path A and less clean. Resolve it appropria
 ### GM Notes (all paths)
 
 - The Seraph's presence in the open space has already done something before any choice is made. The standoff exists *because* they stepped into it. This is true regardless of which path follows.
-- During the standoff: as both dice descend, name what changes. The rider's hand moves away from the ledger. The merchant's posture shifts. Someone in the crowd turns back toward their transaction. The young orc's hand comes out of the coat slowly, and when they look at the Seraph, the look contains something unreadable — not gratitude, not acknowledgment, something prior to both of those.
-- On Path B: the young orc slips out during the engagement with the horsemen. Quietly. This is its own detail — the GM holds it.
+- During the standoff: as both dice descend, name what changes. The rider's hand moves away from the ledger. The merchant's posture shifts. Someone in the crowd turns back toward their transaction. The young Tulpar's hand comes out of the coat slowly, and when they look at the Seraph, the look contains something unreadable — not gratitude, not acknowledgment, something prior to both of those.
+- On Path B: the young Tulpar slips out during the engagement with the horsemen. Quietly. This is its own detail — the GM holds it.
 - On all paths: the rider pauses before leaving (or after subduing the Seraph) and looks at them one more time. He doesn't say anything. He looks like a man filing something away.
 
 ---
@@ -397,7 +397,7 @@ No acknowledgment of what changed or why. No recognition of you, of the pause, o
 
 The merchant does not move immediately. He watches the gate for the space of several breaths. Then he begins moving again — the same cargo, the same offload — but with the manner of someone who has remembered that he has a body and it is still here.
 
-The young orc is gone. The hand that came away from the coat, the feet that turned toward the side gate — that was quiet. That was not the retreat of someone who has been stopped. It was someone who had seen something they didn't expect to see and gone away to think about it.
+The young Tulpar is gone. The hand that came away from the coat, the feet that turned toward the side gate — that was quiet. That was not the retreat of someone who has been stopped. It was someone who had seen something they didn't expect to see and gone away to think about it.
 
 The courtyard restores itself. The weight-argument resumes. The camels have continued declining the morning. Somewhere, the smithy fire.
 
@@ -417,7 +417,7 @@ The disk in your hand. The reflection: the merchant's face, clear, looking at yo
 
 - The merchant's offer: a caravan guard's weapon — a short blade, good road-steel, the kind a caravan outfit keeps for the people it hires. Possibly padded armor, possibly a traveling pack. Not divine equipment. Earned equipment. Offered by someone whose goods are still on the mules because of what happened this morning.
 - The Seraph should receive this without knowing quite what to make of it. They stepped into the open space and held it. They didn't draw a weapon — they don't have one. They didn't claim authority. They just stood there. And now a stranger is offering them a blade.
-- The young orc's departure: a thread. Unnamed. Do not follow it here.
+- The young Tulpar's departure: a thread. Unnamed. Do not follow it here.
 - The lead rider's final look, before he left: the GM holds this. He noted them on the way in. He noted them on the way out. Whatever that becomes, it becomes later.
 
 ### Player Agency
@@ -473,7 +473,7 @@ The caravan moves.
 **Segment Breakdown:**
 1. **The Waking (3-5 min):** Already standing, disk in hand, arranged space, first reflection
 2. **The Courtyard (3-5 min):** Horsemen arrive, survey, pause on the Seraph, move toward the merchant
-3. **The Confrontation (5-8 min):** The payment dispute, the crowd's avoidance, the young orc, the disk's wrongness
+3. **The Confrontation (5-8 min):** The payment dispute, the crowd's avoidance, the young Tulpar, the disk's wrongness
 4. **The Disk (3-4 min):** The prayer without answer, the Sky-Father's watching, Hunger and Resist signals
 5. **The Step (8-12 min, variable):** Standoff mechanic, Path A, Path B
 6. **The Snippet (2-3 min):** The ally memory, the choosing-not-to-see, the difference

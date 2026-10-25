@@ -59,6 +59,7 @@ utilities/world/natural_earth/ne_10m_rivers_lake_centerlines/
 *.webm
 *.mp4
 *.mov
+*.qta
 
 # OSM / Overpass API response caches (local-only, not committed)
 world/data/.routes_cache.json
@@ -86,4 +87,5 @@ utilities/lk-bridge/lk_manifest.json
 
 # Map workshop local dev files (not for live site)
 map-workshop.html
+player-map.html
 BRAT-log.md

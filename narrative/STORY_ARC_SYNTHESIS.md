@@ -7,7 +7,7 @@ content_type: campaign_frame
 visibility: gm_secrets
 status: draft
 created: 2026-02-09
-last_updated: 2026-05-07
+last_updated: 2026-10-24
 banner: images/places/1249702.jpg
 ---
 
@@ -222,13 +222,13 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 
 ---
 
-### ORCISH CONFEDERATIONS — "The Liberation Memory Carries a Warning"
+### TULPAR CONFEDERATIONS — "The Liberation Memory Carries a Warning"
 
 **What they understand:**
-- Their oral epic tradition preserves something the Orcs themselves may not fully grasp: the binding spells that enslaved them were not *just* enslavement — they were parasitic connections to the mythic ecosystem
-- The liberation didn't just free Orcs — it severed thousands of forced connections to the magical infrastructure, creating ripple effects
+- Their oral epic tradition preserves something the Tulpar themselves may not fully grasp: the binding spells that enslaved them were not *just* enslavement — they were parasitic connections to the mythic ecosystem
+- The liberation didn't just free Tulpar — it severed thousands of forced connections to the magical infrastructure, creating ripple effects
 - Their shamanic traditions (Tengri-rooted ancestor communication) have become increasingly unreliable over the past century — ancestors are harder to reach, their messages more fragmented
-- Orc elders sense that the spiritual world is "thinning" or "drifting"
+- Tulpar elders sense that the spiritual world is "thinning" or "drifting"
 
 **What they don't know:**
 - The cosmological framework that explains why
@@ -237,9 +237,9 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 
 **Their stance:**
 - Would be deeply conflicted if told their liberation damaged the ecosystem (defensive, potentially hostile to messengers who seem to be saying "you shouldn't have been freed")
-- Heroes must be *extremely careful* how this information is presented — the Orcs' liberation was RIGHT, but it was INCOMPLETE (the heroes failed to reckon with the Warren disturbance the liberation caused; the Orcs bear none of that weight)
+- Heroes must be *extremely careful* how this information is presented — the Tulpar's liberation was RIGHT, but it was INCOMPLETE (the heroes failed to reckon with the Warren disturbance the liberation caused; the Tulpar bear none of that weight)
 - Their shamanic traditions contain practical techniques for sensing ecosystem health — useful field tools
-- The oldest Orc epic songs contain verses about "the silence beneath the drumming" that may be literal descriptions of the entity
+- The oldest Tulpar epic songs contain verses about "the silence beneath the drumming" that may be literal descriptions of the entity
 
 **What they fear:**
 - Re-enslavement (always)
@@ -247,7 +247,7 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 - That the heroes' return is an omen of destruction, not salvation
 
 **Stakes if the ecosystem collapses:**
-- Their shamanic ancestor traditions die — the spiritual foundation of Orc cultural identity
+- Their shamanic ancestor traditions die — the spiritual foundation of Tulpar cultural identity
 - The prosperity built on stable trade routes collapses (trade depends on magical communication, preservation, transportation infrastructure)
 - A return to the chaos of the Scattering — except worse, because this time there's no ecosystem to recover into
 
@@ -318,7 +318,7 @@ The cosmic threat is not a secret held by one entity. It is **distributed knowle
 - Their tools are fragments of celestial power — they can *sense* ecosystem health in ways no one else can
 - Their celestial memories, once recovered, contain knowledge of how the ecosystem works (they lived inside it in Hero Heaven)
 - They are the only beings who have both mortal perspective AND celestial knowledge
-- They bridge every culture (they are legend to Orcs, history to Dwarves, memory to Elves, mystery to everyone else) — they can be the ones who finally synthesize the distributed knowledge
+- They bridge every culture (they are legend to Tulpar, history to Dwarves, memory to Elves, mystery to everyone else) — they can be the ones who finally synthesize the distributed knowledge
 
 **What they fear:**
 - Everything in CORE_CAMPAIGN_NARRATIVE.md still applies
@@ -342,13 +342,13 @@ The heroes wake into a world that looks like a golden age:
 - Multi-species cooperation at its historical peak
 - Art, science, philosophy booming
 - No obvious existential threat
-- Their own legend either revered (Orcs), documented (Dwarves), half-remembered (Elves), mythologized (humans), or dismissed (pragmatic Goblins)
+- Their own legend either revered (Tulpar), documented (Dwarves), half-remembered (Elves), mythologized (humans), or dismissed (pragmatic Goblins)
 
 ### Subsurface Reality
 
 Beneath the prosperity, stress fractures:
 - Magic becoming unreliable in certain areas (expanding dead zones)
-- Shamanic/spiritual practices degrading (Orc ancestors harder to reach, Elven cultivation less effective)
+- Shamanic/spiritual practices degrading (Tulpar ancestors harder to reach, Elven cultivation less effective)
 - Scholar's Purge eliminated those who were closest to understanding why
 - Population discrepancies (Dwarven records) that no one can explain
 - Trade caravans reporting "dead zones" (Goblin/Halfling networks)
@@ -372,7 +372,7 @@ The heroes will need to travel, build alliances, and synthesize knowledge from m
 |---|---|---|---|
 | High Elf elders | Cosmological framework | Proof heroes understand stakes | Hidden sanctuaries, extremely difficult access |
 | Dwarven archivists | 1,000 years of pattern data | Theoretical framework for their data | Mountain archives, willing but marginalized |
-| Orcish shamans | Ecosystem health sensing, ancient songs | Respectful framing (liberation was RIGHT) | Steppe confederations, culturally accessible |
+| Tulpar shamans | Ecosystem health sensing, ancient songs | Respectful framing (liberation was RIGHT) | Steppe confederations, culturally accessible |
 | Human scholars | Practical fragments, dead zone mapping | Protection (being hunted) + synthesis | Scattered, isolated, some in hiding |
 | Goblin/Halfling networks | Continent-wide observational data | Explanation of what their data means | Everywhere, for a price |
 | Mortal Elf elders | Emotional/intuitive guidance, High Elf access | Trust, patience | Isolated enclaves |
@@ -395,7 +395,7 @@ The heroes will need to travel, build alliances, and synthesize knowledge from m
 
 **Key beats:**
 - Caravan travel westward — learning the world, building party bonds
-- Encounter cultural reactions: Orcish reverence, Dwarven academic interest, human mythology, Goblin skepticism
+- Encounter cultural reactions: Tulpar reverence, Dwarven academic interest, human mythology, Goblin skepticism
 - First shared memory flashbacks (interaction triggers)
 - Tools begin Resisting, Hungering, Knowing more intensely
 - First encounter with "dead zones" where magic fails — experienced as obstacle, not yet understood as symptom
@@ -411,12 +411,12 @@ The heroes will need to travel, build alliances, and synthesize knowledge from m
 - Lich-Legion attacks escalate (probing → regional → multi-front)
 - Heroes must convince factions to unite (politically complex, references all stakeholder dynamics above)
 - Dwarven archivists share their data: "The disappearances aren't random. Look at this pattern."
-- Orcish shamans report: "The ancestors are harder to reach. Something is thinning."
+- Tulpar shamans report: "The ancestors are harder to reach. Something is thinning."
 - Human scholars found in hiding: "I was researching why magic fails in certain places. Then my colleagues started dying."
 - Goblin/Halfling networks provide the continent-wide view: "Dead zones are expanding. Trade preservation magic is failing."
 - Heroes' tools awaken further — Resistance, Hunger, Knowing intensify — and they begin *sensing* what the Elves and shamans sense: something deep is wrong
 - **Mid-Act turning point:** Contact with Mortal Elf elders who provide access (maybe) to High Elf knowledge. First exposure to the cosmological framework: "There is a structure beneath magic. It is under strain."
-- Individual Lich commander encounters (boss fights revealing diverse tragic backstories — the Orc shaman Lich, the Dwarf archivist Lich, etc.)
+- Individual Lich commander encounters (boss fights revealing diverse tragic backstories — the Tulpar shaman Lich, the Dwarf archivist Lich, etc.)
 - Heroes realize: even if they stop every Lich, the Wizard's *method* (necromancy at this scale) is already damaging the ecosystem
 - **Act II climax:** A major revelation — either through High Elf contact, recovered celestial memory, or witnessing a localized Warren fracture (a place where the structure visibly cracks, reality destabilizes, entities from between push through with agendas of their own). The heroes understand: this is bigger than the Wizard. His plan would breach the Threshold. The Held Breath stirs.
 
@@ -486,7 +486,7 @@ The heroes will need to travel, build alliances, and synthesize knowledge from m
 
 8. **Fallen Companion's Knowledge:** Does the ghost understand the full ecosystem picture? Or only fragments? (Recommendation: fragments — the ghost guides but doesn't provide a roadmap.)
 
-9. **Lich Redemption Possibilities:** Can any of the Lich commanders be turned? The Orc shaman and Dwarf archivist Liches are designed for moral complexity — are they redeemable?
+9. **Lich Redemption Possibilities:** Can any of the Lich commanders be turned? The Tulpar shaman and Dwarf archivist Liches are designed for moral complexity — are they redeemable?
 
 10. **Otataral/Anti-Magic Equivalent:** Does the world have an otataral equivalent? The expanding dead zones suggest something similar — are these natural ecosystem scarring or Wizard-created?
 

@@ -7,7 +7,7 @@ content_type: index
 visibility: internal
 status: draft
 created: 2026-03-10
-last_updated: 2026-03-10
+last_updated: 2026-10-24
 ---
 
 # Concepts & Forces Index
@@ -41,7 +41,7 @@ Master registry of abstract forces, cosmological structures, mechanisms, and nam
 
 | name                                       | category  | description                                                                                                                                                | origin                                            | wielded_by                | related_factions                        | related_events                  | narrative_weight | status                 |
 | ------------------------------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------- | --------------------------------------- | ------------------------------- | ---------------- | ---------------------- |
-| [[binding-magic\|Binding Magic]]           | mechanism | Combination magical/psychological control used to enslave Orc populations; ties victims to the ecosystem in parasitic channels                             | human-empire / the-wizard                         | human-empire (historical) | human-empire, the-wizard                | the-enslavement, the-liberation | very-high        | canon                  |
+| [[binding-magic\|Binding Magic]]           | mechanism | Combination magical/psychological control used to enslave Tulpar populations; ties victims to the ecosystem in parasitic channels                             | human-empire / the-wizard                         | human-empire (historical) | human-empire, the-wizard                | the-enslavement, the-liberation | very-high        | canon                  |
 | [[the-gaes\|The Gaes]]                     | mechanism | Expulsion mechanism; uses the Threshold in reverse; created through fallen teammate's sacrifice + Wizard's exploitation; links heroes to charge-completion | the-wizard (exploited) / fallen-teammate (origin) | —                         | the-heroes, the-wizard, fallen-teammate | the-sacrifice, the-expulsion    | very-high        | canon                  |
 | [[necromantic-energy\|Necromantic Energy]] | force     | Anti-cycle energy; fundamentally inverts the ecosystem's natural flow; at scale (Lich-Legion) creates pressure on the entire mythic ecosystem              | the-wizard                                        | lich-cadre, lich-legion   | the-wizard, lich-cadre                  | the-lich-legion-assembly        | high             | canon                  |
 | [[the-great-wall\|The Great Wall]]         | system    | Magical barrier/infrastructure maintained by Elves; nature and purpose unclear; possibly a structural element of the mythic ecosystem                      | elven-highland-enclaves                           | elven-highland-enclaves   | elven-highland-enclaves                 | —                               | high             | tbd — needs definition |
@@ -64,7 +64,7 @@ Master registry of abstract forces, cosmological structures, mechanisms, and nam
 
 | name | category | description | given_by | assigned_to | completed | what_remains | status |
 |------|----------|-------------|---------|------------|-----------|-------------|--------|
-| [[the-liberation-charge\|The Liberation Charge]] | mechanism | The heroes' original charge: liberate enslaved peoples AND ensure the world's newfound freedom could stabilize — specifically, neutralize the Wizard threat | celestial-peak / cosmic order | the-heroes | partially (Orcs freed, Empire broken) | Wizard not stopped; ecosystem damage not repaired | canon |
+| [[the-liberation-charge\|The Liberation Charge]] | mechanism | The heroes' original charge: liberate enslaved peoples AND ensure the world's newfound freedom could stabilize — specifically, neutralize the Wizard threat | celestial-peak / cosmic order | the-heroes | partially (Tulpar freed, Empire broken) | Wizard not stopped; ecosystem damage not repaired | canon |
 
 ---
 

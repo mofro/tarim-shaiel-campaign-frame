@@ -6,7 +6,7 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-09-02
+last_updated: 2026-10-25
 ---
 
 # Creation Session Log
@@ -15,6 +15,21 @@ _Authoring and design work sessions. Newest first. Trim to last 10 sessions; old
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
 
 ---
+
+### Session 2026-10-25
+- Map Workshop `ImportError: PyYAML is required` on Add Location — fixed and documented
+  - Cause: `utilities/devserver.py` was launched with Homebrew `python`, which has no PyYAML; the rebuild endpoints spawn `build.py` with the server's own interpreter
+  - Added a fail-fast PyYAML guard to the devserver (shipped in pipeline PR #306, `c1b1ae5`); CLAUDE.md and `lat.md/build-workflows.md` now say to run it from `venv/bin/python` (`7a33598`)
+- Locations: kept `stashed-carts.md` and deleted the duplicate `stashed-carts-s3.md`; added `dire-wolf-pass.md` and `foothill-crossroads.md` route nodes; regenerated `tarim-shaiel-locations.geojson` (183 features) — `9ae212e`
+- Reconciled the outstanding working tree into an ordered commit chain on main (plumbing commits, so the feature branch and working tree were never touched; nothing overwritten)
+  - World Orc → Tulpar `3e1fac4`; narrative / characters / frame template `6518a40`; Session 2 record + Session 3 prep + Session 3 encounter sheet `ac80a3b`; DIVINE_PLAYERS `344ae98`; `lat.md/world.md` `fd24cac`
+  - The Orc → Tulpar rename is a **partial pass**: word-level text only. Wikilink slugs and filenames (e.g. `orc-steppe-confederations`) are unchanged so no links break
+- Pipeline PR #306 squash-merged to main (`c1b1ae5`): map workshop search, travel time, player share map, devserver PyYAML guard; `*.qta` added to `.gitignore`
+- Beads: closed HeroHeaven-hya (Session 3 encounter sheet). The automatic `bd repo sync` left it in progress in beads-global (high-water-mark gotcha), so it was closed there directly and pushed to DoltHub; `bdg sync-down` found nothing to reconcile across the 14 registered projects
+- Open, not yet filed
+  - `5208caa` (`.gitignore` +8 and the Session 0 awakening file) sits on the merged feature branch and is not in main; it mixes infra and content and needs splitting per commit-hygiene
+  - 4 stale `python utilities/devserver.py` hint strings remain in `generate_map_workshop.py`
+  - Player share map not yet verified in Chrome; the `-public` Netlify preview should be checked for GM-only content
 
 ### Session 2026-10-20
 - LegendKeeper timeline pipeline — full sync operational (PR #305)
@@ -113,75 +128,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Each entry: SRD description + Tarim-Shaiel framing paragraph + domains + subclasses
   - Pipeline PR #264 open for review: generator, build.py, homepage card, CI step, lore.html eyebrow fix
   - HeroHeaven-5cf stays open until PR is reviewed and merged
-
----
-
-### Session 2026-05-10 (2)
-- Map planning — designed and filed 4 Beads issues for map visibility + zoom system
-  - [HeroHeaven-uj9] Zoom choreography: tiered minzoom/maxzoom by feature category (standalone)
-  - [HeroHeaven-ahg] Unified visibility schema: standardize `gm_secrets` vocabulary + player-revealed.json manifest (foundational, no blockers)
-  - [HeroHeaven-aqo] GM-build styling: distinct dim/dashed render for gm_secrets features (blocked by ahg)
-  - [HeroHeaven-k9u] Progressive reveal workflow: file-edit + redeploy pattern (blocked by ahg + aqo)
-  - Key design decisions: security boundary = GM build (not URL params); reveal = per-feature not all-at-once; file-edit workflow for now with UI upgrade path noted
-
----
-
-### Session 2026-05-10
-- Map pipeline cleanup and topo style restoration
-  - Removed orphaned `utilities/shared/js/lunr.min.js` (duplicate of `docs/assets/js/lunr.min.js`)
-  - Committed GCP pixel measurements in `georeference_map.py` for future re-georeferencing reference
-  - Swapped `map-style.json` for hosted MapTiler Cloud URL (custom Tarim-Shaiel topo style, `019e13d9-...`) — local style file deleted from git
-  - Added zoom visibility to all world map layers matching topo style conventions: `regions-fill`/`regions-line` minzoom:2, `routes` minzoom:4, `locations` minzoom:4 maxzoom:16
-
----
-
-### Session 2026-05-06 (2)
-- [HeroHeaven-5u7] 4 optional archetype descriptions complete ✅
-  - Sentinel (guardian/threshold), Trickster, Crafter, Healer added to both player and GM docs
-  - Thematic interspersing: Sentinel after Warrior; Trickster after Breaker; Crafter after Seeker; Healer after Sacrificer
-  - Decision 10 (Surrendered-Layer Framework) locked: Seeker→tome, Sentinel→cracked lantern; all 10 tools confirmed
-  - lat.md/characters.md + lat.md/decisions.md updated; DECISION_LOG.md entry appended
-
----
-
-### Session 2026-05-06
-- Migrated task tracking from TODO.md into Beads — [#223](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/223)
-  - 29 bd issues created across 5 domains (cosmology, narrative, mechanics, world, infra)
-  - Domain dependencies wired (elven-highland-enclaves → silent-flowering; scholars-remnant → scholars-purge)
-  - `generate_dashboard.py` updated to read from `.beads/issues.jsonl` + `CREATION_SESSIONS.md`
-  - `CREATION_SESSIONS.md` created (this file); session log separated from TODO.md
-  - TODO.md slimmed — ACTIVE, BLOCKED, SESSION LOG removed; file archived as ARCHIVE_TODO.md
-  - DASHBOARD.md domain_overrides set to locked values (narrative 50%, mechanics 95%, world 97%, infra 96%, cosmology 71%)
-  - CLAUDE.md + `.github/workflows/generate-html.yml` updated to reference new files
-
-### Session 2026-05-02
-- [#77](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/77) Schema C vault migration — all 5 phases complete ✅
-  - Phase 1: Decision 17 locked; CLAUDE.md + metadata_template.md + BACKLOG.md updated
-  - Phase 2: Templates — 3 archived, 1 deprecated, session_template fixed, 8 _TEMPLATE_ files migrated, 5 new templates created, Index.md rewritten
-  - Phase 3: Event proof-of-concept files confirmed; transitional world/mechanics files migrated; generator verified clean (no classification:/is_private: reads)
-  - Phase 4: 31 narrative files, 8 mechanics files, 4 character files, 192 weapon files migrated; srd-equipment-converter.py output template fixed
-  - Phase 5: 37 legacy location files — Schema C prepended, is_private: removed, content_type derived from mapmarker
-  - lat.md/world.md + subagent-context.md updated with weapons map and Schema C
-
-### Session 2026-05-01 (session 3)
-- #183 closed — all phases shipped ✅; follow-on issues filed:
-  - [#197](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/197) Dark mode visual review — contrast/readability audit, badge pastels, crimson headings, hardcoded rgba values
-  - [#198](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/198) `html_render.py` structured-dict refactor — ~140 lines Python HTML eliminated; rendering moves to Jinja2 macro
-- #183 Phase 3: dark/light theme layer ✅ (PR #195)
-  - `tokens.css`: `--bg`/`--fg`/`--surface` semantic vars + `@media (prefers-color-scheme: dark)` + `[data-theme]` overrides; `.theme-toggle` button CSS
-  - `base.css`, `page-campaign.css`, `world-base.css`: `.page-wrap { background: var(--bg) }`
-  - `page-ancestry.css`, `page-lore.css`, `page-campaign.css`, `world-base.css`: `body color: var(--fg)`; cream backgrounds → `var(--surface)`
-  - `page-dashboard.css`: `[data-theme="dark"]` + `@media dark` block remapping `--parchment` vars + rgba text overrides
-  - `base.html`, `pages/dashboard.html`: floating `◑` theme toggle button (reads `prefers-color-scheme`, saves to localStorage)
-- #183 Phase 2d: dashboard generator migrated to Jinja2 ✅
-  - `page-dashboard.css` created — all inline styles extracted; `gauge_css` dynamic rules replaced with static selector rules
-  - `pages/dashboard.html` created — standalone template (no base.html extends); linked CSS; JS inline
-  - `render_html()` f-string removed; calls `render_page('pages/dashboard.html', ...)` instead
-  - Full build verified; `generate_dashboard.py` −290 lines (net)
-
-### Session 2026-05-01 (session 2)
-- #183 Phase 2c: world generators migrated to Jinja2 ✅
-  - `base.html` extended with `{% block extra_head %}`, `{% block page_gm_banner %}`, `{% block back_nav %}`, `{% block cover %}`; `page_class` variable on page-wrap
-  - `pages/world.html` created — myth/lore template with dynamic cover (or no-cover fallback), jump-nav, back-nav, per-page GM banner
-  - `pages/world-timeline.html` created — extends world.html; overrides `extra_head` with D3 script, `cover` block with `tl-header`
-  - `generate_world_html.py`: `build_myth_html()` and `render_timeline_html()` now call `render_page()` instead of `_html_wrapper()`; `_html_wrapper()` removed; full build verified

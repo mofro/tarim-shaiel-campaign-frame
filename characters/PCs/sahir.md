@@ -114,7 +114,7 @@ Current tier: **—** *(none yet — the two-pulls is compass behavior, not Wron
 | [[characters/PCs/veyra\|Veyra]] | Party — Warrior; her kind of steadiness is something he factors into any room she's in |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; Cal asks the questions Sahir usually already has answers to; useful mirror |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; she chooses a side quickly; he watches this with interest |
-| [[raizen\|Rayzen]] | Party — Pari-Kin Druid; quiet in the same way he is quiet; they may be reading the same rooms |
+| [[raizen\|Reizan]] | Party — Pari-Kin Druid; quiet in the same way he is quiet; they may be reading the same rooms |
 | [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; the month together in the caravan means Sahir knows his silences |
 | Volkath | Caravan master — trusted; the Session 1 confession changes the texture of that trust |
 | Temir | Volkath's son — a stranger to Sahir specifically; the +2 Difficulty applies if he approaches Thread B |

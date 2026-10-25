@@ -23,7 +23,7 @@ The world operates as a **network of competing/cooperating nation-states and cit
 - **Economic role:** Farmers, administrators, soldiers, merchants
 - **Notes:** The "default" political units; no unified human empire post-collapse
 
-### Orcs
+### Tulpar
 - **Distribution:** Steppe regions and semi-nomadic trade networks
 - **Political structure:** Tribal confederations with rotating leadership councils
 - **Economic role:** Traders, warriors-turned-guards, caravan masters, bridge-builders between peoples
@@ -66,7 +66,7 @@ The world operates as a **network of competing/cooperating nation-states and cit
 
 ### Central Asian Oases
 **[Tarim Basin + Samarkand region analogue]**
-- Major trade crossroads; multiple city-states with significant Orc populations
+- Major trade crossroads; multiple city-states with significant Tulpar populations
 - High strategic value (routes pass through)
 - Key cities: [TBD - Samarkand equivalent, Bukhara equivalent, etc.]
 - Notes: [TBD]
@@ -87,14 +87,14 @@ The world operates as a **network of competing/cooperating nation-states and cit
 
 ### Western Reaches
 **[Persia/Levant analogue]**
-- Mix of human, Orc, and merchant populations
+- Mix of human, Tulpar, and merchant populations
 - Historical power center; now regional peer
 - Key cities: [TBD]
 - Notes: [TBD]
 
 ### Northern Steppes
 **[Mongol heartland analogue]**
-- Orc confederations; semi-nomadic
+- Tulpar confederations; semi-nomadic
 - Source of military power and traders
 - Key cities: [TBD - oasis settlements]
 - Notes: [TBD]
@@ -108,14 +108,14 @@ The world operates as a **network of competing/cooperating nation-states and cit
 - **Buddhism** (eastern regions, some central Asia)
 - **Islam** (Persian, some central Asian, some western regions)
 - **Zoroastrianism** (fading, but historically significant)
-- **Local animism/shamanism** (steppe Orcs, forest peoples)
+- **Local animism/shamanism** (steppe Tulpar, forest peoples)
 - **Mercantile pragmatism** (diaspora merchants, traders)
 
 ---
 
 ## Historical Tensions (Post-Stabilization)
 
-- [ ] **Orc resentment:** Some Orcs remember the chaos period; some blame the "liberation heroes" for unleashing it
+- [ ] **Tulpar resentment:** Some Tulpar remember the chaos period; some blame the "liberation heroes" for unleashing it
 - [ ] **Elven withdrawal:** Humans resent being abandoned; Elves resent human expansion
 - [ ] **Dwarven aloofness:** Other powers resent Dwarven toll-taking; Dwarves resent dependency
 - [ ] **Religious friction:** Multiple faiths coexist; periodic conflicts over sacred sites, trade practices
@@ -125,6 +125,6 @@ The world operates as a **network of competing/cooperating nation-states and cit
 
 ## Notes for Lore Keeper
 
-This is skeletal intentionally. Fill in specific city names, Orc confederations, human kingdoms, and diplomatic relationships as the world develops. The structure should feel like a *network*, not a hierarchy. Every power has leverage; none are wholly dominant.
+This is skeletal intentionally. Fill in specific city names, Tulpar confederations, human kingdoms, and diplomatic relationships as the world develops. The structure should feel like a *network*, not a hierarchy. Every power has leverage; none are wholly dominant.
 
 Key principle: **Mutual dependency drives politics, not dominance.**

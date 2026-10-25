@@ -1,6 +1,6 @@
 ---
 banner: images/elements/mofro_An_ultra-realistic_documentary_image_of_a_gathering_of__42d4d882-cf48-4b51-ab53-d785ba01f626_2.gif
-title: The Liberation and Its Aftermath — Tulpar (Orcs) Timeline
+title: The Liberation and Its Aftermath — Tulpar (Tulpar) Timeline
 project: TTRPG_Tarim_Shaiel
 domain: narrative
 doc_type: canon
@@ -8,7 +8,7 @@ content_type: lore
 visibility: public
 status: draft
 created: 2026-02-11
-last_updated: 2026-04-05
+last_updated: 2026-10-24
 ---
 # The Liberation and Its Aftermath — Tulpar Timeline
 
@@ -24,7 +24,7 @@ last_updated: 2026-04-05
 
 ## OVERVIEW
 
-The liberation of the Tulpar (Orcs) stands as one of the most significant—and most complicated—events in recent Silk Road history. What began as a heroic intervention became a generational tragedy, then slowly transformed into a story of resilience and adaptation. This document tracks the major phases from enslavement through present day.
+The liberation of the Tulpar (Tulpar) stands as one of the most significant—and most complicated—events in recent Silk Road history. What began as a heroic intervention became a generational tragedy, then slowly transformed into a story of resilience and adaptation. This document tracks the major phases from enslavement through present day.
 
 **Timeline Span:** Captivity Era (centuries) → Liberation (~1,000 years ago) → Chaos Period (~50 years) → Stabilization (~950 years ago to present)
 

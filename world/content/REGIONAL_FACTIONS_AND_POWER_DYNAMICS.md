@@ -8,7 +8,7 @@
 
 The world ~150-200 years after the heroes' expulsion is characterized by **multi-factional competition without unified imperial authority**. No single power dominates all regions; instead, different factions control different territories while competing for influence through trade, culture, and selective military power.
 
-**Key principle:** Factions seek influence, not domination. The Orcish confederations specifically reject the concept of enslaved peoples, having endured slavery under the Empire. Power is expressed through cultural autonomy, economic leverage, and magical/mystical dominance—not subjugation.
+**Key principle:** Factions seek influence, not domination. The Tulpar confederations specifically reject the concept of enslaved peoples, having endured slavery under the Empire. Power is expressed through cultural autonomy, economic leverage, and magical/mystical dominance—not subjugation.
 
 ---
 
@@ -17,19 +17,19 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 ### 1. SAMARKAND / CENTRAL ASIAN HUBS
 **Real-world analog:** Post-Timurid fragmentation (1405+); competing princely inheritance conflicts
 
-**Controllers:** Orc confederations (competing with Human imperial remnants)
+**Controllers:** Tulpar confederations (competing with Human imperial remnants)
 
 **Nature of Control:** Contested; low-level cultural conflict without outright war
 
 **Political Structure:**
-- Central Orcish confederation warlord nominally controls Samarkand
-- Other Orcish confederations control surrounding regions (Bukhara, Balkh, Merv, etc.)
+- Central Tulpar confederation warlord nominally controls Samarkand
+- Other Tulpar confederations control surrounding regions (Bukhara, Balkh, Merv, etc.)
 - Human imperial remnants maintain merchant networks and administrative infrastructure in cities
-- Constant negotiation: Orc cultural autonomy vs. Human commercial interests
+- Constant negotiation: Tulpar cultural autonomy vs. Human commercial interests
 - Merchant guilds (multiethnic) profit from both sides
 
-**Orcish Cultural Dynamics:**
-- Post-liberation (70-200 years into freedom): Orcs asserting cultural identity
+**Tulpar Cultural Dynamics:**
+- Post-liberation (70-200 years into freedom): Tulpar asserting cultural identity
 - **Abhor slavery as concept** — having endured Empire enslavement, they reject enslaving others
 - Seeking cultural autonomy, not territorial domination
 - "Flexing" newly freed cultural imperatives (specific forms TBD):
@@ -37,10 +37,10 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
   - NOT expansionist; NOT exploitative
   - Proud of their strength; demonstrate it through cultural expression, not conquest
 
-**Trade Policy:** Open (to maximize cultural exchange and merchant activity), but culturally selective (Orc customs influence trading practices)
+**Trade Policy:** Open (to maximize cultural exchange and merchant activity), but culturally selective (Tulpar customs influence trading practices)
 
 **Key Tensions:**
-- Orcs want cultural primacy; Humans want commercial control
+- Tulpar want cultural primacy; Humans want commercial control
 - Different governance philosophies (tribal/confederal vs. imperial/bureaucratic)
 - Water rights disputes between competing settlements
 - Merchant guilds navigate both sides
@@ -168,18 +168,18 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 ### 5. THE STEPPE (North of Central Asia)
 **Real-world analog:** Fragmenting nomadic confederations (Kazakh Khanate emerging, Golden Horde fragmentation)
 
-**Controllers:** Orc confederations + allied human nomads + federated fantasy races
+**Controllers:** Tulpar confederations + allied human nomads + federated fantasy races
 
 **Nature of Control:** Loose federation; tribal politics; clan-based authority
 
 **Political Structure:**
-- Orcish steppe confederations (post-liberation tribal reorganization)
+- Tulpar steppe confederations (post-liberation tribal reorganization)
 - Allied human nomadic clans (culturally compatible; trade partnerships)
 - Other "federated fantasy folks" (TBD: possibly some Goblins, Halflings, others seeking independence)
 - No central authority; decisions made tribally/confederally
 - Horse culture dominant; wealth measured in herds and trade goods
 
-**Orcish Dynamics:**
+**Tulpar Dynamics:**
 - Still asserting cultural identity (newer freedom than Central Asian Hubs)
 - Tribal leadership (possibly shamanic, martial, or democratic by clan)
 - Pastoral economics; trade on horseback/camel routes
@@ -244,9 +244,9 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 
 ## Factional Relationships Matrix
 
-| Faction | Orcs | Dwarves | Elves | Humans | Merchants | Goblins | Halflings |
+| Faction | Tulpar | Dwarves | Elves | Humans | Merchants | Goblins | Halflings |
 |---|---|---|---|---|---|---|---|
-| **Orcs** | — | Trade (tolls) | Unknown | Competitive | Profit | Competitive | Neutral |
+| **Tulpar** | — | Trade (tolls) | Unknown | Competitive | Profit | Competitive | Neutral |
 | **Dwarves** | Trade (tolls) | — | Unknown | Cooperative (Tarim) | Profitable (permits) | Trade | Unknown |
 | **Elves** | Unknown | Unknown | — | Manipulated | Influenced | Influenced | Influenced |
 | **Humans** | Competitive | Cooperative (Tarim) | Manipulated | — | Cooperative | Trade | Cooperative |
@@ -266,11 +266,11 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 ### Economic Leverage Points
 - Water control (Dwarves in Tarim, Mountain Passes) = political leverage
 - Trade route control (Mountains, Elves) = economic leverage
-- Cultural dominance (Orcs in Samarkand) = social leverage
+- Cultural dominance (Tulpar in Samarkand) = social leverage
 - Mystical systems (Elves' Great Wall) = existential leverage
 
 ### Moral Complexity
-- Orcs: Freed slaves seeking cultural autonomy (sympathetic), but confederations may be aggressive/tribal
+- Tulpar: Freed slaves seeking cultural autonomy (sympathetic), but confederations may be aggressive/tribal
 - Dwarves: Greedy and controlling, but organized/stable/engineering-proud (not evil)
 - Elves: Mysterious; true goals unknown (ally or threat?)
 - Humans: Administrative continuity; compromised power; navigating larger forces
@@ -280,7 +280,7 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 - If Elven Great Wall fails: World-affecting catastrophe
 - If Dwarven water infrastructure destroyed: Regional depopulation
 - If trade routes destabilized: Economic collapse
-- If Orcish confederations unify: Military dominance threat
+- If Tulpar confederations unify: Military dominance threat
 
 ---
 
@@ -288,18 +288,18 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 
 With factional control locked:
 
-1. **Samarkand/Central Asian Hubs:** Orcish cultural names (guttural, strength, autonomy)
+1. **Samarkand/Central Asian Hubs:** Tulpar cultural names (guttural, strength, autonomy)
 2. **Eastern Gateway:** Cosmopolitan/blended names (Humans + Goblins + Halflings + Elven mystique)
 3. **Tarim Basin:** Human-face names with Dwarven infrastructure (practical + engineering)
 4. **Mountain Passes:** Dwarven names (compound words, meaning-based, proud)
-5. **Steppe:** Orcish tribal names (nomadic, confederation-based)
+5. **Steppe:** Tulpar tribal names (nomadic, confederation-based)
 6. **Elven Highlands:** Elvish sacred names (melodic, tonal, mysterious)
 
 ---
 
 ## Linguistic Style Guide (TBD — Pending Naming Session)
 
-**Orcish Style (Guttural, Strength):**
+**Tulpar Style (Guttural, Strength):**
 - Hard consonants: K, GH, SH, glottal stops
 - Compound words expressing cultural concepts
 - Examples (placeholder): Grishnákh, Uglúk, Shagrat aesthetic

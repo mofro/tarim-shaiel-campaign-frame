@@ -66,7 +66,7 @@ Region boundaries defined as arrays of coordinate pairs:
 ### Region Types
 Standardized categories for filtering/visualization:
 - `mountain-kingdom` - Highland territories (Dwarven strongholds, isolated kingdoms)
-- `steppe-confederation` - Nomadic/semi-nomadic regions (Orc territories)
+- `steppe-confederation` - Nomadic/semi-nomadic regions (Tulpar territories)
 - `trade-hub` - Oasis cities, merchant centers
 - `forest-enclave` - Elf territories, dense vegetation zones
 - `river-valley` - Agricultural centers, human settlements

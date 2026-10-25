@@ -7,7 +7,7 @@ content_type: archetype
 visibility: gm_secrets
 status: draft
 created: 2025-12-05
-last_updated: 2026-05-02
+last_updated: 2026-10-24
 ---
 
 # Player Character Archetypes: Five Modes of Heroism
@@ -24,7 +24,7 @@ The goal: **Offer flavor without prescription. Let players choose an archetype t
 
 **Who they are:** The hero who shatters chains—literal or metaphorical. They break binding spells, free enslaved peoples, shatter oppressive systems. They remember themselves as liberators.
 
-**Thematic tension:** Their liberation often had unintended consequences. Breaking one thing can destroy others. The freed Orcs they remember breaking loose? Those decades of chaos that followed? That's on them.
+**Thematic tension:** Their liberation often had unintended consequences. Breaking one thing can destroy others. The freed Tulpar they remember breaking loose? Those decades of chaos that followed? That's on them.
 
 **In the world now:** They encounter descendants of people freed—and people harmed in the ensuing chaos. Some call them saviors. Some call them destroyers.
 

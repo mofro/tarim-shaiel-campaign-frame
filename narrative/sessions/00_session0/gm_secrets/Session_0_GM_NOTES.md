@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2026-05-07
-last_updated: 2026-08-02
+last_updated: 2026-10-24
 tags: [session0, gm_guide, execution, pacing]
 ---
 
@@ -283,10 +283,10 @@ When one player is in their awakening scenario, the others are **watching, not p
 **The lead rider** *(horsemen, imperial remnant authority)*
 - Old livery, faded red. Six men on Fergana stock. Competent and aware of it.
 - His survey of the courtyard stops on the Seraph on the way in. Note it once, let it pass. He notes the Seraph again on the way out.
-- What he's doing: weaponizing a technical tariff discrepancy against the orc merchant. He doesn't need a clean legal argument. The power is that he doesn't need one.
+- What he's doing: weaponizing a technical tariff discrepancy against the Tulpar merchant. He doesn't need a clean legal argument. The power is that he doesn't need one.
 - He files the Seraph away. What reaches whoever he reports to is a thread the GM holds.
 
-**The orc merchant**
+**The Tulpar merchant**
 - Built like thirty years of cargo work. Calculating, not afraid.
 - His papers are in order. The payment being demanded is a legal technicality being weaponized as leverage. Both parties know this.
 - His offer to the Seraph after resolution: *"Can you use a blade?"* Practical. Not emotional. The caravan has road-steel for people who earn it.
@@ -295,7 +295,7 @@ When one player is in their awakening scenario, the others are **watching, not p
 - Teens or barely past. Hand inside the coat. The stillness of someone who has already decided what they will do and is waiting for conditions to be met.
 - The Seraph notices them because they're the kind of person who notices what others are avoiding.
 - On successful resolution: slips out quietly during the aftermath. The GM holds this thread.
-- **Forward-note (Session 2):** this is Temir, Volkath's son — identified in `narrative/sessions/02_session2/gm_secrets/Session_2_GM_NOTES.md`. Ancestry corrected here from an earlier "young orc" draft label to match the actually-played scenario and the newspaper NPC index, both of which use "Tulpar."
+- **Forward-note (Session 2):** this is Temir, Volkath's son — identified in `narrative/sessions/02_session2/gm_secrets/Session_2_GM_NOTES.md`. Ancestry corrected here from an earlier "young Tulpar" draft label to match the actually-played scenario and the newspaper NPC index, both of which use "Tulpar."
 
 #### Standoff Mechanic
 
@@ -343,7 +343,7 @@ By Day 10, all four heroes are at or moving toward the same caravanserai. The Se
 **The Caravan Community**
 - Refugees from the Warrior's ravine are already integrated by Day 4.
 - Gorge survivors from the Sentinel's scenario arrive on Day 8 and are absorbed.
-- The orc merchant from the Seraph's scenario has goods on these mules and a practical relationship with the caravan lead.
+- The Tulpar merchant from the Seraph's scenario has goods on these mules and a practical relationship with the caravan lead.
 
 ### Arrival Sequence
 

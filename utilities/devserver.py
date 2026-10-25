@@ -6,8 +6,9 @@ Replaces 'python -m http.server' for interactive authoring sessions.
 Serves docs/ as the main site, the map workshop at /workshop, and
 exposes write-back API endpoints for coordinate updates and rebuilds.
 
-Usage:
-    python utilities/devserver.py [--port PORT]
+Usage (use the project venv — rebuild endpoints spawn build.py with this
+interpreter, and build.py needs PyYAML):
+    venv/bin/python utilities/devserver.py [--port PORT]
     Site:     http://localhost:8000/
     Workshop: http://localhost:8000/workshop
 
@@ -27,17 +28,39 @@ import http.server
 import json
 import os
 import re
+import socket
 import subprocess
 import sys
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 VAULT_ROOT = SCRIPT_DIR.parent
 DOCS_DIR = VAULT_ROOT / "docs"
 WORKSHOP_PATH = VAULT_ROOT / "map-workshop.html"
+PLAYER_PATH = VAULT_ROOT / "player-map.html"
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 ROUTES_PATH = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
 DEFAULT_PORT = 8000
+
+# ---------------------------------------------------------------------------
+# Shared state (GIL protects simple assignment; no heavy concurrency needed)
+# ---------------------------------------------------------------------------
+
+_map_center: "dict | None" = None  # {"lng": float, "lat": float, "zoom": float}
+_lan_ip: str = "127.0.0.1"         # set at startup
+
+
+def _detect_lan_ip() -> str:
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        ip = s.getsockname()[0]
+        s.close()
+        return ip
+    except Exception:
+        return "127.0.0.1"
 
 
 # ---------------------------------------------------------------------------
@@ -53,15 +76,34 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         self._cors()
         self.end_headers()
 
+    def _is_local(self) -> bool:
+        return self.client_address[0] in ("127.0.0.1", "::1")
+
     def do_GET(self):
         if self.path == "/api/health":
-            self._json({"ok": True})
+            self._json({
+                "ok": True,
+                "lan_ip": _lan_ip,
+                "player_url": f"http://{_lan_ip}:{self.server.server_port}/player",
+            })
         elif self.path.rstrip("/") == "/workshop":
+            if not self._is_local():
+                self.send_error(403, "Workshop is only accessible from localhost")
+                return
             self._serve_workshop()
+        elif self.path.rstrip("/") == "/player":
+            self._serve_player()
+        elif self.path == "/api/map-center":
+            self._json(_map_center if _map_center else {"lng": None, "lat": None, "zoom": None})
+        elif self.path.startswith("/api/maptiler-proxy"):
+            self._maptiler_proxy()
         else:
             super().do_GET()
 
     def do_PUT(self):
+        if not self._is_local():
+            self.send_error(403, "Write API only accessible from localhost")
+            return
         m = re.match(r"^/api/locations/([^/?]+)/coordinates(?:\?.*)?$", self.path)
         if m:
             self._put_coordinates(m.group(1))
@@ -69,6 +111,9 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404)
 
     def do_PATCH(self):
+        if not self._is_local():
+            self.send_error(403, "Write API only accessible from localhost")
+            return
         m = re.match(r"^/api/locations/([^/?]+)/frontmatter(?:\?.*)?$", self.path)
         if m:
             self._patch_frontmatter(m.group(1))
@@ -76,6 +121,9 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404)
 
     def do_DELETE(self):
+        if not self._is_local():
+            self.send_error(403, "Write API only accessible from localhost")
+            return
         m = re.match(r"^/api/routes/([^/?]+)(?:\?.*)?$", self.path)
         if m:
             self._delete_route(m.group(1))
@@ -83,6 +131,14 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404)
 
     def do_POST(self):
+        if self.path == "/api/map-center":
+            if not self._is_local():
+                return self.send_error(403, "Only GM (localhost) can set map center")
+            self._set_map_center()
+            return
+        if not self._is_local():
+            self.send_error(403, "Write API only accessible from localhost")
+            return
         if self.path == "/api/locations/create":
             self._create_location()
         elif self.path == "/api/routes/add":
@@ -115,6 +171,72 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         self._cors()
         self.end_headers()
         self.wfile.write(body)
+
+    def _serve_player(self):
+        if not PLAYER_PATH.exists():
+            self.send_error(
+                404,
+                "Player map not built — run: python utilities/world/generate_map_workshop.py",
+            )
+            return
+        body = PLAYER_PATH.read_bytes()
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self._cors()
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _maptiler_proxy(self):
+        """Proxy a MapTiler API request server-side to avoid key domain restrictions."""
+        parsed = urllib.parse.urlparse(self.path)
+        qs = urllib.parse.parse_qs(parsed.query)
+        target_url = qs.get("url", [None])[0]
+        if not target_url:
+            return self.send_error(400, "Missing ?url= parameter")
+        # parse_qs decodes %20 → literal space; re-encode so urlopen accepts the URL
+        target_url = urllib.parse.quote(target_url, safe=":/?=&#@,+")
+        if not target_url.startswith("https://api.maptiler.com/"):
+            return self.send_error(403, "Only maptiler.com URLs are proxied")
+        try:
+            req = urllib.request.Request(
+                target_url,
+                headers={
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+                    "Referer": "http://localhost:8000/",
+                    "Origin": "http://localhost:8000",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                body = resp.read()
+                ct = resp.headers.get("Content-Type", "application/octet-stream")
+        except urllib.error.HTTPError as exc:
+            import sys
+            short = target_url.split("?")[0].split("/tiles/")[-1] if "/tiles/" in target_url else target_url[-40:]
+            print(f"[proxy] {exc.code} {short}", file=sys.stderr, flush=True)
+            return self.send_error(502, f"Upstream error: {exc}")
+        except Exception as exc:
+            import sys
+            print(f"[proxy] ERR {type(exc).__name__}: {exc}", file=sys.stderr, flush=True)
+            return self.send_error(502, f"Upstream error: {exc}")
+        self.send_response(200)
+        self.send_header("Content-Type", ct)
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _set_map_center(self):
+        global _map_center
+        try:
+            data = self._read_json()
+            lng = float(data["lng"])
+            lat = float(data["lat"])
+            zoom = float(data.get("zoom", 4))
+        except (ValueError, KeyError, TypeError):
+            return self.send_error(400, 'Body must be {"lng": number, "lat": number, "zoom": number}')
+        _map_center = {"lng": lng, "lat": lat, "zoom": zoom}
+        self._json({"ok": True})
 
     def _put_coordinates(self, slug: str):
         try:
@@ -459,6 +581,19 @@ def _stale_workshop_warning() -> None:
         print("           Run: python utilities/build.py workshop  to refresh it.")
 
 
+def _require_pyyaml() -> None:
+    try:
+        import yaml  # noqa: F401
+    except ImportError:
+        sys.exit(
+            f"ERROR: PyYAML is not installed for {sys.executable}\n"
+            "  Write endpoints spawn build.py with this same interpreter, so every\n"
+            "  rebuild would fail after the .md file had already been written.\n"
+            "  Start the server with the project venv instead:\n"
+            "    venv/bin/python utilities/devserver.py"
+        )
+
+
 def main() -> None:
     import argparse
 
@@ -467,13 +602,19 @@ def main() -> None:
     args = parser.parse_args()
     port = args.port
 
+    _require_pyyaml()
+
+    global _lan_ip
+    _lan_ip = _detect_lan_ip()
+
     print("Tarim-Shaïal Dev Server")
     print(f"  Vault root:  {VAULT_ROOT}")
     print(f"  Serving:     {DOCS_DIR}")
     print(f"  Site:        http://localhost:{port}/")
-    print(f"  Workshop:    http://localhost:{port}/workshop")
+    print(f"  Workshop:    http://localhost:{port}/workshop  (localhost only)")
+    print(f"  Player map:  http://{_lan_ip}:{port}/player  ← share this with players")
     print()
-    print("  Endpoints:")
+    print("  Endpoints (write APIs: localhost only):")
     print(f"    PUT    http://localhost:{port}/api/locations/{{slug}}/coordinates")
     print(f"    POST   http://localhost:{port}/api/locations/create")
     print(f"    POST   http://localhost:{port}/api/routes/add")
@@ -481,13 +622,14 @@ def main() -> None:
     print(f"    POST   http://localhost:{port}/api/routes/delete-bulk")
     print(f"    POST   http://localhost:{port}/api/rebuild/locations")
     print(f"    POST   http://localhost:{port}/api/rebuild/workshop")
+    print(f"    POST   http://localhost:{port}/api/map-center  (GM position sync)")
     print()
     _stale_workshop_warning()
     print()
     print("  Press Ctrl-C to stop.")
     print()
 
-    server = http.server.HTTPServer(("localhost", port), _Handler)
+    server = http.server.ThreadingHTTPServer(("", port), _Handler)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

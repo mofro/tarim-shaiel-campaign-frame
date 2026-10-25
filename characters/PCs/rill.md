@@ -29,7 +29,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-08-02
+last_updated: 2026-10-24
 tags: [pc]
 --- 
 
@@ -116,7 +116,7 @@ Current tier: **Tier 1** *(experienced — patron-bond calm in the dead zone; ke
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; a month in the caravan means Rill knows his silences as well as his words |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; Cal's fascination with the patron-bond's dead zone behavior is something Rill is managing carefully |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; he watches her convictions with the attentiveness of someone taking inventory |
-| [[raizen\|Rayzen]] | Party — Pari-Kin Druid; their lantern going dark where his bond went calm — inverse signals; Rill has noted this |
+| [[raizen\|Reizan]] | Party — Pari-Kin Druid; their lantern going dark where his bond went calm — inverse signals; Rill has noted this |
 | Patron | The patron-bond — functional, necessary, not entirely in Rill's control; calm in the dead zone in ways Rill cannot yet explain |
 | Temir | Volkath's son — Rill has caravan-familiarity, not established trust; baseline Difficulty on Thread B |
 
@@ -127,7 +127,7 @@ Current tier: **Tier 1** *(experienced — patron-bond calm in the dead zone; ke
 ### Key Moments
 
 - *Session 1:* Volkath's campfire history; the artifact experiment; the party's realization that their personal memories don't include the world he described.
-- *Session 2:* Dead zone — patron-bond calm, key still and apparently satisfied. The inversion of Rayzen's lantern going dark. First Tier 1 beat.
+- *Session 2:* Dead zone — patron-bond calm, key still and apparently satisfied. The inversion of Reizan's lantern going dark. First Tier 1 beat.
 
 ### Growth
 
@@ -144,3 +144,5 @@ The key's wax seal is a planted seed — it shows a mark connected to something 
 **Patron: The Shattered King** — Dave chose Door One. See `narrative/gm_secrets/divine-players/the-shattered-king.md` for cosmological position and long-game agenda. Cultural names Rill may encounter in play: *First Gone* (Orcish), *Lord of Exhausted Seams* (Dwarven). The patron's calm in the dead zone is not coincidence — the Shattered King has tenure in exhausted-energy spaces, and the dead zone reads as home ground to him. The patron-bond brief (player-facing) is in `narrative/sessions/00_session0/Source/Dave_Warlock_Patron_Brief.md`.
 
 Surrendered layer — *Custodial*: Rill gave up the right to decide what deserves preservation; the patron may have taken that judgment up on his behalf.
+
+> **Deferred cleanup:** `rill (player).md` also exists. Reconcile the two files later. Nothing deleted yet.

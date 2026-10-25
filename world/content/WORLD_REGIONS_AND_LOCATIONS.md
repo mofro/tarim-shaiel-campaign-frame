@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: world_reference
 status: canon
 created: 2025-12-14
-last_updated: 2025-12-14
+last_updated: 2026-10-24
 ---
 
 # Tarim-Shaiel: World Regions & Locations
@@ -44,9 +44,9 @@ Chang'an was the beating heart of the Empire. Its size, walls, and administrativ
 
 **Geography:** Western Central Asia; oasis cities and valleys; major crossroads
 **Historical Role:** Control seats, garrison hubs, resource extraction centers; Empire imposed heavy administrative/military presence
-**Post-Liberation Status:** Thriving; rebuilt as genuine trade capitals; increasingly cosmopolitan with emerging Orc influence
-**Cultural Dominance:** Human (Empire names retained) + Orcish (emerging influence)
-**Naming Convention:** Empire-era names retained officially, but with post-stabilization Orc/merchant cultural undercurrents
+**Post-Liberation Status:** Thriving; rebuilt as genuine trade capitals; increasingly cosmopolitan with emerging Tulpar influence
+**Cultural Dominance:** Human (Empire names retained) + Tulpar (emerging influence)
+**Naming Convention:** Empire-era names retained officially, but with post-stabilization Tulpar/merchant cultural undercurrents
 
 **Locations (5):**
 
@@ -56,10 +56,10 @@ Chang'an was the beating heart of the Empire. Its size, walls, and administrativ
 | Bukhara | city | Human/Imperial | Empire | — | Garrison hub; scholarly center; Empire infrastructure persists |
 | Tashkent | city | Human/Imperial | Empire | — | Central Asian hub; largest city; mixed populations emerging |
 | Balkh | city | Human/Imperial (ruins) | Empire | — | Once "Mother of Cities"; destroyed during chaos; now ruins with political significance |
-| Merv | city | Human/Imperial (rebuilt) | Empire | Mary (post-liberation name, rarely used) | Destroyed then rebuilt; shadow of former glory; Orc influence growing |
+| Merv | city | Human/Imperial (rebuilt) | Empire | Mary (post-liberation name, rarely used) | Destroyed then rebuilt; shadow of former glory; Tulpar influence growing |
 
 **Region Narrative:**
-These were the Empire's showcase cities—heavily garrisoned, administratively dense, culturally imposed with imperial aesthetics. They were designed for control, not genuine trade. Yet trade happened anyway (people trade regardless of politics). Post-liberation, these cities faced an identity crisis: the Empire's apparatus vanished, but the cities remained functional. Over generations, they evolved toward genuine trade hubs, attracting Orc merchants, diverse populations, and merchant guilds. They retain Empire-era names (locals never bothered to change them officially), but the culture underneath is increasingly cosmopolitan and Orc-influenced.
+These were the Empire's showcase cities—heavily garrisoned, administratively dense, culturally imposed with imperial aesthetics. They were designed for control, not genuine trade. Yet trade happened anyway (people trade regardless of politics). Post-liberation, these cities faced an identity crisis: the Empire's apparatus vanished, but the cities remained functional. Over generations, they evolved toward genuine trade hubs, attracting Tulpar merchants, diverse populations, and merchant guilds. They retain Empire-era names (locals never bothered to change them officially), but the culture underneath is increasingly cosmopolitan and Tulpar-influenced.
 
 ---
 
@@ -90,14 +90,14 @@ Dunhuang is sacred—far older than the Empire, rooted in Elven spiritual tradit
 **Geography:** Tarim Basin; oasis network surrounding Taklamakan Desert; central trade crossroads
 **Historical Role:** Resource extraction (salt, jade, rare goods); trade flow control (ineffective—too large to control comprehensively)
 **Post-Liberation Status:** Booming; genuinely cosmopolitan; trade thrives because it was always the natural flow
-**Cultural Dominance:** Mixed (Elven sacred sites + Orc traders + Human merchants + Goblin diaspora + Dwarven influence in edges)
-**Naming Convention:** Varied; some Elven sacred names (ancient), some Orc names (chaos/stabilization era), some cosmopolitan hybrid names
+**Cultural Dominance:** Mixed (Elven sacred sites + Tulpar traders + Human merchants + Goblin diaspora + Dwarven influence in edges)
+**Naming Convention:** Varied; some Elven sacred names (ancient), some Tulpar names (chaos/stabilization era), some cosmopolitan hybrid names
 
 **Locations (11):**
 
 | Name | Type | Cultural Influence | Era Named | Notes |
 |------|------|-------------------|-----------|-------|
-| Kashgar | city | Mixed/Cosmopolitan | Stabilization | Major trade hub; convergence of routes; multiethnic; Orc, Goblin, human presence |
+| Kashgar | city | Mixed/Cosmopolitan | Stabilization | Major trade hub; convergence of routes; multiethnic; Tulpar, Goblin, human presence |
 | Yarkand | route-node | Mixed/Cosmopolitan | Stabilization | Route convergence point; information hub; merchants from all cultures |
 | Turfan | route-node | Mixed/Cosmopolitan | Stabilization | Oasis in depression; wine production; crucial waypoint |
 | Karashahr | route-node | Mixed/Cosmopolitan | Stabilization | Waypoint on northern corridor; modest but organized |
@@ -110,7 +110,7 @@ Dunhuang is sacred—far older than the Empire, rooted in Elven spiritual tradit
 | Niya | route-node | Mixed/Cosmopolitan | Stabilization | Ancient ruins; archaeological interest; lost knowledge |
 
 **Region Narrative:**
-The Tarim Basin oases are the *true* heart of the Silk Road. Trade flows here naturally because the geography demands it—merchants need water, rest, and supplies. These locations barely noticed the Empire's collapse because trade was never about imperial permission; it was about necessity and mutual benefit. Post-liberation, this region exploded with cosmopolitan energy. Orc traders, human merchants, Goblin information brokers, Elven pilgrims, and Dwarven craftspeople all converge here. Some locations retain Elven sacred names (Dunhuang, Kucha). Others adopted names during the chaos era (Orcish influences). Most use modern cosmopolitan names that blend influences. This is where the real power of the new world lies—not in imperial control seats, but in genuine economic interdependence.
+The Tarim Basin oases are the *true* heart of the Silk Road. Trade flows here naturally because the geography demands it—merchants need water, rest, and supplies. These locations barely noticed the Empire's collapse because trade was never about imperial permission; it was about necessity and mutual benefit. Post-liberation, this region exploded with cosmopolitan energy. Tulpar traders, human merchants, Goblin information brokers, Elven pilgrims, and Dwarven craftspeople all converge here. Some locations retain Elven sacred names (Dunhuang, Kucha). Others adopted names during the chaos era (Tulpar influences). Most use modern cosmopolitan names that blend influences. This is where the real power of the new world lies—not in imperial control seats, but in genuine economic interdependence.
 
 ---
 
@@ -137,18 +137,18 @@ Dwarves control these passes and they always have. Even during the Empire's heig
 ---
 
 ### 6. STEPPE CONFEDERATIONS
-**Orcish Nomadic Territories** (Archetype; No Current Locations)
+**Tulpar Nomadic Territories** (Archetype; No Current Locations)
 
 **Geography:** Northern plains; nomadic routes; open grasslands
 **Historical Role:** Enslaved labor force; conscripted armies; "controlled" through fear and binding spells
-**Post-Liberation Status:** Recently stabilized; Orc confederations now traders and independent powers; still building trust
-**Cultural Dominance:** Orcish (chaos-era names replaced with stabilization-era names; old names considered derisive/shameful)
-**Naming Convention:** Orcish names (Tolkien guttural style); newer names reflect trade/stability orientation, not chaos/raid orientation
+**Post-Liberation Status:** Recently stabilized; Tulpar confederations now traders and independent powers; still building trust
+**Cultural Dominance:** Tulpar (chaos-era names replaced with stabilization-era names; old names considered derisive/shameful)
+**Naming Convention:** Tulpar names (Tolkien guttural style); newer names reflect trade/stability orientation, not chaos/raid orientation
 
 **Locations:** [To be added as campaign develops]
 
 **Region Narrative:**
-The Steppe was never truly "controlled" by the Empire despite its attempts. Orcs were enslaved, conscripted, and bound by magic, but they were never actually loyal. The liberation of enslaved Orcs (~1250s) triggered the Chaos Period (~70 years of raiding, territorial conflict, bloodshed). Gradually, through brutal conflict and diplomatic pressure from southern powers, Orc confederations stabilized. They discovered that trade was more profitable than raiding. Over generations, they transitioned from raiders to merchants. Old names from the chaos era (names of raiding bands, warrior tribes) are now embarrassing relics. New names reflect the stabilized, trade-focused confederations. This integration is recent—still within living memory for long-lived races. Trust is fragile but growing.
+The Steppe was never truly "controlled" by the Empire despite its attempts. Tulpar were enslaved, conscripted, and bound by magic, but they were never actually loyal. The liberation of enslaved Tulpar (~1250s) triggered the Chaos Period (~70 years of raiding, territorial conflict, bloodshed). Gradually, through brutal conflict and diplomatic pressure from southern powers, Tulpar confederations stabilized. They discovered that trade was more profitable than raiding. Over generations, they transitioned from raiders to merchants. Old names from the chaos era (names of raiding bands, warrior tribes) are now embarrassing relics. New names reflect the stabilized, trade-focused confederations. This integration is recent—still within living memory for long-lived races. Trust is fragile but growing.
 
 ---
 
@@ -157,11 +157,11 @@ The Steppe was never truly "controlled" by the Empire despite its attempts. Orcs
 | Region | Empire-Era Names | Post-Lib Names | Map Display | Documents |
 |--------|-----------------|----------------|------------|-----------|
 | **Eastern Terminus** | Retained (Chang'an) | Unchanged | Modern (Chang'an) | Show evolution if dual names exist |
-| **Central Asian Hubs** | Retained (Samarkand, etc.) | Unchanged officially | Modern (Samarkand, etc.) | Note Orc cultural influence emerging |
+| **Central Asian Hubs** | Retained (Samarkand, etc.) | Unchanged officially | Modern (Samarkand, etc.) | Note Tulpar cultural influence emerging |
 | **Eastern Gateway** | Human fortifications | Elven sacred names persist | Modern (mixed) | Show Elven ancient origins |
 | **Tarim Basin** | Mostly abandoned | Cosmopolitan blend | Modern (current consensus) | Show evolution (sacred origin → modern) |
 | **Mountain Passes** | Never accepted | Dwarvish (always maintained) | Dwarvish names | Explain Dwarven autonomy |
-| **Steppe** | Shame-associated | New stabilization-era names | Orcish names (new) | Show old → new evolution; note derision for old names |
+| **Steppe** | Shame-associated | New stabilization-era names | Tulpar names (new) | Show old → new evolution; note derision for old names |
 
 ---
 
@@ -175,7 +175,7 @@ The Steppe was never truly "controlled" by the Empire despite its attempts. Orcs
 
 ### Naming System (To Be Built)
 - Systematic transformation of real-world place names through cultural/linguistic lenses
-- Orcish: Tolkien guttural style (K, GH, SH, glottal stops)
+- Tulpar: Tolkien guttural style (K, GH, SH, glottal stops)
 - Dwarvish: Slavic compound style (meanings align with real-world place meanings)
 - Elvish: Melodic, tonal, multisyllabic (Chinese-influenced + Tolkien elements)
 - Human: Indo-European, varied by region, leaning slightly European

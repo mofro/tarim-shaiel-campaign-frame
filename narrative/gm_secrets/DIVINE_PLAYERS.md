@@ -7,7 +7,7 @@ content_type: concept
 visibility: gm_secrets
 status: canon
 created: 2026-03-19
-last_updated: 2026-03-19
+last_updated: 2026-10-24
 ---
 
 # The Divine Players
@@ -106,7 +106,7 @@ The Tengrist shaman, the Zoroastrian fire-priest, and the Chinese celestial bure
 
 **What they want:** The most interesting possible outcome. Not suffering — interesting. These are different, and the Jade Illusionist understands the difference precisely. They will genuinely help the heroes if that makes the story better, and genuinely complicate things if that also makes the story better. They are the most honest being the heroes will encounter: they have never pretended to be anything other than what they are.
 
-**Intervention style:** Returns in different guises. A traveling merchant of exceptional quality. A young scholar with peculiar insight. An old woman in a mountain pass who asks one question and then is gone. Always recognizable after the fact, never in the moment. Reveals truths at structurally perfect moments — not to harm, but because the reaction is beautiful. Will never directly lie. They consider it beneath them and also not interesting.
+**Intervention style:** Returns in different guises, and each incarnation has its own name, persona, and manner. No two incarnations share one. A traveling merchant of exceptional quality. A young scholar with peculiar insight. An old woman in a mountain pass who asks one question and then is gone. Always recognizable after the fact, never in the moment. Reveals truths at structurally perfect moments — not to harm, but because the reaction is beautiful. Will never directly lie. They consider it beneath them and also not interesting.
 
 **What heroes can access:** Revelations, always. Delivered in the worst possible moment. Sometimes exactly what they needed. Sometimes what they needed to hear but did not want to. The Jade Illusionist's gift is perfect timing applied with complete disregard for the heroes' emotional readiness.
 
@@ -152,7 +152,7 @@ The Tengrist shaman, the Zoroastrian fire-priest, and the Chinese celestial bure
 
 ### 7. The Memory-Keeper
 
-**Cultural analogs:** Ancestor veneration elevated to divine scale (Orc tradition + Chinese ancestor worship) + the Muses as preservers of what must not be forgotten + Uçmag cosmological memory (the Turkic tradition that being forgotten has cosmological weight — the forgotten are diminished in ways that matter)
+**Cultural analogs:** Ancestor veneration elevated to divine scale (Tulpar tradition + Chinese ancestor worship) + the Muses as preservers of what must not be forgotten + Uçmag cosmological memory (the Turkic tradition that being forgotten has cosmological weight — the forgotten are diminished in ways that matter)
 
 **Cosmological position:** Celestial Layer, but rooted downward into mortal history — the oldest memories of the mortal world are its domain, and the roots go deep enough to touch what was before the current order.
 
@@ -160,7 +160,7 @@ The Tengrist shaman, the Zoroastrian fire-priest, and the Chinese celestial bure
 
 **What they want:** For the heroes to recover themselves carefully, in the right order. They understand that a person given their full divine history all at once becomes useless — the revelation is incapacitating before it is empowering. The Memory-Keeper is not withholding out of cruelty or strategy. They are pacing the return of what was lost because they have seen, many times across an enormous span, what happens when it comes back too fast. The heroes finding their full history too early is not a spoiler — it is a wound that prevents action.
 
-**Intervention style:** Not a figure who appears and speaks. Accessed through the ritual of remembering — specific sacred sites where the boundary between mortal memory and celestial preservation is thin, Orcish ancestor ceremonies that tap the deep archive without knowing it, ancient Dwarven archives that function as unconscious memory-wells because they were built over places where the Memory-Keeper's roots emerge. The Memory-Keeper does not manifest. The heroes feel their way toward what it holds by following what resonates.
+**Intervention style:** Not a figure who appears and speaks. Accessed through the ritual of remembering — specific sacred sites where the boundary between mortal memory and celestial preservation is thin, Tulpar ancestor ceremonies that tap the deep archive without knowing it, ancient Dwarven archives that function as unconscious memory-wells because they were built over places where the Memory-Keeper's roots emerge. The Memory-Keeper does not manifest. The heroes feel their way toward what it holds by following what resonates.
 
 **What heroes can access:** Their own history, truly — not fragments. The full shape of what they did, what they left, and what finishing would actually require. The Memory-Keeper's gift is the final piece of the synthesis: the heroes, having assembled the complete external picture, finally receive the complete internal one. It will be harder than they think. The charge is not what the stories say it was. The stories were shaped by a thousand years of the people who needed the stories to be survivable.
 

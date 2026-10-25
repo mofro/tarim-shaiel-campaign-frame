@@ -7,7 +7,7 @@ content_type: concept
 visibility: gm_secrets
 status: canon
 created: 2026-03-19
-last_updated: 2026-03-19
+last_updated: 2026-10-24
 ---
 
 # Stakeholder Knowledge Distribution
@@ -31,7 +31,7 @@ The heroes are uniquely positioned to synthesize distributed knowledge because:
 - Their tools are Warren ambassadors — they can sense the ecosystem's actual state where others only observe surface symptoms.
 - They are legend to every culture on the continent — they can move between factions that do not speak to each other.
 - They carry celestial memories — they recognize what the distributed knowledge is describing because they lived inside it.
-- They bridge Orc, Dwarf, Elf, and human relationships across political fractures that no current-era being can navigate alone.
+- They bridge Tulpar, Dwarf, Elf, and human relationships across political fractures that no current-era being can navigate alone.
 
 The Information Synthesis Puzzle is not a quest to find the MacGuffin. It is the process by which the heroes become the only beings in a thousand years who hold the complete picture — and must decide what to do with it.
 
@@ -103,17 +103,17 @@ The Information Synthesis Puzzle is not a quest to find the MacGuffin. It is the
 
 ---
 
-### 5. Orcish Confederations
+### 5. Tulpar Confederations
 
-**What they know:** Two distinct knowledge streams. First: living ecosystem sensing through ancestor communication — Orcish shamans have been noting for centuries that the quality of ancestor contact is degrading, specific spirits are becoming unreachable, and certain ritual sites have gone silent. Second: ancient epic songs that contain, in metaphorical form, literal descriptions of the Held Breath. The songs predate the liberation. Orcish oral tradition has been faithfully preserving descriptions of the liminal consciousnesses for longer than the current era has existed.
+**What they know:** Two distinct knowledge streams. First: living ecosystem sensing through ancestor communication — Tulpar shamans have been noting for centuries that the quality of ancestor contact is degrading, specific spirits are becoming unreachable, and certain ritual sites have gone silent. Second: ancient epic songs that contain, in metaphorical form, literal descriptions of the Held Breath. The songs predate the liberation. Tulpar oral tradition has been faithfully preserving descriptions of the liminal consciousnesses for longer than the current era has existed.
 
 **What they don't know:** That the songs are literal. The epic tradition treats the Held Breath entities as metaphors for cosmic forces — powerful and worth respecting, but not understood as actual beings with agendas. The shamans who sense the degradation of ancestor contact have no framework that connects it to the same phenomenon.
 
-**Stance / how to approach:** The liberation was RIGHT. This is not ambiguous within Orcish cultural memory. The heroes are legendary figures associated with a liberation that Orcish tradition remembers as unambiguously correct. The incomplete charge is about agendas woken by the beacon event — not about ecological repair, not about the liberation being a mistake. Heroes who approach with that framing receive openness. Heroes who suggest the liberation caused damage will be received with profound cultural offense.
+**Stance / how to approach:** The liberation was RIGHT. This is not ambiguous within Tulpar cultural memory. The heroes are legendary figures associated with a liberation that Tulpar tradition remembers as unambiguously correct. The incomplete charge is about agendas woken by the beacon event — not about ecological repair, not about the liberation being a mistake. Heroes who approach with that framing receive openness. Heroes who suggest the liberation caused damage will be received with profound cultural offense.
 
-**What they fear / stakes:** The ancestors going fully silent. The degradation of ancestor communication is the most sacred wound in contemporary Orcish culture; it is experienced as the dead abandoning the living, which is understood as cosmological wrongness at the deepest level.
+**What they fear / stakes:** The ancestors going fully silent. The degradation of ancestor communication is the most sacred wound in contemporary Tulpar culture; it is experienced as the dead abandoning the living, which is understood as cosmological wrongness at the deepest level.
 
-**What they offer:** Ecosystem health sensing that no other faction can provide. The epic songs, if the heroes have the framework to recognize what they contain. A pathway to the Chain-Breakers Order, who are Orc-anchored.
+**What they offer:** Ecosystem health sensing that no other faction can provide. The epic songs, if the heroes have the framework to recognize what they contain. A pathway to the Chain-Breakers Order, who are Tulpar-anchored.
 
 **Access conditions:** Steppe confederations; culturally accessible to heroes as living legends. Act I. Early access if framing is right; one of the best first contacts in the campaign.
 
@@ -159,13 +159,13 @@ The Information Synthesis Puzzle is not a quest to find the MacGuffin. It is the
 
 **The synthesis key:** The heroes are not information collectors who eventually get handed the complete picture. They are the framework. As they develop the R/H/K relationship with their tools and accumulate fragments from other stakeholders, they begin to recognize what the distributed knowledge is describing — because they lived inside the ecosystem, and the tools remember.
 
-**The unique position:** They are the only beings who can hold all of this simultaneously. High Elves will not speak to Orcish Shamans about the Held Breath. Scholar's Remnant cannot reach Dwarven archives safely. Chain-Breakers oral tradition has never been compared to High Elf cosmological frameworks. The heroes, by virtue of their legend and their celestial nature, can assemble the complete picture. No one else can.
+**The unique position:** They are the only beings who can hold all of this simultaneously. High Elves will not speak to Tulpar Shamans about the Held Breath. Scholar's Remnant cannot reach Dwarven archives safely. Chain-Breakers oral tradition has never been compared to High Elf cosmological frameworks. The heroes, by virtue of their legend and their celestial nature, can assemble the complete picture. No one else can.
 
 ---
 
 ### 9. Chain-Breakers Order
 
-**What they know:** Oral tradition fragments that survive from the Scholar's Purge — the ground-level knowledge that the Wizard's agents worked hardest to eliminate. The Chain-Breakers hold: the mechanics of how a gaes operates and can be completed (not theory — practical, earned knowledge); fragments of the heroes' actual unfinished charge (not the stories, but the structural requirements); accounts of the Wizard's original intervention and what he prevented; and a theological conviction that the heroes' return is cosmologically necessary. They have been keeping this faith for a thousand years, across a multi-species community anchored in Orcish tradition.
+**What they know:** Oral tradition fragments that survive from the Scholar's Purge — the ground-level knowledge that the Wizard's agents worked hardest to eliminate. The Chain-Breakers hold: the mechanics of how a gaes operates and can be completed (not theory — practical, earned knowledge); fragments of the heroes' actual unfinished charge (not the stories, but the structural requirements); accounts of the Wizard's original intervention and what he prevented; and a theological conviction that the heroes' return is cosmologically necessary. They have been keeping this faith for a thousand years, across a multi-species community anchored in Tulpar tradition.
 
 **What they don't know:** The cosmological framework. The Held Breath's nature at the architectural level. How their fragments fit into the complete picture. They know what was left undone and how to recognize its completion. They do not know why it matters at the cosmological scale.
 
@@ -175,7 +175,7 @@ The Information Synthesis Puzzle is not a quest to find the MacGuffin. It is the
 
 **What they offer:** The clearest practical description of the charge requirements. Oral accounts of what the Wizard's original intervention blocked. Ground-level understanding of the gaes mechanics that no other source provides. A community of multi-species allies who have been preparing for the heroes' return.
 
-**Access conditions:** Dispersed but Orc-anchored; find them via Orcish Confederation contacts. Act I-II. Trust is the price — they will not share the deepest fragments with heroes who seem unwilling to hear uncomfortable truths about what was left unfinished.
+**Access conditions:** Dispersed but Tulpar-anchored; find them via Tulpar Confederation contacts. Act I-II. Trust is the price — they will not share the deepest fragments with heroes who seem unwilling to hear uncomfortable truths about what was left unfinished.
 
 ---
 
@@ -186,8 +186,8 @@ The table below is the GM's structural map of the synthesis campaign. Sequencing
 | Source | What they offer | What they need | Geographic access | Sequencing notes |
 |--------|----------------|----------------|-------------------|------------------|
 | Goblin/Halfling/Gnome Networks | Continent-wide empirical dataset — trade disruptions, charm failure rates, dead zone locations by region | Explanation of what their data means; reciprocal value exchange | Everywhere; Free Cities most reliable | Act I; best first contact; lowest bar; hub for later contacts |
-| Orcish Shamans | Ecosystem health sensing via ancestor comms; ancient epic songs with literal Held Breath descriptions | Respectful framing (beacon event, not damage accusation); recognition of liberation's correctness | Steppe confederations; culturally accessible via heroes' legend | Act I; early access if framing is right |
-| Chain-Breakers Order | Oral fragments: gaes mechanics, unfinished charge shape, Wizard's original intervention | Trust; willingness to hear uncomfortable truths about the incomplete charge | Dispersed, Orc-anchored; find via Orcish Confederations | Act I-II; critical for understanding the actual charge requirements |
+| Tulpar Shamans | Ecosystem health sensing via ancestor comms; ancient epic songs with literal Held Breath descriptions | Respectful framing (beacon event, not damage accusation); recognition of liberation's correctness | Steppe confederations; culturally accessible via heroes' legend | Act I; early access if framing is right |
+| Chain-Breakers Order | Oral fragments: gaes mechanics, unfinished charge shape, Wizard's original intervention | Trust; willingness to hear uncomfortable truths about the incomplete charge | Dispersed, Tulpar-anchored; find via Tulpar Confederations | Act I-II; critical for understanding the actual charge requirements |
 | Dwarven Archivists | 1,000 years of disappearance/anomaly pattern data; longitudinal geographic record | A theoretical framework to make sense of the data | Mountain archives; politically marginalized but willing | Act I-II; data alone is suggestive; framework needed to interpret |
 | Mortal Elf Elders | Emotional/intuitive guidance; degraded-harmonic record; High Elf access pathway | Time, patience, demonstrated respect for long memory | Isolated enclaves; some integrated | Act I-II; process, not data; necessary bridge to High Elves |
 | Human Scholars (Scholar's Remnant) | Practical fragments: dead zone mapping, magic failure patterns, Scholar's Purge as targeted assassination | Protection from Wizard's agents; synthesis help | Hidden/scattered; some in Goblin Free Cities neutral ground | Act II; provides the Wizard motive layer |
@@ -204,7 +204,7 @@ What becomes visible when specific combinations are assembled:
 Goblin/Halfling empirical dataset + Dwarven anomaly patterns + High Elf cosmological framework → the geographic and temporal scale of the Warren disturbance becomes visible; the dead zones are legible as disturbance geography, not random failure.
 
 **Complete picture of the liberation's beacon event and what it woke:**
-Chain-Breakers oral tradition + Orcish epic songs + heroes' own celestial memories (via tools) → the liberation's nature as a beacon event is confirmed; what was woken and whose plans were crossed becomes nameable.
+Chain-Breakers oral tradition + Tulpar epic songs + heroes' own celestial memories (via tools) → the liberation's nature as a beacon event is confirmed; what was woken and whose plans were crossed becomes nameable.
 
 **Wizard motive layer confirmed:**
 Scholar's Remnant fragments + Dwarven disappearance timeline → the Scholar's Purge as targeted cover-up is confirmed; the Wizard's awareness of the cosmological risk is confirmed; his role in eliminating the knowledge that could have completed the charge a thousand years ago becomes clear.
@@ -219,6 +219,6 @@ Memory-Keeper access (full, Act III) → the heroes know their actual charge —
 
 Why the synthesis is possible only through the heroes:
 
-Their tools are Warren ambassadors — they can sense ecosystem health directly where others only observe symptoms. They are legend to every culture on the continent — they can access factions that have not spoken to each other in centuries or ever. They carry celestial memories — they recognize what the distributed knowledge is describing because they lived inside the ecosystem it describes. They bridge Orc, Dwarf, Elf, and human relationships across political fractures that no current-era being can navigate alone.
+Their tools are Warren ambassadors — they can sense ecosystem health directly where others only observe symptoms. They are legend to every culture on the continent — they can access factions that have not spoken to each other in centuries or ever. They carry celestial memories — they recognize what the distributed knowledge is describing because they lived inside the ecosystem it describes. They bridge Tulpar, Dwarf, Elf, and human relationships across political fractures that no current-era being can navigate alone.
 
 The heroes are not the solution. They are the synthesis. The solution emerges from what they do with the complete picture once assembled.

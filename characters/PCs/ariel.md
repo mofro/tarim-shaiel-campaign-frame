@@ -115,7 +115,7 @@ Current tier: **—** *(none yet)*
 | [[characters/PCs/veyra\|Veyra]] | Party — Warrior; Ariel respects the dependability, sometimes wonders if they're waiting for the same moment |
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; his two-pulls navigation problem is something she finds significant |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; he asks questions, she already has answers — they're useful to each other |
-| [[raizen\|Rayzen]] | Party — Pari-Kin Druid; fellow traveler, fellow watcher |
+| [[raizen\|Reizan]] | Party — Pari-Kin Druid; fellow traveler, fellow watcher |
 | [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; the patron arrangement interests her for reasons she hasn't articulated |
 | Captain Idris Kaan | Imperial patrol captain — she humiliated his patrol in the Session 0 courtyard tariff standoff; history, complicated |
 

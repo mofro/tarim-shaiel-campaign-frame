@@ -23,7 +23,7 @@ controls:
 narrative_weight: very-high
 status: canon
 created: 2026-04-14
-last_updated: 2026-04-14
+last_updated: 2026-10-24
 tags:
   - gm-only
   - campaign-arc-backstory
@@ -36,7 +36,7 @@ tags:
 
 ## Overview
 
-The Human Empire was an aggressive expansionist state that controlled all major Silk Road hubs during Era 0 (~200 CE equivalent). Its economy was tributary — wealth flowed inward through conquest, taxation, and trade monopoly. Its military power rested on Orc slave-legions held by binding magic, a cosmological mechanism that implies someone in the imperial structure understood Warren-channel mechanics. It was dismantled by the heroes' liberation and subsequent military defeat, leaving behind the fragmented network now called the Human Imperial Remnants.
+The Human Empire was an aggressive expansionist state that controlled all major Silk Road hubs during Era 0 (~200 CE equivalent). Its economy was tributary — wealth flowed inward through conquest, taxation, and trade monopoly. Its military power rested on Tulpar slave-legions held by binding magic, a cosmological mechanism that implies someone in the imperial structure understood Warren-channel mechanics. It was dismantled by the heroes' liberation and subsequent military defeat, leaving behind the fragmented network now called the Human Imperial Remnants.
 
 ---
 
@@ -59,9 +59,9 @@ The binding magic strongly implies someone at or near the top had genuine cosmol
 
 **Visible face:** Absolute territorial authority. Walls, seals, renamed cities, languages of authority. The Empire was loud by design — visibility was the point.
 
-**Hidden influence:** The binding magic that controlled the Orc slave-legions. This was not public knowledge in the sense of being understood — it was experienced as simply how the world worked. The cosmological mechanism behind it was held by a small number of people, possibly only one.
+**Hidden influence:** The binding magic that controlled the Tulpar slave-legions. This was not public knowledge in the sense of being understood — it was experienced as simply how the world worked. The cosmological mechanism behind it was held by a small number of people, possibly only one.
 
-**Leverage:** Military (Orc slave-legions), trade monopoly (all major Silk Road hubs), and the binding magic itself — which is the deepest leverage of all, because it was not just coercive but ontological.
+**Leverage:** Military (Tulpar slave-legions), trade monopoly (all major Silk Road hubs), and the binding magic itself — which is the deepest leverage of all, because it was not just coercive but ontological.
 
 ---
 
@@ -75,15 +75,15 @@ The Empire understood that lasting control requires making people forget what ca
 
 ## Key Tensions
 
-- **Internal — who held the binding knowledge?** If one person or faction within the Empire controlled the Orc-binding magic, the Empire's internal politics were shaped by that asymmetry. When did the Wizard (if present within the Empire) actually hold power versus serve it?
-- **External — the Orc legions themselves.** Enslaved peoples with a continuous oral tradition are not a stable foundation. The Chain-Breakers Order originated in the aftermath of liberation; the conditions for that founding existed during the Empire.
+- **Internal — who held the binding knowledge?** If one person or faction within the Empire controlled the Tulpar-binding magic, the Empire's internal politics were shaped by that asymmetry. When did the Wizard (if present within the Empire) actually hold power versus serve it?
+- **External — the Tulpar legions themselves.** Enslaved peoples with a continuous oral tradition are not a stable foundation. The Chain-Breakers Order originated in the aftermath of liberation; the conditions for that founding existed during the Empire.
 - **Structural — tributary economies collapse inward.** An empire whose wealth flows from conquest stops growing or starts dying. What was the Empire's trajectory before the heroes acted?
 
 ---
 
 ## Narrative Hooks
 
-- **The binding magic's origin.** Someone designed the mechanism that enslaved the Orc legions. That knowledge did not vanish when the Empire fell — it was inherited. By whom is a campaign-arc question.
+- **The binding magic's origin.** Someone designed the mechanism that enslaved the Tulpar legions. That knowledge did not vanish when the Empire fell — it was inherited. By whom is a campaign-arc question.
 - **Imperial records.** The bureaucratic apparatus was extensive. Some records survived. The Scholars' Remnant and the Lich Cadre are both hunting the same archives for different reasons.
 - **What the Empire renamed.** Every place the Empire controlled had a prior name, a prior identity. Those identities are reasserting themselves a thousand years later. The heroes will encounter the scars.
 
@@ -94,8 +94,8 @@ The Empire understood that lasting control requires making people forget what ca
 | faction | relationship | notes |
 |---------|-------------|-------|
 | [[human-imperial-remnants\|Human Imperial Remnants]] | legacy / successor fragment | The administrative structure that outlasted the Empire; the facade without the force |
-| [[orc-confederation-samarkand\|Orc Confederation (Samarkand)]] | former controlled | Rose from the slave-legion structure post-liberation |
-| [[orc-steppe-confederations\|Orc Steppe Confederations]] | rival / enslaved | The source population for the slave-legions |
+| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | former controlled | Rose from the slave-legion structure post-liberation |
+| [[orc-steppe-confederations\|Tulpar Steppe Confederations]] | rival / enslaved | The source population for the slave-legions |
 | [[chain-breakers-order\|Chain-Breakers Order]] | opposed | Founded in direct response to the liberation; carries memory of the Empire's mechanisms |
 | [[lich-cadre\|Lich Cadre]] | relationship unclear | The Wizard's relationship to the Empire is an open design question — see DM Notes |
 | [[the-wizard\|The Wizard]] | relationship unclear | Predates, rises within, or was created by the Empire? Gates significant design decisions |
@@ -112,7 +112,7 @@ The Empire understood that lasting control requires making people forget what ca
 
 Options B and C are recommended for development (per prior session notes). This decision gates the individual file.
 
-**The binding magic.** This is not just a historical detail — it is the campaign's original cosmological crime. The Warren-channel mechanics that were used to bind the Orc legions were real, and their disruption by the heroes was the beacon event that set everything in motion. The liberation was right. It was also the largest single Warren disturbance in recorded history. The Held Breath stirs in response to that kind of energy. This is not the Empire's fault per se — but the Empire created the conditions.
+**The binding magic.** This is not just a historical detail — it is the campaign's original cosmological crime. The Warren-channel mechanics that were used to bind the Tulpar legions were real, and their disruption by the heroes was the beacon event that set everything in motion. The liberation was right. It was also the largest single Warren disturbance in recorded history. The Held Breath stirs in response to that kind of energy. This is not the Empire's fault per se — but the Empire created the conditions.
 
 **Fantasy name needed.** Do not advance this file to `status: draft` until a name exists. The name should feel like a translation — what the Empire called itself in its own administrative language, rendered into campaign-English.
 

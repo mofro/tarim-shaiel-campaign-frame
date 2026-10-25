@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: world_building
 status: planned
 created: 2026-02-05
-last_updated: 2026-02-05
+last_updated: 2026-10-24
 ---
 
 # Campaign Present: Faction Power Map (~1200 CE Equivalent)
@@ -33,7 +33,7 @@ This document will be developed in a future session to provide:
 
 2. **Major Power Blocs**
    - Northern Dwarven League (7 kingdoms)
-   - Southern Orc Confederacy (12+ tribes/cities)
+   - Southern Tulpar Confederacy (12+ tribes/cities)
    - Eastern Human Dynasties (3 major kingdoms)
    - Goblin Free Cities (20+ independent states)
    - Elf Sanctuaries (isolated, minimal contact)
