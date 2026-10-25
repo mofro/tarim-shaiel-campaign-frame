@@ -86,4 +86,5 @@ utilities/lk-bridge/lk_manifest.json
 
 # Map workshop local dev files (not for live site)
 map-workshop.html
+player-map.html
 BRAT-log.md

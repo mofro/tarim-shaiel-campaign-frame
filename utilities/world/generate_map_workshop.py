@@ -30,6 +30,7 @@ LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 ROUTES_PATH   = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
 REGIONS_PATH  = VAULT_ROOT / "world" / "data" / "tarim-shaiel-regions.geojson"
 OUTPUT_PATH   = VAULT_ROOT / "map-workshop.html"
+PLAYER_PATH   = VAULT_ROOT / "player-map.html"
 
 CATEGORIES = [
     "city", "town", "caravanserai", "capital", "bridge", "fortress", "sacred-site",
@@ -358,17 +359,6 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .wsd-item:hover { background: rgba(184,146,44,0.12); color: #e8dcc4; }
 .wsd-empty { padding: 8px 12px; font-size: 11px; color: #5a4a30; font-style: italic; }
 /* Travel time tab */
-.tt-points { display:flex; flex-direction:column; gap:4px; }
-.tt-point { display:flex; align-items:center; gap:6px; padding:5px 8px;
-  background:#1a1408; border-radius:3px; border:1px solid rgba(184,146,44,0.12); }
-.tt-marker-label { font-size:11px; font-weight:bold; width:14px; text-align:center; }
-.tt-marker-a { color:#5aaa5a; }
-.tt-marker-b { color:#cc7777; }
-.tt-point-name { flex:1; font-size:11px; color:#c8b87a; font-style:italic;
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.tt-pt-clear { background:none; border:none; color:#5a4a30; cursor:pointer;
-  font-size:11px; padding:0 2px; line-height:1; }
-.tt-pt-clear:hover { color:#e8a060; }
 .tt-presets { display:flex; gap:3px; flex-wrap:wrap; }
 .tt-preset { flex:1; min-width:0; padding:5px 3px; font-size:10px; letter-spacing:0.04em;
   text-transform:uppercase; background:#1a1408; border:1px solid rgba(184,146,44,0.2);
@@ -382,16 +372,40 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   color:#c8b87a; padding:3px 6px; border-radius:2px; font-size:12px; }
 .tt-roads-lbl { display:flex; align-items:center; gap:4px; margin-left:auto;
   font-size:11px; color:#8a7a5a; cursor:pointer; }
-.tt-results { border-top:1px solid rgba(184,146,44,0.15); padding-top:8px; }
-.tt-result-row { display:grid; grid-template-columns:70px 60px 1fr;
-  align-items:center; gap:4px; padding:4px 0; font-size:12px; }
-.tt-result-row.faded { opacity:0.35; }
-.tt-rl { color:#8a7a5a; }
-.tt-rd { color:#c8b87a; font-family:monospace; }
-.tt-rt { color:#e8dcc4; font-weight:bold; }
+.tt-stops-list { display:flex; flex-direction:column; gap:0; }
+.tt-stop-row { display:flex; align-items:center; gap:6px; padding:4px 6px;
+  background:#1a1408; border-radius:3px; border:1px solid rgba(184,146,44,0.12);
+  margin-bottom:1px; }
+.tt-stop-num { width:18px; height:18px; border-radius:50%; background:#3a5a3a;
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; font-weight:bold; color:#fff; flex-shrink:0; }
+.tt-stop-name { flex:1; font-size:11px; color:#c8b87a; font-style:italic;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tt-stop-rm { background:none; border:none; color:#5a4a30; cursor:pointer;
+  font-size:11px; padding:0 2px; line-height:1; flex-shrink:0; }
+.tt-stop-rm:hover { color:#e8a060; }
+.tt-seg-row { padding:3px 6px 3px 30px; font-size:11px;
+  display:grid; grid-template-columns:1fr 1fr; gap:2px; color:#7a6a50; }
+.tt-seg-row.fetching { opacity:0.5; font-style:italic; }
+.tt-seg-s { color:#8a7a5a; }
+.tt-seg-r { color:#c8a84a; }
+.tt-totals { border-top:1px solid rgba(184,146,44,0.18); padding:6px 0 0;
+  display:grid; grid-template-columns:60px 1fr 1fr; gap:3px; font-size:11px; }
+.tt-tot-lbl { color:#7a6a50; padding-top:2px; }
+.tt-tot-v { color:#c8b87a; font-family:monospace; }
+.tt-tot-t { color:#e8dcc4; font-weight:bold; }
 .tt-map-pin { width:22px; height:22px; border-radius:50%; display:flex; align-items:center;
-  justify-content:center; font-size:11px; font-weight:bold; color:#fff; cursor:grab;
-  border:2.5px solid rgba(255,255,255,0.65); box-shadow:0 2px 6px rgba(0,0,0,0.5); }
+  justify-content:center; font-size:10px; font-weight:bold; color:#fff; cursor:grab;
+  border:2px solid rgba(255,255,255,0.7); box-shadow:0 2px 6px rgba(0,0,0,0.5); }
+/* Player share bar */
+#player-share { display:none; align-items:center; gap:6px; padding:4px 10px;
+  background:rgba(90,160,90,0.12); border-bottom:1px solid rgba(90,160,90,0.2);
+  font-size:11px; color:#7ab07a; }
+#player-share a { color:#8ad08a; font-family:monospace; font-size:10px;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; }
+#player-share-copy { background:none; border:1px solid rgba(90,160,90,0.3);
+  color:#7ab07a; padding:2px 6px; border-radius:2px; cursor:pointer; font-size:10px; }
+#player-share-copy:hover { background:rgba(90,160,90,0.15); }
 """
 
 
@@ -558,18 +572,15 @@ def _build_panel_edit_coords() -> str:
 
 def _build_panel_travel_time() -> str:
     return """
-<p class="hint" style="color:#7a6a50;margin-bottom:6px;">Click map or a location to set A, then B. Click again to reset.</p>
-<div class="tt-points">
-  <div class="tt-point">
-    <span class="tt-marker-label tt-marker-a">A</span>
-    <span class="tt-point-name" id="tt-a-name">—</span>
-    <button class="tt-pt-clear" id="tt-clear-a" title="Clear A">✕</button>
-  </div>
-  <div class="tt-point">
-    <span class="tt-marker-label tt-marker-b">B</span>
-    <span class="tt-point-name" id="tt-b-name">—</span>
-    <button class="tt-pt-clear" id="tt-clear-b" title="Clear B">✕</button>
-  </div>
+<p class="hint" style="color:#7a6a50;margin-bottom:6px;">Click map or a location to add stops. Drag markers to reposition.</p>
+<div id="tt-stops-list" class="tt-stops-list"></div>
+<div id="tt-totals" class="tt-totals" hidden>
+  <span class="tt-tot-lbl">Straight</span>
+  <span class="tt-tot-v" id="tt-tot-s-dist">—</span>
+  <span class="tt-tot-t" id="tt-tot-s-time">—</span>
+  <span class="tt-tot-lbl">Road</span>
+  <span class="tt-tot-v" id="tt-tot-r-dist">—</span>
+  <span class="tt-tot-t" id="tt-tot-r-time">—</span>
 </div>
 <div class="field-group" style="margin-top:8px;">
   <label>Mode</label>
@@ -586,19 +597,10 @@ def _build_panel_travel_time() -> str:
   <input id="tt-kpd" type="number" min="1" max="9999" value="30">
   <label class="tt-roads-lbl"><input type="checkbox" id="tt-roads-cb" checked style="accent-color:#b8922c;"> Follow roads</label>
 </div>
-<div id="tt-results" class="tt-results" hidden>
-  <div class="tt-result-row" id="tt-row-straight">
-    <span class="tt-rl">Straight</span>
-    <span class="tt-rd" id="tt-s-dist">—</span>
-    <span class="tt-rt" id="tt-s-time">—</span>
-  </div>
-  <div class="tt-result-row" id="tt-row-road">
-    <span class="tt-rl">Road</span>
-    <span class="tt-rd" id="tt-r-dist">—</span>
-    <span class="tt-rt" id="tt-r-time">—</span>
-  </div>
+<div class="btn-row" style="margin-top:8px;">
+  <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
 </div>
-<p id="tt-status" class="hint" style="margin-top:4px;min-height:16px;"></p>
+<p id="tt-status" class="hint" style="margin-top:4px;min-height:14px;"></p>
 """
 
 
@@ -1405,8 +1407,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(!_wsSearchDrop.hidden&&!_wsSearchDrop.contains(e.target)&&e.target!==_wsSearch){'
         '_wsSearchDrop.hidden=true;}});}\n'
 
-        # -- Travel Time tab --
-        'var _ttA=null,_ttB=null,_ttMarkerA=null,_ttMarkerB=null;\n'
+        # -- Travel Time (multi-stop) --
+        'var _ttStops=[];\n'   # [{lng,lat,name}]
+        'var _ttMarkers=[];\n' # MapLibre Marker objects
+        'var _ttSegs=[];\n'    # [{s:km, r:km|null, rCoords:[[lng,lat],...] | null}]
         'var _ttKpd=30,_ttFly=false,_ttRoads=true;\n'
 
         'function _ttFmt(km,kpd){'
@@ -1415,99 +1419,146 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(d<2){return "1 day "+Math.round((d-1)*24)+" h";}'
         'return d.toFixed(1)+" days";}\n'
 
-        'function _ttLine(coords){'
-        'if(!map.getSource("tt-line"))return;'
-        'map.getSource("tt-line").setData({type:"FeatureCollection",features:'
-        'coords&&coords.length>=2?[{type:"Feature",geometry:{type:"LineString",coordinates:coords}}]:[]});}\n'
-
-        'function _ttRender(){'
-        'var st=document.getElementById("tt-status");'
-        'if(!_ttA||!_ttB){document.getElementById("tt-results").hidden=true;return;}'
-        'var skm=_haversineKm(_ttA.lng,_ttA.lat,_ttB.lng,_ttB.lat);'
-        'document.getElementById("tt-s-dist").textContent=skm.toFixed(0)+" km";'
-        'document.getElementById("tt-s-time").textContent=_ttFmt(skm,_ttKpd);'
-        'document.getElementById("tt-results").hidden=false;'
-        'var rrow=document.getElementById("tt-row-road");'
-        'if(_ttFly||!_ttRoads){'
-        'document.getElementById("tt-r-dist").textContent="—";'
-        'document.getElementById("tt-r-time").textContent="—";'
-        'rrow.classList.add("faded");st.textContent="";'
-        '_ttLine([[_ttA.lng,_ttA.lat],[_ttB.lng,_ttB.lat]]);'
-        '}else{'
-        'rrow.classList.remove("faded");st.textContent="Fetching road route…";'
-        '_ttLine([[_ttA.lng,_ttA.lat],[_ttB.lng,_ttB.lat]]);'
-        'var url="https://router.project-osrm.org/route/v1/foot/"'
-        '+_ttA.lng+","+_ttA.lat+";"+_ttB.lng+","+_ttB.lat'
-        '+"?geometries=geojson&overview=full";'
-        'fetch(url).then(function(r){return r.json();})'
-        '.then(function(d){'
-        'st.textContent="";'
-        'if(d.code==="Ok"&&d.routes&&d.routes.length){'
-        'var rkm=d.routes[0].distance/1000;'
-        'document.getElementById("tt-r-dist").textContent=rkm.toFixed(0)+" km";'
-        'document.getElementById("tt-r-time").textContent=_ttFmt(rkm,_ttKpd);'
-        '_ttLine(d.routes[0].geometry.coordinates);'
-        '}else{'
-        'document.getElementById("tt-r-dist").textContent="No route";'
-        'document.getElementById("tt-r-time").textContent="—";}'
-        '})'
-        '.catch(function(){'
-        'st.textContent="✗ Road fetch failed";'
-        'document.getElementById("tt-r-dist").textContent="—";'
-        'document.getElementById("tt-r-time").textContent="—";});}}\n'
-
-        'function _ttPinEl(label,color){'
+        # Marker pin element
+        'function _ttPinEl(n,color){'
         'var el=document.createElement("div");'
-        'el.className="tt-map-pin";el.textContent=label;el.style.background=color;'
+        'el.className="tt-map-pin";el.textContent=n;el.style.background=color;'
         'return el;}\n'
 
-        'function _ttSetPt(lng,lat,name){'
-        'var lbl=lat.toFixed(3)+", "+lng.toFixed(3);'
-        'if(!_ttA){'
-        '_ttA={lng:lng,lat:lat};'
-        'if(_ttMarkerA)_ttMarkerA.remove();'
-        '_ttMarkerA=new maplibregl.Marker({element:_ttPinEl("A","#3a7a3a"),draggable:true})'
-        '.setLngLat([lng,lat]).addTo(map);'
-        '_ttMarkerA.on("dragend",function(){'
-        'var p=_ttMarkerA.getLngLat();_ttA={lng:p.lng,lat:p.lat};'
-        'document.getElementById("tt-a-name").textContent=p.lat.toFixed(3)+", "+p.lng.toFixed(3);'
-        '_ttRender();});'
-        'document.getElementById("tt-a-name").textContent=name||lbl;'
-        '}else if(!_ttB){'
-        '_ttB={lng:lng,lat:lat};'
-        'if(_ttMarkerB)_ttMarkerB.remove();'
-        '_ttMarkerB=new maplibregl.Marker({element:_ttPinEl("B","#9a3535"),draggable:true})'
-        '.setLngLat([lng,lat]).addTo(map);'
-        '_ttMarkerB.on("dragend",function(){'
-        'var p=_ttMarkerB.getLngLat();_ttB={lng:p.lng,lat:p.lat};'
-        'document.getElementById("tt-b-name").textContent=p.lat.toFixed(3)+", "+p.lng.toFixed(3);'
-        '_ttRender();});'
-        'document.getElementById("tt-b-name").textContent=name||lbl;'
-        '_ttRender();'
+        # Palette for stop markers (cycles)
+        'var _ttColors=["#3a6a3a","#3a4a8a","#7a3a3a","#6a5a20","#4a2a7a","#206a60","#7a4a20"];\n'
+
+        # Rebuild the stop list + segment rows in the panel
+        'function _ttRenderList(){'
+        'var list=document.getElementById("tt-stops-list");'
+        'if(!list)return;'
+        'var html="";'
+        '_ttStops.forEach(function(s,i){'
+        'var bg=_ttColors[i%_ttColors.length];'
+        'html+=\'<div class="tt-stop-row">\'+'
+        '\'<div class="tt-stop-num" style="background:\'+bg+\'">\''
+        '+(i+1)+'
+        '\'</div>\'+'
+        '\'<span class="tt-stop-name">\'+s.name+\'</span>\'+'
+        '\'<button class="tt-stop-rm" data-i="\'+i+\'">✕</button>\'+'
+        '"</div>";'
+        'if(i<_ttStops.length-1){'
+        'var seg=_ttSegs[i];'
+        'if(!seg){'
+        'html+=\'<div class="tt-seg-row fetching"><span>calculating…</span></div>\';'
         '}else{'
-        '_ttA=null;_ttB=null;'
-        'if(_ttMarkerA){_ttMarkerA.remove();_ttMarkerA=null;}'
-        'if(_ttMarkerB){_ttMarkerB.remove();_ttMarkerB=null;}'
-        'document.getElementById("tt-a-name").textContent="—";'
-        'document.getElementById("tt-b-name").textContent="—";'
-        'document.getElementById("tt-results").hidden=true;'
-        'document.getElementById("tt-status").textContent="";'
-        '_ttLine(null);'
-        '_ttSetPt(lng,lat,name);}}\n'
+        'html+=\'<div class="tt-seg-row">\'+'
+        '\'<span class="tt-seg-s">⟶ straight: \'+seg.s.toFixed(0)+" km · "+_ttFmt(seg.s,_ttKpd)+"</span>"+'
+        '(!(_ttFly||!_ttRoads)?'
+        '(seg.r!=null?\'<span class="tt-seg-r">road: \'+seg.r.toFixed(0)+" km · "+_ttFmt(seg.r,_ttKpd)+"</span>":'
+        '\'<span class="tt-seg-r">road: fetching…</span>\'):'
+        '""'
+        ')+'
+        '"</div>";}'
+        '}});'
+        'list.innerHTML=html;'
+        'list.querySelectorAll(".tt-stop-rm").forEach(function(btn){'
+        'btn.addEventListener("click",function(){_ttRemoveStop(parseInt(btn.dataset.i,10));});});'
+        'var tot=document.getElementById("tt-totals");'
+        'if(tot)tot.hidden=_ttStops.length<2;'
+        'var clr=document.getElementById("tt-clear-btn");'
+        'if(clr)clr.hidden=_ttStops.length===0;'
+        '_ttRenderTotals();'
+        '_ttUpdateLine();}\n'
 
-        'document.getElementById("tt-clear-a").addEventListener("click",function(){'
-        '_ttA=null;if(_ttMarkerA){_ttMarkerA.remove();_ttMarkerA=null;}'
-        'document.getElementById("tt-a-name").textContent="—";'
-        'document.getElementById("tt-results").hidden=true;'
-        'document.getElementById("tt-status").textContent="";'
-        '_ttLine(null);});\n'
-        'document.getElementById("tt-clear-b").addEventListener("click",function(){'
-        '_ttB=null;if(_ttMarkerB){_ttMarkerB.remove();_ttMarkerB=null;}'
-        'document.getElementById("tt-b-name").textContent="—";'
-        'if(!_ttA){document.getElementById("tt-results").hidden=true;'
-        'document.getElementById("tt-status").textContent="";}'
-        '_ttLine(null);});\n'
+        # Totals row
+        'function _ttRenderTotals(){'
+        'if(_ttStops.length<2)return;'
+        'var ts=0,tr=0,trOk=true;'
+        '_ttSegs.forEach(function(seg,i){if(i<_ttStops.length-1){'
+        'if(seg){ts+=seg.s;if(seg.r!=null)tr+=seg.r;else trOk=false;}'
+        'else{trOk=false;}}});'
+        'var sd=document.getElementById("tt-tot-s-dist");'
+        'var st=document.getElementById("tt-tot-s-time");'
+        'var rd=document.getElementById("tt-tot-r-dist");'
+        'var rt=document.getElementById("tt-tot-r-time");'
+        'if(sd)sd.textContent=ts.toFixed(0)+" km";'
+        'if(st)st.textContent=_ttFmt(ts,_ttKpd);'
+        'if(rd)rd.textContent=(!(_ttFly||!_ttRoads))?(trOk?tr.toFixed(0)+" km":"…"):"—";'
+        'if(rt)rt.textContent=(!(_ttFly||!_ttRoads))?(trOk?_ttFmt(tr,_ttKpd):"…"):"—";}\n'
 
+        # Update the map line from all segment road coords (or straight fallback)
+        'function _ttUpdateLine(){'
+        'if(!map.getSource("tt-line"))return;'
+        'var coords=[];'
+        '_ttStops.forEach(function(s,i){'
+        'if(i===0)return;'
+        'var seg=_ttSegs[i-1];'
+        'if(seg&&seg.rCoords&&!_ttFly&&_ttRoads){'
+        'if(coords.length>0&&seg.rCoords.length>0)'
+        '{coords=coords.concat(seg.rCoords.slice(1));}'
+        'else{coords=seg.rCoords.slice();}}'
+        'else{'
+        'var prev=_ttStops[i-1];'
+        'if(coords.length>0)coords.push([s.lng,s.lat]);'
+        'else coords=[[prev.lng,prev.lat],[s.lng,s.lat]];}});'
+        'map.getSource("tt-line").setData({type:"FeatureCollection",features:'
+        'coords.length>=2?[{type:"Feature",geometry:{type:"LineString",coordinates:coords}}]:[]});}\n'
+
+        # Calculate segment i (haversine immediately; OSRM if applicable)
+        'function _ttCalcSeg(i){'
+        'var a=_ttStops[i],b=_ttStops[i+1];if(!a||!b)return;'
+        'var skm=_haversineKm(a.lng,a.lat,b.lng,b.lat);'
+        '_ttSegs[i]={s:skm,r:null,rCoords:null};'
+        '_ttRenderList();'
+        'if(_ttFly||!_ttRoads){_ttRenderList();return;}'
+        'var url="https://router.project-osrm.org/route/v1/foot/"'
+        '+a.lng+","+a.lat+";"+b.lng+","+b.lat+"?geometries=geojson&overview=full";'
+        'fetch(url).then(function(r){return r.json();})'
+        '.then(function(d){'
+        'if(d.code==="Ok"&&d.routes&&d.routes.length){'
+        '_ttSegs[i].r=d.routes[0].distance/1000;'
+        '_ttSegs[i].rCoords=d.routes[0].geometry.coordinates;}'
+        '_ttRenderList();}).catch(function(){_ttRenderList();});}\n'
+
+        # Add a stop
+        'function _ttSetPt(lng,lat,name){'
+        'var i=_ttStops.length;'
+        'var lbl=lat.toFixed(2)+","+lng.toFixed(2);'
+        '_ttStops.push({lng:lng,lat:lat,name:name||lbl});'
+        'var color=_ttColors[i%_ttColors.length];'
+        'var el=_ttPinEl(i+1,color);'
+        'var mk=new maplibregl.Marker({element:el,draggable:true}).setLngLat([lng,lat]).addTo(map);'
+        '(function(idx){'
+        'mk.on("dragend",function(){'
+        'var p=mk.getLngLat();'
+        '_ttStops[idx]={lng:p.lng,lat:p.lat,name:p.lat.toFixed(2)+","+p.lng.toFixed(2)};'
+        'if(idx>0)_ttCalcSeg(idx-1);'
+        'if(idx<_ttStops.length-1)_ttCalcSeg(idx);'
+        '_ttRenderList();});'
+        '})(i);'
+        '_ttMarkers.push(mk);'
+        'if(i>0)_ttCalcSeg(i-1);'
+        'else _ttRenderList();}\n'
+
+        # Remove a stop by index
+        'function _ttRemoveStop(i){'
+        '_ttStops.splice(i,1);'
+        'if(_ttMarkers[i]){_ttMarkers[i].remove();}'
+        '_ttMarkers.splice(i,1);'
+        '_ttSegs=[];'
+        # Renumber marker elements
+        '_ttMarkers.forEach(function(mk,j){'
+        'var el=mk.getElement();'
+        'if(el){el.textContent=j+1;el.style.background=_ttColors[j%_ttColors.length];}});'
+        # Recalculate all segments
+        'for(var j=0;j<_ttStops.length-1;j++)_ttCalcSeg(j);'
+        '_ttRenderList();}\n'
+
+        # Clear all
+        'document.getElementById("tt-clear-btn").addEventListener("click",function(){'
+        '_ttMarkers.forEach(function(mk){mk.remove();});'
+        '_ttStops=[];_ttMarkers=[];_ttSegs=[];'
+        '_ttRenderList();'
+        'if(map.getSource("tt-line"))map.getSource("tt-line").setData({type:"FeatureCollection",features:[]});'
+        '});\n'
+
+        # Preset buttons
         'document.querySelectorAll(".tt-preset").forEach(function(btn){'
         'btn.addEventListener("click",function(){'
         'document.querySelectorAll(".tt-preset").forEach(function(b){b.classList.remove("active");});'
@@ -1518,11 +1569,46 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var cb=document.getElementById("tt-roads-cb");'
         'cb.disabled=_ttFly;'
         '_ttRoads=!_ttFly&&cb.checked;'
-        '_ttRender();});});\n'
+        # Recalc all when mode changes
+        '_ttSegs=[];'
+        'for(var j=0;j<_ttStops.length-1;j++)_ttCalcSeg(j);'
+        '_ttRenderList();});});\n'
         'document.getElementById("tt-kpd").addEventListener("input",function(){'
-        'var v=parseInt(this.value,10);if(v>0){_ttKpd=v;_ttRender();}});\n'
+        'var v=parseInt(this.value,10);if(v>0){_ttKpd=v;_ttRenderList();}});\n'
         'document.getElementById("tt-roads-cb").addEventListener("change",function(){'
-        '_ttRoads=this.checked;_ttRender();});\n'
+        '_ttRoads=this.checked;_ttSegs=[];'
+        'for(var j=0;j<_ttStops.length-1;j++)_ttCalcSeg(j);'
+        '_ttRenderList();});\n'
+
+        # GM position broadcast (debounced moveend → POST /api/map-center)
+        'var _mapCenterTimer=null;\n'
+        'map.on("moveend",function(){'
+        'clearTimeout(_mapCenterTimer);'
+        '_mapCenterTimer=setTimeout(function(){'
+        'var c=map.getCenter();'
+        'fetch("/api/map-center",{method:"POST",'
+        'headers:{"Content-Type":"application/json"},'
+        'body:JSON.stringify({lng:c.lng,lat:c.lat})})'
+        '.catch(function(){});},400);});\n'
+
+        # Player share bar — populate from health check
+        '(function(){'
+        'var _shareBar=document.getElementById("player-share");'
+        'var _shareLink=document.getElementById("player-share-link");'
+        'var _shareCopy=document.getElementById("player-share-copy");'
+        'if(!_shareBar)return;'
+        'fetch("/api/health").then(function(r){return r.json();})'
+        '.then(function(d){'
+        'if(d.player_url){'
+        '_shareLink.textContent=d.player_url;'
+        '_shareLink.href=d.player_url;'
+        '_shareBar.style.display="flex";'
+        'if(_shareCopy)_shareCopy.addEventListener("click",function(){'
+        'navigator.clipboard.writeText(d.player_url).then(function(){'
+        'var t=_shareCopy.textContent;_shareCopy.textContent="Copied!";'
+        'setTimeout(function(){_shareCopy.textContent=t;},1200);'
+        '});});}}).catch(function(){});'
+        '})();\n'
     )
     # fmt: on
 
@@ -1637,6 +1723,11 @@ def _build_html(
         '    <div id="panel-travel-time" class="panel">\n'
         + panel_travel
         + "\n    </div>\n"
+        '    <div id="player-share" style="display:none">\n'
+        '      <span style="color:#8ad08a;font-size:11px;white-space:nowrap;">📡 Players:</span>\n'
+        '      <a id="player-share-link" href="#" target="_blank" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></a>\n'
+        '      <button id="player-share-copy" title="Copy link">⎘</button>\n'
+        '    </div>\n'
         "  </div>\n"
         '  <div id="map"></div>\n'
         '  <div id="route-panel" hidden>\n'
@@ -1646,6 +1737,135 @@ def _build_html(
         '    <button id="route-panel-close">✕</button>\n'
         '  </div>\n'
         "</div>\n"
+        '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'
+        "<script>\n"
+        + data_js
+        + app_js
+        + "\n</script>\n"
+        "</body>\n"
+        "</html>\n"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Player map HTML (public locations only, mobile-first, follows GM position)
+# ---------------------------------------------------------------------------
+
+def _build_player_html(
+    loc_geojson: dict,
+    routes_geojson: dict,
+    maptiler_key: str,
+) -> str:
+    style_url = (
+        f"https://api.maptiler.com/maps/{MAPTILER_STYLE_ID}/style.json?key={maptiler_key}"
+    )
+    icons_js = icon_registration_js()
+    data_js = (
+        f"var _locGJ = {json.dumps(loc_geojson)};\n"
+        f"var _routeGJ = {json.dumps(routes_geojson)};\n"
+    )
+
+    app_js = (
+        "var _following = true;\n"
+        "var _pollTimer = null;\n"
+        "var _lastCenter = null;\n"
+
+        "maplibregl.accessToken = '';\n"
+        f"var map = new maplibregl.Map({{container:'map',style:'{style_url}',center:[70,40],zoom:4}});\n"
+
+        "map.addControl(new maplibregl.NavigationControl(), 'top-right');\n"
+        "map.addControl(new maplibregl.ScaleControl({maxWidth:100,unit:'metric'}), 'bottom-right');\n"
+
+        "map.on('load', function() {\n"
+        + icons_js
+        + "\n"
+        "  map.addSource('locations', {type:'geojson', data: _locGJ});\n"
+        "  map.addLayer({id:'loc-icons',type:'symbol',source:'locations',"
+        "  layout:{'icon-image':['get','mapmarker'],'icon-size':0.55,'icon-allow-overlap':true,"
+        "  'text-field':['get','label'],'text-size':11,'text-offset':[0,1.2],"
+        "  'text-anchor':'top','text-optional':true},"
+        "  paint:{'text-color':'#2a1c08','text-halo-color':'rgba(255,248,235,0.8)','text-halo-width':1.5}});\n"
+
+        "  map.addSource('routes', {type:'geojson', data: _routeGJ});\n"
+        "  map.addLayer({id:'route-lines',type:'line',source:'routes',"
+        "  layout:{'line-join':'round','line-cap':'round'},"
+        "  paint:{'line-color':['coalesce',['get','stroke'],'#6b5a3e'],"
+        "  'line-width':2,'line-opacity':0.7}});\n"
+
+        "  var popup = new maplibregl.Popup({closeButton:false,closeOnClick:true});\n"
+        "  map.on('click','loc-icons',function(e){\n"
+        "    var f=e.features[0];\n"
+        "    if(!f)return;\n"
+        "    var name=f.properties.label||f.properties.title||'';\n"
+        "    popup.setLngLat(e.lngLat).setHTML('<strong>'+name+'</strong>').addTo(map);\n"
+        "  });\n"
+        "  map.on('mouseenter','loc-icons',function(){map.getCanvas().style.cursor='pointer';});\n"
+        "  map.on('mouseleave','loc-icons',function(){map.getCanvas().style.cursor='';});\n"
+
+        "  _startPolling();\n"
+        "});\n"
+
+        "function _startPolling(){\n"
+        "  if(_pollTimer)return;\n"
+        "  _pollTimer = setInterval(function(){\n"
+        "    if(!_following)return;\n"
+        "    fetch('/api/map-center').then(function(r){return r.json();})\n"
+        "    .then(function(d){\n"
+        "      if(d.lng==null||d.lat==null)return;\n"
+        "      var key=d.lng.toFixed(5)+','+d.lat.toFixed(5);\n"
+        "      if(key===_lastCenter)return;\n"
+        "      _lastCenter=key;\n"
+        "      map.easeTo({center:[d.lng,d.lat],duration:800});\n"
+        "    }).catch(function(){});\n"
+        "  },2000);\n"
+        "}\n"
+
+        "document.getElementById('follow-btn').addEventListener('click',function(){\n"
+        "  _following=!_following;\n"
+        "  this.textContent=_following?'● Following GM':'○ Follow GM';\n"
+        "  this.classList.toggle('off',!_following);\n"
+        "});\n"
+    )
+
+    return (
+        "<!DOCTYPE html>\n"
+        '<html lang="en">\n'
+        "<head>\n"
+        '<meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+        '<meta name="apple-mobile-web-app-capable" content="yes">\n'
+        '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">\n'
+        "<title>Tarim-Shaïal — Player Map</title>\n"
+        '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.css">\n'
+        "<style>\n"
+        "* { box-sizing: border-box; margin: 0; padding: 0; }\n"
+        "html, body { width: 100%; height: 100%; overflow: hidden; background: #1a1208; }\n"
+        "#map { position: fixed; inset: 0; width: 100%; height: 100%; }\n"
+        "#follow-btn {\n"
+        "  position: fixed;\n"
+        "  bottom: calc(24px + env(safe-area-inset-bottom));\n"
+        "  left: 50%; transform: translateX(-50%);\n"
+        "  z-index: 100;\n"
+        "  background: rgba(26,18,8,0.85);\n"
+        "  color: #8ad08a;\n"
+        "  border: 1px solid rgba(138,208,138,0.4);\n"
+        "  border-radius: 20px;\n"
+        "  padding: 10px 20px;\n"
+        "  font-size: 14px;\n"
+        "  font-family: Georgia, serif;\n"
+        "  min-height: 44px;\n"
+        "  cursor: pointer;\n"
+        "  backdrop-filter: blur(6px);\n"
+        "  touch-action: manipulation;\n"
+        "  white-space: nowrap;\n"
+        "}\n"
+        "#follow-btn.off { color: #7a6a50; border-color: rgba(122,106,80,0.3); }\n"
+        ".maplibregl-ctrl-bottom-right { bottom: calc(60px + env(safe-area-inset-bottom)) !important; }\n"
+        "</style>\n"
+        "</head>\n"
+        "<body>\n"
+        '<div id="map"></div>\n'
+        '<button id="follow-btn">● Following GM</button>\n'
         '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'
         "<script>\n"
         + data_js
@@ -1726,6 +1946,20 @@ def main() -> int:
 
     OUTPUT_PATH.write_text(html, encoding="utf-8")
     print(f"\n  Written: {OUTPUT_PATH.name}")
+
+    # Player map — public locations only
+    public_features = [
+        f for f in loc_geojson["features"]
+        if f.get("properties", {}).get("visibility", "public") != "gm_secrets"
+    ]
+    pub_geojson = {**loc_geojson, "features": public_features}
+    player_html = _build_player_html(
+        loc_geojson=pub_geojson,
+        routes_geojson=routes_geojson,
+        maptiler_key=MAPTILER_KEY,
+    )
+    PLAYER_PATH.write_text(player_html, encoding="utf-8")
+    print(f"  Written: {PLAYER_PATH.name}  ({len(public_features)} public locations)")
     print(f"  Run:     open {OUTPUT_PATH.name}")
     return 0
 
