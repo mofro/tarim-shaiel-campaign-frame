@@ -331,6 +331,31 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   border: 2.5px solid #2a1e08; border-radius: 50%; cursor: grab;
   box-shadow: 0 2px 10px rgba(0,0,0,0.6); }
 .drag-edit-marker:active { cursor: grabbing; }
+/* World link in header */
+#app-title-link { font-size: 10px; text-transform: none; letter-spacing: 0.03em;
+  color: #7a6a50; text-decoration: none; float: right; margin-top: 2px; }
+#app-title-link:hover { color: #b8922c; }
+/* Search row */
+#ws-search-row { position: relative; padding: 5px 14px 6px; border-bottom: 1px solid rgba(184,146,44,0.1);
+  flex-shrink: 0; }
+#ws-search-wrap { position: relative; }
+#ws-search-icon { position: absolute; left: 8px; top: 50%; transform: translateY(-50%);
+  color: #5a4a30; font-size: 12px; pointer-events: none; line-height: 1; }
+#ws-search { width: 100%; background: #1a1410; border: 1px solid rgba(184,146,44,0.25);
+  color: #e8dcc4; padding: 5px 8px 5px 24px; font-size: 12px; border-radius: 2px;
+  font-family: inherit; outline: none; }
+#ws-search:focus { border-color: rgba(184,146,44,0.7); }
+#ws-search-drop { position: absolute; top: 100%; left: 0; right: 0;
+  background: rgba(18,12,5,0.97); border: 1px solid rgba(184,146,44,0.4);
+  border-top: none; border-radius: 0 0 4px 4px; max-height: 240px; overflow-y: auto; z-index: 30;
+  box-shadow: 2px 6px 18px rgba(0,0,0,0.7); }
+.wsd-group { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: #7a6a50; padding: 5px 10px 2px; border-top: 1px solid rgba(184,146,44,0.1); }
+.wsd-group:first-child { border-top: none; }
+.wsd-item { padding: 5px 12px; font-size: 12px; cursor: pointer; color: #c8b890;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wsd-item:hover { background: rgba(184,146,44,0.12); color: #e8dcc4; }
+.wsd-empty { padding: 8px 12px; font-size: 11px; color: #5a4a30; font-style: italic; }
 """
 
 
@@ -1226,6 +1251,60 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(!_efSlug||!_efCurrentCoords)return;'
         '_startDragEdit(_efSlug,_efCurrentCoords);'
         '});\n'
+
+        # -- Search / find-location widget --
+        'var _wsSearch=document.getElementById("ws-search");'
+        'var _wsSearchDrop=document.getElementById("ws-search-drop");'
+        'var _wsSearchGroups=['
+        '{lbl:"Major",cats:["city","capital","bridge","landmark","fortress"]},'
+        '{lbl:"Towns",cats:["town"]},'
+        '{lbl:"Sacred",cats:["sacred-site","power-site"]},'
+        '{lbl:"Terrain",cats:["oasis","lake","water-body"]},'
+        '{lbl:"Routes",cats:["route-node","caravanserai","chokepoint","mountain-pass"]},'
+        '{lbl:"Other",cats:["ruins","poi","site","dungeon"]}'
+        '];\n'
+
+        'function _wsFlyTo(item){'
+        'if(item&&item.lat!=null&&item.lon!=null){'
+        'map.flyTo({center:[item.lon,item.lat],zoom:Math.max(map.getZoom(),8),duration:600});}'
+        '_wsSearchDrop.hidden=true;_wsSearch.blur();}\n'
+
+        'function _wsRender(q){'
+        'q=(q||"").trim().toLowerCase();'
+        'var html="",total=0;'
+        '_wsSearchGroups.forEach(function(g){'
+        'var items=_locList.filter(function(l){'
+        'if(g.cats.indexOf(l.category)===-1)return false;'
+        'if(!q)return true;'
+        'return(l.label||"").toLowerCase().indexOf(q)!==-1||(l.title||"").toLowerCase().indexOf(q)!==-1;});'
+        'if(!items.length)return;'
+        'html+=\'<div class="wsd-group">\'+g.lbl+\'</div>\';'
+        'items.forEach(function(itm){'
+        'html+=\'<div class="wsd-item" data-slug="\'+itm.slug+\'">\'+'
+        '(itm.label||itm.title)+\'</div>\';});'
+        'total+=items.length;});'
+        'var grouped=_wsSearchGroups.reduce(function(a,g){return a.concat(g.cats);},[]);'
+        'var extra=_locList.filter(function(l){'
+        'if(grouped.indexOf(l.category)!==-1)return false;'
+        'if(!q)return true;'
+        'return(l.label||"").toLowerCase().indexOf(q)!==-1||(l.title||"").toLowerCase().indexOf(q)!==-1;});'
+        'if(extra.length){'
+        'html+=\'<div class="wsd-group">Other</div>\';'
+        'extra.forEach(function(itm){html+=\'<div class="wsd-item" data-slug="\'+itm.slug+\'">\'+'
+        '(itm.label||itm.title)+\'</div>\';});'
+        'total+=extra.length;}'
+        'if(!total&&q)html=\'<div class="wsd-empty">No results for &ldquo;\'+q+\'&rdquo;</div>\';'
+        '_wsSearchDrop.innerHTML=html;'
+        '_wsSearchDrop.querySelectorAll(".wsd-item").forEach(function(el){'
+        'el.addEventListener("click",function(){'
+        '_wsFlyTo(_locBySlug[el.dataset.slug]);});});}\n'
+
+        'if(_wsSearch){'
+        '_wsSearch.addEventListener("focus",function(){_wsRender(_wsSearch.value);_wsSearchDrop.hidden=false;});'
+        '_wsSearch.addEventListener("input",function(){_wsRender(_wsSearch.value);_wsSearchDrop.hidden=false;});'
+        'document.addEventListener("click",function(e){'
+        'if(!_wsSearchDrop.hidden&&!_wsSearchDrop.contains(e.target)&&e.target!==_wsSearch){'
+        '_wsSearchDrop.hidden=true;}});}\n'
     )
     # fmt: on
 
@@ -1280,7 +1359,9 @@ def _build_html(
         '      <button id="ds-banner-close" title="Dismiss">✕</button>\n'
         '    </div>\n'
         '    <div id="sidebar-header">\n'
-        '      <div id="app-title">Map Workshop</div>\n'
+        '      <div id="app-title">Map Workshop'
+        '<a id="app-title-link" href="/world.html">← World</a>'
+        '</div>\n'
         '      <div id="ws-subheader">\n'
         '        <button id="layers-btn">⊞ Layers</button>\n'
         '        <div id="layers-dropdown" hidden>\n'
@@ -1314,6 +1395,13 @@ def _build_html(
         '        <button class="tab-btn" data-tab="edit-coords">Edit Coords <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
         "      </div>\n"
         "    </div>\n"
+        '    <div id="ws-search-row">\n'
+        '      <div id="ws-search-wrap">\n'
+        '        <span id="ws-search-icon">⌕</span>\n'
+        '        <input id="ws-search" type="text" placeholder="Find location…" autocomplete="off" spellcheck="false">\n'
+        '        <div id="ws-search-drop" hidden></div>\n'
+        '      </div>\n'
+        '    </div>\n'
         '    <div id="panel-add-point" class="panel active">\n'
         + panel_add
         + "\n    </div>\n"
@@ -1370,6 +1458,7 @@ def main() -> int:
                 "lat": loc["lat"],
                 "lon": loc["lon"],
                 "region": loc["parent_region"] or "",
+                "category": loc["location_type"] or "",
             }
             for loc in locations
             if loc["lat"] is not None and loc["lon"] is not None
