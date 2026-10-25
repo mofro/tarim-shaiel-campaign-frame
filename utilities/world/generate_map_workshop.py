@@ -357,6 +357,41 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .wsd-item:hover { background: rgba(184,146,44,0.12); color: #e8dcc4; }
 .wsd-empty { padding: 8px 12px; font-size: 11px; color: #5a4a30; font-style: italic; }
+/* Travel time tab */
+.tt-points { display:flex; flex-direction:column; gap:4px; }
+.tt-point { display:flex; align-items:center; gap:6px; padding:5px 8px;
+  background:#1a1408; border-radius:3px; border:1px solid rgba(184,146,44,0.12); }
+.tt-marker-label { font-size:11px; font-weight:bold; width:14px; text-align:center; }
+.tt-marker-a { color:#5aaa5a; }
+.tt-marker-b { color:#cc7777; }
+.tt-point-name { flex:1; font-size:11px; color:#c8b87a; font-style:italic;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tt-pt-clear { background:none; border:none; color:#5a4a30; cursor:pointer;
+  font-size:11px; padding:0 2px; line-height:1; }
+.tt-pt-clear:hover { color:#e8a060; }
+.tt-presets { display:flex; gap:3px; flex-wrap:wrap; }
+.tt-preset { flex:1; min-width:0; padding:5px 3px; font-size:10px; letter-spacing:0.04em;
+  text-transform:uppercase; background:#1a1408; border:1px solid rgba(184,146,44,0.2);
+  color:#7a6a50; border-radius:2px; cursor:pointer; }
+.tt-preset:hover { color:#c8a84a; border-color:rgba(184,146,44,0.45); }
+.tt-preset.active { background:#0a0805; color:#e8dcc4; border-color:rgba(184,146,44,0.45);
+  font-weight:bold; }
+.tt-kpd-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.tt-kpd-row label { font-size:11px; color:#8a7a5a; }
+#tt-kpd { width:64px; background:#1a1408; border:1px solid rgba(184,146,44,0.25);
+  color:#c8b87a; padding:3px 6px; border-radius:2px; font-size:12px; }
+.tt-roads-lbl { display:flex; align-items:center; gap:4px; margin-left:auto;
+  font-size:11px; color:#8a7a5a; cursor:pointer; }
+.tt-results { border-top:1px solid rgba(184,146,44,0.15); padding-top:8px; }
+.tt-result-row { display:grid; grid-template-columns:70px 60px 1fr;
+  align-items:center; gap:4px; padding:4px 0; font-size:12px; }
+.tt-result-row.faded { opacity:0.35; }
+.tt-rl { color:#8a7a5a; }
+.tt-rd { color:#c8b87a; font-family:monospace; }
+.tt-rt { color:#e8dcc4; font-weight:bold; }
+.tt-map-pin { width:22px; height:22px; border-radius:50%; display:flex; align-items:center;
+  justify-content:center; font-size:11px; font-weight:bold; color:#fff; cursor:grab;
+  border:2.5px solid rgba(255,255,255,0.65); box-shadow:0 2px 6px rgba(0,0,0,0.5); }
 """
 
 
@@ -518,6 +553,52 @@ def _build_panel_edit_coords() -> str:
   </div>
   <p id="api-status" class="hint" style="margin-top:6px;"></p>
 </div>
+"""
+
+
+def _build_panel_travel_time() -> str:
+    return """
+<p class="hint" style="color:#7a6a50;margin-bottom:6px;">Click map or a location to set A, then B. Click again to reset.</p>
+<div class="tt-points">
+  <div class="tt-point">
+    <span class="tt-marker-label tt-marker-a">A</span>
+    <span class="tt-point-name" id="tt-a-name">—</span>
+    <button class="tt-pt-clear" id="tt-clear-a" title="Clear A">✕</button>
+  </div>
+  <div class="tt-point">
+    <span class="tt-marker-label tt-marker-b">B</span>
+    <span class="tt-point-name" id="tt-b-name">—</span>
+    <button class="tt-pt-clear" id="tt-clear-b" title="Clear B">✕</button>
+  </div>
+</div>
+<div class="field-group" style="margin-top:8px;">
+  <label>Mode</label>
+  <div class="tt-presets">
+    <button class="tt-preset active" data-kpd="30" data-fly="0">Foot</button>
+    <button class="tt-preset" data-kpd="25" data-fly="0">Cart</button>
+    <button class="tt-preset" data-kpd="60" data-fly="0">Mounted</button>
+    <button class="tt-preset" data-kpd="250" data-fly="1">Bird</button>
+    <button class="tt-preset" data-kpd="500" data-fly="1">Dragon</button>
+  </div>
+</div>
+<div class="tt-kpd-row" style="margin-top:6px;">
+  <label for="tt-kpd">km/day</label>
+  <input id="tt-kpd" type="number" min="1" max="9999" value="30">
+  <label class="tt-roads-lbl"><input type="checkbox" id="tt-roads-cb" checked style="accent-color:#b8922c;"> Follow roads</label>
+</div>
+<div id="tt-results" class="tt-results" hidden>
+  <div class="tt-result-row" id="tt-row-straight">
+    <span class="tt-rl">Straight</span>
+    <span class="tt-rd" id="tt-s-dist">—</span>
+    <span class="tt-rt" id="tt-s-time">—</span>
+  </div>
+  <div class="tt-result-row" id="tt-row-road">
+    <span class="tt-rl">Road</span>
+    <span class="tt-rd" id="tt-r-dist">—</span>
+    <span class="tt-rt" id="tt-r-time">—</span>
+  </div>
+</div>
+<p id="tt-status" class="hint" style="margin-top:4px;min-height:16px;"></p>
 """
 
 
@@ -818,6 +899,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_showRoutePanel(f);'
         '});\n'
         'map.on("click",function(e){'
+        'if(_activeTab==="travel-time"&&!map.queryRenderedFeatures(e.point,{layers:_locLayerIds||[]}).length){'
+        '_ttSetPt(e.lngLat.lng,e.lngLat.lat,null);}'
         'if(!map.queryRenderedFeatures(e.point,{layers:["routes"]}).length){'
         'if(map.getSource("route-selected")){'
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[]});}'
@@ -892,7 +975,12 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.on("mouseleave",lyr,function(){'
         'map.getCanvas().style.cursor="";_hoverPopup.remove();});\n'
         'map.on("click",lyr,function(e){'
-        'var slug=e.features[0].properties._slug||e.features[0].properties.slug||"";'
+        'var p=e.features[0].properties;'
+        'var slug=p._slug||p.slug||"";'
+        'if(_activeTab==="travel-time"){'
+        'var coords=e.features[0].geometry.coordinates;'
+        'var name=p.title||p.label||slug||"";'
+        '_ttSetPt(coords[0],coords[1],name);return;}'
         'if(!slug)return;'
         'if(_activeTab==="plan-route"){_addToQueue(slug);return;}'
         'if(_activeTab==="edit-coords"&&_editMode){'
@@ -963,6 +1051,12 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # Apply saved icon-type toggle state after layers are created
         '_rebuildTierFilters();\n'
+
+        # Travel time line overlay (drawn between A and B)
+        'map.addSource("tt-line",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
+        'map.addLayer({id:"tt-line-layer",type:"line",source:"tt-line",'
+        'layout:{"line-cap":"round","line-join":"round"},'
+        'paint:{"line-color":"#e8a060","line-width":2.5,"line-opacity":0.9,"line-dasharray":[4,3]}});\n'
 
         'map.addControl(new maplibregl.ScaleControl({maxWidth:100,unit:"metric"}),"bottom-left");\n'
 
@@ -1310,6 +1404,125 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'document.addEventListener("click",function(e){'
         'if(!_wsSearchDrop.hidden&&!_wsSearchDrop.contains(e.target)&&e.target!==_wsSearch){'
         '_wsSearchDrop.hidden=true;}});}\n'
+
+        # -- Travel Time tab --
+        'var _ttA=null,_ttB=null,_ttMarkerA=null,_ttMarkerB=null;\n'
+        'var _ttKpd=30,_ttFly=false,_ttRoads=true;\n'
+
+        'function _ttFmt(km,kpd){'
+        'var d=km/kpd;'
+        'if(d<1){return (d*24).toFixed(1)+" h";}'
+        'if(d<2){return "1 day "+Math.round((d-1)*24)+" h";}'
+        'return d.toFixed(1)+" days";}\n'
+
+        'function _ttLine(coords){'
+        'if(!map.getSource("tt-line"))return;'
+        'map.getSource("tt-line").setData({type:"FeatureCollection",features:'
+        'coords&&coords.length>=2?[{type:"Feature",geometry:{type:"LineString",coordinates:coords}}]:[]});}\n'
+
+        'function _ttRender(){'
+        'var st=document.getElementById("tt-status");'
+        'if(!_ttA||!_ttB){document.getElementById("tt-results").hidden=true;return;}'
+        'var skm=_haversineKm(_ttA.lng,_ttA.lat,_ttB.lng,_ttB.lat);'
+        'document.getElementById("tt-s-dist").textContent=skm.toFixed(0)+" km";'
+        'document.getElementById("tt-s-time").textContent=_ttFmt(skm,_ttKpd);'
+        'document.getElementById("tt-results").hidden=false;'
+        'var rrow=document.getElementById("tt-row-road");'
+        'if(_ttFly||!_ttRoads){'
+        'document.getElementById("tt-r-dist").textContent="—";'
+        'document.getElementById("tt-r-time").textContent="—";'
+        'rrow.classList.add("faded");st.textContent="";'
+        '_ttLine([[_ttA.lng,_ttA.lat],[_ttB.lng,_ttB.lat]]);'
+        '}else{'
+        'rrow.classList.remove("faded");st.textContent="Fetching road route…";'
+        '_ttLine([[_ttA.lng,_ttA.lat],[_ttB.lng,_ttB.lat]]);'
+        'var url="https://router.project-osrm.org/route/v1/foot/"'
+        '+_ttA.lng+","+_ttA.lat+";"+_ttB.lng+","+_ttB.lat'
+        '+"?geometries=geojson&overview=full";'
+        'fetch(url).then(function(r){return r.json();})'
+        '.then(function(d){'
+        'st.textContent="";'
+        'if(d.code==="Ok"&&d.routes&&d.routes.length){'
+        'var rkm=d.routes[0].distance/1000;'
+        'document.getElementById("tt-r-dist").textContent=rkm.toFixed(0)+" km";'
+        'document.getElementById("tt-r-time").textContent=_ttFmt(rkm,_ttKpd);'
+        '_ttLine(d.routes[0].geometry.coordinates);'
+        '}else{'
+        'document.getElementById("tt-r-dist").textContent="No route";'
+        'document.getElementById("tt-r-time").textContent="—";}'
+        '})'
+        '.catch(function(){'
+        'st.textContent="✗ Road fetch failed";'
+        'document.getElementById("tt-r-dist").textContent="—";'
+        'document.getElementById("tt-r-time").textContent="—";});}}\n'
+
+        'function _ttPinEl(label,color){'
+        'var el=document.createElement("div");'
+        'el.className="tt-map-pin";el.textContent=label;el.style.background=color;'
+        'return el;}\n'
+
+        'function _ttSetPt(lng,lat,name){'
+        'var lbl=lat.toFixed(3)+", "+lng.toFixed(3);'
+        'if(!_ttA){'
+        '_ttA={lng:lng,lat:lat};'
+        'if(_ttMarkerA)_ttMarkerA.remove();'
+        '_ttMarkerA=new maplibregl.Marker({element:_ttPinEl("A","#3a7a3a"),draggable:true})'
+        '.setLngLat([lng,lat]).addTo(map);'
+        '_ttMarkerA.on("dragend",function(){'
+        'var p=_ttMarkerA.getLngLat();_ttA={lng:p.lng,lat:p.lat};'
+        'document.getElementById("tt-a-name").textContent=p.lat.toFixed(3)+", "+p.lng.toFixed(3);'
+        '_ttRender();});'
+        'document.getElementById("tt-a-name").textContent=name||lbl;'
+        '}else if(!_ttB){'
+        '_ttB={lng:lng,lat:lat};'
+        'if(_ttMarkerB)_ttMarkerB.remove();'
+        '_ttMarkerB=new maplibregl.Marker({element:_ttPinEl("B","#9a3535"),draggable:true})'
+        '.setLngLat([lng,lat]).addTo(map);'
+        '_ttMarkerB.on("dragend",function(){'
+        'var p=_ttMarkerB.getLngLat();_ttB={lng:p.lng,lat:p.lat};'
+        'document.getElementById("tt-b-name").textContent=p.lat.toFixed(3)+", "+p.lng.toFixed(3);'
+        '_ttRender();});'
+        'document.getElementById("tt-b-name").textContent=name||lbl;'
+        '_ttRender();'
+        '}else{'
+        '_ttA=null;_ttB=null;'
+        'if(_ttMarkerA){_ttMarkerA.remove();_ttMarkerA=null;}'
+        'if(_ttMarkerB){_ttMarkerB.remove();_ttMarkerB=null;}'
+        'document.getElementById("tt-a-name").textContent="—";'
+        'document.getElementById("tt-b-name").textContent="—";'
+        'document.getElementById("tt-results").hidden=true;'
+        'document.getElementById("tt-status").textContent="";'
+        '_ttLine(null);'
+        '_ttSetPt(lng,lat,name);}}\n'
+
+        'document.getElementById("tt-clear-a").addEventListener("click",function(){'
+        '_ttA=null;if(_ttMarkerA){_ttMarkerA.remove();_ttMarkerA=null;}'
+        'document.getElementById("tt-a-name").textContent="—";'
+        'document.getElementById("tt-results").hidden=true;'
+        'document.getElementById("tt-status").textContent="";'
+        '_ttLine(null);});\n'
+        'document.getElementById("tt-clear-b").addEventListener("click",function(){'
+        '_ttB=null;if(_ttMarkerB){_ttMarkerB.remove();_ttMarkerB=null;}'
+        'document.getElementById("tt-b-name").textContent="—";'
+        'if(!_ttA){document.getElementById("tt-results").hidden=true;'
+        'document.getElementById("tt-status").textContent="";}'
+        '_ttLine(null);});\n'
+
+        'document.querySelectorAll(".tt-preset").forEach(function(btn){'
+        'btn.addEventListener("click",function(){'
+        'document.querySelectorAll(".tt-preset").forEach(function(b){b.classList.remove("active");});'
+        'btn.classList.add("active");'
+        '_ttKpd=parseInt(btn.dataset.kpd,10);'
+        '_ttFly=btn.dataset.fly==="1";'
+        'document.getElementById("tt-kpd").value=_ttKpd;'
+        'var cb=document.getElementById("tt-roads-cb");'
+        'cb.disabled=_ttFly;'
+        '_ttRoads=!_ttFly&&cb.checked;'
+        '_ttRender();});});\n'
+        'document.getElementById("tt-kpd").addEventListener("input",function(){'
+        'var v=parseInt(this.value,10);if(v>0){_ttKpd=v;_ttRender();}});\n'
+        'document.getElementById("tt-roads-cb").addEventListener("change",function(){'
+        '_ttRoads=this.checked;_ttRender();});\n'
     )
     # fmt: on
 
@@ -1344,6 +1557,7 @@ def _build_html(
     panel_add = _build_panel_add_point(cat_options, region_options)
     panel_route = _build_panel_plan_route()
     panel_edit = _build_panel_edit_coords()
+    panel_travel = _build_panel_travel_time()
     app_js = _build_app_js(style_url, icons_js, maptiler_key=maptiler_key)
 
     return (
@@ -1398,6 +1612,7 @@ def _build_html(
         '        <button class="tab-btn" data-tab="plan-route">Plan Route</button>\n'
         '        <button class="tab-btn" data-tab="route-index">Route Index</button>\n'
         '        <button class="tab-btn" data-tab="edit-coords">Edit Coords <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
+        '        <button class="tab-btn" data-tab="travel-time">Travel Time</button>\n'
         "      </div>\n"
         "    </div>\n"
         '    <div id="ws-search-row">\n'
@@ -1418,6 +1633,9 @@ def _build_html(
         + "\n    </div>\n"
         '    <div id="panel-edit-coords" class="panel">\n'
         + panel_edit
+        + "\n    </div>\n"
+        '    <div id="panel-travel-time" class="panel">\n'
+        + panel_travel
         + "\n    </div>\n"
         "  </div>\n"
         '  <div id="map"></div>\n'
