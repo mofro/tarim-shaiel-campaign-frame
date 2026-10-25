@@ -1766,20 +1766,25 @@ def _build_player_html(
         f"var _routeGJ = {json.dumps(routes_geojson)};\n"
     )
 
-    proxy_style_url = f"/api/maptiler-proxy?url={urllib.parse.quote(style_url, safe='')}"
+    proxy_style_path = f"/api/maptiler-proxy?url={urllib.parse.quote(style_url, safe='')}"
 
     app_js = (
         "var _following = true;\n"
         "var _pollTimer = null;\n"
         "var _lastCenter = null;\n"
+        # Use location.origin so that transformRequest returns absolute URLs.
+        # MapLibre fetches vector tiles in a blob:-URL Worker; relative URLs cannot
+        # be resolved in that context and silently fail, leaving all vector tile
+        # sources (water, rivers, land colour) empty.
+        "var _proxyBase=window.location.origin;\n"
 
         f"var map = new maplibregl.Map({{"
         f"container:'map',"
-        f"style:'{proxy_style_url}',"
+        f"style:_proxyBase+'{proxy_style_path}',"
         f"center:[70,40],zoom:4,"
         f"transformRequest:function(url,resourceType){{"
         f"if(url.indexOf('https://api.maptiler.com/')===0){{"
-        f"return{{url:'/api/maptiler-proxy?url='+encodeURIComponent(url)}};}}"
+        f"return{{url:_proxyBase+'/api/maptiler-proxy?url='+encodeURIComponent(url)}};}}"
         f"}}"
         f"}});\n"
 

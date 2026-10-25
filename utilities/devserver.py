@@ -202,7 +202,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             req = urllib.request.Request(
                 target_url,
                 headers={
-                    "User-Agent": "tarim-shaiel-devserver/1.0",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
                     "Referer": "http://localhost:8000/",
                     "Origin": "http://localhost:8000",
                 },
@@ -210,7 +210,14 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             with urllib.request.urlopen(req, timeout=15) as resp:
                 body = resp.read()
                 ct = resp.headers.get("Content-Type", "application/octet-stream")
+        except urllib.error.HTTPError as exc:
+            import sys
+            short = target_url.split("?")[0].split("/tiles/")[-1] if "/tiles/" in target_url else target_url[-40:]
+            print(f"[proxy] {exc.code} {short}", file=sys.stderr, flush=True)
+            return self.send_error(502, f"Upstream error: {exc}")
         except Exception as exc:
+            import sys
+            print(f"[proxy] ERR {type(exc).__name__}: {exc}", file=sys.stderr, flush=True)
             return self.send_error(502, f"Upstream error: {exc}")
         self.send_response(200)
         self.send_header("Content-Type", ct)
