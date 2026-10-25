@@ -7,7 +7,7 @@ content_type: region
 visibility: public
 status: draft
 created: 2026-05-04
-last_updated: 2026-05-04
+last_updated: 2026-10-24
 tags:
   - region
   - central-asian-hubs
@@ -30,11 +30,11 @@ The empire that built them is gone. The cities endure. More than that — they t
 
 ## Character
 
-Cosmopolitan in a way that makes the Tarim Basin look provincial. Orcish influence is growing, particularly through the Orc Confederation of Samarqandh, which has established itself not through conquest but through commercial relationships the old imperial order would never have permitted. The cities are adapting.
+Cosmopolitan in a way that makes the Tarim Basin look provincial. Tulpar influence is growing, particularly through the Tulpar Confederation of Samarqandh, which has established itself not through conquest but through commercial relationships the old imperial order would never have permitted. The cities are adapting.
 
 ## Key Tensions
 
-- Orc Confederation versus Human Imperial Remnants for political legitimacy
+- Tulpar Confederation versus Human Imperial Remnants for political legitimacy
 - Sogdian Merchants Guild navigating the new power landscape
 - The Islamic Scholarly Network and its complex relationship with older Zoroastrian traditions
 - Merv's position as a partially-ruined city with significant archaeological layers

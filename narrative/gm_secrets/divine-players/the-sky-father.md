@@ -7,7 +7,7 @@ content_type: divine_environment
 visibility: gm_secrets
 status: draft
 created: 2026-05-02
-last_updated: 2026-05-02
+last_updated: 2026-10-24
 cosmological_layer: Celestial
 alignment: principled-inaction
 tags:
@@ -32,7 +32,7 @@ type: lore
 | Persian / Zoroastrian | Ahura Mazda (structural aspect) | The order-principle that the world presupposes; not the personal god of the later texts |
 | Tang Chinese | 昊天上帝 (*Haotian Shangdi*) | "August Heaven Sovereign" — addressed through ritual, not through prayer; the Celestial system's founding authority |
 | Indian Subcontinent | Dyaus Pita (archaic) | The father-sky before the Vedic elaboration; older and less approachable than Indra |
-| Orcish | The Old Witness | Orcish shamanic tradition: he sees everything, says nothing, has always been there. Addressed only in extremity. |
+| Tulpar | The Old Witness | Tulpar shamanic tradition: he sees everything, says nothing, has always been there. Addressed only in extremity. |
 | Elvish | The First Condition | Elves understand the Sky-Father as infrastructure. Not worship; acknowledgment of what the ordered world is built on. |
 | Dwarven | The Overburden | Geological framing: the sky as what everything rests under. Addressed through structural ritual, not petition. |
 | Wizard-Tradition | The Equilibrium | Deliberately impersonal. The Wizard prefers to believe the Sky-Father is a system, not a mind. This is incorrect. |
@@ -160,5 +160,5 @@ The Sky-Father has not decided yet how much to permit the heroes to receive. He 
 - Cultural names: [[narrative/gm_secrets/divine-players-naming]]
 - Cosmological architecture: [[world/diagrams/cosmological-architecture]]
 - Synthesis knowledge distribution: [[narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION]]
-- Related factions: [[world/factions/orc-steppe-confederations]]
+- Related factions: [[world/factions/orc-steppe-confederations|Tulpar Steppe Confederations]]
 - Related events: [[narrative/STORY_ARC_SYNTHESIS]]

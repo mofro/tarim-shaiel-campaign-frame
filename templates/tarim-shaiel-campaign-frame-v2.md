@@ -5,7 +5,7 @@ system: Daggerheart
 version: 2
 status: player-facing draft
 created: 2026-03-08
-last_updated: 2026-05-08
+last_updated: 2026-10-24
 notes: |
   Rebuilt to official Daggerheart Campaign Frame structure (Homebrew Kit v1.0).
   Player-facing sections: Title through GM Principles.
@@ -237,7 +237,7 @@ Do not use "sleeping entity" language. The canonical term is **Held Breath**.
 
 ### The Heroic Age and the Thousand-Year Gap
 
-The heroes earned their reward. Approximately 1,000 years ago (~200 CE), they liberated enslaved peoples — the Orc nations — by breaking a Wizard's binding spells. They defeated the Empire that had used those spells as its foundation. They ended a system of absolute control. These were deeds worthy of reward.
+The heroes earned their reward. Approximately 1,000 years ago (~200 CE), they liberated enslaved peoples — the Tulpar nations — by breaking a Wizard's binding spells. They defeated the Empire that had used those spells as its foundation. They ended a system of absolute control. These were deeds worthy of reward.
 
 The reward was the **Celestial Peak** — a real place, geographically distant but reachable by the reward-granted. Not an afterlife. A sanctuary of rest, knowledge, and peace where those who complete great tasks are granted respite. The heroes lived there for 1,000 years as custodians. They believed the work was finished.
 
@@ -257,7 +257,7 @@ They are 1,000-year-old legendary champions who did not recognize their unfinish
 
 Each hero carries **archetype-specific self-doubt** about whether their methods caused harm alongside the good they did. The Breaker wonders if breaking the Wizard's binding spells inadvertently freed something else. The Warrior wonders if overwhelming force scattered the Wizard rather than defeating him. This doubt is *justified* — not paranoia. Their methods had real consequences that they failed to fully reckon with.
 
-The heroes are also unique in their position: they are the only beings in the world who carry both mortal perspective and celestial memory fragments. They are the only ones who can potentially synthesize the distributed knowledge held across the factions — High Elf cosmological theory, Dwarven archival data, Orcish shamanic sensing, human scholarly fragments, Goblin observational networks — into a complete picture of what is happening.
+The heroes are also unique in their position: they are the only beings in the world who carry both mortal perspective and celestial memory fragments. They are the only ones who can potentially synthesize the distributed knowledge held across the factions — High Elf cosmological theory, Dwarven archival data, Tulpar shamanic sensing, human scholarly fragments, Goblin observational networks — into a complete picture of what is happening.
 
 ---
 
@@ -267,7 +267,7 @@ The world looks like a golden age. Trade flourishes across the Silk Road. Multi-
 
 Below the surface: stress fractures. Magic failing in expanding dead zones. Shamanic traditions degrading. Scholars who got too close to the truth have been disappearing since ~1175 CE (the Scholar's Purge — targeted, not religious). The Dwarven Chronicle of Ages contains 1,000 years of pattern data that points toward something no one wants to name.
 
-The heroes are legend. Orcish oral tradition reveres them. Dwarven archives document them. Human mythology has mythologized and distorted them. Elven memory carries fragments of who they actually were. No one expects them to return. No one recognizes them at first — and that is the GM's most valuable tool. They arrive as strangers, unknown, with impossible knowledge and tools that don't behave like ordinary objects.
+The heroes are legend. Tulpar oral tradition reveres them. Dwarven archives document them. Human mythology has mythologized and distorted them. Elven memory carries fragments of who they actually were. No one expects them to return. No one recognizes them at first — and that is the GM's most valuable tool. They arrive as strangers, unknown, with impossible knowledge and tools that don't behave like ordinary objects.
 
 ---
 
@@ -287,11 +287,11 @@ His plans will appear *almost* coherent to players who piece them together. More
 
 ### The Lich-Legion
 
-Eight to twelve Lich commanders, each of a different species, each recruited by the Wizard at different points across the 700-year consolidation phase, each unaware the others exist. Orc shaman. Dwarf archivist. High Elf seeking to avoid diminishing. Human court mage. Mortal Elf historian. Each had something they wanted badly enough to accept the Wizard's offer.
+Eight to twelve Lich commanders, each of a different species, each recruited by the Wizard at different points across the 700-year consolidation phase, each unaware the others exist. Tulpar shaman. Dwarf archivist. High Elf seeking to avoid diminishing. Human court mage. Mortal Elf historian. Each had something they wanted badly enough to accept the Wizard's offer.
 
 Each commands an undead legion. Total forces: approximately 80,000–120,000 undead distributed across the continent. Undead require no supply lines, no sleep, no morale. Their coordinated assault across multiple fronts is the military dimension of the Wizard's plan — a continent-wide distraction while he moves against the Threshold.
 
-The Lich commanders have tragic backstories. Some of them had genuinely good intentions. The Orc shaman who wanted to preserve the memory of liberation forever. The Dwarf archivist who discovered the pattern in the data and made a deal to survive long enough to stop it. The heroes will have to fight them, and the fights will not be clean.
+The Lich commanders have tragic backstories. Some of them had genuinely good intentions. The Tulpar shaman who wanted to preserve the memory of liberation forever. The Dwarf archivist who discovered the pattern in the data and made a deal to survive long enough to stop it. The heroes will have to fight them, and the fights will not be clean.
 
 ---
 

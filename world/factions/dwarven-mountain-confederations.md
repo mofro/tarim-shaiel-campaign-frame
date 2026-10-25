@@ -17,7 +17,7 @@ controls:
 narrative_weight: medium
 status: canon
 created: 2026-04-30
-last_updated: 2026-04-30
+last_updated: 2026-10-24
 tags:
   - gm-only
 ---
@@ -68,7 +68,7 @@ Absolute controllers of the Mountain Passes. The Dwarven Mountain Confederations
 
 | faction | relationship | notes |
 |---------|-------------|-------|
-| [[orc-confederation-samarkand\|Orc Confederation (Samarkand)]] | rival | Competition over pass-access and terms of transit through Central Asian Hubs approaches |
+| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | rival | Competition over pass-access and terms of transit through Central Asian Hubs approaches |
 | [[merchant-guilds\|Merchant Guilds]] | rival / transactional | The Guilds need the passes; the Confederations set the terms |
 | [[dwarven-tarim-authority\|Dwarven Tarim Authority]] | related — unclear | Two distinct Dwarven power structures; relationship between them is a design question |
 | [[gnome-guilds\|Gnome Guilds]] | rival | Competition over engineering infrastructure and caravanserai networks |

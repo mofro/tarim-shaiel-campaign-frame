@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-05-02
+last_updated: 2026-10-24
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -22,11 +22,11 @@ last_updated: 2026-05-02
 | Region | Locations | Character |
 |---|---|---|
 | Eastern Terminus (Chang'an) | 1 | Imperial heartland; faded prestige |
-| Central Asian Hubs (Transoxiana) | 5 | Garrison cities → cosmopolitan trade hubs; Orc influence growing |
+| Central Asian Hubs (Transoxiana) | 5 | Garrison cities → cosmopolitan trade hubs; Tulpar influence growing |
 | Eastern Gateway (Gansu Corridor) | 2 | Elven sacred sites; imperial checkpoints fading |
 | Tarim Basin Oases | 11 | True heart of Silk Road; booming cosmopolitan; mixed factions |
 | Mountain Passes (Dwarven) | 3 | Independent gatekeepers; always maintained own names/autonomy |
-| Steppe Confederations (Orcish) | 0 | Nomadic; locations to be added as campaign develops |
+| Steppe Confederations (Tulpar) | 0 | Nomadic; locations to be added as campaign develops |
 
 ## 37 Location Files (`world/locations/`)
 Primary cities: [[world/locations/chang-an.md]] · [[world/locations/samarkand.md]] · [[world/locations/bukhara.md]] · [[world/locations/tashkent.md]] · [[world/locations/kashkar.md]] · [[world/locations/khotan.md]] · [[world/locations/turfan.md]]

@@ -1,5 +1,5 @@
 ---
-title: Orc Steppe Confederations
+title: Tulpar Steppe Confederations
 project: TTRPG_Tarim_Shaiel
 type: lore
 visibility: gm_secrets
@@ -15,18 +15,18 @@ controls:
 narrative_weight: medium
 status: canon
 created: 2026-04-30
-last_updated: 2026-04-30
+last_updated: 2026-10-24
 tags:
   - gm-only
 ---
 
-# Orc Steppe Confederations
+# Tulpar Steppe Confederations
 
 > ⚠️ **Stub — basic pass only. Sub-clan fantasy names pending dedicated naming session (8 clans identified; see _category.md § Steppe Clan Sub-Factions).**
 
 ## Overview
 
-The nomadic confederation umbrella encompassing the Steppe's Orc clan groupings — the ancestral population from which the Human Empire drew its slave-legions, now free and evolving on the open steppe. Tribal and confederal governance; the political umbrella is loose, containing at minimum 8 named sub-confederations in varying states of competition, alliance, and decline. Their relationship with the Orc Confederation (Samarkand) is the structural tension that defines both factions: shared ancestry, a thousand years of divergence, and the persistent question of what "Orc power" actually means in the present era.
+The nomadic confederation umbrella encompassing the Steppe's Tulpar clan groupings — the ancestral population from which the Human Empire drew its slave-legions, now free and evolving on the open steppe. Tribal and confederal governance; the political umbrella is loose, containing at minimum 8 named sub-confederations in varying states of competition, alliance, and decline. Their relationship with the Tulpar Confederation (Samarkand) is the structural tension that defines both factions: shared ancestry, a thousand years of divergence, and the persistent question of what "Tulpar power" actually means in the present era.
 
 ---
 
@@ -66,7 +66,7 @@ The nomadic confederation umbrella encompassing the Steppe's Orc clan groupings 
 
 | faction | relationship | notes |
 |---------|-------------|-------|
-| [[orc-confederation-samarkand\|Orc Confederation (Samarkand)]] | rival / complex kinship | The settled/nomadic split; shared ancestry, divergent thousand-year trajectories |
+| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | rival / complex kinship | The settled/nomadic split; shared ancestry, divergent thousand-year trajectories |
 | [[chain-breakers-order\|Chain-Breakers Order]] | allied — oral tradition overlap | Ancestor spirit veneration and liberation memory share deep roots |
 | [[human-empire\|The Human Empire]] | historical — enslaved source population | The Empire drew slave-legions from these peoples; liberation was the founding rupture |
 

@@ -6,7 +6,7 @@ content_type: lore
 visibility: gm_secrets
 status: draft
 created: 2026-02-13
-last_updated: 2026-02-13
+last_updated: 2026-10-24
 ---
 
 # Extemporaneous Worldbuilding Notes - 2026-02-13
@@ -21,7 +21,7 @@ last_updated: 2026-02-13
 
 **Question:** What similar structures can we come up with for other ancestries? What are their main drives?
 
-### Orcs (ESTABLISHED - For Reference)
+### Tulpar (ESTABLISHED - For Reference)
 - **Main Drive:** Connection, remembrance, economic mastery
 - **Hierarchy:** Thrakmar (leader), Bondkeeper (relationships), Bladespeaker (martial), Remembrancer (memory)
 - **Cultural Identity:** "Found family," clan diversity, cosmopolitan bridges
@@ -94,9 +94,9 @@ last_updated: 2026-02-13
 
 ### Potential Mappings
 
-**Orcs = Sogdian Merchants?**
+**Tulpar = Sogdian Merchants?**
 - Real: Sogdian diaspora controlled Silk Road trade through networks
-- Fantasy: Orcs as cosmopolitan traders, everywhere but nowhere in control
+- Fantasy: Tulpar as cosmopolitan traders, everywhere but nowhere in control
 - **Reversal:** "Savage warriors" → master diplomats
 
 **Goblins = ?**
@@ -132,7 +132,7 @@ last_updated: 2026-02-13
 **Question:** What role (other than vassal states) did ancestries play in Empire?
 
 ### Known Roles
-- **Orcs:** Enslaved (military, labor, construction) - ESTABLISHED
+- **Tulpar:** Enslaved (military, labor, construction) - ESTABLISHED
 - **Humans:** Empire builders/rulers - ESTABLISHED
 - **Others:** TBD
 
@@ -142,12 +142,12 @@ last_updated: 2026-02-13
 - Were they conquered? Allied? Neutral?
 - Timeline says "trade partners but maintain independence through geography"
 - How did Empire try to control/exploit them?
-- Did they profit from Orc slavery (selling weapons/tools)?
+- Did they profit from Tulpar slavery (selling weapons/tools)?
 
 **Elves:**
 - "Beginning slow withdrawal" during Heroes' time
 - Were they complicit in Empire? Opposed? Indifferent?
-- Did they use Orc slaves?
+- Did they use Tulpar slaves?
 - Why were they withdrawing even before liberation?
 
 **Goblins:**
@@ -168,10 +168,10 @@ last_updated: 2026-02-13
 - **Infernis:** Not mentioned - origin story needed?
 
 ### Key Question
-**Did any ancestries ACTIVELY SUPPORT Orc enslavement?**
+**Did any ancestries ACTIVELY SUPPORT Tulpar enslavement?**
 - If yes: How do they reckon with this 1,000 years later?
 - If no: Why not? What stopped them?
-- Complicates hero narrative: "We freed Orcs from human empire, but dwarves sold the chains"?
+- Complicates hero narrative: "We freed Tulpar from human empire, but dwarves sold the chains"?
 
 ---
 
@@ -189,7 +189,7 @@ last_updated: 2026-02-13
 **Who Could Do Magic in the Empire?**
 - Only elves? Only educated humans? Anyone with training?
 - Was magic common or rare?
-- Did Empire use magic to enslave Orcs (binding spells mentioned in timeline)?
+- Did Empire use magic to enslave Tulpar (binding spells mentioned in timeline)?
 
 **How Did Magic Work Differently 1,000 Years Ago?**
 - Same as today or has it changed?
@@ -212,12 +212,12 @@ last_updated: 2026-02-13
 **Magic as Resource:**
 - Is magic finite? Renewable?
 - Are elves "using it up" through longevity?
-- Does human/orc magic usage threaten elven power?
+- Does human/Tulpar magic usage threaten elven power?
 
 **Historical Magic Events:**
 - What magical catastrophes shaped Silk Road history?
 - Did elves cause any? Prevent any?
-- How did binding spells on Orcs work (mechanics)?
+- How did binding spells on Tulpar work (mechanics)?
 
 ---
 
@@ -333,7 +333,7 @@ last_updated: 2026-02-13
 **Option 3: Ancestry Homelands**
 - Mount Kailash = Dwarf origin point?
 - Kunlun Mountains = Elf sanctuary location?
-- Taklamakan Desert = Where Orcs were first enslaved?
+- Taklamakan Desert = Where Tulpar were first enslaved?
 - Tian Shan = Giant homeland?
 
 **Option 4: Campaign Locations**
@@ -363,7 +363,7 @@ last_updated: 2026-02-13
 
 **Ancestry Structures:**
 - Create `/world/ancestries/[ancestry_name].md` files for each
-- Follow Orc template (history, culture, hierarchy, economic role, etc.)
+- Follow Tulpar template (history, culture, hierarchy, economic role, etc.)
 
 **Real-World Analogs:**
 - Add to each ancestry file in "Cultural Foundations" section
@@ -390,7 +390,7 @@ last_updated: 2026-02-13
 1. **Goblins' main drive?** Pragmatism? Independence? Delivery? Something else?
 2. **Halflings' main drive?** Comfort? Mediation? Wanderlust? Hearth?
 3. **Elves: Celestial refugees or traditional?** This is BIG decision with cascade effects
-4. **Which ancestries profited from Orc slavery?** Dwarves sold chains? Goblins profited?
+4. **Which ancestries profited from Tulpar slavery?** Dwarves sold chains? Goblins profited?
 5. **How does magic work mechanically?** Same as 1,000 years ago or different?
 6. **What triggered Elven diminishing?** Natural? Heroes' fault? Wizard's doing?
 7. **Which real Silk Road sites become fantasy locations?** Direct analogs or inversions?

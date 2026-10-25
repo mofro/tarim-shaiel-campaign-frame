@@ -29,16 +29,17 @@ Session 2 record: `narrative/sessions/02_session2/Session_2_GM_Record.md`.
 
 ## 2. Options
 
-The option sets are designed to combine. Recommended build: **B + C + D**, with an interrupt slot for a fight option that is still to be chosen (see A).
+The option sets are designed to combine. Recommended build: **B + C + D**, with an interrupt slot still to be chosen (see A).
 
-### A — Interrupt (replacement pending GM choice)
+### A — Interrupt (GM to choose one type)
 
-The swarm option is withdrawn. The "mass" from Ariel's precipice memory is not reused as a fight, and the word "mass" is not used for any Session 3 threat. Candidates, both **[INVENTED]**:
+The "mass" from Ariel's precipice memory is not reused as a fight, and the word "mass" is not used for any Session 3 threat. Three types, all **[INVENTED]**:
 
-- **Regional pirates.** A crew working the corridor where the road meets water. A people-based threat: it can be negotiated, bought off, or fought.
-- **An animal threat.** A real-world analog (wolves in the high passes, a stampede at a water point) or a magical analog, shown only through practical effect.
+- **An animal threat: pack, flock, or swarm.** A plausible animal group: wolves in the high passes, a flock over a water point, a swarm at the fields. Real-world or magical analog, shown through practical effect.
+- **A human group.** Regional pirates, or another armed band on the corridor. It can be negotiated, bought off, or fought.
+- **An in-game environment event.** It may threaten or it may be purely atmosphere. It is not a combatant.
 
-Whichever is chosen stays an interrupt, not the main event. Choose one, or neither.
+Whichever is chosen stays an interrupt, not the main event.
 
 ### B — Slow Crossing, Rabati Malik → Qarshi (Daggerheart environment)
 
@@ -81,7 +82,7 @@ Volkath's three-person crew: two Tulpar and one human. Names approved by the GM.
 | Name | Ancestry | Nickname | Basis |
 |---|---|---|---|
 | **Yurak** | Tulpar | "Kettle" | Task: keeps the fire and the water on every halt. |
-| **Bekzod** | Tulpar | "Forty Mules" | History: drove forty mules through a bad pass in a storm. |
+| **Bekzod** | Tulpar | "Forty" | History: drove forty mules through a bad pass in a storm. |
 | **Dilshod** | Human | "Second Seal" | History: was the second to put a seal on a contract, and the first to regret it. |
 
 **Second Seal:** **[INVENTED]** the nickname comes from the history in the basis column: Dilshod was the second person to seal a contract, and the first to regret it. Confirm this is the explanation you want.
@@ -129,7 +130,7 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 | Power | Role on the corridor | Source |
 |---|---|---|
 | **Imperial Road Authority** | Human remnant administration. Levies, tariffs, and Kaan's patrols. | Register; regional doc (Human imperial remnants keep merchant and admin networks) |
-| **Southern Orc Confederacy** | Tulpar cultural autonomy. Opposes slavery. Water-rights disputes. | Regional doc |
+| **Southern Tulpar Confederacy** | Tulpar cultural autonomy. Opposes slavery. Water-rights disputes. | Regional doc |
 | **Dwarven Mountain Confederation** | Pass tolls (unchanged, per register), permits, escorts. Controls karez and irrigation. | Regional doc; register |
 | **Kashkar Western Registry** | Neutral merchant intelligence. Publishes the register. | Register |
 | **Iron Bell Company / Zhao Merchant Consortium** | Profit on both sides. Eastbound convoy to Khotan. | Regional doc (merchant guilds); register |
@@ -177,8 +178,8 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 |---|---|---|
 | Idris Kaan | Halted at the gates. Called it a misunderstanding. | Future role open. |
 | Temir | Dissuaded. Chastised, welcomed back. Stays with Volkath's caravan as far as the characters know. | Eventually splits from Volkath and starts a rebellious Chain-follower group. Future thread. |
-| Sanem | Stays with Volkath's caravan as far as the characters know. | Splits with Temir later (future thread). **[UNCONFIRMED]** Session 2 appearance. |
-| Sahir | Stayed at the gates. | No change. |
+| Sanem | Appeared. Uneasy about completing the plan after Rill's talk. | Order of the Chain dissident. Future role open. |
+| Traveller (Jade Illusionist avatar, name TBD) | Evening visitor at the fire. Left in the night against warnings. | Item left with the party: TBD. |
 | Volkath | Gave information, supplies, and best wishes. | Back-fill to `Session_0_NPC_Index.md` deferred. When the players next meet him, he tells a remorseful tale of the final falling out with Temir. |
 | Yurak, Bekzod, Dilshod | Crew. GM-approved. | None. |
 | Kira, Aigul, Tomiris, Zere | Left open. | GM: "Don't know. Leave open." |
@@ -191,12 +192,12 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 | # | Conflict | Where | Status |
 |---|---|---|---|
 | 1 | Regional doc: "~150–200 years after expulsion." The Roads: "a thousand years, give or take." | `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`; `The Roads.md` | **Resolved.** The Roads now reads "Since the last great empire crumbled." The regional doc's 150–200 years stands. |
-| 2 | Liberation of the Legions dated year 999 in the register, making 1199 its 200th anniversary. Expulsion is placed ~1190–1200 HB equivalent. | Register; `HISTORICAL_TIMELINE.md` | **Open question for GM.** Which Legions does the register mean? Candidate: the Era 1 Liberation that freed the Orc slave-legions (`world/diagrams/historical-causal-chain.md`). The expulsion is simply the Awakening date. No correlation is intended. |
+| 2 | Liberation of the Legions dated year 999 in the register, making 1199 its 200th anniversary. Expulsion is placed ~1190–1200 HB equivalent. | Register; `HISTORICAL_TIMELINE.md` | **Open question for GM.** Which Legions does the register mean? Candidate: the Era 1 Liberation that freed the Tulpar slave-legions (`world/diagrams/historical-causal-chain.md`). The expulsion is simply the Awakening date. No correlation is intended. |
 | 3 | Session 3 notes frontmatter said Session 3; body said Session 2. | `Session_3_GM_NOTES.md` | **Resolved.** File deleted (see section 11). |
 | 4 | Dead cross-ref to `02_session2/session-chronicle.html`. | `Session_2_GM_NOTES.md` | **Open.** Left open per GM. The Session 2 record is the source until the chronicle exists. |
 | 5 | Garbled price table in the register PDF. | `kashkar-merchant-register.pdf` | **Open, low priority.** Price table is flavor. Verify against the `.pages` source before quoting. |
 | 6 | Real-world religion (Nestorian) used in-world. | Register, Waycross notice | **Decided for now:** keep. Own mythos religions to be interleaved later. |
-| 7 | Samarqandh Orc framing vs. Imperial Road Authority presence. | Regional doc vs. register | **Resolved.** The Empire thinks it still owns the road. The Tulpar know they control it. The tariff dispute comes from that gap. |
+| 7 | Samarqandh Tulpar framing vs. Imperial Road Authority presence. | Regional doc vs. register | **Resolved.** The Empire thinks it still owns the road. The Tulpar know they control it. The tariff dispute comes from that gap. |
 | 8 | Raizen vs. Rayzen spelling. | Bearing Witness vs. Session 2 plan | **Resolved.** "Reizan" everywhere in active files. The `characters/PCs/raizen.md` filename still uses the old slug; rename not done. |
 | 9 | Rill has two character files. | `characters/PCs/rill.md` (GM record, 2026-08-01) and `characters/PCs/rill (player).md` (player sheet, 2026-08-15) | **Deferred.** Cleanup noted for later. Nothing deleted. Use `rill.md` as the GM record. |
 
@@ -215,14 +216,14 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 
 ## 12. Open Items
 
-- [ ] Choose a fight option for the interrupt slot: regional pirates, an animal threat, or neither (section 2A).
+- [ ] Choose the interrupt type: animal group, human group, or environment event (section 2A).
 - [ ] Choose today's option set (recommend B + C + D, with the interrupt slot).
 - [ ] Confirm Kitabdara as the burned city (section 5).
 - [ ] Answer: which Legions does the register's "Liberation of the Legions" refer to? (conflict 2)
 - [ ] Choose the Night awakening anchor (section 8).
 - [ ] Confirm Nādir's placement and The Roads authorship (section 7).
 - [ ] Confirm Sanem's Session 2 appearance (section 9).
-- [ ] Verify the stat block for whichever interrupt option is chosen (section 2A).
+- [ ] Verify the stat block if the interrupt is a group (section 2A).
 - [ ] Verify waypoint geography (section 2B).
 - [ ] Back-fill Volkath into `Session_0_NPC_Index.md` (deferred by GM).
 - [ ] Rill cleanup (deferred; conflict 9).

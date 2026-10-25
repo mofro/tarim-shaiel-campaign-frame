@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-09-02
+last_updated: 2026-10-25
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -29,7 +29,7 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 | Public-facing rebuild only (no GM content) | `python utilities/build.py all --public` |
 | GM-mode rebuild (auth-gated, all content) | `python utilities/build.py all --gm` |
 | Netlify production build | runs `build.py all --public` automatically on push — no manual step |
-| Interactive location/route editing (drag-to-update) | `python utilities/devserver.py` — site at `localhost:8000/`, workshop at `localhost:8000/workshop` |
+| Interactive location/route editing (drag-to-update) | `venv/bin/python utilities/devserver.py` — site at `localhost:8000/`, workshop at `localhost:8000/workshop` |
 | See all registered generators | `python utilities/build.py list` |
 
 ---
@@ -109,8 +109,10 @@ A full-screen interactive map (`map-workshop.html` at vault root) with a left-pa
 Run it with the devserver for write-back capability (drag-to-update, in-browser rebuilds):
 
 ```bash
-python utilities/devserver.py
+venv/bin/python utilities/devserver.py
 ```
+
+Use the project venv, not bare `python`/`python3`: rebuild endpoints spawn `build.py` with the server's own interpreter, which needs PyYAML (the devserver refuses to start without it).
 
 Open at `http://localhost:8000/workshop`. Without the devserver, open `map-workshop.html` directly in a browser — read-only, no write-back.
 

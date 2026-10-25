@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: world_building
 status: draft
 created: 2026-02-05
-last_updated: 2026-02-05
+last_updated: 2026-10-24
 ---
 
 # Historical Timeline: The Thousands Years Arc
@@ -18,7 +18,7 @@ The Tarim-Shaiel campaign spans almost **2,000 years of recorded history**, from
 > Dates can be represented as 
 > * "*...the 3198th Year of The Held Breath (Tutulan Nefes)*", 
 > * a local "political" time (e.g., "*Year 780 of Împeratoriya Nû (the New Empire)*": *TN 200*, or "*...the 200th Year of The Held Breath*"  )
-> * a hyper-local convention (e.g., *Orc Migration, Year 25* or *TN: 278*)
+> * a hyper-local convention (e.g., *Tulpar Migration, Year 25* or *TN: 278*)
 >
 >  
 
@@ -45,7 +45,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 
 **Human Empire (name TBD):**
 - Aggressive expansionist state controlling major Silk Road trade hubs
-- Military power partially dependent on conquered peoples, including enslaved Orc legions via binding magic. Some of the binding has become banal and pragmatic through time
+- Military power partially dependent on conquered peoples, including enslaved Tulpar legions via binding magic. Some of the binding has become banal and pragmatic through time
 - Bureaucratic administration; tribute-based economic model [!]
 - Controls: Major caravan routes, key oasis cities, mountain passes [!]
 
@@ -61,7 +61,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - Possess deep magical knowledge but rarely share it
 - View mortal empires as "brief flickers" in their long existence
 
-**Subjugated Orcs:**
+**Subjugated Tulpar:**
 - Enslaved through binding spells (combination magical/psychological control)
 - Serve as military backbone of human empire (shock troops, garrison forces)
 - No autonomous culture; generational trauma and enforced amnesia of pre-enslavement history
@@ -77,7 +77,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 
 **The Liberation:**
 - Discovered the binding spell mechanism
-- Systematically broke the magical chains enslaving Orc populations
+- Systematically broke the magical chains enslaving Tulpar populations
 - Freed tens of thousands across multiple regions simultaneously
 
 **The Military Victory:**
@@ -102,8 +102,8 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - No clear successor authority; regional powers negotiate ad-hoc arrangements
 - Trade routes collapsing as imperial enforcement fails
 
-**Orc Liberation Crisis:**
-- Freed Orcs suddenly autonomous with no cultural memory of self-governance
+**Tulpar Liberation Crisis:**
+- Freed Tulpar suddenly autonomous with no cultural memory of self-governance
 - Traumatized, directionless, armed populations across the continent
 - No leadership structures; tribal/warband organization emerging chaotically
 
@@ -119,18 +119,18 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 ## Era 1: The Scattering (~250-400 HB equivalent)
 **"The Age of Blood and Ash"** (150 years)
 
-### Phase 1: The Orc Eruption (~250-320 HB, ~70 years)
+### Phase 1: The Tulpar Eruption (~250-320 HB, ~70 years)
 
 **Immediate Post-Liberation Chaos:**
-- Freed Orcs, with no cultural infrastructure, erupt into violence
+- Freed Tulpar, with no cultural infrastructure, erupt into violence
 - Raids on former imperial cities and settlements (revenge, resources, territorial claims)
-- Inter-Orc warfare as warbands compete for dominance and territory
+- Inter-Tulpar warfare as warbands compete for dominance and territory
 - Casualties mount on all sides; entire regions depopulated
 
 **Human Response:**
 - Former imperial cities fortify; become isolated city-states
 - Warlord states compete for legitimacy and survival
-- Some attempt to re-enslave Orcs (fail catastrophically)
+- Some attempt to re-enslave Tulpar (fail catastrophically)
 - Migration away from contested zones; refugee crises
 
 **Dwarven Adaptation:**
@@ -159,9 +159,9 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - **Gnome inventors** create caravanserai defensive systems (early warning, fortified rest stops)
 - **Merchant leagues** (multi-species) offer economic incentives: "Trade pays better than raiding"
 
-**Formation of Orc Confederations:**
+**Formation of Tulpar Confederations:**
 - First loose tribal alliances with trade charters
-- Elder Orcs who remember pre-enslavement oral traditions emerge as leaders
+- Elder Tulpar who remember pre-enslavement oral traditions emerge as leaders
 - Gradual adoption of sedentary lifestyles in some regions
 - Territorial agreements negotiated through Halfling/Dwarf intermediaries
 
@@ -169,7 +169,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - **Independent city-states** replace empire (human, multi-species, Goblin)
 - **Merchant republics** arise in key trade hubs
 - **Dwarf mountain leagues** formalize defensive alliances
-- **Orc war-confederacies** establish first recognized borders
+- **Tulpar war-confederacies** establish first recognized borders
 
 **Goblin Opportunism:**
 - Form powerful city-states in borderlands
@@ -222,21 +222,21 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - Multi-lingual cosmopolitan elite class
 - "Merchant princes" rival nobility in wealth and influence
 
-### Orc Integration & Transformation
+### Tulpar Integration & Transformation
 
 **From Warriors to Traders:**
-- Orc confederations transition to legitimate trading partners
+- Tulpar confederations transition to legitimate trading partners
 - Some tribes remain nomadic raiders; others settle and found cities
 - Inter-species marriages common in trade hubs
 
 **Oral Epic Tradition Emerges:**
-- Orcs develop rich storytelling culture preserving liberation history
-- **Heroes become mythic figures in Orc oral epics**
+- Tulpar develop rich storytelling culture preserving liberation history
+- **Heroes become mythic figures in Tulpar oral epics**
 - Songs, chants, ritual recitations keep memory alive
 - Variants emerge across different confederations
 
 **Cultural Innovations:**
-- Distinctive Orc architectural styles (fortified trading posts)
+- Distinctive Tulpar architectural styles (fortified trading posts)
 - Unique musical traditions (war-songs adapted to celebration)
 - Martial arts as cultural practice rather than pure warfare
 
@@ -301,7 +301,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
   - High Elf seeking to prevent "diminishing"
   - Dwarf obsessed with preserving knowledge beyond mortal limits
   - Human warlord's court mage fearing mortality
-  - Orc shaman wanting to preserve liberation memory forever
+  - Tulpar shaman wanting to preserve liberation memory forever
   - Goblin merchant-prince seeking ultimate power
   - Others TBD
 - Teaches each Lichdom ritual separately (none aware of others)
@@ -362,7 +362,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - Chronicle of Ages becomes authoritative historical record
 - Banking system enables long-distance credit
 
-**Southern Orc Confederacy:**
+**Southern Tulpar Confederacy:**
 - Major trading bloc comprising 12+ tribes/settlements
 - Internal tensions persist (warrior vs. merchant factions)
 - Oral epic tradition standardizes (canonical hero-songs)
@@ -486,7 +486,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - Wizard uses siege as cover to collect thousands of corpses
 
 **The Copper Accord (~850 HB equivalent):**
-- Major trade treaty between Dwarves, Goblins, and Orc Confederacy
+- Major trade treaty between Dwarves, Goblins, and Tulpar Confederacy
 - Standardizes currency, weights, measures across species
 - Reduces trade friction; enables economic growth
 - Creates institutions Wizard later infiltrates
@@ -570,7 +570,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - 8-12 Liches each command hidden undead legion
 - Positioned across continent in strategic locations:
   - Northern mountains (blocks Dwarf reinforcements)
-  - Southern deserts (flanks Orc territories)
+  - Southern deserts (flanks Tulpar territories)
   - Eastern ruins (near human dynasties)
   - Western coasts (prevents sea escape)
   - Central wastelands (reserve forces)
@@ -669,12 +669,12 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 - Rare, cryptic appearances (if any)
 - Might offer guidance or withhold it
 
-**Orcs (~100 year lifespan):**
+**Tulpar (~100 year lifespan):**
 - **No living memory**; heroes are **central mythology**
-- Liberation epic taught to all Orc children
+- Liberation epic taught to all Tulpar children
 - Heroes' names spoken before ancestors' names
 - **Powerful cultural reverence but also pressure**
-- Some Orcs view return as sacred; others as omen of crisis
+- Some Tulpar view return as sacred; others as omen of crisis
 
 **Goblins/Halflings/Gnomes (~100-350 years):**
 - Pragmatic response: "Prove you're who you say; then we'll talk"
@@ -695,7 +695,7 @@ This timeline mirrors real Silk Road history (Han Dynasty → Medieval Islamic/M
 
 **Major Powers (summary):**
 - Northern Dwarven League (7 kingdoms)
-- Southern Orc Confederacy (12+ tribes/cities)
+- Southern Tulpar Confederacy (12+ tribes/cities)
 - Eastern Human Dynasties (3 major kingdoms)
 - Goblin Free Cities (20+ independent states)
 - Elf Sanctuaries (isolated, minimal contact)
@@ -769,7 +769,7 @@ This section maps where Tarim-Shaiel's timeline **deliberately diverges** from r
 | **Mongols unite steppe tribes → rapid conquest** | **Lich-Legions emerge from hidden places → existential undead threat** | Replaces political conquest with supernatural horror; emphasizes Wizard's patience vs. Mongol speed |
 | **Islamic expansion spreads dominant religion** | **Multiple belief systems coexist without theological hegemon** | Prevents religious war; allows diverse spiritual landscapes; fantasy races have different spiritual needs |
 | **Sogdian merchants monopolize long-distance trade** | **Multi-species merchant leagues (Halflings/Gnomes/Goblins) share power** | No single species dominates; cooperation required; prevents ethnic essentialism |
-| **Nomadic warriors transition to administrators** | **Freed Orcs transition via external mediation (Dwarves/Halflings)** | Highlights trauma of enslavement; Orcs lacked cultural memory; required help to rebuild |
+| **Nomadic warriors transition to administrators** | **Freed Tulpar transition via external mediation (Dwarves/Halflings)** | Highlights trauma of enslavement; Tulpar lacked cultural memory; required help to rebuild |
 | **Great Wall of China (single defensive line)** | **Dwarf mountain fortifications + caravanserai networks** | Distributed defense; no monolithic structure; reflects decentralized power |
 | **Paper/printing spreads gradually** | **Paper common; printing rare (woodblock only)** | Preserves medieval information scarcity; prevents information revolution too early |
 | **Gunpowder weaponizes (cannons, firearms)** | **Gunpowder experimental only (fireworks, alchemy)** | Avoids gunpowder revolution; preserves sword/bow/magic combat; keeps medieval warfare |
@@ -799,7 +799,7 @@ This section maps where Tarim-Shaiel's timeline **deliberately diverges** from r
 **Historical Specifics:**
 - [ ] Which species was the first Lich? (Each should be different species)
 - [ ] When exactly did each Lich undergo transformation?
-- [ ] What were the "diplomatic sponsors" names who helped Orcs?
+- [ ] What were the "diplomatic sponsors" names who helped Tulpar?
 - [ ] Which Dwarf king initiated the Chronicle of Ages?
 
 **Geographic Details:**
@@ -822,7 +822,7 @@ This section maps where Tarim-Shaiel's timeline **deliberately diverges** from r
 - Cultural complexity mirrors real multi-ethnic Silk Road societies
 
 **Multiple Species, No Species Essentialism:**
-- Avoid "all Orcs are X" or "Dwarves always Y"
+- Avoid "all Tulpar are X" or "Dwarves always Y"
 - Each species has internal diversity (cultural, political, individual)
 - Mixed-species communities are norm in cosmopolitan areas
 
@@ -839,11 +839,11 @@ This section maps where Tarim-Shaiel's timeline **deliberately diverges** from r
 **Consequences are Cascading, Not Direct:**
 - Heroes aren't responsible for 1,000 years of history
 - They're responsible for leaving Wizard alive
-- Orc chaos was immediate; current world is natural evolution
+- Tulpar chaos was immediate; current world is natural evolution
 
 **Long-Lived Races as Witnesses:**
 - Elves/Dwarves provide continuity without human timescales
-- Orcs preserve cultural memory through oral tradition
+- Tulpar preserve cultural memory through oral tradition
 - Each species experiences history differently
 
 ---

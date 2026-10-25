@@ -7,7 +7,7 @@ content_type: divine_adversary
 visibility: gm_secrets
 status: draft
 created: 2026-05-02
-last_updated: 2026-05-02
+last_updated: 2026-10-24
 cosmological_layer: Celestial-adjacent
 alignment: trickster
 tags:
@@ -30,7 +30,7 @@ type: lore
 | Persian / Zoroastrian | — | Zoroastrian cosmology has no comfortable place for a genuine trickster; the Jade Illusionist finds this amusing |
 | Tang Chinese | 狐仙 (*Huli Jing*, divine aspect) | Fox spirit elevated to divine grade; associated with scholarship, seduction, and the kind of truth that embarrasses people |
 | Indian Subcontinent | Vetala (elevated sovereign aspect) | The Vetala-Vikramaditya relationship: a being of strange power who tests through riddles and rewards genuine engagement |
-| Orcish | The Face-Changer | Said with wary appreciation; Orc oral tradition includes several encounters between heroes and the Jade Illusionist that do not appear in other cultures' records |
+| Tulpar | The Face-Changer | Said with wary appreciation; Tulpar oral tradition includes several encounters between heroes and the Jade Illusionist that do not appear in other cultures' records |
 | Elvish | The Un-Named | Elves refuse to give the Jade Illusionist a fixed name; they consider naming them a way of fixing their shape, which they find disrespectful and strategically unwise |
 | Dwarven | The Merchant Who Was Not | Dwarven encounter records; always a merchant, never the same face |
 | Wizard-Tradition | The Variable | The Wizard knows about the Jade Illusionist. They find each other professionally interesting. Neither trusts the other. |

@@ -7,7 +7,7 @@ content_type: concept
 visibility: gm_secrets
 status: draft
 created: 2026-02-05
-last_updated: 2026-02-19
+last_updated: 2026-10-24
 ---
 
 # The Wizard and Lich Cadre [CLASSIFIED - DM ONLY]
@@ -34,7 +34,7 @@ This document will be developed in a future session to provide:
 **Origins:**
 - True name and original identity (before Heroes' Era)
 - Role in the human empire (~200 CE equivalent)
-- How he developed binding magic for enslaving Orcs
+- How he developed binding magic for enslaving Tulpar
 - Relationship to empire's leadership (advisor, manipulator, hidden master?)
 
 **Survival & Escape:**
@@ -78,7 +78,7 @@ For each Lich, document:
 - High Elf seeking to prevent "diminishing" (tragic, wants to preserve beauty)
 - Dwarf archivist obsessed with preserving knowledge beyond mortality (scholarly)
 - Human warlord's court mage fearing mortality (power-hungry)
-- Orc shaman wanting to preserve liberation memory forever (well-intentioned)
+- Tulpar shaman wanting to preserve liberation memory forever (well-intentioned)
 - Goblin merchant-prince seeking ultimate power (ruthless pragmatist)
 - Mortal Elf historian trying to record all history personally (obsessive)
 - Human scholar investigating ancient magic (curiosity-driven)
@@ -259,7 +259,7 @@ For each Lich, document:
 - **Wizard is patient, not omniscient:** Makes mistakes; adapts rather than controls everything
 - **Lich commanders are individuals:** Each has personality, not just stat blocks
 - **Plan has gaps heroes can exploit:** Not inevitable; player choices matter
-- **Moral complexity:** Some Liches had good intentions (Orc shaman, Dwarf archivist)
+- **Moral complexity:** Some Liches had good intentions (Tulpar shaman, Dwarf archivist)
 - **Multiple endings possible:** Heroes' choices determine outcome
 
 **Questions to Answer:**

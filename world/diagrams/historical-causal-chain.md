@@ -8,7 +8,7 @@ visibility: gm_secrets
 diagram_type: causal-timeline
 status: draft
 created: 2026-03-10
-last_updated: 2026-03-10
+last_updated: 2026-10-24
 source: world/events/Index.md, world/content/HISTORICAL_TIMELINE.md
 ---
 
@@ -99,7 +99,7 @@ flowchart TD
 |---|---|---|---|
 | Era 0 | ~200 CE | Age of Chains | Empire at height; Heroes' generation |
 | Era 1 | ~200–250 CE | The Heroic Age | Liberation, sacrifice, ascension, Wizard's retreat |
-| Era 2 | ~250–600 CE | The Chaos Era | Imperial collapse; Orc Trading Centuries begin |
+| Era 2 | ~250–600 CE | The Chaos Era | Imperial collapse; Tulpar Trading Centuries begin |
 | Era 3 | ~600–900 CE | The Stabilisation Era | Trade networks reform; mystery of Khorashar |
 | Era 4–5 | ~900–1200 CE | The Long Watch | Wizard's plan matures; Scholar's Purge; Expulsion |
 | Present | ~1200 CE | Campaign Present | Heroes return; world has moved on |
