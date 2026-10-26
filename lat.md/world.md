@@ -29,7 +29,7 @@ last_updated: 2026-10-26
 | Steppe Confederations (Tulpar) | 0 | Nomadic; locations to be added as campaign develops |
 
 ## 37 Location Files (`world/locations/`)
-Primary cities: [[world/locations/chang-an.md]] · [[world/locations/samarkand.md]] · [[world/locations/bukhara.md]] · [[world/locations/tashkent.md]] · [[world/locations/kashkar.md]] · [[world/locations/khotan.md]] · [[world/locations/turfan.md]]
+Primary cities: [[world/locations/chang-an.md]] · [[world/locations/samarkand.md]] · [[world/locations/bukhara.md]] · [[world/locations/tashkent.md]] · [[world/locations/kashgar.md]] · [[world/locations/khotan.md]] · [[world/locations/turfan.md]]
 
 Sacred sites: [[world/locations/dunhuang.md]] · [[world/locations/kucha.md]]
 

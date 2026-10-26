@@ -261,6 +261,7 @@ bd close <id>         # Complete work
 - **Always pass `--labels heroheaven`** when creating issues — every issue must carry this label so `bdg list --label-pattern 'heroheaven'` works correctly in beads-global
 - **Close GitHub and Beads together, same turn.** When a GitHub issue closes (by you or by finding it already closed), close its linked Beads issue immediately — don't leave it as a follow-up. Treating them as two disconnected steps is exactly how issues go stale (2026-09-02: 7 map/workshop issues sat open in Beads for weeks after their GitHub counterparts closed or their code shipped).
 - **Periodically audit for drift**, not just when something feels off: cross-check Beads issue status against `gh issue view <n> --json state` for any issue with a linked GitHub URL, and spot-check "open"/"in_progress" issues against the actual code — a feature can ship under a design that evolved past the issue's original acceptance criteria (e.g. a spec'd clipboard-copy CLI workflow superseded by a one-click devserver POST) without anyone updating or closing the issue.
+- **`export.git-add` stays `false`** (`.beads/config.yaml`, set 2026-10-26). `~/.gitignore_global` ignores `.beads/issues.jsonl` (DoltHub is the authoritative history), so Beads' post-export `git add` always exited 1 and every `bd` write printed `Warning: auto-export: git add failed`. The export itself still wrote the file; the warning was harmless noise.
 
 ### Review Intent — set at claim time
 

@@ -756,3 +756,10 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Player popups are fail-closed:** descriptions are built with `popup_description(player_safe=True)`, which strips `{gm:}`, wikilinks and placeholder text and drops anything mentioning session numbers or awakenings; `gm_secrets` locations are removed from the embedded player GeoJSON and raw `description` is never embedded.
 - **Rationale:** three private copies of the same styling had drifted (route colour, tiers, a stale 11-item category list that left Edit Coords unable to hold 6 canonical types). Hiding by omission rather than by CSS keeps GM text out of the player page source.
 - **Lock status:** implementation under review in PR #313; not locked. The Workshop/player vs `ICON_MAP` vs `world.html` icon-mapping divergence is deliberately left open.
+
+## 2026-10-26 — Kashgar merge, jade-gate to gm_secrets, coordinate-audit design
+
+- **Kashgar:** `kashkar.md` merged into `kashgar.md` and deleted; map/frontmatter name stays "Kashgar". Open: in-world spelling "Kashkar" is used in Session 2/3 notes and `FANTASY_NAMING_GUIDE.md`. Lock status: merge applied, spelling not locked.
+- **jade-gate:** `visibility: gm_secrets` (all locations are moving to GM-only; `revealed: 2026-05-13` kept as history). Lock status: applied.
+- **Coordinate audit (#314 / HeroHeaven-d95):** the tool shows evidence and the GM decides per item (move pin, fix elevation, mark intentional, skip); no global rule on whether coordinates or elevation win. Reference data: AWS Terrain Tiles (terrarium) for elevation, Wikidata P625 for analog coordinates; scripts do not fetch MapTiler tiles. Lock status: design decided, not implemented.
+- **Beads:** `export.git-add: false` because the global gitignore ignores `.beads/issues.jsonl`. Lock status: applied.

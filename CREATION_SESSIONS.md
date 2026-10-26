@@ -17,13 +17,17 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 ---
 
 ### Session 2026-10-26
-- [HeroHeaven-5uw / #308] Map plan Phase A — shared map style, `poi` type, hover popups. Pipeline PR #313 open for review; #308 and the Beads issue stay open until it passes
+- [HeroHeaven-5uw / #308] Map plan Phase A — shared map style, `poi` type, hover popups. Pipeline PR #313 merged (`f41679c`); #308 and the Beads issue stay open pending the real-touch check and sign-off
   - New `utilities/shared/map_style.py`: one definition of the route line, region layers, six location tiers and hover popups, used by the Workshop, the player map and `world.html` (routes + regions only)
   - Player popups use `popup_description(player_safe=True)` (fail-closed on session/awakening text); `gm_secrets` locations are dropped from the embedded player GeoJSON
   - `locations.categories.CATEGORIES` is now the only category list (Workshop Add Point + Edit Coords, `map.py`). Found and fixed: Edit Coords lacked 6 of 17 categories, so Save Fields silently re-typed those locations
   - Verified in Chrome: Add Point `poi` end to end (test file and regenerated GeoJSON removed), hover on Workshop and `/player`, route colour on all three surfaces, no console errors. Not verified: real touch tap-to-open
 - Verification pass behind Phases A–E, recorded on #308/#309/#312: browser DEM decode matches PIL, Web Worker A* matches Node (851 km / 175 h), MapTiler Cloud Terms read in full (direct fetch §6.1, no server cache §7.2, client cache §5.7). Mounted and cart speed constants are still assumptions
-- `shorchuk.md` frontmatter closed (`828768c`). `kashkar.md` held: unterminated frontmatter and a duplicate of the working `kashgar.md`; needs a decision
+- `shorchuk.md` frontmatter closed (`828768c`)
+- `kashkar.md` merged into `kashgar.md` and deleted (`5ab5fd0`); faction `controls` slugs repointed; narrative-significance prose sits in a gm-only callout (hard constraint). Open: Session 2/3 notes and `FANTASY_NAMING_GUIDE.md` use "Kashkar" in-world while the map name is "Kashgar"; `zzkashkar.md` is a third duplicate
+- `jade-gate` set to `gm_secrets` (`743bdcc`, `revealed: 2026-05-13` kept); locations GeoJSON regenerated with `--gm` (`94f110f`), which also added `shorchuk`
+- Coordinate audit specced in #314 / HeroHeaven-d95: per-item GM decision (move pin, fix elevation, mark intentional, skip), no global rule; AWS Terrain Tiles + Wikidata P625 instead of MapTiler for scripts. A throwaway DEM spike had sent browser-style Referer/Origin headers to MapTiler; it was discarded, never committed
+- Beads "auto-export: git add failed": `~/.gitignore_global` ignores `.beads/issues.jsonl` while `export.git-add` was true. Set `export.git-add: false` in `.beads/config.yaml`; re-run of `bdg update` printed no warning
 - `lat.md/locations.md`, `build-workflows.md`, `world.md`: documented the shared module and single category source; corrected stale references to the regions GeoJSON removed in #299
 
 ---
