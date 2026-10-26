@@ -79,17 +79,17 @@ At build time, any block whose `id=` value appears in `gm_revealed` is rendered 
 
 ## Map Reveal Workflow
 
-Features start as `visibility: gm_secrets` — dimmed on the GM map, invisible on the player map. When players discover a location, edit its frontmatter directly:
+Every location page is `visibility: gm_secrets` (flipped in one pass on 2026-10-26), so a public build shows no location markers, pages or search entries until you reveal them.
 
-```yaml
-visibility: public
-revealed: 2026-05-14    # datestamp — auto-written by Templater hook on save
-```
+**Reveal tab (Workshop, devserver required).** Click a GM-only marker, or press **+** beside a name in the hidden list, to stage it (gold ring; green ring = already public). **Apply N reveals** confirms, then sets `visibility: public` on each staged location through `PATCH /api/locations/{slug}/frontmatter`, one at a time, and rebuilds the Workshop and the location pages. A failed PATCH leaves that row staged with its error. Staged earmarks live in the browser's `localStorage`, so they are per browser, and nothing is written until Apply. Locations with no coordinates cannot be staged there.
 
-That's it. Commit + push → Netlify rebuilds → players see the marker. The `revealed:` datestamp is the audit trail.
+Revealing by hand is the same change: set `visibility: public` in the frontmatter.
 
-**Current gm_secrets features** (candidates for reveal):
-- `jade-gate.md` — Jade Gate (fortress, eastern-gateway)
+Then commit + push → Netlify rebuilds → players see the marker.
+
+`revealed: 2026-05-14` is an optional audit datestamp written by a Templater hook on save. No generator reads it and the Reveal tab does not write it; only `visibility` decides what is public. It is unrelated to `gm_revealed:` above, which promotes a single GM-only block.
+
+The tracked `world/data/tarim-shaiel-locations.geojson` snapshot is not rewritten by Apply, so its `visibility` values lag behind the pages until `python utilities/build.py geojson --gm` is run.
 
 ## GeoJSON Structure
 

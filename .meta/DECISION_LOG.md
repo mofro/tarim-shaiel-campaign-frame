@@ -763,3 +763,19 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **jade-gate:** `visibility: gm_secrets` (all locations are moving to GM-only; `revealed: 2026-05-13` kept as history). Lock status: applied.
 - **Coordinate audit (#314 / HeroHeaven-d95):** the tool shows evidence and the GM decides per item (move pin, fix elevation, mark intentional, skip); no global rule on whether coordinates or elevation win. Reference data: AWS Terrain Tiles (terrarium) for elevation, Wikidata P625 for analog coordinates; scripts do not fetch MapTiler tiles. Lock status: design decided, not implemented.
 - **Beads:** `export.git-add: false` because the global gitignore ignores `.beads/issues.jsonl`. Lock status: applied.
+
+## 2026-10-26 — Reveal workflow (#309): flip as process, Reveal tab, `revealed:` is an audit stamp
+
+**Decision:** Every location page was set to `visibility: gm_secrets` in a single one-shot pass (164 pages, plus `zzkashkar.md`, which was leaking into the public search index). The flip is a process recorded in git, not a reusable tool; `git revert` is the undo. Reveals afterwards happen from the Workshop **Reveal** tab (stage, then Apply), which sets `visibility: public` through `PATCH /api/locations/{slug}/frontmatter` and rebuilds the Workshop and location pages.
+
+**Rationale:** `visibility` is already the one mechanism that drives public builds (marker, page and search entry). A second reveal mechanism would mean two ways to show something to players. `revealed:` exists on two pages (`merv`, `jade-gate`, both 2026-05-13), is written by a Templater hook and is read by no generator, so it stays an optional audit datestamp and is not wired into the PATCH allowlist or Apply. `gm_revealed:` is separate block-level promotion.
+
+**Consequences:** Public builds show no location markers until reveals are applied. The tracked `world/data/tarim-shaiel-locations.geojson` lags until `build.py geojson --gm` is run. Staged earmarks are per-browser (`localStorage`).
+
+**Lock status:** Locked (user-approved in plan review 2026-10-26).
+
+## 2026-10-26 — Coordinate audit (#314) workflow
+
+**Decision:** The audit produces an annotated list for the user to mark up and hand back, then an apply script writes the chosen coordinates. Canon files (`status: canon`) need `--confirm-canon` as a second check so a stray annotation cannot change them. Locations with no `real_world_name`, or the value `redirect`, get a DEM-only check and manual review. Analog disambiguation is accepted.
+
+**Lock status:** Locked (user-approved in plan review 2026-10-26).
