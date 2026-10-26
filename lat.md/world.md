@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-10-24
+last_updated: 2026-10-26
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -47,7 +47,7 @@ Additional (dungeons/landmarks/waypoints): [[world/locations/alak-mor.md]] · [[
 ## Geospatial Data
 - [[world/data/tarim-shaiel-locations.geojson]] — all location coordinates + properties
 - [[world/data/tarim-shaiel-routes.geojson]] — trade route definitions
-- [[world/data/tarim-shaiel-regions.geojson]] — regional boundaries
+- _(regional boundaries GeoJSON removed in #299; see [[lat.md/locations]])_
 - Leaflet maps embedded in each location file; zoom 4.5–18
 
 ## Cultural Frameworks

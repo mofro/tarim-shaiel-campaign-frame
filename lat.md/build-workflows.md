@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-10-25
+last_updated: 2026-10-26
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -40,8 +40,8 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 
 | Generator | Reads from | Writes to | Key dependency |
 |---|---|---|---|
-| `locations` | `world/locations/*.md` + `world/regions/*.md` + routes/regions/waystations GeoJSON | `docs/world.html` + `docs/locations/**` | MAPTILER_KEY (tiles load at runtime — no build failure if absent) |
-| `workshop` | `world/locations/*.md` + `world/data/tarim-shaiel-routes.geojson` + `world/data/tarim-shaiel-regions.geojson` | `docs/map-workshop.html` | **MAPTILER_KEY required at build time** — key is baked into the HTML |
+| `locations` | `world/locations/*.md` + `world/regions/*.md` + routes GeoJSON (regions/waystations GeoJSON optional — absent files are skipped) | `docs/world.html` + `docs/locations/**` | MAPTILER_KEY (tiles load at runtime — no build failure if absent); `utilities/shared/map_style.py` for route/region layers |
+| `workshop` | `world/locations/*.md` + `world/data/tarim-shaiel-routes.geojson` (regions GeoJSON optional — removed in #299, warns and continues) | `map-workshop.html` + `player-map.html` (repo root, gitignored) | **MAPTILER_KEY required at build time** — key is baked into the HTML; `utilities/shared/map_style.py` + `utilities/locations/categories.py` (every map style and the category list come from these two) |
 | `geojson` | `world/locations/*.md` | `world/data/tarim-shaiel-locations.geojson` | none |
 | `world-all` | `narrative/world/**/*.md` + `narrative/lore/**/*.md` | `docs/world/**` | none |
 

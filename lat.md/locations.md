@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-10-25
+last_updated: 2026-10-26
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -21,6 +21,10 @@ last_updated: 2026-10-25
 | Region parser | `utilities/locations/region_parser.py` | Parses `world/regions/*.md` → `RegionData` dicts |
 | HTML components | `utilities/locations/location_components.py` | Mini-map, faction table, danger pips, stats row, xref stub |
 | Normalization script | `utilities/world/normalize_locations.py` | One-time migration; adds `parent_region`, `visibility`, `status`, renames `factions→factions_visible` |
+| Category source of truth | `utilities/locations/categories.py` | `CATEGORIES` (17 canonical types), `VALID_CATEGORIES`, `ICON_MAP`. The Workshop Add Point and Edit Coords dropdowns, `utilities/map.py` and `add_location.py` all import it — add a type here only |
+| Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`), region layers, six location tiers, hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), `check_tier_coverage()` |
+
+**Surfaces using `map_style.py`:** the Workshop (`generate_map_workshop.py`, GM badge on `gm_secrets` hovers), the player map (`_build_player_html`, hover on desktop / tap-to-open on touch, no GM text, `gm_secrets` features dropped by `_player_locations_geojson`) and `docs/world.html` (routes and regions only; tiers, popups and click-navigate remain local to `generate_locations_html.py`). Workshop and player icon matching differs from `categories.ICON_MAP` (used by `world.html`) — a known divergence, not yet reconciled.
 
 ## Output Paths
 
@@ -91,7 +95,7 @@ That's it. Commit + push → Netlify rebuilds → players see the marker. The `r
 
 - `world/data/tarim-shaiel-locations.geojson` — one Point per location (183 as of 2026-10-25); IDs: `location_{slug}`
 - `world/data/tarim-shaiel-routes.geojson` — trade route linestrings
-- `world/data/tarim-shaiel-regions.geojson` — 3 polygon features; IDs: `region_tarim_basin`, `region_eastern_gateway`, `region_central_asia`
+- `world/data/tarim-shaiel-regions.geojson` — **removed in #299 (commit 2814443)**; recoverable from `2814443^`. Generators treat the missing file as "no regions layer", so no region polygons render anywhere. The GeoJSON IDs in the mapping table above are historical
 
 Leaflet maps use ESRI satellite tile layer + Carto label overlay (no API key required).
 
@@ -115,6 +119,6 @@ python utilities/build.py all
 
 - `dun-kharan.md` — no coordinates (complex frontmatter; parent_region: null)
 - `tarim-shaiel.md` — overview doc, not a specific location; parent_region: null
-- 4 of 7 regions have no GeoJSON polygon — region boundary layer shows only 3 polygons
+- No region has a GeoJSON polygon since #299 removed `tarim-shaiel-regions.geojson`; the region boundary layer is empty everywhere (the player map has no regions layer at all)
 - `docs/locations/` cross-links not yet populated (xref-stub placeholder)
 - `zzkashkar.md` — duplicate stub file; excluded by `zz` prefix filter

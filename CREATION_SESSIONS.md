@@ -6,13 +6,25 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-10-25
+last_updated: 2026-10-26
 ---
 
 # Creation Session Log
 
 _Authoring and design work sessions. Newest first. Trim to last 10 sessions; older entries go to archive._
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
+
+---
+
+### Session 2026-10-26
+- [HeroHeaven-5uw / #308] Map plan Phase A — shared map style, `poi` type, hover popups. Pipeline PR #313 open for review; #308 and the Beads issue stay open until it passes
+  - New `utilities/shared/map_style.py`: one definition of the route line, region layers, six location tiers and hover popups, used by the Workshop, the player map and `world.html` (routes + regions only)
+  - Player popups use `popup_description(player_safe=True)` (fail-closed on session/awakening text); `gm_secrets` locations are dropped from the embedded player GeoJSON
+  - `locations.categories.CATEGORIES` is now the only category list (Workshop Add Point + Edit Coords, `map.py`). Found and fixed: Edit Coords lacked 6 of 17 categories, so Save Fields silently re-typed those locations
+  - Verified in Chrome: Add Point `poi` end to end (test file and regenerated GeoJSON removed), hover on Workshop and `/player`, route colour on all three surfaces, no console errors. Not verified: real touch tap-to-open
+- Verification pass behind Phases A–E, recorded on #308/#309/#312: browser DEM decode matches PIL, Web Worker A* matches Node (851 km / 175 h), MapTiler Cloud Terms read in full (direct fetch §6.1, no server cache §7.2, client cache §5.7). Mounted and cart speed constants are still assumptions
+- `shorchuk.md` frontmatter closed (`828768c`). `kashkar.md` held: unterminated frontmatter and a duplicate of the working `kashgar.md`; needs a decision
+- `lat.md/locations.md`, `build-workflows.md`, `world.md`: documented the shared module and single category source; corrected stale references to the regions GeoJSON removed in #299
 
 ---
 
@@ -118,13 +130,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Audited all four NPC sections against source awakening files — corrected fabricated names (Darvesh/Nara from Warrior section), wrong Raider Leader dynamic, missing scarred-woman raider, wrong snippet trigger descriptions (Seeker), missing Vigil Clock results (Sentinel noted for follow-up)
   - Visionary v0.3 → v0.4: second-person narration pass (13 targeted edits in narration blocks)
   - HeroHeaven-155 closed
-
----
-
-### Session 2026-05-27
-- [HeroHeaven-5cf] Daggerheart class primer — P0, blocks player class survey
-  - Content file: `world/classes/class_primer.md` committed to main
-  - 13 classes covered: 9 SRD + 4 playtest (Assassin, Brawler, Warlock, Witch)
-  - Each entry: SRD description + Tarim-Shaiel framing paragraph + domains + subclasses
-  - Pipeline PR #264 open for review: generator, build.py, homepage card, CI step, lore.html eyebrow fix
-  - HeroHeaven-5cf stays open until PR is reviewed and merged
