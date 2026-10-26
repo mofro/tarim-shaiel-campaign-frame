@@ -346,6 +346,26 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #api-status { min-height: 16px; color: #9a8a6a; }
 #api-status.ok { color: #6a9a2c; }
 #api-status.err { color: #b83c3c; }
+/* Reveal tab */
+#panel-reveal { max-width: 340px; }
+#rv-staged, #rv-hidden, #rv-confirm-list { list-style: none; display: flex;
+  flex-direction: column; gap: 4px; }
+#rv-hidden { max-height: 320px; overflow-y: auto; }
+.rv-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.rv-main { flex: 1; min-width: 0; }
+.rv-x, .rv-name { background: none; border: none; cursor: pointer; font-family: inherit; }
+.rv-x { color: #9a8a6a; font-size: 12px; padding: 0 2px; }
+.rv-x:hover { color: #e8dcc4; }
+.rv-name { color: #e8dcc4; font-size: 12px; padding: 0; text-align: left; }
+.rv-name:hover { color: #f5d060; }
+.rv-err { color: #b83c3c; font-size: 11px; margin-top: 2px; }
+#rv-confirm { border: 1px solid rgba(184,146,44,0.5); background: #1a1410;
+  border-radius: 2px; padding: 8px 10px; }
+#rv-confirm-list { font-size: 12px; color: #e8dcc4; max-height: 120px; overflow-y: auto;
+  margin: 6px 0; padding-left: 14px; list-style: disc; }
+#rv-status { min-height: 16px; color: #9a8a6a; }
+#rv-status.ok { color: #6a9a2c; }
+#rv-status.err { color: #b83c3c; }
 .drag-edit-marker { width: 22px; height: 22px; background: #f5d060;
   border: 2.5px solid #2a1e08; border-radius: 50%; cursor: grab;
   box-shadow: 0 2px 10px rgba(0,0,0,0.6); }
@@ -584,6 +604,34 @@ def _build_panel_edit_coords() -> str:
 """
 
 
+def _build_panel_reveal() -> str:
+    return """
+<p class="hint" style="color:#7a6a50;">Click a GM-only marker, or press <strong>+</strong> below, to stage it. Nothing is written until you apply.</p>
+<div class="list-heading" style="margin-top:0;">Staged</div>
+<ul id="rv-staged"><li class="queue-empty">Nothing staged.</li></ul>
+<div class="btn-row">
+  <button id="rv-apply-btn" class="btn" disabled>Apply 0 reveals</button>
+  <button id="rv-clear-btn" class="btn btn-sm btn-danger" disabled>Clear</button>
+</div>
+<div id="rv-confirm" class="hidden">
+  <div>Set these to <strong>public</strong>? Players will see them after the rebuild.</div>
+  <ul id="rv-confirm-list"></ul>
+  <div class="btn-row">
+    <button id="rv-confirm-yes" class="btn btn-sm">Confirm reveal</button>
+    <button id="rv-confirm-no" class="btn btn-sm">Cancel</button>
+  </div>
+</div>
+<p id="rv-status" class="hint"></p>
+<div class="list-heading">GM-only locations (<span id="rv-hidden-count">0</span>)</div>
+<div class="field-group">
+  <input id="rv-filter" type="text" placeholder="Filter by name, type or region…" autocomplete="off" spellcheck="false">
+</div>
+<ul id="rv-hidden"></ul>
+<p class="hint" style="color:#5a4a30;">Gold ring = staged, green ring = already public. Earmarks are kept in this browser.<br>
+Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
+"""
+
+
 def _build_panel_travel_time() -> str:
     return """
 <p class="hint" style="color:#7a6a50;margin-bottom:6px;">Click map or a location to add stops. Drag markers to reposition.</p>
@@ -615,6 +663,194 @@ def _build_panel_travel_time() -> str:
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
 </div>
 <p id="tt-status" class="hint" style="margin-top:4px;min-height:14px;"></p>
+"""
+
+
+# Reveal tab: stage GM-only locations, then apply them together. Earmarks live in
+# localStorage (per browser) and nothing touches a file until Apply. Raw string so
+# the JS stays readable; it is spliced into _build_app_js after the field editor.
+_REVEAL_JS = r"""
+var _rvKey="_wsRevealStaged";
+var _rvReady=false;
+var _rvStaged=[];
+var _rvErr={};
+var _rvBusy=false;
+var _rvListEl=document.getElementById("rv-staged");
+var _rvHiddenEl=document.getElementById("rv-hidden");
+var _rvFilterEl=document.getElementById("rv-filter");
+var _rvCountEl=document.getElementById("rv-hidden-count");
+var _rvApplyBtn=document.getElementById("rv-apply-btn");
+var _rvClearBtn=document.getElementById("rv-clear-btn");
+var _rvConfirmEl=document.getElementById("rv-confirm");
+var _rvConfirmList=document.getElementById("rv-confirm-list");
+var _rvStatusEl=document.getElementById("rv-status");
+var _rvBadge=document.getElementById("rv-badge");
+
+function _rvEsc(s){
+  return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});
+}
+function _rvIsHidden(l){return !!l&&l.visibility!=="public";}
+function _rvName(l){return l.label||l.title||l.slug;}
+function _rvMeta(l){return (l.category||"")+(l.region?" · "+l.region:"");}
+function _rvSetStatus(msg,cls){_rvStatusEl.textContent=msg;_rvStatusEl.className="hint"+(cls?" "+cls:"");}
+
+function _rvLoad(){
+  var raw=null,arr=[];
+  try{raw=localStorage.getItem(_rvKey);}catch(e){}
+  try{arr=JSON.parse(raw||"[]");}catch(e){}
+  if(!Array.isArray(arr))arr=[];
+  _rvStaged=arr.filter(function(s,i,a){return a.indexOf(s)===i&&_rvIsHidden(_locBySlug[s]);});
+}
+function _rvSave(){try{localStorage.setItem(_rvKey,JSON.stringify(_rvStaged));}catch(e){}}
+
+function _rvUpdateRings(){
+  var src;
+  try{src=map.getSource("reveal-source");}catch(e){return;}
+  if(!src)return;
+  var feats=[];
+  if(_activeTab==="reveal"){
+    _locList.forEach(function(l){
+      var st=_rvStaged.indexOf(l.slug)!==-1?"staged":(_rvIsHidden(l)?null:"public");
+      if(st)feats.push({type:"Feature",properties:{state:st},
+        geometry:{type:"Point",coordinates:[l.lon,l.lat]}});
+    });
+  }
+  src.setData({type:"FeatureCollection",features:feats});
+}
+
+function _rvRenderHidden(){
+  var q=_rvFilterEl.value.trim().toLowerCase();
+  var all=_locList.filter(_rvIsHidden);
+  var rows=all.filter(function(l){
+    return !q||(l.label||"").toLowerCase().indexOf(q)!==-1||(l.title||"").toLowerCase().indexOf(q)!==-1||
+      (l.category||"").toLowerCase().indexOf(q)!==-1||(l.region||"").toLowerCase().indexOf(q)!==-1;});
+  _rvCountEl.textContent=q?rows.length+" of "+all.length:String(all.length);
+  _rvHiddenEl.innerHTML=rows.length?rows.map(function(l){
+    var staged=_rvStaged.indexOf(l.slug)!==-1;
+    return '<li class="queue-item rv-item"><div class="rv-main">'+
+      '<button class="rv-name" data-fly="'+_rvEsc(l.slug)+'">'+_rvEsc(_rvName(l))+'</button>'+
+      '<div class="qi-dist">'+_rvEsc(_rvMeta(l))+'</div></div>'+
+      '<button class="btn btn-sm rv-add" data-slug="'+_rvEsc(l.slug)+'"'+(staged?" disabled":"")+'>'+
+      (staged?"staged":"+")+'</button></li>';}).join(""):
+    '<li class="queue-empty">'+(all.length?"No matches.":"Every location is public.")+'</li>';
+}
+
+function _rvRefresh(){
+  _rvSave();
+  var n=_rvStaged.length;
+  _rvApplyBtn.disabled=_rvBusy||n===0;
+  _rvApplyBtn.textContent=n===1?"Apply 1 reveal":"Apply "+n+" reveals";
+  _rvClearBtn.disabled=_rvBusy||n===0;
+  if(n===0)_rvConfirmEl.classList.add("hidden");
+  if(_rvBadge){_rvBadge.textContent=n;_rvBadge.classList.toggle("hidden",n===0);}
+  _rvListEl.innerHTML=n?_rvStaged.map(function(s){
+    var l=_locBySlug[s];
+    var err=_rvErr[s]?'<div class="rv-err">✗ '+_rvEsc(_rvErr[s])+'</div>':"";
+    return '<li class="queue-item rv-item"><div class="rv-main"><span class="qi-label">'+_rvEsc(_rvName(l))+
+      '</span><div class="qi-dist">'+_rvEsc(_rvMeta(l))+'</div>'+err+'</div>'+
+      '<button class="rv-x" data-slug="'+_rvEsc(s)+'" title="Unstage">✕</button></li>';}).join(""):
+    '<li class="queue-empty">Nothing staged.</li>';
+  _rvRenderHidden();
+  _rvUpdateRings();
+}
+
+function _rvStage(slug){
+  if(_rvBusy||!_rvIsHidden(_locBySlug[slug]))return;
+  if(_rvStaged.indexOf(slug)===-1)_rvStaged.push(slug);
+  delete _rvErr[slug];
+  _rvConfirmEl.classList.add("hidden");
+  _rvRefresh();
+}
+function _rvUnstage(slug){
+  if(_rvBusy)return;
+  _rvStaged=_rvStaged.filter(function(s){return s!==slug;});
+  delete _rvErr[slug];
+  _rvConfirmEl.classList.add("hidden");
+  _rvRefresh();
+}
+function _rvToggleFromMap(slug){
+  var l=_locBySlug[slug];
+  if(!l)return;
+  if(!_rvIsHidden(l)){_rvSetStatus(_rvName(l)+" is already public.","");return;}
+  if(_rvStaged.indexOf(slug)!==-1)_rvUnstage(slug);else _rvStage(slug);
+}
+
+function _rvRebuild(target){
+  return fetch("/api/rebuild/"+target,{method:"POST"})
+    .then(function(r){return r.json();})
+    .then(function(d){return !!d.ok;},function(){return false;});
+}
+
+function _rvApply(){
+  if(_rvBusy||!_rvStaged.length)return;
+  _rvBusy=true;
+  _rvErr={};
+  _rvConfirmEl.classList.add("hidden");
+  var queue=_rvStaged.slice(),done=0,aborted=false;
+  _rvSetStatus("Revealing 0 of "+queue.length+"…","");
+  _rvRefresh();
+  function step(i){
+    if(i>=queue.length||aborted)return Promise.resolve();
+    var slug=queue[i];
+    return _patchFrontmatterRaw(slug,{visibility:"public"}).then(function(d){
+      if(d&&d.ok){done++;_rvStaged=_rvStaged.filter(function(s){return s!==slug;});}
+      else{_rvErr[slug]=(d&&d.error)||"error";}
+      _rvSetStatus("Revealing "+(i+1)+" of "+queue.length+"…","");
+    },function(){
+      aborted=true;
+      _rvErr[slug]="Network error — is the devserver running?";
+    }).then(function(){return step(i+1);});
+  }
+  step(0).then(function(){
+    _refreshLocSource();
+    _rvBusy=false;
+    var failed=queue.length-done;
+    if(!done){
+      _rvSetStatus("✗ Nothing revealed — "+failed+" failed.","err");
+      _rvRefresh();
+      return;
+    }
+    _rvSetStatus("Revealed "+done+(failed?" · "+failed+" failed":"")+". Rebuilding…","");
+    _rvRefresh();
+    _rvRebuild("workshop").then(function(okW){
+      return _rvRebuild("locations").then(function(okL){return okW&&okL;});
+    }).then(function(okAll){
+      _rvSetStatus((okAll?"✓ ":"✗ ")+"Revealed "+done+(failed?" · "+failed+" failed":"")+
+        (okAll?". Player map and location pages rebuilt.":". Rebuild failed — see the devserver log."),
+        (okAll&&!failed)?"ok":"err");
+    });
+  });
+}
+
+_rvListEl.addEventListener("click",function(e){
+  var b=e.target.closest(".rv-x");
+  if(b)_rvUnstage(b.dataset.slug);
+});
+_rvHiddenEl.addEventListener("click",function(e){
+  var a=e.target.closest(".rv-add");
+  if(a){if(!a.disabled)_rvStage(a.dataset.slug);return;}
+  var n=e.target.closest(".rv-name");
+  if(n)_wsFlyTo(_locBySlug[n.dataset.fly]);
+});
+_rvFilterEl.addEventListener("input",_rvRenderHidden);
+_rvClearBtn.addEventListener("click",function(){
+  if(_rvBusy)return;
+  _rvStaged=[];_rvErr={};_rvSetStatus("","");_rvRefresh();
+});
+_rvApplyBtn.addEventListener("click",function(){
+  if(_rvBusy||!_rvStaged.length)return;
+  _rvConfirmList.innerHTML=_rvStaged.map(function(s){
+    return "<li>"+_rvEsc(_rvName(_locBySlug[s]))+"</li>";}).join("");
+  _rvConfirmEl.classList.remove("hidden");
+});
+document.getElementById("rv-confirm-yes").addEventListener("click",_rvApply);
+document.getElementById("rv-confirm-no").addEventListener("click",function(){
+  _rvConfirmEl.classList.add("hidden");});
+
+_rvLoad();
+_rvReady=true;
+_rvRefresh();
 """
 
 
@@ -717,6 +953,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'p.classList.toggle("active",p.id==="panel-"+tab);});'
         # Clear Tab 2 highlights when switching away
         'if(tab!=="plan-route")_clearHighlights();'
+        'if(typeof _rvReady!=="undefined"&&_rvReady)_rvUpdateRings();'
         '}\n'
         'document.querySelectorAll(".tab-btn").forEach(function(b){'
         'b.addEventListener("click",function(){_setTab(b.dataset.tab);});});\n'
@@ -929,6 +1166,15 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'paint:{"circle-radius":16,"circle-color":"rgba(0,0,0,0)",'
         '"circle-stroke-width":3,"circle-stroke-color":"#f5d060","circle-stroke-opacity":0.9}});\n'
 
+        # Reveal tab rings: gold = staged, green = already public (only filled
+        # while the Reveal tab is open — see _rvUpdateRings)
+        'map.addSource("reveal-source",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
+        'map.addLayer({id:"reveal-rings",type:"circle",source:"reveal-source",'
+        'paint:{"circle-radius":13,"circle-color":"rgba(0,0,0,0)","circle-stroke-width":'
+        '["case",["==",["get","state"],"staged"],3.5,2],'
+        '"circle-stroke-color":["case",["==",["get","state"],"staged"],"#f5d060","#6a9a2c"],'
+        '"circle-stroke-opacity":0.95}});\n'
+
         # Route preview polyline for Tab 2 waypoint builder
         'map.addSource("route-preview",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
         'map.addLayer({id:"route-preview-line",type:"line",source:"route-preview",'
@@ -947,6 +1193,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var name=p.title||p.label||slug||"";'
         '_ttSetPt(coords[0],coords[1],name);return;}'
         'if(!slug)return;'
+        'if(_activeTab==="reveal"){_rvToggleFromMap(slug);return;}'
         'if(_activeTab==="plan-route"){_addToQueue(slug);return;}'
         'if(_activeTab==="edit-coords"&&_editMode){'
         '_openFieldEditor(e.features[0]);}'
@@ -1281,18 +1528,41 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_efPanel.classList.remove("hidden");'
         '}\n'
 
-        'function _patchFrontmatter(slug,fields){'
-        '_efStatus.textContent="Saving…";_efStatus.className="hint";'
-        'fetch("/api/locations/"+slug+"/frontmatter",{'
+        # Promise-returning PATCH shared by the field editor and the Reveal tab.
+        # Resolves with the server's JSON; rejects only on a network failure.
+        'function _patchFrontmatterRaw(slug,fields){'
+        'return fetch("/api/locations/"+slug+"/frontmatter",{'
         'method:"PATCH",'
         'headers:{"Content-Type":"application/json"},'
         'body:JSON.stringify(fields)})'
         '.then(function(r){return r.json();})'
         '.then(function(data){'
         'if(data.ok){'
-        '_efStatus.textContent="✓ Saved";_efStatus.className="hint ok";'
         '_pendingFieldEdits[slug]=Object.assign(_pendingFieldEdits[slug]||{},fields);'
         '_updateUnsavedList();'
+        'if(fields.visibility)_syncVisibility(slug,fields.visibility);'
+        '}'
+        'return data;});'
+        '}\n'
+
+        # Keep the in-page copies of a location's visibility in step with the file
+        'function _syncVisibility(slug,vis){'
+        'if(_locBySlug[slug])_locBySlug[slug].visibility=vis;'
+        '_locGJ.features.forEach(function(f){'
+        'if((f.properties._slug||f.properties.slug)===slug)f.properties.visibility=vis;});'
+        '}\n'
+        'function _refreshLocSource(){'
+        'var src=map.getSource("locations");'
+        'if(src)src.setData(JSON.parse(JSON.stringify(_locGJ)));'
+        '}\n'
+
+        'function _patchFrontmatter(slug,fields){'
+        '_efStatus.textContent="Saving…";_efStatus.className="hint";'
+        '_patchFrontmatterRaw(slug,fields)'
+        '.then(function(data){'
+        'if(data.ok){'
+        '_efStatus.textContent="✓ Saved";_efStatus.className="hint ok";'
+        'if(fields.visibility)_refreshLocSource();'
         '}else{_efStatus.textContent="✗ "+(data.error||"error");_efStatus.className="hint err";}'
         '})'
         '.catch(function(){_efStatus.textContent="✗ Network error";_efStatus.className="hint err";});'
@@ -1315,6 +1585,9 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(!_efSlug||!_efCurrentCoords)return;'
         '_startDragEdit(_efSlug,_efCurrentCoords);'
         '});\n'
+
+        # -- Reveal tab: staged earmarks, rings, Apply --
+        + _REVEAL_JS +
 
         # -- Search / find-location widget --
         'var _wsSearch=document.getElementById("ws-search");'
@@ -1607,6 +1880,7 @@ def _build_html(
     panel_route = _build_panel_plan_route()
     panel_edit = _build_panel_edit_coords()
     panel_travel = _build_panel_travel_time()
+    panel_reveal = _build_panel_reveal()
     app_js = _build_app_js(style_url, icons_js, maptiler_key=maptiler_key)
 
     return (
@@ -1662,6 +1936,7 @@ def _build_html(
         '        <button class="tab-btn" data-tab="route-index">Route Index</button>\n'
         '        <button class="tab-btn" data-tab="edit-coords">Edit Coords <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
         '        <button class="tab-btn" data-tab="travel-time">Travel Time</button>\n'
+        '        <button class="tab-btn" data-tab="reveal">Reveal <span class="edit-badge hidden" id="rv-badge">0</span></button>\n'
         "      </div>\n"
         "    </div>\n"
         '    <div id="ws-search-row">\n'
@@ -1685,6 +1960,9 @@ def _build_html(
         + "\n    </div>\n"
         '    <div id="panel-travel-time" class="panel">\n'
         + panel_travel
+        + "\n    </div>\n"
+        '    <div id="panel-reveal" class="panel">\n'
+        + panel_reveal
         + "\n    </div>\n"
         '    <div id="player-share" style="display:none">\n'
         '      <span style="color:#8ad08a;font-size:11px;white-space:nowrap;">📡 Players:</span>\n'
@@ -1872,6 +2150,7 @@ def main() -> int:
                 "category": loc["location_type"] or "",
                 "mapMarker": loc["map_marker"],
                 "mapLabel": loc["map_label"],
+                "visibility": loc["visibility"],
             }
             for loc in locations
             if loc["lat"] is not None and loc["lon"] is not None
