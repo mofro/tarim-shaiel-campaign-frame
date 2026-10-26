@@ -13,7 +13,7 @@ factions_visible:
   - Imperial Guard Post
 fantasy_name: Jade Gate
 historical_basis: Gansu Corridor - Western border of imperial Chinese territory
-last_updated: 2026-05-13
+last_updated: 2026-10-26
 location:
   - 40.339
   - 94.5855
@@ -28,7 +28,7 @@ tags:
   - campaign-arc-eastern-routes
   - type-route-node
 type: route-node
-visibility: public
+visibility: gm_secrets
 revealed: 2026-05-13
 ---
 
