@@ -31,6 +31,19 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - 4 stale `python utilities/devserver.py` hint strings remain in `generate_map_workshop.py`
   - Player share map not yet verified in Chrome; the `-public` Netlify preview should be checked for GM-only content
 
+### Session 2026-10-20
+- LegendKeeper timeline pipeline — full sync operational (PR #305)
+  - Applied ancestry renames throughout `nianhao-the-divine-arc.md`: Orc→Tulpar, Elf→Serenvar, Goblin→Jivar, Dwarf/Dwarven→Khuban
+  - Fixed duplicate `last_updated` frontmatter key in the timeline file
+  - Corrected stale LK IDs in timeline frontmatter: project `cml606e6t0s8o0io13yhs8f1t`→`cmlmsqvco0vug0toncbom5qfh`, resource `xew0xgj2`→`qtmalwr6`
+  - Debugged and fixed three API errors in `generate_lk_json.py --push`:
+    - Cloudflare bot block (error 1010): added browser-like User-Agent header
+    - `WRONG_PROJECT` 403: old project ID in EXTERNAL_TOOLS.md; corrected via share URL
+    - `VALIDATION_ERROR` on PATCH: `type` field valid on POST but rejected on PATCH; removed from base payload
+  - Successful push: 27 events created, 31 updated, 27 deleted; all 4 Netlify deploys green
+  - Updated EXTERNAL_TOOLS.md: stale LK timeline link replaced with correct project/resource/doc IDs
+  - Next step: verify 9 SECRET events appear hidden in LK GM view, absent in player/share view → record in GH #213
+
 ### Session 2026-09-02
 - Fixed "Regenerate Route" doing nothing when a connected location had been repositioned via Edit Coords
   - Root cause: `generate_routes.py` always re-routed between a route's own stale stored coordinates; nothing ever resynced route endpoints to a moved location's current `.md` position
@@ -115,14 +128,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Each entry: SRD description + Tarim-Shaiel framing paragraph + domains + subclasses
   - Pipeline PR #264 open for review: generator, build.py, homepage card, CI step, lore.html eyebrow fix
   - HeroHeaven-5cf stays open until PR is reviewed and merged
-
----
-
-### Session 2026-05-10 (2)
-- Map planning — designed and filed 4 Beads issues for map visibility + zoom system
-  - [HeroHeaven-uj9] Zoom choreography: tiered minzoom/maxzoom by feature category (standalone)
-  - [HeroHeaven-ahg] Unified visibility schema: standardize `gm_secrets` vocabulary + player-revealed.json manifest (foundational, no blockers)
-  - [HeroHeaven-aqo] GM-build styling: distinct dim/dashed render for gm_secrets features (blocked by ahg)
-  - [HeroHeaven-k9u] Progressive reveal workflow: file-edit + redeploy pattern (blocked by ahg + aqo)
-  - Key design decisions: security boundary = GM build (not URL params); reveal = per-feature not all-at-once; file-edit workflow for now with UI upgrade path noted
-
