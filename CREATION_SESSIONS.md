@@ -26,10 +26,10 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - The Orc → Tulpar rename is a **partial pass**: word-level text only. Wikilink slugs and filenames (e.g. `orc-steppe-confederations`) are unchanged so no links break
 - Pipeline PR #306 squash-merged to main (`c1b1ae5`): map workshop search, travel time, player share map, devserver PyYAML guard; `*.qta` added to `.gitignore`
 - Beads: closed HeroHeaven-hya (Session 3 encounter sheet). The automatic `bd repo sync` left it in progress in beads-global (high-water-mark gotcha), so it was closed there directly and pushed to DoltHub; `bdg sync-down` found nothing to reconcile across the 14 registered projects
-- Open, not yet filed
-  - `5208caa` (`.gitignore` +8 and the Session 0 awakening file) sits on the merged feature branch and is not in main; it mixes infra and content and needs splitting per commit-hygiene
-  - 4 stale `python utilities/devserver.py` hint strings remain in `generate_map_workshop.py`
-  - Player share map not yet verified in Chrome; the `-public` Netlify preview should be checked for GM-only content
+- PR #305 (2026-10-20 session close and EXTERNAL_TOOLS stale-ID fixes; its LK `isHidden` change was already on main) conflicted on this log with the chore commit `3112426`. Merged `origin/main` into its branch (`cfc9397`), kept both entries in order and trimmed to 10 (the `2026-05-10 (2)` entry went to the local archive), then squash-merged to main (`16d37e5`)
+- Pipeline PR #307 squash-merged (`d60163e`): the four workshop hint strings in `generate_map_workshop.py` (Add Location, Add Route and Edit Location panels, plus the "Devserver not running" banner) now say `venv/bin/python utilities/devserver.py`
+- Saved two zsh gotchas to the global CLAUDE.md and `bd remember`: never name a shell variable `path` (zsh ties it to `PATH`), and brace a variable before a colon (`${VAR}:refs/...`)
+- Deliberately left alone: `5208caa` (`.gitignore` +8 and the Session 0 awakening file) remains only on `feature/workshop-search-nav`; not pursued
 
 ### Session 2026-10-20
 - LegendKeeper timeline pipeline — full sync operational (PR #305)
