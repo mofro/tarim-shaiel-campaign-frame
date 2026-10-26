@@ -11,6 +11,12 @@ Usage:
     # Spur (off main route)
     python utilities/routes/add_route.py kashgar stone-ledger-gate --spur
 
+    # Make it player-visible and set how it is travelled
+    python utilities/routes/add_route.py karmana rabati-malik --visibility public --mode cart
+
+New routes are GM-only (visibility: gm_secrets) unless --visibility public is given.
+A route also needs both end locations public before players see it.
+
 Each pair of adjacent slugs becomes one LineString feature with a straight-line
 geometry (two coords). Run generate_routes.py afterwards to snap to roads via OSRM.
 """
@@ -23,6 +29,9 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 VAULT_ROOT = SCRIPT_DIR.parent.parent
+sys.path.insert(0, str(VAULT_ROOT / "utilities"))
+
+from shared import travel_time
 
 ROUTES_PATH   = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
 LOCATIONS_PATH = VAULT_ROOT / "world" / "data" / "tarim-shaiel-locations.geojson"
@@ -69,7 +78,8 @@ def _segment_id(slug_a: str, slug_b: str, spur: bool) -> str:
 def _make_feature(seg_id: str, slug_a: str, slug_b: str,
                   loc_a: dict, loc_b: dict, spur: bool,
                   route_name: str = "", description: str = "",
-                  route_type: str = "") -> dict:
+                  route_type: str = "", visibility: str = "gm_secrets",
+                  mode: str = "") -> dict:
     label = f"{loc_a['label']} → {loc_b['label']}"
     props = {
         "kind": "spur" if spur else "route",
@@ -84,6 +94,9 @@ def _make_feature(seg_id: str, slug_a: str, slug_b: str,
         props["route_name"] = route_name
     if route_type:
         props["route_type"] = route_type
+    if mode:
+        props["mode"] = mode
+    props["visibility"] = visibility
     return {
         "type": "Feature",
         "id": seg_id,
@@ -119,6 +132,10 @@ def main() -> None:
                         help="Route description")
     parser.add_argument("--route-type", default="",
                         help="Route type, e.g. trade-route, pilgrimage, military")
+    parser.add_argument("--visibility", choices=["gm_secrets", "public"], default="gm_secrets",
+                        help="Who sees the route (default gm_secrets)")
+    parser.add_argument("--mode", choices=list(travel_time.SPEEDS), default="",
+                        help="How the route is travelled; sets its travel time (default foot)")
     parser.add_argument("--dry-run", action="store_true",
                         help="Show what would be added without writing")
     args = parser.parse_args()
@@ -152,7 +169,8 @@ def main() -> None:
             continue
         feat = _make_feature(seg_id, slug_a, slug_b, locs[slug_a], locs[slug_b], args.spur,
                              route_name=args.name, description=args.description,
-                             route_type=args.route_type)
+                             route_type=args.route_type, visibility=args.visibility,
+                             mode=args.mode)
         new_features.append(feat)
 
     # Report
@@ -167,10 +185,12 @@ def main() -> None:
     for feat in new_features:
         coords = feat["geometry"]["coordinates"]
         km = haversine_km(coords[0][0], coords[0][1], coords[1][0], coords[1][1])
-        days = math.ceil(km / 30)
+        hours = travel_time.segment_hours(km, args.mode, "straight")
         print(f"  {'[DRY RUN] ' if args.dry_run else ''}Add: {feat['id']}")
         print(f"    {feat['properties']['label']}")
-        print(f"    straight-line: ~{km:.0f} km / ~{days} days (30 km/day)")
+        print(f"    straight-line: ~{km:.0f} km / "
+              f"{travel_time.format_duration(hours, approx=True)} "
+              f"({travel_time.normalize_mode(args.mode)})")
 
     if args.dry_run:
         print("\nDry run — nothing written.")

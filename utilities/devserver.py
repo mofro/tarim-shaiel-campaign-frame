@@ -15,6 +15,7 @@ interpreter, and build.py needs PyYAML):
 Endpoints:
     PUT    /api/locations/{slug}/coordinates  — update lat/lon in .md frontmatter
     PATCH  /api/locations/{slug}/frontmatter  — patch name/fantasy_name/type/mapmarker/visibility
+    PATCH  /api/routes/{route_id}             — set one route's visibility (public|gm_secrets) or mode
     POST   /api/locations/create              — create a new location stub
     POST   /api/routes/add                    — add route segment(s) to routes.geojson
     DELETE /api/routes/{route_id}             — delete one route by ID
@@ -36,6 +37,9 @@ import urllib.request
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
+
+from shared.travel_time import SPEEDS
 VAULT_ROOT = SCRIPT_DIR.parent
 DOCS_DIR = VAULT_ROOT / "docs"
 WORKSHOP_PATH = VAULT_ROOT / "map-workshop.html"
@@ -43,6 +47,41 @@ PLAYER_PATH = VAULT_ROOT / "player-map.html"
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 ROUTES_PATH = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
 DEFAULT_PORT = 8000
+
+# Route properties the Workshop may change, and the values each accepts.
+ROUTE_PATCH_VALUES = {
+    "visibility": ("public", "gm_secrets"),
+    "mode": tuple(SPEEDS),
+}
+
+
+def _patch_route_props(route_id: str, data: dict) -> "tuple[int, dict]":
+    """Set whitelisted properties on one route; (HTTP status, JSON body).
+
+    Rewrites routes.geojson with the same serialization the other route writers
+    use, so a one-property change is a one-line git diff.
+    """
+    fields = {k: v for k, v in data.items() if k in ROUTE_PATCH_VALUES}
+    if not fields:
+        return 400, {"ok": False, "error": "no recognised fields"}
+    for key, value in fields.items():
+        if value not in ROUTE_PATCH_VALUES[key]:
+            return 400, {"ok": False,
+                         "error": f"{key} must be one of {', '.join(ROUTE_PATCH_VALUES[key])}"}
+    if not ROUTES_PATH.exists():
+        return 404, {"ok": False, "error": "routes.geojson not found"}
+    gj = json.loads(ROUTES_PATH.read_text(encoding="utf-8"))
+    feat = next((f for f in gj.get("features", []) if f.get("id") == route_id), None)
+    if feat is None:
+        return 404, {"ok": False, "error": f"route not found: {route_id}"}
+    feat.setdefault("properties", {}).update(fields)
+    tmp = ROUTES_PATH.with_suffix(".tmp")
+    try:
+        tmp.write_text(json.dumps(gj, indent=2, ensure_ascii=False), encoding="utf-8")
+        os.replace(tmp, ROUTES_PATH)
+    finally:
+        tmp.unlink(missing_ok=True)
+    return 200, {"ok": True, "id": route_id, "fields": fields}
 
 # ---------------------------------------------------------------------------
 # Shared state (GIL protects simple assignment; no heavy concurrency needed)
@@ -117,6 +156,10 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         m = re.match(r"^/api/locations/([^/?]+)/frontmatter(?:\?.*)?$", self.path)
         if m:
             self._patch_frontmatter(m.group(1))
+            return
+        m = re.match(r"^/api/routes/([^/?]+)(?:\?.*)?$", self.path)
+        if m:
+            self._patch_route(urllib.parse.unquote(m.group(1)))
         else:
             self.send_error(404)
 
@@ -383,6 +426,16 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             "output": result.stdout + result.stderr,
         })
 
+    def _patch_route(self, route_id: str):
+        try:
+            data = self._read_json()
+        except Exception:
+            return self.send_error(400, "Invalid JSON body")
+        status, body = _patch_route_props(route_id, data)
+        if status == 200:
+            print(f"  Patched route: {route_id}  {body['fields']}")
+        self._json(body, status)
+
     def _delete_route(self, route_id: str):
         if not ROUTES_PATH.exists():
             return self._json({"ok": False, "error": "routes.geojson not found"}, 404)
@@ -618,6 +671,7 @@ def main() -> None:
     print(f"    PUT    http://localhost:{port}/api/locations/{{slug}}/coordinates")
     print(f"    POST   http://localhost:{port}/api/locations/create")
     print(f"    POST   http://localhost:{port}/api/routes/add")
+    print(f"    PATCH  http://localhost:{port}/api/routes/{{route_id}}")
     print(f"    DELETE http://localhost:{port}/api/routes/{{route_id}}")
     print(f"    POST   http://localhost:{port}/api/routes/delete-bulk")
     print(f"    POST   http://localhost:{port}/api/rebuild/locations")

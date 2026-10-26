@@ -49,7 +49,7 @@ from locations.location_components import (
 )
 from locations.map_icons import icon_registration_js
 from locations.categories import build_icon_match_js
-from shared import map_style
+from shared import map_style, route_visibility
 from shared.renderer import render_page
 from shared.html_render import render_body
 
@@ -636,8 +636,12 @@ def generate(
     regions_gj     = _load_geojson(_REGIONS_GEOJSON)
     waystations_gj = _load_geojson(_WAYSTATIONS_GEOJSON)
 
-    # Filter to public-only locations for public builds
+    # Filter to public-only locations for public builds. Routes are filtered first,
+    # against the FULL locations set, so a route ending at a hidden town cannot be
+    # matched to a public neighbour.
     if public_only:
+        routes_gj      = route_visibility.visible_routes(routes_gj, locs_gj)
+        waystations_gj = route_visibility.visible_waystations(waystations_gj, routes_gj)
         locations = [l for l in locations if l['visibility'] != 'gm_secrets']
         locs_gj   = _filter_geojson_public(locs_gj)
 

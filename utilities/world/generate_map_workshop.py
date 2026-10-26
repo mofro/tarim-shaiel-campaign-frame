@@ -27,7 +27,7 @@ from locations.categories import CATEGORIES
 from locations.location_parser import load_all_locations
 from locations.map_icons import icon_registration_js
 from locations.location_components import MAPTILER_STYLE_URL, MAPTILER_KEY, MAPTILER_STYLE_ID
-from shared import map_style
+from shared import map_style, route_visibility, travel_time
 
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 ROUTES_PATH   = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
@@ -114,9 +114,30 @@ def _player_locations_geojson(loc_geojson: dict) -> dict:
     return {**loc_geojson, "features": features}
 
 
+def annotate_routes(routes_geojson: dict, all_locations_gj: dict | None) -> dict:
+    """Workshop copy of the routes with build-time `_playerVisible` / `_endsPublic`.
+
+    `_playerVisible` is the route_visibility rule (own visibility public AND both
+    ends public); `_endsPublic` says whether the ends alone would allow it. Both
+    are computed here, never persisted to the routes file.
+    """
+    points = route_visibility._location_points(all_locations_gj or {})
+    feats = []
+    for f in routes_geojson.get("features", []):
+        a, b = route_visibility.route_endpoints(f, points)
+        ends_public = bool(a and b and a[2] != route_visibility.GM_ONLY
+                           and b[2] != route_visibility.GM_ONLY)
+        own_public = f.get("properties", {}).get("visibility") == route_visibility.PUBLIC
+        props = {**f.get("properties", {}),
+                 "_endsPublic": ends_public,
+                 "_playerVisible": ends_public and own_public}
+        feats.append({**f, "properties": props})
+    return {**routes_geojson, "features": feats}
+
+
 def _build_route_index(routes_geojson: dict) -> list:
+    """Rows for the route index. Expects features from `annotate_routes`."""
     results = []
-    pace = 30.0
     for feat in routes_geojson.get("features", []):
         fid = feat.get("id", "")
         props = feat.get("properties", {})
@@ -124,11 +145,17 @@ def _build_route_index(routes_geojson: dict) -> list:
         label = props.get("route_name") or props.get("label") or props.get("title") or fid
         kind = "spur" if fid.startswith("route_spur_") else "main"
         is_approx = len(coords) <= 2
-        dist_km = path_length_km(coords) if len(coords) >= 2 else 0.0
-        days = round(dist_km / pace, 1) if dist_km else 0.0
+        dist_km = travel_time.line_length_km(coords)
+        mode = travel_time.normalize_mode(props.get("mode"))
+        hours = travel_time.segment_hours(
+            dist_km, mode, "straight" if is_approx else "road")
         results.append({
             "id": fid, "label": label, "kind": kind,
-            "dist_km": round(dist_km, 0), "is_approx": is_approx, "days": days,
+            "dist_km": round(dist_km, 0), "is_approx": is_approx,
+            "mode": mode, "hours": hours,
+            "time": travel_time.format_duration(hours, approx=is_approx),
+            "visibility": props.get("visibility", route_visibility.GM_ONLY),
+            "player_visible": bool(props.get("_playerVisible")),
         })
     results.sort(key=lambda r: (r["kind"] != "main", r["id"]))
     return results
@@ -141,21 +168,29 @@ def _route_index_html(route_index: list) -> str:
     def row(r: dict) -> str:
         p = "~" if r["is_approx"] else ""
         d = f'{p}{int(r["dist_km"])} km'
-        t = f'{p}{r["days"]:.0f} days'
+        mode = travel_time.SPEEDS[r["mode"]]["label"]
+        if r["player_visible"]:
+            vis = '<span class="ri-vis ri-vis-pub" title="Players see this route">players</span>'
+        elif r["visibility"] == route_visibility.PUBLIC:
+            vis = '<span class="ri-vis ri-vis-held" title="Route is public but an end location is hidden">held</span>'
+        else:
+            vis = '<span class="ri-vis ri-vis-gm" title="GM only">GM</span>'
         return (
             f'<tr class="ri-row" data-id="{r["id"]}" style="cursor:pointer">'
             f'<td class="ri-check"><input type="checkbox" class="ri-cb" data-id="{r["id"]}"></td>'
             f'<td class="ri-id">{r["id"]}</td>'
             f'<td>{r["label"]}</td>'
             f'<td>{d}</td>'
-            f'<td>{t}</td>'
+            f'<td>{r["time"]} <span class="ri-mode">{mode}</span></td>'
+            f'<td>{vis}</td>'
             f'</tr>'
         )
 
     def section(title: str, rows: list) -> str:
         if not rows:
             return ""
-        thead = '<thead><tr><th class="ri-check"></th><th>ID</th><th>Label</th><th>Distance</th><th>Travel (30 km/d)</th></tr></thead>'
+        thead = ('<thead><tr><th class="ri-check"></th><th>ID</th><th>Label</th>'
+                 '<th>Distance</th><th>Travel</th><th>Seen by</th></tr></thead>')
         tbody = "<tbody>" + "".join(row(r) for r in rows) + "</tbody>"
         return f"<h3>{title}</h3><table>{thead}{tbody}</table>"
 
@@ -167,7 +202,9 @@ def _route_index_html(route_index: list) -> str:
         '<button id="ri-delete-btn" hidden>🗑 Delete Selected (0)</button>'
         '</div>'
     )
-    note = '<p class="ri-note">~ = straight-line estimate (2-point segment, not road-routed)</p>'
+    note = ('<p class="ri-note">~ = straight-line estimate (2-point segment, not road-routed). '
+            'Travel uses each route\'s mode (default foot). '
+            '"held" = route is public but an end location is still hidden.</p>')
     return (
         header
         + section("Main Routes", main_routes)
@@ -272,12 +309,25 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #ri-delete-btn:hover { background:#3a1010; border-color:#b83c3c; }
 .ri-check { width:28px; text-align:center; }
 .ri-check input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
+.ri-mode { color:#7a6a50; font-size:10px; }
+.ri-vis { font-size:10px; padding:1px 6px; border-radius:8px; border:1px solid transparent; }
+.ri-vis-pub { color:#9bc47a; border-color:rgba(155,196,122,0.4); }
+.ri-vis-held { color:#d9a441; border-color:rgba(217,164,65,0.4); }
+.ri-vis-gm { color:#8a7a5a; border-color:rgba(138,122,90,0.35); }
 /* Route panel overlay (map-click selection) */
 #route-panel { position:absolute; top:10px; right:10px; z-index:10;
   background:#1a1208; color:#f0e6c8; padding:10px 14px; border-radius:6px;
   border:1px solid #b8922c; min-width:180px; font-size:12px;
   box-shadow:0 2px 12px rgba(0,0,0,0.6); }
 #route-panel-label { font-weight:bold; margin-bottom:8px; word-break:break-word; }
+#route-panel .rp-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+#route-panel .rp-row label { font-size:11px; color:#8a7a5a; min-width:52px; }
+#route-panel .rp-row select { flex:1; background:#1a1408; color:#e8dcc4;
+  border:1px solid rgba(184,146,44,0.35); padding:3px 4px; font-size:11px; border-radius:3px; }
+#route-panel-time { font-size:11px; color:#c8b98a; margin-bottom:4px; }
+#route-panel-seen { font-size:11px; margin-bottom:8px; color:#8a7a5a; }
+#route-panel-seen.rp-yes { color:#9bc47a; }
+#route-panel-seen.rp-held { color:#d9a441; }
 #route-panel-regenerate { background:#4a3418; color:#e8dcc4; border:1px solid #b8922c;
   padding:4px 10px; border-radius:4px; cursor:pointer; font-size:11px; }
 #route-panel-regenerate:hover { background:#5a4020; }
@@ -632,8 +682,20 @@ Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
 """
 
 
+def _tt_presets_html() -> str:
+    """Preset buttons for the Travel Time tab, one per mode in the shared table."""
+    buttons = []
+    for mode, spec in travel_time.SPEEDS.items():
+        active = " active" if mode == travel_time.DEFAULT_MODE else ""
+        buttons.append(
+            f'<button class="tt-preset{active}" data-mode="{mode}" '
+            f'data-kpd="{spec["kmpd"]}" data-fly="{1 if spec["fly"] else 0}">{spec["label"]}</button>'
+        )
+    return "\n    ".join(buttons)
+
+
 def _build_panel_travel_time() -> str:
-    return """
+    html = """
 <p class="hint" style="color:#7a6a50;margin-bottom:6px;">Click map or a location to add stops. Drag markers to reposition.</p>
 <div id="tt-stops-list" class="tt-stops-list"></div>
 <div id="tt-totals" class="tt-totals" hidden>
@@ -647,16 +709,12 @@ def _build_panel_travel_time() -> str:
 <div class="field-group" style="margin-top:8px;">
   <label>Mode</label>
   <div class="tt-presets">
-    <button class="tt-preset active" data-kpd="30" data-fly="0">Foot</button>
-    <button class="tt-preset" data-kpd="25" data-fly="0">Cart</button>
-    <button class="tt-preset" data-kpd="60" data-fly="0">Mounted</button>
-    <button class="tt-preset" data-kpd="250" data-fly="1">Bird</button>
-    <button class="tt-preset" data-kpd="500" data-fly="1">Dragon</button>
+    __TT_PRESETS__
   </div>
 </div>
 <div class="tt-kpd-row" style="margin-top:6px;">
   <label for="tt-kpd">km/day</label>
-  <input id="tt-kpd" type="number" min="1" max="9999" value="30">
+  <input id="tt-kpd" type="number" min="1" max="9999" value="__TT_DEFAULT_KPD__">
   <label class="tt-roads-lbl"><input type="checkbox" id="tt-roads-cb" checked style="accent-color:#b8922c;"> Follow roads</label>
 </div>
 <div class="btn-row" style="margin-top:8px;">
@@ -664,6 +722,9 @@ def _build_panel_travel_time() -> str:
 </div>
 <p id="tt-status" class="hint" style="margin-top:4px;min-height:14px;"></p>
 """
+    default_kpd = travel_time.SPEEDS[travel_time.DEFAULT_MODE]["kmpd"]
+    return (html.replace("__TT_PRESETS__", _tt_presets_html())
+                .replace("__TT_DEFAULT_KPD__", str(default_kpd)))
 
 
 # Reveal tab: stage GM-only locations, then apply them together. Earmarks live in
@@ -1129,7 +1190,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # Routes
         'map.addSource("routes",{type:"geojson",data:_routeGJ});\n'
-        + map_style.routes_layer_js() +
+        + map_style.routes_layer_js(dim_hidden=True) +
 
         # Route-selected highlight layer (orange)
         'map.addSource("route-selected",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
@@ -1329,12 +1390,61 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # Route panel (map click) functions + button listeners
         'var _selectedRouteId=null;\n'
+        'function _routeFeat(id){return _routeGJ.features.find(function(f){return f.id===id;});}\n'
+        'function _routeKm(f){var c=f.geometry.coordinates,t=0;'
+        'for(var i=0;i<c.length-1;i++)t+=_haversineKm(c[i][0],c[i][1],c[i+1][0],c[i+1][1]);return t;}\n'
+        # Hours for a route by its mode, as travel_time.segment_hours (2-point routes are straight cuts)
+        'function _routeHours(f){var m=_TT.speeds[f.properties.mode]?f.properties.mode:_TT.defaultMode,'
+        'sp=_TT.speeds[m],pf=sp.fly?1:(_TT.path[f.geometry.coordinates.length<=2?"straight":"road"]||1);'
+        'return _routeKm(f)/(sp.kmpd/_TT.hours*pf);}\n'
+        'function _fmtHours(h,approx){var p=approx?"~":"",d=h/_TT.hours;'
+        'if(d<1)return p+Math.round(h)+" h";return p+(d<10?d.toFixed(1):Math.round(d))+" days";}\n'
+        'function _refreshRoutePanel(){'
+        'var f=_routeFeat(_selectedRouteId);if(!f)return;var pr=f.properties;'
+        'document.getElementById("route-panel-label").textContent=pr.route_name||pr.label||_selectedRouteId||"";'
+        'var v=pr.visibility==="public"?"public":"gm_secrets";'
+        'document.getElementById("route-panel-vis").value=v;'
+        'document.getElementById("route-panel-mode").value=_TT.speeds[pr.mode]?pr.mode:_TT.defaultMode;'
+        'var approx=f.geometry.coordinates.length<=2;'
+        'document.getElementById("route-panel-time").textContent='
+        '(approx?"~":"")+Math.round(_routeKm(f))+" km · "+_fmtHours(_routeHours(f),approx);'
+        'var seen=document.getElementById("route-panel-seen");'
+        'seen.className=pr._playerVisible?"rp-yes":(v==="public"?"rp-held":"");'
+        'seen.textContent=pr._playerVisible?"Players see this route":'
+        '(v==="public"?"Held: an end location is still hidden":"GM only");'
+        '}\n'
         'function _showRoutePanel(feature){'
         '_selectedRouteId=feature.id||feature.properties._route_id||"";'
-        'document.getElementById("route-panel-label").textContent='
-        'feature.properties.route_name||feature.properties.label||_selectedRouteId||"";'
+        '_refreshRoutePanel();'
         'document.getElementById("route-panel").hidden=false;'
         '}\n'
+        # PATCH one property; on success mirror it into the in-page data and refresh the file on disk.
+        'function _patchRoute(prop,value){'
+        'var f=_routeFeat(_selectedRouteId);if(!f)return;'
+        'var id=_selectedRouteId,body={};body[prop]=value;'
+        'fetch("/api/routes/"+encodeURIComponent(id),{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})'
+        '.then(function(r){return r.json();})'
+        '.then(function(d){'
+        'if(!d.ok){alert("Update failed: "+(d.error||"unknown"));_refreshRoutePanel();return;}'
+        'f.properties[prop]=value;'
+        'f.properties._playerVisible=!!f.properties._endsPublic&&f.properties.visibility==="public";'
+        'map.getSource("routes").setData(_routeGJ);'
+        '_refreshRoutePanel();_refreshRouteRow(f);'
+        'fetch("/api/rebuild/workshop",{method:"POST"});'
+        '})'
+        '.catch(function(){alert("Devserver not running.");_refreshRoutePanel();});'
+        '}\n'
+        'function _refreshRouteRow(f){'
+        'var row=document.querySelector(\'#panel-route-index .ri-row[data-id="\'+f.id+\'"]\');if(!row)return;'
+        'var cells=row.querySelectorAll("td"),approx=f.geometry.coordinates.length<=2,'
+        'm=_TT.speeds[f.properties.mode]?f.properties.mode:_TT.defaultMode;'
+        'cells[4].innerHTML=_fmtHours(_routeHours(f),approx)+\' <span class="ri-mode">\'+_TT.speeds[m].label+\'</span>\';'
+        'var pv=f.properties._playerVisible,pub=f.properties.visibility==="public";'
+        'cells[5].innerHTML=pv?\'<span class="ri-vis ri-vis-pub">players</span>\':'
+        '(pub?\'<span class="ri-vis ri-vis-held">held</span>\':\'<span class="ri-vis ri-vis-gm">GM</span>\');'
+        '}\n'
+        'document.getElementById("route-panel-vis").addEventListener("change",function(){_patchRoute("visibility",this.value);});\n'
+        'document.getElementById("route-panel-mode").addEventListener("change",function(){_patchRoute("mode",this.value);});\n'
         'function _hideRoutePanel(){'
         '_selectedRouteId=null;'
         'document.getElementById("route-panel").hidden=true;'
@@ -1647,13 +1757,13 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _ttStops=[];\n'   # [{lng,lat,name}]
         'var _ttMarkers=[];\n' # MapLibre Marker objects
         'var _ttSegs=[];\n'    # [{s:km, r:km|null, rCoords:[[lng,lat],...] | null}]
-        'var _ttKpd=30,_ttFly=false,_ttRoads=true;\n'
+        'var _ttKpd=_TT.speeds[_TT.defaultMode].kmpd,_ttFly=false,_ttRoads=true;\n'
 
+        # Same wording as travel_time.format_duration: a day is _TT.hours of marching.
         'function _ttFmt(km,kpd){'
         'var d=km/kpd;'
-        'if(d<1){return (d*24).toFixed(1)+" h";}'
-        'if(d<2){return "1 day "+Math.round((d-1)*24)+" h";}'
-        'return d.toFixed(1)+" days";}\n'
+        'if(d<1){return Math.round(d*_TT.hours)+" h";}'
+        'return (d<10?d.toFixed(1):Math.round(d))+" days";}\n'
 
         # Marker pin element
         'function _ttPinEl(n,color){'
@@ -1866,6 +1976,7 @@ def _build_html(
     data_js = (
         f"var _locGJ = {json.dumps(loc_geojson)};\n"
         f"var _routeGJ = {json.dumps(routes_geojson)};\n"
+        f"var _TT = {travel_time.tt_json()};\n"
         f"var _regionGJ = {json.dumps(regions_geojson)};\n"
         f"var _locList = {json.dumps(loc_list)};\n"
         f"var _regionList = {json.dumps(region_names)};\n"
@@ -1874,6 +1985,10 @@ def _build_html(
     cat_options = "\n".join(f'<option value="{c}">{c}</option>' for c in CATEGORIES)
     region_options = "\n".join(
         f'<option value="{r["slug"]}">{r["title"]}</option>' for r in region_names
+    )
+    mode_options = "".join(
+        f'<option value="{m}">{spec["label"]} ({spec["kmpd"]} km/d)</option>'
+        for m, spec in travel_time.SPEEDS.items()
     )
 
     panel_add = _build_panel_add_point(cat_options, region_options)
@@ -1973,6 +2088,13 @@ def _build_html(
         '  <div id="map"></div>\n'
         '  <div id="route-panel" hidden>\n'
         '    <div id="route-panel-label"></div>\n'
+        '    <div id="route-panel-time"></div>\n'
+        '    <div id="route-panel-seen"></div>\n'
+        '    <div class="rp-row"><label for="route-panel-vis">Visibility</label>'
+        '<select id="route-panel-vis"><option value="gm_secrets">GM only</option>'
+        '<option value="public">Public</option></select></div>\n'
+        f'    <div class="rp-row"><label for="route-panel-mode">Travel by</label>'
+        f'<select id="route-panel-mode">{mode_options}</select></div>\n'
         '    <button id="route-panel-regenerate">🔄 Regenerate</button>\n'
         '    <button id="route-panel-delete">🗑 Delete Route</button>\n'
         '    <button id="route-panel-close">✕</button>\n'
@@ -2180,12 +2302,16 @@ def main() -> int:
     else:
         print("  WARN: regions GeoJSON not found", file=sys.stderr)
 
-    route_index = _build_route_index(routes_geojson)
+    # Workshop sees every route, flagged with whether players would; the player map
+    # gets only the routes route_visibility lets through (matched against ALL locations).
+    workshop_routes = annotate_routes(routes_geojson, loc_geojson)
+    player_routes = route_visibility.visible_routes(routes_geojson, loc_geojson)
+    route_index = _build_route_index(workshop_routes)
     ri_html = _route_index_html(route_index)
 
     html = _build_html(
         loc_geojson=loc_geojson,
-        routes_geojson=routes_geojson,
+        routes_geojson=workshop_routes,
         regions_geojson=regions_geojson,
         region_names=region_names,
         loc_list=loc_list,
@@ -2201,11 +2327,12 @@ def main() -> int:
     public_features = pub_geojson["features"]
     player_html = _build_player_html(
         loc_geojson=pub_geojson,
-        routes_geojson=routes_geojson,
+        routes_geojson=player_routes,
         maptiler_key=MAPTILER_KEY,
     )
     PLAYER_PATH.write_text(player_html, encoding="utf-8")
-    print(f"  Written: {PLAYER_PATH.name}  ({len(public_features)} public locations)")
+    print(f"  Written: {PLAYER_PATH.name}  ({len(public_features)} public locations, "
+          f"{len(player_routes['features'])} of {len(routes_geojson.get('features', []))} routes)")
     print(f"  Run:     open {OUTPUT_PATH.name}")
     return 0
 

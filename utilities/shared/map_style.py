@@ -39,11 +39,25 @@ def _js(obj) -> str:
     return json.dumps(obj, separators=(",", ":"), ensure_ascii=False)
 
 
-def routes_layer_js(layer_id: str = "routes", source: str = "routes") -> str:
-    """JS adding the shared route line layer (dashed terracotta)."""
+ROUTE_DIM_OPACITY = 0.28
+
+
+def routes_layer_js(layer_id: str = "routes", source: str = "routes",
+                    dim_hidden: bool = False) -> str:
+    """JS adding the shared route line layer (dashed terracotta).
+
+    `dim_hidden` (Workshop) fades routes the player build would drop: features
+    carry `_playerVisible` (set at build time from the route_visibility rule).
+    """
+    paint = dict(_ROUTE_PAINT)
+    if dim_hidden:
+        paint["line-opacity"] = [
+            "case", ["==", ["get", "_playerVisible"], True],
+            _ROUTE_PAINT["line-opacity"], ROUTE_DIM_OPACITY,
+        ]
     layer = {
         "id": layer_id, "type": "line", "minzoom": 4, "source": source,
-        "layout": _ROUTE_LAYOUT, "paint": _ROUTE_PAINT,
+        "layout": _ROUTE_LAYOUT, "paint": paint,
     }
     return f"map.addLayer({_js(layer)});\n"
 
