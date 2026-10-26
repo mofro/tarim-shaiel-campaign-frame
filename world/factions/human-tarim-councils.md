@@ -9,14 +9,14 @@ visible_control: true
 hidden_control: dwarven-tarim-authority
 rivals: []
 controls:
-  - kashkar
+  - kashgar
   - khotan
   - yarkand
   - turfan
 narrative_weight: medium
 status: canon
 created: 2026-04-30
-last_updated: 2026-04-30
+last_updated: 2026-10-26
 tags:
   - gm-only
 ---
@@ -82,4 +82,4 @@ The administrative face of Tarim Basin governance — visible, functional, and g
 
 - Index: [[world/factions/_category]]
 - Real power: [[world/factions/dwarven-tarim-authority.md]]
-- Related locations: [[world/locations/kashkar.md]] · [[world/locations/khotan.md]] · [[world/locations/yarkand.md]] · [[world/locations/turfan.md]]
+- Related locations: [[world/locations/kashgar.md]] · [[world/locations/khotan.md]] · [[world/locations/yarkand.md]] · [[world/locations/turfan.md]]

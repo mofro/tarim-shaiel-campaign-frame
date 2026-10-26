@@ -15,7 +15,7 @@ controls:
   - bukhara
   - balkh
   - merv
-  - kashkar
+  - kashgar
   - khotan
   - dunhuang
   - jade-gate
@@ -23,7 +23,7 @@ controls:
 narrative_weight: very-high
 status: canon
 created: 2026-04-14
-last_updated: 2026-10-24
+last_updated: 2026-10-26
 tags:
   - gm-only
   - campaign-arc-backstory

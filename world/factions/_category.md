@@ -5,7 +5,7 @@ entity_type: factions
 visibility: gm_secrets
 status: active
 created: 2026-03-10
-last_updated: 2026-10-24
+last_updated: 2026-10-26
 published: true
 jump_nav: true
 ---
@@ -26,8 +26,8 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 | [[eastern-gateway-council\|Eastern Gateway Council]] | council | Eastern Gateway | yes — formal governance | elven-highland-enclaves | — | dunhuang, jade-gate | high | canon |
 | [[elven-highland-enclaves\|Elven Highland Enclaves]] | enclave | Elven Highlands, Eastern Gateway | no — invisible broker | eastern-gateway-council, eastern-imperial-dominion, jade-coast-realms | — | great-wall, mystical-infrastructure | very-high | canon |
 | [[dwarven-mountain-confederations\|Dwarven Mountain Confederations]] | confederation | Mountain Passes | yes — absolute | — | orc-confederation-samarkand, merchant-guilds | mountain-passes, anvil-sunder-switchbacks, stone-ledger-gate | medium | canon |
-| [[dwarven-tarim-authority\|Dwarven Tarim Authority]] | infrastructure | Tarim Basin | no — open secret | human-tarim-councils | — | karez-water-systems, kashkar, khotan, yarkand, turfan | medium-high | canon |
-| [[human-tarim-councils\|Human Tarim Councils]] | council | Tarim Basin | yes — administrative face | dwarven-tarim-authority | — | kashkar, khotan, yarkand, turfan | medium | canon |
+| [[dwarven-tarim-authority\|Dwarven Tarim Authority]] | infrastructure | Tarim Basin | no — open secret | human-tarim-councils | — | karez-water-systems, kashgar, khotan, yarkand, turfan | medium-high | canon |
+| [[human-tarim-councils\|Human Tarim Councils]] | council | Tarim Basin | yes — administrative face | dwarven-tarim-authority | — | kashgar, khotan, yarkand, turfan | medium | canon |
 | [[orc-steppe-confederations\|Tulpar Steppe Confederations]] | confederation | The Steppe | yes — tribal/confederal | — | orc-confederation-samarkand | steppe-routes, nomadic-territories | medium | canon |
 | [[goblin-free-cities\|The Free Cities]] | city-states | all regions (urban nodes) | yes — civic governance | — | peoples-of-the-nine-roads | free-city-markets, neutral-ground | medium | canon |
 | [[peoples-of-the-nine-roads\|Peoples of the Nine Roads]] | diaspora-compact | all regions | no — ubiquitous connective tissue | — | goblin-free-cities | private-networks, mediation-channels | medium | canon |

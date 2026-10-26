@@ -1,14 +1,19 @@
 ---
 title: Kashgar
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
 visibility: public
 status: draft
 created: 2026-09-01
-description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-09-01
+description: Westernmost major Chinese city; crossroads of cultures and trade.
+elevation: 1289
+factions_visible:
+- Tarim Basin Traders
+fantasy_name: Kashgar
+last_updated: 2026-10-26
 location:
 - 39.465313
 - 75.989158
@@ -17,9 +22,15 @@ map_max_zoom: 14
 mapmarker: city
 name: Kashgar
 real_world_name: Kashgar
+resources:
+- fruits
+- wool
+- carpets
+- jade
 tags:
-- placeholder
 - type-city
+- player-visible
+- campaign-arc-mountain-passage
 type: city
 ---
 
@@ -41,12 +52,51 @@ geojson:
 
 # Kashgar
 
-> **PLACEHOLDER.** Coordinates, marker, and region are locked; prose has not been written. Do not treat any narrative detail below as canon — there isn't any yet.
+A continuously inhabited city for over two thousand years. Gateway where East meets West, where multiple faiths and cultures converge.
+
+> **DRAFT.** Coordinates, marker, and region are locked. The prose below was merged from the former `kashkar.md` (2025-12-13 draft) and has not had a prose pass. Do not treat any narrative detail as canon.
+
+## Historical Basis
+
+**Tarim Basin** – Buddhist state that converted to Islam. Intermittently under Chinese control. Known for abundance of crops, fruits, wool, and especially jade.
+
+## Historical Foundation
+
+Rooted in the ancient trade hub of the Tarim Basin, Kashkar preserves the essence of a city where multiple cultures, faiths, and narratives have always converged. Its strategic position makes it an ideal first major story convergence point for the Dun-Kharan caravan.
 
 ## Key Features
 
+- **Jade Markets** – World-renowned source of jade
+- **Multiethnic Population** – Buddhist, Islamic, Nestorian Christian traditions coexist
+- **Abundant Agriculture** – Fertile oasis producing fruits and wool
+
+## Cultural Notes
+
+Cosmopolitan city where merchants, pilgrims, and adventurers mix freely. Strategic location at the junction of major trade routes.
+
 ## Factions Present
+
+- Local merchant communities
+- Regional authorities
+- Independent traders
 
 ## Resources
 
 ## Notable Nearby Locations
+
+---
+
+> [!gm-only]
+> **Narrative Significance**
+>
+> Kashkar represents more than a geographical location—it is a metaphorical crossroads where individual paths of fallen heroes intersect, where the boundaries between personal history and collective destiny blur.
+>
+> **Key Narrative Elements**
+>
+> - **Transitional Space**: A liminal urban environment where heroes can reassess their journey
+> - **Collective Potential**: Represents the possibility of finding community in unexpected places
+> - **Survival Crucible**: Demonstrates how diverse individuals might forge collective purpose
+>
+> **World-Building Context**
+>
+> The city embodies the game's core themes: transformation, unexpected connection, and the ongoing negotiation of heroic identity in the face of divine uncertainty.

@@ -10,14 +10,14 @@ hidden_control: human-tarim-councils
 rivals: []
 controls:
   - karez-water-systems
-  - kashkar
+  - kashgar
   - khotan
   - yarkand
   - turfan
 narrative_weight: medium-high
 status: canon
 created: 2026-04-30
-last_updated: 2026-04-30
+last_updated: 2026-10-26
 tags:
   - gm-only
 ---
@@ -83,4 +83,4 @@ The actual power behind the Tarim Basin's governance — an open secret among th
 
 - Index: [[world/factions/_category]]
 - Public face: [[world/factions/human-tarim-councils.md]]
-- Related locations: [[world/locations/kashkar.md]] · [[world/locations/khotan.md]] · [[world/locations/yarkand.md]] · [[world/locations/turfan.md]]
+- Related locations: [[world/locations/kashgar.md]] · [[world/locations/khotan.md]] · [[world/locations/yarkand.md]] · [[world/locations/turfan.md]]
