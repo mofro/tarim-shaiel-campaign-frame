@@ -5,12 +5,12 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-07-21
 description: Where the Samarqandh–Bukhara royal road gathers its travelers — a caravanserai, a river town, watch-heights, and open dune country, all within a day or so of each other.
 fantasy_name: Waycross
-last_updated: 2026-07-21
+last_updated: 2026-10-26
 location:
   - 40.15
   - 65.12

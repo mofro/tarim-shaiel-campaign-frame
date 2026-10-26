@@ -5,13 +5,13 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: Ruined temple compounds and broken statuary beyond Miran's waypoint;
   haunted by wind and sand.
 fantasy_name: Miran Temple District
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 40.47
 - 88.15

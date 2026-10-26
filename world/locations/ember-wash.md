@@ -5,12 +5,12 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-07-21
 description: A drainage ravine off the Samarqandh-Bukhara road, near Kattakurgan — refugee camp site, Session 0 Warrior awakening.
 fantasy_name: Ember Wash
-last_updated: 2026-07-21
+last_updated: 2026-10-26
 location:
 - 39.82
 - 66.15

@@ -5,13 +5,13 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A reliable water stop at the edge of a brutal stretch; reeds and salt
   flats mark it from afar.
 fantasy_name: Salt-Reed Oasis
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 39.554
 - 87.9862

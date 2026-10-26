@@ -5,12 +5,12 @@ parent_region: steppe-confederations
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-01-05
 description: Stone Mirror of the Central Tarimhighlands
 fantasy_name: Balkh-Kamen
-last_updated: 2026-01-05
+last_updated: 2026-10-26
 location:
 - 46.5
 - 74.9

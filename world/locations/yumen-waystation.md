@@ -5,13 +5,13 @@ parent_region: eastern-gateway
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: Overflow staging post for caravans approaching the Jade Gate; paperwork,
   inspections, and remounts.
 fantasy_name: Yumen Waystation (Outer)
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 40.42
 - 94.78

@@ -5,12 +5,12 @@ parent_region: null
 domain: world
 doc_type: canon
 content_type: landmark
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: Metaphysical realm of heroic transformation and divine negotiation
 fantasy_name: Tarim-Shaiel
-last_updated: 2026-01-05
+last_updated: 2026-10-26
 location: null
 map_min_zoom: 6
 map_max_zoom: 7

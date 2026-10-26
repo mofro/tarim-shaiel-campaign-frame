@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A waypoint at the base of mountain passes. Guides here help merchants
@@ -15,7 +15,7 @@ factions_visible:
 - Mountain Guides
 fantasy_name: Maralbashi
 historical_basis: Tarim Basin - Mountain gateway on northern route
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 39.797866
 - 78.546379

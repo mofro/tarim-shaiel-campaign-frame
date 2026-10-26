@@ -4,11 +4,11 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-10-25
 description: "Encounter with a pack of grumpy Dire Wolves. Release the Chaos!"
-last_updated: 2026-10-25
+last_updated: 2026-10-26
 location:
 - 39.964047
 - 65.247829

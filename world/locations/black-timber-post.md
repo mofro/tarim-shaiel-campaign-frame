@@ -5,13 +5,13 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: Fortified overnight station with stables and a small shrine; a safe stop
   when the weather turns.
 fantasy_name: Black-Timber Post
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 41.039914
 - 82.320416

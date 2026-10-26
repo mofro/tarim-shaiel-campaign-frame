@@ -5,12 +5,12 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-07-21
 description: Open Kyzylkum dune country between Nur-Ata and the royal road — Session 0 Seeker awakening collapse site.
 fantasy_name: The Glass Dunes
-last_updated: 2026-07-21
+last_updated: 2026-10-26
 location:
 - 40.35
 - 65.40

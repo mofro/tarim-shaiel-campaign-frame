@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: landmark
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 cultural_notes: Kizil Caves nearby contain thousands of Buddhist artworks and sculptures
@@ -16,7 +16,7 @@ factions_visible:
 - Buddhist Monastic Community
 fantasy_name: Kucha
 historical_basis: Tarim Basin - Buddhist state; major monasteries and artistic center
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 41.73
 - 82.95

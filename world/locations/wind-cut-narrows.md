@@ -5,13 +5,13 @@ parent_region: eastern-gateway
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A canyon pinch-point where the road compresses into a single file—ideal
   for tolls, patrols, and ambushes.
 fantasy_name: The Wind-Cut Narrows
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 40.33
 - 94.55

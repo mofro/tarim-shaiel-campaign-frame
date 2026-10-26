@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-09-01
 description: Westernmost major Chinese city; crossroads of cultures and trade.

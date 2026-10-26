@@ -5,7 +5,7 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 cultural_notes: "'Ruined Silk Road city' - archaeological significance"
@@ -15,7 +15,7 @@ factions_visible:
   - Turkmen Locals
 fantasy_name: Merv (Mary)
 historical_basis: Margiana - Destroyed by Mongol invasion; rebuilt as smaller settlement (Mary)
-last_updated: 2026-05-13
+last_updated: 2026-10-26
 location:
   - 37.66
   - 61.83

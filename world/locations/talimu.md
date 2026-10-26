@@ -4,11 +4,11 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-08-29
 description: "South staging area outside the city"
-last_updated: 2026-08-29
+last_updated: 2026-10-26
 location:
 - 41.290499
 - 86.270555

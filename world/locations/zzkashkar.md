@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: Westernmost major trade city; crossroads of cultures and journey origins.
@@ -13,7 +13,7 @@ elevation: 1289
 factions_visible:
 - Tarim Basin Traders
 fantasy_name: Kashkar
-last_updated: 2026-01-05
+last_updated: 2026-10-26
 location:
 - 39.4666
 - 75.99

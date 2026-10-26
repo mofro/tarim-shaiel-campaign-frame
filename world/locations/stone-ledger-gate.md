@@ -5,13 +5,13 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A controlled high pass where weights, measures, and cargo manifests are
   certified before crossing.
 fantasy_name: The Stone Ledger Gate
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 40.4
 - 75.2

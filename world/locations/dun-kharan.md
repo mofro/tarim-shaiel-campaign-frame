@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 cultural_composition:
 - Diverse Heroic Exiles
 - Transitional Community
@@ -29,7 +29,7 @@ geo:
 governance:
   decision_mechanism: Collective Heroic Vote
   type: Emergent Consensus
-last_updated: 2026-01-05
+last_updated: 2026-10-26
 maintained_by: Lore Keeper
 name: Dun-Kharan
 narrative_role:

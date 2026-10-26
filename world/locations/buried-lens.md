@@ -5,13 +5,13 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: landmark
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A half-excavated relic site where glassy strata and strange echoes suggest
   buried ancient works.
 fantasy_name: The Buried Lens
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 41.4
 - 86.2

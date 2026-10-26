@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: Ancient oasis ruins on the southern route. Archaeological treasures hidden
@@ -15,7 +15,7 @@ factions_visible:
 - Desert Guardians
 fantasy_name: Niya
 historical_basis: Tarim Basin - Ancient oasis settlement with archaeological significance
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 37.07
 - 81.18

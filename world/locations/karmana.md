@@ -5,12 +5,12 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-07-20
 description: "PLACEHOLDER — medium river town on the Samarqandh-Bukhara road, near Rabati Malik. Prose pass pending."
 fantasy_name: Karmana
-last_updated: 2026-07-20
+last_updated: 2026-10-26
 location:
 - 40.1411
 - 65.3608

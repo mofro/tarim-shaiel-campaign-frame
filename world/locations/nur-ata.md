@@ -5,12 +5,12 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-07-20
 description: "PLACEHOLDER — rocky sentinel heights overlooking the Kyzylkum dune fringe north of the Samarqandh-Bukhara road. Prose pass pending."
 fantasy_name: Nur-Ata
-last_updated: 2026-07-20
+last_updated: 2026-10-26
 location:
 - 40.5628
 - 65.6904

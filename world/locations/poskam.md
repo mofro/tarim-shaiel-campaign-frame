@@ -4,11 +4,11 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-09-05
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-09-05
+last_updated: 2026-10-26
 location:
 - 38.183283
 - 77.256718

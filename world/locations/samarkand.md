@@ -5,7 +5,7 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A major hub on the Silk Road, known for its bazaars and monumental architecture.
@@ -13,7 +13,7 @@ elevation: 700
 factions_visible:
 - Sogdian Merchants Guild
 fantasy_name: Samarqandh
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 39.654587
 - 66.975141

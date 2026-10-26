@@ -5,13 +5,13 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A sealed cache-chamber used by merchants in hard times; its entrance
   is easy to miss without a guide.
 fantasy_name: The Caravan-Crypt
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 41.9
 - 83.6

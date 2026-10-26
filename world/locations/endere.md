@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: An isolated waypoint on the southern route through harsh desert.
@@ -14,7 +14,7 @@ factions_visible:
 - Desert Survivors
 fantasy_name: Endere
 historical_basis: Tarim Basin - Remote southern route waypoint
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 36.21
 - 88.74

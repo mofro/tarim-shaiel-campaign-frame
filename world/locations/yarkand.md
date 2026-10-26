@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A major waypoint where the southern and northern routes converge. A hub
@@ -15,7 +15,7 @@ factions_visible:
 - Southern Route Merchants
 fantasy_name: Yarkand
 historical_basis: Tarim Basin - Convergence point of major trade routes
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 38.417
 - 77.2411

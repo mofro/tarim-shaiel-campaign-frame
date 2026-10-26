@@ -5,7 +5,7 @@ parent_region: eastern-terminus
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 cultural_notes: Massive fortified city; destination of all Silk Road merchants; center
@@ -19,7 +19,7 @@ factions_visible:
 - Buddhist Communities
 fantasy_name: Chang'an
 historical_basis: Central China - Han and Tang dynasty capitals; major imperial center
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 34.260179
 - 108.942245

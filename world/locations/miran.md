@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A waypoint on the southern desert route. An ancient settlement with ruins
@@ -15,7 +15,7 @@ factions_visible:
 - Oasis Guardians
 fantasy_name: Miran
 historical_basis: Tarim Basin - Ancient oasis settlement on southern route
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 40.52
 - 88.07

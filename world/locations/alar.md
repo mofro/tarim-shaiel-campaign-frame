@@ -4,12 +4,12 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-08-29
 description: "PLACEHOLDER — location pending. Prose pass pending."
 fantasy_name: Aral
-last_updated: 2026-08-29
+last_updated: 2026-10-26
 location:
 - 40.54151
 - 81.276979

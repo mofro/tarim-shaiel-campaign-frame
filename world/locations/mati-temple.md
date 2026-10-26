@@ -4,11 +4,11 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-09-02
 description: "Samiah Temple home of Rill"
-last_updated: 2026-09-02
+last_updated: 2026-10-26
 location:
 - 38.507088
 - 100.428955

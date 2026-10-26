@@ -5,7 +5,7 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 cultural_notes: Largest city in Central Asia; major agricultural and trade center
@@ -15,7 +15,7 @@ factions_visible:
 - Central Asian Trade Union
 fantasy_name: Tashkent
 historical_basis: Fergana Valley - Turkic origin; Islamic conversion; Mongol conquest
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 41.31
 - 69.24

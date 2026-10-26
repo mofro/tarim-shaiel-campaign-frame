@@ -5,7 +5,7 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 cultural_notes: Fifth-largest city historically; center of trade and religion
@@ -17,7 +17,7 @@ factions_visible:
 fantasy_name: Bukhara
 historical_basis: Sogdania - Zoroastrian→Islamic; survived Mongol destruction and
   revived
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 39.77
 - 64.43

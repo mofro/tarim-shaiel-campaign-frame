@@ -5,12 +5,12 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-01-05
 description: Warm Winds of the Mountain Realm
 fantasy_name: Isyk-Zhel
-last_updated: 2026-01-05
+last_updated: 2026-10-26
 location:
 - 42.4
 - 76.9

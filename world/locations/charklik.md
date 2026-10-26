@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A waypoint on the southern route between desert sections.
@@ -14,7 +14,7 @@ factions_visible:
 - Oasis Keepers
 fantasy_name: Charklik
 historical_basis: Tarim Basin - Oasis waypoint
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 39
 - 88.15

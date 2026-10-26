@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: A waypoint on the northern route. An oasis providing critical supplies
@@ -15,7 +15,7 @@ factions_visible:
 - Merchants & Caravanners
 fantasy_name: Aksu
 historical_basis: Tarim Basin - Oasis waypoint on northern corridor
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 41.167908
 - 80.258248

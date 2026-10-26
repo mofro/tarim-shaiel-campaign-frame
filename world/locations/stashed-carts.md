@@ -4,11 +4,11 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-10-25
 description: "Session 3: The location where the party chose to stash their carts prior to the overland shortcut. Forty, Kettle, and Second Seal covered and protected the carts and non-critical supplies in a rill here."
-last_updated: 2026-10-25
+last_updated: 2026-10-26
 location:
 - 39.980951
 - 65.234994

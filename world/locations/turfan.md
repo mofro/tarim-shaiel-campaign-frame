@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: poi
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: An oasis in a depression, protected from harsh desert winds. Known for
@@ -15,7 +15,7 @@ factions_visible:
 - Oasis Settlers
 fantasy_name: Turfan Depression
 historical_basis: Tarim Basin - Oasis settlement in depression; known for agriculture
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 42.95
 - 89.19

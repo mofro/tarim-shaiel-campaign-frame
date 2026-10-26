@@ -4,12 +4,12 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
 fantasy_name: Lake of Dragons
-last_updated: 2026-09-01
+last_updated: 2026-10-26
 location:
 - 37.550877
 - 89.390955

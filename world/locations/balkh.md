@@ -5,7 +5,7 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 cultural_notes: Major oasis hub before destruction; one of the 'great cities' of the
@@ -18,7 +18,7 @@ factions_visible:
 fantasy_name: Balkh
 historical_basis: Bactria - Destroyed by Genghis Khan (1220s); never rebuilt to former
   glory
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 36.76
 - 66.9

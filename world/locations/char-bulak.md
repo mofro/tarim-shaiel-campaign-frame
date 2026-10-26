@@ -5,12 +5,12 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-07-28
 description: "PLACEHOLDER — location pending. Prose pass pending."
 fantasy_name: Chur-Balk
-last_updated: 2026-07-28
+last_updated: 2026-10-26
 location:
 - 36.756284
 - 66.720872

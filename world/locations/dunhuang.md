@@ -5,7 +5,7 @@ parent_region: eastern-gateway
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2025-12-13
 description: Gateway to China; home to the Mogao Caves with thousands of Buddhist
@@ -14,7 +14,7 @@ elevation: 1140
 factions_visible:
 - Buddhist Monastic Order
 fantasy_name: Dunhuang
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 40.15
 - 94.67
