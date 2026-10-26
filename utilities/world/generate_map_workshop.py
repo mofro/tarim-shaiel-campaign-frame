@@ -476,8 +476,11 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .tt-leg-row select option:disabled { color:#5a4a30; }
 .tt-leg-res { color:#c8a84a; text-align:right; white-space:nowrap; overflow:hidden;
   text-overflow:ellipsis; }
-.tt-leg-row.fetching .tt-leg-res { opacity:0.55; font-style:italic; }
+.tt-leg-row.fetching .tt-leg-txt { opacity:0.55; font-style:italic; }
 .tt-leg-row.fallback .tt-leg-res { color:#e8a060; }
+.tt-leg-cancel { background:none; border:1px solid rgba(184,146,44,0.3); color:#c8b87a;
+  cursor:pointer; font-size:10px; padding:0 4px; margin-left:5px; border-radius:2px; }
+.tt-leg-cancel:hover { color:#e8a060; border-color:#e8a060; }
 .tt-totals { border-top:1px solid rgba(184,146,44,0.18); padding:6px 0 0;
   display:grid; grid-template-columns:60px 1fr 1fr; gap:3px; font-size:11px; }
 .tt-saved { display:flex; flex-direction:column; gap:2px; }
@@ -750,10 +753,10 @@ def _build_panel_travel_time() -> str:
   <div id="tt-saved" class="tt-saved"></div>
 </div>
 <p class="hint" style="color:#5a4a30;margin-top:8px;">Saved to <code>world/data/tarim-shaiel-journeys.geojson</code> via the devserver. Time is computed from length, mode and path; it is never stored.</p>
+<p class="hint" style="color:#5a4a30;margin-top:6px;"><b>Terrain</b> walks the ground, not the roads: a least-cost path over elevation tiles, slower on slopes, with a per-mode slope limit (a cart refuses what a walker climbs). Rivers and lakes are not obstacles and existing roads are ignored. Limits and speeds are assumptions. Elevation: U.S. Geological Survey (SRTM, GMTED2010) via AWS Terrain Tiles; tiles are cached in this browser.</p>
 """
     path_opts = "\n    ".join(
-        f'<option value="{p}"{" disabled" if p == "terrain" else ""}>'
-        f'{p.capitalize()}{" (needs Phase E)" if p == "terrain" else ""}</option>'
+        f'<option value="{p}">{p.capitalize()}</option>'
         for p in journeys.LEG_PATHS
     )
     return (html.replace("__TT_PRESETS__", _tt_presets_html())
@@ -1009,17 +1012,24 @@ function _ttFind(id){
 // -- Legs ---------------------------------------------------------------
 function _ttNewLeg(prev){
   return {mode:prev?prev.mode:_ttDefMode,path:prev?prev.path:_ttDefPath,
-    coords:[],km:0,roadCache:null,state:"ok",note:"",pathKeep:prev?prev.pathKeep:null,
-    slope:1,tok:0};}
+    coords:[],km:0,roadCache:null,terrainCache:{},progress:"",state:"ok",note:"",
+    pathKeep:prev?prev.pathKeep:null,slope:1,tok:0};}
+
+// A terrain route depends on the mode only through its slope limit, so routes
+// are cached per limit. "" for fliers, which never use the terrain path.
+function _ttSlopeKey(mode){
+  var m=_TT.terrain.maxSlope[mode];
+  return m==null?"":String(m);}
 
 // Set a leg's mode. Fliers are always straight; the path is remembered and
-// restored when the mode goes back to a walker. True when the path changed.
+// restored when the mode goes back to a walker. True when the geometry has to
+// be rebuilt: the path changed, or a terrain leg now has a different slope limit.
 function _ttApplyMode(leg,mode){
-  var wasFly=_ttIsFly(leg.mode),fly=_ttIsFly(mode),old=leg.path;
+  var wasFly=_ttIsFly(leg.mode),fly=_ttIsFly(mode),old=leg.path,oldKey=_ttSlopeKey(leg.mode);
   leg.mode=mode;
   if(fly&&!wasFly){leg.pathKeep=leg.path;leg.path="straight";}
   else if(!fly&&wasFly){leg.path=leg.pathKeep||_ttDefPath;leg.pathKeep=null;}
-  return leg.path!==old;}
+  return leg.path!==old||(leg.path==="terrain"&&_ttSlopeKey(mode)!==oldKey);}
 
 function _ttRoadFailed(leg){
   var i=_ttLegs.indexOf(leg);
@@ -1044,36 +1054,138 @@ function _ttFetchRoad(leg,a,b,tok){
     if(leg.tok!==tok||_ttLegs.indexOf(leg)<0)return;
     _ttRoadFailed(leg);_ttRender();});}
 
-// Rebuild one leg's geometry from its stops, mode and path. Road legs reuse the
-// cached route when there is one; otherwise they show a straight line while the
-// request runs, so a mode change never triggers a request on its own.
+// -- Terrain routing (#312) ---------------------------------------------
+// One Web Worker (terrain_path.js, embedded as _TERRAIN_SRC) routes one leg at a
+// time and the rest wait in a queue. Stopping a job terminates the worker, which
+// also aborts its tile requests; the next job starts a fresh one.
+var _ttWorker=null,_ttWorkerUrl=null,_ttQueue=[],_ttCur=null,_ttJobSeq=0;
+
+function _ttKillWorker(){
+  if(_ttWorker){try{_ttWorker.terminate();}catch(e){}_ttWorker=null;}}
+
+function _ttWorkerStart(){
+  if(_ttWorker)return _ttWorker;
+  try{
+    if(!_ttWorkerUrl)_ttWorkerUrl=URL.createObjectURL(new Blob([_TERRAIN_SRC],{type:"text/javascript"}));
+    _ttWorker=new Worker(_ttWorkerUrl);
+  }catch(e){_ttWorker=null;return null;}
+  _ttWorker.onmessage=_ttWorkerMsg;
+  _ttWorker.onerror=function(ev){
+    if(ev&&ev.preventDefault)ev.preventDefault();
+    var job=_ttCur;
+    _ttKillWorker();_ttCur=null;
+    if(job&&!_ttJobStale(job)){_ttTerrainFailed(job.leg,"The terrain worker failed");_ttRender();}
+    else _ttPump();};
+  return _ttWorker;}
+
+function _ttJobStale(j){return j.leg.tok!==j.tok||_ttLegs.indexOf(j.leg)<0;}
+
+// Drop queued jobs whose leg changed or went away; stop a running one the same way.
+function _ttSweepJobs(){
+  _ttQueue=_ttQueue.filter(function(j){return !_ttJobStale(j);});
+  if(_ttCur&&_ttJobStale(_ttCur)){_ttKillWorker();_ttCur=null;}
+  _ttPump();}
+
+function _ttPump(){
+  if(_ttCur)return;
+  var j=_ttQueue.shift();
+  while(j&&_ttJobStale(j))j=_ttQueue.shift();
+  if(!j)return;
+  var w=_ttWorkerStart();
+  if(!w){_ttTerrainFailed(j.leg,"Terrain routing is not available in this browser");_ttRender();return;}
+  _ttCur=j;
+  j.leg.progress="starting";_ttShowProgress(j.leg);
+  w.postMessage({type:"route",id:j.id,from:j.from,to:j.to,maxSlope:j.maxSlope,cfg:_TT.terrain});}
+
+function _ttQueueTerrain(leg,a,b,tok,key){
+  _ttQueue.push({id:++_ttJobSeq,leg:leg,tok:tok,key:key,
+    from:[a.lng,a.lat],to:[b.lng,b.lat],maxSlope:_TT.terrain.maxSlope[leg.mode]});
+  _ttPump();}
+
+function _ttWorkerMsg(ev){
+  var m=ev.data,job=_ttCur;
+  if(!m||!job||m.id!==job.id)return;
+  var leg=job.leg;
+  if(m.type==="progress"){
+    leg.progress=m.phase==="tiles"?"tiles "+m.done+"/"+m.total:
+      "searching "+(m.done/1e6).toFixed(1)+"M cells";
+    _ttShowProgress(leg);
+    return;}
+  _ttCur=null;
+  if(!_ttJobStale(job)){
+    if(m.type==="result"){
+      var km=_ttLineKm(m.coords);
+      // average speed on the route relative to flat ground (1 = no slowdown)
+      var sf=Math.min(2,Math.max(0.05,Math.round(m.pathKm/m.costKm*10000)/10000));
+      leg.terrainCache[job.key]={coords:m.coords,km:km,slope:sf};
+      leg.coords=m.coords;leg.km=km;leg.slope=sf;
+      leg.state="ok";leg.progress="";leg.note="";
+    }else{_ttTerrainFailed(leg,m.message||"Terrain routing failed");}
+    _ttRender();}
+  _ttPump();}
+
+function _ttShowProgress(leg){
+  var i=_ttLegs.indexOf(leg);
+  if(i<0)return;
+  var el=document.querySelector('.tt-leg-row[data-leg="'+i+'"] .tt-leg-txt');
+  if(el)el.textContent="terrain: "+leg.progress;}
+
+function _ttTerrainFailed(leg,msg){
+  var i=_ttLegs.indexOf(leg);
+  if(i<0)return;
+  var a=_ttStops[i],b=_ttStops[i+1];
+  leg.path="straight";leg.state="ok";leg.slope=1;leg.progress="";
+  leg.coords=[[a.lng,a.lat],[b.lng,b.lat]];leg.km=_ttLineKm(leg.coords);
+  leg.note=msg+" (straight line used)";
+  _ttSay("Leg "+(i+1)+": "+msg+". It falls back to a straight line.");}
+
+function _ttCancelTerrain(leg){
+  if(_ttCur&&_ttCur.leg===leg){_ttKillWorker();_ttCur=null;}
+  _ttQueue=_ttQueue.filter(function(j){return j.leg!==leg;});
+  leg.tok=++_ttSeq;
+  _ttTerrainFailed(leg,"Terrain routing cancelled");
+  _ttRender();}
+
+// Rebuild one leg's geometry from its stops, mode and path. Road and terrain legs
+// reuse their cached route when there is one; otherwise they show a straight line
+// while the request runs, so a mode change never triggers a request on its own.
 function _ttSetLegGeom(i){
   var leg=_ttLegs[i],a=_ttStops[i],b=_ttStops[i+1];
   if(!leg||!a||!b)return;
-  var tok=++_ttSeq;leg.tok=tok;leg.note="";
+  var tok=++_ttSeq;leg.tok=tok;leg.note="";leg.progress="";
   var straight=[[a.lng,a.lat],[b.lng,b.lat]];
-  if(leg.path==="road"&&!_ttIsFly(leg.mode)){
+  var fly=_ttIsFly(leg.mode);
+  if(leg.path==="road"&&!fly){
+    leg.slope=1;
     if(leg.roadCache){
       leg.coords=leg.roadCache.coords;leg.km=leg.roadCache.km;leg.state="ok";
     }else{
       leg.coords=straight;leg.km=_ttLineKm(straight);leg.state="fetching";
       _ttFetchRoad(leg,{lng:a.lng,lat:a.lat},{lng:b.lng,lat:b.lat},tok);}
+  }else if(leg.path==="terrain"&&!fly){
+    var key=_ttSlopeKey(leg.mode),hit=leg.terrainCache[key];
+    if(hit){
+      leg.coords=hit.coords;leg.km=hit.km;leg.slope=hit.slope;leg.state="ok";
+    }else{
+      leg.coords=straight;leg.km=_ttLineKm(straight);leg.slope=1;
+      leg.state="fetching";leg.progress="queued";
+      _ttQueueTerrain(leg,a,b,tok,key);}
   }else{
-    leg.coords=straight;leg.km=_ttLineKm(straight);leg.state="ok";
-    if(leg.path==="terrain")leg.note="terrain routing arrives with Phase E, straight line shown";}
+    leg.slope=1;
+    leg.coords=straight;leg.km=_ttLineKm(straight);leg.state="ok";}
   _ttRender();}
 
 function _ttRecalc(i){
   if(!_ttLegs[i])return;
-  _ttLegs[i].roadCache=null;
+  _ttLegs[i].roadCache=null;_ttLegs[i].terrainCache={};
   _ttSetLegGeom(i);}
 
 function _ttSetMode(i,mode){
   var leg=_ttLegs[i];
   if(!leg||!_TT.speeds[mode])return;
-  var pathChanged=_ttApplyMode(leg,mode);
+  var rebuild=_ttApplyMode(leg,mode);
   _ttMarkDirty();
-  if(pathChanged)_ttSetLegGeom(i);else _ttRender();}
+  if(rebuild)_ttSetLegGeom(i);else _ttRender();}
 
 function _ttSetPath(i,path){
   var leg=_ttLegs[i];
@@ -1142,16 +1254,20 @@ function _ttLegRowHtml(i){
   Object.keys(_TT.speeds).forEach(function(m){
     mo+='<option value="'+m+'"'+(m===leg.mode?' selected':'')+'>'+_ttEsc(_TT.speeds[m].label)+'</option>';});
   Object.keys(_TT.path).forEach(function(p){
-    var off=(p==="terrain"&&leg.path!=="terrain");
-    po+='<option value="'+p+'"'+(p===leg.path?' selected':'')+(off?' disabled':'')+'>'+
-      p.charAt(0).toUpperCase()+p.slice(1)+(off?' (Phase E)':'')+'</option>';});
-  var res=leg.state==="fetching"?"fetching road…":
+    po+='<option value="'+p+'"'+(p===leg.path?' selected':'')+'>'+
+      p.charAt(0).toUpperCase()+p.slice(1)+'</option>';});
+  var fetching=leg.state==="fetching",terr=fetching&&leg.path==="terrain";
+  var res=fetching?(terr?"terrain: "+(leg.progress||"queued"):"fetching road…"):
     (leg.note?"⚠ ":"")+_ttKm(leg.km)+" · "+_ttFmt(_ttHours(leg));
-  return '<div class="tt-leg-row'+(leg.state==="fetching"?' fetching':'')+(leg.note?' fallback':'')+
+  var tip=leg.note||(leg.path==="terrain"&&!fly&&leg.slope!==1?
+    "Terrain slope factor ×"+leg.slope.toFixed(2)+" (average speed against flat ground)":"");
+  return '<div class="tt-leg-row'+(fetching?' fetching':'')+(leg.note?' fallback':'')+
     '" data-leg="'+i+'">'+
     '<select class="tt-leg-mode" title="Mode of travel for this leg">'+mo+'</select>'+
     '<select class="tt-leg-path" title="Path for this leg"'+(fly?' disabled':'')+'>'+po+'</select>'+
-    '<span class="tt-leg-res" title="'+_ttEsc(leg.note||"")+'">'+res+'</span></div>';}
+    '<span class="tt-leg-res" title="'+_ttEsc(tip)+'"><span class="tt-leg-txt">'+_ttEsc(res)+'</span>'+
+    (terr?'<button class="tt-leg-cancel" title="Cancel terrain routing and use a straight line">cancel</button>':'')+
+    '</span></div>';}
 
 function _ttUpdateLine(){
   var src=map.getSource("tt-line");
@@ -1175,6 +1291,7 @@ function _ttRenderState(){
 function _ttRender(){
   var list=_ttEl("tt-stops-list");
   if(!list)return;
+  _ttSweepJobs();
   var html="";
   _ttStops.forEach(function(s,i){
     html+='<div class="tt-stop-row"><div class="tt-stop-num" style="background:'+
@@ -1188,7 +1305,9 @@ function _ttRender(){
   list.querySelectorAll(".tt-leg-row").forEach(function(row){
     var i=parseInt(row.dataset.leg,10);
     row.querySelector(".tt-leg-mode").addEventListener("change",function(){_ttSetMode(i,this.value);});
-    row.querySelector(".tt-leg-path").addEventListener("change",function(){_ttSetPath(i,this.value);});});
+    row.querySelector(".tt-leg-path").addEventListener("change",function(){_ttSetPath(i,this.value);});
+    var cx=row.querySelector(".tt-leg-cancel");
+    if(cx)cx.addEventListener("click",function(){_ttCancelTerrain(_ttLegs[i]);});});
   var tot=_ttEl("tt-totals"),km=0,h=0,wait=false;
   if(tot)tot.hidden=_ttStops.length<2;
   _ttLegs.forEach(function(l){if(l.state==="fetching")wait=true;km+=l.km;h+=_ttHours(l);});
@@ -1281,9 +1400,11 @@ function _ttLoad(id){
     var c=(lines[i]&&lines[i].length>=2)?lines[i]:[[a.lng,a.lat],[b.lng,b.lat]];
     var mode=_TT.speeds[l.mode]?l.mode:_TT.defaultMode;
     var km=_ttLineKm(c);
+    var walk=!_ttIsFly(mode),sf=l.slope_factor||1,tc={};
+    if(l.path==="terrain"&&walk)tc[_ttSlopeKey(mode)]={coords:c,km:km,slope:sf};
     _ttLegs.push({mode:mode,path:l.path,coords:c,km:km,
-      roadCache:(l.path==="road"&&!_ttIsFly(mode))?{coords:c,km:km}:null,
-      state:"ok",note:"",pathKeep:null,slope:l.slope_factor||1,tok:0});});
+      roadCache:(l.path==="road"&&walk)?{coords:c,km:km}:null,terrainCache:tc,progress:"",
+      state:"ok",note:"",pathKeep:null,slope:sf,tok:0});});
   // A stop tied to a location follows it: if the location moved since the
   // journey was saved, snap the stop to it and redo the legs on either side.
   var moved=[],gone=[];
@@ -1312,7 +1433,7 @@ function _ttSave(asNew){
   var nameEl=_ttEl("tt-name"),name=(nameEl.value||"").trim();
   if(!name){_ttSay("Name the journey first.");nameEl.focus();return;}
   if(_ttLegs.some(function(l){return l.state==="fetching";})){
-    _ttSay("Road routing is still running. Save when the legs have finished.");return;}
+    _ttSay("Routing is still running. Save when the legs have finished.");return;}
   var upd=_ttJid&&!asNew;
   var body={name:name,visibility:_ttEl("tt-vis").value,
     stops:_ttStops.map(function(s){
@@ -2294,6 +2415,19 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
     # fmt: on
 
 
+TERRAIN_WORKER_PATH = Path(__file__).resolve().parent / "terrain_path.js"
+
+
+def _terrain_worker_literal() -> str:
+    """terrain_path.js as a JS string literal that is safe inside a <script> tag.
+
+    The Workshop builds the Web Worker from this source via a Blob URL, so the
+    page stays a single file with no worker asset to serve.
+    """
+    src = TERRAIN_WORKER_PATH.read_text(encoding="utf-8")
+    return json.dumps(src).replace("</", "<\\/").replace("<!--", "<\\!--")
+
+
 def _build_html(
     loc_geojson: dict,
     routes_geojson: dict,
@@ -2316,6 +2450,7 @@ def _build_html(
         f"var _locGJ = {json.dumps(loc_geojson)};\n"
         f"var _routeGJ = {json.dumps(routes_geojson)};\n"
         f"var _TT = {travel_time.tt_json()};\n"
+        f"var _TERRAIN_SRC = {_terrain_worker_literal()};\n"
         f"var _JRN = {journeys.config_json()};\n"
         f"var _journeyGJ = {json.dumps(journeys_geojson)};\n"
         f"var _jrnInfo = {json.dumps(journey_info)};\n"

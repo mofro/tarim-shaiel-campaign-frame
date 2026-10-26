@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "utilities" / "world"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "utilities"))
 
 import generate_map_workshop as gmw
-from shared import map_style, route_visibility, travel_time
+from shared import journeys, map_style, route_visibility, travel_time
 
 A = (70.0, 40.0)
 B = (71.0, 40.0)   # ~85 km east of A at this latitude
@@ -130,6 +130,55 @@ def test_travel_presets_come_from_the_shared_table():
 def test_workshop_embeds_the_speed_table():
     src = inspect.getsource(gmw._build_html)
     assert "var _TT = {travel_time.tt_json()}" in src
+
+
+# --- terrain paths (#312) ------------------------------------------------------
+
+def _empty_workshop_html():
+    empty = {"type": "FeatureCollection", "features": []}
+    return gmw._build_html(empty, empty, empty, [], [], "", "k")
+
+
+def test_terrain_path_option_is_enabled():
+    html = gmw._build_panel_travel_time()
+    assert "Phase E" not in html and "needs Phase" not in html
+    for path in journeys.LEG_PATHS:
+        assert f'value="{path}"' in html
+    assert re.search(r'<option value="terrain"(?![^>]*disabled)', html)
+
+
+def test_terrain_worker_literal_round_trips_and_is_script_safe():
+    lit = gmw._terrain_worker_literal()
+    assert "</" not in lit and "<!--" not in lit
+    src = gmw.TERRAIN_WORKER_PATH.read_text(encoding="utf-8")
+    assert json.loads(lit.replace("<\\/", "</").replace("<\\!--", "<!--")) == src
+
+
+def test_workshop_page_embeds_the_worker_source_and_terrain_config():
+    html = _empty_workshop_html()
+    assert "var _TERRAIN_SRC = " in html
+    assert "function routeLeg" in html  # the worker source itself
+    assert html.count("</script>") == html.count("<script"), "worker source must not close the script tag"
+    assert '"terrain":{"maxSlope"' in html
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="node not installed")
+def test_whole_workshop_script_parses_with_the_worker_embedded(tmp_path):
+    html = _empty_workshop_html()
+    scripts = re.findall(r"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", html, flags=re.S)
+    assert scripts
+    for i, body in enumerate(scripts):
+        out = tmp_path / f"s{i}.js"
+        out.write_text(body, encoding="utf-8")
+        r = subprocess.run(["node", "--check", str(out)], capture_output=True, text=True)
+        assert r.returncode == 0, f"script {i}: {r.stderr}"
+
+
+def test_terrain_legs_are_routed_off_the_main_thread():
+    js = gmw._build_app_js("https://example.test/style.json", "", "")
+    assert "new Worker(" in js and "_TERRAIN_SRC" in js
+    assert 'type:"route"' in js
+    assert "tt-leg-cancel" in js  # a running terrain leg can be cancelled
 
 
 def test_hidden_routes_are_dimmed_only_when_asked():
