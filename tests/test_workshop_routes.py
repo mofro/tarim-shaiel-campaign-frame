@@ -124,7 +124,7 @@ def test_travel_presets_come_from_the_shared_table():
     for mode, spec in travel_time.SPEEDS.items():
         assert f'data-mode="{mode}" data-kpd="{spec["kmpd"]}" data-fly="{1 if spec["fly"] else 0}"' in html
     assert "__TT_" not in html
-    assert f'value="{travel_time.SPEEDS[travel_time.DEFAULT_MODE]["kmpd"]}"' in html
+    assert f'class="tt-preset active" data-mode="{travel_time.DEFAULT_MODE}"' in html
 
 
 def test_workshop_embeds_the_speed_table():

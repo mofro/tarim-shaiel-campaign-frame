@@ -27,11 +27,12 @@ from locations.categories import CATEGORIES
 from locations.location_parser import load_all_locations
 from locations.map_icons import icon_registration_js
 from locations.location_components import MAPTILER_STYLE_URL, MAPTILER_KEY, MAPTILER_STYLE_ID
-from shared import map_style, route_visibility, travel_time
+from shared import journeys, map_style, route_visibility, travel_time
 
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 ROUTES_PATH   = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
 REGIONS_PATH  = VAULT_ROOT / "world" / "data" / "tarim-shaiel-regions.geojson"
+JOURNEYS_PATH = VAULT_ROOT / "world" / "data" / "tarim-shaiel-journeys.geojson"
 OUTPUT_PATH   = VAULT_ROOT / "map-workshop.html"
 PLAYER_PATH   = VAULT_ROOT / "player-map.html"
 
@@ -453,12 +454,8 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .tt-preset:hover { color:#c8a84a; border-color:rgba(184,146,44,0.45); }
 .tt-preset.active { background:#0a0805; color:#e8dcc4; border-color:rgba(184,146,44,0.45);
   font-weight:bold; }
-.tt-kpd-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-.tt-kpd-row label { font-size:11px; color:#8a7a5a; }
-#tt-kpd { width:64px; background:#1a1408; border:1px solid rgba(184,146,44,0.25);
-  color:#c8b87a; padding:3px 6px; border-radius:2px; font-size:12px; }
-.tt-roads-lbl { display:flex; align-items:center; gap:4px; margin-left:auto;
-  font-size:11px; color:#8a7a5a; cursor:pointer; }
+.tt-state { font-size:11px; color:#8a7a5a; margin-bottom:6px; min-height:14px; }
+.tt-state b { color:#e8a060; font-weight:normal; }
 .tt-stops-list { display:flex; flex-direction:column; gap:0; }
 .tt-stop-row { display:flex; align-items:center; gap:6px; padding:4px 6px;
   background:#1a1408; border-radius:3px; border:1px solid rgba(184,146,44,0.12);
@@ -471,13 +468,30 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .tt-stop-rm { background:none; border:none; color:#5a4a30; cursor:pointer;
   font-size:11px; padding:0 2px; line-height:1; flex-shrink:0; }
 .tt-stop-rm:hover { color:#e8a060; }
-.tt-seg-row { padding:3px 6px 3px 30px; font-size:11px;
-  display:grid; grid-template-columns:1fr 1fr; gap:2px; color:#7a6a50; }
-.tt-seg-row.fetching { opacity:0.5; font-style:italic; }
-.tt-seg-s { color:#8a7a5a; }
-.tt-seg-r { color:#c8a84a; }
+.tt-leg-row { padding:3px 6px 3px 30px; font-size:11px; display:grid;
+  grid-template-columns:auto auto 1fr; gap:4px; align-items:center; color:#7a6a50; }
+.tt-leg-row select { background:#1a1408; border:1px solid rgba(184,146,44,0.25);
+  color:#c8b87a; padding:2px 3px; border-radius:2px; font-size:11px; min-width:0; }
+.tt-leg-row select option { background:#1a1410; }
+.tt-leg-row select option:disabled { color:#5a4a30; }
+.tt-leg-res { color:#c8a84a; text-align:right; white-space:nowrap; overflow:hidden;
+  text-overflow:ellipsis; }
+.tt-leg-row.fetching .tt-leg-res { opacity:0.55; font-style:italic; }
+.tt-leg-row.fallback .tt-leg-res { color:#e8a060; }
 .tt-totals { border-top:1px solid rgba(184,146,44,0.18); padding:6px 0 0;
   display:grid; grid-template-columns:60px 1fr 1fr; gap:3px; font-size:11px; }
+.tt-saved { display:flex; flex-direction:column; gap:2px; }
+.tt-saved-row { display:flex; align-items:center; gap:6px; padding:3px 6px;
+  background:#1a1408; border:1px solid rgba(184,146,44,0.12); border-radius:3px;
+  font-size:11px; color:#c8b87a; }
+.tt-saved-row.current { border-color:rgba(232,160,96,0.55); }
+.tt-saved-name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tt-saved-meta { color:#7a6a50; font-size:10px; white-space:nowrap; }
+.tt-saved-meta.gm { color:#8a6a40; }
+.tt-saved-row button { background:none; border:1px solid rgba(184,146,44,0.25); color:#8a7a5a;
+  border-radius:2px; cursor:pointer; font-size:10px; padding:1px 5px; }
+.tt-saved-row button:hover { color:#e8dcc4; border-color:rgba(184,146,44,0.55); }
+.tt-saved-row button.armed { color:#e8a060; border-color:#b83c3c; }
 .tt-tot-lbl { color:#7a6a50; padding-top:2px; }
 .tt-tot-v { color:#c8b87a; font-family:monospace; }
 .tt-tot-t { color:#e8dcc4; font-weight:bold; }
@@ -696,35 +710,55 @@ def _tt_presets_html() -> str:
 
 def _build_panel_travel_time() -> str:
     html = """
-<p class="hint" style="color:#7a6a50;margin-bottom:6px;">Click map or a location to add stops. Drag markers to reposition.</p>
+<p class="hint" style="color:#7a6a50;margin-bottom:6px;">Click map or a location to add stops. Drag markers to reposition. Every leg has its own mode and path.</p>
+<div id="tt-state" class="tt-state"></div>
 <div id="tt-stops-list" class="tt-stops-list"></div>
 <div id="tt-totals" class="tt-totals" hidden>
-  <span class="tt-tot-lbl">Straight</span>
-  <span class="tt-tot-v" id="tt-tot-s-dist">—</span>
-  <span class="tt-tot-t" id="tt-tot-s-time">—</span>
-  <span class="tt-tot-lbl">Road</span>
-  <span class="tt-tot-v" id="tt-tot-r-dist">—</span>
-  <span class="tt-tot-t" id="tt-tot-r-time">—</span>
+  <span class="tt-tot-lbl">Total</span>
+  <span class="tt-tot-v" id="tt-tot-dist">—</span>
+  <span class="tt-tot-t" id="tt-tot-time">—</span>
 </div>
 <div class="field-group" style="margin-top:8px;">
-  <label>Mode</label>
+  <label>Mode for new legs / all legs</label>
   <div class="tt-presets">
     __TT_PRESETS__
   </div>
+  <select id="tt-all-path">
+    <option value="">Path: keep each leg's own</option>
+    __TT_PATH_OPTS__
+  </select>
 </div>
-<div class="tt-kpd-row" style="margin-top:6px;">
-  <label for="tt-kpd">km/day</label>
-  <input id="tt-kpd" type="number" min="1" max="9999" value="__TT_DEFAULT_KPD__">
-  <label class="tt-roads-lbl"><input type="checkbox" id="tt-roads-cb" checked style="accent-color:#b8922c;"> Follow roads</label>
+<div class="field-group" style="margin-top:8px;">
+  <label for="tt-name">Journey name</label>
+  <input id="tt-name" type="text" maxlength="__TT_MAX_NAME__" placeholder="e.g. Spring caravan to Merv" autocomplete="off">
+</div>
+<div class="field-group" style="margin-top:6px;">
+  <label for="tt-vis">Visible to players</label>
+  <select id="tt-vis">
+    <option value="gm_secrets">GM only</option>
+    <option value="public">Players (once every stop is public)</option>
+  </select>
 </div>
 <div class="btn-row" style="margin-top:8px;">
+  <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
+  <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
 </div>
 <p id="tt-status" class="hint" style="margin-top:4px;min-height:14px;"></p>
+<div class="field-group" style="margin-top:10px;">
+  <label>Saved journeys</label>
+  <div id="tt-saved" class="tt-saved"></div>
+</div>
+<p class="hint" style="color:#5a4a30;margin-top:8px;">Saved to <code>world/data/tarim-shaiel-journeys.geojson</code> via the devserver. Time is computed from length, mode and path; it is never stored.</p>
 """
-    default_kpd = travel_time.SPEEDS[travel_time.DEFAULT_MODE]["kmpd"]
+    path_opts = "\n    ".join(
+        f'<option value="{p}"{" disabled" if p == "terrain" else ""}>'
+        f'{p.capitalize()}{" (needs Phase E)" if p == "terrain" else ""}</option>'
+        for p in journeys.LEG_PATHS
+    )
     return (html.replace("__TT_PRESETS__", _tt_presets_html())
-                .replace("__TT_DEFAULT_KPD__", str(default_kpd)))
+                .replace("__TT_PATH_OPTS__", path_opts)
+                .replace("__TT_MAX_NAME__", str(journeys.MAX_NAME)))
 
 
 # Reveal tab: stage GM-only locations, then apply them together. Earmarks live in
@@ -912,6 +946,470 @@ document.getElementById("rv-confirm-no").addEventListener("click",function(){
 _rvLoad();
 _rvReady=true;
 _rvRefresh();
+"""
+
+
+# Travel tab: every leg between two stops carries its own mode and path; whole
+# journeys save through the devserver (/api/journeys). Time is never stored, only
+# computed from km, mode and path with the same table as shared/travel_time.py.
+# Raw string like _REVEAL_JS; it is spliced into _build_app_js after the search box.
+_TRAVEL_JS = r"""
+var _ttStops=[];
+var _ttLegs=[];
+var _ttMarkers=[];
+var _ttDefMode=_TT.defaultMode,_ttDefPath=_TT.defaultPath;
+var _ttJid=null,_ttDirty=false,_ttSeq=0,_ttArmed=null,_ttArmTimer=null;
+var _ttColors=["#3a6a3a","#3a4a8a","#7a3a3a","#6a5a20","#4a2a7a","#206a60","#7a4a20"];
+
+function _ttEl(id){return document.getElementById(id);}
+function _ttEsc(s){
+  return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function _ttSay(msg){var e=_ttEl("tt-status");if(e)e.textContent=msg||"";}
+function _ttIsFly(m){var s=_TT.speeds[m];return !!(s&&s.fly);}
+function _ttMarkDirty(){_ttDirty=true;}
+
+// Same arithmetic as travel_time.segment_hours: fliers ignore the path factor.
+function _ttHours(leg){
+  var s=_TT.speeds[leg.mode];
+  if(!s||!(leg.km>0))return 0;
+  var pf=s.fly?1:(_TT.path[leg.path]||1);
+  var kmph=s.kmpd/_TT.hours*pf*(leg.slope||1);
+  return kmph>0?leg.km/kmph:0;
+}
+// Same wording as travel_time.format_duration: a day is _TT.hours of marching.
+function _ttFmt(h){
+  if(!(h>0))return "0 days";
+  var d=h/_TT.hours;
+  if(d<1)return Math.round(h)+" h";
+  return (d<10?d.toFixed(1):Math.round(d))+" days";}
+function _ttKm(km){return (km<10?km.toFixed(1):km.toFixed(0))+" km";}
+function _ttLineKm(c){
+  var k=0;
+  for(var i=1;i<c.length;i++)k+=_haversineKm(c[i-1][0],c[i-1][1],c[i][0],c[i][1]);
+  return k;}
+
+function _ttPinEl(n,color){
+  var el=document.createElement("div");
+  el.className="tt-map-pin";el.textContent=n;el.style.background=color;
+  return el;}
+
+function _ttArm(token){
+  _ttArmed=token;
+  clearTimeout(_ttArmTimer);
+  _ttArmTimer=setTimeout(function(){_ttArmed=null;_ttRenderSaved();},4000);
+  _ttRenderSaved();}
+function _ttDisarm(){_ttArmed=null;clearTimeout(_ttArmTimer);}
+
+function _ttFind(id){
+  var fs=_journeyGJ.features;
+  for(var i=0;i<fs.length;i++){if(fs[i].id===id)return fs[i];}
+  return null;}
+
+// -- Legs ---------------------------------------------------------------
+function _ttNewLeg(prev){
+  return {mode:prev?prev.mode:_ttDefMode,path:prev?prev.path:_ttDefPath,
+    coords:[],km:0,roadCache:null,state:"ok",note:"",pathKeep:prev?prev.pathKeep:null,
+    slope:1,tok:0};}
+
+// Set a leg's mode. Fliers are always straight; the path is remembered and
+// restored when the mode goes back to a walker. True when the path changed.
+function _ttApplyMode(leg,mode){
+  var wasFly=_ttIsFly(leg.mode),fly=_ttIsFly(mode),old=leg.path;
+  leg.mode=mode;
+  if(fly&&!wasFly){leg.pathKeep=leg.path;leg.path="straight";}
+  else if(!fly&&wasFly){leg.path=leg.pathKeep||_ttDefPath;leg.pathKeep=null;}
+  return leg.path!==old;}
+
+function _ttRoadFailed(leg){
+  var i=_ttLegs.indexOf(leg);
+  if(i<0)return;
+  var a=_ttStops[i],b=_ttStops[i+1];
+  leg.path="straight";leg.state="ok";
+  leg.coords=[[a.lng,a.lat],[b.lng,b.lat]];leg.km=_ttLineKm(leg.coords);
+  leg.note="road routing unavailable, straight line used";
+  _ttSay("Leg "+(i+1)+": road routing is unavailable, so it falls back to a straight line.");}
+
+function _ttFetchRoad(leg,a,b,tok){
+  var url="https://router.project-osrm.org/route/v1/foot/"+a.lng+","+a.lat+";"+b.lng+","+b.lat+
+    "?geometries=geojson&overview=full";
+  fetch(url).then(function(r){return r.json();}).then(function(d){
+    if(leg.tok!==tok||_ttLegs.indexOf(leg)<0)return;
+    if(d.code==="Ok"&&d.routes&&d.routes.length){
+      leg.roadCache={coords:d.routes[0].geometry.coordinates,km:d.routes[0].distance/1000};
+      leg.coords=leg.roadCache.coords;leg.km=leg.roadCache.km;leg.state="ok";
+    }else{_ttRoadFailed(leg);}
+    _ttRender();
+  }).catch(function(){
+    if(leg.tok!==tok||_ttLegs.indexOf(leg)<0)return;
+    _ttRoadFailed(leg);_ttRender();});}
+
+// Rebuild one leg's geometry from its stops, mode and path. Road legs reuse the
+// cached route when there is one; otherwise they show a straight line while the
+// request runs, so a mode change never triggers a request on its own.
+function _ttSetLegGeom(i){
+  var leg=_ttLegs[i],a=_ttStops[i],b=_ttStops[i+1];
+  if(!leg||!a||!b)return;
+  var tok=++_ttSeq;leg.tok=tok;leg.note="";
+  var straight=[[a.lng,a.lat],[b.lng,b.lat]];
+  if(leg.path==="road"&&!_ttIsFly(leg.mode)){
+    if(leg.roadCache){
+      leg.coords=leg.roadCache.coords;leg.km=leg.roadCache.km;leg.state="ok";
+    }else{
+      leg.coords=straight;leg.km=_ttLineKm(straight);leg.state="fetching";
+      _ttFetchRoad(leg,{lng:a.lng,lat:a.lat},{lng:b.lng,lat:b.lat},tok);}
+  }else{
+    leg.coords=straight;leg.km=_ttLineKm(straight);leg.state="ok";
+    if(leg.path==="terrain")leg.note="terrain routing arrives with Phase E, straight line shown";}
+  _ttRender();}
+
+function _ttRecalc(i){
+  if(!_ttLegs[i])return;
+  _ttLegs[i].roadCache=null;
+  _ttSetLegGeom(i);}
+
+function _ttSetMode(i,mode){
+  var leg=_ttLegs[i];
+  if(!leg||!_TT.speeds[mode])return;
+  var pathChanged=_ttApplyMode(leg,mode);
+  _ttMarkDirty();
+  if(pathChanged)_ttSetLegGeom(i);else _ttRender();}
+
+function _ttSetPath(i,path){
+  var leg=_ttLegs[i];
+  if(!leg||_ttIsFly(leg.mode)||leg.path===path)return;
+  leg.path=path;
+  _ttMarkDirty();
+  _ttSetLegGeom(i);}
+
+// -- Stops --------------------------------------------------------------
+function _ttAddMarker(i){
+  var s=_ttStops[i];
+  var el=_ttPinEl(i+1,_ttColors[i%_ttColors.length]);
+  var mk=new maplibregl.Marker({element:el,draggable:true}).setLngLat([s.lng,s.lat]).addTo(map);
+  mk.on("dragend",function(){
+    var idx=_ttMarkers.indexOf(mk);
+    if(idx<0)return;
+    var p=mk.getLngLat();
+    _ttStops[idx]={lng:p.lng,lat:p.lat,name:p.lat.toFixed(2)+","+p.lng.toFixed(2),slug:null};
+    _ttMarkDirty();
+    if(idx>0)_ttRecalc(idx-1);
+    if(idx<_ttLegs.length)_ttRecalc(idx);
+    _ttRender();});
+  _ttMarkers.push(mk);}
+
+function _ttSetPt(lng,lat,name,slug){
+  if(_ttStops.length>=_JRN.maxStops){_ttSay("A journey can have at most "+_JRN.maxStops+" stops.");return;}
+  var i=_ttStops.length;
+  _ttStops.push({lng:lng,lat:lat,name:name||(lat.toFixed(2)+","+lng.toFixed(2)),slug:slug||null});
+  _ttAddMarker(i);
+  _ttMarkDirty();
+  if(i>0){
+    _ttLegs.push(_ttNewLeg(_ttLegs[i-2]||null));
+    _ttSetLegGeom(i-1);
+  }else{_ttRender();}}
+
+function _ttRemoveStop(i){
+  var n=_ttStops.length;
+  if(i<0||i>=n)return;
+  _ttStops.splice(i,1);
+  _ttMarkers[i].remove();_ttMarkers.splice(i,1);
+  var merged=-1;
+  if(n<=1){_ttLegs=[];}
+  else if(i===0){_ttLegs.shift();}
+  else if(i===n-1){_ttLegs.pop();}
+  else{
+    // an interior stop: its two legs become one, keeping the earlier leg's mode and path
+    _ttLegs.splice(i,1);merged=i-1;}
+  _ttMarkers.forEach(function(mk,j){
+    var el=mk.getElement();
+    if(el){el.textContent=j+1;el.style.background=_ttColors[j%_ttColors.length];}});
+  _ttMarkDirty();
+  if(merged>=0)_ttRecalc(merged);else _ttRender();}
+
+function _ttClear(){
+  _ttMarkers.forEach(function(mk){mk.remove();});
+  _ttStops=[];_ttLegs=[];_ttMarkers=[];
+  _ttJid=null;_ttDirty=false;_ttDisarm();
+  _ttEl("tt-name").value="";_ttEl("tt-vis").value="gm_secrets";
+  _ttSay("");_ttFilterSaved();_ttRender();_ttRenderSaved();}
+
+// -- Rendering ----------------------------------------------------------
+function _ttLegRowHtml(i){
+  var leg=_ttLegs[i];
+  if(!leg)return "";
+  var fly=_ttIsFly(leg.mode),mo="",po="";
+  Object.keys(_TT.speeds).forEach(function(m){
+    mo+='<option value="'+m+'"'+(m===leg.mode?' selected':'')+'>'+_ttEsc(_TT.speeds[m].label)+'</option>';});
+  Object.keys(_TT.path).forEach(function(p){
+    var off=(p==="terrain"&&leg.path!=="terrain");
+    po+='<option value="'+p+'"'+(p===leg.path?' selected':'')+(off?' disabled':'')+'>'+
+      p.charAt(0).toUpperCase()+p.slice(1)+(off?' (Phase E)':'')+'</option>';});
+  var res=leg.state==="fetching"?"fetching road…":
+    (leg.note?"⚠ ":"")+_ttKm(leg.km)+" · "+_ttFmt(_ttHours(leg));
+  return '<div class="tt-leg-row'+(leg.state==="fetching"?' fetching':'')+(leg.note?' fallback':'')+
+    '" data-leg="'+i+'">'+
+    '<select class="tt-leg-mode" title="Mode of travel for this leg">'+mo+'</select>'+
+    '<select class="tt-leg-path" title="Path for this leg"'+(fly?' disabled':'')+'>'+po+'</select>'+
+    '<span class="tt-leg-res" title="'+_ttEsc(leg.note||"")+'">'+res+'</span></div>';}
+
+function _ttUpdateLine(){
+  var src=map.getSource("tt-line");
+  if(!src)return;
+  src.setData({type:"FeatureCollection",features:_ttLegs.filter(function(l){return l.coords.length>=2;})
+    .map(function(l){return {type:"Feature",properties:{},geometry:{type:"LineString",coordinates:l.coords}};})});}
+
+function _ttRenderState(){
+  var st=_ttEl("tt-state");
+  if(!st)return;
+  var f=_ttJid?_ttFind(_ttJid):null;
+  if(_ttJid)st.innerHTML="Editing <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttDirty?" — unsaved changes":"");
+  else if(_ttStops.length)st.textContent="New journey — not saved yet";
+  else st.textContent="New journey — add two or more stops";
+  var busy=_ttLegs.some(function(l){return l.state==="fetching";});
+  var save=_ttEl("tt-save-btn"),as=_ttEl("tt-saveas-btn");
+  save.disabled=_ttStops.length<2||busy;
+  save.textContent=_ttJid?"Save changes":"Save";
+  as.hidden=!_ttJid;as.disabled=save.disabled;}
+
+function _ttRender(){
+  var list=_ttEl("tt-stops-list");
+  if(!list)return;
+  var html="";
+  _ttStops.forEach(function(s,i){
+    html+='<div class="tt-stop-row"><div class="tt-stop-num" style="background:'+
+      _ttColors[i%_ttColors.length]+'">'+(i+1)+'</div>'+
+      '<span class="tt-stop-name">'+_ttEsc(s.name)+'</span>'+
+      '<button class="tt-stop-rm" data-i="'+i+'" title="Remove this stop">✕</button></div>';
+    if(i<_ttStops.length-1)html+=_ttLegRowHtml(i);});
+  list.innerHTML=html;
+  list.querySelectorAll(".tt-stop-rm").forEach(function(b){
+    b.addEventListener("click",function(){_ttRemoveStop(parseInt(b.dataset.i,10));});});
+  list.querySelectorAll(".tt-leg-row").forEach(function(row){
+    var i=parseInt(row.dataset.leg,10);
+    row.querySelector(".tt-leg-mode").addEventListener("change",function(){_ttSetMode(i,this.value);});
+    row.querySelector(".tt-leg-path").addEventListener("change",function(){_ttSetPath(i,this.value);});});
+  var tot=_ttEl("tt-totals"),km=0,h=0,wait=false;
+  if(tot)tot.hidden=_ttStops.length<2;
+  _ttLegs.forEach(function(l){if(l.state==="fetching")wait=true;km+=l.km;h+=_ttHours(l);});
+  _ttEl("tt-tot-dist").textContent=wait?"…":_ttKm(km);
+  _ttEl("tt-tot-time").textContent=wait?"…":_ttFmt(h);
+  _ttEl("tt-clear-btn").hidden=_ttStops.length===0;
+  _ttUpdateLine();
+  _ttRenderState();}
+
+// -- Saved journeys -----------------------------------------------------
+// Mirror of journeys.journey_is_public for the live Workshop dimming only;
+// the player build decides for real when it is rebuilt.
+function _ttApproxPublic(props){
+  if(props.visibility!=="public")return false;
+  var st=props.stops||[];
+  for(var i=0;i<st.length;i++){
+    var s=st[i],near=null,best=1e9;
+    if(s.slug){var L=_locBySlug[s.slug];if(!L||L.visibility==="gm_secrets")return false;}
+    for(var j=0;j<_locList.length;j++){
+      var q=_locList[j];
+      if(q.lat==null||q.lon==null)continue;
+      var d=_haversineKm(s.lng,s.lat,q.lon,q.lat);
+      if(d<best){best=d;near=q;}}
+    if(near&&best<=1.0&&near.visibility==="gm_secrets")return false;}
+  return true;}
+
+function _ttSyncSrc(){
+  var s=map.getSource("journeys");
+  if(s)s.setData(_journeyGJ);}
+
+function _ttFilterSaved(){
+  var flt=["!=",["get","id"],_ttJid||""];
+  ["journeys","journeys-hit"].forEach(function(l){if(map.getLayer(l))map.setFilter(l,flt);});}
+
+function _ttStore(f,popup){
+  f.properties=f.properties||{};
+  f.properties.id=f.id;
+  f.properties._playerVisible=_ttApproxPublic(f.properties);
+  var fs=_journeyGJ.features,k=-1;
+  for(var i=0;i<fs.length;i++){if(fs[i].id===f.id){k=i;break;}}
+  if(k>=0)fs[k]=f;else fs.push(f);
+  _jrnInfo[f.id]=popup;
+  _ttSyncSrc();}
+
+function _ttRenderSaved(){
+  var box=_ttEl("tt-saved");
+  if(!box)return;
+  var fs=_journeyGJ.features.slice().sort(function(a,b){
+    return String(a.properties.name||"").localeCompare(String(b.properties.name||""));});
+  if(!fs.length){box.innerHTML='<span class="hint">No saved journeys yet.</span>';return;}
+  var html="";
+  fs.forEach(function(f){
+    var id=f.id,info=_jrnInfo[id]||{},gm=f.properties.visibility!=="public";
+    var armLoad=_ttArmed==="load:"+id,armDel=_ttArmed==="del:"+id;
+    html+='<div class="tt-saved-row'+(id===_ttJid?' current':'')+'" data-id="'+_ttEsc(id)+'">'+
+      '<span class="tt-saved-name" title="'+_ttEsc(f.properties.name)+'">'+_ttEsc(f.properties.name)+'</span>'+
+      '<span class="tt-saved-meta'+(gm?' gm':'')+'">'+(gm?'GM only':'public')+
+      (info.total?' · '+_ttEsc(info.total):'')+'</span>'+
+      '<button class="tt-load'+(armLoad?' armed':'')+'">'+(armLoad?'Discard &amp; load':'Load')+'</button>'+
+      '<button class="tt-del'+(armDel?' armed':'')+'">'+(armDel?'Confirm?':'Delete')+'</button></div>';});
+  box.innerHTML=html;
+  box.querySelectorAll(".tt-saved-row").forEach(function(row){
+    var id=row.dataset.id;
+    row.querySelector(".tt-load").addEventListener("click",function(){_ttLoad(id);});
+    row.querySelector(".tt-del").addEventListener("click",function(){_ttDelete(id);});});}
+
+function _ttFit(){
+  var pts=[];
+  _ttLegs.forEach(function(l){l.coords.forEach(function(c){pts.push(c);});});
+  if(pts.length<2)return;
+  var b=new maplibregl.LngLatBounds(pts[0],pts[0]);
+  pts.forEach(function(c){b.extend(c);});
+  map.fitBounds(b,{padding:80,maxZoom:9,duration:600});}
+
+function _ttLoad(id){
+  var f=_ttFind(id);
+  if(!f)return;
+  if(_ttDirty&&_ttStops.length&&_ttArmed!=="load:"+id){
+    _ttArm("load:"+id);
+    _ttSay("The working journey has unsaved changes. Click Discard & load to replace it.");
+    return;}
+  _ttDisarm();
+  var p=f.properties,lines=(f.geometry&&f.geometry.coordinates)||[];
+  _ttMarkers.forEach(function(mk){mk.remove();});
+  _ttMarkers=[];_ttStops=[];_ttLegs=[];
+  (p.stops||[]).forEach(function(s){
+    _ttStops.push({lng:s.lng,lat:s.lat,name:s.name,slug:s.slug||null});});
+  (p.legs||[]).forEach(function(l,i){
+    var a=_ttStops[i],b=_ttStops[i+1];
+    var c=(lines[i]&&lines[i].length>=2)?lines[i]:[[a.lng,a.lat],[b.lng,b.lat]];
+    var mode=_TT.speeds[l.mode]?l.mode:_TT.defaultMode;
+    var km=_ttLineKm(c);
+    _ttLegs.push({mode:mode,path:l.path,coords:c,km:km,
+      roadCache:(l.path==="road"&&!_ttIsFly(mode))?{coords:c,km:km}:null,
+      state:"ok",note:"",pathKeep:null,slope:l.slope_factor||1,tok:0});});
+  // A stop tied to a location follows it: if the location moved since the
+  // journey was saved, snap the stop to it and redo the legs on either side.
+  var moved=[],gone=[];
+  _ttStops.forEach(function(s,i){
+    if(!s.slug)return;
+    var L=_locBySlug[s.slug];
+    if(!L||L.lat==null||L.lon==null){gone.push(s.name);return;}
+    if(_haversineKm(s.lng,s.lat,L.lon,L.lat)>_JRN.staleM/1000){s.lng=L.lon;s.lat=L.lat;moved.push(i);}});
+  _ttStops.forEach(function(s,i){_ttAddMarker(i);});
+  var redo={};
+  moved.forEach(function(i){if(i>0)redo[i-1]=1;if(i<_ttLegs.length)redo[i]=1;});
+  _ttJid=id;_ttDirty=moved.length>0;
+  _ttEl("tt-name").value=p.name||"";
+  _ttEl("tt-vis").value=p.visibility==="public"?"public":"gm_secrets";
+  _ttFilterSaved();_ttRender();_ttRenderSaved();
+  Object.keys(redo).forEach(function(k){_ttRecalc(parseInt(k,10));});
+  _ttFit();
+  var msg="Loaded “"+p.name+"”.";
+  if(moved.length)msg+=" "+moved.length+" stop(s) moved since it was saved, so "+Object.keys(redo).length+
+    " leg(s) were recomputed (unsaved).";
+  if(gone.length)msg+=" Location no longer on the map for: "+gone.join(", ")+" (kept at the saved position).";
+  _ttSay(msg);}
+
+function _ttSave(asNew){
+  if(_ttStops.length<2)return;
+  var nameEl=_ttEl("tt-name"),name=(nameEl.value||"").trim();
+  if(!name){_ttSay("Name the journey first.");nameEl.focus();return;}
+  if(_ttLegs.some(function(l){return l.state==="fetching";})){
+    _ttSay("Road routing is still running. Save when the legs have finished.");return;}
+  var upd=_ttJid&&!asNew;
+  var body={name:name,visibility:_ttEl("tt-vis").value,
+    stops:_ttStops.map(function(s){
+      var o={lng:s.lng,lat:s.lat,name:s.name};if(s.slug)o.slug=s.slug;return o;}),
+    legs:_ttLegs.map(function(l){
+      var o={mode:l.mode,path:l.path,coords:l.coords};
+      if(l.slope&&l.slope!==1)o.slope_factor=l.slope;return o;})};
+  fetch(upd?"/api/journeys/"+encodeURIComponent(_ttJid):"/api/journeys",{
+    method:upd?"PUT":"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+  .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+  .then(function(x){
+    if(!x.ok||!x.d.ok){_ttSay((x.d&&x.d.error)||"Save failed.");return;}
+    _ttStore(x.d.journey,x.d.popup);
+    _ttJid=x.d.journey.id;_ttDirty=false;_ttDisarm();
+    _ttFilterSaved();_ttRender();_ttRenderSaved();
+    _ttSay("Saved “"+name+"”.");})
+  .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});}
+
+function _ttDelete(id){
+  var f=_ttFind(id);
+  if(!f)return;
+  if(_ttArmed!=="del:"+id){
+    _ttArm("del:"+id);
+    _ttSay("Click Confirm? to delete “"+f.properties.name+"” permanently.");
+    return;}
+  _ttDisarm();
+  fetch("/api/journeys/"+encodeURIComponent(id),{method:"DELETE"})
+  .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+  .then(function(x){
+    if(!x.ok||!x.d.ok){_ttSay((x.d&&x.d.error)||"Delete failed.");_ttRenderSaved();return;}
+    _journeyGJ.features=_journeyGJ.features.filter(function(g){return g.id!==id;});
+    delete _jrnInfo[id];
+    _ttSyncSrc();
+    if(_ttJid===id){_ttJid=null;_ttDirty=true;}
+    _ttFilterSaved();_ttRender();_ttRenderSaved();
+    _ttSay("Deleted “"+f.properties.name+"”.");})
+  .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});}
+
+// -- Controls -----------------------------------------------------------
+document.querySelectorAll(".tt-preset").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var mode=btn.dataset.mode;
+    document.querySelectorAll(".tt-preset").forEach(function(b){b.classList.toggle("active",b===btn);});
+    _ttDefMode=mode;
+    var redo=[];
+    _ttLegs.forEach(function(leg,i){
+      if(leg.mode===mode)return;
+      if(_ttApplyMode(leg,mode))redo.push(i);
+      _ttMarkDirty();});
+    _ttRender();
+    redo.forEach(_ttSetLegGeom);});});
+
+_ttEl("tt-all-path").addEventListener("change",function(){
+  var p=this.value;
+  this.value="";
+  if(!p)return;
+  _ttDefPath=p;
+  _ttLegs.forEach(function(leg,i){
+    if(_ttIsFly(leg.mode)){leg.pathKeep=p;return;}
+    if(leg.path===p)return;
+    leg.path=p;_ttMarkDirty();_ttSetLegGeom(i);});
+  _ttRender();});
+
+_ttEl("tt-name").addEventListener("input",function(){
+  if(_ttStops.length||_ttJid)_ttMarkDirty();
+  _ttRenderState();});
+
+_ttEl("tt-vis").addEventListener("change",function(){
+  if(!_ttJid)return;
+  var want=this.value,id=_ttJid;
+  fetch("/api/journeys/"+encodeURIComponent(id),{method:"PATCH",
+    headers:{"Content-Type":"application/json"},body:JSON.stringify({visibility:want})})
+  .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+  .then(function(x){
+    if(!x.ok||!x.d.ok){_ttSay((x.d&&x.d.error)||"Could not change visibility.");return;}
+    _ttStore(x.d.journey,x.d.popup);_ttRenderSaved();_ttRenderState();
+    _ttSay(want==="public"?"Marked public. It reaches the player map once every stop is a public location and the maps are rebuilt.":
+      "Marked GM only.");})
+  .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});});
+
+_ttEl("tt-save-btn").addEventListener("click",function(){_ttSave(false);});
+_ttEl("tt-saveas-btn").addEventListener("click",function(){_ttSave(true);});
+_ttEl("tt-clear-btn").addEventListener("click",_ttClear);
+
+var _jrnTog=_ttEl("jrn-toggle");
+if(_jrnTog)_jrnTog.addEventListener("change",function(){
+  var v=this.checked?"visible":"none";
+  ["journeys","journeys-hit"].forEach(function(l){if(map.getLayer(l))map.setLayoutProperty(l,"visibility",v);});});
+
+_ttRender();
+_ttRenderSaved();
+
+fetch("/api/journeys").then(function(r){return r.ok?r.json():null;}).then(function(d){
+  if(!d||!d.features)return;
+  _journeyGJ.features=[];
+  d.features.forEach(function(f){_ttStore(f,(d.popups||{})[f.id]||{});});
+  _ttFilterSaved();_ttRenderSaved();}).catch(function(){});
 """
 
 
@@ -1192,6 +1690,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.addSource("routes",{type:"geojson",data:_routeGJ});\n'
         + map_style.routes_layer_js(dim_hidden=True) +
 
+        # Saved journeys (solid), dimmed while not yet player-visible
+        'map.addSource("journeys",{type:"geojson",data:_journeyGJ});\n'
+        + map_style.journeys_layer_js(dim_hidden=True) +
+
         # Route-selected highlight layer (orange)
         'map.addSource("route-selected",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
         'map.addLayer({id:"route-selected",type:"line",minzoom:4,source:"route-selected",'
@@ -1245,6 +1747,9 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Shared hover popup (title, type, description, GM-only badge), then the
         # Workshop's own click handlers across all location tiers
         + map_style.hover_popup_js(gm_badge=True) +
+        # Journey line popups (same text the player map shows); the working
+        # journey in the Travel tab is drawn separately by tt-line
+        map_style.journey_hover_js() +
         '_locLayerIds.forEach(function(lyr){'
         'map.on("click",lyr,function(e){'
         'var p=e.features[0].properties;'
@@ -1252,7 +1757,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(_activeTab==="travel-time"){'
         'var coords=e.features[0].geometry.coordinates;'
         'var name=p.title||p.label||slug||"";'
-        '_ttSetPt(coords[0],coords[1],name);return;}'
+        '_ttSetPt(coords[0],coords[1],name,slug);return;}'
         'if(!slug)return;'
         'if(_activeTab==="reveal"){_rvToggleFromMap(slug);return;}'
         'if(_activeTab==="plan-route"){_addToQueue(slug);return;}'
@@ -1325,7 +1830,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Apply saved icon-type toggle state after layers are created
         '_rebuildTierFilters();\n'
 
-        # Travel time line overlay (drawn between A and B)
+        # Travel tab working journey: one dashed LineString per leg
         'map.addSource("tt-line",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
         'map.addLayer({id:"tt-line-layer",type:"line",source:"tt-line",'
         'layout:{"line-cap":"round","line-join":"round"},'
@@ -1753,178 +2258,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(!_wsSearchDrop.hidden&&!_wsSearchDrop.contains(e.target)&&e.target!==_wsSearch){'
         '_wsSearchDrop.hidden=true;}});}\n'
 
-        # -- Travel Time (multi-stop) --
-        'var _ttStops=[];\n'   # [{lng,lat,name}]
-        'var _ttMarkers=[];\n' # MapLibre Marker objects
-        'var _ttSegs=[];\n'    # [{s:km, r:km|null, rCoords:[[lng,lat],...] | null}]
-        'var _ttKpd=_TT.speeds[_TT.defaultMode].kmpd,_ttFly=false,_ttRoads=true;\n'
-
-        # Same wording as travel_time.format_duration: a day is _TT.hours of marching.
-        'function _ttFmt(km,kpd){'
-        'var d=km/kpd;'
-        'if(d<1){return Math.round(d*_TT.hours)+" h";}'
-        'return (d<10?d.toFixed(1):Math.round(d))+" days";}\n'
-
-        # Marker pin element
-        'function _ttPinEl(n,color){'
-        'var el=document.createElement("div");'
-        'el.className="tt-map-pin";el.textContent=n;el.style.background=color;'
-        'return el;}\n'
-
-        # Palette for stop markers (cycles)
-        'var _ttColors=["#3a6a3a","#3a4a8a","#7a3a3a","#6a5a20","#4a2a7a","#206a60","#7a4a20"];\n'
-
-        # Rebuild the stop list + segment rows in the panel
-        'function _ttRenderList(){'
-        'var list=document.getElementById("tt-stops-list");'
-        'if(!list)return;'
-        'var html="";'
-        '_ttStops.forEach(function(s,i){'
-        'var bg=_ttColors[i%_ttColors.length];'
-        'html+=\'<div class="tt-stop-row">\'+'
-        '\'<div class="tt-stop-num" style="background:\'+bg+\'">\''
-        '+(i+1)+'
-        '\'</div>\'+'
-        '\'<span class="tt-stop-name">\'+s.name+\'</span>\'+'
-        '\'<button class="tt-stop-rm" data-i="\'+i+\'">✕</button>\'+'
-        '"</div>";'
-        'if(i<_ttStops.length-1){'
-        'var seg=_ttSegs[i];'
-        'if(!seg){'
-        'html+=\'<div class="tt-seg-row fetching"><span>calculating…</span></div>\';'
-        '}else{'
-        'html+=\'<div class="tt-seg-row">\'+'
-        '\'<span class="tt-seg-s">⟶ straight: \'+seg.s.toFixed(0)+" km · "+_ttFmt(seg.s,_ttKpd)+"</span>"+'
-        '(!(_ttFly||!_ttRoads)?'
-        '(seg.r!=null?\'<span class="tt-seg-r">road: \'+seg.r.toFixed(0)+" km · "+_ttFmt(seg.r,_ttKpd)+"</span>":'
-        '\'<span class="tt-seg-r">road: fetching…</span>\'):'
-        '""'
-        ')+'
-        '"</div>";}'
-        '}});'
-        'list.innerHTML=html;'
-        'list.querySelectorAll(".tt-stop-rm").forEach(function(btn){'
-        'btn.addEventListener("click",function(){_ttRemoveStop(parseInt(btn.dataset.i,10));});});'
-        'var tot=document.getElementById("tt-totals");'
-        'if(tot)tot.hidden=_ttStops.length<2;'
-        'var clr=document.getElementById("tt-clear-btn");'
-        'if(clr)clr.hidden=_ttStops.length===0;'
-        '_ttRenderTotals();'
-        '_ttUpdateLine();}\n'
-
-        # Totals row
-        'function _ttRenderTotals(){'
-        'if(_ttStops.length<2)return;'
-        'var ts=0,tr=0,trOk=true;'
-        '_ttSegs.forEach(function(seg,i){if(i<_ttStops.length-1){'
-        'if(seg){ts+=seg.s;if(seg.r!=null)tr+=seg.r;else trOk=false;}'
-        'else{trOk=false;}}});'
-        'var sd=document.getElementById("tt-tot-s-dist");'
-        'var st=document.getElementById("tt-tot-s-time");'
-        'var rd=document.getElementById("tt-tot-r-dist");'
-        'var rt=document.getElementById("tt-tot-r-time");'
-        'if(sd)sd.textContent=ts.toFixed(0)+" km";'
-        'if(st)st.textContent=_ttFmt(ts,_ttKpd);'
-        'if(rd)rd.textContent=(!(_ttFly||!_ttRoads))?(trOk?tr.toFixed(0)+" km":"…"):"—";'
-        'if(rt)rt.textContent=(!(_ttFly||!_ttRoads))?(trOk?_ttFmt(tr,_ttKpd):"…"):"—";}\n'
-
-        # Update the map line from all segment road coords (or straight fallback)
-        'function _ttUpdateLine(){'
-        'if(!map.getSource("tt-line"))return;'
-        'var coords=[];'
-        '_ttStops.forEach(function(s,i){'
-        'if(i===0)return;'
-        'var seg=_ttSegs[i-1];'
-        'if(seg&&seg.rCoords&&!_ttFly&&_ttRoads){'
-        'if(coords.length>0&&seg.rCoords.length>0)'
-        '{coords=coords.concat(seg.rCoords.slice(1));}'
-        'else{coords=seg.rCoords.slice();}}'
-        'else{'
-        'var prev=_ttStops[i-1];'
-        'if(coords.length>0)coords.push([s.lng,s.lat]);'
-        'else coords=[[prev.lng,prev.lat],[s.lng,s.lat]];}});'
-        'map.getSource("tt-line").setData({type:"FeatureCollection",features:'
-        'coords.length>=2?[{type:"Feature",geometry:{type:"LineString",coordinates:coords}}]:[]});}\n'
-
-        # Calculate segment i (haversine immediately; OSRM if applicable)
-        'function _ttCalcSeg(i){'
-        'var a=_ttStops[i],b=_ttStops[i+1];if(!a||!b)return;'
-        'var skm=_haversineKm(a.lng,a.lat,b.lng,b.lat);'
-        '_ttSegs[i]={s:skm,r:null,rCoords:null};'
-        '_ttRenderList();'
-        'if(_ttFly||!_ttRoads){_ttRenderList();return;}'
-        'var url="https://router.project-osrm.org/route/v1/foot/"'
-        '+a.lng+","+a.lat+";"+b.lng+","+b.lat+"?geometries=geojson&overview=full";'
-        'fetch(url).then(function(r){return r.json();})'
-        '.then(function(d){'
-        'if(d.code==="Ok"&&d.routes&&d.routes.length){'
-        '_ttSegs[i].r=d.routes[0].distance/1000;'
-        '_ttSegs[i].rCoords=d.routes[0].geometry.coordinates;}'
-        '_ttRenderList();}).catch(function(){_ttRenderList();});}\n'
-
-        # Add a stop
-        'function _ttSetPt(lng,lat,name){'
-        'var i=_ttStops.length;'
-        'var lbl=lat.toFixed(2)+","+lng.toFixed(2);'
-        '_ttStops.push({lng:lng,lat:lat,name:name||lbl});'
-        'var color=_ttColors[i%_ttColors.length];'
-        'var el=_ttPinEl(i+1,color);'
-        'var mk=new maplibregl.Marker({element:el,draggable:true}).setLngLat([lng,lat]).addTo(map);'
-        '(function(idx){'
-        'mk.on("dragend",function(){'
-        'var p=mk.getLngLat();'
-        '_ttStops[idx]={lng:p.lng,lat:p.lat,name:p.lat.toFixed(2)+","+p.lng.toFixed(2)};'
-        'if(idx>0)_ttCalcSeg(idx-1);'
-        'if(idx<_ttStops.length-1)_ttCalcSeg(idx);'
-        '_ttRenderList();});'
-        '})(i);'
-        '_ttMarkers.push(mk);'
-        'if(i>0)_ttCalcSeg(i-1);'
-        'else _ttRenderList();}\n'
-
-        # Remove a stop by index
-        'function _ttRemoveStop(i){'
-        '_ttStops.splice(i,1);'
-        'if(_ttMarkers[i]){_ttMarkers[i].remove();}'
-        '_ttMarkers.splice(i,1);'
-        '_ttSegs=[];'
-        # Renumber marker elements
-        '_ttMarkers.forEach(function(mk,j){'
-        'var el=mk.getElement();'
-        'if(el){el.textContent=j+1;el.style.background=_ttColors[j%_ttColors.length];}});'
-        # Recalculate all segments
-        'for(var j=0;j<_ttStops.length-1;j++)_ttCalcSeg(j);'
-        '_ttRenderList();}\n'
-
-        # Clear all
-        'document.getElementById("tt-clear-btn").addEventListener("click",function(){'
-        '_ttMarkers.forEach(function(mk){mk.remove();});'
-        '_ttStops=[];_ttMarkers=[];_ttSegs=[];'
-        '_ttRenderList();'
-        'if(map.getSource("tt-line"))map.getSource("tt-line").setData({type:"FeatureCollection",features:[]});'
-        '});\n'
-
-        # Preset buttons
-        'document.querySelectorAll(".tt-preset").forEach(function(btn){'
-        'btn.addEventListener("click",function(){'
-        'document.querySelectorAll(".tt-preset").forEach(function(b){b.classList.remove("active");});'
-        'btn.classList.add("active");'
-        '_ttKpd=parseInt(btn.dataset.kpd,10);'
-        '_ttFly=btn.dataset.fly==="1";'
-        'document.getElementById("tt-kpd").value=_ttKpd;'
-        'var cb=document.getElementById("tt-roads-cb");'
-        'cb.disabled=_ttFly;'
-        '_ttRoads=!_ttFly&&cb.checked;'
-        # Recalc all when mode changes
-        '_ttSegs=[];'
-        'for(var j=0;j<_ttStops.length-1;j++)_ttCalcSeg(j);'
-        '_ttRenderList();});});\n'
-        'document.getElementById("tt-kpd").addEventListener("input",function(){'
-        'var v=parseInt(this.value,10);if(v>0){_ttKpd=v;_ttRenderList();}});\n'
-        'document.getElementById("tt-roads-cb").addEventListener("change",function(){'
-        '_ttRoads=this.checked;_ttSegs=[];'
-        'for(var j=0;j<_ttStops.length-1;j++)_ttCalcSeg(j);'
-        '_ttRenderList();});\n'
+        # -- Travel tab: per-leg mode/path, saved journeys --
+        + _TRAVEL_JS +
 
         # GM position broadcast (debounced moveend → POST /api/map-center)
         'var _mapCenterTimer=null;\n'
@@ -1967,7 +2302,11 @@ def _build_html(
     loc_list: list,
     route_index_html: str,
     maptiler_key: str,
+    journeys_geojson: dict | None = None,
+    journey_info: dict | None = None,
 ) -> str:
+    journeys_geojson = journeys_geojson or {"type": "FeatureCollection", "features": []}
+    journey_info = journey_info or {}
     style_url = (
         f"https://api.maptiler.com/maps/{MAPTILER_STYLE_ID}/style.json?key={maptiler_key}"
     )
@@ -1977,6 +2316,9 @@ def _build_html(
         f"var _locGJ = {json.dumps(loc_geojson)};\n"
         f"var _routeGJ = {json.dumps(routes_geojson)};\n"
         f"var _TT = {travel_time.tt_json()};\n"
+        f"var _JRN = {journeys.config_json()};\n"
+        f"var _journeyGJ = {json.dumps(journeys_geojson)};\n"
+        f"var _jrnInfo = {json.dumps(journey_info)};\n"
         f"var _regionGJ = {json.dumps(regions_geojson)};\n"
         f"var _locList = {json.dumps(loc_list)};\n"
         f"var _regionList = {json.dumps(region_names)};\n"
@@ -2026,6 +2368,7 @@ def _build_html(
         '            <input type="range" id="topo-opacity" min="0" max="100" value="55" title="Opacity"></label>\n'
         '          <label><input type="checkbox" id="sat-toggle"> Satellite Plain\n'
         '            <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity"></label>\n'
+        '          <label><input type="checkbox" id="jrn-toggle" checked> Saved journeys</label>\n'
         '          <hr>\n'
         '          <div class="it-heading">Locations</div>\n'
         '          <div class="it-grid">\n'
@@ -2118,7 +2461,11 @@ def _build_player_html(
     loc_geojson: dict,
     routes_geojson: dict,
     maptiler_key: str,
+    journeys_geojson: dict | None = None,
+    journey_info: dict | None = None,
 ) -> str:
+    journeys_geojson = journeys_geojson or {"type": "FeatureCollection", "features": []}
+    journey_info = journey_info or {}
     style_url = (
         f"https://api.maptiler.com/maps/{MAPTILER_STYLE_ID}/style.json?key={maptiler_key}"
     )
@@ -2126,6 +2473,8 @@ def _build_player_html(
     data_js = (
         f"var _locGJ = {json.dumps(loc_geojson)};\n"
         f"var _routeGJ = {json.dumps(routes_geojson)};\n"
+        f"var _journeyGJ = {json.dumps(journeys_geojson)};\n"
+        f"var _jrnInfo = {json.dumps(journey_info)};\n"
     )
 
     proxy_style_path = f"/api/maptiler-proxy?url={urllib.parse.quote(style_url, safe='')}"
@@ -2162,7 +2511,12 @@ def _build_player_html(
         "  map.addSource('routes', {type:'geojson', data: _routeGJ});\n"
         + map_style.routes_layer_js()
         + "\n"
+        "  map.addSource('journeys', {type:'geojson', data: _journeyGJ});\n"
+        + map_style.journeys_layer_js()
+        + "\n"
         + map_style.hover_popup_js(gm_badge=False, tap_to_open=True)
+        + "\n"
+        + map_style.journey_hover_js(tap_to_open=True)
         + "\n"
         "  _startPolling();\n"
         "});\n"
@@ -2309,6 +2663,14 @@ def main() -> int:
     route_index = _build_route_index(workshop_routes)
     ri_html = _route_index_html(route_index)
 
+    # Journeys follow the same split: the Workshop gets every journey with its full
+    # stops/legs (for editing) flagged _playerVisible; players get name + geometry of
+    # the journeys journey_is_public lets through, judged against ALL locations.
+    journeys_gj = journeys.load(JOURNEYS_PATH)
+    workshop_journeys = journeys.annotate_player_visible(journeys_gj, loc_geojson)
+    _, workshop_jrn_info = journeys.gm_payload(journeys_gj)
+    player_jrn_gj, player_jrn_info = journeys.player_payload(journeys_gj, loc_geojson)
+
     html = _build_html(
         loc_geojson=loc_geojson,
         routes_geojson=workshop_routes,
@@ -2317,6 +2679,8 @@ def main() -> int:
         loc_list=loc_list,
         route_index_html=ri_html,
         maptiler_key=MAPTILER_KEY,
+        journeys_geojson=workshop_journeys,
+        journey_info=workshop_jrn_info,
     )
 
     OUTPUT_PATH.write_text(html, encoding="utf-8")
@@ -2329,10 +2693,13 @@ def main() -> int:
         loc_geojson=pub_geojson,
         routes_geojson=player_routes,
         maptiler_key=MAPTILER_KEY,
+        journeys_geojson=player_jrn_gj,
+        journey_info=player_jrn_info,
     )
     PLAYER_PATH.write_text(player_html, encoding="utf-8")
     print(f"  Written: {PLAYER_PATH.name}  ({len(public_features)} public locations, "
-          f"{len(player_routes['features'])} of {len(routes_geojson.get('features', []))} routes)")
+          f"{len(player_routes['features'])} of {len(routes_geojson.get('features', []))} routes, "
+          f"{len(player_jrn_gj['features'])} of {len(journeys_gj['features'])} journeys)")
     print(f"  Run:     open {OUTPUT_PATH.name}")
     return 0
 

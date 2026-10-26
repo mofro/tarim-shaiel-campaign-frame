@@ -50,6 +50,7 @@ from locations.location_components import (
 from locations.map_icons import icon_registration_js
 from locations.categories import build_icon_match_js
 from shared import map_style, route_visibility
+from shared import journeys as journeys_mod
 from shared.renderer import render_page
 from shared.html_render import render_body
 
@@ -61,6 +62,7 @@ _LOCATIONS_GEOJSON  = _DATA_DIR / "tarim-shaiel-locations.geojson"
 _ROUTES_GEOJSON     = _DATA_DIR / "tarim-shaiel-routes.geojson"
 _REGIONS_GEOJSON    = _DATA_DIR / "tarim-shaiel-regions.geojson"
 _WAYSTATIONS_GEOJSON = _DATA_DIR / "tarim-shaiel-waystations.geojson"
+_JOURNEYS_GEOJSON   = _DATA_DIR / "tarim-shaiel-journeys.geojson"
 
 _GM_PAGE_BANNER = (
     '<div class="gm-page-banner">'
@@ -333,8 +335,13 @@ def _build_world_map_html(
     waystations_geojson: dict | None = None,
     gm_mode: bool = False,
     show_locations: bool = False,
+    journeys: tuple | None = None,
 ) -> str:
-    """Build the full-page Leaflet map for world.html."""
+    """Build the full-page Leaflet map for world.html.
+
+    `journeys` is (FeatureCollection, {id: popup_info}) from shared.journeys,
+    already filtered for the audience.
+    """
 
     # Build location popup data keyed by slug
     popup_map: dict[str, dict] = {}
@@ -358,6 +365,13 @@ def _build_world_map_html(
         data_js += f'var _routeGJ = {json.dumps(routes_geojson)};\n'
         sources_js += 'map.addSource("routes", {type:"geojson", data:_routeGJ});\n'
         layers_js += map_style.routes_layer_js()
+    journeys_js = ''
+    if journeys and journeys[0].get('features'):
+        data_js += f'var _jrnGJ = {json.dumps(journeys[0])};\nvar _jrnInfo = {json.dumps(journeys[1])};\n'
+        sources_js += 'map.addSource("journeys", {type:"geojson", data:_jrnGJ});\n'
+        layers_js += map_style.journeys_layer_js()
+        # Handlers go after every layer exists, so the location-layer test sees them.
+        journeys_js = map_style.journey_hover_js(tap_to_open=True)
     if waystations_geojson:
         data_js += f'var _waystationGJ = {json.dumps(waystations_geojson)};\n'
         sources_js += 'map.addSource("waystations", {type:"geojson", data:_waystationGJ});\n'
@@ -449,6 +463,7 @@ def _build_world_map_html(
   map.on('load', function() {{
     {sources_js}
     {layers_js}
+    {journeys_js}
   }});
 }})();
 </script>
@@ -466,6 +481,7 @@ def _build_location_page(
     routes_geojson: dict | None,
     waystations_geojson: dict | None,
     gm_mode: bool,
+    journeys: tuple | None = None,
 ) -> str:
     region = regions.get(loc['parent_region']) if loc['parent_region'] else None
     revealed = set(loc['gm_revealed'])
@@ -478,7 +494,8 @@ def _build_location_page(
         revealed_ids=revealed,
     )
 
-    mini_map_html = render_mini_map(loc, locations_geojson, routes_geojson, waystations_geojson, zoom=7)
+    mini_map_html = render_mini_map(loc, locations_geojson, routes_geojson, waystations_geojson, zoom=7,
+                                    journeys_geojson=journeys[0] if journeys else None)
     stats_row_html = render_stats_row(loc, region)
     danger_html = render_danger_pips(loc['location_type'])
     faction_html = render_faction_table(loc['factions_visible'])
@@ -522,6 +539,7 @@ def _build_region_page(
     routes_geojson: dict | None,
     waystations_geojson: dict | None,
     gm_mode: bool,
+    journeys: tuple | None = None,
 ) -> str:
     from shared.html_render import render_body as _rb
     body_html, _ = _rb(region['body'], vault=VAULT_ROOT, docs=DOCS_DIR, gm_mode=gm_mode)
@@ -531,7 +549,8 @@ def _build_region_page(
     anchor = next((l for l in region_locations if l['lat'] is not None), None)
     if anchor:
         from locations.location_components import render_mini_map
-        region_map_html = render_mini_map(anchor, locations_geojson, routes_geojson, waystations_geojson, zoom=5)
+        region_map_html = render_mini_map(anchor, locations_geojson, routes_geojson, waystations_geojson, zoom=5,
+                                          journeys_geojson=journeys[0] if journeys else None)
 
     # Location cards
     loc_cards = []
@@ -572,12 +591,13 @@ def _build_world_home(
     regions_geojson: dict | None,
     waystations_geojson: dict | None,
     gm_mode: bool,
+    journeys: tuple | None = None,
 ) -> str:
     world_map_html = _build_world_map_html(
         # Region boundary boxes disabled -- not ready for display yet.
         # Pass regions_geojson through again once they are.
         locations, locations_geojson, routes_geojson, None, waystations_geojson,
-        gm_mode=gm_mode, show_locations=True,
+        gm_mode=gm_mode, show_locations=True, journeys=journeys,
     )
 
     region_list = []
@@ -635,6 +655,14 @@ def generate(
     routes_gj      = _load_geojson(_ROUTES_GEOJSON)
     regions_gj     = _load_geojson(_REGIONS_GEOJSON)
     waystations_gj = _load_geojson(_WAYSTATIONS_GEOJSON)
+    journeys_gj    = _load_geojson(_JOURNEYS_GEOJSON)
+
+    # Journeys, like routes, are judged against the FULL locations set, so a stop
+    # on a hidden town cannot be matched to a public neighbour. GM builds keep all.
+    if public_only:
+        journeys = journeys_mod.player_payload(journeys_gj, locs_gj)
+    else:
+        journeys = journeys_mod.gm_payload(journeys_gj)
 
     # Filter to public-only locations for public builds. Routes are filtered first,
     # against the FULL locations set, so a route ending at a hidden town cannot be
@@ -656,7 +684,8 @@ def generate(
 
     for loc in locations:
         try:
-            html = _build_location_page(loc, regions, locs_gj, routes_gj, waystations_gj, gm_mode)
+            html = _build_location_page(loc, regions, locs_gj, routes_gj, waystations_gj, gm_mode,
+                                        journeys=journeys)
         except Exception as e:
             msg = f"  ERROR building {loc['slug']}: {e}"
             print(msg, file=sys.stderr)
@@ -679,7 +708,8 @@ def generate(
     for slug, region in regions.items():
         region_locs = [l for l in locations if l['parent_region'] == slug]
         try:
-            html = _build_region_page(region, region_locs, locs_gj, routes_gj, waystations_gj, gm_mode)
+            html = _build_region_page(region, region_locs, locs_gj, routes_gj, waystations_gj, gm_mode,
+                                      journeys=journeys)
         except Exception as e:
             msg = f"  ERROR building region {slug}: {e}"
             print(msg, file=sys.stderr)
@@ -697,7 +727,8 @@ def generate(
     # --- World home ---
     try:
         world_html = _build_world_home(
-            locations, regions, locs_gj, routes_gj, regions_gj, waystations_gj, gm_mode
+            locations, regions, locs_gj, routes_gj, regions_gj, waystations_gj, gm_mode,
+            journeys=journeys,
         )
     except Exception as e:
         msg = f"  ERROR building world.html: {e}"

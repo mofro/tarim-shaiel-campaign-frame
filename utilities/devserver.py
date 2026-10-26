@@ -21,6 +21,11 @@ Endpoints:
     DELETE /api/routes/{route_id}             — delete one route by ID
     POST   /api/routes/delete-bulk            — delete multiple routes: {"ids": [...]}
     POST   /api/routes/{route_id}/regenerate  — re-snap one route to roads via OSRM
+    GET    /api/journeys                      — saved travel journeys + their popup text (localhost only)
+    POST   /api/journeys                      — save a new journey (gm_secrets until made public)
+    PUT    /api/journeys/{id}                 — overwrite a journey's name, stops and legs
+    PATCH  /api/journeys/{id}                 — rename a journey or set its visibility
+    DELETE /api/journeys/{id}                 — delete one journey
     POST   /api/rebuild/locations             — run build.py locations
     POST   /api/rebuild/workshop              — run build.py workshop
 """
@@ -40,12 +45,14 @@ SCRIPT_DIR = Path(__file__).parent
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from shared.travel_time import SPEEDS
+from shared import journeys as journeys_mod
 VAULT_ROOT = SCRIPT_DIR.parent
 DOCS_DIR = VAULT_ROOT / "docs"
 WORKSHOP_PATH = VAULT_ROOT / "map-workshop.html"
 PLAYER_PATH = VAULT_ROOT / "player-map.html"
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 ROUTES_PATH = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
+JOURNEYS_PATH = VAULT_ROOT / "world" / "data" / "tarim-shaiel-journeys.geojson"
 DEFAULT_PORT = 8000
 
 # Route properties the Workshop may change, and the values each accepts.
@@ -82,6 +89,53 @@ def _patch_route_props(route_id: str, data: dict) -> "tuple[int, dict]":
     finally:
         tmp.unlink(missing_ok=True)
     return 200, {"ok": True, "id": route_id, "fields": fields}
+
+
+# Journey store calls: each returns (HTTP status, JSON body). The store owns
+# validation and the atomic write; a rejected request never touches the file.
+
+def _journey_body(feat: dict) -> dict:
+    return {"ok": True, "journey": feat, "popup": journeys_mod.popup_info(feat)}
+
+
+def _journey_list() -> "tuple[int, dict]":
+    gj = journeys_mod.load(JOURNEYS_PATH)
+    popups = {f["id"]: journeys_mod.popup_info(f) for f in gj.get("features", [])}
+    return 200, {**gj, "popups": popups}
+
+
+def _journey_create(data) -> "tuple[int, dict]":
+    try:
+        return 201, _journey_body(journeys_mod.create(JOURNEYS_PATH, data))
+    except journeys_mod.JourneyError as e:
+        return 400, {"ok": False, "error": str(e)}
+
+
+def _journey_replace(jid: str, data) -> "tuple[int, dict]":
+    try:
+        feat = journeys_mod.replace(JOURNEYS_PATH, jid, data)
+    except journeys_mod.JourneyError as e:
+        return 400, {"ok": False, "error": str(e)}
+    if feat is None:
+        return 404, {"ok": False, "error": f"journey not found: {jid}"}
+    return 200, _journey_body(feat)
+
+
+def _journey_patch(jid: str, data) -> "tuple[int, dict]":
+    try:
+        feat = journeys_mod.patch(JOURNEYS_PATH, jid, data)
+    except journeys_mod.JourneyError as e:
+        return 400, {"ok": False, "error": str(e)}
+    if feat is None:
+        return 404, {"ok": False, "error": f"journey not found: {jid}"}
+    return 200, _journey_body(feat)
+
+
+def _journey_delete(jid: str) -> "tuple[int, dict]":
+    if not journeys_mod.delete(JOURNEYS_PATH, jid):
+        return 404, {"ok": False, "error": f"journey not found: {jid}"}
+    return 200, {"ok": True, "deleted": jid}
+
 
 # ---------------------------------------------------------------------------
 # Shared state (GIL protects simple assignment; no heavy concurrency needed)
@@ -134,6 +188,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self._serve_player()
         elif self.path == "/api/map-center":
             self._json(_map_center if _map_center else {"lng": None, "lat": None, "zoom": None})
+        elif self.path.split("?")[0].rstrip("/") == "/api/journeys":
+            if not self._is_local():
+                self.send_error(403, "Journeys are only accessible from localhost")
+                return
+            self._respond(*_journey_list())
         elif self.path.startswith("/api/maptiler-proxy"):
             self._maptiler_proxy()
         else:
@@ -146,6 +205,10 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         m = re.match(r"^/api/locations/([^/?]+)/coordinates(?:\?.*)?$", self.path)
         if m:
             self._put_coordinates(m.group(1))
+            return
+        m = re.match(r"^/api/journeys/([^/?]+)(?:\?.*)?$", self.path)
+        if m:
+            self._journey_write(_journey_replace, urllib.parse.unquote(m.group(1)))
         else:
             self.send_error(404)
 
@@ -160,6 +223,10 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         m = re.match(r"^/api/routes/([^/?]+)(?:\?.*)?$", self.path)
         if m:
             self._patch_route(urllib.parse.unquote(m.group(1)))
+            return
+        m = re.match(r"^/api/journeys/([^/?]+)(?:\?.*)?$", self.path)
+        if m:
+            self._journey_write(_journey_patch, urllib.parse.unquote(m.group(1)))
         else:
             self.send_error(404)
 
@@ -170,6 +237,10 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         m = re.match(r"^/api/routes/([^/?]+)(?:\?.*)?$", self.path)
         if m:
             self._delete_route(m.group(1))
+            return
+        m = re.match(r"^/api/journeys/([^/?]+)(?:\?.*)?$", self.path)
+        if m:
+            self._respond(*_journey_delete(urllib.parse.unquote(m.group(1))))
         else:
             self.send_error(404)
 
@@ -184,6 +255,8 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             return
         if self.path == "/api/locations/create":
             self._create_location()
+        elif self.path.split("?")[0].rstrip("/") == "/api/journeys":
+            self._journey_write(_journey_create)
         elif self.path == "/api/routes/add":
             self._add_route()
         elif self.path == "/api/routes/delete-bulk":
@@ -498,7 +571,20 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             "output": result.stdout + result.stderr,
         })
 
+    def _journey_write(self, fn, *ids):
+        try:
+            data = self._read_json()
+        except Exception:
+            return self.send_error(400, "Invalid JSON body")
+        status, body = fn(*ids, data)
+        if status < 300:
+            print(f"  Journey {fn.__name__[9:]}: {body['journey']['id']}")
+        self._respond(status, body)
+
     # ---- Helpers ----
+
+    def _respond(self, status: int, body: dict):
+        self._json(body, status)
 
     def _read_json(self) -> dict:
         length = int(self.headers.get("Content-Length", 0))

@@ -15,6 +15,7 @@ from typing import Optional
 from locations.location_parser import LocationData
 from locations.region_parser import RegionData
 from locations.map_icons import icon_registration_js
+from shared import map_style
 
 
 # ---------------------------------------------------------------------------
@@ -279,12 +280,15 @@ def render_mini_map(
     routes_geojson: Optional[dict] = None,
     waystations_geojson: Optional[dict] = None,
     zoom: float = 6,
+    journeys_geojson: Optional[dict] = None,
 ) -> str:
     """Render a MapLibre mini-map div for a single location.
 
     Uses the same custom icon sprites as the world home map, and the same
     zoom-tiered reveal system (_MINI_MAP_TIERS) for neighboring markers.
     Inlines GeoJSON data as JS variables; attribution control is suppressed.
+    `journeys_geojson` (already filtered for the audience) draws as a plain
+    line with no popup.
     """
     if loc['lat'] is None or loc['lon'] is None:
         return '<div class="mini-map mini-map--no-coords"><p>No coordinates available.</p></div>\n'
@@ -316,6 +320,11 @@ def render_mini_map(
             'map.addLayer({id:"routes-overlay",type:"line",source:"routes-overlay",minzoom:4,'
             'paint:{"line-color":"#1a1208","line-width":4,"line-opacity":0.85}});\n'
         )
+
+    if journeys_geojson and journeys_geojson.get('features'):
+        sources_js += f'map.addSource("journeys-overlay",{{type:"geojson",data:{json.dumps(journeys_geojson)}}});\n'
+        layers_js += map_style.journeys_layer_js(
+            source="journeys-overlay", layer_id="journeys-overlay", hover=False)
 
     if waystations_geojson or locations_geojson:
         # Register the sprite atlas once; both waystations and location layers use it.

@@ -56,15 +56,16 @@ def build(monkeypatch, tmp_path):
             way.write_text(json.dumps(waystations), encoding="utf-8")
         monkeypatch.setattr(gl, "_WAYSTATIONS_GEOJSON", way)
         monkeypatch.setattr(gl, "_REGIONS_GEOJSON", data / "none.geojson")
+        monkeypatch.setattr(gl, "_JOURNEYS_GEOJSON", data / "none-journeys.geojson")
         monkeypatch.setattr(gl, "DOCS_DIR", tmp_path / "docs")
         monkeypatch.setattr(gl, "load_all_locations", lambda *a, **k: locations)
         monkeypatch.setattr(gl, "load_all_regions", lambda *a, **k: {})
 
-        def page(loc_, regions, locs_gj, routes_gj, waystations_gj, gm_mode):
+        def page(loc_, regions, locs_gj, routes_gj, waystations_gj, gm_mode, **kw):
             seen["page"] = (routes_gj, waystations_gj)
             return "<html></html>"
 
-        def home(locs, regions, locs_gj, routes_gj, regions_gj, waystations_gj, gm_mode):
+        def home(locs, regions, locs_gj, routes_gj, regions_gj, waystations_gj, gm_mode, **kw):
             seen["home"] = (routes_gj, waystations_gj)
             return "<html></html>"
 

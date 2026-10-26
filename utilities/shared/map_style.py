@@ -62,6 +62,43 @@ def routes_layer_js(layer_id: str = "routes", source: str = "routes",
     return f"map.addLayer({_js(layer)});\n"
 
 
+# ---------------------------------------------------------------------------
+# Saved journeys
+# ---------------------------------------------------------------------------
+
+JOURNEY_COLOR = "#e8a060"          # the Workshop's live travel line, kept when a journey is saved
+JOURNEY_LAYER = "journeys"
+JOURNEY_HIT_LAYER = "journeys-hit"
+JOURNEY_DIM_OPACITY = 0.3
+
+
+def journeys_layer_js(source: str = "journeys", dim_hidden: bool = False,
+                      layer_id: str = JOURNEY_LAYER, hover: bool = True) -> str:
+    """JS adding a solid amber line per saved journey, plus (with `hover`) a wide
+    invisible layer that makes the thin line easy to hover.
+
+    `dim_hidden` (Workshop) fades journeys the player build would drop: features
+    carry `_playerVisible` (shared.journeys.annotate_player_visible). Mini-maps
+    pass their own `layer_id` and `hover=False`: a plain line, no popup.
+    """
+    opacity: object = 0.9
+    if dim_hidden:
+        opacity = ["case", ["==", ["get", "_playerVisible"], True], 0.9, JOURNEY_DIM_OPACITY]
+    line = {
+        "id": layer_id, "type": "line", "minzoom": 3, "source": source,
+        "layout": {"line-cap": "round", "line-join": "round"},
+        "paint": {"line-color": JOURNEY_COLOR, "line-width": 3.5, "line-opacity": opacity},
+    }
+    if not hover:
+        return f"map.addLayer({_js(line)});\n"
+    hit = {
+        "id": JOURNEY_HIT_LAYER, "type": "line", "minzoom": 3, "source": source,
+        "layout": {"line-cap": "round", "line-join": "round"},
+        "paint": {"line-color": "#000000", "line-width": 16, "line-opacity": 0},
+    }
+    return f"map.addLayer({_js(line)});\nmap.addLayer({_js(hit)});\n"
+
+
 def regions_layers_js(source: str = "regions") -> str:
     """JS adding the shared region fill + outline layers (fade out by zoom 7)."""
     fill = {
@@ -225,6 +262,7 @@ def popup_css() -> str:
 .ts-popup__type { font-size: 11px; color: #6a5a3a; margin-top: 2px; }
 .ts-popup__desc { font-size: 12px; color: #3a2e1a; margin-top: 4px; line-height: 1.35; }
 .ts-popup__gm { font-size: 11px; color: #b06040; margin-top: 2px; }
+.ts-popup__leg { font-size: 12px; color: #3a2e1a; margin-top: 3px; line-height: 1.3; }
 .ts-map-popup .maplibregl-popup-content { background: #f5f0e8; padding: 8px 12px;
   border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
 """
@@ -270,4 +308,49 @@ _locLayerIds.forEach(function(lyr){{
   map.on("mouseenter",lyr,function(e){{map.getCanvas().style.cursor="pointer";_showLocPopup(e.features[0]);}});
   map.on("mouseleave",lyr,function(){{map.getCanvas().style.cursor="";_hoverPopup.remove();}});
 }});{tap}
+"""
+
+
+def journey_hover_js(info_var: str = "_jrnInfo", tap_to_open: bool = False) -> str:
+    """JS adding a hover popup to the journey layer: name, one row per leg, total.
+
+    `info_var` names a page global holding {journey id: shared.journeys.popup_info}.
+    It is read when the popup opens, so a page may reassign it after a save.
+    Self-contained (its own popup and escaper) so it works on pages that define
+    different location popups. A location marker under the pointer wins, so the
+    two popups never stack. tap_to_open also opens on tap and closes on a tap
+    elsewhere (touch screens do not fire mouseenter).
+    """
+    tap = (
+        f"""
+map.on("click",function(e){{
+  var hit=map.queryRenderedFeatures(e.point,{{layers:["{JOURNEY_HIT_LAYER}"]}});
+  if(!hit.length){{_jrnPopup.remove();return;}}
+  _jrnShow({{features:hit,point:e.point,lngLat:e.lngLat}});
+}});""" if tap_to_open else ""
+    )
+    return f"""\
+var _jrnPopup=new maplibregl.Popup({{className:"ts-map-popup",offset:8,closeButton:false,closeOnClick:false,maxWidth:"340px"}});
+function _jrnEsc(s){{return String(s==null?"":s).replace(/[&<>"']/g,function(c){{
+  return {{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}}[c];}});}}
+function _jrnPopupHtml(id){{
+  var i={info_var}[id];if(!i)return "";
+  var h='<div class="ts-popup"><div class="ts-popup__title">'+_jrnEsc(i.name)+'</div>';
+  (i.legs||[]).forEach(function(l){{
+    h+='<div class="ts-popup__leg">'+_jrnEsc(l.from)+' &rarr; '+_jrnEsc(l.to)+' &middot; '+_jrnEsc(l.how)+' &middot; '+_jrnEsc(l.km)+' &middot; '+_jrnEsc(l.time)+'</div>';
+  }});
+  return h+'<div class="ts-popup__type">'+_jrnEsc(i.total)+'</div></div>';
+}}
+function _jrnOverLocation(pt){{
+  var ids=map.getStyle().layers.filter(function(l){{return /^(gm-)?locations-/.test(l.id);}}).map(function(l){{return l.id;}});
+  return ids.length>0&&map.queryRenderedFeatures(pt,{{layers:ids}}).length>0;
+}}
+function _jrnShow(e){{
+  var f=e.features&&e.features[0];if(!f)return;
+  if(_jrnOverLocation(e.point)){{_jrnPopup.remove();return;}}
+  var h=_jrnPopupHtml(f.properties.id);if(!h)return;
+  _jrnPopup.setLngLat(e.lngLat).setHTML(h).addTo(map);
+}}
+map.on("mouseenter","{JOURNEY_HIT_LAYER}",function(e){{map.getCanvas().style.cursor="pointer";_jrnShow(e);}});
+map.on("mouseleave","{JOURNEY_HIT_LAYER}",function(){{map.getCanvas().style.cursor="";_jrnPopup.remove();}});{tap}
 """
