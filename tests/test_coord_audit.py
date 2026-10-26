@@ -272,6 +272,24 @@ def test_build_rows_ranks_by_evidence_and_omits_consistent_and_reviewed():
     assert wd.prefetched[0] == ["FarPlace", "MidPlace", "SmallPlace", "FinePlace"]
 
 
+def test_field_contradicting_terrain_outranks_a_distant_name_match():
+    """A generic name matching a place 3000 km away must not outrank a 4000 m elevation miss."""
+    locs = [
+        loc_row("generic", 40.0, 70.0, None, real="Yuli"),
+        loc_row("endere", 36.0, 88.0, 1000, real=""),
+        loc_row("modest", 41.0, 71.0, 1000, real=""),
+    ]
+    tiles = StubTiles(
+        here={(40.0, 70.0): 890, (36.0, 88.0): 5008, (41.0, 71.0): 1400},
+        analog={(23.0, 121.0): 575},
+        relief={(36.0, 88.0): (4900.0, 5100.0), (41.0, 71.0): (1380.0, 1420.0)})
+    wd = StubWikidata({"Yuli": an("Yuli Township", 23.0, 121.0)})
+    rows, _ = ca.build_rows(locs, tiles, wd)
+    by_slug = {r["slug"]: r for r in rows}
+    assert by_slug["generic"]["_score"] > by_slug["endere"]["_score"]   # distance alone would win
+    assert [r["slug"] for r in rows] == ["endere", "modest", "generic"]
+
+
 def test_build_rows_end_to_end_with_fake_tiles_and_wikidata(tmp_path):
     d = tmp_path / "locations"
     d.mkdir()

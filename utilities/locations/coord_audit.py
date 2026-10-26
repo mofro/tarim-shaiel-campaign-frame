@@ -47,8 +47,12 @@ How rows are judged (thresholds are module constants)
       ambiguous           the evidence disagrees with itself, or only the DEM is
                           available and it disagrees with the field.
 
-    Rows are ranked by how many thresholds the evidence exceeds, weighted by how
-    much independent evidence supports the class (RANK_WEIGHT).
+    Rows are ranked in two tiers. Tier 0 holds rows where the elevation field
+    contradicts the terrain at the stated position: that is evidence from the
+    location's own data. Tier 1 holds the rest, where an analog name match is the
+    only thing that disagrees (a generic place name matches many real places). Inside
+    a tier, rows are ranked by how many thresholds the evidence exceeds, weighted by
+    how much independent evidence supports the class (RANK_WEIGHT).
 """
 
 from __future__ import annotations
@@ -521,7 +525,7 @@ def build_rows(locs: list[dict], tiles: TileStore, wikidata: Wikidata) -> tuple[
             elevation_fit(loc["elev"], dem_here, relief) is None
             or elevation_fit(loc["elev"], dem_analog) is None)
         listed.append(_row(loc, cls, analog, km, dem_here, relief, dem_analog, analog_only))
-    listed.sort(key=lambda r: (-r["_score"], r["slug"]))
+    listed.sort(key=lambda r: (r["_tier"], -r["_score"], r["slug"]))
     for i, row in enumerate(listed, 1):
         row["rank"] = i
     return listed, counts
@@ -553,6 +557,7 @@ def _row(loc, cls, analog, km, dem_here, relief, dem_analog, analog_only) -> dic
     if analog_only:
         bits.append("analog is the only evidence")
     return {
+        "_tier": 0 if miss else 1,
         "_score": score(cls, field, dem_here, km, analog_only),
         "rank": 0,
         "slug": loc["slug"],
