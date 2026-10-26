@@ -49,6 +49,7 @@ from locations.location_components import (
 )
 from locations.map_icons import icon_registration_js
 from locations.categories import build_icon_match_js
+from shared import map_style
 from shared.renderer import render_page
 from shared.html_render import render_body
 
@@ -352,22 +353,11 @@ def _build_world_map_html(
     if regions_geojson:
         data_js += f'var _regionGJ = {json.dumps(regions_geojson)};\n'
         sources_js += 'map.addSource("regions", {type:"geojson", data:_regionGJ});\n'
-        layers_js += (
-            'map.addLayer({id:"regions-fill",type:"fill",minzoom:2,source:"regions",'
-            'paint:{"fill-color":["coalesce",["get","fill"],"#b8892a"],'
-            '"fill-opacity":["interpolate",["linear"],["zoom"],3,0.08,7,0]}});\n'
-            'map.addLayer({id:"regions-line",type:"line",minzoom:2,source:"regions",'
-            'paint:{"line-color":["coalesce",["get","stroke"],"#b8892a"],"line-width":2,'
-            '"line-opacity":["interpolate",["linear"],["zoom"],3,0.7,7,0]}});\n'
-        )
+        layers_js += map_style.regions_layers_js()
     if routes_geojson:
         data_js += f'var _routeGJ = {json.dumps(routes_geojson)};\n'
         sources_js += 'map.addSource("routes", {type:"geojson", data:_routeGJ});\n'
-        layers_js += (
-            'map.addLayer({id:"routes",type:"line",minzoom:4,source:"routes",'
-            'layout:{"line-cap":"butt"},'
-            'paint:{"line-color":"#b0592a","line-width":3,"line-opacity":0.75,"line-dasharray":[2.7,2.7]}});\n'
-        )
+        layers_js += map_style.routes_layer_js()
     if waystations_geojson:
         data_js += f'var _waystationGJ = {json.dumps(waystations_geojson)};\n'
         sources_js += 'map.addSource("waystations", {type:"geojson", data:_waystationGJ});\n'

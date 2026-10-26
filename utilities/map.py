@@ -295,10 +295,9 @@ def _prompt_slugs(label: str, slugs: list[str]) -> str:
         _clear_completion()
     return val
 
-CATEGORIES = [
-    "caravanserai", "capital", "city", "town", "fortress", "sacred-site",
-    "ruins", "route-node", "water-body", "landmark", "mythic-landscape",
-]
+sys.path.insert(0, str(SCRIPT_DIR))
+from locations.categories import CATEGORIES  # noqa: E402  (single source of truth)
+
 REGIONS = ["central-asian-hubs", "tarim-basin", "steppe", "hindu-kush",
            "persian-corridor", "ferghana-valley", "sogdiana"]
 

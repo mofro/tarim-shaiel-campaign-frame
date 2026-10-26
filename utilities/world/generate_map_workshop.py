@@ -23,20 +23,17 @@ VAULT_ROOT = SCRIPT_DIR.parent.parent
 
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 
+from locations.categories import CATEGORIES
 from locations.location_parser import load_all_locations
 from locations.map_icons import icon_registration_js
 from locations.location_components import MAPTILER_STYLE_URL, MAPTILER_KEY, MAPTILER_STYLE_ID
+from shared import map_style
 
 LOCATIONS_DIR = VAULT_ROOT / "world" / "locations"
 ROUTES_PATH   = VAULT_ROOT / "world" / "data" / "tarim-shaiel-routes.geojson"
 REGIONS_PATH  = VAULT_ROOT / "world" / "data" / "tarim-shaiel-regions.geojson"
 OUTPUT_PATH   = VAULT_ROOT / "map-workshop.html"
 PLAYER_PATH   = VAULT_ROOT / "player-map.html"
-
-CATEGORIES = [
-    "city", "town", "caravanserai", "capital", "bridge", "fortress", "sacred-site",
-    "ruins", "route-node", "water-body", "lake", "landmark", "mythic-landscape",
-]
 
 
 # ---------------------------------------------------------------------------
@@ -69,28 +66,52 @@ def _build_locations_geojson(locations: list) -> dict:
     for loc in locations:
         if loc["lat"] is None or loc["lon"] is None:
             continue
+        props = {
+            "kind":        "location",
+            "category":    loc["location_type"],
+            "label":       loc["fantasy_name"] or loc["title"],
+            "title":       loc["title"],
+            "description": loc["description"],
+            "fantasyName": loc["fantasy_name"],
+            "visibility":  loc["visibility"],
+            "mapLabel":    loc["map_label"],
+            "mapMarker":   loc["map_marker"],
+            "slug":        loc["slug"],
+            "_slug":       loc["slug"],
+        }
+        popup_desc = map_style.popup_description(loc["description"])
+        if popup_desc:
+            props["popupDesc"] = popup_desc
         features.append({
             "type": "Feature",
             "id": f'location_{loc["slug"]}',
-            "properties": {
-                "kind":        "location",
-                "category":    loc["location_type"],
-                "label":       loc["fantasy_name"] or loc["title"],
-                "title":       loc["title"],
-                "description": loc["description"],
-                "fantasyName": loc["fantasy_name"],
-                "visibility":  loc["visibility"],
-                "mapLabel":    loc["map_label"],
-                "mapMarker":   loc["map_marker"],
-                "slug":        loc["slug"],
-                "_slug":       loc["slug"],
-            },
+            "properties": props,
             "geometry": {
                 "type": "Point",
                 "coordinates": [loc["lon"], loc["lat"]],
             },
         })
     return {"type": "FeatureCollection", "features": features}
+
+
+def _player_locations_geojson(loc_geojson: dict) -> dict:
+    """Player copy of the locations GeoJSON: public features only, GM view stripped.
+
+    The raw `description` is dropped (it can hold session notes) and popupDesc is
+    recomputed with the player-safe filter, so what players see is exactly what
+    ships in the page source.
+    """
+    features = []
+    for f in loc_geojson["features"]:
+        props = f["properties"]
+        if props.get("visibility", "public") == "gm_secrets":
+            continue
+        pub = {k: v for k, v in props.items() if k not in ("description", "popupDesc")}
+        popup_desc = map_style.popup_description(props.get("description"), player_safe=True)
+        if popup_desc:
+            pub["popupDesc"] = popup_desc
+        features.append({**f, "properties": pub})
+    return {**loc_geojson, "features": features}
 
 
 def _build_route_index(routes_geojson: dict) -> list:
@@ -271,11 +292,6 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 /* Map */
 #map { flex: 1; }
 .maplibregl-map { font: inherit; }
-.ts-popup { font-family: Georgia, serif; }
-.ts-popup__title { font-size: 13px; font-weight: bold; color: #1a1208; }
-.ts-popup__type { font-size: 11px; color: #6a5a3a; margin-top: 2px; }
-.ts-map-popup .maplibregl-popup-content { background: #f5f0e8; padding: 8px 12px;
-  border-radius: 3px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
 /* Edit Coords panel */
 .list-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
   color: #9a8a6a; margin-bottom: 6px; margin-top: 8px; }
@@ -497,14 +513,11 @@ Adds segments, snaps to roads, rebuilds workshop automatically.</p>
 
 
 def _build_panel_edit_coords() -> str:
+    # Every canonical category must be selectable: _openFieldEditor leaves the select
+    # untouched for an unlisted category and Save Fields would silently re-type it.
     type_opts = "\n".join(
-        f'      <option value="{v}">{label}</option>'
-        for v, label in [
-            ("city", "City"), ("capital", "Capital"), ("town", "Town"),
-            ("bridge", "Bridge"), ("fortress", "Fortress"), ("landmark", "Landmark"),
-            ("sacred-site", "Sacred Site"), ("oasis", "Oasis"), ("lake", "Lake"),
-            ("route-node", "Route Node"), ("poi", "POI"), ("dungeon", "Dungeon"),
-        ]
+        f'      <option value="{c}">{"POI" if c == "poi" else c.replace("-", " ").title()}</option>'
+        for c in CATEGORIES
     )
     marker_opts = "\n".join(
         f'      <option value="{v}">{label}</option>'
@@ -875,18 +888,11 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # Region overlay
         'map.addSource("regions",{type:"geojson",data:_regionGJ});\n'
-        'map.addLayer({id:"regions-fill",type:"fill",minzoom:2,source:"regions",'
-        'paint:{"fill-color":["coalesce",["get","fill"],"#b8892a"],'
-        '"fill-opacity":["interpolate",["linear"],["zoom"],3,0.07,7,0]}});\n'
-        'map.addLayer({id:"regions-line",type:"line",minzoom:2,source:"regions",'
-        'paint:{"line-color":["coalesce",["get","stroke"],"#b8892a"],"line-width":2,'
-        '"line-opacity":["interpolate",["linear"],["zoom"],3,0.6,7,0]}});\n'
+        + map_style.regions_layers_js() +
 
         # Routes
         'map.addSource("routes",{type:"geojson",data:_routeGJ});\n'
-        'map.addLayer({id:"routes",type:"line",minzoom:4,source:"routes",'
-        'layout:{"line-cap":"butt"},'
-        'paint:{"line-color":"#b0592a","line-width":3,"line-opacity":0.75,"line-dasharray":[2.7,2.7]}});\n'
+        + map_style.routes_layer_js() +
 
         # Route-selected highlight layer (orange)
         'map.addSource("route-selected",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
@@ -914,40 +920,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         + icons_js +
         'map.addSource("locations",{type:"geojson",data:_locGJ});\n'
 
-        # icon_match expression
-        'var _iconMatch=["case",'
-        '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
-        '["match",["get","category"],'
-        '"city","cat-city","capital","cat-capital","town","cat-town",'
-        '"caravanserai","cat-route-node","fortress","cat-fortress","chokepoint","cat-fortress",'
-        '"bridge","cat-bridge","landmark","cat-landmark","mountain-pass","cat-landmark",'
-        '"oasis","cat-oasis","Oasis","cat-oasis","lake","cat-lake","water-body","cat-lake","power-site","cat-sacred-site",'
-        '"route-node","cat-route-node","ruins","cat-dungeon","sacred-site","cat-sacred-site",'
-        '"site","cat-poi","cat-poi"]];\n'
-
-        # Six-tier location layers — labels pre-fade 1 zoom before icons
-        # t: [id, cats, type_mz, font, iconSz, textSz]
-        # layer minzoom = type_mz-1; icon fades in [type_mz, type_mz+1]; text fades in [type_mz-1, type_mz]
-        '[["locations-major",["city","capital","bridge","landmark","fortress"],3,["Roboto Serif Regular","Noto Sans Regular"],0.75,14],'
-        '["locations-towns",["town"],5,["Roboto Serif Regular","Noto Sans Regular"],0.65,12],'
-        '["locations-secondary",["oasis","lake","caravanserai","water-body"],5,["Roboto Serif Regular","Noto Sans Italic"],0.70,12],'
-        '["locations-spiritual",["sacred-site","power-site"],6,["Roboto Serif Regular","Noto Sans Italic"],0.70,12],'
-        '["locations-routes",["route-node","chokepoint","mountain-pass"],6,["Roboto Serif Regular","Noto Sans Regular"],0.60,11],'
-        '["locations-detail",["ruins","poi","site"],7,["Roboto Serif Regular","Noto Sans Regular"],0.75,10]]'
-        '.forEach(function(t){'
-        'var id=t[0],cats=t[1],typeMz=t[2],font=t[3],minSz=t[4],tSz=t[5];'
-        'var iconOp=["interpolate",["linear"],["zoom"],typeMz,0,typeMz+1,1];'
-        'var textOp=["interpolate",["linear"],["zoom"],typeMz-1,0,typeMz,1];'
-        'var catsFilter=["all",["match",["get","category"],cats,true,false],["!=",["get","mapMarker"],false]];'
-        'var layout={"icon-image":_iconMatch,"icon-size":minSz,"icon-allow-overlap":true,"icon-anchor":"center"};'
-        'layout["text-field"]=["case",["==",["get","mapLabel"],false],"",["get","label"]];'
-        'layout["text-font"]=font;layout["text-size"]=tSz;'
-        'layout["text-offset"]=[0,1.1];layout["text-anchor"]="top";layout["text-max-width"]=8;'
-        'layout["text-allow-overlap"]=false;layout["text-optional"]=true;'
-        'var paint={"icon-opacity":iconOp,"text-color":"#1a1208","text-halo-color":"#ffffff",'
-        '"text-halo-width":1.5,"text-opacity":textOp};'
-        'map.addLayer({id:id,type:"symbol",minzoom:typeMz-1,source:"locations",'
-        'filter:catsFilter,layout:layout,paint:paint});});\n'
+        # icon_match expression + six-tier location layers (shared with the player map)
+        + map_style.location_tiers_js() +
 
         # Highlight source/layer for Tab 2 selected markers
         'map.addSource("highlight-source",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
@@ -961,22 +935,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'layout:{"line-cap":"round","line-join":"round"},'
         'paint:{"line-color":"#f5d060","line-width":2.5,"line-opacity":0.85,"line-dasharray":[3,3]}});\n'
 
-        # Shared hover popup + click handlers across all location tiers
-        'var _hoverPopup=new maplibregl.Popup({className:"ts-map-popup",offset:12,closeButton:false,closeOnClick:false});\n'
-        'var _locLayerIds=["locations-major","locations-towns","locations-secondary","locations-spiritual","locations-routes","locations-detail"];\n'
+        # Shared hover popup (title, type, description, GM-only badge), then the
+        # Workshop's own click handlers across all location tiers
+        + map_style.hover_popup_js(gm_badge=True) +
         '_locLayerIds.forEach(function(lyr){'
-        'map.on("mouseenter",lyr,function(e){'
-        'map.getCanvas().style.cursor="pointer";'
-        'var p=e.features[0].properties;'
-        'var title=p.title||p.label||p._slug||"";'
-        'var type=(p.category||"").replace(/-/g," ");'
-        'var vis=p.visibility==="gm_secrets"?\'<div class="ts-popup__type" style="color:#b06040">GM only</div>\':"";\n'
-        'var html=\'<div class="ts-popup">\'+'
-        '\'<div class="ts-popup__title">\'+title+\'</div>\'+'
-        '(type?\'<div class="ts-popup__type">\'+type+\'</div>\':"")+vis+"</div>";'
-        '_hoverPopup.setLngLat(e.features[0].geometry.coordinates).setHTML(html).addTo(map);});\n'
-        'map.on("mouseleave",lyr,function(){'
-        'map.getCanvas().style.cursor="";_hoverPopup.remove();});\n'
         'map.on("click",lyr,function(e){'
         'var p=e.features[0].properties;'
         'var slug=p._slug||p.slug||"";'
@@ -1654,7 +1616,7 @@ def _build_html(
         '<meta charset="utf-8">\n'
         "<title>Map Workshop — Tarim-Shaïal</title>\n"
         '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.css">\n'
-        "<style>\n" + _CSS + "</style>\n"
+        "<style>\n" + _CSS + map_style.popup_css() + "</style>\n"
         "</head>\n"
         "<body>\n"
         '<div id="app">\n'
@@ -1794,52 +1756,14 @@ def _build_player_html(
         "map.on('load', function() {\n"
         + icons_js
         + "\n"
-        "  var _iconMatch=['case',"
-        "['!=',['get','mapMarker'],null],['concat','cat-',['get','mapMarker']],"
-        "['match',['get','category'],"
-        "'city','cat-city','capital','cat-capital','town','cat-town',"
-        "'caravanserai','cat-route-node','fortress','cat-fortress','chokepoint','cat-fortress',"
-        "'bridge','cat-bridge','landmark','cat-landmark','mountain-pass','cat-landmark',"
-        "'oasis','cat-oasis','Oasis','cat-oasis','lake','cat-lake','water-body','cat-lake','power-site','cat-sacred-site',"
-        "'route-node','cat-route-node','ruins','cat-dungeon','sacred-site','cat-sacred-site',"
-        "'site','cat-poi','cat-poi']];\n"
         "  map.addSource('locations', {type:'geojson', data: _locGJ});\n"
-        "  [['locations-major',['city','capital','bridge','landmark','fortress'],3,0.75,14],"
-        "['locations-towns',['town'],5,0.65,12],"
-        "['locations-secondary',['oasis','lake','caravanserai','water-body'],5,0.70,12],"
-        "['locations-spiritual',['sacred-site','power-site'],6,0.70,12],"
-        "['locations-routes',['route-node','chokepoint','mountain-pass'],6,0.60,11],"
-        "['locations-detail',['ruins','poi','site'],7,0.75,10]]"
-        ".forEach(function(t){"
-        "var id=t[0],cats=t[1],mz=t[2],iSz=t[3],tSz=t[4];"
-        "var iconOp=['interpolate',['linear'],['zoom'],mz,0,mz+1,1];"
-        "var textOp=['interpolate',['linear'],['zoom'],mz-1,0,mz,1];"
-        "var flt=['all',['match',['get','category'],cats,true,false],['!=',['get','mapMarker'],false]];"
-        "map.addLayer({id:id,type:'symbol',source:'locations',minzoom:mz-1,filter:flt,"
-        "layout:{'icon-image':_iconMatch,'icon-size':iSz,'icon-allow-overlap':true,'icon-anchor':'center',"
-        "'text-field':['case',['==',['get','mapLabel'],false],'',['get','label']],"
-        "'text-font':['Roboto Serif Regular','Noto Sans Regular'],"
-        "'text-size':tSz,'text-offset':[0,1.1],'text-anchor':'top','text-max-width':8,"
-        "'text-allow-overlap':false,'text-optional':true},"
-        "paint:{'icon-opacity':iconOp,'text-color':'#1a1208','text-halo-color':'#ffffff',"
-        "'text-halo-width':1.5,'text-opacity':textOp}});});\n"
-
+        + map_style.location_tiers_js()
+        + "\n"
         "  map.addSource('routes', {type:'geojson', data: _routeGJ});\n"
-        "  map.addLayer({id:'route-lines',type:'line',source:'routes',"
-        "  layout:{'line-join':'round','line-cap':'round'},"
-        "  paint:{'line-color':['coalesce',['get','stroke'],'#6b5a3e'],"
-        "  'line-width':2,'line-opacity':0.7}});\n"
-
-        "  var popup = new maplibregl.Popup({closeButton:false,closeOnClick:true});\n"
-        "  map.on('click','loc-icons',function(e){\n"
-        "    var f=e.features[0];\n"
-        "    if(!f)return;\n"
-        "    var name=f.properties.label||f.properties.title||'';\n"
-        "    popup.setLngLat(e.lngLat).setHTML('<strong>'+name+'</strong>').addTo(map);\n"
-        "  });\n"
-        "  map.on('mouseenter','loc-icons',function(){map.getCanvas().style.cursor='pointer';});\n"
-        "  map.on('mouseleave','loc-icons',function(){map.getCanvas().style.cursor='';});\n"
-
+        + map_style.routes_layer_js()
+        + "\n"
+        + map_style.hover_popup_js(gm_badge=False, tap_to_open=True)
+        + "\n"
         "  _startPolling();\n"
         "});\n"
 
@@ -1901,7 +1825,8 @@ def _build_player_html(
         "}\n"
         "#follow-btn.off { color: #7a6a50; border-color: rgba(122,106,80,0.3); }\n"
         ".maplibregl-ctrl-bottom-right { bottom: calc(60px + env(safe-area-inset-bottom)) !important; }\n"
-        "</style>\n"
+        + map_style.popup_css()
+        + "</style>\n"
         "</head>\n"
         "<body>\n"
         '<div id="map"></div>\n'
@@ -1925,6 +1850,9 @@ def main() -> int:
         print("ERROR: MAPTILER_KEY environment variable is not set.", file=sys.stderr)
         print("  Export it in your shell or add it to .env at vault root.", file=sys.stderr)
         return 1
+
+    for warning in map_style.check_tier_coverage():
+        print(f"  WARN: {warning}", file=sys.stderr)
 
     print("  Loading locations...")
     locations = load_all_locations(LOCATIONS_DIR)
@@ -1990,11 +1918,8 @@ def main() -> int:
     print(f"\n  Written: {OUTPUT_PATH.name}")
 
     # Player map — public locations only
-    public_features = [
-        f for f in loc_geojson["features"]
-        if f.get("properties", {}).get("visibility", "public") != "gm_secrets"
-    ]
-    pub_geojson = {**loc_geojson, "features": public_features}
+    pub_geojson = _player_locations_geojson(loc_geojson)
+    public_features = pub_geojson["features"]
     player_html = _build_player_html(
         loc_geojson=pub_geojson,
         routes_geojson=routes_geojson,
