@@ -1949,7 +1949,7 @@
         "title": "Jade Gate",
         "fantasy_name": "Jade Gate",
         "description": "The western gateway to imperial China. A heavily fortified checkpoint where all merchants are inspected and taxed.",
-        "visibility": "public",
+        "visibility": "gm_secrets",
         "mapmarker": "fortress",
         "marker-symbol": "castle",
         "marker-color": "#6B7280",
@@ -2329,15 +2329,22 @@
         "label": "Kashgar",
         "title": "Kashgar",
         "fantasy_name": "Kashgar",
-        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "description": "Westernmost major Chinese city; crossroads of cultures and trade.",
         "visibility": "public",
         "mapmarker": "city",
         "marker-symbol": "town",
         "marker-color": "#8B6914",
         "marker-size": "medium",
-        "factions": [],
-        "resources": [],
-        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "factions": [
+          "Tarim Basin Traders"
+        ],
+        "resources": [
+          "fruits",
+          "wool",
+          "carpets",
+          "jade"
+        ],
+        "popup_html": "<p>Westernmost major Chinese city; crossroads of cultures and trade.</p><p class=\"popup-factions\"><em>Factions:</em> Tarim Basin Traders</p><p class=\"popup-resources\"><em>Resources:</em> fruits, wool, carpets, jade</p>",
         "url": "/locations/kashgar.html"
       },
       "geometry": {
@@ -4093,6 +4100,39 @@
         "coordinates": [
           86.179256,
           41.612809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_shorchuk",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "shorchuk",
+        "label": "Shorchuk",
+        "title": "Shorchuk",
+        "fantasy_name": "Shorchuk",
+        "description": "A waypoint on the northern route where merchants rest before mountain passages.",
+        "visibility": "public",
+        "mapmarker": "route-node",
+        "marker-symbol": "circle",
+        "marker-color": "#A78040",
+        "marker-size": "medium",
+        "factions": [
+          "Route Keepers"
+        ],
+        "resources": [
+          "oasis goods"
+        ],
+        "popup_html": "<p>A waypoint on the northern route where merchants rest before mountain passages.</p><p class=\"popup-factions\"><em>Factions:</em> Route Keepers</p><p class=\"popup-resources\"><em>Resources:</em> oasis goods</p>",
+        "url": "/locations/shorchuk.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          82.07693159580232,
+          41.525095839817354
         ]
       }
     },
