@@ -22,7 +22,9 @@ last_updated: 2026-10-26
 | HTML components | `utilities/locations/location_components.py` | Mini-map, faction table, danger pips, stats row, xref stub |
 | Normalization script | `utilities/world/normalize_locations.py` | One-time migration; adds `parent_region`, `visibility`, `status`, renames `factions→factions_visible` |
 | Category source of truth | `utilities/locations/categories.py` | `CATEGORIES` (17 canonical types), `VALID_CATEGORIES`, `ICON_MAP`. The Workshop Add Point and Edit Coords dropdowns, `utilities/map.py` and `add_location.py` all import it — add a type here only |
-| Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`), region layers, six location tiers, hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), `check_tier_coverage()` |
+| Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`; `routes_layer_js(dim_hidden=True)` dims routes the players cannot see, `ROUTE_DIM_OPACITY`), region layers, six location tiers, hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), `check_tier_coverage()` |
+| Route visibility | `utilities/shared/route_visibility.py` | `visible_routes(routes, all_locations)` and `visible_waystations(waystations, routes)`: the one rule for which routes reach player output. Used by the player map and the public locations build |
+| Route travel time | `utilities/shared/travel_time.py` | Speed table (`SPEEDS`), path factors, `segment_hours()`, `format_duration()`, `tt_json()` for the Workshop JS |
 
 **Surfaces using `map_style.py`:** the Workshop (`generate_map_workshop.py`, GM badge on `gm_secrets` hovers), the player map (`_build_player_html`, hover on desktop / tap-to-open on touch, no GM text, `gm_secrets` features dropped by `_player_locations_geojson`) and `docs/world.html` (routes and regions only; tiers, popups and click-navigate remain local to `generate_locations_html.py`). Workshop and player icon matching differs from `categories.ICON_MAP` (used by `world.html`) — a known divergence, not yet reconciled.
 
@@ -91,10 +93,22 @@ Then commit + push → Netlify rebuilds → players see the marker.
 
 The tracked `world/data/tarim-shaiel-locations.geojson` snapshot is not rewritten by Apply, so its `visibility` values lag behind the pages until `python utilities/build.py geojson --gm` is run.
 
+## Route Visibility
+
+A route reaches player output only when its own `visibility` is `public` **and** both end locations are not `gm_secrets`; anything else hides it.
+
+- **Endpoints:** a route's first and last coordinate are matched to the nearest location within 1 km, searching all locations (hidden ones too, so a hidden end is found and hides the route).
+- **Fails closed:** a missing route `visibility`, an endpoint with no location within 1 km, or a missing end location hides the route. An unmatched endpoint on an otherwise public route prints a warning to stderr.
+- **Surfaces:** the player map, `docs/world.html` and every location mini-map in public builds. `--gm` builds and the Workshop keep every route; the Workshop dims the hidden ones and the route panel shows who sees each.
+- **Waystations:** filtered by `properties.route_segment`; a missing `route_segment` drops the point. No waystations file exists today.
+- **Revealing:** routes need no separate step beyond a route's own `visibility`. Reveal both end locations, then set the route to `public` in the Workshop route panel.
+
+All 37 routes were set to `gm_secrets` on 2026-10-26, together with the locations.
+
 ## GeoJSON Structure
 
 - `world/data/tarim-shaiel-locations.geojson` — one Point per location (183 as of 2026-10-25); IDs: `location_{slug}`
-- `world/data/tarim-shaiel-routes.geojson` — trade route linestrings
+- `world/data/tarim-shaiel-routes.geojson` — trade route linestrings; per-route properties `visibility` (all `gm_secrets`) and optional `mode`
 - `world/data/tarim-shaiel-regions.geojson` — **removed in #299 (commit 2814443)**; recoverable from `2814443^`. Generators treat the missing file as "no regions layer", so no region polygons render anywhere. The GeoJSON IDs in the mapping table above are historical
 
 Leaflet maps use ESRI satellite tile layer + Carto label overlay (no API key required).
