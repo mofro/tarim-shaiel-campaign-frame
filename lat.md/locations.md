@@ -24,7 +24,8 @@ last_updated: 2026-10-26
 | Category source of truth | `utilities/locations/categories.py` | `CATEGORIES` (17 canonical types), `VALID_CATEGORIES`, `ICON_MAP`. The Workshop Add Point and Edit Coords dropdowns, `utilities/map.py` and `add_location.py` all import it — add a type here only |
 | Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`; `routes_layer_js(dim_hidden=True)` dims routes the players cannot see, `ROUTE_DIM_OPACITY`), region layers, six location tiers, hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), `check_tier_coverage()` |
 | Route visibility | `utilities/shared/route_visibility.py` | `visible_routes(routes, all_locations)` and `visible_waystations(waystations, routes)`: the one rule for which routes reach player output. Used by the player map and the public locations build |
-| Route travel time | `utilities/shared/travel_time.py` | Speed table (`SPEEDS`), path factors, `segment_hours()`, `format_duration()`, `tt_json()` for the Workshop JS |
+| Route travel time | `utilities/shared/travel_time.py` | Speed table (`SPEEDS`), path factors, `segment_hours(km, mode, path, slope_factor)`, `format_duration()`, `tt_json()` for the Workshop JS |
+| Journeys | `utilities/shared/journeys.py` | Saved-journey store (`world/data/tarim-shaiel-journeys.geojson`): validation, `create`/`replace`/`patch`/`delete`, `popup_info()`, `journey_is_public()`, `player_payload()` / `gm_payload()`. See Journeys below |
 
 **Surfaces using `map_style.py`:** the Workshop (`generate_map_workshop.py`, GM badge on `gm_secrets` hovers), the player map (`_build_player_html`, hover on desktop / tap-to-open on touch, no GM text, `gm_secrets` features dropped by `_player_locations_geojson`) and `docs/world.html` (routes and regions only; tiers, popups and click-navigate remain local to `generate_locations_html.py`). Workshop and player icon matching differs from `categories.ICON_MAP` (used by `world.html`) — a known divergence, not yet reconciled.
 
@@ -105,10 +106,23 @@ A route reaches player output only when its own `visibility` is `public` **and**
 
 All 37 routes were set to `gm_secrets` on 2026-10-26, together with the locations.
 
+## Journeys
+
+A journey is a saved multi-stop trip planned on the Workshop **Travel Time** tab. It is a GeoJSON Feature (id `journey_<slug>`) in `world/data/tarim-shaiel-journeys.geojson`, a `MultiLineString` with one line per leg. The file is created on the first save.
+
+- **Per-leg state:** each leg has a `mode` (a key of the speed table) and a `path` (`road` follows OSRM, `straight` is a direct line; `terrain` is reserved for #312 and disabled for now). Fliers (bird, dragon) force `straight`. Time is never stored: it is computed from the leg's length, mode and path, so a speed-table change updates every journey.
+- **Stops:** a stop that sits on a location carries its `slug` and follows it. Loading a journey snaps a stop to its location when the location has moved more than 50 m (`STALE_M`) and recomputes the legs on either side as unsaved changes. A free point has no slug.
+- **Visibility:** new journeys are `gm_secrets`. A journey reaches player output only when its own `visibility` is `public` **and** every slug-stop exists and is not `gm_secrets` **and** the nearest location within 1 km of every stop is not `gm_secrets` (`journey_is_public`). Anything else hides it, so it fails closed like routes. Judged against the full location set, before the public filter.
+- **Player payload:** only `{id, name}` plus geometry, with the popup text (`popup_info`: per-leg from, to, how, km, time, and a total) formatted once in Python. Popups open on hover in the Workshop and on tap in the player map and `world.html`; they are suppressed while the cursor is over a location marker.
+- **Surfaces:** the Workshop (hidden journeys dimmed, `Saved journeys` layer toggle), the player map, `docs/world.html` and the location and region mini-maps (plain line, no popup there). `--gm` builds keep every journey.
+- **Boot:** the Workshop embeds journeys at build time but refetches `GET /api/journeys` on load, so a journey saved since the last build still lists. The player map is static, so rebuild after making a journey public.
+- **Endpoints:** `GET`/`POST /api/journeys`, `PUT`/`PATCH`/`DELETE /api/journeys/{id}` (see `lat.md/build-workflows.md`). `PUT` keeps id, visibility and `created`; `PATCH` changes only `name` and `visibility`.
+
 ## GeoJSON Structure
 
 - `world/data/tarim-shaiel-locations.geojson` — one Point per location (183 as of 2026-10-25); IDs: `location_{slug}`
 - `world/data/tarim-shaiel-routes.geojson` — trade route linestrings; per-route properties `visibility` (all `gm_secrets`) and optional `mode`
+- `world/data/tarim-shaiel-journeys.geojson` — saved travel journeys, one MultiLineString per journey; per-journey properties `name`, `visibility`, `stops`, `legs` (see Journeys above). Absent until the first save
 - `world/data/tarim-shaiel-regions.geojson` — **removed in #299 (commit 2814443)**; recoverable from `2814443^`. Generators treat the missing file as "no regions layer", so no region polygons render anywhere. The GeoJSON IDs in the mapping table above are historical
 
 Leaflet maps use ESRI satellite tile layer + Carto label overlay (no API key required).

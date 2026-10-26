@@ -134,7 +134,16 @@ A table of all routes currently in `world/data/tarim-shaiel-routes.geojson`. Col
 #### Route Panel *(devserver required to edit)*
 Selecting a route opens a panel with its time, a "seen by" line, a **Visibility** select (`public` / `gm_secrets`) and a **Travel by** select (foot, cart, mounted, bird, dragon). Each change sends `PATCH /api/routes/{route_id}` with that one property, updates the map, then rebuilds the Workshop. The write touches only that feature's property: a visibility flip is a one-line `git diff`, and a first `mode` adds one line. Hidden routes draw dimmed (opacity 0.28) in the Workshop; the player map and `world.html` omit them.
 
-Speeds come from one table in `utilities/shared/travel_time.py`, used by the route index, the route panel and the Travel Time tab: foot 30, cart 25, mounted 60, bird 250 (flies), dragon 500 (flies) km/day. Path factors: road 1.0, terrain 0.8, straight 0.7; fliers ignore the path. A march day is 8 hours. These are assumptions, edited in that file only.
+Speeds come from one table in `utilities/shared/travel_time.py`, used by the route index, the route panel and the Travel Time tab: foot 30, cart 25, mounted 60, bird 250 (flies), dragon 500 (flies) km/day. Path factors: road 1.0, terrain 0.8, straight 0.7; fliers ignore the path. A march day is 8 hours. These are assumptions, edited in that file only. A leg's time is `segment_hours(km, mode, path, slope_factor)`.
+
+#### Travel Time *(devserver required to save)*
+For planning and saving a multi-stop journey. Click locations or free points on the map to add stops; each pair of stops is a **leg** with its own state. Presets set the default mode for new legs; **Set all legs** (`#tt-all-path`) applies one path to every leg. Per leg:
+- **Mode:** foot, cart, mounted, bird or dragon (the shared speed table). Fliers force the straight path.
+- **Path:** `road` follows OSRM, `straight` is a direct line. `terrain` is shown disabled ("needs Phase E", #312) until DEM routing lands.
+
+Changing one leg's mode or path recomputes only that leg and the total, with no new OSRM request unless the path changed to `road`. If OSRM is unreachable the leg falls back to straight with a visible notice and a warning mark on the row. Time is derived from length, mode and path, never stored.
+
+**Save journey** (name in `#tt-name`, visibility in `#tt-vis`) sends `POST /api/journeys`; **Save as new** always creates; saving a loaded journey sends `PUT /api/journeys/{id}`. New journeys are `gm_secrets`. **Saved journeys** lists every journey; clicking one loads its stops and legs. Changing `#tt-vis` on a loaded journey sends `PATCH /api/journeys/{id}` immediately. **Delete** is two clicks (the second confirms) and removes only that journey. On load the Workshop refetches `GET /api/journeys`, so journeys saved since the last build still appear. A stop that sits on a location is snapped to it if the location has moved more than 50 m since the journey was saved, and the affected legs are marked unsaved. See the Journeys section of `lat.md/locations.md` for the player-visibility rule.
 
 #### Edit Coords *(devserver required)*
 For updating the lat/lon of an existing location without editing YAML by hand. Click any pin on the map → the location loads in the Edit Coords panel. Drag the pin to its correct position, or type new coordinates directly. A badge on the tab shows how many unsaved edits are pending. "Save" sends a `PUT /api/locations/{slug}/coordinates` to the devserver, which writes the new coordinates into the `.md` file's frontmatter.
@@ -163,10 +172,15 @@ For choosing which GM-only locations become public. Click a GM-only marker, or p
 | `/api/routes/add` | POST | Adds route segments via `map.py route` (writes GeoJSON, snaps to roads) |
 | `/api/routes/{route_id}` | PATCH | Sets `visibility` (`public` / `gm_secrets`) and/or `mode` (a key of the speed table) on one route. Other fields are ignored; an unknown value or no recognised field is a 400 and nothing is written. Atomic write that keeps the file's serialization. Used by the route panel |
 | `/api/routes/{route_id}/regenerate` | POST | Resyncs the route's endpoints to its locations' current coordinates and re-snaps via OSRM (`--force`, bypasses cache) |
+| `/api/journeys` | GET | Lists saved journeys as a FeatureCollection plus `popups` ({id: popup text}). Localhost only; the file is absent until the first save, which reads as an empty list |
+| `/api/journeys` | POST | Creates a journey from `{name, stops, legs, visibility?}` (one leg per pair of stops, 2 to 64 stops). New journeys default to `gm_secrets`. 201 with `{ok, journey, popup}` |
+| `/api/journeys/{id}` | PUT | Replaces stops and legs, keeping id, visibility and `created`. Invalid bodies are a 400 and nothing is written |
+| `/api/journeys/{id}` | PATCH | Changes only `name` and/or `visibility` |
+| `/api/journeys/{id}` | DELETE | Removes that journey only. 404 if it does not exist |
 | `/api/rebuild/locations` | POST | Runs `build.py locations` — regenerates `docs/world.html` |
 | `/api/rebuild/workshop` | POST | Runs `build.py workshop` — regenerates `map-workshop.html` |
 
-The workshop sidebar exposes these as buttons: **Create Location** (Add Point tab), **Add Route** (Plan Route tab), **Edit Coords** drag-and-confirm (Edit Coords tab), **Apply N reveals** (Reveal tab), **Rebuild Locations** and **Rebuild Workshop** (Edit Coords tab). All show inline status and fall back gracefully when the devserver is not running.
+The workshop sidebar exposes these as buttons: **Create Location** (Add Point tab), **Add Route** (Plan Route tab), **Edit Coords** drag-and-confirm (Edit Coords tab), **Apply N reveals** (Reveal tab), **Save journey** / **Delete** (Travel Time tab), **Rebuild Locations** and **Rebuild Workshop** (Edit Coords tab). All show inline status and fall back gracefully when the devserver is not running.
 
 ---
 

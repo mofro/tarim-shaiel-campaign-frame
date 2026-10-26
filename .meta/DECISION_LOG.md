@@ -786,3 +786,13 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Rationale:** Hiding every location first would otherwise leave 37 public routes drawn between invisible endpoints. One rule, applied in the player map, `world.html` and every mini-map, lets revealing locations reveal routes without a second per-route step beyond the route's own flag.
 **Also:** Route travel time uses one shared speed table (foot 30, cart 25, mounted 60, bird 250, dragon 500 km/day; road 1.0 / terrain 0.8 / straight 0.7; 8 h march day) — assumptions, editable in `utilities/shared/travel_time.py`. Route `visibility` and `mode` are edited in the Workshop route panel through `PATCH /api/routes/<id>`.
 **Lock status:** Draft — numbers are tunable; the visibility rule is settled.
+
+## 2026-10-26 — Saved travel journeys: per-leg state, computed time, GM-only by default (#311)
+
+**Decision:** Travel Time journeys are saved in `world/data/tarim-shaiel-journeys.geojson` as one MultiLineString Feature per journey. Each leg carries its own `mode` (foot/cart/mounted/bird/dragon) and `path` (road/straight; terrain reserved for #312). Time is never stored: it is computed from the leg's length, mode and path with the shared `travel_time.segment_hours`, so a speed-table change updates every journey. New journeys are `gm_secrets`. A journey reaches player output only when its own `visibility` is `public` AND every slug-stop exists and is not `gm_secrets` AND the nearest location within 1 km of each stop is not `gm_secrets` (fails closed, same shape as route visibility). The player payload exposes only id, name, geometry and pre-formatted popup text; stops, legs and slugs stay in the GM build. Loading a journey snaps a slug-stop to its location when the location has moved more than 50 m and marks the affected legs unsaved.
+
+**Rationale:** Same persistence paradigm as routes (GeoJSON in `world/data/`, devserver write-back) so there is one mental model. Computing time on read keeps one source of truth for speeds. Defaulting to `gm_secrets` matches the all-hidden-first reveal workflow. Exposing only popup text keeps GM planning data (stop slugs, per-leg modes) out of player HTML.
+
+**Also:** Endpoints GET/POST `/api/journeys`, PUT/PATCH/DELETE `/api/journeys/{id}`; PUT keeps id, visibility and created, PATCH changes only name and visibility. Shared styling/popups via `map_style.journeys_layer_js` and `journey_hover_js` (hover in the Workshop, tap-to-open on the player map and world.html, plain line on mini-maps).
+
+**Lock status:** Open — implementation shipped in PR for #311; speeds, path factors and the 8 h march day remain assumptions.
