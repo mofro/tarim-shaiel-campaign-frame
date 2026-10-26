@@ -15,7 +15,7 @@ factions_visible:
 - Route Keepers
 fantasy_name: Shorchuk
 historical_basis: Tarim Basin - Northern route waypoint
-last_updated: 2025-12-13
+last_updated: 2026-10-26
 location:
 - 41.525095839817354
 - 82.07693159580232
@@ -30,6 +30,7 @@ tags:
 - campaign-arc-northern-route
 - type-route-node
 type: route-node
+---
 
 ```leaflet
 id: location-shorchuk
