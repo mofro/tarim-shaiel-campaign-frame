@@ -97,6 +97,13 @@
   color: var(--muted);
   margin-bottom: 0.55rem;
 }
+.ts-popup__leg {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  color: var(--cream);
+  margin-top: 0.15rem;
+  line-height: 1.3;
+}
 .ts-popup__link {
   display: inline-block;
   font-family: 'EB Garamond', serif;
