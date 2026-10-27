@@ -779,3 +779,10 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Decision:** The audit produces an annotated list for the user to mark up and hand back, then an apply script writes the chosen coordinates. Canon files (`status: canon`) need `--confirm-canon` as a second check so a stray annotation cannot change them. Locations with no `real_world_name`, or the value `redirect`, get a DEM-only check and manual review. Analog disambiguation is accepted.
 
 **Lock status:** Locked (user-approved in plan review 2026-10-26).
+
+## 2026-10-26 — Routes are GM-only by default; route visibility follows both endpoints (#310)
+
+**Decision:** A route is player-visible only when its own `visibility` is `public` AND both end locations (nearest location within 1 km, searched across all locations) are non-`gm_secrets`. Missing route visibility, an unmatched endpoint or a missing end location hides the route (fail closed). All 37 existing routes set to `gm_secrets`; new routes default to `gm_secrets`. Waystations follow their route via `route_segment`.
+**Rationale:** Hiding every location first would otherwise leave 37 public routes drawn between invisible endpoints. One rule, applied in the player map, `world.html` and every mini-map, lets revealing locations reveal routes without a second per-route step beyond the route's own flag.
+**Also:** Route travel time uses one shared speed table (foot 30, cart 25, mounted 60, bird 250, dragon 500 km/day; road 1.0 / terrain 0.8 / straight 0.7; 8 h march day) — assumptions, editable in `utilities/shared/travel_time.py`. Route `visibility` and `mode` are edited in the Workshop route panel through `PATCH /api/routes/<id>`.
+**Lock status:** Draft — numbers are tunable; the visibility rule is settled.

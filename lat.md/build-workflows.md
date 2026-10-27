@@ -126,10 +126,15 @@ For adding new location stubs with coordinates. Provides a form (title, category
 #### Plan Route *(devserver required for one-click adding)*
 For building new routes between locations. Click location markers on the map to queue waypoints. The queue shows straight-line distance and travel time between each pair. Click **Add Route** — the button POSTs to `POST /api/routes/add`, which runs `map.py route` end-to-end: writes segments to `world/data/tarim-shaiel-routes.geojson`, snaps to roads via OSRM, rebuilds GeoJSON and workshop. Status shown inline; reload to see the new route.
 
-Check "Spur route (branch)" before clicking Add Route to use the `route_spur_` id prefix.
+Check "Spur route (branch)" before clicking Add Route to use the `route_spur_` id prefix. New routes are written as `visibility: gm_secrets`; flip them in the route panel once both end locations are public.
 
 #### Route Index
-A table of all routes currently in `world/data/tarim-shaiel-routes.geojson`. Columns: route ID, label, distance (km), estimated travel time (at 30 km/day caravan pace). Straight-line (2-point) segments are flagged with `~`. Clicking a row flies the map to that route and highlights it. Each row has a **Regenerate** button — see below.
+A table of all routes currently in `world/data/tarim-shaiel-routes.geojson`. Columns: route ID, label, distance (km), travel time for the route's `mode` (foot when unset), and who sees it: **players** (shown on the player map), **held** (marked `public` but an end location is still GM-only) or **GM**. Straight-line (2-point) segments are flagged with `~` and estimated at the straight-path factor. Clicking a row flies the map to that route and highlights it. Each row has a **Regenerate** button — see below.
+
+#### Route Panel *(devserver required to edit)*
+Selecting a route opens a panel with its time, a "seen by" line, a **Visibility** select (`public` / `gm_secrets`) and a **Travel by** select (foot, cart, mounted, bird, dragon). Each change sends `PATCH /api/routes/{route_id}` with that one property, updates the map, then rebuilds the Workshop. The write touches only that feature's property: a visibility flip is a one-line `git diff`, and a first `mode` adds one line. Hidden routes draw dimmed (opacity 0.28) in the Workshop; the player map and `world.html` omit them.
+
+Speeds come from one table in `utilities/shared/travel_time.py`, used by the route index, the route panel and the Travel Time tab: foot 30, cart 25, mounted 60, bird 250 (flies), dragon 500 (flies) km/day. Path factors: road 1.0, terrain 0.8, straight 0.7; fliers ignore the path. A march day is 8 hours. These are assumptions, edited in that file only.
 
 #### Edit Coords *(devserver required)*
 For updating the lat/lon of an existing location without editing YAML by hand. Click any pin on the map → the location loads in the Edit Coords panel. Drag the pin to its correct position, or type new coordinates directly. A badge on the tab shows how many unsaved edits are pending. "Save" sends a `PUT /api/locations/{slug}/coordinates` to the devserver, which writes the new coordinates into the `.md` file's frontmatter.
@@ -156,6 +161,7 @@ For choosing which GM-only locations become public. Click a GM-only marker, or p
 | `/api/locations/{slug}/frontmatter` | PATCH | Updates `name`, `fantasy_name`, `type`, `mapmarker` or `visibility` in the location's frontmatter (atomic write, bumps `last_updated`). Used by the Reveal tab and the Edit Coords field editor |
 | `/api/locations/create` | POST | Creates a new location stub via `map.py location` (writes `.md`, rebuilds GeoJSON) |
 | `/api/routes/add` | POST | Adds route segments via `map.py route` (writes GeoJSON, snaps to roads) |
+| `/api/routes/{route_id}` | PATCH | Sets `visibility` (`public` / `gm_secrets`) and/or `mode` (a key of the speed table) on one route. Other fields are ignored; an unknown value or no recognised field is a 400 and nothing is written. Atomic write that keeps the file's serialization. Used by the route panel |
 | `/api/routes/{route_id}/regenerate` | POST | Resyncs the route's endpoints to its locations' current coordinates and re-snaps via OSRM (`--force`, bypasses cache) |
 | `/api/rebuild/locations` | POST | Runs `build.py locations` — regenerates `docs/world.html` |
 | `/api/rebuild/workshop` | POST | Runs `build.py workshop` — regenerates `map-workshop.html` |
@@ -175,6 +181,8 @@ Click waypoints on the map, click Add Route. The devserver runs `map.py route` w
 ```bash
 python utilities/map.py route slug-a slug-b slug-c   # snaps + rebuilds
 ```
+
+`map.py route` passes its options to `utilities/routes/add_route.py`: `--visibility {gm_secrets,public}` (default `gm_secrets`) and `--mode {foot,cart,mounted,bird,dragon}` (default unset, meaning foot).
 
 **Hand-edit the GeoJSON** (for simple or approximate routes):
 Add a feature directly to the file. A 2-point segment (start → end only) is flagged in the Route Index as `~` (straight-line estimate). Then: `python utilities/build.py workshop`.

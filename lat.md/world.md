@@ -46,7 +46,7 @@ Additional (dungeons/landmarks/waypoints): [[world/locations/alak-mor.md]] · [[
 
 ## Geospatial Data
 - [[world/data/tarim-shaiel-locations.geojson]] — all location coordinates + properties
-- [[world/data/tarim-shaiel-routes.geojson]] — trade route definitions
+- [[world/data/tarim-shaiel-routes.geojson]] — trade route definitions; every route carries `visibility` (all 37 are `gm_secrets`) and an optional `mode`. A route is player-visible only when it is `public` and both end locations are public — see [[lat.md/locations]]
 - _(regional boundaries GeoJSON removed in #299; see [[lat.md/locations]])_
 - Leaflet maps embedded in each location file; zoom 4.5–18
 

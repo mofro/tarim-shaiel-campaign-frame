@@ -11,7 +11,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -989,7 +990,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -1351,7 +1353,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -3361,7 +3364,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -6783,7 +6787,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -7733,7 +7738,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -8479,7 +8485,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -8845,7 +8852,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -9311,7 +9319,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -9737,7 +9746,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -10027,7 +10037,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -10185,7 +10196,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -10431,7 +10443,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -10581,7 +10594,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -10787,7 +10801,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -11765,7 +11780,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -12127,7 +12143,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -14137,7 +14154,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -17559,7 +17577,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -18509,7 +18528,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -19255,7 +19275,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -19621,7 +19642,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -20087,7 +20109,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -20377,7 +20400,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -20527,7 +20551,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -20733,7 +20758,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -20927,7 +20953,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -21565,7 +21592,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -21819,7 +21847,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -21961,7 +21990,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -22387,7 +22417,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -128213,7 +128244,8 @@
         "description": "",
         "stroke": "#1a1208",
         "stroke-width": 5,
-        "stroke-opacity": 0.9
+        "stroke-opacity": 0.9,
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -249801,7 +249833,8 @@
         "stroke-width": 5,
         "stroke-opacity": 0.9,
         "route_name": "Refugee Warrior Awakening",
-        "route_type": "other"
+        "route_type": "other",
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -250124,7 +250157,8 @@
         "stroke": "#1a1208",
         "stroke-width": 5,
         "stroke-opacity": 0.9,
-        "route_type": "pilgrimage"
+        "route_type": "pilgrimage",
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -264500,7 +264534,8 @@
         "stroke-width": 5,
         "stroke-opacity": 0.9,
         "route_name": "Sentinal Awakening",
-        "route_type": "other"
+        "route_type": "other",
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -267644,7 +267679,8 @@
         "stroke-width": 5,
         "stroke-opacity": 0.9,
         "route_name": "Refugee Long Walk",
-        "route_type": "other"
+        "route_type": "other",
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
@@ -267672,7 +267708,8 @@
         "stroke-width": 5,
         "stroke-opacity": 0.9,
         "route_name": "Refugee Long Walk",
-        "route_type": "other"
+        "route_type": "other",
+        "visibility": "gm_secrets"
       },
       "geometry": {
         "type": "LineString",
