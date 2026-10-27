@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: operational
 visibility: internal
 status: active
-last_updated: 2026-10-25
+last_updated: 2026-10-26
 
 critical_path:
   - Resolve cosmological architecture
@@ -44,7 +44,7 @@ domain_overrides:
   narrative: 65
   mechanics: 95
   world: 97
-  infra: 96
+  infra: 97
   cosmology: 71
 
 blockers:
@@ -57,6 +57,7 @@ blockers:
 - [x] **Core complete:** Campaign narrative, world geography, fantasy naming, charm architecture, Orc cultural framework, Silk Road weapons, Cosmological architecture (all 8 decisions locked 2026-03-17), World entity infrastructure (factions/events/concepts indexes + all location templates 2026-03-10), Preliminary world diagrams (2026-03-13), HTML publishing pipeline + Netlify deployment (2026-03-15), Visibility gating + Obsidian Shell Commands integration (2026-03-17)
 - ✅ **Campaign active (2026-06-26+):** Session 0 ran 2026-06-26; Session 1 ran July 2026; Session 2 ran 2026-08-15; Session 3 prep and encounter sheet drafted. Players: Lisa/Warrior, Arno/Sentinel, Erik/Seeker, Marc/Visionary (committed); Dave/Rill (Warlock), Jim/Sahir (Bard) as new heroes; Bruce deciding.
 - ✅ **Completed (2026-10-25):** Map Workshop — search, travel time, player share map, and a fail-fast PyYAML guard in `utilities/devserver.py` (run the devserver from `venv/bin/python`). [PR #306](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/306) squash-merged. [PR #307](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/307) then corrected the workshop's four devserver hints to say `venv/bin/python`.
+- ✅ **Completed (2026-10-26):** Map Workshop plan, Phases A–F, all merged to `main` (PRs [#313](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/313), [#316](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/316)–[#320](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/320)): shared map style and `poi` type, every location `gm_secrets` with a Reveal tab, GM-only routes, per-leg travel state and persisted journeys, terrain-following paths, and the coordinate audit (`utilities/locations/coord_audit.py`, GM decides each row). Also fixed: Workshop saves duplicating frontmatter keys (#321). **Open:** #315 (touch tap-to-open, needs a phone). **Next for the GM:** run the audit, decide the 30 listed rows, then reveal locations as the campaign reaches them.
 - ✅ **Completed (2026-10-25):** Session 3 encounter sheet (`narrative/sessions/03_session3/Session_3_Encounter_Sheet.md`; GM-only, draft) — HeroHeaven-hya closed. Plus Session 2 record / Session 3 prep updates and three new route nodes (Dire Wolf Pass, Foothill Crossroads, Stashed Carts).
 - 🔄 **Partial (2026-10-25):** Orc → Tulpar rename — text pass landed across `world/`, `narrative/`, `characters/`, the v2 frame and `lat.md/world.md`; wikilink slugs and filenames (e.g. `orc-steppe-confederations`) deliberately unchanged, so a slug/filename pass remains.
 - 🔄 **Active work:** Session 0 scenarios — 5/11 complete (Warrior, Seeker, Breaker, Sentinel, Visionary); 6 have design framework only (Bridge, Sacrificer, Trickster, Crafter, Healer, Keeper pending Decision 15). STORY_ARC_SYNTHESIS.md needs update to reflect locked decisions, individual divine entity files to be created from indexes.

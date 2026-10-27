@@ -36,7 +36,11 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - D: per-leg travel state, persisted journeys, Travel Time tab, `/api/journeys`, PR #318 (#311 / HeroHeaven-6sm)
   - E: terrain-following paths for journey legs (DEM A* in a Web Worker), PR #319 (#312 / HeroHeaven-2py)
   - F: `utilities/locations/coord_audit.py` (#314 / HeroHeaven-d95). Report is a ranked Markdown + CSV list with a blank `decision` column; `--apply` writes only decided rows. First real run: 184 checked, 30 listed, 154 consistent. Endere ranked 17th behind generic-name Wikidata matches until rows were sorted by evidence tier (field contradicts terrain, then analog only). New location fields `coord_review`, `coord_reviewed`, `wikidata`; Pillow added to `requirements.txt`
-  - All of B–F are open for review (new `utilities/` code, so the Beads issues stay open until each review passes)
+  - Landed in order, each retargeted to `main` after the one below it was squash-merged: #316 (B2), #317 `b3c79fc`, #318 `5e10824`, #319 `ab2add2`, #320 `6e3b6f5`. After each squash the next PR conflicted (the branch still held the unsquashed history); fixed by merging `main` in with each file 3-way merged against the true common base, never a rebase. #308–#312 and #314 and their Beads issues closed with their merges; stack branches deleted
+  - Open items: #315 / HeroHeaven-p5h (real-touch tap-to-open, needs a phone). Not built: a Workshop Audit layer for Phase F
+- Frontmatter duplication (#321 / HeroHeaven-4um): saving an unchanged value from the Workshop appended another copy of the key (`title:`, `type:`, `visibility:` and the `location:` list). `_set_frontmatter_fields` and `_set_location` in `utilities/devserver.py` read "text unchanged after `re.sub`" as "key absent". Now `_replace_first` matches by count, replaces the first hit and drops later duplicates, so doubled pages heal on their next save. 13 tests in `tests/test_devserver_frontmatter.py`. Six damaged pages (`achatagh`, `aqyar`, `ember-wash`, `qarabulaq`, `qarachi`, `qizil`) had exact duplicate lines removed; devserver restarted to load the fix
+  - The fix rode into `main` inside #320 (cherry-picked as `a508ccb` so the working checkout had it). #322 (same change on its own branch) was left with an empty diff against `main`, so it was closed as superseded
+  - Known and left alone: a Workshop rename updates `title:` only when both `title:` and `name:` exist, so it can leave `name:` stale
 
 ---
 

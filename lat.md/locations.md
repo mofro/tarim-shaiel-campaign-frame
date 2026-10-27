@@ -95,6 +95,8 @@ Then commit + push → Netlify rebuilds → players see the marker.
 
 The tracked `world/data/tarim-shaiel-locations.geojson` snapshot is not rewritten by Apply, so its `visibility` values lag behind the pages until `python utilities/build.py geojson --gm` is run.
 
+**Frontmatter write-back.** Every Workshop save (Apply, Save Fields, Edit Coords, Add Point follow-ups) goes through `_set_frontmatter_fields` and `_set_location` in `utilities/devserver.py`. Both use `_replace_first`, which counts matches: it replaces the first copy of a key in place and drops any later copies, so saving an unchanged value is a no-op and a page that already has duplicate keys heals on its next save (#321). Never test "did the text change" to decide whether a key exists; an identical replacement leaves the text unchanged. Tests: `tests/test_devserver_frontmatter.py`.
+
 ## Route Visibility
 
 A route reaches player output only when its own `visibility` is `public` **and** both end locations are not `gm_secrets`; anything else hides it.
@@ -166,3 +168,4 @@ python utilities/build.py all
 - No region has a GeoJSON polygon since #299 removed `tarim-shaiel-regions.geojson`; the region boundary layer is empty everywhere (the player map has no regions layer at all)
 - `docs/locations/` cross-links not yet populated (xref-stub placeholder)
 - `zzkashkar.md` — duplicate stub file; excluded by `zz` prefix filter
+- A Workshop rename writes `title:` only when the page has both `title:` and `name:`, so a rename can leave `name:` stale (pre-existing, not changed by #321)

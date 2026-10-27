@@ -813,3 +813,10 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Rationale:** There is no global rule for which side is right (field, position or analog), so the tool shows evidence and never edits on its own. The first real run put endere 17th behind generic-name matches (Yuli, Hongqiao), so ranking by evidence strength, not distance, was needed. Canon files need `--confirm-canon` so a stray annotation cannot change one.
 **Also:** `coord_review: intentional`, `coord_reviewed` and `wikidata` are new location extension fields. MapTiler is not fetched by scripts (its terms). No `real_world_name`, or the value `redirect`, gives a terrain-only check for manual review. No Workshop Audit layer in this change.
 **Lock status:** Open; PR under review.
+
+## 2026-10-26 — Frontmatter writes match by count, not by "text changed" (#321)
+
+**Decision:** `_set_frontmatter_fields` and `_set_location` in `utilities/devserver.py` decide whether a key exists with `_replace_first`, which counts regex matches, replaces the first and drops later copies. The old check (`re.sub`, then "did the text change?") read an identical replacement as "key absent" and appended a duplicate.
+**Rationale:** The Workshop saves a value that is already on the page far more often than a new one (Apply, Save Fields, Edit Coords), so every save grew the frontmatter. Dropping later copies means pages already doubled heal on their next save instead of needing a one-off repair.
+**Also:** Six damaged pages were repaired by deleting exact duplicate lines only. The fix reached `main` inside #320 (cherry-picked as `a508ccb`); the standalone PR #322 had an empty diff afterwards and was closed. #314 (coordinate audit) shipped in #320, so the "Open; PR under review" status on its entry above is now merged.
+**Lock status:** Not canon; implementation detail, covered by `tests/test_devserver_frontmatter.py`.
