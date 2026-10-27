@@ -30,6 +30,7 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 | GM-mode rebuild (auth-gated, all content) | `python utilities/build.py all --gm` |
 | Netlify production build | runs `build.py all --public` automatically on push — no manual step |
 | Interactive location/route editing (drag-to-update) | `venv/bin/python utilities/devserver.py` — site at `localhost:8000/`, workshop at `localhost:8000/workshop` |
+| Audit location coordinates and elevations against terrain and real-world analogs | `venv/bin/python utilities/locations/coord_audit.py` (report only; see "Auditing coordinates" below) |
 | See all registered generators | `python utilities/build.py list` |
 
 ---
@@ -89,6 +90,28 @@ python utilities/build.py workshop     # re-inlines the updated routes.geojson
 ```bash
 python utilities/build.py geojson      # writes world/data/tarim-shaiel-locations.geojson
 ```
+
+### "Auditing coordinates" (#314)
+
+Writes a ranked report and changes nothing. It needs network access for the first run (elevation tiles and Wikidata, then cached) and Pillow.
+
+```bash
+venv/bin/python utilities/locations/coord_audit.py
+```
+
+Open `world/data/coord-audit/audit-<timestamp>.csv` (or the `.md`) and fill the `decision` column with `move`, `elevation`, `intentional` or `skip`. Preview the edits:
+
+```bash
+venv/bin/python utilities/locations/coord_audit.py --apply world/data/coord-audit/audit-<timestamp>.csv --dry-run
+```
+
+Apply them (add `--confirm-canon` when a row is a canon file):
+
+```bash
+venv/bin/python utilities/locations/coord_audit.py --apply world/data/coord-audit/audit-<timestamp>.csv
+```
+
+Then run Regenerate on any route the apply step lists, and rebuild with `venv/bin/python utilities/build.py all --gm`. Details are in `lat.md/locations.md`.
 
 ### "Something looks wrong — full clean rebuild"
 

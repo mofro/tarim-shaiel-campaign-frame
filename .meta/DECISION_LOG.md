@@ -806,3 +806,10 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Also:** Limits accepted and documented in `lat.md/locations.md`: water is not a barrier, existing roads are ignored, DEM resolution is 30 to 90 m, an 8-neighbour grid makes a flat leg up to about 8% longer than the straight line. Tile-cache open is capped at 2 s so a blocked IndexedDB cannot stall routing. Credit: USGS (SRTM, GMTED2010).
 
 **Lock status:** Slope limits, Tobler constants and the 8 h day are assumptions, editable in `utilities/shared/travel_time.py`. Not canon.
+
+## 2026-10-26 — Coordinate audit: annotated list, GM decides per item (#314)
+
+**Decision:** `utilities/locations/coord_audit.py` reports locations whose `elevation:` or `location:` disagree with terrain (AWS terrarium tiles) and the real-world analog (Wikidata P625 from `real_world_name`). It writes a ranked Markdown table and CSV with a blank `decision` column to the gitignored `world/data/coord-audit/`. The GM marks each row `move`, `elevation`, `intentional` or `skip`; `--apply` writes only decided rows. Rows rank in two tiers: an elevation field that contradicts the terrain first, an analog name match alone second.
+**Rationale:** There is no global rule for which side is right (field, position or analog), so the tool shows evidence and never edits on its own. The first real run put endere 17th behind generic-name matches (Yuli, Hongqiao), so ranking by evidence strength, not distance, was needed. Canon files need `--confirm-canon` so a stray annotation cannot change one.
+**Also:** `coord_review: intentional`, `coord_reviewed` and `wikidata` are new location extension fields. MapTiler is not fetched by scripts (its terms). No `real_world_name`, or the value `redirect`, gives a terrain-only check for manual review. No Workshop Audit layer in this change.
+**Lock status:** Open; PR under review.

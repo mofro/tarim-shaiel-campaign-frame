@@ -89,3 +89,6 @@ utilities/lk-bridge/lk_manifest.json
 map-workshop.html
 player-map.html
 BRAT-log.md
+
+# Coordinate audit reports + tile/Wikidata caches (#314, local-only)
+world/data/coord-audit/

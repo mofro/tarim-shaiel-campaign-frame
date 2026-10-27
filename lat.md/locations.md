@@ -121,6 +121,19 @@ A journey is a saved multi-stop trip planned on the Workshop **Travel Time** tab
 - **Boot:** the Workshop embeds journeys at build time but refetches `GET /api/journeys` on load, so a journey saved since the last build still lists. The player map is static, so rebuild after making a journey public.
 - **Endpoints:** `GET`/`POST /api/journeys`, `PUT`/`PATCH`/`DELETE /api/journeys/{id}` (see `lat.md/build-workflows.md`). `PUT` keeps id, visibility and `created`; `PATCH` changes only `name` and `visibility`.
 
+## Coordinate Audit
+
+`utilities/locations/coord_audit.py` (#314) lists locations whose coordinates or `elevation:` look wrong and lets the GM decide each one. It shows evidence and never edits a file until an annotated report is passed back in.
+
+- **Evidence:** the terrain elevation at the location (AWS terrarium tiles, credit USGS) against the `elevation:` field, and the location of its real-world analog (Wikidata P625 from `real_world_name`, or an exact `wikidata:` id) against `location:`. MapTiler is never fetched from the script (its terms do not allow scripted bulk use).
+- **Classes:** `coord-suspect` (analog 20 km or more away and the elevation field fits the analog better, or the analog is the only evidence), `elevation-suspect` (analog near, field off by more than 250 m), `resolution-suspect` (field off, but inside the 1 km relief range, so probably a sampling artefact; no elevation is suggested), `ambiguous` (evidence disagrees, or only the terrain is available). Thresholds are constants at the top of the script.
+- **Ranking:** two tiers. Rows where the `elevation:` field contradicts the terrain at the stated position come first, because that is evidence from the location's own data. Rows where only an analog name match disagrees come after them, since a generic name matches many real places. Inside a tier the score is the multiple of the thresholds exceeded, weighted by class.
+- **Report:** `world/data/coord-audit/audit-<timestamp>.md` and `.csv`, same rows, ranked, with a blank `decision` column. The directory and its tile and Wikidata caches are gitignored. A new run never overwrites an earlier report.
+- **Decisions:** `move` writes the row's `suggest_lat`/`suggest_lon` (editable) to `location:`; `elevation` writes `suggest_elev` to `elevation:`; `intentional` stamps `coord_review: intentional` and `coord_reviewed: <date>` so the row is never listed again; `skip` or blank writes nothing. `move` and a near-analog `elevation` also store the analog's `wikidata:` id so later runs match it exactly.
+- **Apply:** `coord_audit.py --apply <file> [--dry-run] [--confirm-canon]`. All rows are checked first and any error (unknown decision, stale row, canon file without `--confirm-canon`) stops the run with nothing written. Edits go through the devserver's `_set_location` and `_set_frontmatter_fields` (which bumps `last_updated`), the same path as the Workshop's coordinate edit. After a `move` it lists the routes that start or end within 1 km of the old position; run Regenerate on each, then rebuild.
+- **Analog matching:** the first search hit with coordinates inside the map region (lon 45 to 125, lat 15 to 55) is used and flagged when another such hit is more than 100 km away. A missing `real_world_name`, or the value `redirect`, gives a terrain-only check for manual review. Many `real_world_name` values are generic (a balcony, old town), so confirm the analog shown on each row.
+- **Limits:** the player map and `docs/world.html` never see audit data. `zz`- and `_`-prefixed files are skipped like the generators. A coarse zoom-10 sample screens every location; only rows whose field disagrees are re-sampled at zoom 12. About 200 tiles are fetched once and cached; `--max-tiles` stops a run that would fetch more than 600.
+
 ## GeoJSON Structure
 
 - `world/data/tarim-shaiel-locations.geojson` — one Point per location (183 as of 2026-10-25); IDs: `location_{slug}`

@@ -30,6 +30,13 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 - Beads "auto-export: git add failed": `~/.gitignore_global` ignores `.beads/issues.jsonl` while `export.git-add` was true. Set `export.git-add: false` in `.beads/config.yaml`; re-run of `bdg update` printed no warning
 - `lat.md/locations.md`, `build-workflows.md`, `world.md`: documented the shared module and single category source; corrected stale references to the regions GeoJSON removed in #299
 - Process feedback (GM): settled questions were asked again and the close-out was posed as a question. Saved to the `close-out-behavior-user-feedback-2026-10-25` bd memory and a `CLAUDE.md` working-convention bullet
+- Map plan Phases B–F, built as a stacked PR chain (each on its own branch; merge in order and retarget the next to `main`)
+  - B1: every location set to `gm_secrets` in one scripted pass (pushed, `00cf25b`); `revealed:` stays a datestamp that no code reads. B2 Reveal tab, PR #316 (#309 / HeroHeaven-u4v)
+  - C: GM-only routes, route travel time and the route PATCH endpoint, PR #317 (#310 / HeroHeaven-15e)
+  - D: per-leg travel state, persisted journeys, Travel Time tab, `/api/journeys`, PR #318 (#311 / HeroHeaven-6sm)
+  - E: terrain-following paths for journey legs (DEM A* in a Web Worker), PR #319 (#312 / HeroHeaven-2py)
+  - F: `utilities/locations/coord_audit.py` (#314 / HeroHeaven-d95). Report is a ranked Markdown + CSV list with a blank `decision` column; `--apply` writes only decided rows. First real run: 184 checked, 30 listed, 154 consistent. Endere ranked 17th behind generic-name Wikidata matches until rows were sorted by evidence tier (field contradicts terrain, then analog only). New location fields `coord_review`, `coord_reviewed`, `wikidata`; Pillow added to `requirements.txt`
+  - All of B–F are open for review (new `utilities/` code, so the Beads issues stay open until each review passes)
 
 ---
 

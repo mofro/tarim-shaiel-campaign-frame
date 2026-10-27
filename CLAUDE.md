@@ -73,7 +73,7 @@ tags: []
 - GM markdown conventions (inline redaction `{gm:text}`, block callouts `> [!gm-only]`, file transclusion `![[gm_secrets/...]]`): see `GM_AUTHORING.md`
 
 ### Extension fields (preserve during migration — do not remove)
-- **Location:** `elevation`, `location`, `mapmarker`, `fantasy_name`, `resources`, `factions` + geographic fields
+- **Location:** `elevation`, `location`, `mapmarker`, `fantasy_name`, `resources`, `factions` + geographic fields; `coord_review` (`intentional`), `coord_reviewed` (date) and `wikidata` (Q-id of the confirmed real-world analog) are written by `utilities/locations/coord_audit.py`
 - **Ancestry:** `daggerheart_name` (Tarim-Shaiel name → Daggerheart mechanical ancestry)
 - **Faction:** `faction_type`, `region`, `visible_control`, `hidden_control`, `rivals`, `controls`, `narrative_weight`
 - **Weapon:** `range`, `tier`, `banner_left`, `banner_right`
