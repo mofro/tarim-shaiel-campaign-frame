@@ -3,6 +3,7 @@ Tests for the shared travel-time model (#310): one speed table, length and hours
 """
 
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -77,3 +78,30 @@ def test_tt_json_round_trips_the_table():
     assert d["speeds"]["bird"]["fly"] is True
     assert d["path"]["terrain"] == 0.8
     assert "</" not in tt.tt_json()
+
+
+def test_tobler_factor_is_one_on_the_flat_and_falls_off_both_ways():
+    assert tt.tobler_factor(0.0) == pytest.approx(1.0)
+    assert tt.tobler_factor(0.3) < tt.tobler_factor(0.1) < 1.0
+    assert tt.tobler_factor(-0.5) < tt.tobler_factor(-0.2)
+    # fastest on a gentle downhill, slightly above flat speed
+    assert tt.tobler_factor(-tt.TOBLER_OFFSET) == pytest.approx(math.exp(tt.TOBLER_K * tt.TOBLER_OFFSET))
+    assert tt.tobler_factor(-tt.TOBLER_OFFSET) > 1.0
+
+
+def test_slope_limits_order_by_mode_and_fliers_have_none():
+    assert tt.max_slope("foot") == 0.60
+    assert tt.max_slope("mounted") == 0.35
+    assert tt.max_slope("cart") == 0.12
+    assert tt.max_slope("bird") is None and tt.max_slope("dragon") is None
+    assert tt.max_slope(None) == tt.max_slope(tt.DEFAULT_MODE)
+
+
+def test_tt_json_carries_the_terrain_block():
+    t = json.loads(tt.tt_json())["terrain"]
+    assert t["maxSlope"] == tt.MAX_SLOPE
+    assert (t["toblerK"], t["toblerOffset"]) == (tt.TOBLER_K, tt.TOBLER_OFFSET)
+    assert t["tileUrl"].startswith("https://") and all(k in t["tileUrl"] for k in ("{z}", "{x}", "{y}"))
+    assert (t["maxCells"], t["minZoom"], t["maxZoom"]) == (
+        tt.TERRAIN_MAX_CELLS, tt.TERRAIN_MIN_ZOOM, tt.TERRAIN_MAX_ZOOM)
+    assert t["minZoom"] < t["maxZoom"]

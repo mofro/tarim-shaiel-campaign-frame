@@ -4,6 +4,7 @@ visibility rule, popup content and the devserver endpoints.
 """
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -519,3 +520,11 @@ def test_map_pages_build_without_journey_arguments():
 def test_workshop_loads_saved_journeys_from_the_devserver_on_boot():
     from world import generate_map_workshop as gmw
     assert 'fetch("/api/journeys")' in gmw._TRAVEL_JS
+
+
+def test_travel_time_panel_is_capped_to_the_form_panel_width():
+    # The terrain hint is one long line; uncapped, it sizes the whole sidebar.
+    from world import generate_map_workshop as gmw
+    m = re.search(r"^([^{\n]*#panel-travel-time[^{\n]*)\{\s*max-width:\s*340px;\s*\}", gmw._CSS, re.M)
+    assert m, "expected #panel-travel-time in the panel width rule"
+    assert "#panel-edit-coords" in m.group(1)

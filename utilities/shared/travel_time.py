@@ -40,6 +40,37 @@ PATH_FACTORS: dict[str, float] = {
 DEFAULT_MODE = "foot"
 DEFAULT_PATH = "road"
 
+# --- Terrain paths (#312) ---------------------------------------------------
+# The `terrain` path is a least-cost walk across elevation tiles, run in the
+# browser (utilities/world/terrain_path.js). Steps are weighted by a relative
+# Tobler hiking factor, so the mode speeds above scale by slope instead of
+# mixing in absolute Tobler speeds:
+#
+#     f(S) = exp(-TOBLER_K * (|S + TOBLER_OFFSET| - TOBLER_OFFSET))      f(0) = 1
+#
+# S is rise over run along a step. Fastest on a gentle downhill (S = -0.05).
+# A step steeper than the mode's MAX_SLOPE is impassable, so a cart routes
+# around what a walker would climb. Fliers never use the terrain path.
+
+TOBLER_K = 3.5
+TOBLER_OFFSET = 0.05
+
+# Assumptions, not measurements. rise/run above which a step is refused.
+MAX_SLOPE: dict[str, float] = {
+    "foot":    0.60,
+    "mounted": 0.35,
+    "cart":    0.12,
+}
+
+# AWS Terrain Tiles (terrarium), public CORS, no key. Elevation in metres is
+# R*256 + G + B/256 - 32768. Credit: data courtesy of the U.S. Geological Survey
+# (SRTM, GMTED2010 and other public-domain sources).
+TERRAIN_TILE_URL = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"
+TERRAIN_MAX_CELLS = 8_000_000   # grid cells a single leg may use
+TERRAIN_MIN_ZOOM = 6            # below this the leg is refused
+TERRAIN_MAX_ZOOM = 10           # finer than this oversamples the 30-90 m source
+TERRAIN_MARGIN_FRAC = 0.15      # search room around the stops, as a share of the leg's span
+
 
 def _haversine_km(lon1: float, lat1: float, lon2: float, lat2: float) -> float:
     R = 6371.0
@@ -78,6 +109,16 @@ def segment_hours(km: float, mode: str | None = None, path: str | None = None,
     return km / speed_kmph
 
 
+def tobler_factor(slope: float) -> float:
+    """Speed multiplier for a step of rise/run `slope` (1.0 on the flat)."""
+    return math.exp(-TOBLER_K * (abs(slope + TOBLER_OFFSET) - TOBLER_OFFSET))
+
+
+def max_slope(mode: str | None) -> float | None:
+    """Steepest step `mode` can take on a terrain path; None for fliers."""
+    return MAX_SLOPE.get(normalize_mode(mode))
+
+
 def hours_to_days(hours: float) -> float:
     return hours / MARCH_HOURS
 
@@ -97,6 +138,10 @@ def tt_json() -> str:
     """The table as JSON for `var _TT = ...` in generated pages."""
     return json.dumps(
         {"hours": MARCH_HOURS, "speeds": SPEEDS, "path": PATH_FACTORS,
-         "defaultMode": DEFAULT_MODE, "defaultPath": DEFAULT_PATH},
+         "defaultMode": DEFAULT_MODE, "defaultPath": DEFAULT_PATH,
+         "terrain": {"maxSlope": MAX_SLOPE, "toblerK": TOBLER_K, "toblerOffset": TOBLER_OFFSET,
+                     "tileUrl": TERRAIN_TILE_URL, "maxCells": TERRAIN_MAX_CELLS,
+                     "minZoom": TERRAIN_MIN_ZOOM, "maxZoom": TERRAIN_MAX_ZOOM,
+                     "marginFrac": TERRAIN_MARGIN_FRAC}},
         separators=(",", ":"),
     )

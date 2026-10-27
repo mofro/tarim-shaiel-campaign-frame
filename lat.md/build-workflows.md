@@ -139,7 +139,7 @@ Speeds come from one table in `utilities/shared/travel_time.py`, used by the rou
 #### Travel Time *(devserver required to save)*
 For planning and saving a multi-stop journey. Click locations or free points on the map to add stops; each pair of stops is a **leg** with its own state. Presets set the default mode for new legs; **Set all legs** (`#tt-all-path`) applies one path to every leg. Per leg:
 - **Mode:** foot, cart, mounted, bird or dragon (the shared speed table). Fliers force the straight path.
-- **Path:** `road` follows OSRM, `straight` is a direct line. `terrain` is shown disabled ("needs Phase E", #312) until DEM routing lands.
+- **Path:** `road` follows OSRM, `terrain` is a least-cost walk over elevation tiles, `straight` is a direct line. A terrain leg shows progress and a cancel button while its worker runs, and uses a 2 second cap on opening the tile cache. Needs network for the first run over an area (AWS terrarium tiles, credit USGS); repeats come from the IndexedDB cache. See the Journeys section of `lat.md/locations.md` for the model and its limits.
 
 Changing one leg's mode or path recomputes only that leg and the total, with no new OSRM request unless the path changed to `road`. If OSRM is unreachable the leg falls back to straight with a visible notice and a warning mark on the row. Time is derived from length, mode and path, never stored.
 

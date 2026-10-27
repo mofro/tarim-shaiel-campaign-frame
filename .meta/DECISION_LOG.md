@@ -796,3 +796,13 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Also:** Endpoints GET/POST `/api/journeys`, PUT/PATCH/DELETE `/api/journeys/{id}`; PUT keeps id, visibility and created, PATCH changes only name and visibility. Shared styling/popups via `map_style.journeys_layer_js` and `journey_hover_js` (hover in the Workshop, tap-to-open on the player map and world.html, plain line on mini-maps).
 
 **Lock status:** Open — implementation shipped in PR for #311; speeds, path factors and the 8 h march day remain assumptions.
+
+## 2026-10-26 — Terrain paths for journey legs are routed in the browser over public elevation tiles (#312)
+
+**Decision:** A journey leg with `path: terrain` is a least-cost walk across AWS terrarium elevation tiles, run in a Web Worker (`utilities/world/terrain_path.js`). Steps are weighted by a relative Tobler hiking factor, and steps steeper than a per-mode limit (foot 0.60, mounted 0.35, cart 0.12 rise/run) are impassable. Each terrain leg saves a `slope_factor` (average speed against flat ground), so time stays derived and saved journeys reload without re-routing.
+
+**Rationale:** No server routing and no API key: tiles are public with CORS and cache in IndexedDB, so a repeat leg is free. A relative factor lets the existing mode speeds scale by slope instead of mixing in absolute Tobler speeds. Per-mode slope limits make a cart take a different line from a walker.
+
+**Also:** Limits accepted and documented in `lat.md/locations.md`: water is not a barrier, existing roads are ignored, DEM resolution is 30 to 90 m, an 8-neighbour grid makes a flat leg up to about 8% longer than the straight line. Tile-cache open is capped at 2 s so a blocked IndexedDB cannot stall routing. Credit: USGS (SRTM, GMTED2010).
+
+**Lock status:** Slope limits, Tobler constants and the 8 h day are assumptions, editable in `utilities/shared/travel_time.py`. Not canon.
