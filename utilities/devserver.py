@@ -619,6 +619,24 @@ def _find_slug(slug: str) -> "Path | None":
     return None
 
 
+def _replace_first(fm: str, pattern: str, new: str) -> "tuple[str, bool]":
+    """Replace the first match of `pattern` in `fm` with `new`; drop any later matches.
+
+    Returns (frontmatter, matched). "Matched" is a count, not "the text changed":
+    writing back an identical line must not read as "key absent", or the caller
+    appends a duplicate. Dropping later matches heals a key that is already doubled.
+    """
+    hits = list(re.finditer(pattern, fm, flags=re.MULTILINE))
+    if not hits:
+        return fm, False
+    out = fm[:hits[0].start()] + new
+    pos = hits[0].end()
+    for h in hits[1:]:
+        out += fm[pos:h.start()]
+        pos = h.end()
+    return out + fm[pos:], True
+
+
 def _set_location(text: str, lat: float, lon: float) -> str:
     """Update or insert `location: [lat, lon]` block in YAML frontmatter."""
     m = re.match(r"^---\n(.*?\n)---\n", text, re.DOTALL)
@@ -630,16 +648,11 @@ def _set_location(text: str, lat: float, lon: float) -> str:
     new = f"location:\n- {lat}\n- {lon}\n"
 
     # Block list format: location:\n- value\n- value\n
-    fm2 = re.sub(
-        r"^location:\s*\n(?:[ \t]*-[^\n]*\n)+",
-        new,
-        fm,
-        flags=re.MULTILINE,
-    )
-    if fm2 == fm:
+    fm2, found = _replace_first(fm, r"^location:\s*\n(?:[ \t]*-[^\n]*\n)+", new)
+    if not found:
         # Inline format: location: [lat, lon]
-        fm2 = re.sub(r"^location:[^\n]*\n", new, fm, flags=re.MULTILINE)
-    if fm2 == fm:
+        fm2, found = _replace_first(fm, r"^location:[^\n]*\n", new)
+    if not found:
         # Field absent — append at end of frontmatter block
         fm2 = fm + new
 
@@ -682,20 +695,20 @@ def _set_frontmatter_fields(text: str, fields: dict) -> str:
             scalar = _yaml_scalar(value)
             new_title = f"title: {scalar}\n"
             new_name  = f"name: {scalar}\n"
-            fm2 = re.sub(r"^title:[^\n]*\n", new_title, fm, flags=re.MULTILINE)
-            if fm2 != fm:
-                fm = fm2
-            else:
-                fm2 = re.sub(r"^name:[^\n]*\n", new_name, fm, flags=re.MULTILINE)
-                fm = fm2 if fm2 != fm else fm + new_title
+            fm, found = _replace_first(fm, r"^title:[^\n]*\n", new_title)
+            if not found:
+                fm, found = _replace_first(fm, r"^name:[^\n]*\n", new_name)
+            if not found:
+                fm += new_title
         elif value is None:
             # Remove field entirely
             fm = re.sub(rf"^{re.escape(key)}:[^\n]*\n", "", fm, flags=re.MULTILINE)
         else:
             scalar = _yaml_scalar(value)
             new_line = f"{key}: {scalar}\n"
-            fm2 = re.sub(rf"^{re.escape(key)}:[^\n]*\n", new_line, fm, flags=re.MULTILINE)
-            fm = fm2 if fm2 != fm else fm + new_line
+            fm, found = _replace_first(fm, rf"^{re.escape(key)}:[^\n]*\n", new_line)
+            if not found:
+                fm += new_line
 
     # Bump last_updated
     today = __import__("datetime").date.today().isoformat()
