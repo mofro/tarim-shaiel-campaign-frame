@@ -102,7 +102,7 @@ Then place waystation candidates:
 python3 utilities/routes/place_waystations.py --segment route_seg_<a>_<b>
 ```
 
-Route/waystation data files are **infra path** (feature branch → PR).
+Route/waystation data files commit to **main directly** (see Commit Paths below).
 
 ---
 
