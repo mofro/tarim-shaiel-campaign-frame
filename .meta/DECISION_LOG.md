@@ -820,3 +820,13 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Rationale:** The Workshop saves a value that is already on the page far more often than a new one (Apply, Save Fields, Edit Coords), so every save grew the frontmatter. Dropping later copies means pages already doubled heal on their next save instead of needing a one-off repair.
 **Also:** Six damaged pages were repaired by deleting exact duplicate lines only. The fix reached `main` inside #320 (cherry-picked as `a508ccb`); the standalone PR #322 had an empty diff afterwards and was merged as is (`6d8e6a6`, no tree change). #314 (coordinate audit) shipped in #320, so the "Open; PR under review" status on its entry above is now merged.
 **Lock status:** Not canon; implementation detail, covered by `tests/test_devserver_frontmatter.py`.
+
+## 2026-10-27 — Basemap peak markers: Workshop-owned toggle, hidden on the player map (#325)
+
+**Decision:** Of the six `icon-image: "triangle"` layers in the MapTiler style, only `Peak labels` is kept. It is a GM reference in the Workshop, behind a "Peak markers" checkbox in the Layers menu (shown by default), and is always hidden on the player map with no player control and no "Share with players" option. The other five (`Peak labels (US)` and the four volcano layers) are hidden on both maps.
+
+**Rationale:** Real-world peak and volcano triangles in a made-up world mislead players, but the GM wants peaks as terrain reference. Done in code rather than in MapTiler Cloud so the Workshop and player map can differ and the change is versioned; the locations pages that share the style are untouched.
+
+**Known limit:** the Workshop Topo overlay is raster with peak glyphs baked in at zoom 9+, so peaks still show there with the checkbox off. Must be decided before #323 shares overlays with players (accept it, cap the player overlay with a `maxzoom`, or use a different raster).
+
+**Lock status:** Implemented (PR #326, squash `3d35295`). Workshop default "shown" and locations pages untouched are assumptions, not confirmed by the GM.

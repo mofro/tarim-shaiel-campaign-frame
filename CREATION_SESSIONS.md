@@ -6,13 +6,24 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-10-26
+last_updated: 2026-10-27
 ---
 
 # Creation Session Log
 
 _Authoring and design work sessions. Newest first. Trim to last 10 sessions; older entries go to archive._
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
+
+---
+
+### Session 2026-10-27
+- [HeroHeaven-lfj / #325] Map: peak markers on the Workshop only. PR #326 merged (squash `3d35295`); #325 and lfj closed together, branch deleted (local head `24e5699` == PR head)
+  - Only `Peak labels` is wanted: Workshop "Peak markers" checkbox in the Layers menu (shown by default, `sessionStorage` key `_wsPeaks`), hidden on the player map with no control. The other five triangle layers (`Peak labels (US)` and the four volcano layers) are hidden on both maps
+  - Done in code (`map_style.basemap_hide_js`), not in MapTiler Cloud, so the locations pages that share the style are unchanged. 7 tests in `tests/test_basemap_markers.py`; Chrome-verified on the Workshop and `/player`. No deployed copy to retest: both HTML files are gitignored local builds
+  - Verified limit: the Workshop Topo overlay is raster with peak glyphs baked in at zoom 9+, so peaks still show with Peak markers off. Carried to #323 / HeroHeaven-3kz (on hold); decide before overlay sharing ships
+  - Pre-existing on main, not touched: 5 failures in `tests/test_shared_assets.py` and an ImportError collecting `tests/test_lore_generator.py`
+  - Assumed, not confirmed by the GM: the Workshop shows peaks by default; the locations pages are left alone
+- Next: #324 / HeroHeaven-di4 (player map starts at a hard-coded zoom 4), then #323 (on hold)
 
 ---
 
@@ -133,16 +144,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Full GM mirror generated: 461 resources from narrative/ + world/
   - Filed pre-existing bugs: HeroHeaven-zqo (test suite broken on main), HeroHeaven-bl5 (build.py empties locations geojson)
   - GH #213 = complete findings log
-
----
-
-### Session 2026-06-20
-- [HeroHeaven-155] Session 0 GM execution guide — complete rewrite ✅
-  - Full rewrite of `Session_0_GM_NOTES.md` for 4-player roster (Lisa/Warrior, Erik/Seeker, Arno/Sentinel, Marc/Seraph)
-  - 10-day GM-only timeline spine with dual Seeker branches (East/West)
-  - Running order: Warrior → Seeker → Sentinel → Seraph with per-player NPC quick-refs and pacing cues
-  - Caravan leader named **Volkath**
-  - Act 2 convergence rewritten without Bridge/Sacrificer; Act 3 recognition climax with Seraph as trigger, "Listen." as session-end hard cut
-  - Audited all four NPC sections against source awakening files — corrected fabricated names (Darvesh/Nara from Warrior section), wrong Raider Leader dynamic, missing scarred-woman raider, wrong snippet trigger descriptions (Seeker), missing Vigil Clock results (Sentinel noted for follow-up)
-  - Visionary v0.3 → v0.4: second-person narration pass (13 targeted edits in narration blocks)
-  - HeroHeaven-155 closed

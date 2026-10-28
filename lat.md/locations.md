@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-10-26
+last_updated: 2026-10-27
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -22,13 +22,26 @@ last_updated: 2026-10-26
 | HTML components | `utilities/locations/location_components.py` | Mini-map, faction table, danger pips, stats row, xref stub |
 | Normalization script | `utilities/world/normalize_locations.py` | One-time migration; adds `parent_region`, `visibility`, `status`, renames `factions→factions_visible` |
 | Category source of truth | `utilities/locations/categories.py` | `CATEGORIES` (17 canonical types), `VALID_CATEGORIES`, `ICON_MAP`. The Workshop Add Point and Edit Coords dropdowns, `utilities/map.py` and `add_location.py` all import it — add a type here only |
-| Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`; `routes_layer_js(dim_hidden=True)` dims routes the players cannot see, `ROUTE_DIM_OPACITY`), region layers, six location tiers, hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), `check_tier_coverage()` |
+| Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`; `routes_layer_js(dim_hidden=True)` dims routes the players cannot see, `ROUTE_DIM_OPACITY`), region layers, six location tiers, hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), `check_tier_coverage()`, basemap peak constants (`BASEMAP_PEAK_LAYER`, `BASEMAP_HIDDEN_LAYERS`, `PLAYER_HIDDEN_LAYERS`) and `basemap_hide_js()` — see Basemap Peak Markers below |
 | Route visibility | `utilities/shared/route_visibility.py` | `visible_routes(routes, all_locations)` and `visible_waystations(waystations, routes)`: the one rule for which routes reach player output. Used by the player map and the public locations build |
 | Route travel time | `utilities/shared/travel_time.py` | Speed table (`SPEEDS`), path factors, terrain constants (Tobler, `MAX_SLOPE`, tile URL and limits), `segment_hours(km, mode, path, slope_factor)`, `format_duration()`, `tt_json()` for the Workshop JS |
 | Terrain path worker | `utilities/world/terrain_path.js` | Least-cost walk over terrarium elevation tiles (A*, Tobler, slope limits, IndexedDB tile cache); embedded in the Workshop as `_TERRAIN_SRC` and run in a Web Worker |
 | Journeys | `utilities/shared/journeys.py` | Saved-journey store (`world/data/tarim-shaiel-journeys.geojson`): validation, `create`/`replace`/`patch`/`delete`, `popup_info()`, `journey_is_public()`, `player_payload()` / `gm_payload()`. See Journeys below |
 
 **Surfaces using `map_style.py`:** the Workshop (`generate_map_workshop.py`, GM badge on `gm_secrets` hovers), the player map (`_build_player_html`, hover on desktop / tap-to-open on touch, no GM text, `gm_secrets` features dropped by `_player_locations_geojson`) and `docs/world.html` (routes and regions only; tiers, popups and click-navigate remain local to `generate_locations_html.py`). Workshop and player icon matching differs from `categories.ICON_MAP` (used by `world.html`) — a known divergence, not yet reconciled.
+
+## Basemap Peak Markers
+
+The MapTiler style (`01a074c7-536a-71cb-b0d8-9e7fe4fd1100`, `MAPTILER_STYLE_ID` in `location_components.py`) draws real-world peaks and volcanoes with six `icon-image: "triangle"` layers. They are hidden in code (#325, PR #326), not in MapTiler Cloud, so the Workshop and player map can differ and the locations pages that share the style are untouched.
+
+| Layer | Workshop | Player map |
+|---|---|---|
+| `Peak labels` | "Peak markers" checkbox in the Layers menu, shown by default; state in `sessionStorage` key `_wsPeaks` | Hidden, no control |
+| `Peak labels (US)`, `Volcano labels`, `Volcano labels (US)`, `Volcano labels active`, `Volcano labels active (US)` | Hidden | Hidden |
+
+- `basemap_hide_js(ids)` emits a `map.getLayer()`-guarded `setLayoutProperty(id,"visibility","none")` loop run in the `map.on("load")` handler, so a renamed layer is a silent no-op. Layer ids contain spaces and parentheses and must match the style exactly.
+- Tests: `tests/test_basemap_markers.py` (7).
+- **Limit:** the Workshop Topo overlay is raster `topo-v2` tiles with peak glyphs baked in at zoom 9+, so peaks show with Peak markers off. Harmless in the Workshop; it must be decided before #323 shares overlays with players (accept it, give the player overlay a `maxzoom`, or use another raster). #323's Player's-eye preview must also hide `Peak labels`.
 
 ## Output Paths
 
