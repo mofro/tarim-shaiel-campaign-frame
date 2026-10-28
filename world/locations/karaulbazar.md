@@ -8,19 +8,18 @@ visibility: gm_secrets
 status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-09-01
+last_updated: 2026-10-28
 location:
 - 39.49882
 - 64.778568
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: caravanserai
 name: Karaulbazar
 real_world_name: Karaulbazar
 tags:
 - placeholder
 - type-caravanserai
-type: caravanserai
+type: city
 ---
 
 ```leaflet
