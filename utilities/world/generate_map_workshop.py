@@ -2611,6 +2611,58 @@ def _build_html(
 # Player map HTML (public locations only, mobile-first, follows GM position)
 # ---------------------------------------------------------------------------
 
+# Start view when there is neither a GM position nor a stored view. The Workshop
+# opens on [75, 40] zoom 5; this default predates the start-view order and is
+# left as it was (#324 changes when the view is chosen, not what the default is).
+PLAYER_DEFAULT_VIEW = {"lng": 70, "lat": 40, "zoom": 4}
+PLAYER_VIEW_KEY = "ts_player_view"
+PLAYER_GM_VIEW_TIMEOUT_MS = 800
+# Zoom range a GM or stored view is clamped to; the same as the Workshop map's.
+PLAYER_VIEW_ZOOM_RANGE = (3, 18)
+
+# Chooses the first view before the map is constructed, so a refresh never shows
+# the default and then eases to the GM. Order: GM position (GET /api/map-center,
+# short timeout), last view stored on this device, default. Every storage access
+# is guarded; the page must work with storage blocked.
+_PLAYER_VIEW_JS = r"""
+function _cleanView(v){
+  if(!v||typeof v!=='object')return null;
+  var lng=v.lng,lat=v.lat,zoom=v.zoom;
+  if(typeof lng!=='number'||typeof lat!=='number'||typeof zoom!=='number')return null;
+  if(!isFinite(lng)||!isFinite(lat)||!isFinite(zoom)||Math.abs(lng)>180)return null;
+  return{lng:lng,lat:Math.max(-85,Math.min(85,lat)),zoom:Math.max(_MIN_ZOOM,Math.min(_MAX_ZOOM,zoom))};
+}
+function _viewKey(d){
+  return d.lng.toFixed(5)+','+d.lat.toFixed(5)+(d.zoom!=null?','+d.zoom.toFixed(2):'');
+}
+function _storedView(){
+  try{return _cleanView(JSON.parse(localStorage.getItem(_VIEW_KEY)));}catch(e){return null;}
+}
+function _storeView(){
+  if(!map)return;
+  try{
+    var c=map.getCenter();
+    localStorage.setItem(_VIEW_KEY,JSON.stringify({lng:c.lng,lat:c.lat,zoom:map.getZoom()}));
+  }catch(e){}
+}
+function _chooseStart(gm){
+  if(_cleanView(gm))return{view:_cleanView(gm),gm:gm};
+  return{view:_storedView()||_DEFAULT_VIEW,gm:null};
+}
+function _fetchGmView(cb){
+  var done=false,ctrl=typeof AbortController==='function'?new AbortController():null;
+  function finish(d){if(done)return;done=true;clearTimeout(timer);cb(d);}
+  var timer=setTimeout(function(){finish(null);if(ctrl)ctrl.abort();},_GM_VIEW_TIMEOUT);
+  try{
+    fetch('/api/map-center',ctrl?{signal:ctrl.signal}:undefined)
+    .then(function(r){return r.json();})
+    .then(finish)
+    .catch(function(){finish(null);});
+  }catch(e){finish(null);}
+}
+"""
+
+
 def _build_player_html(
     loc_geojson: dict,
     routes_geojson: dict,
@@ -2637,16 +2689,27 @@ def _build_player_html(
         "var _following = true;\n"
         "var _pollTimer = null;\n"
         "var _lastCenter = null;\n"
+        "var map = null;\n"
+        f"var _VIEW_KEY = {json.dumps(PLAYER_VIEW_KEY)};\n"
+        f"var _DEFAULT_VIEW = {json.dumps(PLAYER_DEFAULT_VIEW)};\n"
+        f"var _MIN_ZOOM = {PLAYER_VIEW_ZOOM_RANGE[0]}, _MAX_ZOOM = {PLAYER_VIEW_ZOOM_RANGE[1]};\n"
+        f"var _GM_VIEW_TIMEOUT = {PLAYER_GM_VIEW_TIMEOUT_MS};\n"
+        + _PLAYER_VIEW_JS +
         # Use location.origin so that transformRequest returns absolute URLs.
         # MapLibre fetches vector tiles in a blob:-URL Worker; relative URLs cannot
         # be resolved in that context and silently fail, leaving all vector tile
         # sources (water, rivers, land colour) empty.
         "var _proxyBase=window.location.origin;\n"
 
-        f"var map = new maplibregl.Map({{"
+        # The map is built from _initMap(), after the start view is chosen.
+        "function _initMap(start){\n"
+        "var v = start.view;\n"
+        # The first poll must not re-ease to where the map already is.
+        "_lastCenter = start.gm ? _viewKey(start.gm) : null;\n"
+        f"map = new maplibregl.Map({{"
         f"container:'map',"
         f"style:_proxyBase+'{proxy_style_path}',"
-        f"center:[70,40],zoom:4,"
+        f"center:[v.lng,v.lat],zoom:v.zoom,"
         f"transformRequest:function(url,resourceType){{"
         f"if(url.indexOf('https://api.maptiler.com/')===0){{"
         f"return{{url:_proxyBase+'/api/maptiler-proxy?url='+encodeURIComponent(url)}};}}"
@@ -2655,6 +2718,10 @@ def _build_player_html(
 
         "map.addControl(new maplibregl.NavigationControl(), 'top-right');\n"
         "map.addControl(new maplibregl.ScaleControl({maxWidth:100,unit:'metric'}), 'bottom-right');\n"
+
+        # Remember the view on this device (debounced; not per move event).
+        "var _viewTimer = null;\n"
+        "map.on('moveend', function(){clearTimeout(_viewTimer);_viewTimer = setTimeout(_storeView, 400);});\n"
 
         "map.on('load', function() {\n"
         + map_style.basemap_hide_js(map_style.PLAYER_HIDDEN_LAYERS)
@@ -2675,6 +2742,7 @@ def _build_player_html(
         + "\n"
         "  _startPolling();\n"
         "});\n"
+        "}\n"
 
         "function _startPolling(){\n"
         "  if(_pollTimer)return;\n"
@@ -2683,7 +2751,7 @@ def _build_player_html(
         "    fetch('/api/map-center').then(function(r){return r.json();})\n"
         "    .then(function(d){\n"
         "      if(d.lng==null||d.lat==null)return;\n"
-        "      var key=d.lng.toFixed(5)+','+d.lat.toFixed(5)+(d.zoom!=null?','+d.zoom.toFixed(2):'');\n"
+        "      var key=_viewKey(d);\n"
         "      if(key===_lastCenter)return;\n"
         "      _lastCenter=key;\n"
         "      var easeOpts={center:[d.lng,d.lat],duration:400};\n"
@@ -2698,6 +2766,14 @@ def _build_player_html(
         "  this.textContent=_following?'● Following GM':'○ Follow GM';\n"
         "  this.classList.toggle('off',!_following);\n"
         "});\n"
+
+        # Phones drop the page without beforeunload, so save on pagehide and when hidden.
+        "window.addEventListener('pagehide', _storeView);\n"
+        "document.addEventListener('visibilitychange', function(){\n"
+        "  if(document.visibilityState==='hidden')_storeView();\n"
+        "});\n"
+
+        "_fetchGmView(function(gm){ _initMap(_chooseStart(gm)); });\n"
     )
 
     return (
