@@ -1293,3 +1293,12 @@ def test_player_panel_puts_routes_and_journeys_in_one_two_column_row():
     assert len(_checkboxes(html)) == 13
     css = map_style.display_controls_css(touch=True)
     assert ".disp-layers" in css and "min-height:44px" in css
+
+
+def test_each_type_toggle_carries_a_registered_marker_icon():
+    from locations.map_icons import REGISTERED_ICONS
+    icons = re.findall(r'data-key="([\w-]+)" checked><span class="it-icon" data-icon="([\w-]+)"',
+                       map_style.display_type_grid_html())
+    assert [c for c, _ in icons] == TYPE_KEYS
+    assert {i for _, i in icons} <= REGISTERED_ICONS
+    assert "_dispIcons" in map_style.display_controls_js("localStorage", "k")

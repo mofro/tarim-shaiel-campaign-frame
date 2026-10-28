@@ -1803,6 +1803,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # Icons + location symbol layers
         + icons_js +
+        '_dispIcons();\n'
         'map.addSource("locations",{type:"geojson",data:_locGJ});\n'
 
         # icon_match expression + six-tier location layers (shared with the player map)
@@ -2781,7 +2782,7 @@ def _build_player_html(
         + map_style.basemap_hide_js(map_style.PLAYER_HIDDEN_LAYERS)
         + map_style.raster_overlays_js(maptiler_key)
         + icons_js
-        + "\n"
+        + "_dispIcons();\n"
         # Same stacking as the Workshop: routes, then journeys, then the pins on top.
         "  map.addSource('routes', {type:'geojson', data: _routeGJ});\n"
         + map_style.routes_layer_js()
