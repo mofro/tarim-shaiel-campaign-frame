@@ -1787,6 +1787,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # -- Map load --
         'map.on("load",function(){\n'
 
+        # Basemap triangle markers: all hidden except "Peak labels", which the
+        # Layers menu toggles (wired below)
+        + map_style.basemap_hide_js(map_style.BASEMAP_HIDDEN_LAYERS) +
+
         # Raster overlays — hidden by default, sit below all custom data
         'var _topoTiles=["https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key='
         + maptiler_key +
@@ -1902,6 +1906,20 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'try{sessionStorage.setItem(ssOp,opc.value);}catch(e){}});}'
         '_wireOverlay("topo-toggle","topo-opacity","topo-overlay","_wsTopoOn","_wsTopoOp",55);'
         '_wireOverlay("sat-toggle","sat-opacity","sat-overlay","_wsSatOn","_wsSatOp",60);'
+
+        # Peak markers: the basemap's "Peak labels" layer, shown by default,
+        # sessionStorage-persisted. The player map always hides it.
+        '(function(){'
+        'var cb=document.getElementById("peak-toggle"),pid='
+        + json.dumps(map_style.BASEMAP_PEAK_LAYER) +
+        ';'
+        'try{if(sessionStorage.getItem("_wsPeaks")==="0")cb.checked=false;}catch(e){}'
+        'function apply(){if(map.getLayer(pid))'
+        'map.setLayoutProperty(pid,"visibility",cb.checked?"visible":"none");}'
+        'apply();'
+        'cb.addEventListener("change",function(){apply();'
+        'try{sessionStorage.setItem("_wsPeaks",cb.checked?"1":"0");}catch(e){}});'
+        '})();\n'
 
         # Error handler: auto-uncheck offending overlay, set visibility none, show badge
         'function _showOverlayErr(toggleId,status){'
@@ -2504,6 +2522,7 @@ def _build_html(
         '          <label><input type="checkbox" id="sat-toggle"> Satellite Plain\n'
         '            <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity"></label>\n'
         '          <label><input type="checkbox" id="jrn-toggle" checked> Saved journeys</label>\n'
+        '          <label><input type="checkbox" id="peak-toggle" checked> Peak markers</label>\n'
         '          <hr>\n'
         '          <div class="it-heading">Locations</div>\n'
         '          <div class="it-grid">\n'
@@ -2638,6 +2657,7 @@ def _build_player_html(
         "map.addControl(new maplibregl.ScaleControl({maxWidth:100,unit:'metric'}), 'bottom-right');\n"
 
         "map.on('load', function() {\n"
+        + map_style.basemap_hide_js(map_style.PLAYER_HIDDEN_LAYERS)
         + icons_js
         + "\n"
         "  map.addSource('locations', {type:'geojson', data: _locGJ});\n"

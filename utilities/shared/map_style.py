@@ -120,6 +120,38 @@ def regions_layers_js(source: str = "regions") -> str:
 
 
 # ---------------------------------------------------------------------------
+# Basemap peak / volcano markers
+# ---------------------------------------------------------------------------
+
+# The six `icon-image: "triangle"` symbol layers of the MapTiler style
+# location_components.MAPTILER_STYLE_ID (01a074c7-..., "Topo-Tarim-copy"), read
+# from the style JSON on 2026-10-27. Ids contain spaces and parentheses: use them
+# exactly. Only "Peak labels" is wanted, and only in the Workshop (a GM reference
+# behind a checkbox); the rest are hidden on both maps, and the player map hides
+# "Peak labels" too. A different style needs these ids re-checked.
+BASEMAP_PEAK_LAYER = "Peak labels"
+BASEMAP_HIDDEN_LAYERS = (
+    "Peak labels (US)",
+    "Volcano labels",
+    "Volcano labels (US)",
+    "Volcano labels active",
+    "Volcano labels active (US)",
+)
+PLAYER_HIDDEN_LAYERS = BASEMAP_HIDDEN_LAYERS + (BASEMAP_PEAK_LAYER,)
+
+
+def basemap_hide_js(layer_ids) -> str:
+    """JS hiding basemap style layers by id once the style has loaded.
+
+    Call it from `map.on("load")`. A missing or renamed layer is a no-op.
+    """
+    return (
+        f"{_js(list(layer_ids))}.forEach(function(id){{"
+        f'if(map.getLayer(id))map.setLayoutProperty(id,"visibility","none");}});\n'
+    )
+
+
+# ---------------------------------------------------------------------------
 # Location tiers
 # ---------------------------------------------------------------------------
 
