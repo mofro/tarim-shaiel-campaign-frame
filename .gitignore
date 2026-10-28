@@ -92,3 +92,8 @@ BRAT-log.md
 
 # Coordinate audit reports + tile/Wikidata caches (#314, local-only)
 world/data/coord-audit/
+
+# Local reference exports and scratch files (not for the repo)
+*.xlsx
+narrative/sessions/**/*.html
+page-turn-animation copy.html
