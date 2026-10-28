@@ -324,10 +324,15 @@ def display_layer_rows_html(journeys_label: str = "Journeys") -> str:
 
 
 def display_type_grid_html() -> str:
-    """The 'Locations' heading and the two-column grid of location-type checkboxes."""
+    """The 'Locations' heading and the two-column grid of location-type checkboxes.
+
+    Each label carries an empty `.it-icon` span; `_dispIcons()` (display_controls_js)
+    paints the map's own marker into it once the icons are registered."""
+    icons = dict(_ICON_BY_CATEGORY)
     cells = "".join(
         f'<label><input type="checkbox" class="disp-cb" data-kind="type" '
-        f'data-key="{cat}" checked> {label}</label>\n'
+        f'data-key="{cat}" checked><span class="it-icon" data-icon="{icons.get(cat, _DEFAULT_ICON)}"></span>'
+        f'{label}</label>\n'
         for cat, label in LOCATION_TYPE_TOGGLES
     )
     return f'<div class="it-heading">Locations</div>\n<div class="it-grid">\n{cells}</div>\n'
@@ -341,15 +346,22 @@ def display_controls_css(touch: bool = False) -> str:
 .it-grid label { display:flex; align-items:center; gap:5px; cursor:pointer; color:#c8b890;
   font-size:10px; text-transform:none; letter-spacing:0; white-space:nowrap; margin-top:0; }
 .it-grid input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
+.it-icon { display:inline-flex; flex:none; width:14px; height:14px; }
+.it-icon canvas { width:100%; height:100%; }
 """
     if touch:
         css += """\
-.disp-row, .it-grid label { min-height:44px; touch-action:manipulation; }
+.disp-layers { display:grid; grid-template-columns:1fr 1fr; gap:0 10px; }
+.it-grid { gap:0 10px; }
+.disp-row, .it-grid label { box-sizing:border-box; min-height:44px; padding:0; touch-action:manipulation; }
 .disp-row { display:flex; align-items:center; gap:8px; cursor:pointer; color:#e8dcc4; font-size:14px; }
-.it-grid label { font-size:13px; color:#e8dcc4; }
+.it-grid label { gap:8px; font-size:13px; line-height:1.15; color:#e8dcc4; white-space:normal; }
+.it-grid label:last-child:nth-child(odd) { grid-column:1 / -1; }
 .disp-row input[type=checkbox], .it-grid input[type=checkbox] { width:22px; height:22px; flex:none;
   accent-color:#b8922c; cursor:pointer; }
-.it-heading { font-size:11px; margin:8px 0 2px; }
+.it-icon { width:22px; height:22px; }
+.it-heading { font-size:11px; margin:0 0 2px; }
+.disp-layers + .it-heading { margin-top:6px; }
 """
     return css
 
@@ -367,6 +379,9 @@ def display_controls_js(storage: str, key: str, layers: dict | None = None) -> s
     preview, the journey being edited) defines `_dispExtra(layerId)` returning an
     array of filter conditions (or null) and calls `_dispApply()`; a second
     `setFilter` on those layers would overwrite this one.
+
+    `_dispIcons` paints each type's marker beside its label; call it right after
+    the marker icons are registered.
 
     Only categories whose checkbox is off are excluded: the categories with no
     toggle always show, on both maps.
@@ -424,6 +439,15 @@ function _dispWire(){{
     if(k in group)cb.checked=group[k];
     cb.addEventListener("change",function(){{group[k]=cb.checked;_dispSave();_dispApply();}});
   }});
+}}
+function _dispIcons(){{
+  try{{
+    document.querySelectorAll(".it-icon[data-icon]").forEach(function(el){{
+      var img=map.getImage(el.dataset.icon);if(!img||el.firstChild)return;
+      var d=img.data,c=document.createElement("canvas");c.width=d.width;c.height=d.height;
+      c.getContext("2d").putImageData(new ImageData(new Uint8ClampedArray(d.data),d.width,d.height),0,0);
+      el.appendChild(c);}});
+  }}catch(_e){{}}
 }}
 _dispLoad();
 _dispWire();
