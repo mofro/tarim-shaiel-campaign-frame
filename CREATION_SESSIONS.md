@@ -23,7 +23,12 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Verified limit: the Workshop Topo overlay is raster with peak glyphs baked in at zoom 9+, so peaks still show with Peak markers off. Carried to #323 / HeroHeaven-3kz (on hold); decide before overlay sharing ships
   - Pre-existing on main, not touched: 5 failures in `tests/test_shared_assets.py` and an ImportError collecting `tests/test_lore_generator.py`
   - Assumed, not confirmed by the GM: the Workshop shows peaks by default; the locations pages are left alone
-- Next: #324 / HeroHeaven-di4 (player map starts at a hard-coded zoom 4), then #323 (on hold)
+- [HeroHeaven-di4 / #324] Map: player map no longer opens at zoom 4 and then eases to the GM. PR #327 merged (squash `503a863`); #324 and di4 closed together, branch deleted (local head `5b41805` == PR head; the remote branch was already auto-deleted)
+  - The map is built once, after the start view is chosen: GM position (`GET /api/map-center`, 800 ms timeout) → validated `localStorage` `ts_player_view` → the old 70/40 z4 default. `_lastCenter` is seeded from the GM start so the first poll does not re-ease. The view is written on a debounced `moveend` and on `pagehide` / `visibilitychange` (hidden), not `beforeunload`; all storage access is try/catch
+  - 26 tests in `tests/test_player_start_view.py` (real emitted script run in node `vm`, plus devserver GET/POST); 16/16 hand-written mutants killed. Chrome-verified: before-state reproduced, GM start with no 4→7 step, stored view, `pagehide` write, blocked storage (throwing `localStorage` getter), phone width (375 px iframe)
+  - Known gap, left alone (outside the spec): the Workshop POSTs its position only on `moveend`, so `/api/map-center` is null after a devserver restart until the GM first moves the map; a player refresh then uses the stored view. A one-time publish on Workshop load would close it
+  - Pre-existing on main, not touched: same 5 `tests/test_shared_assets.py` failures and the `tests/test_lore_generator.py` ImportError
+- Next: #323 / HeroHeaven-3kz stays on hold until the GM says go (open items: Topo overlay baked-in peaks, Player's-eye preview must hide `Peak labels`, `ts_player_` storage prefix shared with #324's `ts_player_view`)
 
 ---
 

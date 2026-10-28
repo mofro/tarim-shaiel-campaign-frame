@@ -830,3 +830,13 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Known limit:** the Workshop Topo overlay is raster with peak glyphs baked in at zoom 9+, so peaks still show there with the checkbox off. Must be decided before #323 shares overlays with players (accept it, cap the player overlay with a `maxzoom`, or use a different raster).
 
 **Lock status:** Implemented (PR #326, squash `3d35295`). Workshop default "shown" and locations pages untouched are assumptions, not confirmed by the GM.
+
+## 2026-10-27 — Player map chooses its start view before constructing the map (#324)
+
+**Decision:** The player page builds its map once, after the start view is chosen, in this order: the GM's position from `GET /api/map-center` (800 ms timeout; `null`, `NaN` and partial bodies fall through, never read as 0,0), then a validated `localStorage` view under `ts_player_view`, then the previous default (lng 70, lat 40, zoom 4). The view is written on a debounced `moveend` and on `pagehide` / `visibilitychange` (hidden), not `beforeunload`. `_lastCenter` is seeded from the GM start view so the first poll does not re-ease.
+
+**Rationale:** The map used to be constructed at a hard-coded zoom 4 and eased to the GM only on the first poll, two seconds after load, so every refresh showed a visible jump. Choosing the start view before construction removes the jump; the stored view covers the case where no GM position is known yet; all storage access is try/catch so blocked or full storage still renders.
+
+**Known gap:** the Workshop publishes its position only on `moveend`, so `/api/map-center` is null after a devserver restart until the GM first moves the map. A one-time publish on Workshop load would close it; left out as outside the spec.
+
+**Lock status:** Implemented (PR #327, squash `503a863`). The player default view staying at 70/40 z4 (the Workshop opens at 75/40 z5) is preserved behaviour, not a new decision.

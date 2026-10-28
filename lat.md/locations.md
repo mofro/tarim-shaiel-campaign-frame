@@ -43,6 +43,21 @@ The MapTiler style (`01a074c7-536a-71cb-b0d8-9e7fe4fd1100`, `MAPTILER_STYLE_ID` 
 - Tests: `tests/test_basemap_markers.py` (7).
 - **Limit:** the Workshop Topo overlay is raster `topo-v2` tiles with peak glyphs baked in at zoom 9+, so peaks show with Peak markers off. Harmless in the Workshop; it must be decided before #323 shares overlays with players (accept it, give the player overlay a `maxzoom`, or use another raster). #323's Player's-eye preview must also hide `Peak labels`.
 
+## Player Map Start View
+
+The player page builds its map once, after choosing where to start (#324, PR #327), so it no longer opens at zoom 4 and then eases to the GM. `_fetchGmView` → `_chooseStart` → `_initMap`, all in `_PLAYER_VIEW_JS` / `_build_player_html` in `generate_map_workshop.py`.
+
+Start-view order, first valid wins:
+
+1. **GM position** from `GET /api/map-center` (the devserver's in-memory value, set by the Workshop on a debounced `moveend`). 800 ms timeout via `AbortController`; `null`, `NaN` and partial bodies fall through and are never read as 0,0. Seeds `_lastCenter`, so the first poll does not re-ease.
+2. **Stored view** in `localStorage` key `ts_player_view` (`{lng,lat,zoom}`), validated: finite numbers, `|lng| ≤ 180`, lat clamped to ±85, zoom clamped to the map's min/max.
+3. **Default** `PLAYER_DEFAULT_VIEW` = lng 70, lat 40, zoom 4 (the Workshop opens at `[75,40]` z5; the player default is deliberately unchanged).
+
+- The stored view is written on a debounced `moveend` (400 ms) and on `pagehide` / `visibilitychange` (hidden), never `beforeunload`. Every storage access is try/catch, so blocked or full storage still renders.
+- Tests: `tests/test_player_start_view.py` (26).
+- **Gap:** the Workshop publishes its position only on `moveend`, so `/api/map-center` stays null after a devserver restart until the GM first moves the map; a refresh in that window uses the stored view.
+- The `ts_player_` storage prefix is shared with #323; whichever lands second rebases.
+
 ## Output Paths
 
 | Output | Description |
