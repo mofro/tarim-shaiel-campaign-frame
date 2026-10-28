@@ -14,13 +14,12 @@ location:
 - 79.706215
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: caravanserai
 name: Aqyar
 real_world_name: Aqyar
 tags:
 - placeholder
 - type-caravanserai
-type: caravanserai
+type: route-node
 ---
 
 ```leaflet

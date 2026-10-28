@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-10-25
 description: "Encounter with a pack of grumpy Dire Wolves. Release the Chaos!"
@@ -14,13 +14,12 @@ location:
 - 65.247829
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: route-node
 name: Dire Wolf Pass
 real_world_name: Dire Wolf Pass
 tags:
 - placeholder
 - type-route-node
-type: route-node
+type: poi
 ---
 
 ```leaflet

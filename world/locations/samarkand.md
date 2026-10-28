@@ -5,7 +5,7 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2025-12-13
 description: A major hub on the Silk Road, known for its bazaars and monumental architecture.

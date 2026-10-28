@@ -4,11 +4,11 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-09-02
 description: "Caravan Rendezvous with Erik"
-last_updated: 2026-09-02
+last_updated: 2026-10-26
 location:
 - 38.697987
 - 79.62587

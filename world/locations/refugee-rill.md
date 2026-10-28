@@ -4,11 +4,11 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-09-02
 description: The Warrior Awakening
-last_updated: 2026-09-02
+last_updated: 2026-10-26
 location:
 - 38.598961
 - 76.293056
@@ -20,7 +20,7 @@ real_world_name: Refugee rill
 tags:
   - placeholder
   - type-mythic-landscape
-type: mythic-landscape
+type: poi
 ---
 
 ```leaflet

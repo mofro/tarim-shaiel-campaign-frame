@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-09-02
 description: "PLACEHOLDER — location pending. Prose pass pending."
@@ -14,13 +14,12 @@ location:
 - 76.459177
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: caravanserai
 name: Qizil
 real_world_name: Qizil
 tags:
 - placeholder
 - type-caravanserai
-type: caravanserai
+type: route-node
 ---
 
 ```leaflet

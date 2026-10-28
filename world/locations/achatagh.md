@@ -14,13 +14,12 @@ location:
 - 79.568668
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: caravanserai
 name: Achatagh
 real_world_name: Achatagh
 tags:
 - placeholder
 - type-caravanserai
-type: caravanserai
+type: route-node
 ---
 
 ```leaflet

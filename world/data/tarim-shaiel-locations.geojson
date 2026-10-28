@@ -42,9 +42,9 @@
         "fantasy_name": "Achatagh",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "caravanserai",
-        "marker-symbol": "lodging",
-        "marker-color": "#D4A820",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -193,7 +193,7 @@
         "title": "Alak-Mor",
         "fantasy_name": "Alak-Mor",
         "description": "Great Colored Depths of the Eastern Highlands",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "lake",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -368,9 +368,9 @@
         "fantasy_name": "Aqyar",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "caravanserai",
-        "marker-symbol": "lodging",
-        "marker-color": "#D4A820",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -532,6 +532,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_aydarkul-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "aydarkul-lake",
+        "label": "Aydracul Lake",
+        "title": "Aydarkul Lake",
+        "fantasy_name": "Aydracul Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/aydarkul-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.757669,
+          40.903251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_baghlan",
       "properties": {
         "kind": "location",
@@ -599,7 +628,7 @@
         "title": "Balkh-Kamen",
         "fantasy_name": "Balkh-Kamen",
         "description": "Stone Mirror of the Central Tarimhighlands",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "lake",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -628,7 +657,7 @@
         "title": "Balkh",
         "fantasy_name": "Balkh",
         "description": "Once the 'Mother of Cities,' Balkh was destroyed by Genghis Khan and never fully recovered. Now a haunting reminder of past glory.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "city",
         "marker-symbol": "town",
         "marker-color": "#8B6914",
@@ -807,7 +836,7 @@
         "title": "Bosten Lake",
         "fantasy_name": "Lake Bustel",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "lake",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -836,7 +865,7 @@
         "title": "Bukhara",
         "fantasy_name": "Bukhara",
         "description": "Center of Islamic scholarship and trade. A major city of Sogdiana with 140+ architectural monuments.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "city",
         "marker-symbol": "town",
         "marker-color": "#8B6914",
@@ -1236,7 +1265,7 @@
         "title": "Desert Surrender",
         "fantasy_name": "Desert Surrender",
         "description": "Caravan Rendezvous with Erik",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "landmark",
         "marker-symbol": "mountain",
         "marker-color": "#9CA3AF",
@@ -1265,7 +1294,7 @@
         "title": "Dire Wolf Pass",
         "fantasy_name": "Dire Wolf Pass",
         "description": "Encounter with a pack of grumpy Dire Wolves. Release the Chaos!",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "route-node",
         "marker-symbol": "circle",
         "marker-color": "#A78040",
@@ -1377,6 +1406,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_east-china-sea",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "east-china-sea",
+        "label": "East Spirit Sea",
+        "title": "East China Sea",
+        "fantasy_name": "East Spirit Sea",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/east-china-sea.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          125.998114,
+          28.756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_egerchi-bridge",
       "properties": {
         "kind": "location",
@@ -1438,14 +1496,14 @@
       "id": "location_egizyer",
       "properties": {
         "kind": "location",
-        "category": "town",
+        "category": "city",
         "slug": "egizyer",
         "label": "Égizyer",
         "title": "Égizyer",
         "fantasy_name": "Égizyer",
         "description": "Destroyed",
-        "visibility": "gm_secrets",
-        "mapmarker": "town",
+        "visibility": "public",
+        "mapmarker": "",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
         "marker-size": "medium",
@@ -1473,8 +1531,8 @@
         "title": "Ember Wash",
         "fantasy_name": "Ember Wash",
         "description": "A drainage ravine off the Samarqandh-Bukhara road, near Kattakurgan — refugee camp site, Session 0 Warrior awakening.",
-        "visibility": "gm_secrets",
-        "mapmarker": "poi",
+        "visibility": "public",
+        "mapmarker": "",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
         "marker-size": "medium",
@@ -1486,8 +1544,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          66.15,
-          39.82
+          65.612346,
+          39.951579
         ]
       }
     },
@@ -1920,7 +1978,7 @@
         "title": "Isyk-Zhel",
         "fantasy_name": "Isyk-Zhel",
         "description": "Warm Winds of the Mountain Realm",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "lake",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -2156,7 +2214,7 @@
         "title": "Karakoshun Lake",
         "fantasy_name": "Karakoshun Lake",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "lake",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -2243,7 +2301,7 @@
         "title": "Karkash River",
         "fantasy_name": "Karkash River",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "water-body",
         "marker-symbol": "water",
         "marker-color": "#4A90D9",
@@ -2272,7 +2330,7 @@
         "title": "Karmana",
         "fantasy_name": "Karmana",
         "description": "PLACEHOLDER — medium river town on the Samarqandh-Bukhara road, near Rabati Malik. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "route-node",
         "marker-symbol": "circle",
         "marker-color": "#A78040",
@@ -2301,7 +2359,7 @@
         "title": "Kasan",
         "fantasy_name": "Kasan",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "route-node",
         "marker-symbol": "circle",
         "marker-color": "#A78040",
@@ -2314,8 +2372,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          65.583101,
-          39.040187
+          65.609637,
+          39.0312
         ]
       }
     },
@@ -2352,6 +2410,35 @@
         "coordinates": [
           75.989158,
           39.465313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kattakurgan-lake",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "kattakurgan-lake",
+        "label": "Kattakurgan Lake",
+        "title": "Kattakurgan Lake",
+        "fantasy_name": "Kattakurgan Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/kattakurgan-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.25811,
+          39.822189
         ]
       }
     },
@@ -2640,7 +2727,7 @@
         "title": "Lake Ayakum",
         "fantasy_name": "Lake of Dragons",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "lake",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -2934,7 +3021,7 @@
         "title": "Mazar-i-Sharif",
         "fantasy_name": "Mazar-i-Sharif",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "capital",
         "marker-symbol": "star",
         "marker-color": "#8B6914",
@@ -2963,7 +3050,7 @@
         "title": "Mazar Tag",
         "fantasy_name": "Mazar Tag",
         "description": "Location of the Tadbir awakening",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "mythic-landscape",
         "marker-symbol": "star-stroked",
         "marker-color": "#C084FC",
@@ -2992,7 +3079,7 @@
         "title": "Merv (Mary)",
         "fantasy_name": "Merv (Mary)",
         "description": "Once a great oasis city, destroyed by Genghis Khan's son. Now rebuilt as Mary, a smaller settlement.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "city",
         "marker-symbol": "town",
         "marker-color": "#8B6914",
@@ -3412,7 +3499,7 @@
         "title": "Puli Khumri",
         "fantasy_name": "Puli Khumri",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "city",
         "marker-symbol": "town",
         "marker-color": "#8B6914",
@@ -3442,9 +3529,9 @@
         "fantasy_name": "Qarabulaq",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "caravanserai",
-        "marker-symbol": "lodging",
-        "marker-color": "#D4A820",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3471,9 +3558,9 @@
         "fantasy_name": "Qarachi",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "caravanserai",
-        "marker-symbol": "lodging",
-        "marker-color": "#D4A820",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3528,10 +3615,10 @@
         "title": "Qarshi",
         "fantasy_name": "Qarshi",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
-        "mapmarker": "city",
-        "marker-symbol": "town",
-        "marker-color": "#8B6914",
+        "visibility": "public",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3541,8 +3628,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          65.793133,
-          38.831828
+          65.816615,
+          38.864766
         ]
       }
     },
@@ -3557,7 +3644,7 @@
         "title": "Qiala Shuiku",
         "fantasy_name": "Qiala Shuiku",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "lake",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -3615,10 +3702,10 @@
         "title": "Qizil",
         "fantasy_name": "Qizil",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
-        "mapmarker": "caravanserai",
-        "marker-symbol": "lodging",
-        "marker-color": "#D4A820",
+        "visibility": "public",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3731,7 +3818,7 @@
         "title": "Rabati Malik",
         "fantasy_name": "Rabati Malik",
         "description": "A fortified caravanserai on the royal road between Samarqandh and Bukhara, where the Merchant Council's tariff agreements and the empire's fading claim to collect never quite resolve who's in charge.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "caravanserai",
         "marker-symbol": "lodging",
         "marker-color": "#D4A820",
@@ -3751,45 +3838,16 @@
     },
     {
       "type": "Feature",
-      "id": "location_redirect",
-      "properties": {
-        "kind": "location",
-        "category": "route-node",
-        "slug": "redirect",
-        "label": "redirect",
-        "title": "redirect",
-        "fantasy_name": "redirect",
-        "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
-        "mapmarker": "route-node",
-        "marker-symbol": "circle",
-        "marker-color": "#A78040",
-        "marker-size": "medium",
-        "factions": [],
-        "resources": [],
-        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
-        "url": "/locations/redirect.html"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          76.347453,
-          38.624284
-        ]
-      }
-    },
-    {
-      "type": "Feature",
       "id": "location_refugee-rill",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "poi",
         "slug": "refugee-rill",
         "label": "Refugee rill",
         "title": "Refugee rill",
         "fantasy_name": "Refugee rill",
         "description": "The Warrior Awakening",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "mythic-landscape",
         "marker-symbol": "star-stroked",
         "marker-color": "#C084FC",
@@ -3905,7 +3963,7 @@
         "title": "Samarqandh",
         "fantasy_name": "Samarqandh",
         "description": "A major hub on the Silk Road, known for its bazaars and monumental architecture.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "city",
         "marker-symbol": "town",
         "marker-color": "#8B6914",
@@ -4147,7 +4205,7 @@
         "title": "Xiao'erkule Lake",
         "fantasy_name": "Xiao'erkule Lake",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "lake",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -4321,7 +4379,7 @@
         "title": "Stashed Carts",
         "fantasy_name": "Stashed Carts",
         "description": "Session 3: The location where the party chose to stash their carts prior to the overland shortcut. Forty, Kettle, and Second Seal covered and protected the carts and non-critical supplies in a rill here.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "route-node",
         "marker-symbol": "circle",
         "marker-color": "#A78040",
@@ -4365,6 +4423,35 @@
         "coordinates": [
           75.2,
           40.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_tajik-sea",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "tajik-sea",
+        "label": "Tajik Sea",
+        "title": "Tajik Sea",
+        "fantasy_name": "Tajik Sea",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/tajik-sea.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.14286,
+          40.304483
         ]
       }
     },
@@ -4582,7 +4669,7 @@
         "title": "Tashkent",
         "fantasy_name": "Tashkent",
         "description": "The largest city in Central Asia. Known as the 'Stone City' for its fortifications.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "city",
         "marker-symbol": "town",
         "marker-color": "#8B6914",
@@ -4646,7 +4733,7 @@
         "title": "The Glass Dunes",
         "fantasy_name": "The Glass Dunes",
         "description": "Open Kyzylkum dune country between Nur-Ata and the royal road — Session 0 Seeker awakening collapse site.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "poi",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -4690,6 +4777,35 @@
         "coordinates": [
           85.66817,
           41.861692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_to-dakol-suv-ombori",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "to-dakol-suv-ombori",
+        "label": "To'dakol Suv Ombori",
+        "title": "To'dakol Suv Ombori",
+        "fantasy_name": "To'dakol Suv Ombori",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/to-dakol-suv-ombori.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          64.849786,
+          39.858265
         ]
       }
     },

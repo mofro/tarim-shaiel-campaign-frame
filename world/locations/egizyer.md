@@ -4,22 +4,20 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-09-02
-description: "Destroyed"
-last_updated: 2026-09-02
+description: Destroyed
+last_updated: 2026-10-26
 location:
-- 38.658754
-- 76.188636
+  - 38.658754
+  - 76.188636
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: town
 name: Égizyer
 real_world_name: Égizyer
 tags:
-- placeholder
-- type-town
+  - type-ruins
 type: town
 ---
 

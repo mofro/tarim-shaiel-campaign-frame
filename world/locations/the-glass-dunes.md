@@ -5,7 +5,7 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-07-21
 description: Open Kyzylkum dune country between Nur-Ata and the royal road — Session 0 Seeker awakening collapse site.

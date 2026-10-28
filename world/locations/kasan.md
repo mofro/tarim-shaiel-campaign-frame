@@ -4,23 +4,22 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
 last_updated: 2026-10-26
 location:
-- 39.040187
-- 65.583101
+- 39.0312
+- 65.609637
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: route-node
 name: Kasan
 real_world_name: Kasan
 tags:
 - placeholder
 - type-route-node
-type: route-node
+type: town
 ---
 
 ```leaflet

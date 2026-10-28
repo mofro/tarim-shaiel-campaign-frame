@@ -14,13 +14,12 @@ location:
 - 77.937655
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: caravanserai
 name: Qarachi
 real_world_name: Qarachi
 tags:
 - placeholder
 - type-caravanserai
-type: caravanserai
+type: route-node
 ---
 
 ```leaflet

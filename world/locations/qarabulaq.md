@@ -14,13 +14,12 @@ location:
 - 77.576866
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: caravanserai
 name: Qarabulaq
 real_world_name: Qarabulaq
 tags:
 - placeholder
 - type-caravanserai
-type: caravanserai
+type: route-node
 ---
 
 ```leaflet

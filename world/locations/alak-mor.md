@@ -5,7 +5,7 @@ parent_region: steppe-confederations
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-01-05
 description: Great Colored Depths of the Eastern Highlands

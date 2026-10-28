@@ -5,25 +5,23 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-07-20
 description: "A fortified caravanserai on the royal road between Samarqandh and Bukhara, where the Merchant Council's tariff agreements and the empire's fading claim to collect never quite resolve who's in charge."
-fantasy_name: Rabati Malik
 last_updated: 2026-10-26
 location:
 - 40.131083
 - 65.184288
 map_min_zoom: 6
 map_max_zoom: 7
-mapmarker: caravanserai
 name: Rabati Malik
 real_world_name: Rabat-i Malik
 tags:
 - session-0
 - session-2
 - type-caravanserai
-type: caravanserai
+type: town
 ---
 
 ```leaflet
