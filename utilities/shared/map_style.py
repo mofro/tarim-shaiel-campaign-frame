@@ -196,6 +196,12 @@ def icon_match_expr() -> list:
             match]
 
 
+def tier_filter(cats: list[str]) -> list:
+    """The filter a location tier starts with: its categories, and mapMarker not false."""
+    return ["all", ["match", ["get", "category"], cats, True, False],
+            ["!=", ["get", "mapMarker"], False]]
+
+
 def location_tiers_js(source: str = "locations") -> str:
     """JS declaring `_iconMatch` and adding the six location symbol layers.
 
@@ -207,8 +213,7 @@ def location_tiers_js(source: str = "locations") -> str:
     for layer_id, cats, mz, font, icon_size, text_size in LOCATION_TIERS:
         layer = {
             "id": layer_id, "type": "symbol", "source": source, "minzoom": mz - 1,
-            "filter": ["all", ["match", ["get", "category"], cats, True, False],
-                       ["!=", ["get", "mapMarker"], False]],
+            "filter": tier_filter(cats),
             "layout": {
                 "icon-image": "__ICON_MATCH__", "icon-size": icon_size,
                 "icon-allow-overlap": True, "icon-anchor": "center",
@@ -249,6 +254,180 @@ def check_tier_coverage() -> list[str]:
                 warnings.append(f"Category '{c}' is in two tiers: {seen[c]} and {layer_id}")
             seen[c] = layer_id
     return warnings
+
+
+# ---------------------------------------------------------------------------
+# Raster overlays (Topo, Satellite)
+# ---------------------------------------------------------------------------
+
+# (key, source+layer id, MapTiler tile path, default opacity). The GM owns these:
+# the Workshop switches them and the devserver relays "on" and "opacity" to the
+# player map (GET /api/map-overlays). Players have no control over them.
+RASTER_OVERLAYS: list[tuple[str, str, str, float]] = [
+    ("topo", "topo-overlay", "maps/topo-v2/{z}/{x}/{y}.png", 0.55),
+    ("sat",  "sat-overlay",  "tiles/satellite-v2/{z}/{x}/{y}.jpg", 0.6),
+]
+OVERLAY_LAYERS: dict[str, str] = {o[0]: o[1] for o in RASTER_OVERLAYS}  # key -> layer id
+OVERLAY_DEFAULT_OPACITY: dict[str, float] = {o[0]: o[3] for o in RASTER_OVERLAYS}
+
+
+def raster_overlays_js(maptiler_key: str) -> str:
+    """JS adding both raster overlays, hidden. Call it before any custom data
+    layer so they sit beneath routes, journeys and locations."""
+    out = []
+    for _key, layer_id, path, opacity in RASTER_OVERLAYS:
+        url = f"https://api.maptiler.com/{path}?key={maptiler_key}"
+        source = {"type": "raster", "tiles": [url], "tileSize": 256, "attribution": "© MapTiler"}
+        layer = {"id": layer_id, "type": "raster", "source": layer_id,
+                 "layout": {"visibility": "none"}, "paint": {"raster-opacity": opacity}}
+        out.append(f"map.addSource({_js(layer_id)},{_js(source)});\n")
+        out.append(f"map.addLayer({_js(layer)});\n")
+    return "".join(out)
+
+
+# ---------------------------------------------------------------------------
+# Display controls (which layers a viewer sees)
+# ---------------------------------------------------------------------------
+
+# The location-type checkboxes, in menu order: (category, label). Each category
+# is one of LOCATION_TIERS' categories; the rest (ruins, site, caravanserai ...)
+# have no toggle and are always drawn.
+LOCATION_TYPE_TOGGLES: list[tuple[str, str]] = [
+    ("city", "Cities"), ("capital", "Capitals"), ("bridge", "Bridges"),
+    ("landmark", "Landmarks"), ("fortress", "Fortresses"), ("town", "Towns"),
+    ("sacred-site", "Sacred Sites"), ("oasis", "Oases"), ("lake", "Lakes"),
+    ("route-node", "Route Nodes"), ("poi", "POIs"),
+]
+
+# Layers each non-location toggle shows and hides.
+DISPLAY_LAYER_GROUPS: dict[str, list[str]] = {
+    "routes": ["routes"],
+    "journeys": [JOURNEY_LAYER, JOURNEY_HIT_LAYER],
+}
+
+
+def tier_categories() -> dict[str, list[str]]:
+    """{tier layer id: the toggle categories in that tier}."""
+    toggled = {c for c, _ in LOCATION_TYPE_TOGGLES}
+    return {layer_id: [c for c in cats if c in toggled]
+            for layer_id, cats, *_ in LOCATION_TIERS}
+
+
+def display_layer_rows_html(journeys_label: str = "Journeys") -> str:
+    """Checkbox rows for the non-location display layers (routes, journeys)."""
+    labels = {"routes": "Routes", "journeys": journeys_label}
+    return "".join(
+        f'<label class="disp-row"><input type="checkbox" class="disp-cb" '
+        f'data-kind="layer" data-key="{key}" checked> {labels[key]}</label>\n'
+        for key in DISPLAY_LAYER_GROUPS
+    )
+
+
+def display_type_grid_html() -> str:
+    """The 'Locations' heading and the two-column grid of location-type checkboxes."""
+    cells = "".join(
+        f'<label><input type="checkbox" class="disp-cb" data-kind="type" '
+        f'data-key="{cat}" checked> {label}</label>\n'
+        for cat, label in LOCATION_TYPE_TOGGLES
+    )
+    return f'<div class="it-heading">Locations</div>\n<div class="it-grid">\n{cells}</div>\n'
+
+
+def display_controls_css(touch: bool = False) -> str:
+    """CSS for the location grid. `touch` gives every row a 44px tap target."""
+    css = """\
+.it-heading { font-size:10px; text-transform:uppercase; letter-spacing:0.07em; color:#8a7a5a; margin-bottom:3px; }
+.it-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px 10px; }
+.it-grid label { display:flex; align-items:center; gap:5px; cursor:pointer; color:#c8b890;
+  font-size:10px; text-transform:none; letter-spacing:0; white-space:nowrap; margin-top:0; }
+.it-grid input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
+"""
+    if touch:
+        css += """\
+.disp-row, .it-grid label { min-height:44px; touch-action:manipulation; }
+.disp-row { display:flex; align-items:center; gap:8px; cursor:pointer; color:#e8dcc4; font-size:14px; }
+.it-grid label { font-size:13px; color:#e8dcc4; }
+.disp-row input[type=checkbox], .it-grid input[type=checkbox] { width:22px; height:22px; flex:none;
+  accent-color:#b8922c; cursor:pointer; }
+.it-heading { font-size:11px; margin:8px 0 2px; }
+"""
+    return css
+
+
+def display_controls_js(storage: str, key: str, layers: dict | None = None) -> str:
+    """JS owning the type / routes / journeys toggles.
+
+    Defines `_tierCats`, `_dispState` and `_dispLoad` / `_dispSave` / `_dispApply` /
+    `_dispWire`. `storage` ("localStorage" or "sessionStorage") holds one JSON blob
+    under `key`; every access sits in try/catch so a blocked store changes nothing
+    but persistence.
+
+    `_dispApply` is the only place that sets filters on the tier layers, routes
+    and journeys. Whatever else must narrow one of them (the Workshop's player
+    preview, the journey being edited) defines `_dispExtra(layerId)` returning an
+    array of filter conditions (or null) and calls `_dispApply()`; a second
+    `setFilter` on those layers would overwrite this one.
+
+    Only categories whose checkbox is off are excluded: the categories with no
+    toggle always show, on both maps.
+    """
+    groups = layers if layers is not None else DISPLAY_LAYER_GROUPS
+    base = {lid: tier_filter(cats) for lid, cats, *_ in LOCATION_TIERS}
+    types = {c: True for c, _ in LOCATION_TYPE_TOGGLES}
+    return f"""\
+var _tierCats={_js(tier_categories())};
+var _tierBase={_js(base)};
+var _dispLayers={_js(groups)};
+var _dispState={{types:{_js(types)},layers:{_js({k: True for k in groups})}}};
+var _DISP_KEY={_js(key)};
+function _dispLoad(){{
+  try{{
+    var raw={storage}.getItem(_DISP_KEY);if(!raw)return;
+    var v=JSON.parse(raw);if(!v||typeof v!=="object")return;
+    ["types","layers"].forEach(function(g){{
+      var from=v[g];if(!from||typeof from!=="object")return;
+      Object.keys(_dispState[g]).forEach(function(k){{
+        if(typeof from[k]==="boolean")_dispState[g][k]=from[k];}});}});
+  }}catch(_e){{}}
+}}
+function _dispSave(){{
+  try{{{storage}.setItem(_DISP_KEY,JSON.stringify(_dispState));}}catch(_e){{}}
+}}
+function _dispFilter(lyr,base){{
+  var c=base?[base]:[];
+  var x=typeof _dispExtra==="function"?_dispExtra(lyr):null;
+  if(x)c=c.concat(x);
+  return c.length===0?null:(c.length===1?c[0]:["all"].concat(c));
+}}
+function _dispApply(){{
+  if(typeof map==="undefined"||!map)return;
+  Object.keys(_tierCats).forEach(function(lyr){{
+    if(!map.getLayer(lyr))return;
+    var off=_tierCats[lyr].filter(function(c){{return !_dispState.types[c];}});
+    var conds=[_tierBase[lyr]];
+    if(off.length)conds.push(["!",["match",["get","category"],off,true,false]]);
+    var x=typeof _dispExtra==="function"?_dispExtra(lyr):null;
+    if(x)conds=conds.concat(x);
+    map.setFilter(lyr,conds.length===1?conds[0]:["all"].concat(conds));
+  }});
+  Object.keys(_dispLayers).forEach(function(k){{
+    _dispLayers[k].forEach(function(lyr){{
+      if(!map.getLayer(lyr))return;
+      map.setLayoutProperty(lyr,"visibility",_dispState.layers[k]?"visible":"none");
+      map.setFilter(lyr,_dispFilter(lyr,null));
+    }});
+  }});
+}}
+function _dispWire(){{
+  document.querySelectorAll(".disp-cb").forEach(function(cb){{
+    var group=cb.dataset.kind==="type"?_dispState.types:_dispState.layers,k=cb.dataset.key;
+    if(k in group)cb.checked=group[k];
+    cb.addEventListener("change",function(){{group[k]=cb.checked;_dispSave();_dispApply();}});
+  }});
+}}
+_dispLoad();
+_dispWire();
+"""
 
 
 # ---------------------------------------------------------------------------

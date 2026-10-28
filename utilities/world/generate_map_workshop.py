@@ -378,11 +378,9 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #ws-zoom { margin-left:auto; color:#8a7a5a; font-size:12px; letter-spacing:0.06em; }
 #ws-zoom-val { color:#c8a84a; font-weight:bold; }
 #ws-edit-dot { font-size:11px; color:#a8d840; letter-spacing:0.04em; white-space:nowrap; }
-.it-heading { font-size:10px; text-transform:uppercase; letter-spacing:0.07em; color:#8a7a5a; margin-bottom:3px; }
-.it-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px 10px; }
-.it-grid label { display:flex; align-items:center; gap:5px; cursor:pointer; color:#c8b890;
-  font-size:10px; text-transform:none; letter-spacing:0; white-space:nowrap; margin-top:0; }
-.it-grid input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
+#layers-dropdown label.ov-share { margin-top:2px; padding-left:22px; font-size:10px;
+  text-transform:none; letter-spacing:0; color:#8a7a5a; }
+#preview-toggle,#topo-share,#sat-share { accent-color:#b8922c; cursor:pointer; }
 .overlay-err { display:inline-flex; align-items:center; background:#7a1f00; color:#ffcc88;
   font-size:9px; padding:1px 4px; border-radius:3px; cursor:help; margin-left:2px; vertical-align:middle; }
 .edit-toggle.active { background: #1a2a0a; border-color: #6a9a2c; color: #a8d840; }
@@ -1338,9 +1336,7 @@ function _ttSyncSrc(){
   var s=map.getSource("journeys");
   if(s)s.setData(_journeyGJ);}
 
-function _ttFilterSaved(){
-  var flt=["!=",["get","id"],_ttJid||""];
-  ["journeys","journeys-hit"].forEach(function(l){if(map.getLayer(l))map.setFilter(l,flt);});}
+function _ttFilterSaved(){_dispApply();}
 
 function _ttStore(f,popup){
   f.properties=f.properties||{};
@@ -1518,11 +1514,6 @@ _ttEl("tt-save-btn").addEventListener("click",function(){_ttSave(false);});
 _ttEl("tt-saveas-btn").addEventListener("click",function(){_ttSave(true);});
 _ttEl("tt-clear-btn").addEventListener("click",_ttClear);
 
-var _jrnTog=_ttEl("jrn-toggle");
-if(_jrnTog)_jrnTog.addEventListener("change",function(){
-  var v=this.checked?"visible":"none";
-  ["journeys","journeys-hit"].forEach(function(l){if(map.getLayer(l))map.setLayoutProperty(l,"visibility",v);});});
-
 _ttRender();
 _ttRenderSaved();
 
@@ -1565,37 +1556,19 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'try{_wsSavedTab=sessionStorage.getItem("_wsTab");}catch(e){}\n'
         'var _activeTab=_wsSavedTab||"add-point";\n'
 
-        # -- Icon type visibility --
-        'var _typeEnabled={'
-        '"city":true,"capital":true,"bridge":true,"landmark":true,"fortress":true,'
-        '"town":true,"sacred-site":true,"oasis":true,"lake":true,"route-node":true,"poi":true'
-        '};\n'
-        'try{'
-        'var _itss=sessionStorage.getItem("_wsIt");'
-        'if(_itss){var _itsv=JSON.parse(_itss);'
-        'Object.keys(_itsv).forEach(function(k){if(k in _typeEnabled)_typeEnabled[k]=_itsv[k];});}'
-        '}catch(_e){}\n'
-        'var _tierCats={'
-        '"locations-major":["city","capital","bridge","landmark","fortress"],'
-        '"locations-towns":["town"],'
-        '"locations-secondary":["oasis","lake"],'
-        '"locations-spiritual":["sacred-site"],'
-        '"locations-routes":["route-node"],'
-        '"locations-detail":["poi"]'
-        '};\n'
-        'function _rebuildTierFilters(){'
-        'Object.keys(_tierCats).forEach(function(lyr){'
-        'var on=_tierCats[lyr].filter(function(c){return _typeEnabled[c];});'
-        'if(on.length===0){'
-        'map.setLayoutProperty(lyr,"visibility","none");'
-        '}else{'
-        'map.setLayoutProperty(lyr,"visibility","visible");'
-        'var eqs=on.map(function(c){return["==",["get","category"],c];});'
-        'var catF=on.length===1?eqs[0]:["any"].concat(eqs);'
-        'map.setFilter(lyr,["all",catF,["!=",["get","mapMarker"],false]]);'
-        '}'
-        '});'
-        'try{sessionStorage.setItem("_wsIt",JSON.stringify(_typeEnabled));}catch(_e){}}\n'
+        # -- Display layers: location types, routes, journeys --
+        # The shared control owns every filter on those layers (_dispApply);
+        # _dispExtra adds the Workshop's own conditions to it.
+        + map_style.display_controls_js("sessionStorage", "_wsDisp") +
+        'var _dispPreview=false;\n'
+        'try{_dispPreview=sessionStorage.getItem("_wsPreview")==="1";}catch(_e){}\n'
+        'function _dispExtra(lyr){'
+        'var x=[],jr=lyr==="journeys"||lyr==="journeys-hit";'
+        'if(_dispPreview){'
+        'if(lyr in _tierCats)x.push(["!=",["get","visibility"],"gm_secrets"]);'
+        'else if(lyr==="routes"||jr)x.push(["==",["get","_playerVisible"],true]);}'
+        'if(jr)x.push(["!=",["get","id"],_ttJid||""]);'
+        'return x.length?x:null;}\n'
 
         # -- Map init --
         # Restore last view (center/zoom) across the same reloads.
@@ -1792,20 +1765,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         + map_style.basemap_hide_js(map_style.BASEMAP_HIDDEN_LAYERS) +
 
         # Raster overlays — hidden by default, sit below all custom data
-        'var _topoTiles=["https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key='
-        + maptiler_key +
-        '"];'
-        'map.addSource("topo-overlay",{type:"raster",tiles:_topoTiles,tileSize:256,'
-        'attribution:"© MapTiler"});\n'
-        'map.addLayer({id:"topo-overlay",type:"raster",source:"topo-overlay",'
-        'layout:{visibility:"none"},paint:{"raster-opacity":0.55}});\n'
-        'var _satTiles=["https://api.maptiler.com/tiles/satellite-v2/{z}/{x}/{y}.jpg?key='
-        + maptiler_key +
-        '"];'
-        'map.addSource("sat-overlay",{type:"raster",tiles:_satTiles,tileSize:256,'
-        'attribution:"© MapTiler"});\n'
-        'map.addLayer({id:"sat-overlay",type:"raster",source:"sat-overlay",'
-        'layout:{visibility:"none"},paint:{"raster-opacity":0.6}});\n'
+        map_style.raster_overlays_js(maptiler_key) +
 
         # Region overlay
         'map.addSource("regions",{type:"geojson",data:_regionGJ});\n'
@@ -1890,22 +1850,41 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_openFieldEditor(e.features[0]);}'
         '});});\n'
 
-        # Overlay toggle + opacity wiring (sessionStorage-persisted)
-        'function _wireOverlay(toggleId,opacityId,layerId,ssOn,ssOp,defaultOp){'
-        'var tog=document.getElementById(toggleId),opc=document.getElementById(opacityId);'
+        # Overlay toggle + opacity wiring (sessionStorage-persisted). The GM owns the
+        # overlays: what the players see is each overlay's on/opacity, published to
+        # the devserver, where "on" also needs the overlay's Share box ticked.
+        'var _ovPub={},_ovTimer=null;\n'
+        'function _pubOverlays(){'
+        'clearTimeout(_ovTimer);'
+        'var body={};'
+        'Object.keys(_ovPub).forEach(function(k){body[k]=_ovPub[k]();});'
+        'try{fetch("/api/map-overlays",{method:"POST",'
+        'headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})'
+        '.catch(function(){});}catch(_e){}}\n'
+        'function _wireOverlay(key,layerId,ssOn,ssOp,ssShare){'
+        'var tog=document.getElementById(key+"-toggle"),opc=document.getElementById(key+"-opacity"),'
+        'shr=document.getElementById(key+"-share");'
         'try{'
         'var sv=sessionStorage.getItem(ssOn),so=sessionStorage.getItem(ssOp);'
         'if(sv==="1"){tog.checked=true;map.setLayoutProperty(layerId,"visibility","visible");}'
         'if(so!=null){opc.value=so;map.setPaintProperty(layerId,"raster-opacity",parseFloat(so)/100);}'
+        'shr.checked=sessionStorage.getItem(ssShare)==="1";'
         '}catch(e){}'
+        '_ovPub[key]=function(){return{on:tog.checked&&shr.checked,opacity:parseInt(opc.value)/100};};'
         'tog.addEventListener("change",function(){'
         'map.setLayoutProperty(layerId,"visibility",tog.checked?"visible":"none");'
-        'try{sessionStorage.setItem(ssOn,tog.checked?"1":"0");}catch(e){}});'
+        'try{sessionStorage.setItem(ssOn,tog.checked?"1":"0");}catch(e){}'
+        '_pubOverlays();});'
+        'shr.addEventListener("change",function(){'
+        'try{sessionStorage.setItem(ssShare,shr.checked?"1":"0");}catch(e){}'
+        '_pubOverlays();});'
         'opc.addEventListener("input",function(){'
         'map.setPaintProperty(layerId,"raster-opacity",parseInt(opc.value)/100);'
-        'try{sessionStorage.setItem(ssOp,opc.value);}catch(e){}});}'
-        '_wireOverlay("topo-toggle","topo-opacity","topo-overlay","_wsTopoOn","_wsTopoOp",55);'
-        '_wireOverlay("sat-toggle","sat-opacity","sat-overlay","_wsSatOn","_wsSatOp",60);'
+        'try{sessionStorage.setItem(ssOp,opc.value);}catch(e){}'
+        'clearTimeout(_ovTimer);_ovTimer=setTimeout(_pubOverlays,250);});}\n'
+        '_wireOverlay("topo","topo-overlay","_wsTopoOn","_wsTopoOp","_wsTopoShare");'
+        '_wireOverlay("sat","sat-overlay","_wsSatOn","_wsSatOp","_wsSatShare");'
+        '_pubOverlays();\n'
 
         # Peak markers: the basemap's "Peak labels" layer, shown by default,
         # sessionStorage-persisted. The player map always hides it.
@@ -1942,7 +1921,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'tog.checked=false;'
         'map.setLayoutProperty(src,"visibility","none");'
         'try{sessionStorage.setItem("_ws"+src+"On","0");}catch(_){}'
-        '_showOverlayErr(tid,status);});\n'
+        '_showOverlayErr(tid,status);'
+        '_pubOverlays();});\n'
 
         # Zoom readout (subheader)
         'var _zvv=document.getElementById("ws-zoom-val");'
@@ -1966,8 +1946,16 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '});'
         '})();\n'
 
-        # Apply saved icon-type toggle state after layers are created
-        '_rebuildTierFilters();\n'
+        # Player's-eye preview switch, then apply the saved display state and the
+        # preview once the layers exist
+        '(function(){'
+        'var cb=document.getElementById("preview-toggle");cb.checked=_dispPreview;'
+        'cb.addEventListener("change",function(){'
+        '_dispPreview=cb.checked;'
+        'try{sessionStorage.setItem("_wsPreview",cb.checked?"1":"0");}catch(_e){}'
+        '_dispApply();});'
+        '})();\n'
+        '_dispApply();\n'
 
         # Travel tab working journey: one dashed LineString per leg
         'map.addSource("tt-line",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
@@ -1978,14 +1966,6 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.addControl(new maplibregl.ScaleControl({maxWidth:100,unit:"metric"}),"bottom-left");\n'
 
         '});\n'  # end map.on('load')
-
-        # Wire icon type checkboxes (can run before or after map load)
-        'document.querySelectorAll(".it-cb").forEach(function(cb){'
-        'if(cb.dataset.type in _typeEnabled)cb.checked=_typeEnabled[cb.dataset.type];'
-        'cb.addEventListener("change",function(){'
-        '_typeEnabled[cb.dataset.type]=cb.checked;'
-        '_rebuildTierFilters();'
-        '});});\n'
 
         # Route Index: fly-to on row click (uses _routeGJ which is available immediately)
         'document.querySelectorAll("#panel-route-index .ri-row").forEach(function(row){'
@@ -2500,7 +2480,7 @@ def _build_html(
         '<meta charset="utf-8">\n'
         "<title>Map Workshop — Tarim-Shaïal</title>\n"
         '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.css">\n'
-        "<style>\n" + _CSS + map_style.popup_css() + "</style>\n"
+        "<style>\n" + _CSS + map_style.display_controls_css() + map_style.popup_css() + "</style>\n"
         "</head>\n"
         "<body>\n"
         '<div id="app">\n'
@@ -2519,25 +2499,18 @@ def _build_html(
         '        <div id="layers-dropdown" hidden>\n'
         '          <label><input type="checkbox" id="topo-toggle"> Topo overlay\n'
         '            <input type="range" id="topo-opacity" min="0" max="100" value="55" title="Opacity"></label>\n'
+        '          <label class="ov-share"><input type="checkbox" id="topo-share"> Share with players</label>\n'
         '          <label><input type="checkbox" id="sat-toggle"> Satellite Plain\n'
         '            <input type="range" id="sat-opacity" min="0" max="100" value="60" title="Opacity"></label>\n'
-        '          <label><input type="checkbox" id="jrn-toggle" checked> Saved journeys</label>\n'
+        '          <label class="ov-share"><input type="checkbox" id="sat-share"> Share with players</label>\n'
+        '          <hr>\n'
+        + map_style.display_layer_rows_html("Saved journeys") +
         '          <label><input type="checkbox" id="peak-toggle" checked> Peak markers</label>\n'
         '          <hr>\n'
-        '          <div class="it-heading">Locations</div>\n'
-        '          <div class="it-grid">\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="city" checked> Cities</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="capital" checked> Capitals</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="bridge" checked> Bridges</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="landmark" checked> Landmarks</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="fortress" checked> Fortresses</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="town" checked> Towns</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="sacred-site" checked> Sacred Sites</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="oasis" checked> Oases</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="lake" checked> Lakes</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="route-node" checked> Route Nodes</label>\n'
-        '            <label><input type="checkbox" class="it-cb" data-type="poi" checked> POIs</label>\n'
-        '          </div>\n'
+        + map_style.display_type_grid_html() +
+        '          <hr>\n'
+        '          <label title="Hide what the player map would not show: GM-only locations, routes and journeys">'
+        '<input type="checkbox" id="preview-toggle"> Player\'s-eye preview</label>\n'
         '        </div>\n'
         '        <span id="ws-zoom">zoom <span id="ws-zoom-val">—</span></span>\n'
         '        <span id="ws-edit-dot" class="hidden">● Edit</span>\n'
@@ -2616,6 +2589,8 @@ def _build_html(
 # left as it was (#324 changes when the view is chosen, not what the default is).
 PLAYER_DEFAULT_VIEW = {"lng": 70, "lat": 40, "zoom": 4}
 PLAYER_VIEW_KEY = "ts_player_view"
+# The player's own layer choices (location types, routes, journeys), per browser.
+PLAYER_DISPLAY_KEY = "ts_player_display"
 PLAYER_GM_VIEW_TIMEOUT_MS = 800
 # Zoom range a GM or stored view is clamped to; the same as the Workshop map's.
 PLAYER_VIEW_ZOOM_RANGE = (3, 18)
@@ -2663,6 +2638,82 @@ function _fetchGmView(cb){
 """
 
 
+# The GM's raster overlays on the player map. The player cannot change them: the
+# devserver relays the Workshop's on/opacity (GET /api/map-overlays) and this polls
+# it, independently of Follow GM. A failed poll keeps the last state (hidden before
+# the first answer); an overlay whose tiles fail stays hidden, silently, until the
+# GM turns it off and on again.
+_PLAYER_OVERLAY_JS = """\
+var _overlayFailed = {};
+var _overlayTimer = null;
+function _applyOverlays(d){
+  Object.keys(_OVERLAYS).forEach(function(k){
+    var id = _OVERLAYS[k];
+    if(!map || !map.getLayer(id))return;
+    var o = d && typeof d === 'object' ? d[k] : null;
+    var want = !!(o && o.on === true);
+    if(!want)_overlayFailed[k] = false;
+    map.setLayoutProperty(id, 'visibility', want && !_overlayFailed[k] ? 'visible' : 'none');
+    if(o && typeof o.opacity === 'number' && isFinite(o.opacity))
+      map.setPaintProperty(id, 'raster-opacity', Math.min(1, Math.max(0, o.opacity)));
+  });
+}
+function _pollOverlays(){
+  try{
+    fetch('/api/map-overlays').then(function(r){return r.ok ? r.json() : null;})
+    .then(function(d){if(d)_applyOverlays(d);}).catch(function(){});
+  }catch(e){}
+}
+function _startOverlayPolling(){
+  if(_overlayTimer)return;
+  _pollOverlays();
+  _overlayTimer = setInterval(_pollOverlays, 2000);
+}
+function _overlayError(e){
+  var src = e && e.sourceId, hit = false;
+  Object.keys(_OVERLAYS).forEach(function(k){
+    if(_OVERLAYS[k] !== src)return;
+    hit = true;
+    _overlayFailed[k] = true;
+    if(map.getLayer(src))map.setLayoutProperty(src, 'visibility', 'none');
+  });
+  if(!hit)console.error(e && e.error ? e.error : e);
+}
+"""
+
+
+# Top-left, clear of the nav control (top-right), the scale bar (bottom-right) and
+# the Follow GM button (bottom-centre). 44px targets throughout.
+_PLAYER_LAYERS_CSS = """\
+#layers-btn { position:fixed; z-index:100; top:calc(10px + env(safe-area-inset-top));
+  left:calc(10px + env(safe-area-inset-left)); width:44px; height:44px; padding:0;
+  background:rgba(26,18,8,0.85); color:#c8a84a; border:1px solid rgba(184,146,44,0.4);
+  border-radius:8px; font-size:22px; line-height:1; cursor:pointer; touch-action:manipulation;
+  backdrop-filter:blur(6px); }
+#layers-btn[aria-expanded=true] { border-color:#b8922c; color:#e8dcc4; }
+#layers-panel { position:fixed; z-index:100; top:calc(62px + env(safe-area-inset-top));
+  left:calc(10px + env(safe-area-inset-left)); width:min(300px, calc(100vw - 80px));
+  max-height:calc(100% - 150px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  overflow-y:auto; padding:6px 12px 10px; background:rgba(26,18,8,0.92); color:#e8dcc4;
+  border:1px solid rgba(184,146,44,0.4); border-radius:8px; font-family:Georgia,serif;
+  backdrop-filter:blur(6px); }
+"""
+
+_PLAYER_LAYERS_JS = """\
+(function(){
+  var btn = document.getElementById('layers-btn'), panel = document.getElementById('layers-panel');
+  function setOpen(open){
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function(e){e.stopPropagation(); setOpen(panel.hidden);});
+  document.addEventListener('click', function(e){
+    if(!panel.hidden && !panel.contains(e.target))setOpen(false);
+  });
+})();
+"""
+
+
 def _build_player_html(
     loc_geojson: dict,
     routes_geojson: dict,
@@ -2694,7 +2745,10 @@ def _build_player_html(
         f"var _DEFAULT_VIEW = {json.dumps(PLAYER_DEFAULT_VIEW)};\n"
         f"var _MIN_ZOOM = {PLAYER_VIEW_ZOOM_RANGE[0]}, _MAX_ZOOM = {PLAYER_VIEW_ZOOM_RANGE[1]};\n"
         f"var _GM_VIEW_TIMEOUT = {PLAYER_GM_VIEW_TIMEOUT_MS};\n"
-        + _PLAYER_VIEW_JS +
+        + _PLAYER_VIEW_JS
+        + map_style.display_controls_js("localStorage", PLAYER_DISPLAY_KEY)
+        + f"var _OVERLAYS = {json.dumps(map_style.OVERLAY_LAYERS)};\n"
+        + _PLAYER_OVERLAY_JS +
         # Use location.origin so that transformRequest returns absolute URLs.
         # MapLibre fetches vector tiles in a blob:-URL Worker; relative URLs cannot
         # be resolved in that context and silently fail, leaving all vector tile
@@ -2725,6 +2779,7 @@ def _build_player_html(
 
         "map.on('load', function() {\n"
         + map_style.basemap_hide_js(map_style.PLAYER_HIDDEN_LAYERS)
+        + map_style.raster_overlays_js(maptiler_key)
         + icons_js
         + "\n"
         "  map.addSource('locations', {type:'geojson', data: _locGJ});\n"
@@ -2740,6 +2795,9 @@ def _build_player_html(
         + "\n"
         + map_style.journey_hover_js(tap_to_open=True)
         + "\n"
+        "  map.on('error', _overlayError);\n"
+        "  _dispApply();\n"
+        "  _startOverlayPolling();\n"
         "  _startPolling();\n"
         "});\n"
         "}\n"
@@ -2761,6 +2819,7 @@ def _build_player_html(
         "  },2000);\n"
         "}\n"
 
+        + _PLAYER_LAYERS_JS +
         "document.getElementById('follow-btn').addEventListener('click',function(){\n"
         "  _following=!_following;\n"
         "  this.textContent=_following?'● Following GM':'○ Follow GM';\n"
@@ -2810,12 +2869,20 @@ def _build_player_html(
         "}\n"
         "#follow-btn.off { color: #7a6a50; border-color: rgba(122,106,80,0.3); }\n"
         ".maplibregl-ctrl-bottom-right { bottom: calc(60px + env(safe-area-inset-bottom)) !important; }\n"
+        + _PLAYER_LAYERS_CSS
+        + map_style.display_controls_css(touch=True)
         + map_style.popup_css()
         + "</style>\n"
         "</head>\n"
         "<body>\n"
         '<div id="map"></div>\n'
         '<button id="follow-btn">● Following GM</button>\n'
+        '<button id="layers-btn" aria-label="Layers" aria-expanded="false" aria-controls="layers-panel">⊞</button>\n'
+        '<div id="layers-panel" hidden>\n'
+        '<div class="it-heading">Map layers</div>\n'
+        + map_style.display_layer_rows_html("Journeys")
+        + map_style.display_type_grid_html()
+        + "</div>\n"
         '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'
         "<script>\n"
         + data_js

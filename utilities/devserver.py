@@ -21,6 +21,8 @@ Endpoints:
     DELETE /api/routes/{route_id}             — delete one route by ID
     POST   /api/routes/delete-bulk            — delete multiple routes: {"ids": [...]}
     POST   /api/routes/{route_id}/regenerate  — re-snap one route to roads via OSRM
+    GET    /api/map-overlays                  — which raster overlays the GM shares with players (LAN OK)
+    POST   /api/map-overlays                  — set them: {"topo": {"on": bool, "opacity": 0..1}, "sat": {...}} (localhost only)
     GET    /api/journeys                      — saved travel journeys + their popup text (localhost only)
     POST   /api/journeys                      — save a new journey (gm_secrets until made public)
     PUT    /api/journeys/{id}                 — overwrite a journey's name, stops and legs
@@ -46,6 +48,7 @@ sys.path.insert(0, str(SCRIPT_DIR))
 
 from shared.travel_time import SPEEDS
 from shared import journeys as journeys_mod
+from shared import map_style
 VAULT_ROOT = SCRIPT_DIR.parent
 DOCS_DIR = VAULT_ROOT / "docs"
 WORKSHOP_PATH = VAULT_ROOT / "map-workshop.html"
@@ -137,11 +140,50 @@ def _journey_delete(jid: str) -> "tuple[int, dict]":
     return 200, {"ok": True, "deleted": jid}
 
 
+def _overlays_set(data) -> "tuple[int, dict]":
+    """Apply a raster-overlay payload; (HTTP status, JSON body).
+
+    Validates the whole payload before touching state, so a bad request changes
+    nothing. A payload naming one overlay leaves the other as it was. Opacity is
+    clamped to 0..1.
+    """
+    keys = set(map_style.OVERLAY_DEFAULT_OPACITY)
+    if not isinstance(data, dict):
+        return 400, {"ok": False, "error": "body must be an object"}
+    unknown = sorted(set(data) - keys)
+    if unknown:
+        return 400, {"ok": False, "error": f"unknown overlay: {', '.join(unknown)}"}
+    update = {}
+    for key, value in data.items():
+        if not isinstance(value, dict):
+            return 400, {"ok": False, "error": f"{key} must be an object"}
+        extra = sorted(set(value) - {"on", "opacity"})
+        if extra:
+            return 400, {"ok": False, "error": f"unknown field in {key}: {', '.join(extra)}"}
+        entry = dict(_map_overlays[key])
+        if "on" in value:
+            if not isinstance(value["on"], bool):
+                return 400, {"ok": False, "error": f"{key}.on must be true or false"}
+            entry["on"] = value["on"]
+        if "opacity" in value:
+            op = value["opacity"]
+            if isinstance(op, bool) or not isinstance(op, (int, float)) or op != op:
+                return 400, {"ok": False, "error": f"{key}.opacity must be a number"}
+            entry["opacity"] = min(1.0, max(0.0, float(op)))
+        update[key] = entry
+    _map_overlays.update(update)
+    return 200, {"ok": True}
+
+
 # ---------------------------------------------------------------------------
 # Shared state (GIL protects simple assignment; no heavy concurrency needed)
 # ---------------------------------------------------------------------------
 
 _map_center: "dict | None" = None  # {"lng": float, "lat": float, "zoom": float}
+# What the GM shows the players of each raster overlay: "on" means the GM has the
+# overlay on AND ticked Share. Nothing is stored; a restart resets to all off.
+_map_overlays: dict = {k: {"on": False, "opacity": d}
+                       for k, d in map_style.OVERLAY_DEFAULT_OPACITY.items()}
 _lan_ip: str = "127.0.0.1"         # set at startup
 
 
@@ -188,6 +230,8 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             self._serve_player()
         elif self.path == "/api/map-center":
             self._json(_map_center if _map_center else {"lng": None, "lat": None, "zoom": None})
+        elif self.path.split("?")[0].rstrip("/") == "/api/map-overlays":
+            self._json({k: dict(v) for k, v in _map_overlays.items()})
         elif self.path.split("?")[0].rstrip("/") == "/api/journeys":
             if not self._is_local():
                 self.send_error(403, "Journeys are only accessible from localhost")
@@ -249,6 +293,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             if not self._is_local():
                 return self.send_error(403, "Only GM (localhost) can set map center")
             self._set_map_center()
+            return
+        if self.path.split("?")[0].rstrip("/") == "/api/map-overlays":
+            if not self._is_local():
+                return self.send_error(403, "Only GM (localhost) can set map overlays")
+            self._set_map_overlays()
             return
         if not self._is_local():
             self.send_error(403, "Write API only accessible from localhost")
@@ -353,6 +402,13 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             return self.send_error(400, 'Body must be {"lng": number, "lat": number, "zoom": number}')
         _map_center = {"lng": lng, "lat": lat, "zoom": zoom}
         self._json({"ok": True})
+
+    def _set_map_overlays(self):
+        try:
+            data = self._read_json()
+        except ValueError:
+            return self._respond(400, {"ok": False, "error": "body must be JSON"})
+        self._respond(*_overlays_set(data))
 
     def _put_coordinates(self, slug: str):
         try:
@@ -776,6 +832,7 @@ def main() -> None:
     print(f"    POST   http://localhost:{port}/api/rebuild/locations")
     print(f"    POST   http://localhost:{port}/api/rebuild/workshop")
     print(f"    POST   http://localhost:{port}/api/map-center  (GM position sync)")
+    print(f"    POST   http://localhost:{port}/api/map-overlays  (overlays shared with players)")
     print()
     _stale_workshop_warning()
     print()
