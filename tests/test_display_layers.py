@@ -1267,3 +1267,29 @@ def test_every_layer_the_shared_control_references_exists_on_both_maps(tmp_path)
     (tmp_path / "pl").mkdir()
     for r in (_workshop(tmp_path / "ws", body), _player(tmp_path / "pl", body)):
         assert r["missing"] == [] and len(r["need"]) == 9
+
+
+@needs_node
+def test_player_stacks_routes_then_journeys_then_pins_like_the_workshop(tmp_path):
+    body = """
+      const m = await boot();
+      out({order: Object.keys(m.map.layers)});
+    """
+    (tmp_path / "ws").mkdir()
+    (tmp_path / "pl").mkdir()
+    for r in (_workshop(tmp_path / "ws", body), _player(tmp_path / "pl", body)):
+        order = r["order"]
+        pins = [i for i, k in enumerate(order) if k.startswith("locations-")]
+        assert pins, order
+        assert order.index("journeys") < min(pins)
+        assert order.index("journeys-hit") < min(pins)
+        assert order.index("routes") < order.index("journeys")
+
+
+def test_player_panel_puts_routes_and_journeys_in_one_two_column_row():
+    html = _player_html()
+    row = re.search(r'<div class="disp-layers">(.*?)</div>', html, flags=re.S).group(1)
+    assert re.findall(r'data-key="(\w+)"', row) == ["routes", "journeys"]
+    assert len(_checkboxes(html)) == 13
+    css = map_style.display_controls_css(touch=True)
+    assert ".disp-layers" in css and "min-height:44px" in css

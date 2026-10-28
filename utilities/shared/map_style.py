@@ -344,12 +344,17 @@ def display_controls_css(touch: bool = False) -> str:
 """
     if touch:
         css += """\
-.disp-row, .it-grid label { min-height:44px; touch-action:manipulation; }
+.disp-layers { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.it-grid { gap:6px; }
+.disp-row, .it-grid label { box-sizing:border-box; min-height:44px; padding:0 10px; border-radius:6px;
+  border:1px solid rgba(184,146,44,0.25); background:rgba(184,146,44,0.06); touch-action:manipulation; }
 .disp-row { display:flex; align-items:center; gap:8px; cursor:pointer; color:#e8dcc4; font-size:14px; }
-.it-grid label { font-size:13px; color:#e8dcc4; }
+.it-grid label { gap:8px; font-size:13px; line-height:1.15; color:#e8dcc4; white-space:normal; }
+.it-grid label:last-child:nth-child(odd) { grid-column:1 / -1; }
 .disp-row input[type=checkbox], .it-grid input[type=checkbox] { width:22px; height:22px; flex:none;
   accent-color:#b8922c; cursor:pointer; }
-.it-heading { font-size:11px; margin:8px 0 2px; }
+.it-heading { font-size:11px; margin:0 0 6px; }
+.disp-layers + .it-heading { margin-top:14px; }
 """
     return css
 

@@ -2694,7 +2694,7 @@ _PLAYER_LAYERS_CSS = """\
 #layers-panel { position:fixed; z-index:100; top:calc(62px + env(safe-area-inset-top));
   left:calc(10px + env(safe-area-inset-left)); width:min(300px, calc(100vw - 80px));
   max-height:calc(100% - 150px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  overflow-y:auto; padding:6px 12px 10px; background:rgba(26,18,8,0.92); color:#e8dcc4;
+  overflow-y:auto; padding:12px; background:rgba(26,18,8,0.92); color:#e8dcc4;
   border:1px solid rgba(184,146,44,0.4); border-radius:8px; font-family:Georgia,serif;
   backdrop-filter:blur(6px); }
 """
@@ -2782,14 +2782,15 @@ def _build_player_html(
         + map_style.raster_overlays_js(maptiler_key)
         + icons_js
         + "\n"
-        "  map.addSource('locations', {type:'geojson', data: _locGJ});\n"
-        + map_style.location_tiers_js()
-        + "\n"
+        # Same stacking as the Workshop: routes, then journeys, then the pins on top.
         "  map.addSource('routes', {type:'geojson', data: _routeGJ});\n"
         + map_style.routes_layer_js()
         + "\n"
         "  map.addSource('journeys', {type:'geojson', data: _journeyGJ});\n"
         + map_style.journeys_layer_js()
+        + "\n"
+        "  map.addSource('locations', {type:'geojson', data: _locGJ});\n"
+        + map_style.location_tiers_js()
         + "\n"
         + map_style.hover_popup_js(gm_badge=False, tap_to_open=True)
         + "\n"
@@ -2880,7 +2881,9 @@ def _build_player_html(
         '<button id="layers-btn" aria-label="Layers" aria-expanded="false" aria-controls="layers-panel">⊞</button>\n'
         '<div id="layers-panel" hidden>\n'
         '<div class="it-heading">Map layers</div>\n'
+        '<div class="disp-layers">\n'
         + map_style.display_layer_rows_html("Journeys")
+        + "</div>\n"
         + map_style.display_type_grid_html()
         + "</div>\n"
         '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'
