@@ -1,31 +1,32 @@
 ---
-title: redirect
+title: Aydarkul Lake
 project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
-created: 2026-09-02
+created: 2026-10-26
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-09-02
+fantasy_name: Aydracul Lake
+last_updated: 2026-10-26
 location:
-- 38.624284
-- 76.347453
+- 40.903251
+- 66.757669
 map_min_zoom: 5
 map_max_zoom: 14
-mapmarker: route-node
-name: redirect
-real_world_name: redirect
+mapmarker: lake
+name: Aydarkul Lake
+real_world_name: Aydarkul Lake
 tags:
 - placeholder
-- type-route-node
-type: route-node
+- type-lake
+type: lake
 ---
 
 ```leaflet
-id: location-redirect
-coordinates: [[world/locations/redirect]]
+id: location-aydarkul-lake
+coordinates: [[world/locations/aydarkul-lake]]
 defaultZoom: 10
 minZoom: 4.5
 maxZoom: 18
@@ -39,7 +40,7 @@ geojson:
   - [[world/tarim-shaiel-locations.geojson]]|Locations
 ```
 
-# redirect
+# Aydracul Lake
 
 > **PLACEHOLDER.** Coordinates, marker, and region are locked; prose has not been written. Do not treat any narrative detail below as canon — there isn't any yet.
 
