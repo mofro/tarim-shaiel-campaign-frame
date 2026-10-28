@@ -59,7 +59,10 @@ One control, two maps (#323). `map_style.display_controls_js(storage, key)` emit
 - **Preview:** the "Player's-eye preview" switch hides `gm_secrets` locations and routes and journeys with `_playerVisible` false. Its feature sets equal the rebuilt player map's, with type toggles on or off. Regions, reveal rings and the selection highlight are untouched.
 - **Player control:** a 44px layers button top-left (clear of the nav control, scale bar and Follow button). It lists only layers whose data is already player-filtered at build time, so no GM-only, preview, reveal-ring or highlight id or label appears in `player-map.html`. Toggles off hide only the checked-off categories; the 7 categories with no toggle always show on both maps.
 - **Every storage access is try/catch**, and `_dispLoad` accepts only booleans for known keys.
-- Tests: `tests/test_display_layers.py` (116).
+- **Stacking (#329):** both maps add routes, then journeys, then the location tiers, so pins draw on top. MapLibre stacks by `addLayer` order and nothing here uses `beforeId` or `moveLayer`, so the order of the `addSource`/`addLayer` calls in each page's load handler is the whole rule; a test boots both builds and compares the order.
+- **Panel layout (#329):** the touch CSS (`display_controls_css(touch=True)`, player map only) is a borderless two-column grid of 44px rows with no vertical gap: Routes and Journeys share a row (`.disp-layers`), and an odd last type (POIs) spans both columns. Bordered chips were tried and dropped; they only added whitespace.
+- **Type markers (#329):** each type toggle carries an empty `.it-icon` span. `_dispIcons()` copies the map's registered canvas icon (`map.getImage`) into it, so it must run right after `icons_js` in the load handler on both maps. The icon per type is `_ICON_BY_CATEGORY`, the same lookup the map draws.
+- Tests: `tests/test_display_layers.py` (119).
 - **Limit (decision needed):** a shared Topo overlay shows MapTiler's baked-in real-world place names, borders and peaks from zoom 8 up. Options: a label-free raster, keep Topo Workshop-only, or accept the labels. `maxzoom` is not capped.
 - **Gap:** the Workshop writes the overlay-error sessionStorage key as `_ws<source-id>On` (`_wstopo-overlayOn`) but reads `_wsTopoOn` at load, so a tile failure does not persist across reloads. Pre-existing; not fixed in #323.
 
