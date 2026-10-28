@@ -18,7 +18,6 @@ name: Karaulbazar
 real_world_name: Karaulbazar
 tags:
 - placeholder
-- type-caravanserai
 type: city
 ---
 
