@@ -147,6 +147,7 @@ async function boot(o) {
     visibilityState: 'visible',
     addEventListener: (t, f) => { (docH[t] = docH[t] || []).push(f); },
     getElementById: () => ({addEventListener() {}, classList: {toggle() {}}, textContent: ''}),
+    querySelectorAll: () => [],
   };
   const win = {location: {origin: 'http://t'},
                addEventListener: (t, f) => { (winH[t] = winH[t] || []).push(f); }};
