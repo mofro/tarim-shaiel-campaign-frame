@@ -840,3 +840,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 **Known gap:** the Workshop publishes its position only on `moveend`, so `/api/map-center` is null after a devserver restart until the GM first moves the map. A one-time publish on Workshop load would close it; left out as outside the spec.
 
 **Lock status:** Implemented (PR #327, squash `503a863`). The player default view staying at 70/40 z4 (the Workshop opens at 75/40 z5) is preserved behaviour, not a new decision.
+
+## 2026-10-28 — Map display layers: who owns what (#323, HeroHeaven-3kz)
+- **Decision:** The Topo and Satellite raster overlays are GM-owned. Players cannot toggle them. Overlay on/off and opacity reach player maps only through the devserver relay (`POST`/`GET /api/map-overlays`), and only for an overlay whose Workshop "Share with players" box is ticked (default off). Routes, Journeys and the 11 location-type toggles are player-owned, stored per browser in `localStorage` `ts_player_display`. The Workshop gains a Routes toggle and a Player's-eye preview (GM-only locations, routes and journeys hidden); Regions are out of scope. `_dispApply` is the single `setFilter` owner, and shared code lives in `utilities/shared/map_style.py`.
+- **Rationale:** the GM controls what the table sees of the overlays, while players keep their own view preferences without touching the GM's. One filter owner avoids the `_ttFilterSaved` collision on `journeys` / `journeys-hit`.
+- **Lock status:** Locked (shipped, PR #328, `e03fe47`). Open and not decided at merge: the Topo raster bakes in real-world labels, borders and peaks from z8 (options: label-free raster / Topo Workshop-only / accept).

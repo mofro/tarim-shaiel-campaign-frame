@@ -6,13 +6,26 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-10-27
+last_updated: 2026-10-28
 ---
 
 # Creation Session Log
 
 _Authoring and design work sessions. Newest first. Trim to last 10 sessions; older entries go to archive._
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
+
+---
+
+### Session 2026-10-28
+- [HeroHeaven-3kz / #323] Map: display layers for the player and Workshop maps. PR #328 merged (squash `e03fe47`); #323 closed by the merge (its "Closes" keyword), 3kz closed by hand, local branch deleted (head `fc86ddd` == PR head; the remote branch was already gone)
+  - GM-owned Topo/Satellite overlays reach players only through the devserver relay (`POST`/`GET /api/map-overlays`; POST is localhost-only, validated whole, opacity clamped 0..1), gated per overlay by a "Share with players" box (default off). The player map polls every 2000 ms whether or not Follow GM is on and shows no error badge. Player-owned: Routes, Journeys and the 11 type toggles in `localStorage` `ts_player_display`, top-left, 44 px targets. The Workshop gains a Routes toggle and a Player's-eye preview; shared code is `map_style.display_controls_js`, with `_dispApply` the single `setFilter` owner
+  - 116 tests in `tests/test_display_layers.py` (142 with `test_player_start_view.py`). Chrome-verified on the player map: relay on / clamp / 400 / off, toggle + persistence across reload, 375 px. The Workshop map could not be rendered (MapTiler 403 on ports 8010 and 8001, cause not established), so Workshop behaviour is node-harness only. Mutation spot-check was partial: 24 mutants, 22 killed, one real gap fixed, one equivalent; the full 70 was dropped as disproportionate
+  - Behaviour changes: the shared filter excludes only toggled-off categories (the Workshop used to hide the 7 non-toggleable ones); Workshop storage key `_wsIt` → `_wsDisp`
+  - Not decided at merge: the Topo raster bakes in real-world labels, borders and peaks from z8, so a shared Topo shows them under our markers (label-free raster / Topo Workshop-only / accept). Left unfixed: the Workshop overlay-error key mismatch (`_wstopo-overlayOn` written, `_wsTopoOn` read)
+  - Real data: 0 of 35 routes are public, so the player Routes toggle has nothing to show yet
+  - Process: added "Size verification to the change" to project `CLAUDE.md` Working Conventions after the mutation pass drew a correction
+  - Pre-existing on main, not touched: the 5 `tests/test_shared_assets.py` failures and the `tests/test_lore_generator.py` ImportError
+- Next: decide the Topo baked-label handling (the three options above); no issue tracks it yet. The Workshop's Share boxes and Player's-eye preview have had no browser pass, so give them one on the usual port
 
 ---
 
@@ -28,7 +41,7 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - 26 tests in `tests/test_player_start_view.py` (real emitted script run in node `vm`, plus devserver GET/POST); 16/16 hand-written mutants killed. Chrome-verified: before-state reproduced, GM start with no 4→7 step, stored view, `pagehide` write, blocked storage (throwing `localStorage` getter), phone width (375 px iframe)
   - Known gap, left alone (outside the spec): the Workshop POSTs its position only on `moveend`, so `/api/map-center` is null after a devserver restart until the GM first moves the map; a player refresh then uses the stored view. A one-time publish on Workshop load would close it
   - Pre-existing on main, not touched: same 5 `tests/test_shared_assets.py` failures and the `tests/test_lore_generator.py` ImportError
-- Next: #323 / HeroHeaven-3kz stays on hold until the GM says go (open items: Topo overlay baked-in peaks, Player's-eye preview must hide `Peak labels`, `ts_player_` storage prefix shared with #324's `ts_player_view`)
+- Next: #323 / HeroHeaven-3kz was held until the GM said go, then shipped on 2026-10-28 (see Session 2026-10-28)
 
 ---
 
@@ -137,15 +150,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Fleshed out `world/locations/rabati-malik.md` (was a placeholder) and added `world/gm_secrets/rabati-malik-gm.md` — a reusable Tier 1 Social Daggerheart Environment stat block, following the existing Waycross transclusion pattern
   - Process note: deleted files mid-plan-mode by mistake (restored by the user) — root cause was treating a "cleanup" Bash call as read-only when plan mode requires read-only for everything except the plan file
 - Beads cleanup: closed HeroHeaven-8rp (Jim's Fork), HeroHeaven-oej (Dave's intro), HeroHeaven-6yj/0gw (newspaper generator+templates) — all confirmed done via actual play / live site. Updated `DASHBOARD.md` — Jim (Sahir) and Dave (Rill) moved from deciding to committed; `deciding_players` split into a new `new_heroes` key since they aren't archetype-slot characters
-
-### Session 2026-07-03/04
-- [HeroHeaven-x1i] LK Bridge — full interim implementation + verification (PR #273) 🔄 awaiting review
-  - Pre-implementation testing falsified two research assumptions: envelope hash algorithm wrong (and LK ignores it on import); vanilla ADF schema rejects all real LK content — LK speaks an ADF *dialect* (Atlaskit lineage proven via `__confluenceMetadata` in adf-schema source)
-  - Step 0 baseline: post-rewrite LK export diffed vs May reference — additive-only changes; resource IDs survive rewrite AND rename (stable DB keys)
-  - Whole-vault syntax census (546 files) → quirk verdicts: leaflet blocks in 35 location files skip+warn; Tier 1/3 GM syntax exists only in docs (synthetic fixture created)
-  - Built `utilities/lk-bridge/`: lk_schema, md_to_pm/pm_to_md, to_lk (--audience gm|player, fails-closed), from_lk, validate_lk + schemas, manifest.py; 24 tests; docs/ regression byte-identical
-  - Validator caught real leak day one: `visibility: gm_only` file passed old allowlist-of-secrets check → fails-closed polarity fix (player export 155→77)
-  - Manual LK round: ALL FOUR open questions closed — extensionTitle survives verbatim; isHidden preserved; cross-import mention retarget WORKS (interim sync = additive); no block-code node (block-text-field discovered, from_lk unwraps it)
-  - Full GM mirror generated: 461 resources from narrative/ + world/
-  - Filed pre-existing bugs: HeroHeaven-zqo (test suite broken on main), HeroHeaven-bl5 (build.py empties locations geojson)
-  - GH #213 = complete findings log

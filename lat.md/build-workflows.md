@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-10-26
+last_updated: 2026-10-28
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -138,6 +138,8 @@ venv/bin/python utilities/devserver.py
 Use the project venv, not bare `python`/`python3`: rebuild endpoints spawn `build.py` with the server's own interpreter, which needs PyYAML (the devserver refuses to start without it).
 
 Open at `http://localhost:8000/workshop`. Without the devserver, open `map-workshop.html` directly in a browser — read-only, no write-back.
+
+The Layers menu's Topo and Satellite overlays reach the player map only through the devserver: the Workshop `POST`s `/api/map-overlays` (localhost only) and the player map polls `GET /api/map-overlays` every 2 s. Without the devserver nothing is shared and players see no overlays. An overlay is shared only while its "Share with players" box is ticked (default unticked). See `lat.md/locations.md` → Display Layers.
 
 ---
 

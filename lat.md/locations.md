@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-10-27
+last_updated: 2026-10-28
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -41,7 +41,27 @@ The MapTiler style (`01a074c7-536a-71cb-b0d8-9e7fe4fd1100`, `MAPTILER_STYLE_ID` 
 
 - `basemap_hide_js(ids)` emits a `map.getLayer()`-guarded `setLayoutProperty(id,"visibility","none")` loop run in the `map.on("load")` handler, so a renamed layer is a silent no-op. Layer ids contain spaces and parentheses and must match the style exactly.
 - Tests: `tests/test_basemap_markers.py` (7).
-- **Limit:** the Workshop Topo overlay is raster `topo-v2` tiles with peak glyphs baked in at zoom 9+, so peaks show with Peak markers off. Harmless in the Workshop; it must be decided before #323 shares overlays with players (accept it, give the player overlay a `maxzoom`, or use another raster). #323's Player's-eye preview must also hide `Peak labels`.
+- **Limit:** the Topo overlay is raster `topo-v2` tiles with peak glyphs (and real-world place names and borders from zoom 8) baked in, so they show with Peak markers off, and since #323 a shared Topo overlay shows them to players too. See Display Layers below for the options.
+
+## Display Layers
+
+One control, two maps (#323). `map_style.display_controls_js(storage, key)` emits the location-type, Routes and Journeys toggles for both the Workshop and the player map; `display_layer_rows_html`, `display_type_grid_html` and `display_controls_css` emit the markup and CSS. The type labels and `_tierCats` live there once. `raster_overlays_js` defines the Topo and Satellite raster sources and layers for both maps; only the Workshop has controls for them.
+
+| Layer | Owner | Where it is stored |
+|---|---|---|
+| Topo, Satellite overlays | GM | Workshop `sessionStorage` (`_wsTopoOn/Op/Share`, `_wsSatOn/Op/Share`); reaches players only through the devserver |
+| Routes, Journeys, 11 location-type toggles | Each viewer | Player `localStorage` `ts_player_display`; Workshop `sessionStorage` `_wsDisp` (was `_wsIt`) |
+| Player's-eye preview | Workshop only | `sessionStorage` `_wsPreview` |
+
+- **Overlay relay:** the Workshop `POST`s `/api/map-overlays` on load and on every toggle, Share tick, slider change (debounced 250 ms) and tile failure. Body `{"topo":{"on":bool,"opacity":0..1},"sat":{...}}`; `on` means the GM has the overlay on AND ticked its "Share with players" box (default unticked). Localhost only; unknown overlay or field, non-boolean `on` and non-numeric opacity are 400 and change nothing; opacity clamps to 0..1. `GET /api/map-overlays` serves the in-memory state to the LAN.
+- **Player side:** two hidden raster layers, polled every 2 s whether or not Follow GM is on. Only `on === true` shows one. A failed or non-ok poll keeps the last state. An overlay whose tiles fail stays hidden, silently, until the GM turns it off and on. Players get no overlay checkboxes, sliders or error badges.
+- **One filter owner:** `_dispApply` is the only caller of `setFilter` on the tier layers, `routes`, `journeys` and `journeys-hit`. Anything else that narrows them (Player's-eye preview, the journey being edited) defines `_dispExtra(layerId)` and calls `_dispApply()`. A second `setFilter` would overwrite it; a test counts the calls.
+- **Preview:** the "Player's-eye preview" switch hides `gm_secrets` locations and routes and journeys with `_playerVisible` false. Its feature sets equal the rebuilt player map's, with type toggles on or off. Regions, reveal rings and the selection highlight are untouched.
+- **Player control:** a 44px layers button top-left (clear of the nav control, scale bar and Follow button). It lists only layers whose data is already player-filtered at build time, so no GM-only, preview, reveal-ring or highlight id or label appears in `player-map.html`. Toggles off hide only the checked-off categories; the 7 categories with no toggle always show on both maps.
+- **Every storage access is try/catch**, and `_dispLoad` accepts only booleans for known keys.
+- Tests: `tests/test_display_layers.py` (116).
+- **Limit (decision needed):** a shared Topo overlay shows MapTiler's baked-in real-world place names, borders and peaks from zoom 8 up. Options: a label-free raster, keep Topo Workshop-only, or accept the labels. `maxzoom` is not capped.
+- **Gap:** the Workshop writes the overlay-error sessionStorage key as `_ws<source-id>On` (`_wstopo-overlayOn`) but reads `_wsTopoOn` at load, so a tile failure does not persist across reloads. Pre-existing; not fixed in #323.
 
 ## Player Map Start View
 
@@ -56,7 +76,7 @@ Start-view order, first valid wins:
 - The stored view is written on a debounced `moveend` (400 ms) and on `pagehide` / `visibilitychange` (hidden), never `beforeunload`. Every storage access is try/catch, so blocked or full storage still renders.
 - Tests: `tests/test_player_start_view.py` (26).
 - **Gap:** the Workshop publishes its position only on `moveend`, so `/api/map-center` stays null after a devserver restart until the GM first moves the map; a refresh in that window uses the stored view.
-- The `ts_player_` storage prefix is shared with #323; whichever lands second rebases.
+- The `ts_player_` storage prefix is shared with Display Layers: `ts_player_view` here, `ts_player_display` there.
 
 ## Output Paths
 
