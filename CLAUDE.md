@@ -168,7 +168,14 @@ Skip the report only if the user's opening message names a concrete task or ques
   - Update **`CREATION_SESSIONS.md`** at session close: append a `### Session YYYY-MM-DD` entry summarizing what was done. Trim to last 10 sessions.
   - Use **`bd create` / `bd close`** for all task tracking — do NOT add work items to TODO.md or any markdown file.
 - **Update `last_updated` frontmatter** when editing any persistent file.
-- **Append an entry to `.meta/DECISION_LOG.md`** for any significant design choice — include date, decision, rationale, and lock status. (Write only; do not read the archive.)
+- **Append an entry to `.meta/DECISION_LOG.md`** for any significant design choice — include date, decision, rationale, and lock status. (Write only; do not read the archive.) The format is below, so there is no reason to open the file to match it: do not `tail`, `head`, `cat`, `sed` or `Read` it, and do not `grep` it for anything but counts. Append with `cat >> .meta/DECISION_LOG.md <<'EOF'` and start the heredoc with a blank line so the entry never runs into the previous one:
+  ```
+  ## YYYY-MM-DD — Domain: what was decided (#issue, bd-id)
+  - **Decision:** what is now the rule, in one or two sentences.
+  - **Rationale:** why, including the alternative that was rejected.
+  - **Lock status:** Locked (shipped, PR/commit) | Working decision, not locked | Open until <condition>.
+  ```
+  The heading is always H2 with an em dash between the date and the title (all 15 dated entries as of 2026-10-29). Use `Domain:` as in issue titles (`Map:`, `World:`). One entry per decision; two decisions in a session get two entries. As of 2026-10-29, 7 of the 15 entries use the three bullets above and the other 8 use other body layouts; new entries use the three bullets.
 - **Batch minor inconsistencies** rather than interrupting mid-flow; surface them in a summary.
 - **Scope restatement** is appropriate when a conversation drifts — run `bd ready` and check `DASHBOARD.md` blockers.
 - When working on narrative prose, match the benchmark register (Warrior Awakening v2.0).
