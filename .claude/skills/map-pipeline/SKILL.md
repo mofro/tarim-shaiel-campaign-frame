@@ -140,4 +140,4 @@ Open `http://localhost:8000/world.html?gm=1` — coordinate picker is top-left. 
 | New location `.md` file | main directly | `world:` |
 | Location GeoJSON edits | main directly | `world:` |
 | Generator scripts (`utilities/`) | feature branch → PR | `infra:` or `pipeline:` |
-| Route/waystation GeoJSON data | main directly | `infra:` |
+| Route/waystation GeoJSON data | main directly | `world:` |
