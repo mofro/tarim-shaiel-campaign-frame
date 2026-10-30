@@ -128245,7 +128245,7 @@
         "stroke": "#1a1208",
         "stroke-width": 5,
         "stroke-opacity": 0.9,
-        "visibility": "public",
+        "visibility": "gm_secrets",
         "mode": "mounted"
       },
       "geometry": {
@@ -240388,8 +240388,8 @@
             39.744703
           ],
           [
-            64.482282,
-            39.745212
+            64.482639,
+            39.745058
           ],
           [
             64.481095,

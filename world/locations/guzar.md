@@ -8,7 +8,7 @@ visibility: gm_secrets
 status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-26
+last_updated: 2026-10-30
 location:
 - 38.613484
 - 66.251863
@@ -20,7 +20,7 @@ real_world_name: Guzar
 tags:
 - placeholder
 - type-town
-type: town
+type: capital
 ---
 
 ```leaflet

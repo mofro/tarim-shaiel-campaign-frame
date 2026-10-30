@@ -1256,6 +1256,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_dehkanabad",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "dehkanabad",
+        "label": "Dehkanabad",
+        "title": "Dehkanabad",
+        "fantasy_name": "Dehkanabad",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/dehkanabad.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.494249,
+          38.34898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_desert-surrender",
       "properties": {
         "kind": "location",
@@ -1642,6 +1671,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_g-allakor-oasis",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "g-allakor-oasis",
+        "label": "G'allakor Trade Pens",
+        "title": "G'allakor",
+        "fantasy_name": "G'allakor Trade Pens",
+        "description": "Livestock station, and collective trade station",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Livestock station, and collective trade station</p>",
+        "url": "/locations/g-allakor-oasis.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.062935,
+          39.399864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_galaosiyal",
       "properties": {
         "kind": "location",
@@ -1769,14 +1827,14 @@
       "id": "location_guzar",
       "properties": {
         "kind": "location",
-        "category": "town",
+        "category": "capital",
         "slug": "guzar",
         "label": "Guzar",
         "title": "Guzar",
         "fantasy_name": "Guzar",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "town",
+        "mapmarker": "",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
         "marker-size": "medium",
@@ -2026,6 +2084,35 @@
         "coordinates": [
           94.5855,
           40.339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_jayron-oasis",
+      "properties": {
+        "kind": "location",
+        "category": "oasis",
+        "slug": "jayron-oasis",
+        "label": "Jayron Oasis",
+        "title": "Jayron Oasis",
+        "fantasy_name": "Jayron Oasis",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/jayron-oasis.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          64.693669,
+          39.564581
         ]
       }
     },
@@ -2350,6 +2437,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_karshina",
+      "properties": {
+        "kind": "location",
+        "category": "city",
+        "slug": "karshina",
+        "label": "Karshina",
+        "title": "Karshina",
+        "fantasy_name": "Karshina",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "city",
+        "marker-symbol": "town",
+        "marker-color": "#8B6914",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/karshina.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.573561,
+          38.339388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_kasan",
       "properties": {
         "kind": "location",
@@ -2473,6 +2589,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_khanabad",
+      "properties": {
+        "kind": "location",
+        "category": "oasis",
+        "slug": "khanabad",
+        "label": "Khanabad Oasis",
+        "title": "Khanabad",
+        "fantasy_name": "Khanabad Oasis",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "oasis",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/khanabad.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.943031,
+          38.844864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_khotan",
       "properties": {
         "kind": "location",
@@ -2533,6 +2678,35 @@
         "coordinates": [
           87.192629,
           40.830707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_ko-kjar",
+      "properties": {
+        "kind": "location",
+        "category": "route-node",
+        "slug": "ko-kjar",
+        "label": "Ko'kjar",
+        "title": "Ko'kjar",
+        "fantasy_name": "Ko'kjar",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/ko-kjar.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.451685,
+          38.421128
         ]
       }
     },
@@ -2713,6 +2887,35 @@
         "coordinates": [
           82.998228,
           41.707173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_kurgansol",
+      "properties": {
+        "kind": "location",
+        "category": "fortress",
+        "slug": "kurgansol",
+        "label": "Kurgansol",
+        "title": "Kurgansol",
+        "fantasy_name": "Kurgansol",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "fortress",
+        "marker-symbol": "castle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/kurgansol.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.184139,
+          38.095779
         ]
       }
     },
@@ -3012,6 +3215,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_maz-lok-oasis",
+      "properties": {
+        "kind": "location",
+        "category": "oasis",
+        "slug": "maz-lok-oasis",
+        "label": "Maz Lok Oasis",
+        "title": "Maz Lok Oasis",
+        "fantasy_name": "Maz Lok Oasis",
+        "description": "Location of the Oasis from the Seeker Awakening",
+        "visibility": "gm_secrets",
+        "mapmarker": "oasis",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Location of the Oasis from the Seeker Awakening</p>",
+        "url": "/locations/maz-lok-oasis.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.885395,
+          38.465068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_mazar-i-sharif",
       "properties": {
         "kind": "location",
@@ -3044,16 +3276,16 @@
       "id": "location_mazar-tag",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "poi",
         "slug": "mazar-tag",
         "label": "Mazar Tag",
         "title": "Mazar Tag",
         "fantasy_name": "Mazar Tag",
         "description": "Location of the Tadbir awakening",
         "visibility": "public",
-        "mapmarker": "mythic-landscape",
-        "marker-symbol": "star-stroked",
-        "marker-color": "#C084FC",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3228,16 +3460,16 @@
       "id": "location_niya-outer-fields",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "oasis",
         "slug": "niya-outer-fields",
         "label": "Niya Outer Fields",
         "title": "Niya Outer Fields",
         "fantasy_name": "Niya Outer Fields",
         "description": "Collapsed irrigation lines and wind-buried walls on the approach to Niya; easy to miss in a sandstorm.",
         "visibility": "gm_secrets",
-        "mapmarker": "route-node",
+        "mapmarker": "",
         "marker-symbol": "circle",
-        "marker-color": "#A78040",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3257,16 +3489,16 @@
       "id": "location_niya",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "oasis",
         "slug": "niya",
         "label": "Niya",
         "title": "Niya",
         "fantasy_name": "Niya",
         "description": "Ancient oasis ruins on the southern route. Archaeological treasures hidden in the sands await discovery.",
         "visibility": "gm_secrets",
-        "mapmarker": "route-node",
+        "mapmarker": "",
         "marker-symbol": "circle",
-        "marker-color": "#A78040",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [
           "Desert Guardians"
@@ -3406,16 +3638,16 @@
       "id": "location_oyyaylak",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "oasis",
         "slug": "oyyaylak",
         "label": "Oyyaylak",
         "title": "Oyyaylak",
         "fantasy_name": "Oyyaylak",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "caravanserai",
-        "marker-symbol": "lodging",
-        "marker-color": "#D4A820",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3780,6 +4012,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_qumchop-ota-ziyoratgohi",
+      "properties": {
+        "kind": "location",
+        "category": "sacred-site",
+        "slug": "qumchop-ota-ziyoratgohi",
+        "label": "Kumcho‘p Ota Shrine",
+        "title": "Qumcho’p Ota ziyoratgohi",
+        "fantasy_name": "Kumcho‘p Ota Shrine",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "sacred-site",
+        "marker-symbol": "place-of-worship",
+        "marker-color": "#F5F0E8",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/qumchop-ota-ziyoratgohi.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.973279,
+          38.716156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_qunke-er-shisu-station",
       "properties": {
         "kind": "location",
@@ -3838,19 +4099,48 @@
     },
     {
       "type": "Feature",
+      "id": "location_refugee-rendezvous",
+      "properties": {
+        "kind": "location",
+        "category": "landmark",
+        "slug": "refugee-rendezvous",
+        "label": "Refugee Rendezvous",
+        "title": "Refugee Rendezvous",
+        "fantasy_name": "Refugee Rendezvous",
+        "description": "Meeting place of the Warrior awakening refugee march and Volkath's caravan",
+        "visibility": "public",
+        "mapmarker": "landmark",
+        "marker-symbol": "mountain",
+        "marker-color": "#9CA3AF",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Meeting place of the Warrior awakening refugee march and Volkath's caravan</p>",
+        "url": "/locations/refugee-rendezvous.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.433907,
+          38.648308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_refugee-rill",
       "properties": {
         "kind": "location",
         "category": "poi",
         "slug": "refugee-rill",
-        "label": "Refugee rill",
-        "title": "Refugee rill",
-        "fantasy_name": "Refugee rill",
+        "label": "Refugee Rill",
+        "title": "Refugee Rill",
+        "fantasy_name": "Refugee Rill",
         "description": "The Warrior Awakening",
         "visibility": "public",
-        "mapmarker": "mythic-landscape",
-        "marker-symbol": "star-stroked",
-        "marker-color": "#C084FC",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -4134,6 +4424,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_sherali",
+      "properties": {
+        "kind": "location",
+        "category": "town",
+        "slug": "sherali",
+        "label": "Sherali",
+        "title": "Sherali",
+        "fantasy_name": "Sherali",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/sherali.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.948548,
+          38.719045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_shinigha",
       "properties": {
         "kind": "location",
@@ -4158,6 +4477,35 @@
         "coordinates": [
           86.179256,
           41.612809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_shor-tan",
+      "properties": {
+        "kind": "location",
+        "category": "town",
+        "slug": "shor-tan",
+        "label": "Shor'tien",
+        "title": "Shor'tan",
+        "fantasy_name": "Shor'tien",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "town",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/shor-tan.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.998947,
+          38.68823
         ]
       }
     },
@@ -4811,6 +5159,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_to-palang-suv-ombori",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "to-palang-suv-ombori",
+        "label": "To'palang suv Ombori",
+        "title": "To'palang suv Ombori",
+        "fantasy_name": "To'palang suv Ombori",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/to-palang-suv-ombori.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.802966,
+          38.601422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_topluq",
       "properties": {
         "kind": "location",
@@ -5189,6 +5566,35 @@
         "coordinates": [
           89.893618,
           39.158076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "location_xitoy",
+      "properties": {
+        "kind": "location",
+        "category": "oasis",
+        "slug": "xitoy",
+        "label": "Xitoy Oasis",
+        "title": "Xitoy",
+        "fantasy_name": "Xitoy Oasis",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "gm_secrets",
+        "mapmarker": "oasis",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/xitoy.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.429096,
+          39.100275
         ]
       }
     },

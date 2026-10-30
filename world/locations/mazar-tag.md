@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-09-02
 description: "Location of the Tadbir awakening"
-last_updated: 2026-10-26
+last_updated: 2026-10-30
 location:
 - 38.681613
 - 80.359154
@@ -20,7 +20,7 @@ real_world_name: Mazar Tag
 tags:
 - placeholder
 - type-mythic-landscape
-type: mythic-landscape
+type: poi
 ---
 
 ```leaflet

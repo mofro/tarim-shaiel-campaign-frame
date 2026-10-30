@@ -1,5 +1,5 @@
 ---
-title: Refugee rill
+title: Refugee Rill
 project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-09-02
 description: The Warrior Awakening
-last_updated: 2026-10-26
+last_updated: 2026-10-30
 location:
 - 38.598961
 - 76.293056

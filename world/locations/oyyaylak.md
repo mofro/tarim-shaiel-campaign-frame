@@ -8,7 +8,7 @@ visibility: gm_secrets
 status: draft
 created: 2026-09-02
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-26
+last_updated: 2026-10-30
 location:
 - 37.752632
 - 84.138572
@@ -20,7 +20,7 @@ real_world_name: Oyyaylak
 tags:
 - placeholder
 - type-caravanserai
-type: caravanserai
+type: oasis
 ---
 
 ```leaflet
