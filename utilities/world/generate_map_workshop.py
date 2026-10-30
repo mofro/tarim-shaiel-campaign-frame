@@ -598,9 +598,9 @@ Adds segments, snaps to roads, rebuilds workshop automatically.</p>
 
 
 def _build_panel_edit_coords() -> str:
-    # Every canonical category must be selectable: _openFieldEditor leaves the select
-    # untouched for an unlisted category and Save Fields would silently re-type it.
-    type_opts = "\n".join(
+    # Every canonical category is selectable. A page whose category is not on the list
+    # shows the disabled placeholder, which Save never sends (see _EF_DIFF_JS).
+    type_opts = '      <option value="" disabled>(not on the list)</option>\n' + "\n".join(
         f'      <option value="{c}">{"POI" if c == "poi" else c.replace("-", " ").title()}</option>'
         for c in CATEGORIES
     )
@@ -760,6 +760,27 @@ def _build_panel_travel_time() -> str:
     return (html.replace("__TT_PRESETS__", _tt_presets_html())
                 .replace("__TT_PATH_OPTS__", path_opts)
                 .replace("__TT_MAX_NAME__", str(journeys.MAX_NAME)))
+
+
+# Field editor Save: the form sends only the fields the GM changed. The server removes a
+# key whose value is null, so sending every field wrote null for anything the form could
+# not show (a Fantasy name equal to the title, a Map Marker value off the list) and
+# deleted the line from the file. base is what the controls showed when the page opened;
+# cur is what they show now. Pure, so tests run it under node.
+_EF_DIFF_JS = r"""
+function _efDiff(base,cur){
+  var out={};
+  Object.keys(cur).forEach(function(k){
+    if(base[k]===cur[k])return;
+    if(k==="type"&&!cur[k])return;
+    var v=cur[k];
+    if(k==="fantasy_name"&&v==="")v=null;
+    if(k==="mapmarker")v=v===""?null:(v==="false"?false:v);
+    out[k]=v;
+  });
+  return out;
+}
+"""
 
 
 # Reveal tab: stage GM-only locations, then apply them together. Earmarks live in
@@ -2232,6 +2253,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # -- Field editor (Phase 1+2+visibility) --
         'var _efSlug=null;\n'
+        'var _efBase=null;\n'
         'var _efCurrentCoords=null;\n'
         'var _pendingFieldEdits={};\n'
         'var _efPanel=document.getElementById("ef-panel");\n'
@@ -2244,6 +2266,15 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _efSaveBtn=document.getElementById("ef-save-btn");\n'
         'var _efMoveBtn=document.getElementById("ef-move-btn");\n'
 
+        + _EF_DIFF_JS +
+        'function _efRead(){'
+        'return {name:_efName.value.trim(),'
+        'fantasy_name:_efFantasy.value.trim(),'
+        'type:_efType.value,'
+        'mapmarker:_efMarker.value,'
+        'visibility:document.querySelector(\'input[name="ef-vis"]:checked\').value};'
+        '}\n'
+
         'function _openFieldEditor(feature){'
         'var p=feature.properties;'
         '_efSlug=p.slug||p._slug||"";'
@@ -2253,6 +2284,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var fn=p.fantasyName||(p.label!==p.title?p.label:"");'
         '_efFantasy.value=(fn&&fn!==p.title)?fn:"";'
         'if(_efType.querySelector(\'option[value="\'+p.category+\'"]\'))_efType.value=p.category;'
+        'else _efType.value="";'
         'var mm=p.mapMarker;'
         'var mmVal=mm===false?"false":(mm||"");'
         'if(_efMarker.querySelector(\'option[value="\'+mmVal+\'"]\'))_efMarker.value=mmVal;'
@@ -2260,6 +2292,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var visVal=p.visibility==="gm_secrets"?"gm_secrets":"public";'
         'document.querySelectorAll(\'input[name="ef-vis"]\').forEach(function(r){r.checked=r.value===visVal;});'
         '_efStatus.textContent="";_efStatus.className="hint";'
+        '_efBase=_efRead();'
         '_efPanel.classList.remove("hidden");'
         '}\n'
 
@@ -2291,29 +2324,25 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(src)src.setData(JSON.parse(JSON.stringify(_locGJ)));'
         '}\n'
 
-        'function _patchFrontmatter(slug,fields){'
+        'function _patchFrontmatter(slug,fields,onOk){'
         '_efStatus.textContent="Saving…";_efStatus.className="hint";'
         '_patchFrontmatterRaw(slug,fields)'
         '.then(function(data){'
         'if(data.ok){'
         '_efStatus.textContent="✓ Saved";_efStatus.className="hint ok";'
         'if(fields.visibility)_refreshLocSource();'
+        'if(onOk)onOk();'
         '}else{_efStatus.textContent="✗ "+(data.error||"error");_efStatus.className="hint err";}'
         '})'
         '.catch(function(){_efStatus.textContent="✗ Network error";_efStatus.className="hint err";});'
         '}\n'
 
         '_efSaveBtn.addEventListener("click",function(){'
-        'if(!_efSlug)return;'
-        'var mm=_efMarker.value;'
-        'var vis=document.querySelector(\'input[name="ef-vis"]:checked\').value;'
-        'var fields={'
-        'name:_efName.value.trim(),'
-        'fantasy_name:_efFantasy.value.trim()||null,'
-        'type:_efType.value,'
-        'mapmarker:mm==="false"?false:(mm||null),'
-        'visibility:vis};'
-        '_patchFrontmatter(_efSlug,fields);'
+        'if(!_efSlug||!_efBase)return;'
+        'var slug=_efSlug,cur=_efRead(),fields=_efDiff(_efBase,cur);'
+        'if(!Object.keys(fields).length){'
+        '_efStatus.textContent="No changes";_efStatus.className="hint";return;}'
+        '_patchFrontmatter(slug,fields,function(){if(_efSlug===slug)_efBase=cur;});'
         '});\n'
 
         '_efMoveBtn.addEventListener("click",function(){'
