@@ -364,6 +364,14 @@ def test_raster_overlay_sources_and_layers_are_defined_once(build):
         assert tile_path not in gen, tile_path  # the tile URLs live in map_style only
 
 
+@pytest.mark.parametrize("build", [_workshop_script, _player_script], ids=["workshop", "player"])
+def test_topo_overlay_uses_the_label_free_custom_style_not_stock_topo(build):
+    page = build()
+    tile = f"https://api.maptiler.com/maps/{map_style.TOPO_OVERLAY_MAP_ID}/{{z}}/{{x}}/{{y}}.png"
+    assert tile in page
+    assert "topo-v2" not in page  # the stock raster bakes in real-world labels and borders
+
+
 def test_player_markup_lists_the_eleven_types_routes_and_journeys_all_on():
     boxes = _checkboxes(_player_html())
     assert [b["key"] for b in boxes if b["kind"] == "type"] == TYPE_KEYS
