@@ -12,6 +12,7 @@ description: A major hub on the Silk Road, known for its bazaars and monumental 
 elevation: 700
 factions_visible:
 - Sogdian Merchants Guild
+fantasy_name: Samarqandh
 last_updated: 2026-10-30
 location:
 - 39.654587

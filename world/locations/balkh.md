@@ -15,6 +15,7 @@ description: Once the 'Mother of Cities,' Balkh was destroyed by Genghis Khan an
 elevation: 366
 factions_visible:
 - Afghan Remnant Authority
+fantasy_name: Balkh
 historical_basis: Bactria - Destroyed by Genghis Khan (1220s); never rebuilt to former
   glory
 last_updated: 2026-10-30

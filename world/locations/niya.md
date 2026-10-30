@@ -13,6 +13,7 @@ description: Ancient oasis ruins on the southern route. Archaeological treasures
 elevation: 1200
 factions_visible:
 - Desert Guardians
+fantasy_name: Niya
 historical_basis: Tarim Basin - Ancient oasis settlement with archaeological significance
 last_updated: 2026-10-30
 location:

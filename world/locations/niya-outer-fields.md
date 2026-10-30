@@ -10,6 +10,7 @@ status: draft
 created: 2025-12-13
 description: Collapsed irrigation lines and wind-buried walls on the approach to Niya;
   easy to miss in a sandstorm.
+fantasy_name: Niya Outer Fields
 last_updated: 2026-10-30
 location:
 - 37.12

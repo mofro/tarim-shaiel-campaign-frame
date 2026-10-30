@@ -9,6 +9,7 @@ visibility: gm_secrets
 status: draft
 created: 2026-07-20
 description: "PLACEHOLDER — medium river town on the Samarqandh-Bukhara road, near Rabati Malik. Prose pass pending."
+fantasy_name: Karmana
 last_updated: 2026-10-30
 location:
 - 40.1411

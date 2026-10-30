@@ -14,6 +14,7 @@ description: Center of Islamic scholarship and trade. A major city of Sogdiana w
 elevation: 219
 factions_visible:
 - Islamic Scholarly Network
+fantasy_name: Bukhara
 historical_basis: Sogdania - Zoroastrian→Islamic; survived Mongol destruction and
   revived
 last_updated: 2026-10-30
