@@ -4,10 +4,10 @@ Canvas-drawn MapLibre marker icon registration JS.
 Shared by generate_locations_html.py (world home map) and
 location_components.py (mini-maps on location/region detail pages).
 
-REGISTERED_ICONS lists every icon name registered by icon_registration_js().
-It is used by categories.check_icon_coverage() to cross-validate the category→icon
-mapping in categories.ICON_MAP against what is actually available at runtime.
-Keep this set in sync with the _mk() calls below.
+REGISTERED_ICONS lists every icon name registered by icon_registration_js(). It is the
+one registry of icon names: categories.check_icon_coverage() checks every icon the
+Types table names (map_icon, page_icon, mini_icon) against it, and every icon here
+against the table. Keep this set in sync with the _mk() calls below.
 
 Icons are drawn at 64×64 px and registered via ImageData + { pixelRatio: 2 } so
 MapLibre treats them as 32 logical px at @2x density — sharp on retina and standard

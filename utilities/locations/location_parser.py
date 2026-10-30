@@ -9,6 +9,8 @@ import re
 from pathlib import Path
 from typing import TypedDict, Optional
 
+from locations.categories import TYPES
+
 try:
     import yaml
     _YAML_AVAILABLE = True
@@ -56,22 +58,10 @@ class LocationData(TypedDict):
 # Location type classification
 # ---------------------------------------------------------------------------
 
-_TYPE_FIELD_MAP: dict[str, str] = {
-    "city": "city",
-    "town": "town",
-    "route-node": "route-node",
-    "oasis": "oasis",
-    "dungeon": "dungeon",
-    "landmark": "landmark",
-    "poi": "poi",
-    "sacred-site": "sacred-site",
-    "fortress": "fortress",
-    "capital": "capital",
-    "bridge": "bridge",
-    "water-body": "lake",
-    "lake": "lake",
-    "caravanserai": "route-node",
-}
+# What a `type:` (or `mapmarker:`) value is classed as: the table's `parses_as`
+# column. A Type whose `parses_as` is None is not recognised here and falls through
+# to `content_type:`, then tags, then "poi".
+_TYPE_FIELD_MAP: dict[str, str] = {t.slug: t.parses_as for t in TYPES if t.parses_as}
 
 _CONTENT_TYPE_MAP: dict[str, str] = {
     "location": "city",

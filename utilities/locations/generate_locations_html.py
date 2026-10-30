@@ -48,7 +48,7 @@ from locations.location_components import (
     MAPTILER_STYLE_URL,
 )
 from locations.map_icons import icon_registration_js
-from locations.categories import build_icon_match_js
+from locations.categories import build_icon_match_js, tier_members
 from shared import map_style, route_visibility
 from shared import journeys as journeys_mod
 from shared.renderer import render_page
@@ -167,14 +167,16 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
         'locations-detail':    '["interpolate",["linear"],["zoom"],7,0.3,10,0.6]',
     }
 
+    # The categories in each tier are the table's `page_tier` column
+    # (locations.categories.TYPES); what is left here is how the tier looks.
     # fmt: off
     tiers = [
         # layer_id               categories                                  mz  fs   fe  font                                      size
-        ('locations-major',     ['city', 'landmark', 'fortress'],            3,  3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],  15),
-        ('locations-towns',     ['town'],                                     4,  4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Regular'], 13),
-        ('locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],    5,  5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 13),
-        ('locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                     0),
-        ('locations-detail',    ['ruins', 'poi', 'power-site', 'site'],      7,  7.5, 8,  None,                                     0),
+        ('locations-major',     tier_members('page_tier', 'major'),          3,  3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],  15),
+        ('locations-towns',     tier_members('page_tier', 'towns'),           4,  4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Regular'], 13),
+        ('locations-secondary', tier_members('page_tier', 'secondary'),      5,  5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 13),
+        ('locations-routes',    tier_members('page_tier', 'routes'),          6,  6.5, 7,  None,                                     0),
+        ('locations-detail',    tier_members('page_tier', 'detail'),          7,  7.5, 8,  None,                                     0),
     ]
     # fmt: on
 
@@ -256,12 +258,15 @@ def _gm_secrets_layers_js() -> str:
     visibility==gm_secrets and rendered at 40% opacity so the GM can
     distinguish secret vs revealed at a glance.
     """
+    # Same page_tier column as the public layers, with no towns tier: a gm_secrets
+    # town is drawn by neither layer set (as it always has been; drawing it would add
+    # pins, so it is not part of the zero-diff table).
     # fmt: off
     tiers = [
-        ('gm-locations-major',     ['city', 'landmark', 'fortress'],             3,  3.5, 4),
-        ('gm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5,  5.5, 6),
-        ('gm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6,  6.5, 7),
-        ('gm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7,  7.5, 8),
+        ('gm-locations-major',     tier_members('page_tier', 'major'),           3,  3.5, 4),
+        ('gm-locations-secondary', tier_members('page_tier', 'secondary'),       5,  5.5, 6),
+        ('gm-locations-routes',    tier_members('page_tier', 'routes'),          6,  6.5, 7),
+        ('gm-locations-detail',    tier_members('page_tier', 'detail'),          7,  7.5, 8),
     ]
     # fmt: on
 
