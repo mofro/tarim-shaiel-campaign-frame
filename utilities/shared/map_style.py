@@ -263,8 +263,13 @@ def check_tier_coverage() -> list[str]:
 # (key, source+layer id, MapTiler tile path, default opacity). The GM owns these:
 # the Workshop switches them and the devserver relays "on" and "opacity" to the
 # player map (GET /api/map-overlays). Players have no control over them.
+#
+# Topo is the GM's own "custom campaign style" (relief, rivers and lakes only),
+# not MapTiler's stock topo-v2, which bakes real-world place names, borders,
+# roads and peak glyphs into the raster. Edit the style in MapTiler Cloud.
+TOPO_OVERLAY_MAP_ID = "019e13d9-26c8-7cd9-bf8d-64d83f66624e"
 RASTER_OVERLAYS: list[tuple[str, str, str, float]] = [
-    ("topo", "topo-overlay", "maps/topo-v2/{z}/{x}/{y}.png", 0.55),
+    ("topo", "topo-overlay", f"maps/{TOPO_OVERLAY_MAP_ID}/{{z}}/{{x}}/{{y}}.png", 0.55),
     ("sat",  "sat-overlay",  "tiles/satellite-v2/{z}/{x}/{y}.jpg", 0.6),
 ]
 OVERLAY_LAYERS: dict[str, str] = {o[0]: o[1] for o in RASTER_OVERLAYS}  # key -> layer id
