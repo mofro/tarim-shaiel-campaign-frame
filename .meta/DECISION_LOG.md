@@ -860,3 +860,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** Workshop type follows a 4-5 token scale, each step at least about 1.2x the last, floor 12px for uppercase or tracked labels and 13px for lowercase, secondary text drops size or weight before contrast, 4.5:1 minimum, sized in rem. An illustrative scale is about 12 / 13 / 15 / 18 / 22 px, tuned by eye. Saved to the global `~/.claude/CLAUDE.md` as "Generated UI Type".
 - **Rationale:** 66 of 72 font-size declarations in the Workshop are 12px or smaller and 34 text colours are under 4.5:1. A flat "14px everywhere" would erase the size-to-importance hierarchy and make dense panels harder to read, so the fix is a scale, not a minimum.
 - **Lock status:** Working decision (the GM approved the rule wording); the exact sizes are open until tuned on screen in #333 step 1.
+
+## 2026-10-29 — Map: capital, bridge and lake draw their own icons from Type (#336, HeroHeaven-fs8.4)
+- **Decision:** A pin whose Type is `capital`, `bridge` or `lake` draws its own registered icon (`cat-capital` star, `cat-bridge`, `cat-lake`) instead of the shared city ring, landmark and oasis icons. `ICON_MAP` is the single source for the Type-to-icon mapping; `mapmarker:` stays a per-pin override.
+- **Rationale:** The three icons are drawn and registered but no path selects them: `ICON_MAP` aliases them to the shared icons and the Map Marker field never reaches the icon (it writes `mapmarker:`, the icon override reads `map_marker:`). Rejected: keeping the shared icons, which leaves three finished icons dead.
+- **Lock status:** Working decision, not locked; changes the look of 4 capital, 3 bridge and 15 lake pins on the Workshop, Locations and player maps once #336 ships. GM can reopen.
