@@ -850,3 +850,13 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The player map stacks routes, journeys, then location pins (same as the Workshop). The layers panel is a borderless two-column grid of 44px rows with no vertical gap; each location-type toggle shows the map's own marker icon beside its label, on both maps.
 - **Rationale:** pins must not be hidden under journeys. Bordered chips added whitespace without value, since the 44px row already gives the tap target. Icons tell a viewer what each toggle filters.
 - **Lock status:** Locked (shipped, PR #330, `f56891e`). The 44px target stays (#323 decision).
+
+## 2026-10-29 — Map: coordinate audit scoped to the six near-analog rows (#334, #335, HeroHeaven-fs8.2/.3)
+- **Decision:** Decide only the six audit rows whose Wikidata analog is within 100 km (oyyaylak, mangnai, kagan, mazar-tag, baghlan, alak-mor). The other 21 rows of `audit-2026-10-26T183207` and the optional Workshop Audit layer (#314's unbuilt item) are deferred to #335 (P4). The 21 are left blank, not stamped `intentional`.
+- **Rationale:** The far rows (14 over 1000 km) look like same-name Wikidata collisions, so a blind `move` would teleport pins and `intentional` would assert placements the GM has not yet judged and hide them from later runs. The six near rows are the real judgment calls. The GM wants to see saved pin against analog on a map before judging the rest, and that evaluator is not needed for these six (two-point map links are on #334).
+- **Lock status:** Working decision, not locked. The GM can reopen it.
+
+## 2026-10-29 — Map Workshop type: a token scale, not a flat minimum (#333, HeroHeaven-fs8.1)
+- **Decision:** Workshop type follows a 4-5 token scale, each step at least about 1.2x the last, floor 12px for uppercase or tracked labels and 13px for lowercase, secondary text drops size or weight before contrast, 4.5:1 minimum, sized in rem. An illustrative scale is about 12 / 13 / 15 / 18 / 22 px, tuned by eye. Saved to the global `~/.claude/CLAUDE.md` as "Generated UI Type".
+- **Rationale:** 66 of 72 font-size declarations in the Workshop are 12px or smaller and 34 text colours are under 4.5:1. A flat "14px everywhere" would erase the size-to-importance hierarchy and make dense panels harder to read, so the fix is a scale, not a minimum.
+- **Lock status:** Working decision (the GM approved the rule wording); the exact sizes are open until tuned on screen in #333 step 1.

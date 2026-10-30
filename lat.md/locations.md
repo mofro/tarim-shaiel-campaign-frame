@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-10-28
+last_updated: 2026-10-29
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -41,7 +41,7 @@ The MapTiler style (`01a074c7-536a-71cb-b0d8-9e7fe4fd1100`, `MAPTILER_STYLE_ID` 
 
 - `basemap_hide_js(ids)` emits a `map.getLayer()`-guarded `setLayoutProperty(id,"visibility","none")` loop run in the `map.on("load")` handler, so a renamed layer is a silent no-op. Layer ids contain spaces and parentheses and must match the style exactly.
 - Tests: `tests/test_basemap_markers.py` (7).
-- **Limit:** the Topo overlay is raster `topo-v2` tiles with peak glyphs (and real-world place names and borders from zoom 8) baked in, so they show with Peak markers off, and since #323 a shared Topo overlay shows them to players too. See Display Layers below for the options.
+- **Resolved (#331, PR #332):** the Topo overlay no longer uses the stock `topo-v2` raster, which baked in peak glyphs, place names and borders. It points at the GM's custom campaign style (relief, rivers and lakes only), so nothing real-world shows under our markers, shared or not. The map id is `TOPO_OVERLAY_MAP_ID` in `map_style.py`. See Display Layers below.
 
 ## Display Layers
 
@@ -63,7 +63,7 @@ One control, two maps (#323). `map_style.display_controls_js(storage, key)` emit
 - **Panel layout (#329):** the touch CSS (`display_controls_css(touch=True)`, player map only) is a borderless two-column grid of 44px rows with no vertical gap: Routes and Journeys share a row (`.disp-layers`), and an odd last type (POIs) spans both columns. Bordered chips were tried and dropped; they only added whitespace.
 - **Type markers (#329):** each type toggle carries an empty `.it-icon` span. `_dispIcons()` copies the map's registered canvas icon (`map.getImage`) into it, so it must run right after `icons_js` in the load handler on both maps. The icon per type is `_ICON_BY_CATEGORY`, the same lookup the map draws.
 - Tests: `tests/test_display_layers.py` (119).
-- **Limit (decision needed):** a shared Topo overlay shows MapTiler's baked-in real-world place names, borders and peaks from zoom 8 up. Options: a label-free raster, keep Topo Workshop-only, or accept the labels. `maxzoom` is not capped.
+- **Topo labels (resolved, #331):** the baked-in real-world labels are gone because Topo now uses the label-free custom campaign style (`TOPO_OVERLAY_MAP_ID`). `maxzoom` is still not capped.
 - **Gap:** the Workshop writes the overlay-error sessionStorage key as `_ws<source-id>On` (`_wstopo-overlayOn`) but reads `_wsTopoOn` at load, so a tile failure does not persist across reloads. Pre-existing; not fixed in #323.
 
 ## Player Map Start View

@@ -6,13 +6,25 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-10-28
+last_updated: 2026-10-29
 ---
 
 # Creation Session Log
 
 _Authoring and design work sessions. Newest first. Trim to last 10 sessions; older entries go to archive._
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
+
+---
+
+### Session 2026-10-29
+- [HeroHeaven-fs8.1 / #333] Map: Workshop UX pass filed as one umbrella issue (selection-driven Edit state, search by name / lat,lon / geocoder, one rebuild control, collapsible hideable resizable shell, routes consolidated, navigation that can grow, type scale). Spec-only; no code changed. Open questions are on the issue (geocoder, explicit tool modes, route edit popup, navigation shape, Reveal as batch action, rebuild automatic vs manual)
+  - Findings verified in `generate_map_workshop.py`: pin-click meaning is multiplexed on `_activeTab`; `#panel-route-index` has no width cap; rebuild buttons exist only in Edit Coords while other flows rebuild automatically; 66 of 72 font-size declarations are 12px or smaller and 34 text colours are under 4.5:1
+  - Type rule saved to `~/.claude/CLAUDE.md` ("Generated UI Type"): a 4-5 token scale, each step at least about 1.2x the last, floor 12px for uppercase or tracked labels and 13px for lowercase, secondary text drops size or weight before contrast, 4.5:1 minimum, rem units. A flat 14px minimum was rejected because it erases size-to-importance hierarchy
+- [HeroHeaven-fs8.2 / #334, HeroHeaven-fs8.3 / #335] Map: coordinate audit scoped down. GM decision (working, not locked): decide only the six rows whose Wikidata analog is within 100 km (oyyaylak, mangnai, kagan, mazar-tag, baghlan, alak-mor); the other 21 rows and the Workshop Audit layer are deferred to #335 (P4). The 21 are left blank, not marked `intentional`
+  - The latest report `audit-2026-10-26T183207` has 27 rows, not 30 (30 was the two earlier runs). Bands: 6 under 100 km, 5 at 100-1000 km, 14 over 1000 km, 2 DEM-only. Most far rows look like same-name collisions, so a blind `move` would teleport pins; `intentional` already means "pin right, analog wrong"
+  - Not decided yet: the six `decision` values. The GM annotates a copy of the CSV, then `coord_audit.py --apply <file> --dry-run`
+- Stale notes corrected: Topo baked-label handling resolved by #331/#332 (`lat.md/locations.md`), and the 2026-10-28 "Next" line below
+- Next: GM decides the six rows on #334
 
 ---
 
@@ -29,7 +41,7 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Real data: 0 of 35 routes are public, so the player Routes toggle has nothing to show yet
   - Process: added "Size verification to the change" to project `CLAUDE.md` Working Conventions after the mutation pass drew a correction
   - Pre-existing on main, not touched: the 5 `tests/test_shared_assets.py` failures and the `tests/test_lore_generator.py` ImportError
-- Next: decide the Topo baked-label handling (the three options above); no issue tracks it yet. The Workshop's Share boxes and Player's-eye preview have had no browser pass, so give them one on the usual port
+- Next (superseded 2026-10-29): the Topo baked-label handling was settled by #331/#332 (label-free custom style), and the Share boxes and Player's-eye preview have since had their browser pass
 
 ---
 
@@ -144,13 +156,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
     - Rill's patron canonized in `rill.md` GM Notes: The Shattered King (Dave's Door One); cultural names First Gone (Orcish), Lord of Exhausted Seams (Dwarven)
   - Session review pass: archived 25+ Tarim-Shaiel sessions across multiple rounds; confirmed 6 ttrpg_recorder sessions correctly mapped (not HeroHeaven)
   - Saved feedback memory: wrong-cwd is not grounds for archival — only archive when work is done/superseded
-
-### Session 2026-07-30/31
-- Session 2 prep — split-thread ambush encounter (dual Dynamic Countdown structure)
-  - Read `narrative/sessions/01_session1/session-chronicle.html` for the first time — Session 1 had already been played (Sahir's Fork, Volkath's history, the memory-gap realization, Veyra walking east, Volkath's confession that the Rabati Malik ambush is his own son's doing)
-  - Wrote `narrative/sessions/02_session2/gm_secrets/Session_2_GM_NOTES.md`: dual Dynamic Countdown race ("Blood in the Streets" shared fuse vs. two Progress countdowns) instead of a scripted fight, per-stage Difficulties, neither thread pre-assigned to a PC
-  - Named Captain Idris Kaan (Session 0's "Lead Rider") and Sanem (Temir's second)
-  - Corrected `Session_0_GM_NOTES.md`: "young orc" to "young Tulpar" for the courtyard bystander (now identified as Temir, Volkath's son) — the actually-played scenario file and newspaper index both already used "Tulpar"; only the GM-prep draft was stale
-  - Fleshed out `world/locations/rabati-malik.md` (was a placeholder) and added `world/gm_secrets/rabati-malik-gm.md` — a reusable Tier 1 Social Daggerheart Environment stat block, following the existing Waycross transclusion pattern
-  - Process note: deleted files mid-plan-mode by mistake (restored by the user) — root cause was treating a "cleanup" Bash call as read-only when plan mode requires read-only for everything except the plan file
-- Beads cleanup: closed HeroHeaven-8rp (Jim's Fork), HeroHeaven-oej (Dave's intro), HeroHeaven-6yj/0gw (newspaper generator+templates) — all confirmed done via actual play / live site. Updated `DASHBOARD.md` — Jim (Sahir) and Dave (Rill) moved from deciding to committed; `deciding_players` split into a new `new_heroes` key since they aren't archetype-slot characters
