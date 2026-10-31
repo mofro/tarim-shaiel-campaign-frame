@@ -57,6 +57,8 @@ LOCATIONS = [
     _location("elm", "oasis", 74.0),
     _location("fir", "capital", 75.0),
     _location("gorse", "ruins", 76.0),
+    _location("hazel", "sacred-site", 77.0),
+    _location("iris", "mythic-landscape", 78.0),
 ]
 LOC_GJ = gmw._build_locations_geojson(LOCATIONS)
 
@@ -320,6 +322,9 @@ def test_the_state_lives_in_memory_only():
 def test_the_location_types_and_their_labels_live_in_map_style():
     assert len(map_style.LOCATION_TYPE_TOGGLES) == 11
     assert dict(map_style.LOCATION_TYPE_TOGGLES)["sacred-site"] == "Sacred Sites"
+    assert map_style.TOGGLE_OF == {"mythic-landscape": "sacred-site"}
+    assert "mythic-landscape" not in dict(map_style.LOCATION_TYPE_TOGGLES)
+    assert map_style.tier_categories()["locations-spiritual"] == ["sacred-site", "mythic-landscape"]
     cats = map_style.tier_categories()
     for category in TYPE_KEYS:
         assert any(category in c for c in cats.values()), category
@@ -827,6 +832,30 @@ def test_type_toggle_filters_only_that_category_and_is_saved(tmp_path):
         {k: v for k, v in r["before"].items() if k != "locations-capital"}
     assert r["saved"]["types"]["capital"] is False and r["saved"]["types"]["city"] is True
     assert r["back"] == r["before"]
+
+
+@needs_node
+@pytest.mark.parametrize("page,store,store_key",
+                         [(_player, "store", DISPLAY_KEY), (_workshop, "sess", "_wsDisp")],
+                         ids=["player", "workshop"])
+def test_mythic_landscape_follows_the_sacred_sites_checkbox(tmp_path, page, store, store_key):
+    r = page(tmp_path, f"""
+      const m = await boot();
+      const before = m.map.renderAll();
+      const box = m.box('type', 'sacred-site'); box.checked = false; box.fire('change');
+      const after = m.map.renderAll();
+      const saved = JSON.parse(m.{store}['{store_key}']);
+      box.checked = true; box.fire('change');
+      out({{before, after, saved, back: m.map.renderAll(),
+            own: m.boxes.filter(b => b.dataset.key === 'mythic-landscape').length}});
+    """)
+    assert {"hazel", "iris"} <= set(r["before"]["locations-spiritual"])
+    assert r["after"]["locations-spiritual"] == []
+    assert {k: v for k, v in r["after"].items() if k != "locations-spiritual"} == \
+        {k: v for k, v in r["before"].items() if k != "locations-spiritual"}
+    assert r["saved"]["types"]["sacred-site"] is False and "mythic-landscape" not in r["saved"]["types"]
+    assert r["back"] == r["before"]
+    assert r["own"] == 0  # it follows the Sacred Sites box; it has none of its own
 
 
 @needs_node

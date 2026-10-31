@@ -22,8 +22,10 @@ tier       which tier draws it (TIER_ZOOM), on every surface; None = not drawn
 map_icon   the icon the Workshop and player map draw; None = the default icon
 page_icon  the icon the world page and the GM layers draw
 mini_icon  the icon the mini-maps on location pages draw
-toggle     the Display checkbox label; None = no checkbox, always drawn
-listed     False = tolerated but not offered in any dropdown: a legacy spelling, an
+toggle     the Display checkbox label; None = no checkbox, always drawn. Rows that share
+           a label share one checkbox, keyed by the first of them (sacred-site and
+           mythic-landscape are both "Sacred Sites")
+listed    False = tolerated but not offered in any dropdown: a legacy spelling, an
            alias of another row, or a non-place (`icon: none`, no tier, never drawn)
 
 Exports
@@ -99,7 +101,7 @@ TYPES: tuple[Type, ...] = (
     Type("village",       "village",     "village",   "cat-village",     "cat-village",     "cat-village",     None),
     # Sacred and mythic places
     Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
-    Type("mythic-landscape", "mythic-landscape", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", None),
+    Type("mythic-landscape", "mythic-landscape", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
     # Secondary locations
     Type("oasis",         "oasis",       "secondary", "cat-oasis",       "cat-oasis",       "cat-oasis",       "Oases"),
     Type("lake",          "lake",        "secondary", "cat-water",       "cat-water",       "cat-water",       "Lakes"),

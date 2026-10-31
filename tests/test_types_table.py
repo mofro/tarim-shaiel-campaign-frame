@@ -245,6 +245,22 @@ def test_display_toggles_are_unchanged():
     ]
 
 
+def test_rows_sharing_a_toggle_label_share_one_checkbox():
+    from locations.categories import TYPES
+    from shared.map_style import LOCATION_TYPE_TOGGLES, TOGGLE_OF
+
+    labelled = [t for t in TYPES if t.toggle]
+    leads = dict(LOCATION_TYPE_TOGGLES)
+    assert len(set(leads.values())) == len(leads), "two checkboxes share a label"
+    # Every labelled row is either a checkbox's lead or follows one with its label.
+    assert {t.slug for t in labelled} == set(leads) | set(TOGGLE_OF)
+    for follower, lead in TOGGLE_OF.items():
+        assert lead in leads and follower not in leads
+        assert {t.slug: t.toggle for t in TYPES}[follower] == leads[lead]
+    # The one sharing today: mythic-landscape is drawn and hidden with the Sacred Sites.
+    assert TOGGLE_OF == {"mythic-landscape": "sacred-site"}
+
+
 def test_rows_name_real_tiers_and_icons():
     from locations.categories import TIERS, TYPES
     from locations.map_icons import REGISTERED_ICONS

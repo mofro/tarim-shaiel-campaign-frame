@@ -290,12 +290,28 @@ def raster_overlays_js(maptiler_key: str) -> str:
 # Display controls (which layers a viewer sees)
 # ---------------------------------------------------------------------------
 
+def _toggle_groups() -> tuple[list[tuple[str, str]], dict[str, str]]:
+    """The table's `toggle` column as ([(lead, label)], {follower: lead}). Rows that
+    share a label share a checkbox, keyed by the first of them."""
+    leads: dict[str, str] = {}
+    toggles: list[tuple[str, str]] = []
+    followers: dict[str, str] = {}
+    for t in categories.TYPES:
+        if not t.toggle:
+            continue
+        lead = leads.setdefault(t.toggle, t.slug)
+        if lead == t.slug:
+            toggles.append((t.slug, t.toggle))
+        else:
+            followers[t.slug] = lead
+    return toggles, followers
+
+
 # The location-type checkboxes, in menu order: (category, label), from the table's
 # `toggle` column. A Type with no label (ruins, site, caravanserai ...) has no
-# checkbox and is always drawn.
-LOCATION_TYPE_TOGGLES: list[tuple[str, str]] = [
-    (t.slug, t.toggle) for t in categories.TYPES if t.toggle
-]
+# checkbox and is always drawn. A Type that shares another's label (mythic-landscape
+# with sacred-site) has no checkbox of its own: TOGGLE_OF maps it to the one it follows.
+LOCATION_TYPE_TOGGLES, TOGGLE_OF = _toggle_groups()
 
 # Layers each non-location toggle shows and hides.
 DISPLAY_LAYER_GROUPS: dict[str, list[str]] = {
@@ -305,8 +321,8 @@ DISPLAY_LAYER_GROUPS: dict[str, list[str]] = {
 
 
 def tier_categories() -> dict[str, list[str]]:
-    """{tier layer id: the toggle categories in that tier}."""
-    toggled = {c for c, _ in LOCATION_TYPE_TOGGLES}
+    """{tier layer id: the categories in that tier a checkbox hides}, followers included."""
+    toggled = {c for c, _ in LOCATION_TYPE_TOGGLES} | set(TOGGLE_OF)
     return {layer_id: [c for c in cats if c in toggled]
             for layer_id, cats, *_ in LOCATION_TIERS}
 
@@ -367,8 +383,9 @@ def display_controls_css(touch: bool = False) -> str:
 def display_controls_js(storage: str, key: str, layers: dict | None = None) -> str:
     """JS owning the type / routes / journeys toggles.
 
-    Defines `_tierCats`, `_dispState` and `_dispLoad` / `_dispSave` / `_dispApply` /
-    `_dispWire`. `storage` ("localStorage" or "sessionStorage") holds one JSON blob
+    Defines `_tierCats`, `_toggleOf` (a category that follows another's checkbox ->
+    the category that owns it), `_dispState` and `_dispLoad` / `_dispSave` /
+    `_dispApply` / `_dispWire`. `storage` ("localStorage" or "sessionStorage") holds one JSON blob
     under `key`; every access sits in try/catch so a blocked store changes nothing
     but persistence.
 
@@ -389,6 +406,7 @@ def display_controls_js(storage: str, key: str, layers: dict | None = None) -> s
     types = {c: True for c, _ in LOCATION_TYPE_TOGGLES}
     return f"""\
 var _tierCats={_js(tier_categories())};
+var _toggleOf={_js(TOGGLE_OF)};
 var _tierBase={_js(base)};
 var _dispLayers={_js(groups)};
 var _dispState={{types:{_js(types)},layers:{_js({k: True for k in groups})}}};
@@ -416,7 +434,7 @@ function _dispApply(){{
   if(typeof map==="undefined"||!map)return;
   Object.keys(_tierCats).forEach(function(lyr){{
     if(!map.getLayer(lyr))return;
-    var off=_tierCats[lyr].filter(function(c){{return !_dispState.types[c];}});
+    var off=_tierCats[lyr].filter(function(c){{return !_dispState.types[_toggleOf[c]||c];}});
     var conds=[_tierBase[lyr]];
     if(off.length)conds.push(["!",["match",["get","category"],off,true,false]]);
     var x=typeof _dispExtra==="function"?_dispExtra(lyr):null;
