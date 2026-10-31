@@ -1489,5 +1489,167 @@
     "town"
    ]
   }
+ },
+ "zooms": {
+  "gm_secret": {
+   "gm-locations-detail": {
+    "icon_fade": "7.5:0 8:0.4",
+    "icon_size": "7:0.3 10:0.6",
+    "minzoom": 7,
+    "text_fade": null
+   },
+   "gm-locations-major": {
+    "icon_fade": "3.5:0 4:0.4",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 3,
+    "text_fade": null
+   },
+   "gm-locations-routes": {
+    "icon_fade": "6.5:0 7:0.4",
+    "icon_size": "6:0.35 9:0.66",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "gm-locations-secondary": {
+    "icon_fade": "5.5:0 6:0.4",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": null
+   }
+  },
+  "map": {
+   "locations-detail": {
+    "icon_fade": "7:0 8:1",
+    "icon_size": 0.75,
+    "minzoom": 6,
+    "text_fade": "6:0 7:1"
+   },
+   "locations-major": {
+    "icon_fade": "3:0 4:1",
+    "icon_size": 0.75,
+    "minzoom": 2,
+    "text_fade": "2:0 3:1"
+   },
+   "locations-routes": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": 0.6,
+    "minzoom": 5,
+    "text_fade": "5:0 6:1"
+   },
+   "locations-secondary": {
+    "icon_fade": "5:0 6:1",
+    "icon_size": 0.7,
+    "minzoom": 4,
+    "text_fade": "4:0 5:1"
+   },
+   "locations-spiritual": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": 0.7,
+    "minzoom": 5,
+    "text_fade": "5:0 6:1"
+   },
+   "locations-towns": {
+    "icon_fade": "5:0 6:1",
+    "icon_size": 0.65,
+    "minzoom": 4,
+    "text_fade": "4:0 5:1"
+   }
+  },
+  "mini": {
+   "mm-locations-detail": {
+    "icon_fade": "7.5:0 8:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 7,
+    "text_fade": null
+   },
+   "mm-locations-major": {
+    "icon_fade": "3.5:0 4:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 3,
+    "text_fade": "3.5:0 4:0.9"
+   },
+   "mm-locations-routes": {
+    "icon_fade": "6.5:0 7:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "mm-locations-secondary": {
+    "icon_fade": "5.5:0 6:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 5,
+    "text_fade": "5.5:0 6:0.9"
+   },
+   "mm-locations-towns": {
+    "icon_fade": "4.5:0 5:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 4,
+    "text_fade": "4.5:0 5:0.9"
+   }
+  },
+  "world": {
+   "locations-detail": {
+    "icon_fade": "7.5:0 8:1",
+    "icon_size": "7:0.3 10:0.6",
+    "minzoom": 7,
+    "text_fade": null
+   },
+   "locations-major": {
+    "icon_fade": "3.5:0 4:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 3,
+    "text_fade": "3.5:0 4:1"
+   },
+   "locations-routes": {
+    "icon_fade": "6.5:0 7:1",
+    "icon_size": "6:0.35 9:0.66",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "locations-secondary": {
+    "icon_fade": "5.5:0 6:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": "5.5:0 6:1"
+   },
+   "locations-towns": {
+    "icon_fade": "4.5:0 5:1",
+    "icon_size": "4:0.45 8:0.78",
+    "minzoom": 4,
+    "text_fade": "4.5:0 5:1"
+   }
+  },
+  "world_gm_build": {
+   "locations-detail": {
+    "icon_fade": "7.5:0 8:1",
+    "icon_size": "7:0.3 10:0.6",
+    "minzoom": 7,
+    "text_fade": null
+   },
+   "locations-major": {
+    "icon_fade": "3.5:0 4:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 3,
+    "text_fade": "3.5:0 4:1"
+   },
+   "locations-routes": {
+    "icon_fade": "6.5:0 7:1",
+    "icon_size": "6:0.35 9:0.66",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "locations-secondary": {
+    "icon_fade": "5.5:0 6:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": "5.5:0 6:1"
+   },
+   "locations-towns": {
+    "icon_fade": "4.5:0 5:1",
+    "icon_size": "4:0.45 8:0.78",
+    "minzoom": 4,
+    "text_fade": "4.5:0 5:1"
+   }
+  }
  }
 }

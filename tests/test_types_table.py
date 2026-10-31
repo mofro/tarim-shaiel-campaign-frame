@@ -6,7 +6,8 @@ read it.
 
 `tests/fixtures/type_pins.json` records, for every Type spelling and on every surface
 that draws pins: which tier layer draws it, with which icon, plus each surface's icon
-arms and tier membership lists, and what the parser makes of it. PR 2 captured it from
+arms and tier membership lists, each layer's minzoom, icon and label fades and icon
+size ("zoom:value" stops), and what the parser makes of it. PR 2 captured it from
 the code as it stood before the table existed, so the table was proved to change
 nothing anyone could see. Every later commit that changes a pin regenerates the file,
 so its diff is that commit's before-and-after pin list:
@@ -86,6 +87,14 @@ def _ev(x, props):
     raise ValueError(f"unhandled expression {op!r}")
 
 
+def _stops(expr):
+    """An interpolate-on-zoom expression as 'zoom:value ...' (a constant as itself)."""
+    if not (isinstance(expr, list) and expr[:3] == ["interpolate", ["linear"], ["zoom"]]):
+        return expr
+    pairs = expr[3:]
+    return " ".join(f"{pairs[k]}:{pairs[k + 1]}" for k in range(0, len(pairs), 2))
+
+
 def _layers_json(js):
     """Layers from map_style.location_tiers_js(): JSON objects, one shared icon variable."""
     icon_match, _ = _decode_at(js, js.index("var _iconMatch=") + len("var _iconMatch="))
@@ -95,17 +104,30 @@ def _layers_json(js):
         layer = json.loads(js[m.end():end].replace('"icon-image":_iconMatch', '"icon-image":"__M__"'))
         icon = layer["layout"]["icon-image"]
         out.append({"id": layer["id"], "filter": layer["filter"],
-                    "icon": icon_match if icon == "__M__" else icon})
+                    "icon": icon_match if icon == "__M__" else icon,
+                    "minzoom": layer["minzoom"],
+                    "icon_fade": _stops(layer["paint"]["icon-opacity"]),
+                    "text_fade": _stops(layer["paint"].get("text-opacity")),
+                    "icon_size": _stops(layer["layout"]["icon-size"])})
     return out
 
 
 def _layers_literal(js, prefix):
     """Layers from the f-string generators: object-literal keys, JSON arrays inside."""
+    starts = [m for m in re.finditer(r'map\.addLayer\(\{id:"(' + re.escape(prefix) + r'[a-z-]*)"', js)]
     out = []
-    for m in re.finditer(r'map\.addLayer\(\{id:"(' + re.escape(prefix) + r'[a-z-]*)"', js):
-        fi = js.index("filter:", m.end()) + len("filter:")
-        ii = js.index('"icon-image":', m.end()) + len('"icon-image":')
-        out.append({"id": m.group(1), "filter": _decode_at(js, fi)[0], "icon": _decode_at(js, ii)[0]})
+    for n, m in enumerate(starts):
+        chunk = js[m.end():starts[n + 1].start() if n + 1 < len(starts) else len(js)]
+
+        def after(key):
+            at = chunk.find(key)
+            return _decode_at(chunk, at + len(key))[0] if at >= 0 else None
+
+        out.append({"id": m.group(1), "filter": after("filter:"), "icon": after('"icon-image":'),
+                    "minzoom": after("minzoom:"),
+                    "icon_fade": _stops(after('"icon-opacity":')),
+                    "text_fade": _stops(after('"text-opacity":')),
+                    "icon_size": _stops(after('"icon-size":'))})
     return out
 
 
@@ -158,11 +180,13 @@ def current_pins():
     from locations.location_parser import _classify_type
 
     surfaces = _surfaces()
-    pins = {"probes": {}, "arms": {}, "tiers": {}}
+    pins = {"probes": {}, "arms": {}, "tiers": {}, "zooms": {}}
     for name, layers in surfaces.items():
         arms, default = _arms(layers)
         pins["arms"][name] = {"arms": arms, "default": default}
         pins["tiers"][name] = {k: v for k, v in _tiers(layers).items()}
+        pins["zooms"][name] = {L["id"]: {k: L[k] for k in ("minzoom", "icon_fade", "text_fade", "icon_size")}
+                               for L in layers}
     for probe in PROBES:
         row = {"parser_type": _classify_type({"type": probe}),
                "parser_mapmarker": _classify_type({"mapmarker": probe})}
@@ -186,6 +210,7 @@ def test_pins_are_what_they_were_before_the_table():
     now = current_pins()
     assert now["tiers"] == golden["tiers"], "a tier's category list changed"
     assert now["arms"] == golden["arms"], "a surface's icon arms changed"
+    assert now["zooms"] == golden["zooms"], "a layer's zoom, fade or icon size changed"
     for probe, row in golden["probes"].items():
         assert now["probes"][probe] == row, f"pin changed for Type {probe!r}"
     assert now == golden
