@@ -26,6 +26,7 @@ from shared import map_style
 _DANGER_BY_TYPE: dict[str, int] = {
     "city": 1,
     "town": 1,
+    "village": 1,
     "route-node": 2,
     "oasis": 2,
     "sacred-site": 3,
@@ -47,6 +48,7 @@ _DANGER_BY_TYPE: dict[str, int] = {
 _TYPE_LABELS: dict[str, str] = {
     "city": "City",
     "town": "Town",
+    "village": "Village",
     "route-node": "Route Node",
     "oasis": "Oasis",
     "sacred-site": "Sacred Site",
@@ -211,6 +213,7 @@ _MINI_MAP_LABELS: dict[str, tuple[list[str], int]] = {
     'capital':   (['Roboto Serif Regular', 'Noto Sans Bold'], 12),
     'city':      (['Roboto Serif Regular', 'Noto Sans Bold'], 12),
     'town':      (['Roboto Serif Regular', 'Noto Sans Regular'], 11),
+    'village':   (['Roboto Serif Regular', 'Noto Sans Regular'], 11),
     'secondary': (['Roboto Serif Regular', 'Noto Sans Italic'], 11),
     'spiritual': (['Roboto Serif Regular', 'Noto Sans Italic'], 11),
 }

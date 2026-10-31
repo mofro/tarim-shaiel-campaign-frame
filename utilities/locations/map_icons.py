@@ -20,6 +20,7 @@ REGISTERED_ICONS: frozenset[str] = frozenset({
     "cat-city",
     "cat-capital",
     "cat-town",
+    "cat-village",
     "cat-route-node",
     "cat-sacred-site",
     "cat-fortress",
@@ -67,6 +68,13 @@ def icon_registration_js() -> str:
           'ctx.fillStyle="rgba(255,255,255,0.60)";ctx.beginPath();ctx.arc(32,32,22,0,Math.PI*2);ctx.fill();'
           'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=5.5;'
           'ctx.beginPath();ctx.arc(32,32,16,0,Math.PI*2);ctx.stroke();'
+        '});'
+
+        # village — white backing + downward-pointing triangle outline (smaller than a town's ring)
+        '_mk("cat-village",function(ctx){'
+          'ctx.fillStyle="rgba(255,255,255,0.60)";ctx.beginPath();ctx.moveTo(6,15);ctx.lineTo(58,15);ctx.lineTo(32,60);ctx.closePath();ctx.fill();'
+          'ctx.strokeStyle="#7a1f1f";ctx.lineWidth=5.5;ctx.lineJoin="round";'
+          'ctx.beginPath();ctx.moveTo(13,21);ctx.lineTo(51,21);ctx.lineTo(32,52);ctx.closePath();ctx.stroke();'
         '});'
 
         # route-node / caravanserai — white backing + diamond outline + inner dot

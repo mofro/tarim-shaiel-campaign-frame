@@ -168,6 +168,7 @@ _TIER_STYLE: dict[str, tuple[list[str], float, int]] = {
     "capital":   (_SERIF,        0.75, 14),
     "city":      (_SERIF,        0.75, 14),
     "town":      (_SERIF,        0.65, 12),
+    "village":   (_SERIF,        0.60, 11),
     "secondary": (_SERIF_ITALIC, 0.70, 12),
     "spiritual": (_SERIF_ITALIC, 0.70, 12),
     "routes":    (_SERIF,        0.60, 11),

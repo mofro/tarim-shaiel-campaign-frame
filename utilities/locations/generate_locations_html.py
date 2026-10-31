@@ -146,6 +146,7 @@ _PAGE_LABELS: dict[str, tuple[list[str], int]] = {
     'capital':   (['Roboto Serif Regular', 'Noto Sans Bold'], 15),
     'city':      (['Roboto Serif Regular', 'Noto Sans Bold'], 15),
     'town':      (['Roboto Serif Regular', 'Noto Sans Regular'], 13),
+    'village':   (['Roboto Serif Regular', 'Noto Sans Regular'], 13),
     'secondary': (['Roboto Serif Regular', 'Noto Sans Italic'], 13),
     'spiritual': (['Roboto Serif Regular', 'Noto Sans Italic'], 13),
 }

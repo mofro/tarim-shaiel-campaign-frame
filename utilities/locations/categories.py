@@ -62,6 +62,7 @@ TIER_ZOOM: dict[str, int] = {
     "capital": 2,
     "city": 3,
     "town": 4,
+    "village": 5,
     "secondary": 5,
     "spiritual": 6,
     "routes": 6,
@@ -76,6 +77,7 @@ PAGE_ICON_SIZE: dict[str, tuple[int, float, int, float]] = {
     "capital":   (3, 0.5,  8, 0.85),
     "city":      (3, 0.5,  8, 0.85),
     "town":      (4, 0.45, 8, 0.78),
+    "village":   (5, 0.4,  8, 0.72),
     "secondary": (5, 0.4,  8, 0.72),
     "spiritual": (5, 0.4,  8, 0.72),
     "routes":    (6, 0.35, 9, 0.66),
@@ -94,6 +96,7 @@ TYPES: tuple[Type, ...] = (
     Type("fortress",      "fortress",    "city",      "cat-fortress",    "cat-fortress",    "cat-fortress",    "Fortresses"),
     # Towns
     Type("town",          "town",        "town",      "cat-town",        "cat-town",        "cat-town",        "Towns"),
+    Type("village",       "village",     "village",   "cat-village",     "cat-village",     "cat-village",     None),
     # Sacred and mythic places
     Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
     Type("mythic-landscape", "mythic-landscape", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", None),

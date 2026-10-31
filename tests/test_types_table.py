@@ -227,7 +227,7 @@ def test_dropdown_order():
     from locations.categories import CATEGORIES, VALID_CATEGORIES
 
     assert CATEGORIES == [
-        "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "mythic-landscape", "oasis",
+        "city", "capital", "bridge", "landmark", "fortress", "town", "village", "sacred-site", "mythic-landscape", "oasis",
         "lake", "sea", "river", "reservoir", "spring", "well", "route-node",
         "chokepoint", "mountain-pass", "ruins", "poi", "power-site", "site",
     ]
@@ -261,12 +261,13 @@ def test_rows_name_real_tiers_and_icons():
 
 
 def test_the_ladder_runs_from_big_places_to_small():
-    """Capitals show first, then cities, then towns, then route nodes, and the layer
-    order (TIERS) never puts a tier that appears sooner above one that appears later."""
+    """Capitals show first, then cities, then towns, then villages, then route nodes,
+    and the layer order (TIERS) never puts a tier that appears sooner above one that
+    appears later."""
     from locations.categories import TIER_ZOOM, TIERS
 
     z = TIER_ZOOM
-    assert z["capital"] < z["city"] < z["town"] < z["routes"]
+    assert z["capital"] < z["city"] < z["town"] < z["village"] < z["routes"]
     assert [z[t] for t in TIERS] == sorted(z[t] for t in TIERS)
     assert z["spiritual"] == z["routes"], "a sacred place is as easy to find as a route node"
     assert max(z.values()) == z["detail"]

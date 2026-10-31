@@ -929,9 +929,8 @@ def test_player_layers_carry_only_player_filtered_data(tmp_path):
     assert not (shown & GM_ONLY_LOCATIONS)
     assert set(r["routes"]) == PLAYER_ROUTES
     assert set(r["journeys"]) == PLAYER_JOURNEYS and set(r["journeys-hit"]) == PLAYER_JOURNEYS
-    assert set(r) == {"locations-capital", "locations-city", "locations-town", "locations-secondary",
-                      "locations-spiritual", "locations-routes", "locations-detail", "routes", "journeys",
-                      "journeys-hit", "topo-overlay", "sat-overlay"} | (set(r) & {"regions-fill", "regions-line"})
+    assert set(r) == set(map_style.LOCATION_LAYER_IDS) | {
+        "routes", "journeys", "journeys-hit", "topo-overlay", "sat-overlay"} | (set(r) & {"regions-fill", "regions-line"})
 
 
 # ---------------------------------------------------------------------------
@@ -1228,9 +1227,7 @@ def test_preview_filters_only_the_layers_the_player_map_also_has(tmp_path):
       const ws = Object.keys(m.map.layers).filter(k => !/^locations-|^routes$|^journeys/.test(k));
       out({calls: [...new Set(m.map.setFilterCalls)].sort(), untouched: ws.filter(k => m.map.layers[k].filter !== null && before[k] !== undefined && JSON.stringify(m.map.layers[k].filter) !== JSON.stringify(m.map.layers[k].filter)), others: ws});
     """)
-    assert set(r["calls"]) <= {"locations-capital", "locations-city", "locations-town", "locations-secondary",
-                               "locations-spiritual", "locations-routes", "locations-detail", "routes",
-                               "journeys", "journeys-hit"}
+    assert set(r["calls"]) <= set(map_style.LOCATION_LAYER_IDS) | {"routes", "journeys", "journeys-hit"}
     for kept in ("reveal-rings", "highlight-circles"):
         assert kept in r["others"] and kept not in r["calls"]
 
