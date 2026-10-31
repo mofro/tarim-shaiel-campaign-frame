@@ -14,7 +14,7 @@ interpreter, and build.py needs PyYAML):
 
 Endpoints:
     PUT    /api/locations/{slug}/coordinates  — update lat/lon in .md frontmatter
-    PATCH  /api/locations/{slug}/frontmatter  — patch name/fantasy_name/type/mapmarker/visibility
+    PATCH  /api/locations/{slug}/frontmatter  — patch name/fantasy_name/type/map_icon/mapmarker/visibility
     PATCH  /api/routes/{route_id}             — set one route's visibility (public|gm_secrets) or mode
     POST   /api/locations/create              — create a new location stub
     POST   /api/routes/add                    — add route segment(s) to routes.geojson
@@ -438,7 +438,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         self._json({"ok": True, "file": rel, "lat": lat, "lon": lon})
 
     def _patch_frontmatter(self, slug: str):
-        ALLOWED = {"name", "fantasy_name", "type", "mapmarker", "visibility"}
+        ALLOWED = {"name", "fantasy_name", "type", "map_icon", "mapmarker", "visibility"}
         try:
             data = self._read_json()
         except Exception:
@@ -736,12 +736,16 @@ def _yaml_scalar(value) -> str:
 def _set_frontmatter_fields(text: str, fields: dict) -> str:
     """Patch named scalar fields in YAML frontmatter.
 
-    Handles name, fantasy_name, type, mapmarker, visibility.
+    Handles name, fantasy_name, type, map_icon, mapmarker, visibility.
     Uses regex line-replacement so block scalars elsewhere are untouched.
+    Setting map_icon also removes the older map_marker: line, which would otherwise go
+    on hiding the pin after the GM chose another icon.
     """
     m = re.match(r"^---\n(.*?\n)---\n", text, re.DOTALL)
     if not m:
         return text  # no frontmatter
+    if "map_icon" in fields:
+        fields = {**fields, "map_marker": None}
     fm = m.group(1)
     body = text[m.end():]
 

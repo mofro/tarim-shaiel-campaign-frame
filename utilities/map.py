@@ -8,6 +8,7 @@ Commands:
   route    [opts]   Add route segment(s) + refresh workshop
   rebuild           Rebuild GeoJSON + refresh workshop (no new data)
   snap     [opts]   OSRM-snap route geometries + refresh workshop
+  retype   SHEET    Set `type:` on many pages from a CSV (--dry-run first); no rebuild
   list              List all locations and route segments
 
 Run with no arguments for an interactive TUI menu.
@@ -18,6 +19,7 @@ Examples:
     python utilities/map.py route kashgar stone-ledger-gate --spur
     python utilities/map.py rebuild
     python utilities/map.py snap
+    python utilities/map.py retype retype.csv --dry-run
     python utilities/map.py list
 """
 
@@ -209,6 +211,10 @@ def cmd_snap(args: list[str]) -> int:
     print(f"\n{green('✓')} Routes snapped and workshop refreshed.")
     return 0
 
+def cmd_retype(args: list[str]) -> int:
+    from locations import retype
+    return retype.main(args)
+
 def cmd_list(_args: list[str]) -> int:
     _print_locations()
     print()
@@ -381,6 +387,7 @@ COMMANDS = {
     "route":    cmd_route,
     "rebuild":  cmd_rebuild,
     "snap":     cmd_snap,
+    "retype":   cmd_retype,
     "list":     cmd_list,
 }
 
