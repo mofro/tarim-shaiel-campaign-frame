@@ -78,7 +78,6 @@ TYPES: tuple[Type, ...] = (
     Type("reservoir",     "reservoir",   "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),
     Type("spring",        "spring",      "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),
     Type("well",          "well",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),
-    Type("caravanserai",  "route-node",  "secondary", "cat-route-node",  "secondary", "cat-route-node",  "cat-route-node",  None),
     # Route network
     Type("route-node",    "route-node",  "routes",    "cat-route-node",  "routes",    "cat-route-node",  "cat-route-node",  "Route Nodes"),
     Type("chokepoint",    "chokepoint",  "routes",    "cat-fortress",    "routes",    "cat-fortress",    "cat-fortress",    None),
@@ -90,6 +89,7 @@ TYPES: tuple[Type, ...] = (
     Type("site",          "site",        "detail",    "cat-poi",         "detail",    "cat-poi",         "cat-poi",         None),
     # Legacy spellings still on pages or in old tooling: tolerated, never offered.
     Type("water-body",    "lake",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None, listed=False),
+    Type("caravanserai",  "route-node",  "routes",    "cat-route-node",  "routes",    "cat-route-node",  "cat-route-node",  None, listed=False),
     Type("dungeon",       "dungeon",     None,        None,              None,        None,              None,              None, listed=False),
     Type("Oasis",         None,          None,        "cat-oasis",       None,        None,              "cat-oasis",       None, listed=False),
 )

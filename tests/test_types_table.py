@@ -205,7 +205,7 @@ def test_dropdown_order():
 
     assert CATEGORIES == [
         "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "mythic-landscape", "oasis",
-        "lake", "sea", "river", "reservoir", "spring", "well", "caravanserai", "route-node",
+        "lake", "sea", "river", "reservoir", "spring", "well", "route-node",
         "chokepoint", "mountain-pass", "ruins", "poi", "power-site", "site",
     ]
     assert VALID_CATEGORIES == frozenset(CATEGORIES)
@@ -235,7 +235,7 @@ def test_rows_name_real_tiers_and_icons():
         if t.map_tier is None:
             assert t.map_icon is None or t.slug in ("Oasis",), t
     # Unlisted rows are legacy spellings: tolerated, never offered.
-    assert [t.slug for t in TYPES if not t.listed] == ["water-body", "dungeon", "Oasis"]
+    assert [t.slug for t in TYPES if not t.listed] == ["water-body", "caravanserai", "dungeon", "Oasis"]
 
 
 def test_tier_and_icon_coverage_checks_are_clean():

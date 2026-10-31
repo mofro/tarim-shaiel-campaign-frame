@@ -300,19 +300,19 @@
   "caravanserai": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-secondary",
+     "gm-locations-routes",
      "cat-route-node"
     ],
     "map": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-routes",
      "cat-route-node"
     ],
     "world": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ],
     "world_gm_build": null
@@ -322,19 +322,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-routes",
      "cat-route-node"
     ],
     "world": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ],
     "world_gm_build": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ]
    }
@@ -1291,7 +1291,8 @@
    "gm-locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
+    "mountain-pass",
+    "caravanserai"
    ],
    "gm-locations-secondary": [
     "sacred-site",
@@ -1303,7 +1304,6 @@
     "reservoir",
     "spring",
     "well",
-    "caravanserai",
     "water-body"
    ]
   },
@@ -1323,7 +1323,8 @@
    "locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
+    "mountain-pass",
+    "caravanserai"
    ],
    "locations-secondary": [
     "oasis",
@@ -1333,7 +1334,6 @@
     "reservoir",
     "spring",
     "well",
-    "caravanserai",
     "water-body"
    ],
    "locations-spiritual": [
@@ -1362,7 +1362,8 @@
    "mm-locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
+    "mountain-pass",
+    "caravanserai"
    ],
    "mm-locations-secondary": [
     "sacred-site",
@@ -1374,7 +1375,6 @@
     "reservoir",
     "spring",
     "well",
-    "caravanserai",
     "water-body"
    ],
    "mm-locations-towns": [
@@ -1398,7 +1398,8 @@
    "locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
+    "mountain-pass",
+    "caravanserai"
    ],
    "locations-secondary": [
     "sacred-site",
@@ -1410,7 +1411,6 @@
     "reservoir",
     "spring",
     "well",
-    "caravanserai",
     "water-body"
    ],
    "locations-towns": [
@@ -1434,7 +1434,8 @@
    "locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
+    "mountain-pass",
+    "caravanserai"
    ],
    "locations-secondary": [
     "sacred-site",
@@ -1446,7 +1447,6 @@
     "reservoir",
     "spring",
     "well",
-    "caravanserai",
     "water-body"
    ],
    "locations-towns": [
