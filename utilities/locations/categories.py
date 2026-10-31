@@ -70,6 +70,7 @@ TYPES: tuple[Type, ...] = (
     Type("town",          "town",        "towns",     "cat-town",        "towns",     "cat-town",        "cat-town",        "Towns"),
     # Secondary locations
     Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "secondary", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
+    Type("mythic-landscape", "mythic-landscape", "spiritual", "cat-sacred-site", "secondary", "cat-sacred-site", "cat-sacred-site", None),
     Type("oasis",         "oasis",       "secondary", "cat-oasis",       "secondary", "cat-oasis",       "cat-oasis",       "Oases"),
     Type("lake",          "lake",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       "Lakes"),
     Type("sea",           "sea",         "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),

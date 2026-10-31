@@ -11,6 +11,7 @@
     "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
@@ -40,6 +41,7 @@
     "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "power-site": "cat-sacred-site",
     "reservoir": "cat-water",
@@ -68,6 +70,7 @@
     "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "power-site": "cat-sacred-site",
     "reservoir": "cat-water",
@@ -95,6 +98,7 @@
     "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
@@ -123,6 +127,7 @@
     "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
@@ -606,20 +611,44 @@
   },
   "mythic-landscape": {
    "gm_secrets": {
-    "gm_secret": null,
-    "map": null,
-    "mini": null,
-    "world": null,
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-sacred-site"
+    ],
+    "map": [
+     "locations-spiritual",
+     "cat-sacred-site"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-sacred-site"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-sacred-site"
+    ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "mythic-landscape",
+   "parser_type": "mythic-landscape",
    "public": {
     "gm_secret": null,
-    "map": null,
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "map": [
+     "locations-spiritual",
+     "cat-sacred-site"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-sacred-site"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-sacred-site"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-sacred-site"
+    ]
    }
   },
   "oasis": {
@@ -1266,6 +1295,7 @@
    ],
    "gm-locations-secondary": [
     "sacred-site",
+    "mythic-landscape",
     "oasis",
     "lake",
     "sea",
@@ -1308,6 +1338,7 @@
    ],
    "locations-spiritual": [
     "sacred-site",
+    "mythic-landscape",
     "power-site"
    ],
    "locations-towns": [
@@ -1335,6 +1366,7 @@
    ],
    "mm-locations-secondary": [
     "sacred-site",
+    "mythic-landscape",
     "oasis",
     "lake",
     "sea",
@@ -1370,6 +1402,7 @@
    ],
    "locations-secondary": [
     "sacred-site",
+    "mythic-landscape",
     "oasis",
     "lake",
     "sea",
@@ -1405,6 +1438,7 @@
    ],
    "locations-secondary": [
     "sacred-site",
+    "mythic-landscape",
     "oasis",
     "lake",
     "sea",

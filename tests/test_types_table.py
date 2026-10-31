@@ -40,7 +40,7 @@ VISIBILITIES = ("public", "gm_secrets")
 
 # Types on real pages that have no row yet. PR 3 gives each one a row (or `icon: none`)
 # and deletes its line here; a value on a page that is in neither place fails.
-OFF_TABLE_TYPES = {"mythic-landscape", "mobile entity", "cosmological-realm"}
+OFF_TABLE_TYPES = {"mobile entity", "cosmological-realm"}
 
 
 # ---------------------------------------------------------------------------
@@ -204,7 +204,7 @@ def test_dropdown_order():
     from locations.categories import CATEGORIES, VALID_CATEGORIES
 
     assert CATEGORIES == [
-        "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "oasis",
+        "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "mythic-landscape", "oasis",
         "lake", "sea", "river", "reservoir", "spring", "well", "caravanserai", "route-node",
         "chokepoint", "mountain-pass", "ruins", "poi", "power-site", "site",
     ]

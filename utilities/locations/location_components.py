@@ -41,6 +41,7 @@ _DANGER_BY_TYPE: dict[str, int] = {
     "spring": 1,
     "well": 1,
     "power-site": 3,
+    "mythic-landscape": 3,
 }
 
 _TYPE_LABELS: dict[str, str] = {
@@ -65,6 +66,7 @@ _TYPE_LABELS: dict[str, str] = {
     "reservoir": "Reservoir",
     "spring": "Spring",
     "well": "Well",
+    "mythic-landscape": "Mythic Landscape",
 }
 
 
