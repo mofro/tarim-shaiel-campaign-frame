@@ -2,23 +2,31 @@
  "arms": {
   "gm_secret": {
    "arms": {
-    "bridge": "cat-landmark",
-    "capital": "cat-city",
+    "bridge": "cat-bridge",
+    "capital": "cat-capital",
     "caravanserai": "cat-route-node",
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-oasis",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
-    "town": "cat-town"
+    "spring": "cat-water",
+    "town": "cat-town",
+    "village": "cat-village",
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   },
@@ -31,83 +39,114 @@
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-lake",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
+    "spring": "cat-water",
     "town": "cat-town",
-    "water-body": "cat-lake"
+    "village": "cat-village",
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   },
   "mini": {
    "arms": {
     "Oasis": "cat-oasis",
+    "bridge": "cat-bridge",
     "capital": "cat-capital",
     "caravanserai": "cat-route-node",
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-lake",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
+    "spring": "cat-water",
     "town": "cat-town",
-    "water-body": "cat-lake"
+    "village": "cat-village",
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   },
   "world": {
    "arms": {
-    "bridge": "cat-landmark",
-    "capital": "cat-city",
+    "bridge": "cat-bridge",
+    "capital": "cat-capital",
     "caravanserai": "cat-route-node",
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-oasis",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
-    "town": "cat-town"
+    "spring": "cat-water",
+    "town": "cat-town",
+    "village": "cat-village",
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   },
   "world_gm_build": {
    "arms": {
-    "bridge": "cat-landmark",
-    "capital": "cat-city",
+    "bridge": "cat-bridge",
+    "capital": "cat-capital",
     "caravanserai": "cat-route-node",
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-oasis",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
+    "mythic-landscape": "cat-sacred-site",
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
-    "town": "cat-town"
+    "spring": "cat-water",
+    "town": "cat-town",
+    "village": "cat-village",
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   }
@@ -144,19 +183,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-town"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-town"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-town"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-town"
     ]
    }
@@ -181,13 +220,22 @@
   },
   "bridge": {
    "gm_secrets": {
-    "gm_secret": null,
-    "map": [
-     "locations-major",
+    "gm_secret": [
+     "gm-locations-city",
      "cat-bridge"
     ],
-    "mini": null,
-    "world": null,
+    "map": [
+     "locations-city",
+     "cat-bridge"
+    ],
+    "mini": [
+     "mm-locations-city",
+     "cat-bridge"
+    ],
+    "world": [
+     "locations-city",
+     "cat-bridge"
+    ],
     "world_gm_build": null
    },
    "parser_mapmarker": "bridge",
@@ -195,23 +243,41 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-bridge"
     ],
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "mini": [
+     "mm-locations-city",
+     "cat-bridge"
+    ],
+    "world": [
+     "locations-city",
+     "cat-bridge"
+    ],
+    "world_gm_build": [
+     "locations-city",
+     "cat-bridge"
+    ]
    }
   },
   "capital": {
    "gm_secrets": {
-    "gm_secret": null,
-    "map": [
-     "locations-major",
+    "gm_secret": [
+     "gm-locations-capital",
      "cat-capital"
     ],
-    "mini": null,
-    "world": null,
+    "map": [
+     "locations-capital",
+     "cat-capital"
+    ],
+    "mini": [
+     "mm-locations-capital",
+     "cat-capital"
+    ],
+    "world": [
+     "locations-capital",
+     "cat-capital"
+    ],
     "world_gm_build": null
    },
    "parser_mapmarker": "capital",
@@ -219,30 +285,39 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-capital",
      "cat-capital"
     ],
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "mini": [
+     "mm-locations-capital",
+     "cat-capital"
+    ],
+    "world": [
+     "locations-capital",
+     "cat-capital"
+    ],
+    "world_gm_build": [
+     "locations-capital",
+     "cat-capital"
+    ]
    }
   },
   "caravanserai": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-secondary",
+     "gm-locations-routes",
      "cat-route-node"
     ],
     "map": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-routes",
      "cat-route-node"
     ],
     "world": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ],
     "world_gm_build": null
@@ -252,19 +327,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-routes",
      "cat-route-node"
     ],
     "world": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ],
     "world_gm_build": [
-     "locations-secondary",
+     "locations-routes",
      "cat-route-node"
     ]
    }
@@ -289,8 +364,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "chokepoint",
+   "parser_type": "chokepoint",
    "public": {
     "gm_secret": null,
     "map": [
@@ -314,19 +389,19 @@
   "city": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-major",
+     "gm-locations-city",
      "cat-city"
     ],
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-city"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ],
     "world_gm_build": null
@@ -336,21 +411,39 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-city"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ]
+   }
+  },
+  "cosmological-realm": {
+   "gm_secrets": {
+    "gm_secret": null,
+    "map": null,
+    "mini": null,
+    "world": null,
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "cosmological-realm",
+   "parser_type": "cosmological-realm",
+   "public": {
+    "gm_secret": null,
+    "map": null,
+    "mini": null,
+    "world": null,
+    "world_gm_build": null
    }
   },
   "dungeon": {
@@ -374,19 +467,19 @@
   "fortress": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-major",
+     "gm-locations-city",
      "cat-fortress"
     ],
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-fortress"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ],
     "world_gm_build": null
@@ -396,32 +489,41 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-fortress"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ]
    }
   },
   "lake": {
    "gm_secrets": {
-    "gm_secret": null,
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
     "map": [
      "locations-secondary",
-     "cat-lake"
+     "cat-water"
     ],
-    "mini": null,
-    "world": null,
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
     "world_gm_build": null
    },
    "parser_mapmarker": "lake",
@@ -430,29 +532,38 @@
     "gm_secret": null,
     "map": [
      "locations-secondary",
-     "cat-lake"
+     "cat-water"
     ],
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
    }
   },
   "landmark": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-major",
+     "gm-locations-city",
      "cat-landmark"
     ],
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-landmark"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ],
     "world_gm_build": null
@@ -462,21 +573,39 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-landmark"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ]
+   }
+  },
+  "mobile entity": {
+   "gm_secrets": {
+    "gm_secret": null,
+    "map": null,
+    "mini": null,
+    "world": null,
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "mobile entity",
+   "parser_type": "mobile entity",
+   "public": {
+    "gm_secret": null,
+    "map": null,
+    "mini": null,
+    "world": null,
+    "world_gm_build": null
    }
   },
   "mountain-pass": {
@@ -499,8 +628,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "mountain-pass",
+   "parser_type": "mountain-pass",
    "public": {
     "gm_secret": null,
     "map": [
@@ -523,20 +652,44 @@
   },
   "mythic-landscape": {
    "gm_secrets": {
-    "gm_secret": null,
-    "map": null,
-    "mini": null,
-    "world": null,
+    "gm_secret": [
+     "gm-locations-spiritual",
+     "cat-sacred-site"
+    ],
+    "map": [
+     "locations-spiritual",
+     "cat-sacred-site"
+    ],
+    "mini": [
+     "mm-locations-spiritual",
+     "cat-sacred-site"
+    ],
+    "world": [
+     "locations-spiritual",
+     "cat-sacred-site"
+    ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "mythic-landscape",
+   "parser_type": "mythic-landscape",
    "public": {
     "gm_secret": null,
-    "map": null,
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "map": [
+     "locations-spiritual",
+     "cat-sacred-site"
+    ],
+    "mini": [
+     "mm-locations-spiritual",
+     "cat-sacred-site"
+    ],
+    "world": [
+     "locations-spiritual",
+     "cat-sacred-site"
+    ],
+    "world_gm_build": [
+     "locations-spiritual",
+     "cat-sacred-site"
+    ]
    }
   },
   "oasis": {
@@ -626,7 +779,7 @@
   "power-site": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-detail",
+     "gm-locations-spiritual",
      "cat-sacred-site"
     ],
     "map": [
@@ -634,17 +787,17 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-detail",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-detail",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "power-site",
+   "parser_type": "power-site",
    "public": {
     "gm_secret": null,
     "map": [
@@ -652,16 +805,100 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-detail",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-detail",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": [
-     "locations-detail",
+     "locations-spiritual",
      "cat-sacred-site"
+    ]
+   }
+  },
+  "reservoir": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "reservoir",
+   "parser_type": "reservoir",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
+   }
+  },
+  "river": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "river",
+   "parser_type": "river",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
     ]
    }
   },
@@ -727,8 +964,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "ruins",
+   "parser_type": "ruins",
    "public": {
     "gm_secret": null,
     "map": [
@@ -752,7 +989,7 @@
   "sacred-site": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-secondary",
+     "gm-locations-spiritual",
      "cat-sacred-site"
     ],
     "map": [
@@ -760,11 +997,11 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": null
@@ -778,16 +1015,58 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
+    ]
+   }
+  },
+  "sea": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "sea",
+   "parser_type": "sea",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
     ]
    }
   },
@@ -811,8 +1090,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "site",
+   "parser_type": "site",
    "public": {
     "gm_secret": null,
     "map": [
@@ -833,19 +1112,64 @@
     ]
    }
   },
-  "town": {
+  "spring": {
    "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "spring",
+   "parser_type": "spring",
+   "public": {
     "gm_secret": null,
     "map": [
-     "locations-towns",
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
+   }
+  },
+  "town": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-town",
+     "cat-town"
+    ],
+    "map": [
+     "locations-town",
      "cat-town"
     ],
     "mini": [
-     "mm-locations-towns",
+     "mm-locations-town",
      "cat-town"
     ],
     "world": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ],
     "world_gm_build": null
@@ -855,50 +1179,83 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ],
     "mini": [
-     "mm-locations-towns",
+     "mm-locations-town",
      "cat-town"
     ],
     "world": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ],
     "world_gm_build": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ]
    }
   },
   "village": {
    "gm_secrets": {
-    "gm_secret": null,
-    "map": null,
-    "mini": null,
-    "world": null,
+    "gm_secret": [
+     "gm-locations-village",
+     "cat-village"
+    ],
+    "map": [
+     "locations-village",
+     "cat-village"
+    ],
+    "mini": [
+     "mm-locations-village",
+     "cat-village"
+    ],
+    "world": [
+     "locations-village",
+     "cat-village"
+    ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "village",
+   "parser_type": "village",
    "public": {
     "gm_secret": null,
-    "map": null,
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "map": [
+     "locations-village",
+     "cat-village"
+    ],
+    "mini": [
+     "mm-locations-village",
+     "cat-village"
+    ],
+    "world": [
+     "locations-village",
+     "cat-village"
+    ],
+    "world_gm_build": [
+     "locations-village",
+     "cat-village"
+    ]
    }
   },
   "water-body": {
    "gm_secrets": {
-    "gm_secret": null,
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
     "map": [
      "locations-secondary",
-     "cat-lake"
+     "cat-water"
     ],
-    "mini": null,
-    "world": null,
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
     "world_gm_build": null
    },
    "parser_mapmarker": "lake",
@@ -907,11 +1264,62 @@
     "gm_secret": null,
     "map": [
      "locations-secondary",
-     "cat-lake"
+     "cat-water"
     ],
-    "mini": null,
-    "world": null,
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
+   }
+  },
+  "well": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
     "world_gm_build": null
+   },
+   "parser_mapmarker": "well",
+   "parser_type": "well",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
    }
   },
   "zz-unknown": {
@@ -935,137 +1343,471 @@
  },
  "tiers": {
   "gm_secret": {
-   "gm-locations-detail": [
-    "ruins",
-    "poi",
-    "power-site",
-    "site"
+   "gm-locations-capital": [
+    "capital"
    ],
-   "gm-locations-major": [
+   "gm-locations-city": [
     "city",
-    "landmark",
-    "fortress"
-   ],
-   "gm-locations-routes": [
-    "route-node",
-    "chokepoint",
-    "mountain-pass"
-   ],
-   "gm-locations-secondary": [
-    "sacred-site",
-    "oasis",
-    "caravanserai"
-   ]
-  },
-  "map": {
-   "locations-detail": [
-    "ruins",
-    "poi",
-    "site"
-   ],
-   "locations-major": [
-    "city",
-    "capital",
     "bridge",
     "landmark",
     "fortress"
    ],
+   "gm-locations-detail": [
+    "ruins",
+    "poi",
+    "site"
+   ],
+   "gm-locations-routes": [
+    "route-node",
+    "chokepoint",
+    "mountain-pass",
+    "caravanserai"
+   ],
+   "gm-locations-secondary": [
+    "oasis",
+    "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
+    "water-body"
+   ],
+   "gm-locations-spiritual": [
+    "sacred-site",
+    "mythic-landscape",
+    "power-site"
+   ],
+   "gm-locations-town": [
+    "town"
+   ],
+   "gm-locations-village": [
+    "village"
+   ]
+  },
+  "map": {
+   "locations-capital": [
+    "capital"
+   ],
+   "locations-city": [
+    "city",
+    "bridge",
+    "landmark",
+    "fortress"
+   ],
+   "locations-detail": [
+    "ruins",
+    "poi",
+    "site"
+   ],
    "locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
+    "mountain-pass",
+    "caravanserai"
    ],
    "locations-secondary": [
     "oasis",
     "lake",
-    "caravanserai",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
     "water-body"
    ],
    "locations-spiritual": [
     "sacred-site",
+    "mythic-landscape",
     "power-site"
    ],
-   "locations-towns": [
+   "locations-town": [
     "town"
+   ],
+   "locations-village": [
+    "village"
    ]
   },
   "mini": {
+   "mm-locations-capital": [
+    "capital"
+   ],
+   "mm-locations-city": [
+    "city",
+    "bridge",
+    "landmark",
+    "fortress"
+   ],
    "mm-locations-detail": [
     "ruins",
     "poi",
-    "power-site",
     "site"
-   ],
-   "mm-locations-major": [
-    "city",
-    "landmark",
-    "fortress"
    ],
    "mm-locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
-   ],
-   "mm-locations-secondary": [
-    "sacred-site",
-    "oasis",
+    "mountain-pass",
     "caravanserai"
    ],
-   "mm-locations-towns": [
+   "mm-locations-secondary": [
+    "oasis",
+    "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
+    "water-body"
+   ],
+   "mm-locations-spiritual": [
+    "sacred-site",
+    "mythic-landscape",
+    "power-site"
+   ],
+   "mm-locations-town": [
     "town"
+   ],
+   "mm-locations-village": [
+    "village"
    ]
   },
   "world": {
+   "locations-capital": [
+    "capital"
+   ],
+   "locations-city": [
+    "city",
+    "bridge",
+    "landmark",
+    "fortress"
+   ],
    "locations-detail": [
     "ruins",
     "poi",
-    "power-site",
     "site"
-   ],
-   "locations-major": [
-    "city",
-    "landmark",
-    "fortress"
    ],
    "locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
-   ],
-   "locations-secondary": [
-    "sacred-site",
-    "oasis",
+    "mountain-pass",
     "caravanserai"
    ],
-   "locations-towns": [
+   "locations-secondary": [
+    "oasis",
+    "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
+    "water-body"
+   ],
+   "locations-spiritual": [
+    "sacred-site",
+    "mythic-landscape",
+    "power-site"
+   ],
+   "locations-town": [
     "town"
+   ],
+   "locations-village": [
+    "village"
    ]
   },
   "world_gm_build": {
+   "locations-capital": [
+    "capital"
+   ],
+   "locations-city": [
+    "city",
+    "bridge",
+    "landmark",
+    "fortress"
+   ],
    "locations-detail": [
     "ruins",
     "poi",
-    "power-site",
     "site"
-   ],
-   "locations-major": [
-    "city",
-    "landmark",
-    "fortress"
    ],
    "locations-routes": [
     "route-node",
     "chokepoint",
-    "mountain-pass"
-   ],
-   "locations-secondary": [
-    "sacred-site",
-    "oasis",
+    "mountain-pass",
     "caravanserai"
    ],
-   "locations-towns": [
+   "locations-secondary": [
+    "oasis",
+    "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
+    "water-body"
+   ],
+   "locations-spiritual": [
+    "sacred-site",
+    "mythic-landscape",
+    "power-site"
+   ],
+   "locations-town": [
     "town"
+   ],
+   "locations-village": [
+    "village"
    ]
+  }
+ },
+ "zooms": {
+  "gm_secret": {
+   "gm-locations-capital": {
+    "icon_fade": "2:0 3:0.4",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 2,
+    "text_fade": null
+   },
+   "gm-locations-city": {
+    "icon_fade": "3:0 4:0.4",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 3,
+    "text_fade": null
+   },
+   "gm-locations-detail": {
+    "icon_fade": "7:0 8:0.4",
+    "icon_size": "7:0.3 10:0.6",
+    "minzoom": 7,
+    "text_fade": null
+   },
+   "gm-locations-routes": {
+    "icon_fade": "6:0 7:0.4",
+    "icon_size": "6:0.35 9:0.66",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "gm-locations-secondary": {
+    "icon_fade": "5:0 6:0.4",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": null
+   },
+   "gm-locations-spiritual": {
+    "icon_fade": "6:0 7:0.4",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "gm-locations-town": {
+    "icon_fade": "4:0 5:0.4",
+    "icon_size": "4:0.45 8:0.78",
+    "minzoom": 4,
+    "text_fade": null
+   },
+   "gm-locations-village": {
+    "icon_fade": "5:0 6:0.4",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": null
+   }
+  },
+  "map": {
+   "locations-capital": {
+    "icon_fade": "2:0 3:1",
+    "icon_size": 0.75,
+    "minzoom": 1,
+    "text_fade": "1:0 2:1"
+   },
+   "locations-city": {
+    "icon_fade": "3:0 4:1",
+    "icon_size": 0.75,
+    "minzoom": 2,
+    "text_fade": "2:0 3:1"
+   },
+   "locations-detail": {
+    "icon_fade": "7:0 8:1",
+    "icon_size": 0.75,
+    "minzoom": 6,
+    "text_fade": "6:0 7:1"
+   },
+   "locations-routes": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": 0.6,
+    "minzoom": 5,
+    "text_fade": "5:0 6:1"
+   },
+   "locations-secondary": {
+    "icon_fade": "5:0 6:1",
+    "icon_size": 0.7,
+    "minzoom": 4,
+    "text_fade": "4:0 5:1"
+   },
+   "locations-spiritual": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": 0.7,
+    "minzoom": 5,
+    "text_fade": "5:0 6:1"
+   },
+   "locations-town": {
+    "icon_fade": "4:0 5:1",
+    "icon_size": 0.65,
+    "minzoom": 3,
+    "text_fade": "3:0 4:1"
+   },
+   "locations-village": {
+    "icon_fade": "5:0 6:1",
+    "icon_size": 0.6,
+    "minzoom": 4,
+    "text_fade": "4:0 5:1"
+   }
+  },
+  "mini": {
+   "mm-locations-capital": {
+    "icon_fade": "2:0 3:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 2,
+    "text_fade": "2:0 3:0.9"
+   },
+   "mm-locations-city": {
+    "icon_fade": "3:0 4:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 3,
+    "text_fade": "3:0 4:0.9"
+   },
+   "mm-locations-detail": {
+    "icon_fade": "7:0 8:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 7,
+    "text_fade": null
+   },
+   "mm-locations-routes": {
+    "icon_fade": "6:0 7:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "mm-locations-secondary": {
+    "icon_fade": "5:0 6:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 5,
+    "text_fade": "5:0 6:0.9"
+   },
+   "mm-locations-spiritual": {
+    "icon_fade": "6:0 7:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 6,
+    "text_fade": "6:0 7:0.9"
+   },
+   "mm-locations-town": {
+    "icon_fade": "4:0 5:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 4,
+    "text_fade": "4:0 5:0.9"
+   },
+   "mm-locations-village": {
+    "icon_fade": "5:0 6:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 5,
+    "text_fade": "5:0 6:0.9"
+   }
+  },
+  "world": {
+   "locations-capital": {
+    "icon_fade": "2:0 3:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 2,
+    "text_fade": "2:0 3:1"
+   },
+   "locations-city": {
+    "icon_fade": "3:0 4:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 3,
+    "text_fade": "3:0 4:1"
+   },
+   "locations-detail": {
+    "icon_fade": "7:0 8:1",
+    "icon_size": "7:0.3 10:0.6",
+    "minzoom": 7,
+    "text_fade": null
+   },
+   "locations-routes": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": "6:0.35 9:0.66",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "locations-secondary": {
+    "icon_fade": "5:0 6:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": "5:0 6:1"
+   },
+   "locations-spiritual": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 6,
+    "text_fade": "6:0 7:1"
+   },
+   "locations-town": {
+    "icon_fade": "4:0 5:1",
+    "icon_size": "4:0.45 8:0.78",
+    "minzoom": 4,
+    "text_fade": "4:0 5:1"
+   },
+   "locations-village": {
+    "icon_fade": "5:0 6:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": "5:0 6:1"
+   }
+  },
+  "world_gm_build": {
+   "locations-capital": {
+    "icon_fade": "2:0 3:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 2,
+    "text_fade": "2:0 3:1"
+   },
+   "locations-city": {
+    "icon_fade": "3:0 4:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 3,
+    "text_fade": "3:0 4:1"
+   },
+   "locations-detail": {
+    "icon_fade": "7:0 8:1",
+    "icon_size": "7:0.3 10:0.6",
+    "minzoom": 7,
+    "text_fade": null
+   },
+   "locations-routes": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": "6:0.35 9:0.66",
+    "minzoom": 6,
+    "text_fade": null
+   },
+   "locations-secondary": {
+    "icon_fade": "5:0 6:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": "5:0 6:1"
+   },
+   "locations-spiritual": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 6,
+    "text_fade": "6:0 7:1"
+   },
+   "locations-town": {
+    "icon_fade": "4:0 5:1",
+    "icon_size": "4:0.45 8:0.78",
+    "minzoom": 4,
+    "text_fade": "4:0 5:1"
+   },
+   "locations-village": {
+    "icon_fade": "5:0 6:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 5,
+    "text_fade": "5:0 6:1"
+   }
   }
  }
 }

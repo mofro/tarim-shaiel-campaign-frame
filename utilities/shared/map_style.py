@@ -1,18 +1,18 @@
 """
 Shared MapLibre styling for the Map Workshop, the player map and the world page.
 
-One definition of the route and region layers, the six location tiers (with the
+One definition of the route and region layers, the location tiers (with the
 icon-match expression), and the hover popup (CSS + JS), so the three maps cannot
 drift apart. Functions return JS / CSS fragments to splice into generated pages.
 
 JS fragments assume a loaded `map` (maplibregl.Map). Layer fragments assume the
 geojson sources "locations", "routes" and "regions" were added by the caller.
 
-Which Type is drawn by which tier, and with which icon, is not decided here: it is
-the `map_tier` and `map_icon` columns of locations.categories.TYPES. This module
-holds only how each tier looks (zoom, font, sizes). The world page reads the table's
-`page_icon` column instead, which still draws capital/bridge/lake as city/landmark/
-oasis; making the two agree is a visual change, so it is a one-cell edit in the table.
+Which Type is drawn by which tier, at which zoom, and with which icon, is not decided
+here: it is the `tier` and `map_icon` columns of locations.categories.TYPES and the
+TIER_ZOOM ladder beside them. This module holds only how each tier looks (font, sizes).
+The world page reads the table's `page_icon` column instead; the two columns agree today,
+and a disagreement would be a cell in the table.
 """
 
 from __future__ import annotations
@@ -160,23 +160,26 @@ def basemap_hide_js(layer_ids) -> str:
 _SERIF = ["Roboto Serif Regular", "Noto Sans Regular"]
 _SERIF_ITALIC = ["Roboto Serif Regular", "Noto Sans Italic"]
 
-# How each map tier looks, keyed by the tier names in categories.MAP_TIERS:
-# (layer id, icon-visible zoom, label font, icon size, text size)
-# Layer minzoom = zoom - 1; text fades in over [zoom - 1, zoom], icon over [zoom, zoom + 1].
-_TIER_STYLE: dict[str, tuple[str, int, list[str], float, int]] = {
-    "major":     ("locations-major",     3, _SERIF,        0.75, 14),
-    "towns":     ("locations-towns",     5, _SERIF,        0.65, 12),
-    "secondary": ("locations-secondary", 5, _SERIF_ITALIC, 0.70, 12),
-    "spiritual": ("locations-spiritual", 6, _SERIF_ITALIC, 0.70, 12),
-    "routes":    ("locations-routes",    6, _SERIF,        0.60, 11),
-    "detail":    ("locations-detail",    7, _SERIF,        0.75, 10),
+# How each tier looks, keyed by the tier names in categories.TIERS:
+# (label font, icon size, text size). The layer id is "locations-<tier>" and the zoom is
+# categories.TIER_ZOOM. Layer minzoom = zoom - 1; text fades in over [zoom - 1, zoom],
+# icon over [zoom, zoom + 1].
+_TIER_STYLE: dict[str, tuple[list[str], float, int]] = {
+    "capital":   (_SERIF,        0.75, 14),
+    "city":      (_SERIF,        0.75, 14),
+    "town":      (_SERIF,        0.65, 12),
+    "village":   (_SERIF,        0.60, 11),
+    "secondary": (_SERIF_ITALIC, 0.70, 12),
+    "spiritual": (_SERIF_ITALIC, 0.70, 12),
+    "routes":    (_SERIF,        0.60, 11),
+    "detail":    (_SERIF,        0.75, 10),
 }
 
 # (layer id, the Types the table puts in that tier, icon-visible zoom, label font, icon size, text size)
 LOCATION_TIERS: list[tuple[str, list[str], int, list[str], float, int]] = [
-    (layer_id, categories.tier_members("map_tier", tier), zoom, font, icon_size, text_size)
-    for tier in categories.MAP_TIERS
-    for layer_id, zoom, font, icon_size, text_size in [_TIER_STYLE[tier]]
+    (f"locations-{tier}", categories.tier_members(tier), categories.TIER_ZOOM[tier], font, icon_size, text_size)
+    for tier in categories.TIERS
+    for font, icon_size, text_size in [_TIER_STYLE[tier]]
 ]
 
 LOCATION_LAYER_IDS: list[str] = [t[0] for t in LOCATION_TIERS]
@@ -200,7 +203,7 @@ def tier_filter(cats: list[str]) -> list:
 
 
 def location_tiers_js(source: str = "locations") -> str:
-    """JS declaring `_iconMatch` and adding the six location symbol layers.
+    """JS declaring `_iconMatch` and adding the location symbol layers, one per tier.
 
     A feature is drawn only when its category is in the tier and mapMarker is not
     false (false means 'no marker'; MapLibre forbids a zoom interpolate inside a
@@ -225,24 +228,27 @@ def location_tiers_js(source: str = "locations") -> str:
                 "text-opacity": ["interpolate", ["linear"], ["zoom"], mz - 1, 0, mz, 1],
             },
         }
-        # Reference the shared variable rather than repeating the expression six times.
+        # Reference the shared variable rather than repeating the expression in every layer.
         layer_js = _js(layer).replace('"__ICON_MATCH__"', "_iconMatch")
         out.append(f"map.addLayer({layer_js});\n")
     return "".join(out)
 
 
 def check_tier_coverage() -> list[str]:
-    """Warnings where a row of locations.categories.TYPES names a tier that does not exist,
-    or a listed Type is drawn by no map tier. A Type can only be in one tier, because a
-    row has one `map_tier`."""
+    """Warnings where a row of locations.categories.TYPES names a tier that is not on the
+    ladder, a tier has no row (MapLibre rejects a `match` with no labels), or a listed
+    Type is drawn by no tier. A Type can only be in one tier, because a row has one `tier`."""
     warnings: list[str] = []
     for t in categories.TYPES:
-        if t.map_tier is not None and t.map_tier not in categories.MAP_TIERS:
-            warnings.append(f"Type '{t.slug}' names map tier '{t.map_tier}', which is not in categories.MAP_TIERS")
-        if t.page_tier is not None and t.page_tier not in categories.PAGE_TIERS:
-            warnings.append(f"Type '{t.slug}' names page tier '{t.page_tier}', which is not in categories.PAGE_TIERS")
-        if t.listed and t.map_tier is None:
-            warnings.append(f"Category '{t.slug}' is in categories.CATEGORIES but in no map tier (it will never be drawn)")
+        if t.tier is not None and t.tier not in categories.TIER_ZOOM:
+            warnings.append(f"Type '{t.slug}' names tier '{t.tier}', which is not in categories.TIER_ZOOM")
+        if t.listed and t.tier is None:
+            warnings.append(f"Category '{t.slug}' is in categories.CATEGORIES but in no tier (it will never be drawn)")
+    for tier in categories.TIERS:
+        if not categories.tier_members(tier):
+            warnings.append(f"Tier '{tier}' is on the ladder but no Type is in it")
+        if tier not in _TIER_STYLE:
+            warnings.append(f"Tier '{tier}' is on the ladder but has no entry in map_style._TIER_STYLE")
     return warnings
 
 
@@ -284,12 +290,28 @@ def raster_overlays_js(maptiler_key: str) -> str:
 # Display controls (which layers a viewer sees)
 # ---------------------------------------------------------------------------
 
+def _toggle_groups() -> tuple[list[tuple[str, str]], dict[str, str]]:
+    """The table's `toggle` column as ([(lead, label)], {follower: lead}). Rows that
+    share a label share a checkbox, keyed by the first of them."""
+    leads: dict[str, str] = {}
+    toggles: list[tuple[str, str]] = []
+    followers: dict[str, str] = {}
+    for t in categories.TYPES:
+        if not t.toggle:
+            continue
+        lead = leads.setdefault(t.toggle, t.slug)
+        if lead == t.slug:
+            toggles.append((t.slug, t.toggle))
+        else:
+            followers[t.slug] = lead
+    return toggles, followers
+
+
 # The location-type checkboxes, in menu order: (category, label), from the table's
 # `toggle` column. A Type with no label (ruins, site, caravanserai ...) has no
-# checkbox and is always drawn.
-LOCATION_TYPE_TOGGLES: list[tuple[str, str]] = [
-    (t.slug, t.toggle) for t in categories.TYPES if t.toggle
-]
+# checkbox and is always drawn. A Type that shares another's label (mythic-landscape
+# with sacred-site) has no checkbox of its own: TOGGLE_OF maps it to the one it follows.
+LOCATION_TYPE_TOGGLES, TOGGLE_OF = _toggle_groups()
 
 # Layers each non-location toggle shows and hides.
 DISPLAY_LAYER_GROUPS: dict[str, list[str]] = {
@@ -299,8 +321,8 @@ DISPLAY_LAYER_GROUPS: dict[str, list[str]] = {
 
 
 def tier_categories() -> dict[str, list[str]]:
-    """{tier layer id: the toggle categories in that tier}."""
-    toggled = {c for c, _ in LOCATION_TYPE_TOGGLES}
+    """{tier layer id: the categories in that tier a checkbox hides}, followers included."""
+    toggled = {c for c, _ in LOCATION_TYPE_TOGGLES} | set(TOGGLE_OF)
     return {layer_id: [c for c in cats if c in toggled]
             for layer_id, cats, *_ in LOCATION_TIERS}
 
@@ -361,8 +383,9 @@ def display_controls_css(touch: bool = False) -> str:
 def display_controls_js(storage: str, key: str, layers: dict | None = None) -> str:
     """JS owning the type / routes / journeys toggles.
 
-    Defines `_tierCats`, `_dispState` and `_dispLoad` / `_dispSave` / `_dispApply` /
-    `_dispWire`. `storage` ("localStorage" or "sessionStorage") holds one JSON blob
+    Defines `_tierCats`, `_toggleOf` (a category that follows another's checkbox ->
+    the category that owns it), `_dispState` and `_dispLoad` / `_dispSave` /
+    `_dispApply` / `_dispWire`. `storage` ("localStorage" or "sessionStorage") holds one JSON blob
     under `key`; every access sits in try/catch so a blocked store changes nothing
     but persistence.
 
@@ -383,6 +406,7 @@ def display_controls_js(storage: str, key: str, layers: dict | None = None) -> s
     types = {c: True for c, _ in LOCATION_TYPE_TOGGLES}
     return f"""\
 var _tierCats={_js(tier_categories())};
+var _toggleOf={_js(TOGGLE_OF)};
 var _tierBase={_js(base)};
 var _dispLayers={_js(groups)};
 var _dispState={{types:{_js(types)},layers:{_js({k: True for k in groups})}}};
@@ -410,7 +434,7 @@ function _dispApply(){{
   if(typeof map==="undefined"||!map)return;
   Object.keys(_tierCats).forEach(function(lyr){{
     if(!map.getLayer(lyr))return;
-    var off=_tierCats[lyr].filter(function(c){{return !_dispState.types[c];}});
+    var off=_tierCats[lyr].filter(function(c){{return !_dispState.types[_toggleOf[c]||c];}});
     var conds=[_tierBase[lyr]];
     if(off.length)conds.push(["!",["match",["get","category"],off,true,false]]);
     var x=typeof _dispExtra==="function"?_dispExtra(lyr):null;

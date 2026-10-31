@@ -5,13 +5,12 @@ TYPES is the one table. The parser, the Type dropdowns, the icon expressions, th
 tier filters and the Display toggles all read it, so they cannot disagree about
 what a Type is or how it is drawn (#336).
 
-This table reproduces what the maps drew before it existed, quirks included. The
-quirks are columns that differ between surfaces, not exceptions in code:
-`capital`, `bridge`, `lake` and `water-body` have a map tier but no page tier (the
-Workshop and player map draw them; the world page, the GM layers and the mini-maps
-do not), and the world page still draws `capital` as a city, `bridge` as a landmark
-and `lake` as an oasis, while the Workshop gives all three their own icon. A later
-change that fixes one of these edits one cell here.
+Where two surfaces disagree about a Type, the disagreement is a cell in this table,
+not an exception in code, so fixing it edits one cell. The same goes for zoom: a tier
+has one zoom, read by the Workshop, the player map, the world page, the GM layers and
+the mini-maps, so moving a tier is one cell in TIER_ZOOM. `tests/fixtures/type_pins.json`
+records what every Type draws on every surface; a change here regenerates it, and its
+diff is the change's before-and-after pin list.
 
 Columns
 -------
@@ -19,24 +18,27 @@ slug       the value of a page's `type:`; the only column every row has
 parses_as  what the location parser makes of that `type:` (or `mapmarker:`) value.
            None = the parser does not recognise it and falls through to the page's
            `content_type:`, then tags, then "poi"
-map_tier   which Workshop / player-map tier draws it (MAP_TIERS); None = not drawn
+tier       which tier draws it (TIER_ZOOM), on every surface; None = not drawn
 map_icon   the icon the Workshop and player map draw; None = the default icon
-page_tier  which world-page / mini-map tier draws it (PAGE_TIERS); None = not drawn
 page_icon  the icon the world page and the GM layers draw
 mini_icon  the icon the mini-maps on location pages draw
-toggle     the Display checkbox label; None = no checkbox, always drawn
-listed     False = a legacy spelling that is tolerated and drawn as before but not
-           offered in any dropdown
+toggle     the Display checkbox label; None = no checkbox, always drawn. Rows that share
+           a label share one checkbox, keyed by the first of them (sacred-site and
+           mythic-landscape are both "Sacred Sites")
+listed    False = tolerated but not offered in any dropdown: a legacy spelling, an
+           alias of another row, or a non-place (`icon: none`, no tier, never drawn)
 
 Exports
 -------
 Type, TYPES        the row type and the table
-MAP_TIERS, PAGE_TIERS   the tier names a row may use, in layer (z) order
+TIER_ZOOM, TIERS   the tier ladder: each tier's zoom, and the names in layer (z) order
+PAGE_ICON_SIZE     the world page's icon-size ramp for each tier
 CATEGORIES         the listed slugs in dropdown order
 VALID_CATEGORIES   frozenset of CATEGORIES, for membership checks and CLI validation
 ICON_MAP           {slug: page_icon}, the world page's icon arms
 DEFAULT_ICON       the icon a Type with no arm is drawn with
-tier_members()     the slugs in one tier of one surface, in row order
+tier_members()     the slugs in one tier, in row order
+tier_fade()        the zooms a tier's icon fades in over
 icon_arms()        (slug, icon) pairs for one surface's icon match
 """
 
@@ -46,49 +48,85 @@ from typing import NamedTuple
 class Type(NamedTuple):
     slug: str
     parses_as: str | None = None
-    map_tier: str | None = None
+    tier: str | None = None
     map_icon: str | None = None
-    page_tier: str | None = None
     page_icon: str | None = None
     mini_icon: str | None = None
     toggle: str | None = None
     listed: bool = True
 
 
-# Layer order is draw order: later tiers sit above earlier ones.
-MAP_TIERS = ("major", "towns", "secondary", "spiritual", "routes", "detail")
-PAGE_TIERS = ("major", "towns", "secondary", "routes", "detail")
+# The tier ladder. Each tier's icon starts fading in at this zoom and is fully drawn one
+# zoom later; every surface reads it. Order is layer (z) order: later tiers sit above
+# earlier ones. The Workshop and the world page cannot zoom out past 3, the mini-maps
+# start at 5, so a tier below that is simply fully drawn from the first view.
+TIER_ZOOM: dict[str, int] = {
+    "capital": 2,
+    "city": 3,
+    "town": 4,
+    "village": 5,
+    "secondary": 5,
+    "spiritual": 6,
+    "routes": 6,
+    "detail": 7,
+}
+TIERS = tuple(TIER_ZOOM)
+
+# The world page's icon size for each tier: (zoom, size, zoom, size), a linear ramp --
+# smaller at overview zooms to reduce crowding, growing as the viewer zooms in. The GM
+# layers share it. (The Workshop and the mini-maps size their icons their own way.)
+PAGE_ICON_SIZE: dict[str, tuple[int, float, int, float]] = {
+    "capital":   (3, 0.5,  8, 0.85),
+    "city":      (3, 0.5,  8, 0.85),
+    "town":      (4, 0.45, 8, 0.78),
+    "village":   (5, 0.4,  8, 0.72),
+    "secondary": (5, 0.4,  8, 0.72),
+    "spiritual": (5, 0.4,  8, 0.72),
+    "routes":    (6, 0.35, 9, 0.66),
+    "detail":    (7, 0.3, 10, 0.6),
+}
 
 # Row order is the order of the Type dropdowns and of the Display checkboxes. The
-# legacy rows come last and are the only rows with listed=False.
+# unlisted rows come last and are the only rows with listed=False.
 TYPES: tuple[Type, ...] = (
-    #    slug             parses_as      map_tier     map_icon           page_tier    page_icon          mini_icon          toggle
-    # Major locations
-    Type("city",          "city",        "major",     "cat-city",        "major",     "cat-city",        "cat-city",        "Cities"),
-    Type("capital",       "capital",     "major",     "cat-capital",     None,        "cat-city",        "cat-capital",     "Capitals"),
-    Type("bridge",        "bridge",      "major",     "cat-bridge",      None,        "cat-landmark",    None,              "Bridges"),
-    Type("landmark",      "landmark",    "major",     "cat-landmark",    "major",     "cat-landmark",    "cat-landmark",    "Landmarks"),
-    Type("fortress",      "fortress",    "major",     "cat-fortress",    "major",     "cat-fortress",    "cat-fortress",    "Fortresses"),
+    #    slug             parses_as      tier         map_icon           page_icon          mini_icon          toggle
+    # Cities
+    Type("city",          "city",        "city",      "cat-city",        "cat-city",        "cat-city",        "Cities"),
+    Type("capital",       "capital",     "capital",   "cat-capital",     "cat-capital",     "cat-capital",     "Capitals"),
+    Type("bridge",        "bridge",      "city",      "cat-bridge",      "cat-bridge",      "cat-bridge",      "Bridges"),
+    Type("landmark",      "landmark",    "city",      "cat-landmark",    "cat-landmark",    "cat-landmark",    "Landmarks"),
+    Type("fortress",      "fortress",    "city",      "cat-fortress",    "cat-fortress",    "cat-fortress",    "Fortresses"),
     # Towns
-    Type("town",          "town",        "towns",     "cat-town",        "towns",     "cat-town",        "cat-town",        "Towns"),
+    Type("town",          "town",        "town",      "cat-town",        "cat-town",        "cat-town",        "Towns"),
+    Type("village",       "village",     "village",   "cat-village",     "cat-village",     "cat-village",     "Villages"),
+    # Sacred and mythic places
+    Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
+    Type("mythic-landscape", "mythic-landscape", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
     # Secondary locations
-    Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "secondary", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
-    Type("oasis",         "oasis",       "secondary", "cat-oasis",       "secondary", "cat-oasis",       "cat-oasis",       "Oases"),
-    Type("lake",          "lake",        "secondary", "cat-lake",        None,        "cat-oasis",       "cat-lake",        "Lakes"),
-    Type("caravanserai",  "route-node",  "secondary", "cat-route-node",  "secondary", "cat-route-node",  "cat-route-node",  None),
+    Type("oasis",         "oasis",       "secondary", "cat-oasis",       "cat-oasis",       "cat-oasis",       "Oases"),
+    Type("lake",          "lake",        "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("sea",           "sea",         "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("river",         "river",       "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("reservoir",     "reservoir",   "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("spring",        "spring",      "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("well",          "well",        "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
     # Route network
-    Type("route-node",    "route-node",  "routes",    "cat-route-node",  "routes",    "cat-route-node",  "cat-route-node",  "Route Nodes"),
-    Type("chokepoint",    None,          "routes",    "cat-fortress",    "routes",    "cat-fortress",    "cat-fortress",    None),
-    Type("mountain-pass", None,          "routes",    "cat-landmark",    "routes",    "cat-landmark",    "cat-landmark",    None),
+    Type("route-node",    "route-node",  "routes",    "cat-route-node",  "cat-route-node",  "cat-route-node",  "Route Nodes"),
+    Type("chokepoint",    "chokepoint",  "routes",    "cat-fortress",    "cat-fortress",    "cat-fortress",    None),
+    Type("mountain-pass", "mountain-pass", "routes",  "cat-landmark",    "cat-landmark",    "cat-landmark",    None),
     # Detail layer
-    Type("ruins",         None,          "detail",    "cat-dungeon",     "detail",    "cat-dungeon",     "cat-dungeon",     None),
-    Type("poi",           "poi",         "detail",    None,              "detail",    "cat-poi",         None,              "POIs"),
-    Type("power-site",    None,          "spiritual", "cat-sacred-site", "detail",    "cat-sacred-site", "cat-sacred-site", None),
-    Type("site",          None,          "detail",    "cat-poi",         "detail",    "cat-poi",         "cat-poi",         None),
+    Type("ruins",         "ruins",       "detail",    "cat-dungeon",     "cat-dungeon",     "cat-dungeon",     None),
+    Type("poi",           "poi",         "detail",    None,              "cat-poi",         None,              "POIs"),
+    Type("power-site",    "power-site",  "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", None),
+    Type("site",          "site",        "detail",    "cat-poi",         "cat-poi",         "cat-poi",         None),
     # Legacy spellings still on pages or in old tooling: tolerated, never offered.
-    Type("water-body",    "lake",        "secondary", "cat-lake",        None,        None,              "cat-lake",        None, listed=False),
-    Type("dungeon",       "dungeon",     None,        None,              None,        None,              None,              None, listed=False),
-    Type("Oasis",         None,          None,        "cat-oasis",       None,        None,              "cat-oasis",       None, listed=False),
+    Type("water-body",    "lake",        "secondary", "cat-water",       "cat-water",       "cat-water",       None, listed=False),
+    Type("caravanserai",  "route-node",  "routes",    "cat-route-node",  "cat-route-node",  "cat-route-node",  None, listed=False),
+    Type("dungeon",       "dungeon",     None,        None,              None,              None,              None, listed=False),
+    # Not places: `icon: none`. The parser keeps the page's Type; no tier draws it.
+    Type("cosmological-realm", "cosmological-realm", None, None, None, None, None, listed=False),
+    Type("mobile entity", "mobile entity", None,      None,              None,              None,              None, listed=False),
+    Type("Oasis",         None,          None,        "cat-oasis",       None,              "cat-oasis",       None, listed=False),
 )
 
 CATEGORIES: list[str] = [t.slug for t in TYPES if t.listed]
@@ -98,9 +136,21 @@ VALID_CATEGORIES: frozenset[str] = frozenset(CATEGORIES)
 DEFAULT_ICON = "cat-poi"
 
 
-def tier_members(attr: str, tier: str) -> list[str]:
-    """Slugs whose `attr` ("map_tier" or "page_tier") is `tier`, in row order."""
-    return [t.slug for t in TYPES if getattr(t, attr) == tier]
+def tier_members(tier: str) -> list[str]:
+    """Slugs whose `tier` is `tier`, in row order."""
+    return [t.slug for t in TYPES if t.tier == tier]
+
+
+def tier_fade(tier: str) -> tuple[int, int]:
+    """(start, end) zooms of a tier's icon fade: from the tier's zoom to one zoom later."""
+    zoom = TIER_ZOOM[tier]
+    return zoom, zoom + 1
+
+
+def page_icon_size_expr(tier: str) -> str:
+    """The world page's icon-size expression for a tier (PAGE_ICON_SIZE)."""
+    z0, s0, z1, s1 = PAGE_ICON_SIZE[tier]
+    return f'["interpolate",["linear"],["zoom"],{z0},{s0},{z1},{s1}]'
 
 
 def icon_arms(attr: str) -> list[tuple[str, str]]:

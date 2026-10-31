@@ -2358,7 +2358,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _wsSearchDrop=document.getElementById("ws-search-drop");'
         'var _wsSearchGroups=['
         '{lbl:"Major",cats:["city","capital","bridge","landmark","fortress"]},'
-        '{lbl:"Towns",cats:["town"]},'
+        '{lbl:"Towns",cats:["town","village"]},'
         '{lbl:"Sacred",cats:["sacred-site","power-site"]},'
         '{lbl:"Terrain",cats:["oasis","lake","water-body"]},'
         '{lbl:"Routes",cats:["route-node","caravanserai","chokepoint","mountain-pass"]},'

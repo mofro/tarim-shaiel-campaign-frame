@@ -1,17 +1,16 @@
-"""One Types table decides the pin (#336, PR 2: the table, zero behaviour change).
+"""One Types table decides the pin (#336).
 
 `locations.categories.TYPES` is the single list of location Types. The parser, the
 Type dropdowns, the icon expressions, the tier filters and the Display toggles all
-read it. This PR adds the table and changes nothing anyone can see, quirks included
-(capital, bridge, lake and water-body are drawn on the Workshop and player map but
-not on the world page, the GM layers or the mini-maps; the parser ignores five listed
-Types; `dungeon` and `Oasis` are legacy spellings).
+read it.
 
-`tests/fixtures/type_pins.json` was captured from the code as it stood before the
-table. It records, for every Type spelling and on every surface that draws pins:
-which tier layer draws it, with which icon, plus each surface's icon arms and tier
-membership lists, and what the parser makes of it. A later PR that changes a pin
-regenerates the file, so its diff is that PR's before-and-after pin list:
+`tests/fixtures/type_pins.json` records, for every Type spelling and on every surface
+that draws pins: which tier layer draws it, with which icon, plus each surface's icon
+arms and tier membership lists, each layer's minzoom, icon and label fades and icon
+size ("zoom:value" stops), and what the parser makes of it. PR 2 captured it from
+the code as it stood before the table existed, so the table was proved to change
+nothing anyone could see. Every later commit that changes a pin regenerates the file,
+so its diff is that commit's before-and-after pin list:
 
     venv/bin/python tests/test_types_table.py
 """
@@ -34,15 +33,13 @@ GOLDEN = ROOT / "tests" / "fixtures" / "type_pins.json"
 # parser, so the empty probe is only a feature whose category is blank).
 PROBES = [
     "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "oasis",
-    "lake", "caravanserai", "route-node", "chokepoint", "mountain-pass", "ruins", "poi",
-    "power-site", "site", "water-body", "Oasis", "dungeon", "mythic-landscape", "village",
+    "lake", "sea", "river", "reservoir", "spring", "well", "caravanserai", "route-node",
+    "chokepoint", "mountain-pass", "ruins", "poi", "power-site", "site", "water-body", "Oasis",
+    "dungeon", "cosmological-realm", "mobile entity", "mythic-landscape", "village",
     "zz-unknown", "",
 ]
 VISIBILITIES = ("public", "gm_secrets")
 
-# Types on real pages that have no row yet. PR 3 gives each one a row (or `icon: none`)
-# and deletes its line here; a value on a page that is in neither place fails.
-OFF_TABLE_TYPES = {"mythic-landscape", "mobile entity", "cosmological-realm"}
 
 
 # ---------------------------------------------------------------------------
@@ -90,6 +87,14 @@ def _ev(x, props):
     raise ValueError(f"unhandled expression {op!r}")
 
 
+def _stops(expr):
+    """An interpolate-on-zoom expression as 'zoom:value ...' (a constant as itself)."""
+    if not (isinstance(expr, list) and expr[:3] == ["interpolate", ["linear"], ["zoom"]]):
+        return expr
+    pairs = expr[3:]
+    return " ".join(f"{pairs[k]}:{pairs[k + 1]}" for k in range(0, len(pairs), 2))
+
+
 def _layers_json(js):
     """Layers from map_style.location_tiers_js(): JSON objects, one shared icon variable."""
     icon_match, _ = _decode_at(js, js.index("var _iconMatch=") + len("var _iconMatch="))
@@ -99,17 +104,30 @@ def _layers_json(js):
         layer = json.loads(js[m.end():end].replace('"icon-image":_iconMatch', '"icon-image":"__M__"'))
         icon = layer["layout"]["icon-image"]
         out.append({"id": layer["id"], "filter": layer["filter"],
-                    "icon": icon_match if icon == "__M__" else icon})
+                    "icon": icon_match if icon == "__M__" else icon,
+                    "minzoom": layer["minzoom"],
+                    "icon_fade": _stops(layer["paint"]["icon-opacity"]),
+                    "text_fade": _stops(layer["paint"].get("text-opacity")),
+                    "icon_size": _stops(layer["layout"]["icon-size"])})
     return out
 
 
 def _layers_literal(js, prefix):
     """Layers from the f-string generators: object-literal keys, JSON arrays inside."""
+    starts = [m for m in re.finditer(r'map\.addLayer\(\{id:"(' + re.escape(prefix) + r'[a-z-]*)"', js)]
     out = []
-    for m in re.finditer(r'map\.addLayer\(\{id:"(' + re.escape(prefix) + r'[a-z-]*)"', js):
-        fi = js.index("filter:", m.end()) + len("filter:")
-        ii = js.index('"icon-image":', m.end()) + len('"icon-image":')
-        out.append({"id": m.group(1), "filter": _decode_at(js, fi)[0], "icon": _decode_at(js, ii)[0]})
+    for n, m in enumerate(starts):
+        chunk = js[m.end():starts[n + 1].start() if n + 1 < len(starts) else len(js)]
+
+        def after(key):
+            at = chunk.find(key)
+            return _decode_at(chunk, at + len(key))[0] if at >= 0 else None
+
+        out.append({"id": m.group(1), "filter": after("filter:"), "icon": after('"icon-image":'),
+                    "minzoom": after("minzoom:"),
+                    "icon_fade": _stops(after('"icon-opacity":')),
+                    "text_fade": _stops(after('"text-opacity":')),
+                    "icon_size": _stops(after('"icon-size":'))})
     return out
 
 
@@ -162,11 +180,13 @@ def current_pins():
     from locations.location_parser import _classify_type
 
     surfaces = _surfaces()
-    pins = {"probes": {}, "arms": {}, "tiers": {}}
+    pins = {"probes": {}, "arms": {}, "tiers": {}, "zooms": {}}
     for name, layers in surfaces.items():
         arms, default = _arms(layers)
         pins["arms"][name] = {"arms": arms, "default": default}
         pins["tiers"][name] = {k: v for k, v in _tiers(layers).items()}
+        pins["zooms"][name] = {L["id"]: {k: L[k] for k in ("minzoom", "icon_fade", "text_fade", "icon_size")}
+                               for L in layers}
     for probe in PROBES:
         row = {"parser_type": _classify_type({"type": probe}),
                "parser_mapmarker": _classify_type({"mapmarker": probe})}
@@ -190,6 +210,7 @@ def test_pins_are_what_they_were_before_the_table():
     now = current_pins()
     assert now["tiers"] == golden["tiers"], "a tier's category list changed"
     assert now["arms"] == golden["arms"], "a surface's icon arms changed"
+    assert now["zooms"] == golden["zooms"], "a layer's zoom, fade or icon size changed"
     for probe, row in golden["probes"].items():
         assert now["probes"][probe] == row, f"pin changed for Type {probe!r}"
     assert now == golden
@@ -202,13 +223,13 @@ def test_the_probe_list_covers_every_row():
     assert not missing, f"add {missing} to PROBES and regenerate the golden file"
 
 
-def test_dropdown_order_is_unchanged():
+def test_dropdown_order():
     from locations.categories import CATEGORIES, VALID_CATEGORIES
 
     assert CATEGORIES == [
-        "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "oasis",
-        "lake", "caravanserai", "route-node", "chokepoint", "mountain-pass", "ruins", "poi",
-        "power-site", "site",
+        "city", "capital", "bridge", "landmark", "fortress", "town", "village", "sacred-site", "mythic-landscape", "oasis",
+        "lake", "sea", "river", "reservoir", "spring", "well", "route-node",
+        "chokepoint", "mountain-pass", "ruins", "poi", "power-site", "site",
     ]
     assert VALID_CATEGORIES == frozenset(CATEGORIES)
 
@@ -219,25 +240,73 @@ def test_display_toggles_are_unchanged():
     assert LOCATION_TYPE_TOGGLES == [
         ("city", "Cities"), ("capital", "Capitals"), ("bridge", "Bridges"),
         ("landmark", "Landmarks"), ("fortress", "Fortresses"), ("town", "Towns"),
-        ("sacred-site", "Sacred Sites"), ("oasis", "Oases"), ("lake", "Lakes"),
+        ("village", "Villages"), ("sacred-site", "Sacred Sites"), ("oasis", "Oases"), ("lake", "Water"),
         ("route-node", "Route Nodes"), ("poi", "POIs"),
     ]
 
 
+def test_rows_sharing_a_toggle_label_share_one_checkbox():
+    from locations.categories import TYPES
+    from shared.map_style import LOCATION_TYPE_TOGGLES, TOGGLE_OF
+
+    labelled = [t for t in TYPES if t.toggle]
+    leads = dict(LOCATION_TYPE_TOGGLES)
+    assert len(set(leads.values())) == len(leads), "two checkboxes share a label"
+    # Every labelled row is either a checkbox's lead or follows one with its label.
+    assert {t.slug for t in labelled} == set(leads) | set(TOGGLE_OF)
+    for follower, lead in TOGGLE_OF.items():
+        assert lead in leads and follower not in leads
+        assert {t.slug: t.toggle for t in TYPES}[follower] == leads[lead]
+    # The sharing today: mythic-landscape is drawn and hidden with the Sacred Sites, and the
+    # water family (all drawn cat-water) with the lake.
+    assert TOGGLE_OF == {"mythic-landscape": "sacred-site", "sea": "lake", "river": "lake",
+                         "reservoir": "lake", "spring": "lake", "well": "lake"}
+
+
 def test_rows_name_real_tiers_and_icons():
-    from locations.categories import MAP_TIERS, PAGE_TIERS, TYPES
+    from locations.categories import TIERS, TYPES
     from locations.map_icons import REGISTERED_ICONS
 
     assert len({t.slug for t in TYPES}) == len(TYPES), "duplicate row"
     for t in TYPES:
-        assert t.map_tier in (None, *MAP_TIERS), t
-        assert t.page_tier in (None, *PAGE_TIERS), t
+        assert t.tier in (None, *TIERS), t
         for icon in (t.map_icon, t.page_icon, t.mini_icon):
             assert icon is None or icon in REGISTERED_ICONS, (t.slug, icon)
-        if t.map_tier is None:
+        if t.tier is None:
             assert t.map_icon is None or t.slug in ("Oasis",), t
     # Unlisted rows are legacy spellings: tolerated, never offered.
-    assert [t.slug for t in TYPES if not t.listed] == ["water-body", "dungeon", "Oasis"]
+    assert [t.slug for t in TYPES if not t.listed] == ["water-body", "caravanserai", "dungeon", "cosmological-realm", "mobile entity", "Oasis"]
+
+
+def test_the_ladder_runs_from_big_places_to_small():
+    """Capitals show first, then cities, then towns, then villages, then route nodes,
+    and the layer order (TIERS) never puts a tier that appears sooner above one that
+    appears later."""
+    from locations.categories import TIER_ZOOM, TIERS
+
+    z = TIER_ZOOM
+    assert z["capital"] < z["city"] < z["town"] < z["village"] < z["routes"]
+    assert [z[t] for t in TIERS] == sorted(z[t] for t in TIERS)
+    assert z["spiritual"] == z["routes"], "a sacred place is as easy to find as a route node"
+    assert max(z.values()) == z["detail"]
+
+
+def test_every_surface_reads_the_same_ladder():
+    """Each tier's icon starts fading in at its TIER_ZOOM and is drawn one zoom later,
+    on all five surfaces: moving a tier is one cell, and nothing else disagrees."""
+    from locations.categories import TIER_ZOOM
+
+    prefix = {"map": "locations-", "world": "locations-", "world_gm_build": "locations-",
+              "gm_secret": "gm-locations-", "mini": "mm-locations-"}
+    for name, layers in _surfaces().items():
+        assert layers, name
+        for L in layers:
+            tier = L["id"].removeprefix(prefix[name])
+            zoom = TIER_ZOOM[tier]
+            start, end = (float(stop.split(":")[0]) for stop in L["icon_fade"].split())
+            assert (start, end) == (zoom, zoom + 1), (name, L["id"], L["icon_fade"])
+            # The Workshop's layer opens a zoom early for its label to fade in first.
+            assert float(L["minzoom"]) == (zoom - 1 if name == "map" else zoom), (name, L["id"], L["minzoom"])
 
 
 def test_tier_and_icon_coverage_checks_are_clean():
@@ -278,10 +347,9 @@ def test_every_page_type_is_a_row():
 
     rows = {t.slug.lower() for t in TYPES}
     off_table = _page_types() - rows
-    assert off_table == OFF_TABLE_TYPES, (
-        "Types on pages with no row (add a row, or `icon: none` for a non-place): "
-        f"{sorted(off_table - OFF_TABLE_TYPES)}; rows now in the table but still listed "
-        f"as exceptions: {sorted(OFF_TABLE_TYPES - off_table)}")
+    assert not off_table, (
+        f"Types on pages with no row: {sorted(off_table)}. Add a row, or `icon: none` "
+        "for a non-place")
 
 
 if __name__ == "__main__":
