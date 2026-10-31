@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-10-28
+last_updated: 2026-10-31
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -31,6 +31,7 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 | Netlify production build | runs `build.py all --public` automatically on push — no manual step |
 | Interactive location/route editing (drag-to-update) | `venv/bin/python utilities/devserver.py` — site at `localhost:8000/`, workshop at `localhost:8000/workshop` |
 | Audit location coordinates and elevations against terrain and real-world analogs | `venv/bin/python utilities/locations/coord_audit.py` (report only; see "Auditing coordinates" below) |
+| Change the Type of many location pages from a CSV | `venv/bin/python utilities/map.py retype SHEET.csv --dry-run`, then without `--dry-run` (see "Retyping locations" below) |
 | See all registered generators | `python utilities/build.py list` |
 
 ---
@@ -113,6 +114,28 @@ venv/bin/python utilities/locations/coord_audit.py --apply world/data/coord-audi
 
 Then run Regenerate on any route the apply step lists, and rebuild with `venv/bin/python utilities/build.py all --gm`. Details are in `lat.md/locations.md`.
 
+### "Retyping locations" (#336)
+
+A page's `type:` decides its pin (see "Types Table" in `lat.md/locations.md`), so sorting pins is a bulk edit of `type:`. Make a CSV with a header row and the columns `slug` (file name without `.md`), `type` (a listed Type; blank skips the row) and optionally `from` (the Type the page has now, so a stale sheet is refused). Other columns are ignored, so an annotated report can be passed back as it is. Preview, and read the diff:
+
+```bash
+venv/bin/python utilities/map.py retype SHEET.csv --dry-run
+```
+
+Apply it (add `--confirm-canon` when a row is a `status: canon` page):
+
+```bash
+venv/bin/python utilities/map.py retype SHEET.csv
+```
+
+It writes `type:` and `last_updated:` only. One bad row (not a listed Type, duplicate slug, no such file, no frontmatter, stale `from`, canon without `--confirm-canon`, missing column) stops the whole run with nothing written, and the row is named. It does **not** rebuild; it ends by printing the next command:
+
+```bash
+venv/bin/python utilities/map.py rebuild
+```
+
+To change one page's icon without changing its Type, use `map_icon:` in the page's frontmatter or the Icon override dropdown in the Workshop; `map_icon: none` hides the pin.
+
 ### "Something looks wrong — full clean rebuild"
 
 ```bash
@@ -146,7 +169,7 @@ The Layers menu's Topo and Satellite overlays reach the player map only through 
 ### The Tabs
 
 #### Add Point *(devserver required for one-click creation)*
-For adding new location stubs with coordinates. Provides a form (title, category, fantasy name, description, lat/lon). Clicking the map drops a crosshair at that point and populates the coordinate fields. Click **Create Location** — the button POSTs to `POST /api/locations/create`, which runs `map.py location` end-to-end: writes the `.md` stub, rebuilds the GeoJSON snapshot, then triggers a workshop rebuild. Status shown inline; reload the workshop to see the new pin.
+For adding new location stubs with coordinates. Provides a form (title, category, fantasy name, description, lat/lon). The stub is created with `type:` only (no `mapmarker:`, no `type-*` tag). Clicking the map drops a crosshair at that point and populates the coordinate fields. Click **Create Location** — the button POSTs to `POST /api/locations/create`, which runs `map.py location` end-to-end: writes the `.md` stub, rebuilds the GeoJSON snapshot, then triggers a workshop rebuild. Status shown inline; reload the workshop to see the new pin.
 
 #### Plan Route *(devserver required for one-click adding)*
 For building new routes between locations. Click location markers on the map to queue waypoints. The queue shows straight-line distance and travel time between each pair. Click **Add Route** — the button POSTs to `POST /api/routes/add`, which runs `map.py route` end-to-end: writes segments to `world/data/tarim-shaiel-routes.geojson`, snaps to roads via OSRM, rebuilds GeoJSON and workshop. Status shown inline; reload to see the new route.
@@ -173,6 +196,8 @@ Changing one leg's mode or path recomputes only that leg and the total, with no 
 #### Edit Coords *(devserver required)*
 For updating the lat/lon of an existing location without editing YAML by hand. Click any pin on the map → the location loads in the Edit Coords panel. Drag the pin to its correct position, or type new coordinates directly. A badge on the tab shows how many unsaved edits are pending. "Save" sends a `PUT /api/locations/{slug}/coordinates` to the devserver, which writes the new coordinates into the `.md` file's frontmatter.
 
+The field editor also has an **Icon override** select beside the Type select (From Type, the 13 registered icons, none) and an "Icon: X (from Type)" readout. Save sends only the fields that changed. Choosing From Type removes both `map_icon:` and the legacy `map_marker:` line from the page. A running devserver and a built Workshop predate any change to this, so restart the devserver and run `build.py workshop` to pick it up.
+
 **Moving a location does NOT update any routes connected to it.** Route geometry is a frozen snapshot from when the route was created/last regenerated — coordinates live independently in `world/data/tarim-shaiel-routes.geojson`. After repositioning a location, click **Regenerate** (Route Index tab) on each route touching it to bring the route's endpoints back in sync.
 
 #### Regenerate Route
@@ -192,7 +217,7 @@ For choosing which GM-only locations become public. Click a GM-only marker, or p
 | Endpoint | Method | What it does |
 |---|---|---|
 | `/api/locations/{slug}/coordinates` | PUT | Writes new lat/lon into `world/locations/{slug}.md` frontmatter |
-| `/api/locations/{slug}/frontmatter` | PATCH | Updates `name`, `fantasy_name`, `type`, `mapmarker` or `visibility` in the location's frontmatter (atomic write, bumps `last_updated`). Used by the Reveal tab and the Edit Coords field editor |
+| `/api/locations/{slug}/frontmatter` | PATCH | Updates `name`, `fantasy_name`, `type`, `mapmarker`, `map_icon` or `visibility` in the location's frontmatter (atomic write, bumps `last_updated`; setting `map_icon` also removes the older `map_marker:` line). Used by the Reveal tab and the Edit Coords field editor |
 | `/api/locations/create` | POST | Creates a new location stub via `map.py location` (writes `.md`, rebuilds GeoJSON) |
 | `/api/routes/add` | POST | Adds route segments via `map.py route` (writes GeoJSON, snaps to roads) |
 | `/api/routes/{route_id}` | PATCH | Sets `visibility` (`public` / `gm_secrets`) and/or `mode` (a key of the speed table) on one route. Other fields are ignored; an unknown value or no recognised field is a 400 and nothing is written. Atomic write that keeps the file's serialization. Used by the route panel |

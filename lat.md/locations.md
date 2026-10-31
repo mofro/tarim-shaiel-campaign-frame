@@ -21,7 +21,9 @@ last_updated: 2026-10-31
 | Region parser | `utilities/locations/region_parser.py` | Parses `world/regions/*.md` → `RegionData` dicts |
 | HTML components | `utilities/locations/location_components.py` | Mini-map, faction table, danger pips, stats row, xref stub |
 | Normalization script | `utilities/world/normalize_locations.py` | One-time migration; adds `parent_region`, `visibility`, `status`, renames `factions→factions_visible` |
-| Type source of truth | `utilities/locations/categories.py` | `TYPES`, one table (29 rows, 23 listed): the parser, the Workshop Add Point and Edit Coords dropdowns, the icon expressions, the tier filters and the Display checkboxes all read it, as do `utilities/map.py` and `add_location.py`. Add or change a Type there only. Exports `CATEGORIES`, `VALID_CATEGORIES`, `ICON_MAP`, `TIER_ZOOM` / `TIERS`, `tier_members()`, `tier_fade()`, `icon_arms()`, `check_tier_coverage()`. See Types Table below |
+| Type source of truth | `utilities/locations/categories.py` | `TYPES`, one table (29 rows, 23 listed): the parser, the Workshop Add Point and Edit Coords dropdowns, the icon expressions, the tier filters and the Display checkboxes all read it, as do `utilities/map.py` and `add_location.py`. Add or change a Type there only. Exports `CATEGORIES`, `VALID_CATEGORIES`, `ICON_MAP`, `TIER_ZOOM` / `TIERS`, `tier_members()`, `tier_fade()`, `icon_arms()`, `type_icons()`, `check_tier_coverage()`. See Types Table below |
+| Icon registry | `utilities/locations/map_icons.py` | `REGISTERED_ICONS` (13 `cat-` sprites) and `ICON_NAMES` (the bare names); the parser, the Workshop Icon override dropdown and `retype` check against it |
+| Bulk retype | `utilities/locations/retype.py` | `map.py retype SHEET`: change many pages' `type:` from one CSV (#336, PR 4). See Types Table below |
 | Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`; `routes_layer_js(dim_hidden=True)` dims routes the players cannot see, `ROUTE_DIM_OPACITY`), region layers, eight location tiers (the table's `tier` column, zooms from `TIER_ZOOM`), hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), basemap peak constants (`BASEMAP_PEAK_LAYER`, `BASEMAP_HIDDEN_LAYERS`, `PLAYER_HIDDEN_LAYERS`) and `basemap_hide_js()` — see Basemap Peak Markers below |
 | Route visibility | `utilities/shared/route_visibility.py` | `visible_routes(routes, all_locations)` and `visible_waystations(waystations, routes)`: the one rule for which routes reach player output. Used by the player map and the public locations build |
 | Route travel time | `utilities/shared/travel_time.py` | Speed table (`SPEEDS`), path factors, terrain constants (Tobler, `MAX_SLOPE`, tile URL and limits), `segment_hours(km, mode, path, slope_factor)`, `format_duration()`, `tt_json()` for the Workshop JS |
@@ -106,6 +108,8 @@ Start-view order, first valid wins:
 
 Priority: `type:` field → `mapmarker:` → `content_type:` → tags (type-city etc.)
 
+That chain decides what a page *is* (`location_type`). Which icon it draws is separate: the Type's `map_icon` column, unless the page carries a `map_icon:` override (see Types Table below).
+
 | Type slug | Display label | Default danger pips |
 |---|---|---|
 | city | City | 1 |
@@ -121,13 +125,17 @@ That table lists only the original eight slugs and their default danger pips. Th
 
 ## Types Table
 
-`TYPES` in `utilities/locations/categories.py` decides the pin (#336, PRs 2 and 3). A row carries `slug`, `parses_as`, `tier`, `map_icon`, `page_icon`, `mini_icon`, `toggle` and `listed`; the module docstring defines each column. `mapmarker:` and `type-*` tags stay in the files but only classify a page with no `type:`; they never choose an icon.
+`TYPES` in `utilities/locations/categories.py` decides the pin (#336, PRs 2 to 4). A row carries `slug`, `parses_as`, `tier`, `map_icon`, `page_icon`, `mini_icon`, `toggle` and `listed`; the module docstring defines each column. `mapmarker:` and `type-*` tags stay in the files but only classify a page with no `type:`; they never choose an icon.
 
 - **One zoom ladder:** `TIER_ZOOM` is the only place a tier's zoom lives, read by the Workshop, player map, world page, GM layers and mini-maps. An icon starts fading in at the tier's zoom and is fully drawn one zoom later: capital 2, city 3, town 4, village 5, secondary 5, spiritual 6, routes 6, detail 7. Moving a tier is one cell plus a golden regeneration.
 - **Icon families:** the water family (lake, sea, river, reservoir, spring, well, water-body) draws `cat-water`; sacred-site and mythic-landscape draw `cat-sacred-site`; village draws `cat-village`, a downward triangle, in its own tier. caravanserai is an unlisted alias of route-node. cosmological-realm and mobile entity are `icon: none` rows (not places, never drawn).
 - **World page GM layers:** `gm-locations-<tier>` for all eight tiers, at 40% opacity, filtered to `visibility == gm_secrets` (GM build only, `build.py locations --gm`). A `gm_secrets` town is drawn there as a `gm_secrets` village is.
 - **Golden file:** `tests/fixtures/type_pins.json` records what every Type draws on every surface (arms, probes, tiers, zooms). A change to the table regenerates it with `venv/bin/python tests/test_types_table.py`, and its diff is the change's before-and-after pin list. Display checkboxes are not recorded in it. Tests: `tests/test_types_table.py` (11).
-- **Still to come (PR 4):** the `map_icon:` per-page override, creation reading the table, a `retype` command. The content sort (caravanserai and route-node pins, water types, Type and `mapmarker:` disagreements) follows.
+- **`map_icon:` override (PR 4):** one page's pin icon, set in frontmatter or by the Workshop Icon override dropdown. A registered icon name, bare or `cat-` prefixed, replaces the Type's icon; `none` hides the pin. A value that is not a registered icon is ignored with a build warning (`WARN: <slug> has map_icon: ...`) and the Type's icon draws. The parser exposes it as `map_marker`: None = from Type, False = no pin, str = icon name. The older `map_marker:` is still read when `map_icon:` gives nothing usable, so `map_marker: false` keeps hiding `afrasiyan-plateau`, `waycross` and `waycross-map` until they are migrated. YAML `false`, `no` and `off` load as boolean false and also hide the pin. Tests: `tests/test_icon_override.py` (40).
+- **Workshop Icon override (PR 4):** a select beside the Type select in the Edit Coords field editor (From Type, the 13 registered icons, none) and an "Icon: X (from Type)" readout. Save sends only the fields that changed. Choosing From Type removes both `map_icon:` and the legacy `map_marker:` line, so a pin cannot stay hidden by a line the form does not show. The devserver `PATCH /api/locations/{slug}/frontmatter` accepts `map_icon` and drops `map_marker:` when it sets it.
+- **Creation (PR 4):** `add_location.py` (so `map.py location` and the devserver create) writes `type:` only: no `mapmarker:` and no `type-*` tag. A new page therefore has no `mapmarker:`; see Known Gaps for what still reads it.
+- **`retype` (PR 4):** `map.py retype SHEET [--dry-run] [--confirm-canon] [--locations-dir DIR]`. SHEET is a CSV with `slug` and `type` columns and an optional `from` column (the Type the page has now); other columns are ignored, so an annotated report can be passed back as it is. A blank `type` skips the row. It writes `type:` and `last_updated:` and nothing else, and prints a diff per page. One bad row stops the whole run with nothing written, naming the row: not a listed Type, duplicate slug, no such file, no frontmatter, stale `from`, a canon page without `--confirm-canon`, or a missing column. It does not rebuild; it prints "Rebuild next: venv/bin/python utilities/map.py rebuild". Tests: `tests/test_retype.py` (17).
+- **Still to do — the content sort:** sort the 35 caravanserai and 43 route-node pins into village, town and route-node; fix the water types (`east-china-sea` is typed lake; `tajik-sea`, `karkash-river`, `qiala-shuiku` and the two `suv-ombori` pages); decide whether `refugee-rill` and `mazar-tag` are mythic-landscape; handle the 13 off-list Types and the 14 Type and `mapmarker:` disagreements; migrate the three `map_marker: false` pages to `map_icon: none`. Run `retype --dry-run` first and read the diff. These are `world:` commits to main, with #336 and HeroHeaven-fs8.4 open until it is done.
 
 ## GM Reveal Mechanic
 
@@ -225,6 +233,12 @@ python utilities/locations/generate_locations_html.py --dry-run
 python utilities/build.py all
 ```
 
+```bash
+# Change many pages' Type from one CSV (slug, type, optional from); preview first
+venv/bin/python utilities/map.py retype SHEET.csv --dry-run
+venv/bin/python utilities/map.py retype SHEET.csv
+```
+
 ## Known Gaps
 
 - `dun-kharan.md` — no coordinates (complex frontmatter; parent_region: null)
@@ -233,3 +247,4 @@ python utilities/build.py all
 - `docs/locations/` cross-links not yet populated (xref-stub placeholder)
 - `zzkashkar.md` — duplicate stub file; excluded by `zz` prefix filter
 - A Workshop rename writes `title:` only when the page has both `title:` and `name:`, so a rename can leave `name:` stale (pre-existing, not changed by #321)
+- `utilities/geojson/generate_geojson.py` (lines 190-209) still keys `CATEGORY_COLORS` and `MAKI_SYMBOLS` on the legacy frontmatter `mapmarker:`, not on `type:`. 25 of 207 parsed pages have no `mapmarker:` and are on its default marker; pages created since #336 PR 4 will lack it too. Only the standalone GeoJSON snapshot is affected: the Workshop, player map, world page and location pages read the Types table
