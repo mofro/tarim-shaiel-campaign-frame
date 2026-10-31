@@ -8,17 +8,19 @@ drift apart. Functions return JS / CSS fragments to splice into generated pages.
 JS fragments assume a loaded `map` (maplibregl.Map). Layer fragments assume the
 geojson sources "locations", "routes" and "regions" were added by the caller.
 
-Icon mapping note: the tier icon match below reproduces what the Workshop and
-player map have always drawn (capital/bridge/lake have their own icons). It is NOT
-the same mapping as locations.categories.ICON_MAP, which the world page uses and
-which collapses those three onto city/landmark/oasis. Unifying the two is a
-visual change, so it is left as a separate decision.
+Which Type is drawn by which tier, and with which icon, is not decided here: it is
+the `map_tier` and `map_icon` columns of locations.categories.TYPES. This module
+holds only how each tier looks (zoom, font, sizes). The world page reads the table's
+`page_icon` column instead, which still draws capital/bridge/lake as city/landmark/
+oasis; making the two agree is a visual change, so it is a one-cell edit in the table.
 """
 
 from __future__ import annotations
 
 import json
 import re
+
+from locations import categories
 
 # ---------------------------------------------------------------------------
 # Routes + regions
@@ -158,39 +160,34 @@ def basemap_hide_js(layer_ids) -> str:
 _SERIF = ["Roboto Serif Regular", "Noto Sans Regular"]
 _SERIF_ITALIC = ["Roboto Serif Regular", "Noto Sans Italic"]
 
-# (layer id, categories, icon-visible zoom, label font, icon size, text size)
+# How each map tier looks, keyed by the tier names in categories.MAP_TIERS:
+# (layer id, icon-visible zoom, label font, icon size, text size)
 # Layer minzoom = zoom - 1; text fades in over [zoom - 1, zoom], icon over [zoom, zoom + 1].
+_TIER_STYLE: dict[str, tuple[str, int, list[str], float, int]] = {
+    "major":     ("locations-major",     3, _SERIF,        0.75, 14),
+    "towns":     ("locations-towns",     5, _SERIF,        0.65, 12),
+    "secondary": ("locations-secondary", 5, _SERIF_ITALIC, 0.70, 12),
+    "spiritual": ("locations-spiritual", 6, _SERIF_ITALIC, 0.70, 12),
+    "routes":    ("locations-routes",    6, _SERIF,        0.60, 11),
+    "detail":    ("locations-detail",    7, _SERIF,        0.75, 10),
+}
+
+# (layer id, the Types the table puts in that tier, icon-visible zoom, label font, icon size, text size)
 LOCATION_TIERS: list[tuple[str, list[str], int, list[str], float, int]] = [
-    ("locations-major",     ["city", "capital", "bridge", "landmark", "fortress"], 3, _SERIF,        0.75, 14),
-    ("locations-towns",     ["town"],                                              5, _SERIF,        0.65, 12),
-    ("locations-secondary", ["oasis", "lake", "caravanserai", "water-body"],       5, _SERIF_ITALIC, 0.70, 12),
-    ("locations-spiritual", ["sacred-site", "power-site"],                         6, _SERIF_ITALIC, 0.70, 12),
-    ("locations-routes",    ["route-node", "chokepoint", "mountain-pass"],         6, _SERIF,        0.60, 11),
-    ("locations-detail",    ["ruins", "poi", "site"],                              7, _SERIF,        0.75, 10),
+    (layer_id, categories.tier_members("map_tier", tier), zoom, font, icon_size, text_size)
+    for tier in categories.MAP_TIERS
+    for layer_id, zoom, font, icon_size, text_size in [_TIER_STYLE[tier]]
 ]
 
 LOCATION_LAYER_IDS: list[str] = [t[0] for t in LOCATION_TIERS]
-
-# Legacy spellings still present in data or old tooling; tolerated, not canonical.
-_LEGACY_TIER_CATEGORIES = {"water-body"}
-
-_ICON_BY_CATEGORY: list[tuple[str, str]] = [
-    ("city", "cat-city"), ("capital", "cat-capital"), ("town", "cat-town"),
-    ("caravanserai", "cat-route-node"), ("fortress", "cat-fortress"), ("chokepoint", "cat-fortress"),
-    ("bridge", "cat-bridge"), ("landmark", "cat-landmark"), ("mountain-pass", "cat-landmark"),
-    ("oasis", "cat-oasis"), ("Oasis", "cat-oasis"), ("lake", "cat-lake"), ("water-body", "cat-lake"),
-    ("power-site", "cat-sacred-site"), ("route-node", "cat-route-node"), ("ruins", "cat-dungeon"),
-    ("sacred-site", "cat-sacred-site"), ("site", "cat-poi"),
-]
-_DEFAULT_ICON = "cat-poi"
 
 
 def icon_match_expr() -> list:
     """MapLibre icon-image expression: mapMarker override, else category, else cat-poi."""
     match: list = ["match", ["get", "category"]]
-    for cat, icon in _ICON_BY_CATEGORY:
+    for cat, icon in categories.icon_arms("map_icon"):
         match += [cat, icon]
-    match.append(_DEFAULT_ICON)
+    match.append(categories.DEFAULT_ICON)
     return ["case",
             ["!=", ["get", "mapMarker"], None], ["concat", "cat-", ["get", "mapMarker"]],
             match]
@@ -235,24 +232,17 @@ def location_tiers_js(source: str = "locations") -> str:
 
 
 def check_tier_coverage() -> list[str]:
-    """Warnings where the tier table and locations.categories.CATEGORIES disagree."""
-    from locations.categories import CATEGORIES
-
-    in_tiers = {c for _, cats, *_ in LOCATION_TIERS for c in cats}
-    warnings = [
-        f"Category '{c}' is in categories.CATEGORIES but in no map tier (it will never be drawn)"
-        for c in CATEGORIES if c not in in_tiers
-    ]
-    warnings += [
-        f"Tier category '{c}' is not in categories.CATEGORIES"
-        for c in sorted(in_tiers - set(CATEGORIES) - _LEGACY_TIER_CATEGORIES)
-    ]
-    seen: dict[str, str] = {}
-    for layer_id, cats, *_ in LOCATION_TIERS:
-        for c in cats:
-            if c in seen:
-                warnings.append(f"Category '{c}' is in two tiers: {seen[c]} and {layer_id}")
-            seen[c] = layer_id
+    """Warnings where a row of locations.categories.TYPES names a tier that does not exist,
+    or a listed Type is drawn by no map tier. A Type can only be in one tier, because a
+    row has one `map_tier`."""
+    warnings: list[str] = []
+    for t in categories.TYPES:
+        if t.map_tier is not None and t.map_tier not in categories.MAP_TIERS:
+            warnings.append(f"Type '{t.slug}' names map tier '{t.map_tier}', which is not in categories.MAP_TIERS")
+        if t.page_tier is not None and t.page_tier not in categories.PAGE_TIERS:
+            warnings.append(f"Type '{t.slug}' names page tier '{t.page_tier}', which is not in categories.PAGE_TIERS")
+        if t.listed and t.map_tier is None:
+            warnings.append(f"Category '{t.slug}' is in categories.CATEGORIES but in no map tier (it will never be drawn)")
     return warnings
 
 
@@ -294,14 +284,11 @@ def raster_overlays_js(maptiler_key: str) -> str:
 # Display controls (which layers a viewer sees)
 # ---------------------------------------------------------------------------
 
-# The location-type checkboxes, in menu order: (category, label). Each category
-# is one of LOCATION_TIERS' categories; the rest (ruins, site, caravanserai ...)
-# have no toggle and are always drawn.
+# The location-type checkboxes, in menu order: (category, label), from the table's
+# `toggle` column. A Type with no label (ruins, site, caravanserai ...) has no
+# checkbox and is always drawn.
 LOCATION_TYPE_TOGGLES: list[tuple[str, str]] = [
-    ("city", "Cities"), ("capital", "Capitals"), ("bridge", "Bridges"),
-    ("landmark", "Landmarks"), ("fortress", "Fortresses"), ("town", "Towns"),
-    ("sacred-site", "Sacred Sites"), ("oasis", "Oases"), ("lake", "Lakes"),
-    ("route-node", "Route Nodes"), ("poi", "POIs"),
+    (t.slug, t.toggle) for t in categories.TYPES if t.toggle
 ]
 
 # Layers each non-location toggle shows and hides.
@@ -333,10 +320,10 @@ def display_type_grid_html() -> str:
 
     Each label carries an empty `.it-icon` span; `_dispIcons()` (display_controls_js)
     paints the map's own marker into it once the icons are registered."""
-    icons = dict(_ICON_BY_CATEGORY)
+    icons = dict(categories.icon_arms("map_icon"))
     cells = "".join(
         f'<label><input type="checkbox" class="disp-cb" data-kind="type" '
-        f'data-key="{cat}" checked><span class="it-icon" data-icon="{icons.get(cat, _DEFAULT_ICON)}"></span>'
+        f'data-key="{cat}" checked><span class="it-icon" data-icon="{icons.get(cat, categories.DEFAULT_ICON)}"></span>'
         f'{label}</label>\n'
         for cat, label in LOCATION_TYPE_TOGGLES
     )

@@ -12,6 +12,7 @@ from html import escape
 from pathlib import Path
 from typing import Optional
 
+from locations.categories import DEFAULT_ICON, icon_arms, tier_members
 from locations.location_parser import LocationData
 from locations.region_parser import RegionData
 from locations.map_icons import icon_registration_js
@@ -186,17 +187,18 @@ MAP_ATTRIBUTION_HTML = (
 
 
 # Mirrors the tier structure in generate_locations_html.py::_locations_layers_js
-# (same category groupings + zoom thresholds) so mini-maps and the world map
-# reveal locations the same way as you zoom. Duplicated rather than imported —
+# so mini-maps and the world map reveal locations the same way as you zoom. The
+# categories in each tier are the table's `page_tier` column, the same one the world
+# page reads. The zoom thresholds are duplicated rather than imported --
 # generate_locations_html.py imports FROM this module, so importing back would
 # create a circular dependency.
 _MINI_MAP_TIERS = [
     # layer_id            categories                                    mz  fs   fe   label_font                                     size
-    ('mm-locations-major',     ['city', 'landmark', 'fortress'],             3, 3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
-    ('mm-locations-towns',     ['town'],                                      4, 4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Regular'], 11),
-    ('mm-locations-secondary', ['sacred-site', 'oasis', 'caravanserai'],     5, 5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
-    ('mm-locations-routes',    ['route-node', 'chokepoint', 'mountain-pass'],6, 6.5, 7,  None,                                       0),
-    ('mm-locations-detail',    ['ruins', 'poi', 'power-site', 'site'],       7, 7.5, 8,  None,                                       0),
+    ('mm-locations-major',     tier_members('page_tier', 'major'),           3, 3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
+    ('mm-locations-towns',     tier_members('page_tier', 'towns'),            4, 4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Regular'], 11),
+    ('mm-locations-secondary', tier_members('page_tier', 'secondary'),       5, 5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
+    ('mm-locations-routes',    tier_members('page_tier', 'routes'),          6, 6.5, 7,  None,                                       0),
+    ('mm-locations-detail',    tier_members('page_tier', 'detail'),          7, 7.5, 8,  None,                                       0),
 ]
 
 
@@ -207,16 +209,11 @@ def _mini_map_icon_match() -> str:
     # MapLibre's style spec forbids nesting a zoom-based interpolate (used for
     # icon-opacity's fade) inside a "case" expression, so hiding via opacity
     # isn't legal; filtering the feature out of the layer entirely is.
+    arms = "".join(f'"{cat}","{icon}",' for cat, icon in icon_arms("mini_icon"))
     return (
         '["case",'
         '["!=",["get","mapMarker"],null],["concat","cat-",["get","mapMarker"]],'
-        '["match",["get","category"],'
-        '"city","cat-city","capital","cat-capital","town","cat-town","caravanserai","cat-route-node",'
-        '"fortress","cat-fortress","chokepoint","cat-fortress",'
-        '"landmark","cat-landmark","mountain-pass","cat-landmark",'
-        '"oasis","cat-oasis","Oasis","cat-oasis","lake","cat-lake","water-body","cat-lake","power-site","cat-sacred-site",'
-        '"route-node","cat-route-node","ruins","cat-dungeon",'
-        '"sacred-site","cat-sacred-site","site","cat-poi","cat-poi"]]'
+        f'["match",["get","category"],{arms}"{DEFAULT_ICON}"]]'
     )
 
 
