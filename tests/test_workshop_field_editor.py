@@ -19,18 +19,19 @@ sys.path.insert(0, str(ROOT / "utilities"))
 
 import devserver
 import generate_map_workshop as gmw
+from locations.map_icons import ICON_NAMES
 
 NODE = shutil.which("node")
 needs_node = pytest.mark.skipif(NODE is None, reason="node not installed")
 
 # What the form showed when the page opened: Fantasy name blank because it equals the
-# title, Map Marker on auto because the file's value is not on the list, Type blank
-# because the category is not one the select offers.
+# title, Icon override on "From Type" because the page has none, Type blank because the
+# category is not one the select offers.
 OPENED = {
     "name": "Achal",
     "fantasy_name": "",
     "type": "route-node",
-    "mapmarker": "",
+    "map_icon": "",
     "visibility": "gm_secrets",
 }
 
@@ -60,7 +61,7 @@ def _fm_lines(text):
 
 def test_a_null_field_removes_the_line_so_untouched_fields_must_not_be_sent():
     old_payload = {"name": "Achal", "fantasy_name": None, "type": "route-node",
-                   "mapmarker": None, "visibility": "gm_secrets"}
+                   "mapmarker": None, "visibility": "gm_secrets"}  # the all-fields shape
     after = devserver._set_frontmatter_fields(PAGE, old_payload)
     lost = [ln for ln in _fm_lines(PAGE) if ln not in _fm_lines(after)]
     assert "fantasy_name: Achal" in lost
@@ -119,16 +120,34 @@ def test_changing_only_the_visibility_sends_only_the_visibility():
 @needs_node
 def test_an_edit_is_compared_with_the_pages_own_opening_values():
     page_b = {"name": "Achatagh", "fantasy_name": "Achatagh Gate", "type": "town",
-              "mapmarker": "city", "visibility": "public"}
+              "map_icon": "city", "visibility": "public"}
     assert _diff(page_b, {**page_b, "fantasy_name": "The Gate"}) == {"fantasy_name": "The Gate"}
 
 
 @needs_node
-def test_map_marker_values_map_to_what_the_server_expects():
-    assert _diff(OPENED, {**OPENED, "mapmarker": "city"}) == {"mapmarker": "city"}
-    assert _diff(OPENED, {**OPENED, "mapmarker": "false"}) == {"mapmarker": False}
-    opened = {**OPENED, "mapmarker": "city"}
-    assert _diff(opened, {**opened, "mapmarker": ""}) == {"mapmarker": None}
+def test_icon_override_values_map_to_what_the_server_expects():
+    assert _diff(OPENED, {**OPENED, "map_icon": "city"}) == {"map_icon": "city"}
+    assert _diff(OPENED, {**OPENED, "map_icon": "none"}) == {"map_icon": "none"}
+    opened = {**OPENED, "map_icon": "city"}
+    assert _diff(opened, {**opened, "map_icon": ""}) == {"map_icon": None}  # back to "From Type"
+    assert _diff(opened, dict(opened)) == {}
+
+
+def test_choosing_an_icon_retires_the_older_map_marker_line():
+    page = PAGE.replace("mapmarker: caravanserai\n", "mapmarker: caravanserai\nmap_marker: false\n")
+    after = devserver._set_frontmatter_fields(page, {"map_icon": "village"})
+    lines = _fm_lines(after)
+    assert "map_icon: village" in lines
+    assert not any(ln.startswith("map_marker:") for ln in lines)
+    assert "mapmarker: caravanserai" in lines  # the older category marker is not touched
+    assert "type: caravanserai" in lines
+
+
+def test_going_back_to_from_type_removes_both_icon_lines():
+    page = PAGE.replace("type: caravanserai\n", "type: caravanserai\nmap_icon: none\nmap_marker: false\n")
+    after = devserver._set_frontmatter_fields(page, {"map_icon": None})
+    assert not any(ln.startswith(("map_icon:", "map_marker:")) for ln in _fm_lines(after))
+    assert after.endswith("Prose that must never change.\n")
 
 
 # -- the wiring around the diff -------------------------------------------------------
@@ -154,6 +173,35 @@ def test_app_js_saves_only_the_diff_and_keeps_a_baseline():
         assert needle in js, needle
     assert "fantasy_name:_efFantasy.value.trim()||null" not in js
     assert "mapmarker:mm===" not in js
+    assert "mapmarker" not in js.split("function _efRead(){")[1].split("}")[0]
+
+
+def test_icon_override_dropdown_lists_the_registered_icons():
+    panel = gmw._build_panel_edit_coords()
+    select = re.search(r'<select id="ef-icon">\s*(.*?)</select>', panel, re.DOTALL).group(1)
+    values = re.findall(r'<option value="([^"]*)"', select)
+    assert values[0] == ""                              # "From Type" first, and the default
+    assert values[-1] == "none"                         # hides the pin
+    assert values[1:-1] == list(ICON_NAMES)
+    assert ">From Type<" in select and 'id="ef-icon-note"' in panel
+
+
+def test_app_js_shows_where_the_icon_comes_from_and_sends_the_override():
+    js = gmw._build_app_js("https://example.test/style.json", "", "")
+    for needle in (
+        "map_icon:_efIcon.value",
+        "function _efShowIcon(){",
+        '"Icon: "+from+" (from Type)"',
+        '"Icon: "+ov+" (override)"',
+        "_efType.addEventListener(\"change\",_efShowIcon);",
+        "_efIcon.addEventListener(\"change\",_efShowIcon);",
+        "_efOpenCat=p.category||\"\";",
+    ):
+        assert needle in js, needle
+    table = json.loads(re.search(r"_efTypeIcons=(\{.*?\});", js).group(1))
+    assert table["village"] == "village" and table["poi"] == "poi"
+    assert "dungeon" not in table                       # tier None: draws no pin
+    assert all(not v.startswith("cat-") for v in table.values())
 
 
 def test_baseline_moves_only_after_a_successful_save():

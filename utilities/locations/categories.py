@@ -40,6 +40,7 @@ DEFAULT_ICON       the icon a Type with no arm is drawn with
 tier_members()     the slugs in one tier, in row order
 tier_fade()        the zooms a tier's icon fades in over
 icon_arms()        (slug, icon) pairs for one surface's icon match
+type_icons()       slug -> the icon a pin of that Type draws
 """
 
 from typing import NamedTuple
@@ -161,6 +162,15 @@ def icon_arms(attr: str) -> list[tuple[str, str]]:
 
 # The world page's icon arms; the Workshop and the mini-maps read icon_arms() directly.
 ICON_MAP: dict[str, str] = dict(icon_arms("page_icon"))
+
+
+def type_icons(attr: str = "map_icon") -> dict[str, str]:
+    """slug -> the icon a pin of that Type draws, for every Type a tier draws.
+
+    A Type with no icon in `attr` draws DEFAULT_ICON. A Type no tier draws is absent:
+    it has no pin, with or without an override.
+    """
+    return {t.slug: getattr(t, attr) or DEFAULT_ICON for t in TYPES if t.tier}
 
 
 def build_icon_match_js(icon_size_expr: str = "1.3") -> str:

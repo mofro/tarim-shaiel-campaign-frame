@@ -6,10 +6,12 @@ Strips Obsidian leaflet blocks, extracts frontmatter, classifies location type.
 """
 
 import re
+import sys
 from pathlib import Path
 from typing import TypedDict, Optional
 
 from locations.categories import TYPES
+from locations.map_icons import ICON_NAMES
 
 try:
     import yaml
@@ -51,7 +53,7 @@ class LocationData(TypedDict):
     map_max_zoom: Optional[float]  # per-location mini-map zoom-in ceiling; None = default (11)
     map_pan: bool            # per-location mini-map drag-to-pan toggle; default True
     map_label: bool          # whether this location's marker gets a text label; default True
-    map_marker: object       # None = default icon (from category), False = no icon, str = icon override key
+    map_marker: object       # from `map_icon:` (or legacy `map_marker:`): None = icon from Type, False = no pin, str = icon override name
 
 
 # ---------------------------------------------------------------------------
@@ -106,6 +108,39 @@ def _classify_type(fm: dict) -> str:
             return _TAG_TYPE_MAP[tag]
 
     return "poi"
+
+
+def _icon_name(raw: object) -> Optional[str]:
+    """A registered icon's bare name from a frontmatter value, or None if it is not one.
+
+    The sprites are registered as `cat-<name>`; a page may write either spelling.
+    """
+    name = str(raw).strip().lower()
+    if name.startswith("cat-"):
+        name = name[len("cat-"):]
+    return name if name in ICON_NAMES else None
+
+
+def _icon_override(fm: dict, slug: str) -> object:
+    """The pin icon a page asks for: None = from its Type, False = no pin, str = icon name.
+
+    `map_icon:` is the field. `none` (or YAML `false`) hides the pin. A value that is not
+    a registered icon is ignored with a warning, so the Type's own icon draws instead.
+    The older `map_marker:` is read when `map_icon:` gives nothing usable, with the same
+    rules; `map_marker: false` still hides the pin.
+    """
+    for key in ("map_icon", "map_marker"):
+        raw = fm.get(key)
+        if raw is None or raw == "":
+            continue
+        if raw is False or str(raw).strip().lower() == "none":
+            return False
+        name = _icon_name(raw)
+        if name is not None:
+            return name
+        print(f"  WARN: {slug} has {key}: {raw!r}, which is not a registered icon "
+              f"- using its Type's icon", file=sys.stderr)
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -227,15 +262,7 @@ def parse_location(path: Path) -> Optional[LocationData]:
     map_pan = bool(fm.get('map_pan', True))
     map_label = bool(fm.get('map_label', True))
 
-    # map_marker: None = default (icon from category), False = no icon,
-    # str = override icon key (one of the registered cat-* sprite names)
-    raw_marker = fm.get('map_marker')
-    if raw_marker is False:
-        map_marker: Optional[object] = False
-    elif raw_marker:
-        map_marker = str(raw_marker).strip().lower()
-    else:
-        map_marker = None
+    map_marker = _icon_override(fm, slug)
 
     return LocationData(
         slug=slug,
@@ -276,7 +303,6 @@ def load_all_locations(locations_dir: Path, public_only: bool = False) -> list[L
         if data is None:
             continue
         if data['visibility'] not in ('public', 'gm_secrets'):
-            import sys
             print(f"  WARN: {data['slug']} has unknown visibility '{data['visibility']}' — treating as gm_secrets", file=sys.stderr)
             data = dict(data)  # type: ignore[assignment]
             data['visibility'] = 'gm_secrets'

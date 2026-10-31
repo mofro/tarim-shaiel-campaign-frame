@@ -32,6 +32,9 @@ REGISTERED_ICONS: frozenset[str] = frozenset({
     "cat-dungeon",
 })
 
+# The names a page may give `map_icon:` (the sprite name without its `cat-` prefix).
+ICON_NAMES: tuple[str, ...] = tuple(sorted(i.removeprefix("cat-") for i in REGISTERED_ICONS))
+
 
 def icon_registration_js() -> str:
     """Return the JS IIFE that registers all canvas-drawn marker images.
