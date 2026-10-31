@@ -7,7 +7,7 @@ content_type: location
 visibility: gm_secrets
 status: draft
 created: 2026-07-16
-last_updated: 2026-07-16
+last_updated: 2026-10-31
 fantasy_name: Afrasiyan
 location:
   - 39.67
@@ -16,7 +16,7 @@ map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: ruin
 map_label: false
-map_marker: false
+map_icon: none
 parent_region: central-asian-hubs
 elevation: 750
 factions_visible:
