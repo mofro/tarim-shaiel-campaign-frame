@@ -67,6 +67,8 @@ _TYPE_LABELS: dict[str, str] = {
     "spring": "Spring",
     "well": "Well",
     "mythic-landscape": "Mythic Landscape",
+    "cosmological-realm": "Cosmological Realm",
+    "mobile entity": "Mobile Entity",
 }
 
 

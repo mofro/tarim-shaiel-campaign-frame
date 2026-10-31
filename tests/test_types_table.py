@@ -34,13 +34,11 @@ PROBES = [
     "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "oasis",
     "lake", "sea", "river", "reservoir", "spring", "well", "caravanserai", "route-node",
     "chokepoint", "mountain-pass", "ruins", "poi", "power-site", "site", "water-body", "Oasis",
-    "dungeon", "mythic-landscape", "village", "zz-unknown", "",
+    "dungeon", "cosmological-realm", "mobile entity", "mythic-landscape", "village",
+    "zz-unknown", "",
 ]
 VISIBILITIES = ("public", "gm_secrets")
 
-# Types on real pages that have no row yet. PR 3 gives each one a row (or `icon: none`)
-# and deletes its line here; a value on a page that is in neither place fails.
-OFF_TABLE_TYPES = {"mobile entity", "cosmological-realm"}
 
 
 # ---------------------------------------------------------------------------
@@ -235,7 +233,7 @@ def test_rows_name_real_tiers_and_icons():
         if t.map_tier is None:
             assert t.map_icon is None or t.slug in ("Oasis",), t
     # Unlisted rows are legacy spellings: tolerated, never offered.
-    assert [t.slug for t in TYPES if not t.listed] == ["water-body", "caravanserai", "dungeon", "Oasis"]
+    assert [t.slug for t in TYPES if not t.listed] == ["water-body", "caravanserai", "dungeon", "cosmological-realm", "mobile entity", "Oasis"]
 
 
 def test_tier_and_icon_coverage_checks_are_clean():
@@ -276,10 +274,9 @@ def test_every_page_type_is_a_row():
 
     rows = {t.slug.lower() for t in TYPES}
     off_table = _page_types() - rows
-    assert off_table == OFF_TABLE_TYPES, (
-        "Types on pages with no row (add a row, or `icon: none` for a non-place): "
-        f"{sorted(off_table - OFF_TABLE_TYPES)}; rows now in the table but still listed "
-        f"as exceptions: {sorted(OFF_TABLE_TYPES - off_table)}")
+    assert not off_table, (
+        f"Types on pages with no row: {sorted(off_table)}. Add a row, or `icon: none` "
+        "for a non-place")
 
 
 if __name__ == "__main__":

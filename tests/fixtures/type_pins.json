@@ -423,6 +423,24 @@
     ]
    }
   },
+  "cosmological-realm": {
+   "gm_secrets": {
+    "gm_secret": null,
+    "map": null,
+    "mini": null,
+    "world": null,
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "cosmological-realm",
+   "parser_type": "cosmological-realm",
+   "public": {
+    "gm_secret": null,
+    "map": null,
+    "mini": null,
+    "world": null,
+    "world_gm_build": null
+   }
+  },
   "dungeon": {
    "gm_secrets": {
     "gm_secret": null,
@@ -565,6 +583,24 @@
      "locations-major",
      "cat-landmark"
     ]
+   }
+  },
+  "mobile entity": {
+   "gm_secrets": {
+    "gm_secret": null,
+    "map": null,
+    "mini": null,
+    "world": null,
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "mobile entity",
+   "parser_type": "mobile entity",
+   "public": {
+    "gm_secret": null,
+    "map": null,
+    "mini": null,
+    "world": null,
+    "world_gm_build": null
    }
   },
   "mountain-pass": {

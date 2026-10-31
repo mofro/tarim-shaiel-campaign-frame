@@ -22,8 +22,8 @@ page_tier  which world-page / mini-map tier draws it (PAGE_TIERS); None = not dr
 page_icon  the icon the world page and the GM layers draw
 mini_icon  the icon the mini-maps on location pages draw
 toggle     the Display checkbox label; None = no checkbox, always drawn
-listed     False = a legacy spelling that is tolerated and drawn as before but not
-           offered in any dropdown
+listed     False = tolerated but not offered in any dropdown: a legacy spelling, an
+           alias of another row, or a non-place (`icon: none`, no tier, never drawn)
 
 Exports
 -------
@@ -57,7 +57,7 @@ MAP_TIERS = ("major", "towns", "secondary", "spiritual", "routes", "detail")
 PAGE_TIERS = ("major", "towns", "secondary", "routes", "detail")
 
 # Row order is the order of the Type dropdowns and of the Display checkboxes. The
-# legacy rows come last and are the only rows with listed=False.
+# unlisted rows come last and are the only rows with listed=False.
 TYPES: tuple[Type, ...] = (
     #    slug             parses_as      map_tier     map_icon           page_tier    page_icon          mini_icon          toggle
     # Major locations
@@ -91,6 +91,9 @@ TYPES: tuple[Type, ...] = (
     Type("water-body",    "lake",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None, listed=False),
     Type("caravanserai",  "route-node",  "routes",    "cat-route-node",  "routes",    "cat-route-node",  "cat-route-node",  None, listed=False),
     Type("dungeon",       "dungeon",     None,        None,              None,        None,              None,              None, listed=False),
+    # Not places: `icon: none`. The parser keeps the page's Type; no tier draws it.
+    Type("cosmological-realm", "cosmological-realm", None, None, None, None, None, None, listed=False),
+    Type("mobile entity", "mobile entity", None, None, None, None, None, None, listed=False),
     Type("Oasis",         None,          None,        "cat-oasis",       None,        None,              "cat-oasis",       None, listed=False),
 )
 
