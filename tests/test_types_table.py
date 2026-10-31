@@ -1,17 +1,15 @@
-"""One Types table decides the pin (#336, PR 2: the table, zero behaviour change).
+"""One Types table decides the pin (#336).
 
 `locations.categories.TYPES` is the single list of location Types. The parser, the
 Type dropdowns, the icon expressions, the tier filters and the Display toggles all
-read it. This PR adds the table and changes nothing anyone can see, quirks included
-(capital, bridge, lake and water-body are drawn on the Workshop and player map but
-not on the world page, the GM layers or the mini-maps; the parser ignores five listed
-Types; `dungeon` and `Oasis` are legacy spellings).
+read it.
 
-`tests/fixtures/type_pins.json` was captured from the code as it stood before the
-table. It records, for every Type spelling and on every surface that draws pins:
-which tier layer draws it, with which icon, plus each surface's icon arms and tier
-membership lists, and what the parser makes of it. A later PR that changes a pin
-regenerates the file, so its diff is that PR's before-and-after pin list:
+`tests/fixtures/type_pins.json` records, for every Type spelling and on every surface
+that draws pins: which tier layer draws it, with which icon, plus each surface's icon
+arms and tier membership lists, and what the parser makes of it. PR 2 captured it from
+the code as it stood before the table existed, so the table was proved to change
+nothing anyone could see. Every later commit that changes a pin regenerates the file,
+so its diff is that commit's before-and-after pin list:
 
     venv/bin/python tests/test_types_table.py
 """

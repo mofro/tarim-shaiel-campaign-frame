@@ -2,13 +2,13 @@
  "arms": {
   "gm_secret": {
    "arms": {
-    "bridge": "cat-landmark",
-    "capital": "cat-city",
+    "bridge": "cat-bridge",
+    "capital": "cat-capital",
     "caravanserai": "cat-route-node",
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-oasis",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
     "oasis": "cat-oasis",
@@ -18,7 +18,8 @@
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
     "site": "cat-poi",
-    "town": "cat-town"
+    "town": "cat-town",
+    "water-body": "cat-water"
    },
    "default": "cat-poi"
   },
@@ -48,6 +49,7 @@
   "mini": {
    "arms": {
     "Oasis": "cat-oasis",
+    "bridge": "cat-bridge",
     "capital": "cat-capital",
     "caravanserai": "cat-route-node",
     "chokepoint": "cat-fortress",
@@ -69,13 +71,13 @@
   },
   "world": {
    "arms": {
-    "bridge": "cat-landmark",
-    "capital": "cat-city",
+    "bridge": "cat-bridge",
+    "capital": "cat-capital",
     "caravanserai": "cat-route-node",
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-oasis",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
     "oasis": "cat-oasis",
@@ -85,19 +87,20 @@
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
     "site": "cat-poi",
-    "town": "cat-town"
+    "town": "cat-town",
+    "water-body": "cat-water"
    },
    "default": "cat-poi"
   },
   "world_gm_build": {
    "arms": {
-    "bridge": "cat-landmark",
-    "capital": "cat-city",
+    "bridge": "cat-bridge",
+    "capital": "cat-capital",
     "caravanserai": "cat-route-node",
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-oasis",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
     "oasis": "cat-oasis",
@@ -107,7 +110,8 @@
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
     "site": "cat-poi",
-    "town": "cat-town"
+    "town": "cat-town",
+    "water-body": "cat-water"
    },
    "default": "cat-poi"
   }
@@ -181,13 +185,22 @@
   },
   "bridge": {
    "gm_secrets": {
-    "gm_secret": null,
+    "gm_secret": [
+     "gm-locations-major",
+     "cat-bridge"
+    ],
     "map": [
      "locations-major",
      "cat-bridge"
     ],
-    "mini": null,
-    "world": null,
+    "mini": [
+     "mm-locations-major",
+     "cat-bridge"
+    ],
+    "world": [
+     "locations-major",
+     "cat-bridge"
+    ],
     "world_gm_build": null
    },
    "parser_mapmarker": "bridge",
@@ -198,20 +211,38 @@
      "locations-major",
      "cat-bridge"
     ],
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "mini": [
+     "mm-locations-major",
+     "cat-bridge"
+    ],
+    "world": [
+     "locations-major",
+     "cat-bridge"
+    ],
+    "world_gm_build": [
+     "locations-major",
+     "cat-bridge"
+    ]
    }
   },
   "capital": {
    "gm_secrets": {
-    "gm_secret": null,
+    "gm_secret": [
+     "gm-locations-major",
+     "cat-capital"
+    ],
     "map": [
      "locations-major",
      "cat-capital"
     ],
-    "mini": null,
-    "world": null,
+    "mini": [
+     "mm-locations-major",
+     "cat-capital"
+    ],
+    "world": [
+     "locations-major",
+     "cat-capital"
+    ],
     "world_gm_build": null
    },
    "parser_mapmarker": "capital",
@@ -222,9 +253,18 @@
      "locations-major",
      "cat-capital"
     ],
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "mini": [
+     "mm-locations-major",
+     "cat-capital"
+    ],
+    "world": [
+     "locations-major",
+     "cat-capital"
+    ],
+    "world_gm_build": [
+     "locations-major",
+     "cat-capital"
+    ]
    }
   },
   "caravanserai": {
@@ -415,13 +455,22 @@
   },
   "lake": {
    "gm_secrets": {
-    "gm_secret": null,
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
     "map": [
      "locations-secondary",
      "cat-water"
     ],
-    "mini": null,
-    "world": null,
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
     "world_gm_build": null
    },
    "parser_mapmarker": "lake",
@@ -432,9 +481,18 @@
      "locations-secondary",
      "cat-water"
     ],
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
    }
   },
   "landmark": {
@@ -892,13 +950,22 @@
   },
   "water-body": {
    "gm_secrets": {
-    "gm_secret": null,
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
     "map": [
      "locations-secondary",
      "cat-water"
     ],
-    "mini": null,
-    "world": null,
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
     "world_gm_build": null
    },
    "parser_mapmarker": "lake",
@@ -909,9 +976,18 @@
      "locations-secondary",
      "cat-water"
     ],
-    "mini": null,
-    "world": null,
-    "world_gm_build": null
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
    }
   },
   "zz-unknown": {
@@ -943,6 +1019,8 @@
    ],
    "gm-locations-major": [
     "city",
+    "capital",
+    "bridge",
     "landmark",
     "fortress"
    ],
@@ -954,7 +1032,9 @@
    "gm-locations-secondary": [
     "sacred-site",
     "oasis",
-    "caravanserai"
+    "lake",
+    "caravanserai",
+    "water-body"
    ]
   },
   "map": {
@@ -998,6 +1078,8 @@
    ],
    "mm-locations-major": [
     "city",
+    "capital",
+    "bridge",
     "landmark",
     "fortress"
    ],
@@ -1009,7 +1091,9 @@
    "mm-locations-secondary": [
     "sacred-site",
     "oasis",
-    "caravanserai"
+    "lake",
+    "caravanserai",
+    "water-body"
    ],
    "mm-locations-towns": [
     "town"
@@ -1024,6 +1108,8 @@
    ],
    "locations-major": [
     "city",
+    "capital",
+    "bridge",
     "landmark",
     "fortress"
    ],
@@ -1035,7 +1121,9 @@
    "locations-secondary": [
     "sacred-site",
     "oasis",
-    "caravanserai"
+    "lake",
+    "caravanserai",
+    "water-body"
    ],
    "locations-towns": [
     "town"
@@ -1050,6 +1138,8 @@
    ],
    "locations-major": [
     "city",
+    "capital",
+    "bridge",
     "landmark",
     "fortress"
    ],
@@ -1061,7 +1151,9 @@
    "locations-secondary": [
     "sacred-site",
     "oasis",
-    "caravanserai"
+    "lake",
+    "caravanserai",
+    "water-body"
    ],
    "locations-towns": [
     "town"

@@ -5,13 +5,10 @@ TYPES is the one table. The parser, the Type dropdowns, the icon expressions, th
 tier filters and the Display toggles all read it, so they cannot disagree about
 what a Type is or how it is drawn (#336).
 
-This table reproduces what the maps drew before it existed, quirks included. The
-quirks are columns that differ between surfaces, not exceptions in code:
-`capital`, `bridge`, `lake` and `water-body` have a map tier but no page tier (the
-Workshop and player map draw them; the world page, the GM layers and the mini-maps
-do not), and the world page still draws `capital` as a city, `bridge` as a landmark
-and `lake` as an oasis, while the Workshop gives all three their own icon. A later
-change that fixes one of these edits one cell here.
+Where two surfaces disagree about a Type, the disagreement is a cell in this table,
+not an exception in code, so fixing it edits one cell. `tests/fixtures/type_pins.json`
+records what every Type draws on every surface; a change here regenerates it, and its
+diff is the change's before-and-after pin list.
 
 Columns
 -------
@@ -65,8 +62,8 @@ TYPES: tuple[Type, ...] = (
     #    slug             parses_as      map_tier     map_icon           page_tier    page_icon          mini_icon          toggle
     # Major locations
     Type("city",          "city",        "major",     "cat-city",        "major",     "cat-city",        "cat-city",        "Cities"),
-    Type("capital",       "capital",     "major",     "cat-capital",     None,        "cat-city",        "cat-capital",     "Capitals"),
-    Type("bridge",        "bridge",      "major",     "cat-bridge",      None,        "cat-landmark",    None,              "Bridges"),
+    Type("capital",       "capital",     "major",     "cat-capital",     "major",     "cat-capital",     "cat-capital",     "Capitals"),
+    Type("bridge",        "bridge",      "major",     "cat-bridge",      "major",     "cat-bridge",      "cat-bridge",      "Bridges"),
     Type("landmark",      "landmark",    "major",     "cat-landmark",    "major",     "cat-landmark",    "cat-landmark",    "Landmarks"),
     Type("fortress",      "fortress",    "major",     "cat-fortress",    "major",     "cat-fortress",    "cat-fortress",    "Fortresses"),
     # Towns
@@ -74,7 +71,7 @@ TYPES: tuple[Type, ...] = (
     # Secondary locations
     Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "secondary", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
     Type("oasis",         "oasis",       "secondary", "cat-oasis",       "secondary", "cat-oasis",       "cat-oasis",       "Oases"),
-    Type("lake",          "lake",        "secondary", "cat-water",       None,        "cat-oasis",       "cat-water",       "Lakes"),
+    Type("lake",          "lake",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       "Lakes"),
     Type("caravanserai",  "route-node",  "secondary", "cat-route-node",  "secondary", "cat-route-node",  "cat-route-node",  None),
     # Route network
     Type("route-node",    "route-node",  "routes",    "cat-route-node",  "routes",    "cat-route-node",  "cat-route-node",  "Route Nodes"),
@@ -86,7 +83,7 @@ TYPES: tuple[Type, ...] = (
     Type("power-site",    None,          "spiritual", "cat-sacred-site", "detail",    "cat-sacred-site", "cat-sacred-site", None),
     Type("site",          None,          "detail",    "cat-poi",         "detail",    "cat-poi",         "cat-poi",         None),
     # Legacy spellings still on pages or in old tooling: tolerated, never offered.
-    Type("water-body",    "lake",        "secondary", "cat-water",       None,        None,              "cat-water",       None, listed=False),
+    Type("water-body",    "lake",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None, listed=False),
     Type("dungeon",       "dungeon",     None,        None,              None,        None,              None,              None, listed=False),
     Type("Oasis",         None,          None,        "cat-oasis",       None,        None,              "cat-oasis",       None, listed=False),
 )
