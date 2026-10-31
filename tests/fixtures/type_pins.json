@@ -178,19 +178,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-town"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-town"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-town"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-town"
     ]
    }
@@ -216,19 +216,19 @@
   "bridge": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-major",
+     "gm-locations-city",
      "cat-bridge"
     ],
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-bridge"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-bridge"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-bridge"
     ],
     "world_gm_build": null
@@ -238,19 +238,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-bridge"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-bridge"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-bridge"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-bridge"
     ]
    }
@@ -258,19 +258,19 @@
   "capital": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-major",
+     "gm-locations-capital",
      "cat-capital"
     ],
     "map": [
-     "locations-major",
+     "locations-capital",
      "cat-capital"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-capital",
      "cat-capital"
     ],
     "world": [
-     "locations-major",
+     "locations-capital",
      "cat-capital"
     ],
     "world_gm_build": null
@@ -280,19 +280,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-capital",
      "cat-capital"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-capital",
      "cat-capital"
     ],
     "world": [
-     "locations-major",
+     "locations-capital",
      "cat-capital"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-capital",
      "cat-capital"
     ]
    }
@@ -384,19 +384,19 @@
   "city": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-major",
+     "gm-locations-city",
      "cat-city"
     ],
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-city"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ],
     "world_gm_build": null
@@ -406,19 +406,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-city"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-city"
     ]
    }
@@ -462,19 +462,19 @@
   "fortress": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-major",
+     "gm-locations-city",
      "cat-fortress"
     ],
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-fortress"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ],
     "world_gm_build": null
@@ -484,19 +484,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-fortress"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-fortress"
     ]
    }
@@ -546,19 +546,19 @@
   "landmark": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-major",
+     "gm-locations-city",
      "cat-landmark"
     ],
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-landmark"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ],
     "world_gm_build": null
@@ -568,19 +568,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ],
     "mini": [
-     "mm-locations-major",
+     "mm-locations-city",
      "cat-landmark"
     ],
     "world": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ],
     "world_gm_build": [
-     "locations-major",
+     "locations-city",
      "cat-landmark"
     ]
    }
@@ -648,7 +648,7 @@
   "mythic-landscape": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-secondary",
+     "gm-locations-spiritual",
      "cat-sacred-site"
     ],
     "map": [
@@ -656,11 +656,11 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": null
@@ -674,15 +674,15 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
     ]
    }
@@ -774,7 +774,7 @@
   "power-site": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-detail",
+     "gm-locations-spiritual",
      "cat-sacred-site"
     ],
     "map": [
@@ -782,11 +782,11 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-detail",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-detail",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": null
@@ -800,15 +800,15 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-detail",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-detail",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": [
-     "locations-detail",
+     "locations-spiritual",
      "cat-sacred-site"
     ]
    }
@@ -984,7 +984,7 @@
   "sacred-site": {
    "gm_secrets": {
     "gm_secret": [
-     "gm-locations-secondary",
+     "gm-locations-spiritual",
      "cat-sacred-site"
     ],
     "map": [
@@ -992,11 +992,11 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": null
@@ -1010,15 +1010,15 @@
      "cat-sacred-site"
     ],
     "mini": [
-     "mm-locations-secondary",
+     "mm-locations-spiritual",
      "cat-sacred-site"
     ],
     "world": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
     ],
     "world_gm_build": [
-     "locations-secondary",
+     "locations-spiritual",
      "cat-sacred-site"
     ]
    }
@@ -1153,15 +1153,15 @@
    "gm_secrets": {
     "gm_secret": null,
     "map": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ],
     "mini": [
-     "mm-locations-towns",
+     "mm-locations-town",
      "cat-town"
     ],
     "world": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ],
     "world_gm_build": null
@@ -1171,19 +1171,19 @@
    "public": {
     "gm_secret": null,
     "map": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ],
     "mini": [
-     "mm-locations-towns",
+     "mm-locations-town",
      "cat-town"
     ],
     "world": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ],
     "world_gm_build": [
-     "locations-towns",
+     "locations-town",
      "cat-town"
     ]
    }
@@ -1311,18 +1311,19 @@
  },
  "tiers": {
   "gm_secret": {
-   "gm-locations-detail": [
-    "ruins",
-    "poi",
-    "power-site",
-    "site"
+   "gm-locations-capital": [
+    "capital"
    ],
-   "gm-locations-major": [
+   "gm-locations-city": [
     "city",
-    "capital",
     "bridge",
     "landmark",
     "fortress"
+   ],
+   "gm-locations-detail": [
+    "ruins",
+    "poi",
+    "site"
    ],
    "gm-locations-routes": [
     "route-node",
@@ -1331,8 +1332,6 @@
     "caravanserai"
    ],
    "gm-locations-secondary": [
-    "sacred-site",
-    "mythic-landscape",
     "oasis",
     "lake",
     "sea",
@@ -1341,20 +1340,27 @@
     "spring",
     "well",
     "water-body"
+   ],
+   "gm-locations-spiritual": [
+    "sacred-site",
+    "mythic-landscape",
+    "power-site"
    ]
   },
   "map": {
+   "locations-capital": [
+    "capital"
+   ],
+   "locations-city": [
+    "city",
+    "bridge",
+    "landmark",
+    "fortress"
+   ],
    "locations-detail": [
     "ruins",
     "poi",
     "site"
-   ],
-   "locations-major": [
-    "city",
-    "capital",
-    "bridge",
-    "landmark",
-    "fortress"
    ],
    "locations-routes": [
     "route-node",
@@ -1377,23 +1383,24 @@
     "mythic-landscape",
     "power-site"
    ],
-   "locations-towns": [
+   "locations-town": [
     "town"
    ]
   },
   "mini": {
-   "mm-locations-detail": [
-    "ruins",
-    "poi",
-    "power-site",
-    "site"
+   "mm-locations-capital": [
+    "capital"
    ],
-   "mm-locations-major": [
+   "mm-locations-city": [
     "city",
-    "capital",
     "bridge",
     "landmark",
     "fortress"
+   ],
+   "mm-locations-detail": [
+    "ruins",
+    "poi",
+    "site"
    ],
    "mm-locations-routes": [
     "route-node",
@@ -1402,8 +1409,6 @@
     "caravanserai"
    ],
    "mm-locations-secondary": [
-    "sacred-site",
-    "mythic-landscape",
     "oasis",
     "lake",
     "sea",
@@ -1413,23 +1418,29 @@
     "well",
     "water-body"
    ],
-   "mm-locations-towns": [
+   "mm-locations-spiritual": [
+    "sacred-site",
+    "mythic-landscape",
+    "power-site"
+   ],
+   "mm-locations-town": [
     "town"
    ]
   },
   "world": {
-   "locations-detail": [
-    "ruins",
-    "poi",
-    "power-site",
-    "site"
+   "locations-capital": [
+    "capital"
    ],
-   "locations-major": [
+   "locations-city": [
     "city",
-    "capital",
     "bridge",
     "landmark",
     "fortress"
+   ],
+   "locations-detail": [
+    "ruins",
+    "poi",
+    "site"
    ],
    "locations-routes": [
     "route-node",
@@ -1438,8 +1449,6 @@
     "caravanserai"
    ],
    "locations-secondary": [
-    "sacred-site",
-    "mythic-landscape",
     "oasis",
     "lake",
     "sea",
@@ -1449,23 +1458,29 @@
     "well",
     "water-body"
    ],
-   "locations-towns": [
+   "locations-spiritual": [
+    "sacred-site",
+    "mythic-landscape",
+    "power-site"
+   ],
+   "locations-town": [
     "town"
    ]
   },
   "world_gm_build": {
-   "locations-detail": [
-    "ruins",
-    "poi",
-    "power-site",
-    "site"
+   "locations-capital": [
+    "capital"
    ],
-   "locations-major": [
+   "locations-city": [
     "city",
-    "capital",
     "bridge",
     "landmark",
     "fortress"
+   ],
+   "locations-detail": [
+    "ruins",
+    "poi",
+    "site"
    ],
    "locations-routes": [
     "route-node",
@@ -1474,8 +1489,6 @@
     "caravanserai"
    ],
    "locations-secondary": [
-    "sacred-site",
-    "mythic-landscape",
     "oasis",
     "lake",
     "sea",
@@ -1485,50 +1498,73 @@
     "well",
     "water-body"
    ],
-   "locations-towns": [
+   "locations-spiritual": [
+    "sacred-site",
+    "mythic-landscape",
+    "power-site"
+   ],
+   "locations-town": [
     "town"
    ]
   }
  },
  "zooms": {
   "gm_secret": {
-   "gm-locations-detail": {
-    "icon_fade": "7.5:0 8:0.4",
-    "icon_size": "7:0.3 10:0.6",
-    "minzoom": 7,
+   "gm-locations-capital": {
+    "icon_fade": "2:0 3:0.4",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 2,
     "text_fade": null
    },
-   "gm-locations-major": {
-    "icon_fade": "3.5:0 4:0.4",
+   "gm-locations-city": {
+    "icon_fade": "3:0 4:0.4",
     "icon_size": "3:0.5 8:0.85",
     "minzoom": 3,
     "text_fade": null
    },
+   "gm-locations-detail": {
+    "icon_fade": "7:0 8:0.4",
+    "icon_size": "7:0.3 10:0.6",
+    "minzoom": 7,
+    "text_fade": null
+   },
    "gm-locations-routes": {
-    "icon_fade": "6.5:0 7:0.4",
+    "icon_fade": "6:0 7:0.4",
     "icon_size": "6:0.35 9:0.66",
     "minzoom": 6,
     "text_fade": null
    },
    "gm-locations-secondary": {
-    "icon_fade": "5.5:0 6:0.4",
+    "icon_fade": "5:0 6:0.4",
     "icon_size": "5:0.4 8:0.72",
     "minzoom": 5,
+    "text_fade": null
+   },
+   "gm-locations-spiritual": {
+    "icon_fade": "6:0 7:0.4",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 6,
     "text_fade": null
    }
   },
   "map": {
+   "locations-capital": {
+    "icon_fade": "2:0 3:1",
+    "icon_size": 0.75,
+    "minzoom": 1,
+    "text_fade": "1:0 2:1"
+   },
+   "locations-city": {
+    "icon_fade": "3:0 4:1",
+    "icon_size": 0.75,
+    "minzoom": 2,
+    "text_fade": "2:0 3:1"
+   },
    "locations-detail": {
     "icon_fade": "7:0 8:1",
     "icon_size": 0.75,
     "minzoom": 6,
     "text_fade": "6:0 7:1"
-   },
-   "locations-major": {
-    "icon_fade": "3:0 4:1",
-    "icon_size": 0.75,
-    "minzoom": 2,
-    "text_fade": "2:0 3:1"
    },
    "locations-routes": {
     "icon_fade": "6:0 7:1",
@@ -1548,107 +1584,143 @@
     "minzoom": 5,
     "text_fade": "5:0 6:1"
    },
-   "locations-towns": {
-    "icon_fade": "5:0 6:1",
+   "locations-town": {
+    "icon_fade": "4:0 5:1",
     "icon_size": 0.65,
-    "minzoom": 4,
-    "text_fade": "4:0 5:1"
+    "minzoom": 3,
+    "text_fade": "3:0 4:1"
    }
   },
   "mini": {
+   "mm-locations-capital": {
+    "icon_fade": "2:0 3:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 2,
+    "text_fade": "2:0 3:0.9"
+   },
+   "mm-locations-city": {
+    "icon_fade": "3:0 4:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 3,
+    "text_fade": "3:0 4:0.9"
+   },
    "mm-locations-detail": {
-    "icon_fade": "7.5:0 8:0.9",
+    "icon_fade": "7:0 8:0.9",
     "icon_size": "5:0.5 9:0.85",
     "minzoom": 7,
     "text_fade": null
    },
-   "mm-locations-major": {
-    "icon_fade": "3.5:0 4:0.9",
-    "icon_size": "5:0.5 9:0.85",
-    "minzoom": 3,
-    "text_fade": "3.5:0 4:0.9"
-   },
    "mm-locations-routes": {
-    "icon_fade": "6.5:0 7:0.9",
+    "icon_fade": "6:0 7:0.9",
     "icon_size": "5:0.5 9:0.85",
     "minzoom": 6,
     "text_fade": null
    },
    "mm-locations-secondary": {
-    "icon_fade": "5.5:0 6:0.9",
+    "icon_fade": "5:0 6:0.9",
     "icon_size": "5:0.5 9:0.85",
     "minzoom": 5,
-    "text_fade": "5.5:0 6:0.9"
+    "text_fade": "5:0 6:0.9"
    },
-   "mm-locations-towns": {
-    "icon_fade": "4.5:0 5:0.9",
+   "mm-locations-spiritual": {
+    "icon_fade": "6:0 7:0.9",
+    "icon_size": "5:0.5 9:0.85",
+    "minzoom": 6,
+    "text_fade": "6:0 7:0.9"
+   },
+   "mm-locations-town": {
+    "icon_fade": "4:0 5:0.9",
     "icon_size": "5:0.5 9:0.85",
     "minzoom": 4,
-    "text_fade": "4.5:0 5:0.9"
+    "text_fade": "4:0 5:0.9"
    }
   },
   "world": {
+   "locations-capital": {
+    "icon_fade": "2:0 3:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 2,
+    "text_fade": "2:0 3:1"
+   },
+   "locations-city": {
+    "icon_fade": "3:0 4:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 3,
+    "text_fade": "3:0 4:1"
+   },
    "locations-detail": {
-    "icon_fade": "7.5:0 8:1",
+    "icon_fade": "7:0 8:1",
     "icon_size": "7:0.3 10:0.6",
     "minzoom": 7,
     "text_fade": null
    },
-   "locations-major": {
-    "icon_fade": "3.5:0 4:1",
-    "icon_size": "3:0.5 8:0.85",
-    "minzoom": 3,
-    "text_fade": "3.5:0 4:1"
-   },
    "locations-routes": {
-    "icon_fade": "6.5:0 7:1",
+    "icon_fade": "6:0 7:1",
     "icon_size": "6:0.35 9:0.66",
     "minzoom": 6,
     "text_fade": null
    },
    "locations-secondary": {
-    "icon_fade": "5.5:0 6:1",
+    "icon_fade": "5:0 6:1",
     "icon_size": "5:0.4 8:0.72",
     "minzoom": 5,
-    "text_fade": "5.5:0 6:1"
+    "text_fade": "5:0 6:1"
    },
-   "locations-towns": {
-    "icon_fade": "4.5:0 5:1",
+   "locations-spiritual": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 6,
+    "text_fade": "6:0 7:1"
+   },
+   "locations-town": {
+    "icon_fade": "4:0 5:1",
     "icon_size": "4:0.45 8:0.78",
     "minzoom": 4,
-    "text_fade": "4.5:0 5:1"
+    "text_fade": "4:0 5:1"
    }
   },
   "world_gm_build": {
+   "locations-capital": {
+    "icon_fade": "2:0 3:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 2,
+    "text_fade": "2:0 3:1"
+   },
+   "locations-city": {
+    "icon_fade": "3:0 4:1",
+    "icon_size": "3:0.5 8:0.85",
+    "minzoom": 3,
+    "text_fade": "3:0 4:1"
+   },
    "locations-detail": {
-    "icon_fade": "7.5:0 8:1",
+    "icon_fade": "7:0 8:1",
     "icon_size": "7:0.3 10:0.6",
     "minzoom": 7,
     "text_fade": null
    },
-   "locations-major": {
-    "icon_fade": "3.5:0 4:1",
-    "icon_size": "3:0.5 8:0.85",
-    "minzoom": 3,
-    "text_fade": "3.5:0 4:1"
-   },
    "locations-routes": {
-    "icon_fade": "6.5:0 7:1",
+    "icon_fade": "6:0 7:1",
     "icon_size": "6:0.35 9:0.66",
     "minzoom": 6,
     "text_fade": null
    },
    "locations-secondary": {
-    "icon_fade": "5.5:0 6:1",
+    "icon_fade": "5:0 6:1",
     "icon_size": "5:0.4 8:0.72",
     "minzoom": 5,
-    "text_fade": "5.5:0 6:1"
+    "text_fade": "5:0 6:1"
    },
-   "locations-towns": {
-    "icon_fade": "4.5:0 5:1",
+   "locations-spiritual": {
+    "icon_fade": "6:0 7:1",
+    "icon_size": "5:0.4 8:0.72",
+    "minzoom": 6,
+    "text_fade": "6:0 7:1"
+   },
+   "locations-town": {
+    "icon_fade": "4:0 5:1",
     "icon_size": "4:0.45 8:0.78",
     "minzoom": 4,
-    "text_fade": "4.5:0 5:1"
+    "text_fade": "4:0 5:1"
    }
   }
  }

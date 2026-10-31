@@ -48,7 +48,8 @@ from locations.location_components import (
     MAPTILER_STYLE_URL,
 )
 from locations.map_icons import icon_registration_js
-from locations.categories import build_icon_match_js, tier_members
+from locations.categories import (TIER_ZOOM, TIERS, build_icon_match_js,
+                                  page_icon_size_expr, tier_fade, tier_members)
 from shared import map_style, route_visibility
 from shared import journeys as journeys_mod
 from shared.renderer import render_page
@@ -140,8 +141,18 @@ def _filter_geojson_public(geojson: dict | None) -> dict | None:
 # ---------------------------------------------------------------------------
 
 
+# (label font, label size) of each tier's world-page label; a tier with no entry has none.
+_PAGE_LABELS: dict[str, tuple[list[str], int]] = {
+    'capital':   (['Roboto Serif Regular', 'Noto Sans Bold'], 15),
+    'city':      (['Roboto Serif Regular', 'Noto Sans Bold'], 15),
+    'town':      (['Roboto Serif Regular', 'Noto Sans Regular'], 13),
+    'secondary': (['Roboto Serif Regular', 'Noto Sans Italic'], 13),
+    'spiritual': (['Roboto Serif Regular', 'Noto Sans Italic'], 13),
+}
+
+
 def _locations_layers_js(gm_mode: bool = False) -> str:
-    """Return JS that adds four zoom-tiered symbol layers for locations.
+    """Return JS that adds one zoom-tiered symbol layer per tier for locations.
 
     Each tier entry: (layer_id, categories, minzoom, fade_start, fade_end,
                       label_font, label_size)
@@ -157,33 +168,17 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
     # interpolate (used for icon-opacity's fade) inside a "case", so hiding
     # via opacity isn't legal; filtering the feature out entirely is.
 
-    # Per-tier zoom-interpolated icon sizes: smaller at overview zooms to reduce
-    # crowding, growing as the user zooms in. Major features are always largest.
-    _ICON_SIZE: dict[str, str] = {
-        'locations-major':     '["interpolate",["linear"],["zoom"],3,0.5,8,0.85]',
-        'locations-towns':     '["interpolate",["linear"],["zoom"],4,0.45,8,0.78]',
-        'locations-secondary': '["interpolate",["linear"],["zoom"],5,0.4,8,0.72]',
-        'locations-routes':    '["interpolate",["linear"],["zoom"],6,0.35,9,0.66]',
-        'locations-detail':    '["interpolate",["linear"],["zoom"],7,0.3,10,0.6]',
-    }
-
-    # The categories in each tier are the table's `page_tier` column
-    # (locations.categories.TYPES); what is left here is how the tier looks.
-    # fmt: off
+    # The categories in each tier, the zoom it fades in at and its icon sizes are the
+    # table's (locations.categories); what is left here is the tier's label.
     tiers = [
-        # layer_id               categories                                  mz  fs   fe  font                                      size
-        ('locations-major',     tier_members('page_tier', 'major'),          3,  3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],  15),
-        ('locations-towns',     tier_members('page_tier', 'towns'),           4,  4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Regular'], 13),
-        ('locations-secondary', tier_members('page_tier', 'secondary'),      5,  5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 13),
-        ('locations-routes',    tier_members('page_tier', 'routes'),          6,  6.5, 7,  None,                                     0),
-        ('locations-detail',    tier_members('page_tier', 'detail'),          7,  7.5, 8,  None,                                     0),
+        (f'locations-{tier}', tier_members(tier), TIER_ZOOM[tier], *tier_fade(tier), *_PAGE_LABELS.get(tier, (None, 0)))
+        for tier in TIERS
     ]
-    # fmt: on
 
     js = ''
     layer_ids = []
     for layer_id, cats, minzoom, fade_start, fade_end, label_font, label_size in tiers:
-        icon_match = build_icon_match_js(_ICON_SIZE[layer_id])
+        icon_match = build_icon_match_js(page_icon_size_expr(layer_id.removeprefix('locations-')))
         cats_json = str(cats).replace("'", '"')
         opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},1]'
 
@@ -254,39 +249,27 @@ def _locations_layers_js(gm_mode: bool = False) -> str:
 def _gm_secrets_layers_js() -> str:
     """Return JS adding dimmed symbol layers for gm_secrets features (GM build only).
 
-    Mirrors the four tiers in _locations_layers_js() but filtered to
+    Mirrors the tiers in _locations_layers_js() but filtered to
     visibility==gm_secrets and rendered at 40% opacity so the GM can
     distinguish secret vs revealed at a glance.
     """
-    # Same page_tier column as the public layers, with no towns tier: a gm_secrets
-    # town is drawn by neither layer set (as it always has been; drawing it would add
-    # pins, so it is not part of the zero-diff table).
-    # fmt: off
+    # The same ladder and icon sizes as the public layers, with no town tier: a
+    # gm_secrets town is drawn by neither layer set (as it always has been; drawing it
+    # would add pins, so it is not part of the zero-diff table).
     tiers = [
-        ('gm-locations-major',     tier_members('page_tier', 'major'),           3,  3.5, 4),
-        ('gm-locations-secondary', tier_members('page_tier', 'secondary'),       5,  5.5, 6),
-        ('gm-locations-routes',    tier_members('page_tier', 'routes'),          6,  6.5, 7),
-        ('gm-locations-detail',    tier_members('page_tier', 'detail'),          7,  7.5, 8),
+        (f'gm-locations-{tier}', tier_members(tier), TIER_ZOOM[tier], *tier_fade(tier))
+        for tier in TIERS if tier != 'town'
     ]
-    # fmt: on
 
     # mapMarker frontmatter override takes priority over the category-driven
     # icon: a string -> "cat-<string>" directly, unset/null -> the category
     # match. false (no icon) is handled via filter exclusion below, not here
     # — see the comment in _locations_layers_js for why.
 
-    # GM secret layers mirror the same size expressions as their public counterparts.
-    _GM_ICON_SIZE: dict[str, str] = {
-        'gm-locations-major':     '["interpolate",["linear"],["zoom"],3,0.5,8,0.85]',
-        'gm-locations-secondary': '["interpolate",["linear"],["zoom"],5,0.4,8,0.72]',
-        'gm-locations-routes':    '["interpolate",["linear"],["zoom"],6,0.35,9,0.66]',
-        'gm-locations-detail':    '["interpolate",["linear"],["zoom"],7,0.3,10,0.6]',
-    }
-
     js = ''
     gm_layer_ids = []
     for layer_id, cats, minzoom, fade_start, fade_end in tiers:
-        icon_match = build_icon_match_js(_GM_ICON_SIZE[layer_id])
+        icon_match = build_icon_match_js(page_icon_size_expr(layer_id.removeprefix('gm-locations-')))
         cats_json = str(cats).replace("'", '"')
         # Fade in to 0.4 (not 0.95) — visually distinct from public markers
         opacity_expr = f'["interpolate",["linear"],["zoom"],{fade_start},0,{fade_end},0.4]'

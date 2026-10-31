@@ -12,7 +12,7 @@ from html import escape
 from pathlib import Path
 from typing import Optional
 
-from locations.categories import DEFAULT_ICON, icon_arms, tier_members
+from locations.categories import DEFAULT_ICON, TIER_ZOOM, TIERS, icon_arms, tier_fade, tier_members
 from locations.location_parser import LocationData
 from locations.region_parser import RegionData
 from locations.map_icons import icon_registration_js
@@ -206,19 +206,22 @@ MAP_ATTRIBUTION_HTML = (
 )
 
 
-# Mirrors the tier structure in generate_locations_html.py::_locations_layers_js
-# so mini-maps and the world map reveal locations the same way as you zoom. The
-# categories in each tier are the table's `page_tier` column, the same one the world
-# page reads. The zoom thresholds are duplicated rather than imported --
-# generate_locations_html.py imports FROM this module, so importing back would
-# create a circular dependency.
+# (label font, label size) of each tier's mini-map label; a tier with no entry has none.
+_MINI_MAP_LABELS: dict[str, tuple[list[str], int]] = {
+    'capital':   (['Roboto Serif Regular', 'Noto Sans Bold'], 12),
+    'city':      (['Roboto Serif Regular', 'Noto Sans Bold'], 12),
+    'town':      (['Roboto Serif Regular', 'Noto Sans Regular'], 11),
+    'secondary': (['Roboto Serif Regular', 'Noto Sans Italic'], 11),
+    'spiritual': (['Roboto Serif Regular', 'Noto Sans Italic'], 11),
+}
+
+# The same tiers, zooms and fades as generate_locations_html.py::_locations_layers_js, so
+# mini-maps and the world map reveal locations the same way as you zoom: both read the
+# table's `tier` column and TIER_ZOOM ladder (locations.categories).
 _MINI_MAP_TIERS = [
-    # layer_id            categories                                    mz  fs   fe   label_font                                     size
-    ('mm-locations-major',     tier_members('page_tier', 'major'),           3, 3.5, 4,  ['Roboto Serif Regular', 'Noto Sans Bold'],   12),
-    ('mm-locations-towns',     tier_members('page_tier', 'towns'),            4, 4.5, 5,  ['Roboto Serif Regular', 'Noto Sans Regular'], 11),
-    ('mm-locations-secondary', tier_members('page_tier', 'secondary'),       5, 5.5, 6,  ['Roboto Serif Regular', 'Noto Sans Italic'], 11),
-    ('mm-locations-routes',    tier_members('page_tier', 'routes'),          6, 6.5, 7,  None,                                       0),
-    ('mm-locations-detail',    tier_members('page_tier', 'detail'),          7, 7.5, 8,  None,                                       0),
+    # layer_id, categories, minzoom, fade_start, fade_end, label_font, label_size
+    (f'mm-locations-{tier}', tier_members(tier), TIER_ZOOM[tier], *tier_fade(tier), *_MINI_MAP_LABELS.get(tier, (None, 0)))
+    for tier in TIERS
 ]
 
 

@@ -246,19 +246,48 @@ def test_display_toggles_are_unchanged():
 
 
 def test_rows_name_real_tiers_and_icons():
-    from locations.categories import MAP_TIERS, PAGE_TIERS, TYPES
+    from locations.categories import TIERS, TYPES
     from locations.map_icons import REGISTERED_ICONS
 
     assert len({t.slug for t in TYPES}) == len(TYPES), "duplicate row"
     for t in TYPES:
-        assert t.map_tier in (None, *MAP_TIERS), t
-        assert t.page_tier in (None, *PAGE_TIERS), t
+        assert t.tier in (None, *TIERS), t
         for icon in (t.map_icon, t.page_icon, t.mini_icon):
             assert icon is None or icon in REGISTERED_ICONS, (t.slug, icon)
-        if t.map_tier is None:
+        if t.tier is None:
             assert t.map_icon is None or t.slug in ("Oasis",), t
     # Unlisted rows are legacy spellings: tolerated, never offered.
     assert [t.slug for t in TYPES if not t.listed] == ["water-body", "caravanserai", "dungeon", "cosmological-realm", "mobile entity", "Oasis"]
+
+
+def test_the_ladder_runs_from_big_places_to_small():
+    """Capitals show first, then cities, then towns, then route nodes, and the layer
+    order (TIERS) never puts a tier that appears sooner above one that appears later."""
+    from locations.categories import TIER_ZOOM, TIERS
+
+    z = TIER_ZOOM
+    assert z["capital"] < z["city"] < z["town"] < z["routes"]
+    assert [z[t] for t in TIERS] == sorted(z[t] for t in TIERS)
+    assert z["spiritual"] == z["routes"], "a sacred place is as easy to find as a route node"
+    assert max(z.values()) == z["detail"]
+
+
+def test_every_surface_reads_the_same_ladder():
+    """Each tier's icon starts fading in at its TIER_ZOOM and is drawn one zoom later,
+    on all five surfaces: moving a tier is one cell, and nothing else disagrees."""
+    from locations.categories import TIER_ZOOM
+
+    prefix = {"map": "locations-", "world": "locations-", "world_gm_build": "locations-",
+              "gm_secret": "gm-locations-", "mini": "mm-locations-"}
+    for name, layers in _surfaces().items():
+        assert layers, name
+        for L in layers:
+            tier = L["id"].removeprefix(prefix[name])
+            zoom = TIER_ZOOM[tier]
+            start, end = (float(stop.split(":")[0]) for stop in L["icon_fade"].split())
+            assert (start, end) == (zoom, zoom + 1), (name, L["id"], L["icon_fade"])
+            # The Workshop's layer opens a zoom early for its label to fade in first.
+            assert float(L["minzoom"]) == (zoom - 1 if name == "map" else zoom), (name, L["id"], L["minzoom"])
 
 
 def test_tier_and_icon_coverage_checks_are_clean():
