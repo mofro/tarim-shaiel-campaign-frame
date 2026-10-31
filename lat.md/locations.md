@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-10-29
+last_updated: 2026-10-31
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -21,14 +21,14 @@ last_updated: 2026-10-29
 | Region parser | `utilities/locations/region_parser.py` | Parses `world/regions/*.md` → `RegionData` dicts |
 | HTML components | `utilities/locations/location_components.py` | Mini-map, faction table, danger pips, stats row, xref stub |
 | Normalization script | `utilities/world/normalize_locations.py` | One-time migration; adds `parent_region`, `visibility`, `status`, renames `factions→factions_visible` |
-| Category source of truth | `utilities/locations/categories.py` | `CATEGORIES` (17 canonical types), `VALID_CATEGORIES`, `ICON_MAP`. The Workshop Add Point and Edit Coords dropdowns, `utilities/map.py` and `add_location.py` all import it — add a type here only |
-| Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`; `routes_layer_js(dim_hidden=True)` dims routes the players cannot see, `ROUTE_DIM_OPACITY`), region layers, six location tiers, hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), `check_tier_coverage()`, basemap peak constants (`BASEMAP_PEAK_LAYER`, `BASEMAP_HIDDEN_LAYERS`, `PLAYER_HIDDEN_LAYERS`) and `basemap_hide_js()` — see Basemap Peak Markers below |
+| Type source of truth | `utilities/locations/categories.py` | `TYPES`, one table (29 rows, 23 listed): the parser, the Workshop Add Point and Edit Coords dropdowns, the icon expressions, the tier filters and the Display checkboxes all read it, as do `utilities/map.py` and `add_location.py`. Add or change a Type there only. Exports `CATEGORIES`, `VALID_CATEGORIES`, `ICON_MAP`, `TIER_ZOOM` / `TIERS`, `tier_members()`, `tier_fade()`, `icon_arms()`, `check_tier_coverage()`. See Types Table below |
+| Shared map style | `utilities/shared/map_style.py` | MapLibre styling emitted as JS by every map: route line (`ROUTE_COLOR`; `routes_layer_js(dim_hidden=True)` dims routes the players cannot see, `ROUTE_DIM_OPACITY`), region layers, eight location tiers (the table's `tier` column, zooms from `TIER_ZOOM`), hover-popup JS/CSS, `popup_description()` (200-char blurb, `player_safe=True` strips `{gm:}`, placeholders and session/awakening text), basemap peak constants (`BASEMAP_PEAK_LAYER`, `BASEMAP_HIDDEN_LAYERS`, `PLAYER_HIDDEN_LAYERS`) and `basemap_hide_js()` — see Basemap Peak Markers below |
 | Route visibility | `utilities/shared/route_visibility.py` | `visible_routes(routes, all_locations)` and `visible_waystations(waystations, routes)`: the one rule for which routes reach player output. Used by the player map and the public locations build |
 | Route travel time | `utilities/shared/travel_time.py` | Speed table (`SPEEDS`), path factors, terrain constants (Tobler, `MAX_SLOPE`, tile URL and limits), `segment_hours(km, mode, path, slope_factor)`, `format_duration()`, `tt_json()` for the Workshop JS |
 | Terrain path worker | `utilities/world/terrain_path.js` | Least-cost walk over terrarium elevation tiles (A*, Tobler, slope limits, IndexedDB tile cache); embedded in the Workshop as `_TERRAIN_SRC` and run in a Web Worker |
 | Journeys | `utilities/shared/journeys.py` | Saved-journey store (`world/data/tarim-shaiel-journeys.geojson`): validation, `create`/`replace`/`patch`/`delete`, `popup_info()`, `journey_is_public()`, `player_payload()` / `gm_payload()`. See Journeys below |
 
-**Surfaces using `map_style.py`:** the Workshop (`generate_map_workshop.py`, GM badge on `gm_secrets` hovers), the player map (`_build_player_html`, hover on desktop / tap-to-open on touch, no GM text, `gm_secrets` features dropped by `_player_locations_geojson`) and `docs/world.html` (routes and regions only; tiers, popups and click-navigate remain local to `generate_locations_html.py`). Workshop and player icon matching differs from `categories.ICON_MAP` (used by `world.html`) — a known divergence, not yet reconciled.
+**Surfaces using `map_style.py`:** the Workshop (`generate_map_workshop.py`, GM badge on `gm_secrets` hovers), the player map (`_build_player_html`, hover on desktop / tap-to-open on touch, no GM text, `gm_secrets` features dropped by `_player_locations_geojson`) and `docs/world.html` (routes and regions only; tiers, popups and click-navigate remain local to `generate_locations_html.py`, which reads `TIER_ZOOM` and the table's icon columns). The Workshop, player map, world page, GM layers and mini-maps all draw from the TYPES table, so they no longer disagree about a pin (#336, PR 3).
 
 ## Basemap Peak Markers
 
@@ -50,19 +50,20 @@ One control, two maps (#323). `map_style.display_controls_js(storage, key)` emit
 | Layer | Owner | Where it is stored |
 |---|---|---|
 | Topo, Satellite overlays | GM | Workshop `sessionStorage` (`_wsTopoOn/Op/Share`, `_wsSatOn/Op/Share`); reaches players only through the devserver |
-| Routes, Journeys, 11 location-type toggles | Each viewer | Player `localStorage` `ts_player_display`; Workshop `sessionStorage` `_wsDisp` (was `_wsIt`) |
+| Routes, Journeys, 12 location-type toggles | Each viewer | Player `localStorage` `ts_player_display`; Workshop `sessionStorage` `_wsDisp` (was `_wsIt`) |
 | Player's-eye preview | Workshop only | `sessionStorage` `_wsPreview` |
 
 - **Overlay relay:** the Workshop `POST`s `/api/map-overlays` on load and on every toggle, Share tick, slider change (debounced 250 ms) and tile failure. Body `{"topo":{"on":bool,"opacity":0..1},"sat":{...}}`; `on` means the GM has the overlay on AND ticked its "Share with players" box (default unticked). Localhost only; unknown overlay or field, non-boolean `on` and non-numeric opacity are 400 and change nothing; opacity clamps to 0..1. `GET /api/map-overlays` serves the in-memory state to the LAN.
 - **Player side:** two hidden raster layers, polled every 2 s whether or not Follow GM is on. Only `on === true` shows one. A failed or non-ok poll keeps the last state. An overlay whose tiles fail stays hidden, silently, until the GM turns it off and on. Players get no overlay checkboxes, sliders or error badges.
 - **One filter owner:** `_dispApply` is the only caller of `setFilter` on the tier layers, `routes`, `journeys` and `journeys-hit`. Anything else that narrows them (Player's-eye preview, the journey being edited) defines `_dispExtra(layerId)` and calls `_dispApply()`. A second `setFilter` would overwrite it; a test counts the calls.
 - **Preview:** the "Player's-eye preview" switch hides `gm_secrets` locations and routes and journeys with `_playerVisible` false. Its feature sets equal the rebuilt player map's, with type toggles on or off. Regions, reveal rings and the selection highlight are untouched.
-- **Player control:** a 44px layers button top-left (clear of the nav control, scale bar and Follow button). It lists only layers whose data is already player-filtered at build time, so no GM-only, preview, reveal-ring or highlight id or label appears in `player-map.html`. Toggles off hide only the checked-off categories; the 7 categories with no toggle always show on both maps.
+- **Player control:** a 44px layers button top-left (clear of the nav control, scale bar and Follow button). It lists only layers whose data is already player-filtered at build time, so no GM-only, preview, reveal-ring or highlight id or label appears in `player-map.html`. Toggles off hide only the checked-off categories; the 5 Types with no checkbox (ruins, power-site, chokepoint, mountain-pass, site) always show on both maps. Hide one pin with `visibility: gm_secrets` on its page.
 - **Every storage access is try/catch**, and `_dispLoad` accepts only booleans for known keys.
 - **Stacking (#329):** both maps add routes, then journeys, then the location tiers, so pins draw on top. MapLibre stacks by `addLayer` order and nothing here uses `beforeId` or `moveLayer`, so the order of the `addSource`/`addLayer` calls in each page's load handler is the whole rule; a test boots both builds and compares the order.
 - **Panel layout (#329):** the touch CSS (`display_controls_css(touch=True)`, player map only) is a borderless two-column grid of 44px rows with no vertical gap: Routes and Journeys share a row (`.disp-layers`), and an odd last type (POIs) spans both columns. Bordered chips were tried and dropped; they only added whitespace.
-- **Type markers (#329):** each type toggle carries an empty `.it-icon` span. `_dispIcons()` copies the map's registered canvas icon (`map.getImage`) into it, so it must run right after `icons_js` in the load handler on both maps. The icon per type is `_ICON_BY_CATEGORY`, the same lookup the map draws.
-- Tests: `tests/test_display_layers.py` (119).
+- **Type markers (#329):** each type toggle carries an empty `.it-icon` span. `_dispIcons()` copies the map's registered canvas icon (`map.getImage`) into it, so it must run right after `icons_js` in the load handler on both maps. The icon per type is the table's `map_icon` column (`categories.icon_arms("map_icon")`), the same lookup the map draws.
+- **Checkboxes follow the marker (#336, PR 3):** a row's `toggle` cell is its label, and rows that share a label share one box, keyed by the first of them (`LOCATION_TYPE_TOGGLES`, `TOGGLE_OF`), so a saved Display key never changes on a relabel. **Water** (key `lake`) hides lake, sea, river, reservoir, spring, well and water-body, all drawn `cat-water`. **Sacred Sites** also hides mythic-landscape. **Villages** (the downward triangle) has its own box.
+- Tests: `tests/test_display_layers.py` (127).
 - **Topo labels (resolved, #331):** the baked-in real-world labels are gone because Topo now uses the label-free custom campaign style (`TOPO_OVERLAY_MAP_ID`). `maxzoom` is still not capped.
 - **Gap:** the Workshop writes the overlay-error sessionStorage key as `_ws<source-id>On` (`_wstopo-overlayOn`) but reads `_wsTopoOn` at load, so a tile failure does not persist across reloads. Pre-existing; not fixed in #323.
 
@@ -115,6 +116,18 @@ Priority: `type:` field → `mapmarker:` → `content_type:` → tags (type-city
 | landmark | Landmark | 3 |
 | fortress | Fortress | 3 |
 | poi | Point of Interest | 1 |
+
+That table lists only the original eight slugs and their default danger pips. The Types Table below is the full list, and every page `type:` has a row in it (a test fails on one that does not).
+
+## Types Table
+
+`TYPES` in `utilities/locations/categories.py` decides the pin (#336, PRs 2 and 3). A row carries `slug`, `parses_as`, `tier`, `map_icon`, `page_icon`, `mini_icon`, `toggle` and `listed`; the module docstring defines each column. `mapmarker:` and `type-*` tags stay in the files but only classify a page with no `type:`; they never choose an icon.
+
+- **One zoom ladder:** `TIER_ZOOM` is the only place a tier's zoom lives, read by the Workshop, player map, world page, GM layers and mini-maps. An icon starts fading in at the tier's zoom and is fully drawn one zoom later: capital 2, city 3, town 4, village 5, secondary 5, spiritual 6, routes 6, detail 7. Moving a tier is one cell plus a golden regeneration.
+- **Icon families:** the water family (lake, sea, river, reservoir, spring, well, water-body) draws `cat-water`; sacred-site and mythic-landscape draw `cat-sacred-site`; village draws `cat-village`, a downward triangle, in its own tier. caravanserai is an unlisted alias of route-node. cosmological-realm and mobile entity are `icon: none` rows (not places, never drawn).
+- **World page GM layers:** `gm-locations-<tier>` for all eight tiers, at 40% opacity, filtered to `visibility == gm_secrets` (GM build only, `build.py locations --gm`). A `gm_secrets` town is drawn there as a `gm_secrets` village is.
+- **Golden file:** `tests/fixtures/type_pins.json` records what every Type draws on every surface (arms, probes, tiers, zooms). A change to the table regenerates it with `venv/bin/python tests/test_types_table.py`, and its diff is the change's before-and-after pin list. Display checkboxes are not recorded in it. Tests: `tests/test_types_table.py` (11).
+- **Still to come (PR 4):** the `map_icon:` per-page override, creation reading the table, a `retype` command. The content sort (caravanserai and route-node pins, water types, Type and `mapmarker:` disagreements) follows.
 
 ## GM Reveal Mechanic
 

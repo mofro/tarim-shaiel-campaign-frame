@@ -875,3 +875,18 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The settlement ladder is capital star, city ring and dot, town open ring, village downward triangle, route-node diamond (art unchanged). Several Types share one icon: lake, water-body, sea, river, reservoir, spring and well draw `cat-water` (renamed from `cat-lake`); sacred-site, power-site and mythic-landscape draw `cat-sacred-site`. The per-pin override is `map_icon:` (`map_icon: none` replaces `map_marker: false`). This supersedes the ladder rungs in the previous entry (village diamond, route-node triangle, town zoom 4).
 - **Rationale:** An open ring reads smaller than a diamond and a diamond bigger than a triangle, so the community rungs are the circles plus the triangle and the diamond stays the route rung; the rejected version (village diamond) put the heavier glyph on a middle rung and changed the shape of all 43 route-nodes. Town zoom is 5 in `LOCATION_TIERS`, not 4, and `cat-landmark` is already an upward triangle, so the village glyph mirrors it and is checked side by side at real size. Bare `icon:` is taken by events and the Obsidian Leaflet plugin reads `mapmarker:`.
 - **Lock status:** Working decision, not locked until the table, parser and glyphs ship.
+
+## 2026-10-31 — Map: one zoom ladder for every surface (#336, HeroHeaven-fs8.4)
+- **Decision:** `tier` is a column of the TYPES table and `TIER_ZOOM` is the only place a tier's zoom lives, read by the Workshop, player map, world page, GM layers and mini-maps. An icon starts fading in at the tier's zoom and is fully drawn one zoom later: capital 2, city 3, town 4, village 5, secondary 5, spiritual 6, routes 6, detail 7. This supersedes the 2026-10-30 line "Town zoom is 5": town is 4 and village is its own tier at 5.
+- **Rationale:** the surfaces disagreed (Workshop capital 3 and town 5, the world page half a zoom later, spiritual split across two tiers). Rejected: a zoom per surface, which is how they drifted. Moving a tier is now one cell plus a golden-file regeneration.
+- **Lock status:** Locked (shipped, #339, 97f032e).
+
+## 2026-10-31 — Map: Display checkboxes follow the marker (#336, HeroHeaven-fs8.4)
+- **Decision:** a checkbox names what the pin looks like. Water (key `lake`) covers lake, sea, river, reservoir, spring, well and water-body; Villages has its own box; mythic-landscape follows Sacred Sites. ruins, power-site, chokepoint, mountain-pass and site have no class-level box and are always drawn; hide one pin with `visibility: gm_secrets` on its page.
+- **Rationale:** a viewer chooses from what they can see, not from what is semantically similar. Rejected: a box for each of those five classes, or folding power-site under Sacred Sites; the GM would rather hide individual pins. mountain-pass was not named in that decision; the GM confirmed it follows chokepoint "for now".
+- **Lock status:** Locked (shipped, #339, 97f032e), except the mountain-pass grouping, which is a working decision.
+
+## 2026-10-31 — Map: the world page's GM layers draw gm_secrets towns (#336, HeroHeaven-fs8.4)
+- **Decision:** the GM layers read every tier in `TIERS`, town included, so the 28 `gm_secrets` towns with coordinates are drawn in the GM build (`build.py locations --gm`).
+- **Rationale:** a GM who can hide a village and see it on the GM map should get the same for a town, and there was no reason to treat them differently. Rejected: leaving the town tier out, which left those pages drawn by neither layer set.
+- **Lock status:** Locked (shipped, #339, 97f032e).
