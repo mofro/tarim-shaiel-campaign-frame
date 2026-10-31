@@ -72,6 +72,11 @@ TYPES: tuple[Type, ...] = (
     Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "secondary", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
     Type("oasis",         "oasis",       "secondary", "cat-oasis",       "secondary", "cat-oasis",       "cat-oasis",       "Oases"),
     Type("lake",          "lake",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       "Lakes"),
+    Type("sea",           "sea",         "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),
+    Type("river",         "river",       "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),
+    Type("reservoir",     "reservoir",   "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),
+    Type("spring",        "spring",      "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),
+    Type("well",          "well",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None),
     Type("caravanserai",  "route-node",  "secondary", "cat-route-node",  "secondary", "cat-route-node",  "cat-route-node",  None),
     # Route network
     Type("route-node",    "route-node",  "routes",    "cat-route-node",  "routes",    "cat-route-node",  "cat-route-node",  "Route Nodes"),

@@ -35,6 +35,11 @@ _DANGER_BY_TYPE: dict[str, int] = {
     "bridge": 2,
     "poi": 1,
     "lake": 1,
+    "sea": 1,
+    "river": 1,
+    "reservoir": 1,
+    "spring": 1,
+    "well": 1,
     "power-site": 3,
 }
 
@@ -55,6 +60,11 @@ _TYPE_LABELS: dict[str, str] = {
     "power-site": "Power Site",
     "ruins": "Ruins",
     "site": "Site",
+    "sea": "Sea",
+    "river": "River",
+    "reservoir": "Reservoir",
+    "spring": "Spring",
+    "well": "Well",
 }
 
 

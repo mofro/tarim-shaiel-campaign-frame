@@ -14,12 +14,17 @@
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
+    "spring": "cat-water",
     "town": "cat-town",
-    "water-body": "cat-water"
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   },
@@ -37,12 +42,17 @@
     "mountain-pass": "cat-landmark",
     "oasis": "cat-oasis",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
+    "spring": "cat-water",
     "town": "cat-town",
-    "water-body": "cat-water"
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   },
@@ -60,12 +70,17 @@
     "mountain-pass": "cat-landmark",
     "oasis": "cat-oasis",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
+    "spring": "cat-water",
     "town": "cat-town",
-    "water-body": "cat-water"
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   },
@@ -83,12 +98,17 @@
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
+    "spring": "cat-water",
     "town": "cat-town",
-    "water-body": "cat-water"
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   },
@@ -106,12 +126,17 @@
     "oasis": "cat-oasis",
     "poi": "cat-poi",
     "power-site": "cat-sacred-site",
+    "reservoir": "cat-water",
+    "river": "cat-water",
     "route-node": "cat-route-node",
     "ruins": "cat-dungeon",
     "sacred-site": "cat-sacred-site",
+    "sea": "cat-water",
     "site": "cat-poi",
+    "spring": "cat-water",
     "town": "cat-town",
-    "water-body": "cat-water"
+    "water-body": "cat-water",
+    "well": "cat-water"
    },
    "default": "cat-poi"
   }
@@ -723,6 +748,90 @@
     ]
    }
   },
+  "reservoir": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "reservoir",
+   "parser_type": "reservoir",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
+   }
+  },
+  "river": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "river",
+   "parser_type": "river",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
+   }
+  },
   "route-node": {
    "gm_secrets": {
     "gm_secret": [
@@ -849,6 +958,48 @@
     ]
    }
   },
+  "sea": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "sea",
+   "parser_type": "sea",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
+   }
+  },
   "site": {
    "gm_secrets": {
     "gm_secret": [
@@ -888,6 +1039,48 @@
     "world_gm_build": [
      "locations-detail",
      "cat-poi"
+    ]
+   }
+  },
+  "spring": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "spring",
+   "parser_type": "spring",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
     ]
    }
   },
@@ -990,6 +1183,48 @@
     ]
    }
   },
+  "well": {
+   "gm_secrets": {
+    "gm_secret": [
+     "gm-locations-secondary",
+     "cat-water"
+    ],
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": null
+   },
+   "parser_mapmarker": "well",
+   "parser_type": "well",
+   "public": {
+    "gm_secret": null,
+    "map": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "mini": [
+     "mm-locations-secondary",
+     "cat-water"
+    ],
+    "world": [
+     "locations-secondary",
+     "cat-water"
+    ],
+    "world_gm_build": [
+     "locations-secondary",
+     "cat-water"
+    ]
+   }
+  },
   "zz-unknown": {
    "gm_secrets": {
     "gm_secret": null,
@@ -1033,6 +1268,11 @@
     "sacred-site",
     "oasis",
     "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
     "caravanserai",
     "water-body"
    ]
@@ -1058,6 +1298,11 @@
    "locations-secondary": [
     "oasis",
     "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
     "caravanserai",
     "water-body"
    ],
@@ -1092,6 +1337,11 @@
     "sacred-site",
     "oasis",
     "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
     "caravanserai",
     "water-body"
    ],
@@ -1122,6 +1372,11 @@
     "sacred-site",
     "oasis",
     "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
     "caravanserai",
     "water-body"
    ],
@@ -1152,6 +1407,11 @@
     "sacred-site",
     "oasis",
     "lake",
+    "sea",
+    "river",
+    "reservoir",
+    "spring",
+    "well",
     "caravanserai",
     "water-body"
    ],

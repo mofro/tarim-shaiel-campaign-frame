@@ -32,9 +32,9 @@ GOLDEN = ROOT / "tests" / "fixtures" / "type_pins.json"
 # parser, so the empty probe is only a feature whose category is blank).
 PROBES = [
     "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "oasis",
-    "lake", "caravanserai", "route-node", "chokepoint", "mountain-pass", "ruins", "poi",
-    "power-site", "site", "water-body", "Oasis", "dungeon", "mythic-landscape", "village",
-    "zz-unknown", "",
+    "lake", "sea", "river", "reservoir", "spring", "well", "caravanserai", "route-node",
+    "chokepoint", "mountain-pass", "ruins", "poi", "power-site", "site", "water-body", "Oasis",
+    "dungeon", "mythic-landscape", "village", "zz-unknown", "",
 ]
 VISIBILITIES = ("public", "gm_secrets")
 
@@ -200,13 +200,13 @@ def test_the_probe_list_covers_every_row():
     assert not missing, f"add {missing} to PROBES and regenerate the golden file"
 
 
-def test_dropdown_order_is_unchanged():
+def test_dropdown_order():
     from locations.categories import CATEGORIES, VALID_CATEGORIES
 
     assert CATEGORIES == [
         "city", "capital", "bridge", "landmark", "fortress", "town", "sacred-site", "oasis",
-        "lake", "caravanserai", "route-node", "chokepoint", "mountain-pass", "ruins", "poi",
-        "power-site", "site",
+        "lake", "sea", "river", "reservoir", "spring", "well", "caravanserai", "route-node",
+        "chokepoint", "mountain-pass", "ruins", "poi", "power-site", "site",
     ]
     assert VALID_CATEGORIES == frozenset(CATEGORIES)
 
