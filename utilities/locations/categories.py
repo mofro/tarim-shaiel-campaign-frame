@@ -75,13 +75,13 @@ TYPES: tuple[Type, ...] = (
     Type("caravanserai",  "route-node",  "secondary", "cat-route-node",  "secondary", "cat-route-node",  "cat-route-node",  None),
     # Route network
     Type("route-node",    "route-node",  "routes",    "cat-route-node",  "routes",    "cat-route-node",  "cat-route-node",  "Route Nodes"),
-    Type("chokepoint",    None,          "routes",    "cat-fortress",    "routes",    "cat-fortress",    "cat-fortress",    None),
-    Type("mountain-pass", None,          "routes",    "cat-landmark",    "routes",    "cat-landmark",    "cat-landmark",    None),
+    Type("chokepoint",    "chokepoint",  "routes",    "cat-fortress",    "routes",    "cat-fortress",    "cat-fortress",    None),
+    Type("mountain-pass", "mountain-pass", "routes",  "cat-landmark",    "routes",    "cat-landmark",    "cat-landmark",    None),
     # Detail layer
-    Type("ruins",         None,          "detail",    "cat-dungeon",     "detail",    "cat-dungeon",     "cat-dungeon",     None),
+    Type("ruins",         "ruins",       "detail",    "cat-dungeon",     "detail",    "cat-dungeon",     "cat-dungeon",     None),
     Type("poi",           "poi",         "detail",    None,              "detail",    "cat-poi",         None,              "POIs"),
-    Type("power-site",    None,          "spiritual", "cat-sacred-site", "detail",    "cat-sacred-site", "cat-sacred-site", None),
-    Type("site",          None,          "detail",    "cat-poi",         "detail",    "cat-poi",         "cat-poi",         None),
+    Type("power-site",    "power-site",  "spiritual", "cat-sacred-site", "detail",    "cat-sacred-site", "cat-sacred-site", None),
+    Type("site",          "site",        "detail",    "cat-poi",         "detail",    "cat-poi",         "cat-poi",         None),
     # Legacy spellings still on pages or in old tooling: tolerated, never offered.
     Type("water-body",    "lake",        "secondary", "cat-water",       "secondary", "cat-water",       "cat-water",       None, listed=False),
     Type("dungeon",       "dungeon",     None,        None,              None,        None,              None,              None, listed=False),

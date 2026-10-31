@@ -329,8 +329,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "chokepoint",
+   "parser_type": "chokepoint",
    "public": {
     "gm_secret": null,
     "map": [
@@ -557,8 +557,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "mountain-pass",
+   "parser_type": "mountain-pass",
    "public": {
     "gm_secret": null,
     "map": [
@@ -701,8 +701,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "power-site",
+   "parser_type": "power-site",
    "public": {
     "gm_secret": null,
     "map": [
@@ -785,8 +785,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "ruins",
+   "parser_type": "ruins",
    "public": {
     "gm_secret": null,
     "map": [
@@ -869,8 +869,8 @@
     ],
     "world_gm_build": null
    },
-   "parser_mapmarker": "poi",
-   "parser_type": "poi",
+   "parser_mapmarker": "site",
+   "parser_type": "site",
    "public": {
     "gm_secret": null,
     "map": [
