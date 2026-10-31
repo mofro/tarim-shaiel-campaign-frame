@@ -1156,7 +1156,10 @@
   },
   "town": {
    "gm_secrets": {
-    "gm_secret": null,
+    "gm_secret": [
+     "gm-locations-town",
+     "cat-town"
+    ],
     "map": [
      "locations-town",
      "cat-town"
@@ -1375,6 +1378,9 @@
     "mythic-landscape",
     "power-site"
    ],
+   "gm-locations-town": [
+    "town"
+   ],
    "gm-locations-village": [
     "village"
    ]
@@ -1588,6 +1594,12 @@
     "icon_fade": "6:0 7:0.4",
     "icon_size": "5:0.4 8:0.72",
     "minzoom": 6,
+    "text_fade": null
+   },
+   "gm-locations-town": {
+    "icon_fade": "4:0 5:0.4",
+    "icon_size": "4:0.45 8:0.78",
+    "minzoom": 4,
     "text_fade": null
    },
    "gm-locations-village": {

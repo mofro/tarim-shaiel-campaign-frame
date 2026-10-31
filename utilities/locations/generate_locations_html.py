@@ -254,12 +254,11 @@ def _gm_secrets_layers_js() -> str:
     visibility==gm_secrets and rendered at 40% opacity so the GM can
     distinguish secret vs revealed at a glance.
     """
-    # The same ladder and icon sizes as the public layers, with no town tier: a
-    # gm_secrets town is drawn by neither layer set (as it always has been; drawing it
-    # would add pins, so it is not part of the zero-diff table).
+    # The same ladder and icon sizes as the public layers, every tier included: a
+    # gm_secrets town is drawn here, as a gm_secrets village is.
     tiers = [
         (f'gm-locations-{tier}', tier_members(tier), TIER_ZOOM[tier], *tier_fade(tier))
-        for tier in TIERS if tier != 'town'
+        for tier in TIERS
     ]
 
     # mapMarker frontmatter override takes priority over the category-driven
