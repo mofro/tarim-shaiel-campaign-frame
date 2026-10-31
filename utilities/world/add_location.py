@@ -72,12 +72,10 @@ def build_frontmatter(
         f"- {lon}",
         "map_min_zoom: 5",
         "map_max_zoom: 14",
-        f"mapmarker: {category}",
         f"name: {name}",
         f"real_world_name: {name}",
         "tags:",
         "- placeholder",
-        f"- type-{category}",
         f"type: {category}",
         "---",
     ]
@@ -187,7 +185,7 @@ def main() -> None:
     parser.add_argument("--name", help="Display name of the location")
     parser.add_argument("--lat", type=float, help="Latitude")
     parser.add_argument("--lon", type=float, help="Longitude")
-    parser.add_argument("--category", help=f"Marker category: {', '.join(sorted(VALID_CATEGORIES))}")
+    parser.add_argument("--category", help=f"Type: {', '.join(sorted(VALID_CATEGORIES))}")
     parser.add_argument("--fantasy-name", default="", help="In-world name (optional)")
     parser.add_argument("--description", default="PLACEHOLDER — location pending. Prose pass pending.",
                         help="Short description for frontmatter")

@@ -23,9 +23,9 @@ VAULT_ROOT = SCRIPT_DIR.parent.parent
 
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 
-from locations.categories import CATEGORIES
+from locations.categories import CATEGORIES, type_icons
 from locations.location_parser import load_all_locations
-from locations.map_icons import icon_registration_js
+from locations.map_icons import ICON_NAMES, icon_registration_js
 from locations.location_components import MAPTILER_STYLE_URL, MAPTILER_KEY, MAPTILER_STYLE_ID
 from shared import journeys, map_style, route_visibility, travel_time
 
@@ -274,6 +274,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .command-block .btn { border-radius: 0; border: none; border-top: 1px solid rgba(184,146,44,0.2);
   width: 100%; text-align: center; }
 .hint { font-size: 11px; color: #7a6a50; line-height: 1.5; }
+.ef-icon-note { font-size: 13px; color: #c8b890; line-height: 1.4; min-height: 18px; }
 .hint code { font-family: monospace; color: #9a8a60; background: rgba(255,255,255,0.04);
   padding: 1px 4px; border-radius: 2px; }
 .hidden { display: none !important; }
@@ -604,16 +605,9 @@ def _build_panel_edit_coords() -> str:
         f'      <option value="{c}">{"POI" if c == "poi" else c.replace("-", " ").title()}</option>'
         for c in CATEGORIES
     )
-    marker_opts = "\n".join(
+    icon_opts = "\n".join(
         f'      <option value="{v}">{label}</option>'
-        for v, label in [
-            ("", "— auto (from type) —"),
-            ("city", "city"), ("capital", "capital"), ("town", "town"),
-            ("bridge", "bridge"), ("fortress", "fortress"), ("landmark", "landmark"),
-            ("sacred-site", "sacred-site"), ("oasis", "oasis"), ("lake", "lake"),
-            ("route-node", "route-node"), ("poi", "poi"), ("dungeon", "dungeon"),
-            ("false", "false (hidden)"),
-        ]
+        for v, label in [("", "From Type"), *((n, n) for n in ICON_NAMES), ("none", "none (hidden)")]
     )
     return f"""
 <button id="edit-mode-btn" class="btn edit-toggle">Enable Edit Mode</button>
@@ -636,10 +630,11 @@ def _build_panel_edit_coords() -> str:
     </select>
   </div>
   <div class="field-group" style="margin-top:5px;">
-    <label>Map Marker</label>
-    <select id="ef-marker">
-{marker_opts}
+    <label>Icon override</label>
+    <select id="ef-icon">
+{icon_opts}
     </select>
+    <p id="ef-icon-note" class="ef-icon-note"></p>
   </div>
   <div class="field-group" style="margin-top:5px;">
     <label>Visibility</label>
@@ -764,7 +759,7 @@ def _build_panel_travel_time() -> str:
 
 # Field editor Save: the form sends only the fields the GM changed. The server removes a
 # key whose value is null, so sending every field wrote null for anything the form could
-# not show (a Fantasy name equal to the title, a Map Marker value off the list) and
+# not show (a Fantasy name equal to the title, an Icon override value off the list) and
 # deleted the line from the file. base is what the controls showed when the page opened;
 # cur is what they show now. Pure, so tests run it under node.
 _EF_DIFF_JS = r"""
@@ -775,11 +770,28 @@ function _efDiff(base,cur){
     if(k==="type"&&!cur[k])return;
     var v=cur[k];
     if(k==="fantasy_name"&&v==="")v=null;
-    if(k==="mapmarker")v=v===""?null:(v==="false"?false:v);
+    if(k==="map_icon"&&v==="")v=null;
     out[k]=v;
   });
   return out;
 }
+"""
+
+
+# The Icon override's readout: the icon the pin will draw with, and where it comes from.
+# The Type select is blank for a page whose Type is off the list, so the readout falls
+# back to the page's own category. A Type no tier draws has no pin whatever the override.
+_EF_ICON_NOTE_JS = r"""
+function _efShowIcon(){
+  var ov=_efIcon.value,from=_efTypeIcons[_efType.value||_efOpenCat],txt;
+  if(!from)txt="No pin: this Type is not drawn";
+  else if(ov==="none")txt="Icon: hidden (override)";
+  else if(ov)txt="Icon: "+ov+" (override)";
+  else txt="Icon: "+from+" (from Type)";
+  _efIconNote.textContent=txt;
+}
+_efType.addEventListener("change",_efShowIcon);
+_efIcon.addEventListener("change",_efShowIcon);
 """
 
 
@@ -2261,7 +2273,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _efName=document.getElementById("ef-name");\n'
         'var _efFantasy=document.getElementById("ef-fantasy");\n'
         'var _efType=document.getElementById("ef-type");\n'
-        'var _efMarker=document.getElementById("ef-marker");\n'
+        'var _efIcon=document.getElementById("ef-icon");\n'
+        'var _efIconNote=document.getElementById("ef-icon-note");\n'
+        'var _efOpenCat="";\n'
+        'var _efTypeIcons=' + json.dumps({k: v.removeprefix("cat-") for k, v in type_icons().items()}) + ';\n'
         'var _efStatus=document.getElementById("ef-status");\n'
         'var _efSaveBtn=document.getElementById("ef-save-btn");\n'
         'var _efMoveBtn=document.getElementById("ef-move-btn");\n'
@@ -2271,9 +2286,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'return {name:_efName.value.trim(),'
         'fantasy_name:_efFantasy.value.trim(),'
         'type:_efType.value,'
-        'mapmarker:_efMarker.value,'
+        'map_icon:_efIcon.value,'
         'visibility:document.querySelector(\'input[name="ef-vis"]:checked\').value};'
         '}\n'
+        + _EF_ICON_NOTE_JS +
 
         'function _openFieldEditor(feature){'
         'var p=feature.properties;'
@@ -2285,14 +2301,15 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_efFantasy.value=(fn&&fn!==p.title)?fn:"";'
         'if(_efType.querySelector(\'option[value="\'+p.category+\'"]\'))_efType.value=p.category;'
         'else _efType.value="";'
+        '_efOpenCat=p.category||"";'
         'var mm=p.mapMarker;'
-        'var mmVal=mm===false?"false":(mm||"");'
-        'if(_efMarker.querySelector(\'option[value="\'+mmVal+\'"]\'))_efMarker.value=mmVal;'
-        'else _efMarker.value="";'
+        'var mmVal=mm===false?"none":(mm||"");'
+        'if(_efIcon.querySelector(\'option[value="\'+mmVal+\'"]\'))_efIcon.value=mmVal;'
+        'else _efIcon.value="";'
         'var visVal=p.visibility==="gm_secrets"?"gm_secrets":"public";'
         'document.querySelectorAll(\'input[name="ef-vis"]\').forEach(function(r){r.checked=r.value===visVal;});'
         '_efStatus.textContent="";_efStatus.className="hint";'
-        '_efBase=_efRead();'
+        '_efShowIcon();_efBase=_efRead();'
         '_efPanel.classList.remove("hidden");'
         '}\n'
 
