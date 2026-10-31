@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-08-29
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 41.028395
 - 86.673072
@@ -20,7 +20,7 @@ real_world_name: Qiala Shuiku
 tags:
 - placeholder
 - type-water-body
-type: water-body
+type: reservoir
 ---
 
 ```leaflet

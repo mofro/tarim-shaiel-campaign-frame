@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-08-29
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 39.508958
 - 88.101573
@@ -20,7 +20,7 @@ real_world_name: Karakoshun Lake
 tags:
 - placeholder
 - type-water-body
-type: water-body
+type: lake
 ---
 
 ```leaflet

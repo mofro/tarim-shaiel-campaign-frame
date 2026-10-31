@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-09-05
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 36.019323
 - 79.123278
@@ -20,7 +20,7 @@ real_world_name: Karkash River
 tags:
 - placeholder
 - type-water-body
-type: water-body
+type: river
 ---
 
 ```leaflet

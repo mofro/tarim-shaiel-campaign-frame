@@ -11,7 +11,7 @@ created: 2025-12-13
 description: Overflow staging post for caravans approaching the Jade Gate; paperwork,
   inspections, and remounts.
 fantasy_name: Yumen Waystation (Outer)
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 40.42
 - 94.78
@@ -22,7 +22,7 @@ name: Yumen Waystation (Outer)
 tags:
 - player-visible
 - type-caravanserai
-type: caravanserai
+type: route-node
 ---
 
 ```leaflet

@@ -11,7 +11,7 @@ created: 2025-12-13
 description: Fortified overnight station with stables and a small shrine; a safe stop
   when the weather turns.
 fantasy_name: Black-Timber Post
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 41.039914
 - 82.320416
@@ -22,7 +22,7 @@ name: Black-Timber Post
 tags:
 - player-visible
 - type-caravanserai
-type: caravanserai
+type: route-node
 ---
 
 ```leaflet

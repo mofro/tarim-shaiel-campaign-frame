@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-10-29
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-29
+last_updated: 2026-10-31
 location:
 - 38.601422
 - 67.802966
@@ -20,7 +20,7 @@ real_world_name: To'palang suv Ombori
 tags:
 - placeholder
 - type-lake
-type: lake
+type: reservoir
 ---
 
 ```leaflet

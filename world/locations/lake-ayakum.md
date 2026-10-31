@@ -9,7 +9,7 @@ status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
 fantasy_name: Lake of Dragons
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 37.550877
 - 89.390955
@@ -21,7 +21,7 @@ real_world_name: Lake Ayakum
 tags:
 - placeholder
 - type-water-body
-type: water-body
+type: lake
 ---
 
 ```leaflet

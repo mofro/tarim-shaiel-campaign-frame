@@ -9,7 +9,7 @@ status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
 fantasy_name: Lake Bustel
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 41.974492
 - 87.032954
@@ -21,7 +21,7 @@ real_world_name: Bosten Lake
 tags:
 - placeholder
 - type-water-body
-type: water-body
+type: lake
 ---
 
 ```leaflet

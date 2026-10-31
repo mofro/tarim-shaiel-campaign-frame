@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-10-26
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 39.858265
 - 64.849786
@@ -20,7 +20,7 @@ real_world_name: To'dakol Suv Ombori
 tags:
 - placeholder
 - type-lake
-type: lake
+type: reservoir
 ---
 
 ```leaflet

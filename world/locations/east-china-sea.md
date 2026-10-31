@@ -9,7 +9,7 @@ status: draft
 created: 2026-10-26
 description: "PLACEHOLDER — location pending. Prose pass pending."
 fantasy_name: East Spirit Sea
-last_updated: 2026-10-26
+last_updated: 2026-10-31
 location:
 - 28.593901
 - 123.316925
@@ -21,7 +21,7 @@ real_world_name: East China Sea
 tags:
 - placeholder
 - type-lake
-type: lake
+type: sea
 ---
 
 ```leaflet
