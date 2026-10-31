@@ -31,7 +31,7 @@
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-lake",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
     "oasis": "cat-oasis",
@@ -41,7 +41,7 @@
     "sacred-site": "cat-sacred-site",
     "site": "cat-poi",
     "town": "cat-town",
-    "water-body": "cat-lake"
+    "water-body": "cat-water"
    },
    "default": "cat-poi"
   },
@@ -53,7 +53,7 @@
     "chokepoint": "cat-fortress",
     "city": "cat-city",
     "fortress": "cat-fortress",
-    "lake": "cat-lake",
+    "lake": "cat-water",
     "landmark": "cat-landmark",
     "mountain-pass": "cat-landmark",
     "oasis": "cat-oasis",
@@ -63,7 +63,7 @@
     "sacred-site": "cat-sacred-site",
     "site": "cat-poi",
     "town": "cat-town",
-    "water-body": "cat-lake"
+    "water-body": "cat-water"
    },
    "default": "cat-poi"
   },
@@ -418,7 +418,7 @@
     "gm_secret": null,
     "map": [
      "locations-secondary",
-     "cat-lake"
+     "cat-water"
     ],
     "mini": null,
     "world": null,
@@ -430,7 +430,7 @@
     "gm_secret": null,
     "map": [
      "locations-secondary",
-     "cat-lake"
+     "cat-water"
     ],
     "mini": null,
     "world": null,
@@ -895,7 +895,7 @@
     "gm_secret": null,
     "map": [
      "locations-secondary",
-     "cat-lake"
+     "cat-water"
     ],
     "mini": null,
     "world": null,
@@ -907,7 +907,7 @@
     "gm_secret": null,
     "map": [
      "locations-secondary",
-     "cat-lake"
+     "cat-water"
     ],
     "mini": null,
     "world": null,

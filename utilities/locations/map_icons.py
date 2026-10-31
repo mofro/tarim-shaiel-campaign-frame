@@ -26,7 +26,7 @@ REGISTERED_ICONS: frozenset[str] = frozenset({
     "cat-oasis",
     "cat-landmark",
     "cat-bridge",
-    "cat-lake",
+    "cat-water",
     "cat-poi",
     "cat-dungeon",
 })
@@ -144,8 +144,8 @@ def icon_registration_js() -> str:
           'ctx.restore();'
         '});'
 
-        # lake — concentric blue ripple rings, light→dark toward center
-        '_mk("cat-lake",function(ctx){'
+        # water (lake, and the other water Types) — concentric blue ripple rings, light→dark toward center
+        '_mk("cat-water",function(ctx){'
           'ctx.fillStyle="rgba(255,255,255,0.60)";ctx.beginPath();ctx.arc(32,32,28,0,Math.PI*2);ctx.fill();'
           'ctx.strokeStyle="#6aaed6";ctx.lineWidth=3.5;ctx.beginPath();ctx.arc(32,32,22,0,Math.PI*2);ctx.stroke();'
           'ctx.strokeStyle="#2e7fb8";ctx.lineWidth=4.0;ctx.beginPath();ctx.arc(32,32,14,0,Math.PI*2);ctx.stroke();'

@@ -74,7 +74,7 @@ TYPES: tuple[Type, ...] = (
     # Secondary locations
     Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "secondary", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
     Type("oasis",         "oasis",       "secondary", "cat-oasis",       "secondary", "cat-oasis",       "cat-oasis",       "Oases"),
-    Type("lake",          "lake",        "secondary", "cat-lake",        None,        "cat-oasis",       "cat-lake",        "Lakes"),
+    Type("lake",          "lake",        "secondary", "cat-water",       None,        "cat-oasis",       "cat-water",       "Lakes"),
     Type("caravanserai",  "route-node",  "secondary", "cat-route-node",  "secondary", "cat-route-node",  "cat-route-node",  None),
     # Route network
     Type("route-node",    "route-node",  "routes",    "cat-route-node",  "routes",    "cat-route-node",  "cat-route-node",  "Route Nodes"),
@@ -86,7 +86,7 @@ TYPES: tuple[Type, ...] = (
     Type("power-site",    None,          "spiritual", "cat-sacred-site", "detail",    "cat-sacred-site", "cat-sacred-site", None),
     Type("site",          None,          "detail",    "cat-poi",         "detail",    "cat-poi",         "cat-poi",         None),
     # Legacy spellings still on pages or in old tooling: tolerated, never offered.
-    Type("water-body",    "lake",        "secondary", "cat-lake",        None,        None,              "cat-lake",        None, listed=False),
+    Type("water-body",    "lake",        "secondary", "cat-water",       None,        None,              "cat-water",       None, listed=False),
     Type("dungeon",       "dungeon",     None,        None,              None,        None,              None,              None, listed=False),
     Type("Oasis",         None,          None,        "cat-oasis",       None,        None,              "cat-oasis",       None, listed=False),
 )
