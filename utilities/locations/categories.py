@@ -98,18 +98,18 @@ TYPES: tuple[Type, ...] = (
     Type("fortress",      "fortress",    "city",      "cat-fortress",    "cat-fortress",    "cat-fortress",    "Fortresses"),
     # Towns
     Type("town",          "town",        "town",      "cat-town",        "cat-town",        "cat-town",        "Towns"),
-    Type("village",       "village",     "village",   "cat-village",     "cat-village",     "cat-village",     None),
+    Type("village",       "village",     "village",   "cat-village",     "cat-village",     "cat-village",     "Villages"),
     # Sacred and mythic places
     Type("sacred-site",   "sacred-site", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
     Type("mythic-landscape", "mythic-landscape", "spiritual", "cat-sacred-site", "cat-sacred-site", "cat-sacred-site", "Sacred Sites"),
     # Secondary locations
     Type("oasis",         "oasis",       "secondary", "cat-oasis",       "cat-oasis",       "cat-oasis",       "Oases"),
-    Type("lake",          "lake",        "secondary", "cat-water",       "cat-water",       "cat-water",       "Lakes"),
-    Type("sea",           "sea",         "secondary", "cat-water",       "cat-water",       "cat-water",       None),
-    Type("river",         "river",       "secondary", "cat-water",       "cat-water",       "cat-water",       None),
-    Type("reservoir",     "reservoir",   "secondary", "cat-water",       "cat-water",       "cat-water",       None),
-    Type("spring",        "spring",      "secondary", "cat-water",       "cat-water",       "cat-water",       None),
-    Type("well",          "well",        "secondary", "cat-water",       "cat-water",       "cat-water",       None),
+    Type("lake",          "lake",        "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("sea",           "sea",         "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("river",         "river",       "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("reservoir",     "reservoir",   "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("spring",        "spring",      "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
+    Type("well",          "well",        "secondary", "cat-water",       "cat-water",       "cat-water",       "Water"),
     # Route network
     Type("route-node",    "route-node",  "routes",    "cat-route-node",  "cat-route-node",  "cat-route-node",  "Route Nodes"),
     Type("chokepoint",    "chokepoint",  "routes",    "cat-fortress",    "cat-fortress",    "cat-fortress",    None),

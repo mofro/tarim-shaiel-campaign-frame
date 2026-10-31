@@ -59,6 +59,9 @@ LOCATIONS = [
     _location("gorse", "ruins", 76.0),
     _location("hazel", "sacred-site", 77.0),
     _location("iris", "mythic-landscape", 78.0),
+    _location("juniper", "lake", 79.0),
+    _location("kestrel", "river", 80.0),
+    _location("linden", "village", 81.0),
 ]
 LOC_GJ = gmw._build_locations_geojson(LOCATIONS)
 
@@ -320,9 +323,12 @@ def test_the_state_lives_in_memory_only():
 # ---------------------------------------------------------------------------
 
 def test_the_location_types_and_their_labels_live_in_map_style():
-    assert len(map_style.LOCATION_TYPE_TOGGLES) == 11
+    assert len(map_style.LOCATION_TYPE_TOGGLES) == 12
     assert dict(map_style.LOCATION_TYPE_TOGGLES)["sacred-site"] == "Sacred Sites"
-    assert map_style.TOGGLE_OF == {"mythic-landscape": "sacred-site"}
+    assert dict(map_style.LOCATION_TYPE_TOGGLES)["lake"] == "Water"
+    assert dict(map_style.LOCATION_TYPE_TOGGLES)["village"] == "Villages"
+    assert map_style.TOGGLE_OF == {"mythic-landscape": "sacred-site", "sea": "lake", "river": "lake",
+                                   "reservoir": "lake", "spring": "lake", "well": "lake"}
     assert "mythic-landscape" not in dict(map_style.LOCATION_TYPE_TOGGLES)
     assert map_style.tier_categories()["locations-spiritual"] == ["sacred-site", "mythic-landscape"]
     cats = map_style.tier_categories()
@@ -377,12 +383,12 @@ def test_topo_overlay_uses_the_label_free_custom_style_not_stock_topo(build):
     assert "topo-v2" not in page  # the stock raster bakes in real-world labels and borders
 
 
-def test_player_markup_lists_the_eleven_types_routes_and_journeys_all_on():
+def test_player_markup_lists_every_type_checkbox_routes_and_journeys_all_on():
     boxes = _checkboxes(_player_html())
     assert [b["key"] for b in boxes if b["kind"] == "type"] == TYPE_KEYS
     assert [b["key"] for b in boxes if b["kind"] == "layer"] == ["routes", "journeys"]
     assert all(b["checked"] for b in boxes)
-    assert len(boxes) == 13
+    assert len(boxes) == len(TYPE_KEYS) + 2
 
 
 def test_player_page_has_no_overlay_controls_or_workshop_only_ids():
@@ -859,6 +865,52 @@ def test_mythic_landscape_follows_the_sacred_sites_checkbox(tmp_path, page, stor
 
 
 @needs_node
+@pytest.mark.parametrize("page,store,store_key",
+                         [(_player, "store", DISPLAY_KEY), (_workshop, "sess", "_wsDisp")],
+                         ids=["player", "workshop"])
+def test_the_water_family_follows_one_water_checkbox(tmp_path, page, store, store_key):
+    r = page(tmp_path, f"""
+      const m = await boot();
+      const before = m.map.renderAll();
+      const box = m.box('type', 'lake'); box.checked = false; box.fire('change');
+      const after = m.map.renderAll();
+      const saved = JSON.parse(m.{store}['{store_key}']);
+      box.checked = true; box.fire('change');
+      out({{before, after, saved, back: m.map.renderAll(),
+            own: m.boxes.filter(b => ['sea', 'river', 'reservoir', 'spring', 'well'].includes(b.dataset.key)).length}});
+    """)
+    assert {"elm", "juniper", "kestrel"} <= set(r["before"]["locations-secondary"])
+    assert set(r["after"]["locations-secondary"]) == {"elm"}  # lake and river go, the oasis stays
+    assert {k: v for k, v in r["after"].items() if k != "locations-secondary"} == \
+        {k: v for k, v in r["before"].items() if k != "locations-secondary"}
+    assert r["saved"]["types"]["lake"] is False and "river" not in r["saved"]["types"]
+    assert r["back"] == r["before"]
+    assert r["own"] == 0
+
+
+@needs_node
+@pytest.mark.parametrize("page,store,store_key",
+                         [(_player, "store", DISPLAY_KEY), (_workshop, "sess", "_wsDisp")],
+                         ids=["player", "workshop"])
+def test_villages_have_their_own_checkbox_apart_from_towns(tmp_path, page, store, store_key):
+    r = page(tmp_path, f"""
+      const m = await boot();
+      const before = m.map.renderAll();
+      const box = m.box('type', 'village'); box.checked = false; box.fire('change');
+      const after = m.map.renderAll();
+      const saved = JSON.parse(m.{store}['{store_key}']);
+      box.checked = true; box.fire('change');
+      out({{before, after, saved, back: m.map.renderAll()}});
+    """)
+    assert r["before"]["locations-village"] == ["linden"] and r["before"]["locations-town"] == ["birch"]
+    assert r["after"]["locations-village"] == [] and r["after"]["locations-town"] == ["birch"]
+    assert {k: v for k, v in r["after"].items() if k != "locations-village"} == \
+        {k: v for k, v in r["before"].items() if k != "locations-village"}
+    assert r["saved"]["types"]["village"] is False and r["saved"]["types"]["town"] is True
+    assert r["back"] == r["before"]
+
+
+@needs_node
 def test_the_categories_without_a_toggle_always_show(tmp_path):
     r = _player(tmp_path, """
       const m = await boot();
@@ -1106,7 +1158,7 @@ def test_a_failed_publish_never_breaks_the_workshop(tmp_path, fail):
 
 
 @needs_node
-def test_workshop_menu_lists_routes_journeys_and_the_same_eleven_types():
+def test_workshop_menu_lists_routes_journeys_and_the_same_types():
     boxes = _checkboxes(_workshop_html())
     assert [b["key"] for b in boxes if b["kind"] == "type"] == TYPE_KEYS
     assert [b["key"] for b in boxes if b["kind"] == "layer"] == ["routes", "journeys"]
@@ -1328,7 +1380,7 @@ def test_player_panel_puts_routes_and_journeys_in_one_two_column_row():
     html = _player_html()
     row = re.search(r'<div class="disp-layers">(.*?)</div>', html, flags=re.S).group(1)
     assert re.findall(r'data-key="(\w+)"', row) == ["routes", "journeys"]
-    assert len(_checkboxes(html)) == 13
+    assert len(_checkboxes(html)) == len(TYPE_KEYS) + 2
     css = map_style.display_controls_css(touch=True)
     assert ".disp-layers" in css and "min-height:44px" in css
 

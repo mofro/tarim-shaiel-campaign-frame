@@ -240,7 +240,7 @@ def test_display_toggles_are_unchanged():
     assert LOCATION_TYPE_TOGGLES == [
         ("city", "Cities"), ("capital", "Capitals"), ("bridge", "Bridges"),
         ("landmark", "Landmarks"), ("fortress", "Fortresses"), ("town", "Towns"),
-        ("sacred-site", "Sacred Sites"), ("oasis", "Oases"), ("lake", "Lakes"),
+        ("village", "Villages"), ("sacred-site", "Sacred Sites"), ("oasis", "Oases"), ("lake", "Water"),
         ("route-node", "Route Nodes"), ("poi", "POIs"),
     ]
 
@@ -257,8 +257,10 @@ def test_rows_sharing_a_toggle_label_share_one_checkbox():
     for follower, lead in TOGGLE_OF.items():
         assert lead in leads and follower not in leads
         assert {t.slug: t.toggle for t in TYPES}[follower] == leads[lead]
-    # The one sharing today: mythic-landscape is drawn and hidden with the Sacred Sites.
-    assert TOGGLE_OF == {"mythic-landscape": "sacred-site"}
+    # The sharing today: mythic-landscape is drawn and hidden with the Sacred Sites, and the
+    # water family (all drawn cat-water) with the lake.
+    assert TOGGLE_OF == {"mythic-landscape": "sacred-site", "sea": "lake", "river": "lake",
+                         "reservoir": "lake", "spring": "lake", "well": "lake"}
 
 
 def test_rows_name_real_tiers_and_icons():
