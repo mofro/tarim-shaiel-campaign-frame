@@ -6,13 +6,26 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-10-29
+last_updated: 2026-11-01
 ---
 
 # Creation Session Log
 
 _Authoring and design work sessions. Newest first. Trim to last 10 sessions; older entries go to archive._
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
+
+---
+
+### Session 2026-10-30/11-01
+- [HeroHeaven-fs8.4 / #336] Map: one Types table decides the pin. Closed 2026-11-01, GitHub and Beads together. Four PRs, all merged: #337 (Workshop Save sends only the fields the GM changed), #338 (one `TYPES` table feeds the parser, dropdowns, icons, tiers and toggles; PR 2 of 4), #339 (Types decide the pin, one zoom ladder, village and mythic-landscape; PR 3), #342 (`map_icon:` override, Type-only creation, `map.py retype`; PR 4)
+  - Incident that started it, 2026-10-30: Workshop Save removed 11 `mapmarker:` and 6 `fantasy_name:` lines. The six `fantasy_name:` lines were restored in `f53d7a7`; #337 stops Save from writing fields the GM did not change
+  - Content sort, 2026-10-31: 12 pages retyped (`ab8baa9`), 3 `map_marker: false` pages moved to `map_icon: none` (`7be1b1b`). 498 tests passed after PR 4
+  - The GM declined every other change after seeing the sorted list (five of the 20 rows were public pages whose pin could differ). Left on purpose: the remaining `type:` / `mapmarker:` disagreements, the unlisted alias Types, pages with a blank Type, and `afrasiyan-plateau` (no `type:`, `mapmarker: ruin`). Working decision, not locked; any page can be retyped later in the Workshop or with `retype`
+  - Process: decisions that turn on reasoned intent get a written case (intent, options with pros and cons, reversal cost, a suggestion), not a sheet to fill. Saved in project `CLAUDE.md` (`a714667`), global `~/.claude/CLAUDE.md` and `bdg remember`. Workshop live verification rules (block writes first, own tab only) are in project `CLAUDE.md` (`3ce37d9`, `36955f3`)
+  - Recorded in DECISION_LOG and `lat.md/locations.md`: `11eb47f`, `cfaffc1`, `b41aa69`, `e3fdb9a`, `39425a1`
+- [HeroHeaven-yuh / #343] Map: `utilities/geojson/generate_geojson.py` still styles the standalone snapshot from the legacy `mapmarker:` field; 25 of 207 pages lack it and new pages will too. Filed with checklist, open questions (does anything read the snapshot; where colour and symbol should come from) and reference files. Not started; touches `utilities/`, so it needs a review before closing
+- Filed, not started: [HeroHeaven-v8l / #340] stale test fixes and `pytest.ini`; [HeroHeaven-mm8 / #341] build-version endpoint so pages stop reloading on every build
+- Next: nothing is in flight. Open: #340, #341, #343, the GM's calls on the six #334 audit rows, #315 real-touch tap-to-open
 
 ---
 
@@ -146,13 +159,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Stubbed ~55 PF1e components for Phase 2 replacement
   - Fixed ESLint config: disabled `no-deprecated` for Phase 1 bridge stubs; added test-layer relaxations; added sentence-case ignoreWords (Daggerheart, Carrel)
   - `tsc --noEmit` exits 0; ESLint 0 errors. [PR #1](https://github.com/mofro/daggerheart-sheet/pull/1) open on daggerheart-sheet
-
-### Session 2026-08-02
-- Character files + session close
-  - Added `[!profile]+` callout (portrait, bio placeholder, DataviewJS stats) to `sahir.md` and `_TEMPLATE_pc.md`
-  - Resolved 3 open threads from session-0 audit:
-    - Vigil Clock roll results table inserted into `Session_0_GM_NOTES.md` (was flagged missing after HeroHeaven-155 close)
-    - `session0_campfire_convergence.md` created as pointer doc (recognition event + Volkath's history brief; links to `world_primer.md` and `08-orders-of-the-chain.md`)
-    - Rill's patron canonized in `rill.md` GM Notes: The Shattered King (Dave's Door One); cultural names First Gone (Orcish), Lord of Exhausted Seams (Dwarven)
-  - Session review pass: archived 25+ Tarim-Shaiel sessions across multiple rounds; confirmed 6 ttrpg_recorder sessions correctly mapped (not HeroHeaven)
-  - Saved feedback memory: wrong-cwd is not grounds for archival — only archive when work is done/superseded
