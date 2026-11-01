@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-10-31
+last_updated: 2026-11-01
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -247,4 +247,5 @@ venv/bin/python utilities/map.py retype SHEET.csv
 - `docs/locations/` cross-links not yet populated (xref-stub placeholder)
 - `zzkashkar.md` — duplicate stub file; excluded by `zz` prefix filter
 - A Workshop rename writes `title:` only when the page has both `title:` and `name:`, so a rename can leave `name:` stale (pre-existing, not changed by #321)
-- `utilities/geojson/generate_geojson.py` (lines 190-209) still keys `CATEGORY_COLORS` and `MAKI_SYMBOLS` on the legacy frontmatter `mapmarker:`, not on `type:`. 25 of 207 parsed pages have no `mapmarker:` and are on its default marker; pages created since #336 PR 4 will lack it too. Only the standalone GeoJSON snapshot is affected: the Workshop, player map, world page and location pages read the Types table
+- `utilities/geojson/generate_geojson.py` (lines 190-209) still keys `CATEGORY_COLORS` and `MAKI_SYMBOLS` on the legacy frontmatter `mapmarker:`, not on `type:`. 25 of 207 parsed pages have no `mapmarker:` and are on its default marker; pages created since #336 PR 4 will lack it too. Only the standalone GeoJSON snapshot is affected: the Workshop, player map, world page and location pages read the Types table. Tracked as #343 (HeroHeaven-yuh)
+- Left on purpose at the close of #336 (2026-11-01): the remaining disagreements between `type:` and `mapmarker:`, the unlisted alias Types, pages with a blank Type, and `afrasiyan-plateau` (no `type:`, `mapmarker: ruin`). They are the GM's calls, not defects; see the 2026-11-01 DECISION_LOG entry
