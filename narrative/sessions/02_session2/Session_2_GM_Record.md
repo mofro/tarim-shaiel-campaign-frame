@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2026-10-24
-last_updated: 2026-10-24
+last_updated: 2026-11-02
 tags: [session2, record, gm_secrets]
 ---
 
@@ -17,7 +17,7 @@ tags: [session2, record, gm_secrets]
 
 What happened at Rabati Malik on the session date of 2026-08-15, reconstructed from the Session 2 plan, the Kashkar merchant register, and the GM's gap-fill answers. Items marked **[UNCONFIRMED]** need a GM answer before they go into any player-facing text.
 
-Plan: `gm_secrets/Session_2_GM_NOTES.md`. Player draft: `Session_2_Player_Summary.md`.
+Plan: `gm_secrets/Session_2_GM_NOTES.md`. Player summary: `Session_2_Player_Summary_Full.md` (supersedes the deprecated bullet list `Session_2_Player_Summary.md`).
 
 ---
 
@@ -53,12 +53,12 @@ The fuse ("Blood in the Streets") did not go off. No fight occurred.
 
 ## Evening: The Traveller
 
-- **Who:** An avatar of the Jade Illusionist (`narrative/gm_secrets/DIVINE_PLAYERS.md`, Jade Illusionist profile). The party does not know this. **Name: blank.** The GM has no name for this incarnation and leaves the field empty. This is a different persona from Kalas, the Session 1 fork merchant (`narrative/sessions/01_session1/session-1-newspaper.md`). Each incarnation has its own persona.
+- **Who:** An avatar of the Jade Illusionist (`narrative/gm_secrets/DIVINE_PLAYERS.md`, Jade Illusionist profile). The party does not know this. **Name given in play: Calberri Davis**, one of the Jade Illusionist's aliases (`narrative/gm_secrets/divine-players/the-jade-illusionist.md`, Aliases list; supplied by the GM, 2026-11-02). This is a different persona from Kalas, the Session 1 fork merchant (`narrative/sessions/01_session1/session-1-newspaper.md`). Each incarnation has its own persona.
 - **Arrival:** Came to the fire alone. Downplayed travelling alone and asked to share the fire.
 - **Information:** Gave very little useful information.
-- **Wares:** Showed his goods to explain his trade. Produced items from his pack, including an endless-rope trick and a hovering object [UNCONFIRMED: the GM does not recall what it was]. Other items [UNCONFIRMED: not recalled].
+- **Wares:** Showed his goods to explain his trade. Produced items from his pack, including an endless-rope trick and a coin that hovers and spins along the axis of the flip without slowing when flipped or tossed, and can be grabbed from the spin without resistance (GM, 2026-11-01). Other items [UNCONFIRMED: not recalled].
 - **Departure:** Left in the night, against the group's warnings, with little fuss.
-- **Left with the group:** TBD. Not decided.
+- **Left with the group:** the spinning coin (GM, 2026-11-01). The hovering item and the gift are the same coin (confirmed by the GM, 2026-11-02).
 
 ---
 
@@ -87,7 +87,7 @@ The fuse ("Blood in the Streets") did not go off. No fight occurred.
 | **Captain Idris Kaan** | Halted at the gates. Called the incident a misunderstanding. | Ongoing history with Ariel. Future role open. |
 | **Temir** | Dissuaded by Rill. Chastised, then welcomed back. | Stays with Volkath's caravan as far as the characters know. Later splits off to start a rebellious Chain-follower group (future thread). |
 | **Sanem** | Appeared. Uneasy about completing the plan after Rill's talk. | Order of the Chain dissident. Future role open. |
-| **Traveller (Jade Illusionist avatar, name blank)** | Evening visitor at the fire. Left in the night against warnings. | A distinct persona, not Kalas (Session 1 fork merchant). The party does not know who he is. |
+| **Traveller (Calberri Davis, Jade Illusionist avatar)** | Evening visitor at the fire. Left in the night against warnings. | A distinct persona, not Kalas (Session 1 fork merchant). The party does not know who he is. |
 | **Volkath** | Gave information, supplies, and best wishes. | Back-fill to `Session_0_NPC_Index.md` deferred per GM. |
 | **Cal** | Located the ambush with Rill. | — |
 | **Rill** | Dissuaded Temir's group. | Two character files exist; see the Rill reconciliation note in the Session 3 prep. |
@@ -119,7 +119,7 @@ Framed as absence only. No mechanism named. Not in the player summary.
 - [x] Is the Session 1 disc experiment the "holding our symbols together" test? Yes (GM confirmed, 2026-10-24).
 - [x] Temir's status: stays with Volkath's caravan as far as the characters know; splits off later (future thread).
 - [x] Sanem: present. Uneasy about completing the plan after Rill's talk.
-- [ ] TBD: what the traveller left with the party. Not decided. Needed before the player summary.
-- [x] Traveller's name: left blank. The GM cannot supply one. Do not invent one. Distinct from Kalas.
+- [x] What the traveller left with the party: the spinning coin (GM, 2026-11-01). `Session_3_Prep.md` still carries this as TBD.
+- [x] Traveller's name: Calberri Davis, the name he gave in play (GM, 2026-11-02). It is a Jade Illusionist alias. Distinct from Kalas.
 - [x] Rill canonical file: `characters/PCs/rill.md` is the GM record; `rill (player).md` cleanup deferred.
 - [x] Repair the dead cross-ref to `02_session2/session-chronicle.html` in `Session_2_GM_NOTES.md`, or create the chronicle. The dead ref is gone (grep 2026-10-24: `gm_secrets/Session_2_GM_NOTES.md` has no 02_session2 chronicle reference; its chronicle references point to `01_session1`). The chronicle file itself is still absent, so this record remains the source.

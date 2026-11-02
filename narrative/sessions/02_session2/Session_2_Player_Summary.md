@@ -5,11 +5,13 @@ domain: narrative
 doc_type: draft
 content_type: session
 visibility: public
-status: draft
+status: deprecated
 created: 2026-10-24
-last_updated: 2026-10-24
+last_updated: 2026-11-01
 tags: [session2, summary, player-facing]
 ---
+
+> **Deprecated 2026-11-01.** Superseded by [[Session_2_Player_Summary_Full]], which fills in the detail this bullet list leaves out. Kept for reference.
 
 # Session 2 — Rabati Malik
 

@@ -29,7 +29,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-08-01
+last_updated: 2026-11-01
 tags: [pc]
 ---
 
@@ -73,7 +73,7 @@ Cal follows threads. Once something has caught his attention — a discrepancy, 
 
 **Tome**
 
-A bound volume of no legible title, its pages densely written in a script that shifts when Cal isn't looking at it directly. The tome has opinions about what Cal is ready to know — it has closed itself for stretches that lasted days, and opened again only when he stopped trying to force it. During the Tier 1 dead zone near Rabati Malik, it refused entirely: the cover would not give. It remembers things Cal has not yet asked about, and the entries he has managed to read raise more questions than they settle.
+A bound volume of no legible title, its pages densely written in a script that shifts when Cal isn't looking at it directly. The tome has opinions about what Cal is ready to know — it has closed itself for stretches that lasted days, and opened again only when he stopped trying to force it. It remembers things Cal has not yet asked about, and the entries he has managed to read raise more questions than they settle.
 
 ---
 
@@ -95,13 +95,13 @@ A bound volume of no legible title, its pages densely written in a script that s
 
 ## Wrongness Tier
 
-Current tier: **Tier 1** *(experienced — tome refused to open in the dead zone)*
+Current tier: **—** *(none yet — the Tier 1 dead-zone beat was planned for Session 2 and did not run)*
 
-- [x] **Tier 1:** Warren disturbance as absence — tools falter, something feels wrong but has no shape
+- [ ] **Tier 1:** Warren disturbance as absence — tools falter, something feels wrong but has no shape
 - [ ] **Tier 2:** Warren disturbance as presence — something responds to them
 - [ ] **Tier 3:** Warren disturbance as recognition — something knows who they are
 
-*Active symptom:* Tome refused to open in the Tier 1 dead zone near Rabati Malik (Session 2).
+*Active symptom:* None yet. *Planned beat, not yet run:* in the Tier 1 dead zone, the tome refuses to open — the cover will not give.
 
 ---
 
@@ -112,8 +112,8 @@ Current tier: **Tier 1** *(experienced — tome refused to open in the dead zone
 | [[characters/PCs/veyra\|Veyra]] | Party — her patience with his questions is something he has noticed and does not take for granted |
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; Cal finds his navigation instinct worth studying |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; she acts before she has all the information; Cal is not sure this is wrong |
-| [[raizen\|Reizan]] | Party — Pari-Kin Druid; the shift-sense is a datum he's trying not to over-interpret |
-| [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; the patron-bond's behavior in the dead zone is the most interesting thing Cal has encountered so far |
+| [[raizen\|Reizan]] | Party — Pari-Kin Druid; once the dead-zone beat runs, the shift-sense will be a datum he's trying not to over-interpret |
+| [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; once the dead-zone beat runs, the patron-bond's behavior there is likely to become the most interesting thing Cal has encountered so far |
 
 ---
 
@@ -122,11 +122,12 @@ Current tier: **Tier 1** *(experienced — tome refused to open in the dead zone
 ### Key Moments
 
 - *Session 1:* The artifact experiment — what was tested, what it implied, what remains unanswered.
-- *Session 2:* The tome refused to open in the dead zone. First tool failure. The question of why is now active.
+- *Session 2:* Found the ambush with Rill; struck by boxes thrown from a roof, unhurt; the crisis ended without a fight (GM Record). The dead-zone beat did not run.
+- *Planned, not yet run:* The tome refuses to open in the dead zone. First tool failure. The question of why becomes active.
 
 ### Growth
 
-The tome's refusal in Session 2 is the first crack in certainty as an operating system: the instrument itself is withholding.
+When the dead-zone beat runs, the tome's refusal will be the first crack in certainty as an operating system: the instrument itself is withholding.
 
 ---
 
@@ -134,6 +135,6 @@ The tome's refusal in Session 2 is the first crack in certainty as an operating 
 
 Cal's arc runs through the Seeker's core tension: truth-seeking can justify almost anything, and the knowledge he finds may be worse than the not-knowing. The tome is the surrendered layer made manifest — it withholds certainty until he's ready, which is never quite when he thinks he is.
 
-The Tier 1 dead zone refusal is the first signal. Escalate through Tiers 2 and 3 with increasing specificity: Tier 2, the tome opens to something that addresses him directly; Tier 3, it names him by a name he doesn't recognize but that feels correct.
+The planned Tier 1 dead zone refusal is the first signal. Escalate through Tiers 2 and 3 with increasing specificity: Tier 2, the tome opens to something that addresses him directly; Tier 3, it names him by a name he doesn't recognize but that feels correct.
 
 Surrendered layer — *Epistemic*: certainty was the instrument; its absence is not confusion, it's the thing he was never supposed to rely on.

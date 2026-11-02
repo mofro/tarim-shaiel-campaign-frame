@@ -7,7 +7,7 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2026-10-24
-last_updated: 2026-10-24
+last_updated: 2026-11-02
 tags: [session3, prep, gm_secrets]
 ---
 
@@ -79,11 +79,11 @@ Use the register and the regional factions to make the road feel governed. Nothi
 
 Volkath's three-person crew: two Tulpar and one human. Names approved by the GM. Nicknames are task- or history-based.
 
-| Name | Ancestry | Nickname | Basis |
-|---|---|---|---|
-| **Yurak** | Tulpar | "Kettle" | Task: keeps the fire and the water on every halt. |
-| **Bekzod** | Tulpar | "Forty" | History: drove forty mules through a bad pass in a storm. |
-| **Dilshod** | Human | "Second Seal" | History: was the second to put a seal on a contract, and the first to regret it. |
+| Name        | Ancestry | Nickname      | Basis                                                                            |
+| ----------- | -------- | ------------- | -------------------------------------------------------------------------------- |
+| **Yurak**   | Tulpar   | "Kettle"      | Task: keeps the fire and the water on every halt.                                |
+| **Bekzod**  | Tulpar   | "Forty"       | History: drove forty mules through a bad pass in a storm.                        |
+| **Dilshod** | Human    | "Second Seal" | History: was the second to put a seal on a contract, and the first to regret it. |
 
 **Second Seal:** **[INVENTED]** the nickname comes from the history in the basis column: Dilshod was the second person to seal a contract, and the first to regret it. Confirm this is the explanation you want.
 
@@ -162,6 +162,8 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 - **What he knows of the Night:** the Night is a folk memory in the Convocation archive. He can describe the falling stars and the Wizard's undead movements under cover of the omen, but not the Wizard's plan. **[INVENTED]**
 - **Puli Khumri placement:** the Azure outpost there is invented. **[INVENTED]** Confirm before the party finds it.
 
+**Player-known after Session 2:** Volkath named Nādir as the author of The Roads and suspects he is living or working near Puli Khumri. The party left Rabati Malik to find him and ask for counsel on their memory loss and displacement. They have been told nothing beyond Volkath's suspicion (`Session_2_Player_Summary_Full.md`, Event 7).
+
 ---
 
 ## 8. Night of Falling Stars Alignment
@@ -179,7 +181,7 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 | Idris Kaan | Halted at the gates. Called it a misunderstanding. | Future role open. |
 | Temir | Dissuaded. Chastised, welcomed back. Stays with Volkath's caravan as far as the characters know. | Eventually splits from Volkath and starts a rebellious Chain-follower group. Future thread. |
 | Sanem | Appeared. Uneasy about completing the plan after Rill's talk. | Order of the Chain dissident. Future role open. |
-| Traveller (Jade Illusionist avatar, name TBD) | Evening visitor at the fire. Left in the night against warnings. | Item left with the party: TBD. |
+| Traveller (Calberri Davis, Jade Illusionist avatar) | Evening visitor at the fire. Left in the night against warnings. | Item left with the party: the spinning coin, found in Rill's pocket (GM, 2026-11-02). |
 | Volkath | Gave information, supplies, and best wishes. | Back-fill to `Session_0_NPC_Index.md` deferred. When the players next meet him, he tells a remorseful tale of the final falling out with Temir. |
 | Yurak, Bekzod, Dilshod | Crew. GM-approved. | None. |
 | Kira, Aigul, Tomiris, Zere | Left open. | GM: "Don't know. Leave open." |

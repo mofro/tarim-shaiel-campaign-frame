@@ -29,7 +29,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-10-24
+last_updated: 2026-11-01
 tags: [pc]
 --- 
 
@@ -74,7 +74,7 @@ Rill is careful — not cautious exactly, but attentive to what is being lost in
 
 **Iron key with wax seal**
 
-An iron key, larger than any visible lock, with an intact wax seal over the bow end — the seal is unbroken and shows a mark no one in living memory has recognized. The key grows warm in the presence of things that are being actively forgotten: suppressed histories, hidden debts, erasures of record. It grows cold in the presence of things preserved honestly. In the Tier 1 dead zone near Rabati Malik, Rill's patron-bond was unnervingly calm — the key was still, which it never is. It seemed satisfied with the dead zone in a way that Rill found worse than its usual restlessness.
+An iron key, larger than any visible lock, with an intact wax seal over the bow end — the seal is unbroken and shows a mark no one in living memory has recognized. The key grows warm in the presence of things that are being actively forgotten: suppressed histories, hidden debts, erasures of record. It grows cold in the presence of things preserved honestly.
 
 > **GM note:** The wax seal mark is a planted detail for Act II. Do not introduce it before the Tier 2 Wrongness beat.
 
@@ -98,13 +98,13 @@ An iron key, larger than any visible lock, with an intact wax seal over the bow 
 
 ## Wrongness Tier
 
-Current tier: **Tier 1** *(experienced — patron-bond calm in the dead zone; key was still and satisfied)*
+Current tier: **—** *(none yet — the Tier 1 dead-zone beat was planned for Session 2 and did not run)*
 
-- [x] **Tier 1:** Warren disturbance as absence — tools falter, something feels wrong but has no shape
+- [ ] **Tier 1:** Warren disturbance as absence — tools falter, something feels wrong but has no shape
 - [ ] **Tier 2:** Warren disturbance as presence — something responds to them
 - [ ] **Tier 3:** Warren disturbance as recognition — something knows who they are
 
-*Active symptom:* Patron-bond uncannily calm in the Tier 1 dead zone — the one stretch all session where Rill wasn't straining. The key held still and seemed satisfied. Play as unsettling comfort, not relief.
+*Active symptom:* None yet. *Planned beat, not yet run:* in the Tier 1 dead zone, the patron-bond goes uncannily calm and clear — the one stretch where Rill isn't straining, and he has no frame for why. Play as unsettling comfort, not relief. The beat is the inversion of Reizan's lantern guttering and Cal's tome refusing to open. It attaches to the patron-bond only; the key is not part of it.
 
 ---
 
@@ -114,10 +114,10 @@ Current tier: **Tier 1** *(experienced — patron-bond calm in the dead zone; ke
 |---|---|
 | [[characters/PCs/veyra\|Veyra]] | Party — Warrior; her departure east is the kind of thing Rill notices and does not comment on |
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; a month in the caravan means Rill knows his silences as well as his words |
-| [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; Cal's fascination with the patron-bond's dead zone behavior is something Rill is managing carefully |
+| [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; once the dead-zone beat runs, Cal is likely to be fascinated by the patron-bond's behavior there, and Rill will have to manage that carefully |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; he watches her convictions with the attentiveness of someone taking inventory |
-| [[raizen\|Reizan]] | Party — Pari-Kin Druid; their lantern going dark where his bond went calm — inverse signals; Rill has noted this |
-| Patron | The patron-bond — functional, necessary, not entirely in Rill's control; calm in the dead zone in ways Rill cannot yet explain |
+| [[raizen\|Reizan]] | Party — Pari-Kin Druid; once the dead-zone beat runs, their lantern going dark where his bond goes calm will read as inverse signals, and Rill will note it |
+| Patron | The patron-bond — functional, necessary, not entirely in Rill's control; planned to go calm in the dead zone in ways Rill will not be able to explain |
 | Temir | Volkath's son — Rill has caravan-familiarity, not established trust; baseline Difficulty on Thread B |
 
 ---
@@ -127,11 +127,12 @@ Current tier: **Tier 1** *(experienced — patron-bond calm in the dead zone; ke
 ### Key Moments
 
 - *Session 1:* Volkath's campfire history; the artifact experiment; the party's realization that their personal memories don't include the world he described.
-- *Session 2:* Dead zone — patron-bond calm, key still and apparently satisfied. The inversion of Reizan's lantern going dark. First Tier 1 beat.
+- *Session 2:* Found the ambush with Cal and talked Temir's group out of the plan; the crisis ended without a fight (GM Record). The dead-zone beat did not run.
+- *Planned, not yet run:* Dead zone — patron-bond uncannily calm. The inversion of Reizan's lantern going dark. First Tier 1 beat when it runs.
 
 ### Growth
 
-The dead zone beat established that Rill's patron arrangement has a relationship with whatever the dead zone is — and that relationship reads as comfort. This is the first sign that the patron and the dead zone may not be opposed.
+When the dead-zone beat runs, it will establish that Rill's patron arrangement has a relationship with whatever the dead zone is — and that relationship reads as comfort. That will be the first sign that the patron and the dead zone may not be opposed.
 
 ---
 
@@ -139,9 +140,9 @@ The dead zone beat established that Rill's patron arrangement has a relationship
 
 Rill's arc runs through the Keeper's core tension: preservation is not inherently virtuous, and the judgment of what deserves to survive is itself a form of power. What has his patron been preserving? And is Rill the keeper, or the thing being kept?
 
-The key's wax seal is a planted seed — it shows a mark connected to something in Act II that the patron knows and Rill does not. The patron-bond's calm in the dead zone is the first signal that these two forces (the patron and whatever the Warren disturbance is) may be in communication.
+The key's wax seal is a planted seed — it shows a mark connected to something in Act II that the patron knows and Rill does not. The patron-bond's planned calm in the dead zone is meant to be the first signal that these two forces (the patron and whatever the Warren disturbance is) may be in communication.
 
-**Patron: The Shattered King** — Dave chose Door One. See `narrative/gm_secrets/divine-players/the-shattered-king.md` for cosmological position and long-game agenda. Cultural names Rill may encounter in play: *First Gone* (Orcish), *Lord of Exhausted Seams* (Dwarven). The patron's calm in the dead zone is not coincidence — the Shattered King has tenure in exhausted-energy spaces, and the dead zone reads as home ground to him. The patron-bond brief (player-facing) is in `narrative/sessions/00_session0/Source/Dave_Warlock_Patron_Brief.md`.
+**Patron: The Shattered King** — Dave chose Door One. See `narrative/gm_secrets/divine-players/the-shattered-king.md` for cosmological position and long-game agenda. Cultural names Rill may encounter in play: *First Gone* (Orcish), *Lord of Exhausted Seams* (Dwarven). The patron's planned calm in the dead zone is not coincidence — the Shattered King has tenure in exhausted-energy spaces, and the dead zone reads as home ground to him. The patron-bond brief (player-facing) is in `narrative/sessions/00_session0/Source/Dave_Warlock_Patron_Brief.md`.
 
 Surrendered layer — *Custodial*: Rill gave up the right to decide what deserves preservation; the patron may have taken that judgment up on his behalf.
 

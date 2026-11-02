@@ -29,7 +29,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-08-01
+last_updated: 2026-11-01
 tags: [pc]
 ---
 
@@ -73,7 +73,7 @@ Reizan maintains watch so others can stop watching. Their alertness is not anxie
 
 **Cracked lantern**
 
-A small iron lantern, the glass on one side cracked but not shattered, that burns without fuel once lit. It dims in places of genuine safety and brightens in places of hidden danger — which means it is rarely neutral. The crack in the glass lets light escape in a direction Reizan cannot fully predict: it illuminates things they weren't looking at. In the Tier 1 dead zone near Rabati Malik, it guttered and would not reignite — the first time in Reizan's memory it has gone entirely dark. During the same stretch, Reizan's shift took two tries and felt wrong on the way through.
+A small iron lantern, the glass on one side cracked but not shattered, that burns without fuel once lit. It dims in places of genuine safety and brightens in places of hidden danger — which means it is rarely neutral. The crack in the glass lets light escape in a direction Reizan cannot fully predict: it illuminates things they weren't looking at.
 
 ---
 
@@ -95,13 +95,13 @@ A small iron lantern, the glass on one side cracked but not shattered, that burn
 
 ## Wrongness Tier
 
-Current tier: **Tier 1** *(experienced — lantern guttered; shift took two tries, felt wrong)*
+Current tier: **—** *(none yet — the Tier 1 dead-zone beat was planned for Session 2 and did not run)*
 
-- [x] **Tier 1:** Warren disturbance as absence — tools falter, something feels wrong but has no shape
+- [ ] **Tier 1:** Warren disturbance as absence — tools falter, something feels wrong but has no shape
 - [ ] **Tier 2:** Warren disturbance as presence — something responds to them
 - [ ] **Tier 3:** Warren disturbance as recognition — something knows who they are
 
-*Active symptom:* Cracked lantern guttered and would not reignite in the dead zone. Shift (shapeshifting) required two attempts and registered as wrong on the way through (Session 2).
+*Active symptom:* None yet. *Planned beat, not yet run:* in the Tier 1 dead zone, the cracked lantern gutters and will not reignite — the first time in Reizan's memory it has gone entirely dark. Shift (shapeshifting) takes two attempts and registers as wrong on the way through.
 
 ---
 
@@ -113,7 +113,7 @@ Current tier: **Tier 1** *(experienced — lantern guttered; shift took two trie
 | [[characters/PCs/sahir\|Sahir]] | Party — Rahban Bard; a navigator whose instrument gave contradictory readings; Reizan has filed this |
 | [[characters/PCs/cal\|Cal]] | Party — Tadbir Sorcerer; his method is questions, theirs is observation; they overlap usefully |
 | [[characters/PCs/ariel\|Ariel]] | Party — Vaghri Seraph; her conviction is something Reizan watches for whether it is right |
-| [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; the dead zone inversion — his calm where the lantern went dark — is noted |
+| [[characters/PCs/rill\|Rill]] | Party — Vanara Warlock; once the dead-zone beat runs, the inversion — his calm where the lantern goes dark — will be noted |
 
 ---
 
@@ -122,11 +122,12 @@ Current tier: **Tier 1** *(experienced — lantern guttered; shift took two trie
 ### Key Moments
 
 - *Session 1:* Volkath's history; the artifact experiment; the party's realization that their memories do not include the world he described.
-- *Session 2:* Lantern guttered in the dead zone. Shift took two tries. First Tier 1 beat.
+- *Session 2:* Flew with Ariel to intercept Captain Kaan, in animal shape; the crisis ended without a fight (GM Record). The dead-zone beat did not run.
+- *Planned, not yet run:* Lantern gutters in the dead zone. Shift takes two tries. First Tier 1 beat when it runs.
 
 ### Growth
 
-The lantern going dark is the first time the protection-through-presence assumption has been tested by the world itself refusing to hold still.
+When the dead-zone beat runs, the lantern going dark will be the first time the protection-through-presence assumption has been tested by the world itself refusing to hold still.
 
 ---
 
@@ -134,6 +135,6 @@ The lantern going dark is the first time the protection-through-presence assumpt
 
 Reizan's arc runs through the Sentinel's core tension: presence is not always enough. The lantern's behavior is the surrendered layer made manifest — it illuminates what Reizan wasn't watching, specifically to demonstrate that watching isn't sufficient.
 
-The shift difficulty in the dead zone is a physical signal: what they can become is affected by whatever the dead zone is. This scales with Wrongness Tier — Tier 2, the shift produces a form slightly wrong, something observed; Tier 3, the form briefly shows something old.
+The planned shift difficulty in the dead zone is a physical signal: what they can become is affected by whatever the dead zone is. This scales with Wrongness Tier — Tier 2, the shift produces a form slightly wrong, something observed; Tier 3, the form briefly shows something old.
 
 Surrendered layer — *Warding*: presence was the answer; the world is beginning to show them situations where their presence is exactly the thing that cannot help.
