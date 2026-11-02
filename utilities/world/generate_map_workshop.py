@@ -11,6 +11,7 @@ Usage:
     open map-workshop.html
 """
 
+import html
 import json
 import math
 import os
@@ -162,6 +163,23 @@ def _build_route_index(routes_geojson: dict) -> list:
     return results
 
 
+_EYE_OPEN = ('<svg class="ri-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">'
+             '<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" fill="none" stroke="currentColor" stroke-width="2"/>'
+             '<circle cx="12" cy="12" r="3.2" fill="currentColor"/></svg>')
+_EYE_SHUT = ('<svg class="ri-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">'
+             '<path d="M2 10c3 5 17 5 20 0M6 14.5l-2 3M12 16v3.5M18 14.5l2 3" fill="none" '
+             'stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>')
+_VIS_LABEL = {"pub": "Players see this route",
+              "held": "Public, but an end location is hidden from players",
+              "gm": "GM only"}
+
+
+def _vis_icon(state: str) -> str:
+    icon = _EYE_OPEN if state == "pub" else _EYE_SHUT
+    return (f'<span class="ri-vis ri-vis-{state}" role="img" '
+            f'aria-label="{_VIS_LABEL[state]}" title="{_VIS_LABEL[state]}">{icon}</span>')
+
+
 def _route_index_html(route_index: list) -> str:
     main_routes = [r for r in route_index if r["kind"] == "main"]
     spurs = [r for r in route_index if r["kind"] == "spur"]
@@ -171,16 +189,15 @@ def _route_index_html(route_index: list) -> str:
         d = f'{p}{int(r["dist_km"])} km'
         mode = travel_time.SPEEDS[r["mode"]]["label"]
         if r["player_visible"]:
-            vis = '<span class="ri-vis ri-vis-pub" title="Players see this route">players</span>'
+            vis = _vis_icon("pub")
         elif r["visibility"] == route_visibility.PUBLIC:
-            vis = '<span class="ri-vis ri-vis-held" title="Route is public but an end location is hidden">held</span>'
+            vis = _vis_icon("held")
         else:
-            vis = '<span class="ri-vis ri-vis-gm" title="GM only">GM</span>'
+            vis = _vis_icon("gm")
         return (
             f'<tr class="ri-row" data-id="{r["id"]}" style="cursor:pointer">'
             f'<td class="ri-check"><input type="checkbox" class="ri-cb" data-id="{r["id"]}"></td>'
-            f'<td class="ri-id">{r["id"]}</td>'
-            f'<td>{r["label"]}</td>'
+            f'<td class="ri-label" title="{html.escape(r["id"], quote=True)}">{html.escape(str(r["label"]))}</td>'
             f'<td>{d}</td>'
             f'<td>{r["time"]} <span class="ri-mode">{mode}</span></td>'
             f'<td>{vis}</td>'
@@ -190,10 +207,11 @@ def _route_index_html(route_index: list) -> str:
     def section(title: str, rows: list) -> str:
         if not rows:
             return ""
-        thead = ('<thead><tr><th class="ri-check"></th><th>ID</th><th>Label</th>'
-                 '<th>Distance</th><th>Travel</th><th>Seen by</th></tr></thead>')
+        thead = ('<thead><tr><th class="ri-check"></th><th>Route</th>'
+                 '<th>Dist.</th><th>Travel</th><th class="ri-vis-col" title="Visible to players">'
+                 + _EYE_OPEN + '</th></tr></thead>')
         tbody = "<tbody>" + "".join(row(r) for r in rows) + "</tbody>"
-        return f"<h3>{title}</h3><table>{thead}{tbody}</table>"
+        return f'<h3 data-collapsible>{title}</h3><table>{thead}{tbody}</table>'
 
     header = (
         '<div class="ri-header">'
@@ -227,6 +245,7 @@ _CSS = """\
   --fs-3: 1.0625rem;
   --fs-4: 1.25rem;
   --fs-5: 1.5rem;
+  --sb-w: 384px;
   /* Text colours, all >= 4.5:1 on the darkest-to-lightest sidebar backgrounds */
   --ink: #e8dcc4;
   --ink-2: #c8b890;
@@ -238,7 +257,8 @@ _CSS = """\
 html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   background: #0a0805; color: #e8dcc4; }
 #app { display: flex; height: 100vh; position: relative; }
-#sidebar { min-width: 340px; display: flex; flex-direction: column;
+#sidebar { width: var(--sb-w); min-width: 340px; max-width: 70vw; flex: none;
+  display: flex; flex-direction: column;
   background: #120f08; border-right: 1px solid rgba(184,146,44,0.3); overflow: hidden; }
 #sidebar-header { padding: 12px 14px 0; border-bottom: 1px solid rgba(184,146,44,0.2);
   flex-shrink: 0; }
@@ -254,7 +274,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .tab-btn:hover { background: #221c12; color: #c8a84a; }
 .tab-btn.active { background: #0a0805; color: #e8dcc4; border-color: rgba(184,146,44,0.4);
   border-bottom-color: #0a0805; font-weight: bold; }
-.panel { display: none; flex-direction: column; flex: 1; overflow-y: auto;
+.panel { display: none; flex-direction: column; flex: 1; overflow-y: auto; scrollbar-gutter: stable;
   padding: 14px; gap: 12px; }
 .panel.active { display: flex; }
 .field-group { display: flex; flex-direction: column; gap: 4px; }
@@ -301,17 +321,21 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .queue-item .qi-label { color: #e8dcc4; }
 .queue-item .qi-dist { color: var(--muted); font-size: var(--fs-2); margin-top: 2px; }
 .queue-empty { color: var(--muted); font-size: var(--fs-2); font-style: italic; }
-/* Panel widths */
-#panel-plan-route, #panel-add-point, #panel-edit-coords, #panel-travel-time { max-width: 340px; }
 /* Route index */
 .panel#panel-route-index { gap: 8px; }
 #panel-route-index h3 { font-size: var(--fs-1); text-transform: uppercase;
   letter-spacing: 0.1em; color: #b8922c; margin-top: 6px; }
-#panel-route-index table { width: 100%; border-collapse: collapse; font-size: var(--fs-2); }
+#panel-route-index table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: var(--fs-2); }
+#panel-route-index th:nth-child(1) { width: 28px; }
+#panel-route-index th:nth-child(3) { width: 3.6rem; }
+#panel-route-index th:nth-child(4) { width: 4.6rem; }
+#panel-route-index th:nth-child(5) { width: 2rem; text-align: center; }
+#panel-route-index td:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#panel-route-index td { overflow-wrap: anywhere; }
+#panel-route-index th { white-space: nowrap; }
 #panel-route-index th { color: var(--muted); text-align: left; padding: 4px 6px;
   border-bottom: 1px solid rgba(184,146,44,0.2); }
 #panel-route-index td { padding: 4px 6px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-#panel-route-index .ri-id { font-family: monospace; color: var(--muted); font-size: var(--fs-2); }
 .ri-note { font-size: var(--fs-2); color: var(--muted); margin-top: 4px; }
 .ri-row:hover td { background: rgba(184,146,44,0.07); }
 .ri-row.active td { background: rgba(184,146,44,0.14); }
@@ -327,10 +351,12 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .ri-check { width:28px; text-align:center; }
 .ri-check input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
 .ri-mode { color:var(--muted); font-size: var(--fs-2); }
-.ri-vis { font-size: var(--fs-2); padding:1px 6px; border-radius:8px; border:1px solid transparent; }
-.ri-vis-pub { color:#9bc47a; border-color:rgba(155,196,122,0.4); }
-.ri-vis-held { color:#d9a441; border-color:rgba(217,164,65,0.4); }
-.ri-vis-gm { color:var(--muted); border-color:rgba(138,122,90,0.35); }
+.ri-vis { display: inline-flex; align-items: center; justify-content: center; }
+.ri-vis-pub { color:#9bc47a; }
+.ri-vis-held { color:#d9a441; }
+.ri-vis-gm { color:var(--muted); }
+.ri-vis-col { color: var(--muted); text-align: center; }
+.ri-eye { display: block; }
 /* Route panel overlay (map-click selection) */
 #route-panel { position:absolute; top:10px; right:10px; z-index:10;
   background:#1a1208; color:#f0e6c8; padding:10px 14px; border-radius:6px;
@@ -412,7 +438,6 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #api-status.ok { color: #6a9a2c; }
 #api-status.err { color: var(--danger); }
 /* Reveal tab */
-#panel-reveal { max-width: 340px; }
 #rv-staged, #rv-hidden, #rv-confirm-list { list-style: none; display: flex;
   flex-direction: column; gap: 4px; }
 #rv-hidden { max-height: 320px; overflow-y: auto; }
@@ -439,6 +464,34 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #app-title-link { font-size: var(--fs-2); text-transform: none; letter-spacing: 0.03em;
   color: var(--muted); text-decoration: none; float: right; margin-top: 2px; }
 #app-title-link:hover { color: #b8922c; }
+/* Shell: hide, resize, collapse */
+#sb-toggle { float: right; margin: 0 10px 0 0; background: none; color: var(--muted);
+  border: 1px solid rgba(184,146,44,0.3); border-radius: 2px; cursor: pointer;
+  font-size: var(--fs-2); line-height: 1; padding: 2px 6px; }
+#sb-toggle:hover { color: #e8dcc4; border-color: #b8922c; }
+#sb-resizer { flex: none; width: 6px; margin-left: -3px; cursor: col-resize; z-index: 5;
+  background: transparent; touch-action: none; }
+#sb-resizer:hover, #sb-resizer.drag, #sb-resizer:focus-visible {
+  background: rgba(184,146,44,0.45); outline: none; }
+#sb-float { display: none; position: absolute; top: 10px; left: 10px; z-index: 6;
+  align-items: center; gap: 8px; background: #120f08; border: 1px solid rgba(184,146,44,0.5);
+  border-radius: 3px; padding: 6px 10px; }
+#sb-float #ws-subheader { border-bottom: 0; margin: 0; padding: 0; }
+#sb-show { background: none; color: #c8a84a; border: 0; cursor: pointer;
+  font-size: var(--fs-2); padding: 0 8px 0 0; border-right: 1px solid rgba(184,146,44,0.3); }
+#sb-show:hover { color: #e8dcc4; }
+.info-btn { background: none; color: #c8a84a; border: 1px solid rgba(184,146,44,0.5);
+  border-radius: 50%; width: 1.25rem; height: 1.25rem; line-height: 1; cursor: pointer;
+  font-size: var(--fs-1); font-style: italic; font-family: serif; padding: 0; vertical-align: middle; }
+.info-btn:hover, .info-btn[aria-expanded=true] { color: #e8dcc4; border-color: #b8922c; }
+.info-pop { margin-top: 6px; padding: 8px 10px; border: 1px solid rgba(184,146,44,0.3);
+  border-radius: 3px; background: #1a1410; color: var(--ink-2); font-size: var(--fs-2); line-height: 1.5; }
+#app.sb-hidden #sidebar, #app.sb-hidden #sb-resizer { display: none; }
+#app.sb-hidden #sb-float { display: flex; }
+[data-collapsible] { cursor: pointer; user-select: none; }
+[data-collapsible]::before { content: "\\25BE\\00a0"; }
+[data-collapsible].sec-collapsed::before { content: "\\25B8\\00a0"; }
+.sec-hide { display: none !important; }
 /* Search row */
 #ws-search-row { position: relative; padding: 5px 14px 6px; border-bottom: 1px solid rgba(184,146,44,0.1);
   flex-shrink: 0; }
@@ -665,11 +718,11 @@ def _build_panel_edit_coords() -> str:
   <p id="ef-status" class="hint" style="margin-top:5px;min-height:14px;"></p>
 </div>
 <div id="unsaved-section" class="hidden" style="margin-top:6px;">
-  <div class="list-heading">Saved This Session</div>
+  <div class="list-heading" data-collapsible>Saved This Session</div>
   <ul id="unsaved-list"></ul>
 </div>
 <div class="rebuild-section">
-  <div class="list-heading">Rebuild</div>
+  <div class="list-heading" data-collapsible>Rebuild</div>
   <div class="btn-row">
     <button id="rebuild-locations-btn" class="btn btn-sm">Rebuild Locations</button>
     <button id="rebuild-workshop-btn" class="btn btn-sm">Rebuild Workshop</button>
@@ -682,7 +735,7 @@ def _build_panel_edit_coords() -> str:
 def _build_panel_reveal() -> str:
     return """
 <p class="hint" style="color:#9a8a6a;">Click a GM-only marker, or press <strong>+</strong> below, to stage it. Nothing is written until you apply.</p>
-<div class="list-heading" style="margin-top:0;">Staged</div>
+<div class="list-heading" style="margin-top:0;" data-collapsible>Staged</div>
 <ul id="rv-staged"><li class="queue-empty">Nothing staged.</li></ul>
 <div class="btn-row">
   <button id="rv-apply-btn" class="btn" disabled>Apply 0 reveals</button>
@@ -697,7 +750,7 @@ def _build_panel_reveal() -> str:
   </div>
 </div>
 <p id="rv-status" class="hint"></p>
-<div class="list-heading">GM-only locations (<span id="rv-hidden-count">0</span>)</div>
+<div class="list-heading" data-collapsible>GM-only locations (<span id="rv-hidden-count">0</span>)</div>
 <div class="field-group">
   <input id="rv-filter" type="text" placeholder="Filter by name, type or region…" autocomplete="off" spellcheck="false">
 </div>
@@ -761,7 +814,8 @@ def _build_panel_travel_time() -> str:
   <div id="tt-saved" class="tt-saved"></div>
 </div>
 <p class="hint" style="color:#9a8a6a;margin-top:8px;">Saved to <code>world/data/tarim-shaiel-journeys.geojson</code> via the devserver. Time is computed from length, mode and path; it is never stored.</p>
-<p class="hint" style="color:#9a8a6a;margin-top:6px;"><b>Terrain</b> walks the ground, not the roads: a least-cost path over elevation tiles, slower on slopes, with a per-mode slope limit (a cart refuses what a walker climbs). Rivers and lakes are not obstacles and existing roads are ignored. Limits and speeds are assumptions. Elevation: U.S. Geological Survey (SRTM, GMTED2010) via AWS Terrain Tiles; tiles are cached in this browser.</p>
+<p class="hint" style="color:#9a8a6a;margin-top:6px;"><b>Terrain</b> routing <button type="button" class="info-btn" aria-controls="tt-terrain-info" aria-expanded="false" title="How Terrain routing works" aria-label="How Terrain routing works">i</button></p>
+<div id="tt-terrain-info" class="info-pop" hidden><b>Terrain</b> walks the ground, not the roads: a least-cost path over elevation tiles, slower on slopes, with a per-mode slope limit (a cart refuses what a walker climbs). Rivers and lakes are not obstacles and existing roads are ignored. Limits and speeds are assumptions. Elevation: U.S. Geological Survey (SRTM, GMTED2010) via AWS Terrain Tiles; tiles are cached in this browser.</div>
 """
     path_opts = "\n    ".join(
         f'<option value="{p}">{p.capitalize()}</option>'
@@ -1661,6 +1715,61 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Apply the restored (or default) tab now that _setTab exists — the
         # server-rendered HTML always marks "Add Point" active by default.
         '_setTab(_activeTab);\n'
+        # -- Shell: hide/show, drag-resize, collapsible sections --
+        'var _VIS_HTML='+json.dumps({k:_vis_icon(k) for k in _VIS_LABEL})+';\n'
+        'var _SB_W="_wsSbW",_SB_H="_wsSbHidden",_SB_COL="_wsCollapsed";\n'
+        'function _lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}\n'
+        'function _lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}\n'
+        'var _appEl=document.getElementById("app");\n'
+        'function _sbWidth(w){'
+        'w=Math.max(340,Math.min(w,window.innerWidth*0.7));'
+        'document.documentElement.style.setProperty("--sb-w",Math.round(w)+"px");return w;}\n'
+        'function _sbDock(h){'
+        'var sh=document.getElementById("ws-subheader");'
+        'if(h)document.getElementById("sb-float").appendChild(sh);'
+        'else document.getElementById("sidebar-header").insertBefore(sh,document.getElementById("tab-bar"));}\n'
+        'function _sbHide(h){'
+        '_appEl.classList.toggle("sb-hidden",h);_lsSet(_SB_H,h?"1":"0");_sbDock(h);'
+        'setTimeout(function(){map.resize();},0);}\n'
+        'var _w0=parseFloat(_lsGet(_SB_W));if(_w0>0)_sbWidth(_w0);\n'
+        'if(_lsGet(_SB_H)==="1"){_appEl.classList.add("sb-hidden");_sbDock(true);}\n'
+        'document.addEventListener("click",function(e){var b=e.target.closest(".info-btn");if(!b)return;'
+        'var t=document.getElementById(b.getAttribute("aria-controls"));var o=t.hidden;t.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");});\n'
+        'document.addEventListener("keydown",function(e){if(e.key!=="Escape")return;'
+        'document.querySelectorAll(".info-btn[aria-expanded=true]").forEach(function(b){b.click();});});\n'
+        'document.getElementById("sb-toggle").addEventListener("click",function(){_sbHide(true);});\n'
+        'document.getElementById("sb-show").addEventListener("click",function(){_sbHide(false);});\n'
+        'document.addEventListener("keydown",function(e){'
+        'if(e.key!=="\\\\"||e.ctrlKey||e.metaKey||e.altKey)return;'
+        'var t=e.target;if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;'
+        'e.preventDefault();_sbHide(!_appEl.classList.contains("sb-hidden"));});\n'
+        '(function(){'
+        'var rz=document.getElementById("sb-resizer"),sb=document.getElementById("sidebar");\n'
+        'rz.addEventListener("pointerdown",function(e){'
+        'rz.setPointerCapture(e.pointerId);rz.classList.add("drag");e.preventDefault();});\n'
+        'rz.addEventListener("pointermove",function(e){'
+        'if(!rz.classList.contains("drag"))return;_sbWidth(e.clientX-sb.getBoundingClientRect().left);});\n'
+        'function end(){if(!rz.classList.contains("drag"))return;rz.classList.remove("drag");'
+        '_lsSet(_SB_W,String(Math.round(sb.getBoundingClientRect().width)));map.resize();}\n'
+        'rz.addEventListener("pointerup",end);rz.addEventListener("pointercancel",end);\n'
+        'rz.addEventListener("dblclick",function(){'
+        'document.documentElement.style.removeProperty("--sb-w");_lsSet(_SB_W,"");map.resize();});\n'
+        'rz.addEventListener("keydown",function(e){'
+        'var d=e.key==="ArrowLeft"?-24:e.key==="ArrowRight"?24:0;if(!d)return;e.preventDefault();'
+        '_lsSet(_SB_W,String(Math.round(_sbWidth(sb.getBoundingClientRect().width+d))));map.resize();});'
+        '})();\n'
+        'function _secKey(h){return (h.closest(".panel")||{}).id+"|"+h.textContent.replace(/[(\\d].*$/,"").trim();}\n'
+        'function _secApply(h,collapsed){'
+        'h.classList.toggle("sec-collapsed",collapsed);h.setAttribute("aria-expanded",collapsed?"false":"true");'
+        'for(var n=h.nextElementSibling;n&&!n.hasAttribute("data-collapsible");n=n.nextElementSibling)'
+        'n.classList.toggle("sec-hide",collapsed);}\n'
+        'var _secState={};try{_secState=JSON.parse(_lsGet(_SB_COL)||"{}")||{};}catch(e){}\n'
+        'document.querySelectorAll("[data-collapsible]").forEach(function(h){'
+        'h.tabIndex=0;h.setAttribute("role","button");var k=_secKey(h);_secApply(h,!!_secState[k]);'
+        'function tog(){var c=!h.classList.contains("sec-collapsed");_secApply(h,c);'
+        'if(c)_secState[k]=1;else delete _secState[k];_lsSet(_SB_COL,JSON.stringify(_secState));}\n'
+        'h.addEventListener("click",tog);'
+        'h.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();tog();}});});\n'
 
         # -- Tab 1: coordinate picker --
         'var _addLat=document.getElementById("add-lat");'
@@ -2111,10 +2220,9 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var row=document.querySelector(\'#panel-route-index .ri-row[data-id="\'+f.id+\'"]\');if(!row)return;'
         'var cells=row.querySelectorAll("td"),approx=f.geometry.coordinates.length<=2,'
         'm=_TT.speeds[f.properties.mode]?f.properties.mode:_TT.defaultMode;'
-        'cells[4].innerHTML=_fmtHours(_routeHours(f),approx)+\' <span class="ri-mode">\'+_TT.speeds[m].label+\'</span>\';'
+        'cells[3].innerHTML=_fmtHours(_routeHours(f),approx)+\' <span class="ri-mode">\'+_TT.speeds[m].label+\'</span>\';'
         'var pv=f.properties._playerVisible,pub=f.properties.visibility==="public";'
-        'cells[5].innerHTML=pv?\'<span class="ri-vis ri-vis-pub">players</span>\':'
-        '(pub?\'<span class="ri-vis ri-vis-held">held</span>\':\'<span class="ri-vis ri-vis-gm">GM</span>\');'
+        'cells[4].innerHTML=pv?_VIS_HTML.pub:(pub?_VIS_HTML.held:_VIS_HTML.gm);'
         '}\n'
         'document.getElementById("route-panel-vis").addEventListener("change",function(){_patchRoute("visibility",this.value);});\n'
         'document.getElementById("route-panel-mode").addEventListener("change",function(){_patchRoute("mode",this.value);});\n'
@@ -2555,6 +2663,7 @@ def _build_html(
         '    <div id="sidebar-header">\n'
         '      <div id="app-title">Map Workshop'
         '<a id="app-title-link" href="/world.html">← World</a>'
+        '<button id="sb-toggle" type="button" title="Hide sidebar (\\)" aria-label="Hide sidebar">◀</button>'
         '</div>\n'
         '      <div id="ws-subheader">\n'
         '        <button id="layers-btn">⊞ Layers</button>\n'
@@ -2617,6 +2726,9 @@ def _build_html(
         '      <button id="player-share-copy" title="Copy link">⎘</button>\n'
         '    </div>\n'
         "  </div>\n"
+        '  <div id="sb-resizer" role="separator" aria-orientation="vertical" tabindex="0" '
+        'title="Drag to resize (double-click to reset)"></div>\n'
+        '  <div id="sb-float"><button id="sb-show" type="button" title="Show sidebar (\\)">▶ Sidebar</button></div>\n'
         '  <div id="map"></div>\n'
         '  <div id="route-panel" hidden>\n'
         '    <div id="route-panel-label"></div>\n'
