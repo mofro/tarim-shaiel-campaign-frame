@@ -29,7 +29,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-08-01
+last_updated: 2026-11-02
 tags: [pc]
 ---
 
@@ -126,6 +126,7 @@ Current tier: **—** *(none yet — the two-pulls is compass behavior, not Wron
 ### Key Moments
 
 - *Session 1:* The fork near Waycross — the compass gave two readings simultaneously. Sahir has not disclosed this. Volkath's campfire history; the artifact experiment; Veyra's departure.
+- *Session 2:* Left at the gates of Rabati Malik while the others went to find the ambush. Went into the city to speak with his companions, then came back out to report to Ariel and to Captain Kaan, who had halted at the gates. His report is where the two halves of the plan met, and Kaan chose leniency: no repercussions for the caravan masters or their crews.
 
 ### Growth
 

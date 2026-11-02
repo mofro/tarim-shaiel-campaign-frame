@@ -29,7 +29,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-08-01
+last_updated: 2026-11-02
 tags: [pc]
 ---
 
@@ -123,7 +123,8 @@ Current tier: **—** *(none yet — walked east before the dead zone beat)*
 
 ### Key Moments
 
-- *Session 1:* Heard Volkath's confession that the ambush at Rabati Malik is being run by his own son. Left on foot at dawn, walking east. Her current whereabouts are open — that's Lisa's call.
+- *Session 1:* Heard Volkath's confession that the ambush at Rabati Malik is being run by his own son. Left on foot at dawn, walking east. Her whereabouts were left open until Session 2.
+- *Session 2:* Not at Rabati Malik. Ariel flew ahead of the party and found her well at home just off the road, not looking for company. The exchange was fraught: Veyra's reservations about being manipulated by forces she cannot see, and her wish to have nothing to do with fighting. She agreed to travel with the party while the roads run roughly the same way, curious about the answers she is looking for, and she waited for them. Ariel's terms: "At least until we can determine whether we have a link worth maintaining." Provisional.
 
 ### Growth
 
@@ -135,6 +136,6 @@ Session 1 established the gap between protecting and controlling. She chose dist
 
 Veyra's arc centers on the gap between *protecting* and *controlling*: she protects because she can, and has not yet fully examined whether that's the same thing as protecting because it's wanted. The blade's refusals are a slow signal — it knows something about the cost of force-as-the-clean-answer that she doesn't yet.
 
-Her walking east is an open seed. If Lisa brings her back into the party, she will have had time alone with whatever the east holds. If Lisa keeps the distance, that becomes its own thread.
+Her walking east was an open seed, and Session 2 resolved it: Ariel brought her back, provisionally, after she had time alone with whatever the east holds. The live thread is now the provisional terms ("a link worth maintaining") and her wariness of being manipulated by forces she cannot see.
 
 Surrendered layer — *Tactical*: the clean answer is always force; complexity enters only when force has already failed. Watch for moments where Veyra reaches for the sword and the blade does not cooperate.

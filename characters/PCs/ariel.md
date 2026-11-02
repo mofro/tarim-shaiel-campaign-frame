@@ -30,7 +30,7 @@ rhk_know: 0
 visibility: gm_secrets
 status: draft
 created: 2026-08-01
-last_updated: 2026-08-12
+last_updated: 2026-11-02
 tags: [pc]
 ---
 
@@ -92,7 +92,7 @@ A disk of polished obsidian, palm-sized, that shows reflections it has no busine
 
 *Partial recollections triggered by events in play.*
 
-1. *Pending — none yet triggered in play.*
+1. **Bearing Witness** *(Session 2)* — the precipice: wings furled, she watches a mixed Tulpar and human ring die under a formless throng that swallows torchlight, and commits to the dive. Reizan's hand finds her shoulder before her feet leave the stone; he says "Not now." It fired as she weighed taking on Captain Kaan while he held a defensive stance, with Reizan beside her. Neither of them has connected it to Kaan, and the party has not seen it. Full prose: [[narrative/sessions/02_session2/gm_secrets/Bearing Witness|Bearing Witness]].
 
 ---
 
@@ -127,6 +127,7 @@ Current tier: **—** *(none yet)*
 
 - *Session 0:* The courtyard confrontation — the tariff dispute with Captain Kaan's imperial patrol. Ended with the patrol backing down. Kaan will remember it.
 - *Session 1:* The artifact experiment; Volkath's campfire history and the party's realization that their own memories don't include any of the world he described.
+- *Session 2:* Flew out with Reizan to intercept Captain Kaan before he rode into the Rabati Malik ambush, and slowly talked him into halting at the gates and into considering carrying the merchants' grievances to his lord. The Bearing Witness flashback fired during that exchange. Afterwards she flew ahead for one last conversation with Veyra and persuaded her to travel with the party for now.
 
 ### Growth
 
@@ -140,6 +141,6 @@ Ariel's arc runs through the Visionary's core tension: was she really chosen, or
 
 The disk's response to the Wizard's presence (reserve for Act II) is a planted signal: what the disk registers as "convergence" may not be what Ariel would call convergence if she understood it fully.
 
-History with Captain Kaan is a live thread: he has no reason to trust her, but also no reason to think she'd bother lying to him. This ambivalence is a resource for Thread A in Session 2.
+History with Captain Kaan is a live thread: he has no reason to trust her, but also no reason to think she'd bother lying to him. In Session 2 that ambivalence was the resource Thread A turned on: he believed her enough to halt at the gates. The thread stays live, because his offer to carry the merchants' grievances to his lord was conditional.
 
 Surrendered layer — *Perceptual*: she cannot look away; the cost is that some of what she sees will be things she was not meant to see yet.
