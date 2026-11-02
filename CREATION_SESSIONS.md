@@ -6,13 +6,23 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-11-01
+last_updated: 2026-11-02
 ---
 
 # Creation Session Log
 
 _Authoring and design work sessions. Newest first. Trim to last 10 sessions; older entries go to archive._
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
+
+---
+
+### Session 2026-11-02
+- Session 2 close-out and Session 3 documents brought in line with Session 3 having been played. No Beads or GitHub issue (GM: PR and commit notes suffice).
+  - Gap fixes, `a32d39e`: Ariel, Sahir and Veyra got Session 2 Key Moments and resolved GM Notes; `characters/NPCs/Calberri Davis.md` (a tracked 0-byte file) is now a GM-only page for the Jade Illusionist avatar, linked from his Aliases list.
+  - Session 3 treated as played, `524230d`: status callouts on `Session_3_Prep.md` and `Session_3_Encounter_Sheet.md` (they are pre-session docs, not direction for future work), Prep §12 items marked superseded by play, answered, or carried forward, and the "still carries this as TBD" line removed from `Session_2_GM_Record.md`. The GM wrote "Session 5"; read as Session 3 because the recording is `03_session3/Session_3.mp3`.
+  - Deleted the untracked Session 2 `.html`/`.pdf` exports; kept the Session 3 Prep ones.
+  - `.gitignore` rule `narrative/sessions/**/*.mp3` because `Session_3.mp3` is 139 MB (GitHub's limit is 100 MB). Scoped to `narrative/sessions` so the 21 tracked mp3s elsewhere are untouched. [PR #345](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/345), awaiting the GM's merge.
+- Next: merge #345. Open: the untracked 192 MB `Tarim-Shaiel: Session 3.m4a` (the mp3 rule does not cover it), no record yet of what Session 3 produced, and `characters/NPCs/Elder Road Merchant.md` is another 0-byte Jade Illusionist alias page
 
 ---
 
@@ -149,13 +159,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - **EquipmentTab** (Phase 2d): primary + secondary weapon forms (name/trait/damage/range/feature); armor block (+evasion bonus); gold tracker (handfuls/bags/chests); inventory list with remove
   - Three new SCSS partials (`_dh-combat.scss`, `_dh-traits.scss`, `_dh-class.scss`, `_dh-equipment.scss`); App.tsx fully wired
   - `tsc --noEmit` exits 0; ESLint 0 errors across all commits. [PR #1](https://github.com/mofro/daggerheart-sheet/pull/1) updated
-
-### Session 2026-08-22
-- Daggerheart Obsidian plugin — Phase 1 complete (`mofro/daggerheart-sheet`)
-  - Phase 1 goal: write Daggerheart character schema + calc layer, then fix all TypeScript errors caused by Phase 0 (PF1e content removal)
-  - Added `src/types/daggerheart.ts` — `DaggerheartCharacter` interface: 6 traits, evasion, HP/Stress/Hope, damage thresholds, domain cards, equipment, class features, ancestry/community, connections, rule-links
-  - Added `src/calc/daggerheart.ts` — compute layer: trait modifiers, effective evasion, tier-from-level; nothing derived stored in schema
-  - Rewrote bridge files: `src/types/character.ts` (CharacterRecord alias), `src/types/data-file.ts` (DaggerheartData), `src/state/store.ts`, `src/state/migrations.ts`, `src/main.ts`, `src/settings.ts`, `src/components/App.tsx`
-  - Stubbed ~55 PF1e components for Phase 2 replacement
-  - Fixed ESLint config: disabled `no-deprecated` for Phase 1 bridge stubs; added test-layer relaxations; added sentence-case ignoreWords (Daggerheart, Carrel)
-  - `tsc --noEmit` exits 0; ESLint 0 errors. [PR #1](https://github.com/mofro/daggerheart-sheet/pull/1) open on daggerheart-sheet
