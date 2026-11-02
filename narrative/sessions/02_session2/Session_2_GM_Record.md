@@ -119,7 +119,7 @@ Framed as absence only. No mechanism named. Not in the player summary.
 - [x] Is the Session 1 disc experiment the "holding our symbols together" test? Yes (GM confirmed, 2026-10-24).
 - [x] Temir's status: stays with Volkath's caravan as far as the characters know; splits off later (future thread).
 - [x] Sanem: present. Uneasy about completing the plan after Rill's talk.
-- [x] What the traveller left with the party: the spinning coin (GM, 2026-11-01). `Session_3_Prep.md` still carries this as TBD.
+- [x] What the traveller left with the party: the spinning coin (GM, 2026-11-01).
 - [x] Traveller's name: Calberri Davis, the name he gave in play (GM, 2026-11-02). It is a Jade Illusionist alias. Distinct from Kalas.
 - [x] Rill canonical file: `characters/PCs/rill.md` is the GM record; `rill (player).md` cleanup deferred.
 - [x] Repair the dead cross-ref to `02_session2/session-chronicle.html` in `Session_2_GM_NOTES.md`, or create the chronicle. The dead ref is gone (grep 2026-10-24: `gm_secrets/Session_2_GM_NOTES.md` has no 02_session2 chronicle reference; its chronicle references point to `01_session1`). The chronicle file itself is still absent, so this record remains the source.

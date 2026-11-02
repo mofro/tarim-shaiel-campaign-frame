@@ -7,13 +7,16 @@ content_type: session
 visibility: gm_secrets
 status: draft
 created: 2026-10-24
-last_updated: 2026-10-24
+last_updated: 2026-11-02
 tags: [session3, encounter, environment, gm_secrets]
 ---
 
 # Session 3 — Encounter Sheet
 
 ⚠️ **GM-ONLY.** Draft. Built from `Session_3_Prep.md` §2A (interrupt), §2B (Slow Crossing), and §2C (political flavor). Markers: **[INVENTED]** is new and needs approval. **[UNVERIFIED]** is not checked against the official rules or the vault.
+
+> [!note] Status: Session 3 has been played
+> This sheet is the pre-session build. Session 3 has since been played, so "needs approval", "before play" and "verify" below describe the state before play. They are not directions for future work. What actually ran at the table is not recorded in this file.
 
 ---
 

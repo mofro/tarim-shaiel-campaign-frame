@@ -13,7 +13,12 @@ tags: [session3, prep, gm_secrets]
 
 # Session 3 — Prep
 
-⚠️ **GM-ONLY.** Options for today's session, proposals to be confirmed, and the tracker for everything still open. Proposals marked **[INVENTED]** are new and need approval. Marked **[UNVERIFIED]** means not checked against the core rules or the vault.
+⚠️ **GM-ONLY.** Options prepared for the session, proposals that were to be confirmed, and the pre-session tracker for everything then open.
+
+> [!note] Status: Session 3 has been played
+> This is the pre-session prep. Session 3 has since been played, so "today", "awaiting" and "to be confirmed" below describe the state before play. They are not directions for future work. What actually ran at the table is not recorded in this file.
+
+Proposals marked **[INVENTED]** are new and need approval. Marked **[UNVERIFIED]** means not checked against the core rules or the vault.
 
 Session 2 record: `narrative/sessions/02_session2/Session_2_GM_Record.md`.
 
@@ -29,9 +34,9 @@ Session 2 record: `narrative/sessions/02_session2/Session_2_GM_Record.md`.
 
 ## 2. Options
 
-The option sets are designed to combine. Recommended build: **B + C + D**, with an interrupt slot still to be chosen (see A).
+The option sets are designed to combine. The pre-session recommendation was **B + C + D**, with an interrupt slot to be chosen (see A).
 
-### A — Interrupt (GM to choose one type)
+### A — Interrupt (one type)
 
 The "mass" from Ariel's precipice memory is not reused as a fight, and the word "mass" is not used for any Session 3 threat. Three types, all **[INVENTED]**:
 
@@ -136,7 +141,7 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 | **Iron Bell Company / Zhao Merchant Consortium** | Profit on both sides. Eastbound convoy to Khotan. | Regional doc (merchant guilds); register |
 | **Elven influence** | Invisible. Felt through the Eastern Gateway, not seen on the road. | Regional doc |
 
-**Live tensions for today:**
+**Live tensions going into the session:**
 - Tariff dispute: Volkath's caravan against the Imperial Road Authority. Seven-day documentation period.
 - **The road claim.** The Empire (Imperial Road Authority) thinks it still owns the road. The Tulpar know they control it. The tariff dispute comes from that gap. (Resolves conflict 7.)
 - Tulpar westbound levy, pending.
@@ -160,7 +165,7 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 - **Author of The Roads:** Nādir, written in the period of his teaching. **[INVENTED]** Date of writing not stated in the piece. Propose 1190s HB equivalent, after the Purge.
 - **Why he wrote it:** to record the roads before the Convocation's knowledge is lost. **[INVENTED]**
 - **What he knows of the Night:** the Night is a folk memory in the Convocation archive. He can describe the falling stars and the Wizard's undead movements under cover of the omen, but not the Wizard's plan. **[INVENTED]**
-- **Puli Khumri placement:** the Azure outpost there is invented. **[INVENTED]** Confirm before the party finds it.
+- **Puli Khumri placement:** the Azure outpost there is invented. **[INVENTED]** This was to be confirmed before the party found it. Superseded by play.
 
 **Player-known after Session 2:** Volkath named Nādir as the author of The Roads and suspects he is living or working near Puli Khumri. The party left Rabati Malik to find him and ask for counsel on their memory loss and displacement. They have been told nothing beyond Volkath's suspicion (`Session_2_Player_Summary_Full.md`, Event 7).
 
@@ -169,7 +174,7 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 ## 8. Night of Falling Stars Alignment
 
 - The Night is canon: 1048 HB, the first domino, aligned to the Elf Watchers (1048–1050 HB). Source: `world/events/night-of-falling-stars.md`, status draft.
-- **Proposed awakening anchor:** 1117 HB, a more recent starfall, adjacent to the Grey Council (~1120 HB equivalent). **[INVENTED]** Awaiting GM choice.
+- **Proposed awakening anchor:** 1117 HB, a more recent starfall, adjacent to the Grey Council (~1120 HB equivalent). **[INVENTED]** Pre-session: awaiting GM choice. What was chosen at the table is not recorded here.
 - Open question still in the event file: did the Wizard's Long Preparation come before the Night, or was it triggered by it?
 
 ---
@@ -218,15 +223,28 @@ Sourced from `REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`, `CAMPAIGN_PRESENT_FACTIO
 
 ## 12. Open Items
 
-- [ ] Choose the interrupt type: animal group, human group, or environment event (section 2A).
-- [ ] Choose today's option set (recommend B + C + D, with the interrupt slot).
+This was the tracker before Session 3 was played. The session has landed, so the pre-session items are superseded and are no longer directions for future work. Items whose answer sits in the record are ticked. The rest stay unticked because what was decided at the table is not recorded in this file.
+
+**Superseded by play (pre-session choices):**
+
+- [ ] ~~Choose the interrupt type: animal group, human group, or environment event (section 2A).~~
+- [ ] ~~Choose the option set (recommend B + C + D, with the interrupt slot).~~
+- [ ] ~~Confirm Nādir's placement and The Roads authorship (section 7).~~
+- [ ] ~~Verify the stat block if the interrupt is a group (section 2A).~~
+- [ ] ~~Verify waypoint geography (section 2B).~~
+
+**Answered:**
+
+- [x] Confirm Sanem's Session 2 appearance (section 9). Answered: he appeared and was uneasy about completing the plan (`Session_2_GM_Record.md`, NPC State After Session 2).
+
+**World-canon questions, status not recorded here:**
+
 - [ ] Confirm Kitabdara as the burned city (section 5).
 - [ ] Answer: which Legions does the register's "Liberation of the Legions" refer to? (conflict 2)
 - [ ] Choose the Night awakening anchor (section 8).
-- [ ] Confirm Nādir's placement and The Roads authorship (section 7).
-- [ ] Confirm Sanem's Session 2 appearance (section 9).
-- [ ] Verify the stat block if the interrupt is a group (section 2A).
-- [ ] Verify waypoint geography (section 2B).
+
+**Housekeeping carried forward (not session prep):**
+
 - [ ] Back-fill Volkath into `Session_0_NPC_Index.md` (deferred by GM).
 - [ ] Rill cleanup (deferred; conflict 9).
 - [ ] Decide whether to rename `characters/PCs/raizen.md` to match the spelling. Not done.
