@@ -16,6 +16,12 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-11-02 (Workshop type scale)
+- Map Workshop UX pass (#333, `HeroHeaven-fs8.1`): step 1 shipped as PR #346 (`b81da74`)
+  - 5-token rem type scale and 4.5:1 text contrast in the Workshop sidebar; tabs now a 3-column grid (sidebar 464px to 383px)
+  - `tests/test_workshop_type_scale.py` guards sizes and colours; decision logged in `.meta/DECISION_LOG.md`
+  - Steps 2-10 remain open on #333 and `fs8.1`; step 2 (collapsible shell) is next, not yet claimed
+
 ### Session 2026-11-02
 - Session 2 close-out and Session 3 documents brought in line with Session 3 having been played. No Beads or GitHub issue (GM: PR and commit notes suffice).
   - Gap fixes, `a32d39e`: Ariel, Sahir and Veyra got Session 2 Key Moments and resolved GM Notes; `characters/NPCs/Calberri Davis.md` (a tracked 0-byte file) is now a GM-only page for the Jade Illusionist avatar, linked from his Aliases list.
@@ -149,13 +155,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Regenerated 3 routes that were stale on disk: `route_spur_refugee-rill_redirect`, `route_spur_redirect_qizil`, `route_seg_apu-nengkapu_niye`
   - Documented the Regenerate Route endpoint and its resync/fallback behavior in `lat.md/build-workflows.md` (previously undocumented) and added a note that Edit Coords does not cascade to connected routes
   - Commits: `c42e491` (pipeline fix), `6eca685` (route data resync), `dea156f` (added missing `redirect.md` location stub)
-
-### Session 2026-08-22 (continued)
-- Daggerheart Obsidian plugin — Phase 2 complete (`mofro/daggerheart-sheet`)
-  - Phase 2 goal: replace all Phase 1 stubs with real Daggerheart UI; all four content tabs functional
-  - **CombatTab** (Phase 2a): `PipTracker` for HP/Stress/Hope (click-to-fill); evasion shield (computed); damage thresholds Minor/Major/Severe; condition chips (Vulnerable/Hidden/Restrained/Frightened/Disadvantaged) + lazy notes textarea; weapons quick-ref
-  - **TraitsTab** (Phase 2b): identity line (class/subclass/tier/level); all 6 trait rows — editable base score + computed signed modifier; XP mark pips (6 slots); heritage display
-  - **ClassTab** (Phase 2c): textarea sections for all class features (foundation/specialization/mastery/extra); domain badges + domain card list; ancestry + community features; connections list
-  - **EquipmentTab** (Phase 2d): primary + secondary weapon forms (name/trait/damage/range/feature); armor block (+evasion bonus); gold tracker (handfuls/bags/chests); inventory list with remove
-  - Three new SCSS partials (`_dh-combat.scss`, `_dh-traits.scss`, `_dh-class.scss`, `_dh-equipment.scss`); App.tsx fully wired
-  - `tsc --noEmit` exits 0; ESLint 0 errors across all commits. [PR #1](https://github.com/mofro/daggerheart-sheet/pull/1) updated
