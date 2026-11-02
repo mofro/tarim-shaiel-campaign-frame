@@ -97,3 +97,10 @@ world/data/coord-audit/
 *.xlsx
 narrative/sessions/**/*.html
 page-turn-animation copy.html
+
+# Session audio recordings: local only, and over GitHub's 100 MB file limit
+# (Session_3.mp3 is 139 MB, the Session 3 .m4a is 192 MB). Scoped to
+# narrative/sessions so the tracked mp3s elsewhere (docs/audio and others)
+# are unaffected.
+narrative/sessions/**/*.mp3
+narrative/sessions/**/*.m4a
