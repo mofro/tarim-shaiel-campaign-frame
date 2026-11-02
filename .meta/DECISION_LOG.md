@@ -905,3 +905,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The Workshop `_CSS` gets a `:root` block with `--fs-1..5` (0.75, 0.875, 1.0625, 1.25, 1.5rem) and colour tokens. Uppercase or tracked labels and badges use `--fs-1` (12px), lowercase text uses `--fs-2` (14px). Every dim text colour (`#7a6a50`, `#5a4a30`, `#8a7a5a`, `#b83c3c`, `#8a6a40`) is lifted to at least 4.5:1 on the lightest sidebar background. The six tabs become a 3x2 grid so 12px labels fit. `tests/test_workshop_type_scale.py` guards it.
 - **Rationale:** 66 of 72 font-size declarations were 12px or smaller and 34 text colours were below 4.5:1. The sidebar width is content-sized, so the tab row was what set it (464px before); as a grid it settles at 383px. Player-map CSS and the shared map_style CSS are out of scope.
 - **Lock status:** Working decision pending review of the PR; steps 2-10 of #333 remain.
+
+## 2026-11-02 — Map: Workshop shell and Route Index slimming (#347, HeroHeaven-fs8.1.1)
+- **Decision:** The Workshop sidebar has one width (384px, user-resizable, 340px floor) and collapsible sections. Route Index rows show label, distance, travel and a three-state eye icon (players / held / GM only); the route ID is a hover title. Layers stays on the map when the sidebar is hidden, and the Terrain explainer is an info popup.
+- **Rationale:** The ID column made routes indistinguishable at narrow width, but labels are not unique, so the ID stays on hover rather than being dropped. A "Seen by" text lozenge was noise; an icon carries it by shape as well as colour. Journeys in the Route Index was rejected for this PR and deferred to the Routes consolidation (#333 step 8).
+- **Lock status:** Locked (shipped, PR #348, b2036e0).

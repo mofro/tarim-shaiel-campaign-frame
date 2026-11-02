@@ -16,6 +16,13 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-11-02 (Workshop shell)
+- Map Workshop UX pass (#333, `HeroHeaven-fs8.1`): step 2 shipped as PR #348 (`b2036e0`), GH #347 / `HeroHeaven-fs8.1.1`
+  - One width model (384px sidebar, 340px panel content, no per-panel caps), drag/arrow-key resize with double-click reset, hide/show with `\`, collapsible sections with persisted state
+  - Review feedback folded in: Route Index is label + distance + travel + eye icon (open/held/closed), Layers and zoom stay on the map when the sidebar is hidden, Terrain explainer is an "i" popup
+  - `tests/test_workshop_shell.py` added; Journeys in the Route Index deferred to the Routes consolidation (step 8)
+  - Steps 3-10 remain open on #333; steps 5, 6 and 7 are the GM's calls and need a written case first
+
 ### Session 2026-11-02 (Workshop type scale)
 - Map Workshop UX pass (#333, `HeroHeaven-fs8.1`): step 1 shipped as PR #346 (`b81da74`)
   - 5-token rem type scale and 4.5:1 text contrast in the Workshop sidebar; tabs now a 3-column grid (sidebar 464px to 383px)
