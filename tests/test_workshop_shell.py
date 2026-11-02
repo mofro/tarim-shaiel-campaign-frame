@@ -39,7 +39,8 @@ def test_route_index_rows_carry_full_text_as_title():
         "visibility": "gm_only", "player_visible": False,
     }])
     assert 'title="route_a&lt;b&gt;"' in out
-    assert 'title="Say &quot;hi&quot;"' in out
+    assert "Say &quot;hi&quot;" in out
+    assert "ri-id" not in out
 
 
 def test_shell_controls_exist():
@@ -61,3 +62,22 @@ def test_collapsible_headings_are_opt_in():
 def test_caret_glyphs_are_css_escapes_not_control_characters():
     assert not any(ord(c) < 32 and c not in "\n\t" for c in gmw._CSS)
     assert '"\\25BE\\00a0"' in gmw._CSS
+
+
+def test_route_index_uses_eye_icons_for_visibility():
+    out = gmw._route_index_html([{
+        "id": "route_x", "label": "X", "kind": "main", "dist_km": 1.0,
+        "is_approx": False, "mode": "foot", "hours": 1.0, "time": "1 h",
+        "visibility": "gm_only", "player_visible": False,
+    }])
+    assert "ri-eye" in out and 'aria-label="GM only"' in out
+
+
+def test_layers_dock_into_float_when_sidebar_hidden():
+    assert 'id="sb-float"' in SOURCE and "_sbDock" in SOURCE
+    assert "#app.sb-hidden #sb-float" in gmw._CSS
+
+
+def test_terrain_explainer_is_an_info_popup():
+    assert 'aria-controls="tt-terrain-info"' in SOURCE
+    assert 'id="tt-terrain-info" class="info-pop" hidden' in SOURCE

@@ -163,6 +163,23 @@ def _build_route_index(routes_geojson: dict) -> list:
     return results
 
 
+_EYE_OPEN = ('<svg class="ri-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">'
+             '<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" fill="none" stroke="currentColor" stroke-width="2"/>'
+             '<circle cx="12" cy="12" r="3.2" fill="currentColor"/></svg>')
+_EYE_SHUT = ('<svg class="ri-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">'
+             '<path d="M2 10c3 5 17 5 20 0M6 14.5l-2 3M12 16v3.5M18 14.5l2 3" fill="none" '
+             'stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>')
+_VIS_LABEL = {"pub": "Players see this route",
+              "held": "Public, but an end location is hidden from players",
+              "gm": "GM only"}
+
+
+def _vis_icon(state: str) -> str:
+    icon = _EYE_OPEN if state == "pub" else _EYE_SHUT
+    return (f'<span class="ri-vis ri-vis-{state}" role="img" '
+            f'aria-label="{_VIS_LABEL[state]}" title="{_VIS_LABEL[state]}">{icon}</span>')
+
+
 def _route_index_html(route_index: list) -> str:
     main_routes = [r for r in route_index if r["kind"] == "main"]
     spurs = [r for r in route_index if r["kind"] == "spur"]
@@ -172,16 +189,15 @@ def _route_index_html(route_index: list) -> str:
         d = f'{p}{int(r["dist_km"])} km'
         mode = travel_time.SPEEDS[r["mode"]]["label"]
         if r["player_visible"]:
-            vis = '<span class="ri-vis ri-vis-pub" title="Players see this route">players</span>'
+            vis = _vis_icon("pub")
         elif r["visibility"] == route_visibility.PUBLIC:
-            vis = '<span class="ri-vis ri-vis-held" title="Route is public but an end location is hidden">held</span>'
+            vis = _vis_icon("held")
         else:
-            vis = '<span class="ri-vis ri-vis-gm" title="GM only">GM</span>'
+            vis = _vis_icon("gm")
         return (
             f'<tr class="ri-row" data-id="{r["id"]}" style="cursor:pointer">'
             f'<td class="ri-check"><input type="checkbox" class="ri-cb" data-id="{r["id"]}"></td>'
-            f'<td class="ri-id" title="{html.escape(r["id"], quote=True)}">{r["id"]}</td>'
-            f'<td title="{html.escape(str(r["label"]), quote=True)}">{r["label"]}</td>'
+            f'<td class="ri-label" title="{html.escape(r["id"], quote=True)}">{html.escape(str(r["label"]))}</td>'
             f'<td>{d}</td>'
             f'<td>{r["time"]} <span class="ri-mode">{mode}</span></td>'
             f'<td>{vis}</td>'
@@ -191,8 +207,9 @@ def _route_index_html(route_index: list) -> str:
     def section(title: str, rows: list) -> str:
         if not rows:
             return ""
-        thead = ('<thead><tr><th class="ri-check"></th><th>ID</th><th>Label</th>'
-                 '<th>Distance</th><th>Travel</th><th>Seen by</th></tr></thead>')
+        thead = ('<thead><tr><th class="ri-check"></th><th>Route</th>'
+                 '<th>Dist.</th><th>Travel</th><th class="ri-vis-col" title="Visible to players">'
+                 + _EYE_OPEN + '</th></tr></thead>')
         tbody = "<tbody>" + "".join(row(r) for r in rows) + "</tbody>"
         return f'<h3 data-collapsible>{title}</h3><table>{thead}{tbody}</table>'
 
@@ -310,16 +327,15 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   letter-spacing: 0.1em; color: #b8922c; margin-top: 6px; }
 #panel-route-index table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: var(--fs-2); }
 #panel-route-index th:nth-child(1) { width: 28px; }
-#panel-route-index th:nth-child(2) { width: 24%; }
-#panel-route-index th:nth-child(3) { width: 24%; }
-#panel-route-index td:nth-child(2), #panel-route-index td:nth-child(3) {
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#panel-route-index th:nth-child(3) { width: 3.6rem; }
+#panel-route-index th:nth-child(4) { width: 4.6rem; }
+#panel-route-index th:nth-child(5) { width: 2rem; text-align: center; }
+#panel-route-index td:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #panel-route-index td { overflow-wrap: anywhere; }
 #panel-route-index th { white-space: nowrap; }
 #panel-route-index th { color: var(--muted); text-align: left; padding: 4px 6px;
   border-bottom: 1px solid rgba(184,146,44,0.2); }
 #panel-route-index td { padding: 4px 6px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-#panel-route-index .ri-id { font-family: monospace; color: var(--muted); font-size: var(--fs-2); }
 .ri-note { font-size: var(--fs-2); color: var(--muted); margin-top: 4px; }
 .ri-row:hover td { background: rgba(184,146,44,0.07); }
 .ri-row.active td { background: rgba(184,146,44,0.14); }
@@ -335,10 +351,12 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .ri-check { width:28px; text-align:center; }
 .ri-check input[type=checkbox] { accent-color:#b8922c; cursor:pointer; }
 .ri-mode { color:var(--muted); font-size: var(--fs-2); }
-.ri-vis { font-size: var(--fs-2); padding:1px 6px; border-radius:8px; border:1px solid transparent; }
-.ri-vis-pub { color:#9bc47a; border-color:rgba(155,196,122,0.4); }
-.ri-vis-held { color:#d9a441; border-color:rgba(217,164,65,0.4); }
-.ri-vis-gm { color:var(--muted); border-color:rgba(138,122,90,0.35); }
+.ri-vis { display: inline-flex; align-items: center; justify-content: center; }
+.ri-vis-pub { color:#9bc47a; }
+.ri-vis-held { color:#d9a441; }
+.ri-vis-gm { color:var(--muted); }
+.ri-vis-col { color: var(--muted); text-align: center; }
+.ri-eye { display: block; }
 /* Route panel overlay (map-click selection) */
 #route-panel { position:absolute; top:10px; right:10px; z-index:10;
   background:#1a1208; color:#f0e6c8; padding:10px 14px; border-radius:6px;
@@ -455,12 +473,21 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   background: transparent; touch-action: none; }
 #sb-resizer:hover, #sb-resizer.drag, #sb-resizer:focus-visible {
   background: rgba(184,146,44,0.45); outline: none; }
-#sb-show { display: none; position: absolute; top: 10px; left: 10px; z-index: 6;
-  background: #120f08; color: #c8a84a; border: 1px solid rgba(184,146,44,0.5);
-  border-radius: 2px; cursor: pointer; font-size: var(--fs-2); padding: 6px 10px; }
-#sb-show:hover { color: #e8dcc4; border-color: #b8922c; }
+#sb-float { display: none; position: absolute; top: 10px; left: 10px; z-index: 6;
+  align-items: center; gap: 8px; background: #120f08; border: 1px solid rgba(184,146,44,0.5);
+  border-radius: 3px; padding: 6px 10px; }
+#sb-float #ws-subheader { border-bottom: 0; margin: 0; padding: 0; }
+#sb-show { background: none; color: #c8a84a; border: 0; cursor: pointer;
+  font-size: var(--fs-2); padding: 0 8px 0 0; border-right: 1px solid rgba(184,146,44,0.3); }
+#sb-show:hover { color: #e8dcc4; }
+.info-btn { background: none; color: #c8a84a; border: 1px solid rgba(184,146,44,0.5);
+  border-radius: 50%; width: 1.25rem; height: 1.25rem; line-height: 1; cursor: pointer;
+  font-size: var(--fs-1); font-style: italic; font-family: serif; padding: 0; vertical-align: middle; }
+.info-btn:hover, .info-btn[aria-expanded=true] { color: #e8dcc4; border-color: #b8922c; }
+.info-pop { margin-top: 6px; padding: 8px 10px; border: 1px solid rgba(184,146,44,0.3);
+  border-radius: 3px; background: #1a1410; color: var(--ink-2); font-size: var(--fs-2); line-height: 1.5; }
 #app.sb-hidden #sidebar, #app.sb-hidden #sb-resizer { display: none; }
-#app.sb-hidden #sb-show { display: block; }
+#app.sb-hidden #sb-float { display: flex; }
 [data-collapsible] { cursor: pointer; user-select: none; }
 [data-collapsible]::before { content: "\\25BE\\00a0"; }
 [data-collapsible].sec-collapsed::before { content: "\\25B8\\00a0"; }
@@ -787,7 +814,8 @@ def _build_panel_travel_time() -> str:
   <div id="tt-saved" class="tt-saved"></div>
 </div>
 <p class="hint" style="color:#9a8a6a;margin-top:8px;">Saved to <code>world/data/tarim-shaiel-journeys.geojson</code> via the devserver. Time is computed from length, mode and path; it is never stored.</p>
-<p class="hint" style="color:#9a8a6a;margin-top:6px;"><b>Terrain</b> walks the ground, not the roads: a least-cost path over elevation tiles, slower on slopes, with a per-mode slope limit (a cart refuses what a walker climbs). Rivers and lakes are not obstacles and existing roads are ignored. Limits and speeds are assumptions. Elevation: U.S. Geological Survey (SRTM, GMTED2010) via AWS Terrain Tiles; tiles are cached in this browser.</p>
+<p class="hint" style="color:#9a8a6a;margin-top:6px;"><b>Terrain</b> routing <button type="button" class="info-btn" aria-controls="tt-terrain-info" aria-expanded="false" title="How Terrain routing works" aria-label="How Terrain routing works">i</button></p>
+<div id="tt-terrain-info" class="info-pop" hidden><b>Terrain</b> walks the ground, not the roads: a least-cost path over elevation tiles, slower on slopes, with a per-mode slope limit (a cart refuses what a walker climbs). Rivers and lakes are not obstacles and existing roads are ignored. Limits and speeds are assumptions. Elevation: U.S. Geological Survey (SRTM, GMTED2010) via AWS Terrain Tiles; tiles are cached in this browser.</div>
 """
     path_opts = "\n    ".join(
         f'<option value="{p}">{p.capitalize()}</option>'
@@ -1688,6 +1716,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # server-rendered HTML always marks "Add Point" active by default.
         '_setTab(_activeTab);\n'
         # -- Shell: hide/show, drag-resize, collapsible sections --
+        'var _VIS_HTML='+json.dumps({k:_vis_icon(k) for k in _VIS_LABEL})+';\n'
         'var _SB_W="_wsSbW",_SB_H="_wsSbHidden",_SB_COL="_wsCollapsed";\n'
         'function _lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}\n'
         'function _lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}\n'
@@ -1695,11 +1724,19 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'function _sbWidth(w){'
         'w=Math.max(340,Math.min(w,window.innerWidth*0.7));'
         'document.documentElement.style.setProperty("--sb-w",Math.round(w)+"px");return w;}\n'
+        'function _sbDock(h){'
+        'var sh=document.getElementById("ws-subheader");'
+        'if(h)document.getElementById("sb-float").appendChild(sh);'
+        'else document.getElementById("sidebar-header").insertBefore(sh,document.getElementById("tab-bar"));}\n'
         'function _sbHide(h){'
-        '_appEl.classList.toggle("sb-hidden",h);_lsSet(_SB_H,h?"1":"0");'
+        '_appEl.classList.toggle("sb-hidden",h);_lsSet(_SB_H,h?"1":"0");_sbDock(h);'
         'setTimeout(function(){map.resize();},0);}\n'
         'var _w0=parseFloat(_lsGet(_SB_W));if(_w0>0)_sbWidth(_w0);\n'
-        'if(_lsGet(_SB_H)==="1")_appEl.classList.add("sb-hidden");\n'
+        'if(_lsGet(_SB_H)==="1"){_appEl.classList.add("sb-hidden");_sbDock(true);}\n'
+        'document.addEventListener("click",function(e){var b=e.target.closest(".info-btn");if(!b)return;'
+        'var t=document.getElementById(b.getAttribute("aria-controls"));var o=t.hidden;t.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");});\n'
+        'document.addEventListener("keydown",function(e){if(e.key!=="Escape")return;'
+        'document.querySelectorAll(".info-btn[aria-expanded=true]").forEach(function(b){b.click();});});\n'
         'document.getElementById("sb-toggle").addEventListener("click",function(){_sbHide(true);});\n'
         'document.getElementById("sb-show").addEventListener("click",function(){_sbHide(false);});\n'
         'document.addEventListener("keydown",function(e){'
@@ -2183,10 +2220,9 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var row=document.querySelector(\'#panel-route-index .ri-row[data-id="\'+f.id+\'"]\');if(!row)return;'
         'var cells=row.querySelectorAll("td"),approx=f.geometry.coordinates.length<=2,'
         'm=_TT.speeds[f.properties.mode]?f.properties.mode:_TT.defaultMode;'
-        'cells[4].innerHTML=_fmtHours(_routeHours(f),approx)+\' <span class="ri-mode">\'+_TT.speeds[m].label+\'</span>\';'
+        'cells[3].innerHTML=_fmtHours(_routeHours(f),approx)+\' <span class="ri-mode">\'+_TT.speeds[m].label+\'</span>\';'
         'var pv=f.properties._playerVisible,pub=f.properties.visibility==="public";'
-        'cells[5].innerHTML=pv?\'<span class="ri-vis ri-vis-pub">players</span>\':'
-        '(pub?\'<span class="ri-vis ri-vis-held">held</span>\':\'<span class="ri-vis ri-vis-gm">GM</span>\');'
+        'cells[4].innerHTML=pv?_VIS_HTML.pub:(pub?_VIS_HTML.held:_VIS_HTML.gm);'
         '}\n'
         'document.getElementById("route-panel-vis").addEventListener("change",function(){_patchRoute("visibility",this.value);});\n'
         'document.getElementById("route-panel-mode").addEventListener("change",function(){_patchRoute("mode",this.value);});\n'
@@ -2692,7 +2728,7 @@ def _build_html(
         "  </div>\n"
         '  <div id="sb-resizer" role="separator" aria-orientation="vertical" tabindex="0" '
         'title="Drag to resize (double-click to reset)"></div>\n'
-        '  <button id="sb-show" type="button" title="Show sidebar (\\)">▶ Sidebar</button>\n'
+        '  <div id="sb-float"><button id="sb-show" type="button" title="Show sidebar (\\)">▶ Sidebar</button></div>\n'
         '  <div id="map"></div>\n'
         '  <div id="route-panel" hidden>\n'
         '    <div id="route-panel-label"></div>\n'
