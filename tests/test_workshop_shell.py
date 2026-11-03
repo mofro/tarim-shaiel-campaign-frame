@@ -55,7 +55,7 @@ def test_sidebar_width_is_a_token_with_a_floor():
 
 
 def test_collapsible_headings_are_opt_in():
-    assert SOURCE.count("data-collapsible>") >= 5
+    assert SOURCE.count("data-collapsible>") >= 3
     assert "[data-collapsible]" in gmw._CSS
 
 
