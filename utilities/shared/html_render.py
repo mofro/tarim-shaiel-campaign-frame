@@ -196,12 +196,88 @@ def _slug_anchor(text: str) -> str:
     return re.sub(r'[^\w\-]+', '-', text.lower()).strip('-')
 
 
+_CALLOUT_MARKER = re.compile(r'^\[!([\w-]+)\]\s*(.*)$')
+_BULLET = re.compile(r'^[-*]\s+')
+_ORDERED_ITEM = re.compile(r'^(\d+)[.)]\s+(.*)$')
+
+
+def _render_ordered_list(para: str) -> str:
+    """Render a paragraph whose every line is '1. text' as an <ol>.
+
+    Returns '' when any line is not an ordered item, so the caller falls
+    through to its other block types. The first number becomes the list's
+    start, so a lone '7. **Title**' paragraph still reads as item 7.
+    """
+    items = [_ORDERED_ITEM.match(ln.strip()) for ln in para.splitlines() if ln.strip()]
+    if not items or not all(items):
+        return ''
+    start = int(items[0].group(1))
+    start_attr = f' start="{start}"' if start != 1 else ''
+    lis = ''.join(f'  <li>{inline_md(m.group(2))}</li>\n' for m in items)
+    return f'<ol{start_attr}>\n{lis}</ol>\n'
+
+
+def _render_callout(para: str) -> str:
+    """Render a '> ' blockquote paragraph as a callout div.
+
+    A plain quote keeps the single-div form. A quote carrying an Obsidian
+    '[!type] Title' marker or bullet lines renders structured: the title, one
+    <p> per run of text lines, and a <ul> per run of bullets. Lines without a
+    leading '>' (lazy continuation) belong to the quote, as in Obsidian.
+    """
+    inner_lines = []
+    for ln in para.splitlines():
+        ls = ln.strip()
+        inner_lines.append(ls[1:].strip() if ls.startswith('>') else ls)
+
+    marker = _CALLOUT_MARKER.match(inner_lines[0]) if inner_lines else None
+    has_bullets = any(_BULLET.match(ln) for ln in inner_lines)
+    if not marker and not has_bullets:
+        inner = re.sub(r'^>\s*', '', para, flags=re.MULTILINE).strip()
+        return f'<div class="callout">{inline_md(inner)}</div>\n'
+
+    parts: list[str] = []
+    text_buf: list[str] = []
+    bullet_buf: list[str] = []
+
+    def _flush() -> None:
+        if text_buf:
+            parts.append(f'<p>{inline_md(" ".join(text_buf))}</p>\n')
+            text_buf.clear()
+        if bullet_buf:
+            parts.append('<ul>\n' + ''.join(f'  <li>{inline_md(b)}</li>\n' for b in bullet_buf) + '</ul>\n')
+            bullet_buf.clear()
+
+    cls = 'callout'
+    if marker:
+        cls += f' callout-{marker.group(1)}'
+        if marker.group(2):
+            parts.append(f'<div class="callout-title">{inline_md(marker.group(2))}</div>\n')
+        inner_lines = inner_lines[1:]
+
+    for ln in inner_lines:
+        if not ln:
+            _flush()
+        elif _BULLET.match(ln):
+            if text_buf:
+                _flush()
+            bullet_buf.append(_BULLET.sub('', ln))
+        else:
+            if bullet_buf:
+                _flush()
+            text_buf.append(ln)
+    _flush()
+    return f'<div class="{cls}">\n{"".join(parts)}</div>\n'
+
+
 def render_body(
     body: str,
     vault: 'Path',
     docs: 'Path',
     gm_mode: bool = False,
     revealed_ids: 'set[str] | None' = None,
+    keep_h1: bool = False,
+    ordered_lists: bool = False,
 ) -> 'tuple[str, list[dict]]':
     """Render a full Markdown body to HTML with component support.
 
@@ -211,9 +287,16 @@ def render_body(
       ![alt](path)      → lore-figure
       > [!gm-only]      → GM callout block (Tier 2) or stripped (public)
       **Name:** text    → feature-box (accumulated into feature-grid)
+      # heading         → stripped (the page template owns the <h1>), or with
+                          keep_h1=True an <h2 class="part-title"> for documents
+                          that use H1 for parts inside the page
       ## heading        → <h2 id=...>  (jump nav level 2)
       ### heading       → <h3 id=...>  (jump nav level 3)
-      > text            → callout div
+      > text            → callout div; '> [!type] Title' and bullet lines inside
+                          the quote render as a titled, structured callout
+      1. item           → <ol start=N>  (only with ordered_lists=True, and only
+                          when every line of the paragraph is numbered; otherwise
+                          the numbered lines stay a <p>, as ancestry pages expect)
       - item / * item   → <ul>
       anything else     → <p>
 
@@ -314,6 +397,12 @@ def render_body(
 
         # H1 header — strip; page template owns the <h1> from frontmatter title
         if para.startswith('# ') and not para.startswith('## '):
+            if keep_h1:
+                # '# ***Act 1***' is emphasis on a heading; the heading style carries it
+                text = re.sub(r'^(\*{1,3})(.+?)\1$', r'\2', para[2:].strip())
+                anchor = _slug_anchor(text)
+                jump_nav_items.append({'text': text, 'anchor': anchor, 'level': 1})
+                html_parts.append(f'<h2 class="part-title" id="{anchor}">{inline_md(text)}</h2>\n')
             continue
 
         # H2 header
@@ -344,8 +433,13 @@ def render_body(
 
         # Callout
         if para.startswith('> ') or para == '>':
-            inner = re.sub(r'^>\s*', '', para, flags=re.MULTILINE).strip()
-            html_parts.append(f'<div class="callout">{inline_md(inner)}</div>\n')
+            html_parts.append(_render_callout(para))
+            continue
+
+        # Ordered list
+        ol = _render_ordered_list(para) if ordered_lists else ''
+        if ol:
+            html_parts.append(ol)
             continue
 
         # Unordered list
