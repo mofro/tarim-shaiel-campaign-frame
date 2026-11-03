@@ -193,24 +193,26 @@ class TestEndToEnd:
         monkeypatch.setattr(sys, "argv", ["generate_sessions_html.py", "--out", str(out)])
         gen.main()
 
-        assert (out / "00_session0" / "index.html").exists()
-        assert (out / "01_session1" / "index.html").exists()
-        assert not (out / "02_session2").exists()
-        assert not (out / "03_session3").exists()
+        assert (out / "session-0.html").exists()
+        assert (out / "session-1.html").exists()
+        assert not (out / "session-2.html").exists()
+        assert not (out / "session-3.html").exists()
 
-        page = (out / "00_session0" / "index.html").read_text(encoding="utf-8")
+        page = (out / "session-0.html").read_text(encoding="utf-8")
         assert "Session 0 — Player Summary" in page
         assert "Prologue" in page
         assert "<audio" not in page
         assert 'class="part-title"' in page
 
-        beats = (out / "01_session1" / "index.html").read_text(encoding="utf-8")
+        beats = (out / "session-1.html").read_text(encoding="utf-8")
         assert '<ol start="3">' in beats
 
         index = (out / "index.html").read_text(encoding="utf-8")
         assert "Session 1 — Player Summary" in index
         assert "Session 2" not in index and "Session 3" not in index
         assert index.index("Session 1") < index.index("Session 0")
+        assert 'href="/sessions/session-0.html"' in index
+        assert 'href="/sessions/session-1.html"' in index
 
         assert "skipped" in capsys.readouterr().out
 
@@ -224,3 +226,18 @@ class TestEndToEnd:
 
         assert not out.exists()
         assert "nothing generated" in capsys.readouterr().out
+
+
+# ── navigation entry points (#361) ───────────────────────────────────────────
+
+def test_nav_and_drawer_link_sessions_after_world():
+    base = (Path(__file__).parent.parent / "utilities/templates/base.html").read_text(encoding="utf-8")
+    link, world = '<a href="/sessions/index.html">Sessions</a>', '<a href="/world.html">World</a>'
+    assert base.count(link) == 2  # header nav and mobile drawer
+    assert base.index(world) < base.index(link)
+    assert base.rindex(world) < base.rindex(link)
+
+
+def test_homepage_featured_card_points_at_sessions_index():
+    feat = (Path(__file__).parent.parent / "utilities/homepage/featured-docs.md").read_text(encoding="utf-8")
+    assert "href: /sessions/index.html" in feat

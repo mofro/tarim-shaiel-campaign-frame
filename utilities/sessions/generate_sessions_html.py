@@ -3,7 +3,7 @@
 Tarim-Shaiel Session Notes HTML Generator
 ==========================================
 Renders each narrative/sessions/<folder>/Session_<N>_Player_Summary.md as
-docs/sessions/<folder>/index.html using the HeroHeaven design system, and
+docs/sessions/session-<N>.html using the HeroHeaven design system, and
 generates a listing page at docs/sessions/index.html.
 
 Selection is fail-closed.  A file is published only when ALL of these hold:
@@ -144,7 +144,7 @@ def prepare_body(body: str, number: int) -> tuple[str, str]:
 
 
 def generate_session_page(src: Path, out_dir: Path) -> dict | None:
-    """Render one Player Summary → docs/sessions/<folder>/index.html.
+    """Render one Player Summary → docs/sessions/session-<N>.html.
 
     Returns a metadata dict for the listing page, or None if the file may not
     be published (wrong name, not public, not canon).
@@ -154,7 +154,7 @@ def generate_session_page(src: Path, out_dir: Path) -> dict | None:
         return None
 
     number   = loaded["number"]
-    slug     = src.parent.name
+    slug     = f"session-{number}"
     title    = session_title(number)
     campaign = str(loaded["fm"].get("campaign", "Tarim-Shaiel"))
 
@@ -162,7 +162,7 @@ def generate_session_page(src: Path, out_dir: Path) -> dict | None:
     body_html, _ = render_body(body, VAULT_ROOT, DOCS_DIR, gm_mode=False,
                               keep_h1=True, ordered_lists=True)
 
-    out = out_dir / slug / "index.html"
+    out = out_dir / f"{slug}.html"
     out.parent.mkdir(parents=True, exist_ok=True)
 
     html = render_page(
