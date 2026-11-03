@@ -63,7 +63,7 @@ def test_placed_is_one_shot(cur):
 
 @needs_node
 @pytest.mark.parametrize("cur,tab,expected", [
-    ("place", "add-point", "place"),
+    ("place", "inspector", "place"),
     ("place", "reveal", "select"),
     ("route", "plan-route", "route"),
     ("route", "edit-coords", "select"),

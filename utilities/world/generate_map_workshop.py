@@ -287,6 +287,19 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   outline: none; border-color: rgba(184,146,44,0.7); }
 .field-group select option { background: #1a1410; }
 .field-group textarea { resize: vertical; min-height: 56px; }
+.insp-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.insp-head .list-heading { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.insp-slug { color: var(--muted); font-size: var(--fs-2); text-transform: none; letter-spacing: 0; }
+.insp-note { color: var(--muted); font-size: var(--fs-1); text-transform: none; letter-spacing: 0; }
+.insp-actions { margin-top: 2px; }
+.insp-status { min-height: 1.2em; }
+.ef-adv { border-top: 1px solid rgba(184,146,44,0.25); padding-top: 8px; }
+.ef-adv summary { cursor: pointer; font-size: var(--fs-2); color: #c8a84a; padding: 4px 0; }
+.ef-adv .field-group, .ef-adv .adv-ro { margin-top: 10px; }
+.adv-check { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.adv-ro-key { font-size: var(--fs-1); text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+.adv-ro pre { margin: 4px 0 0; padding: 6px 8px; background: #120e08; color: #b9ad94;
+  font-size: var(--fs-2); white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 2px; }
 .coord-row { display: flex; gap: 6px; align-items: center; font-size: var(--fs-2); }
 .coord-row span { color: var(--muted); font-size: var(--fs-2); }
 .coord-row input { flex: 1; min-width: 0; }
@@ -388,7 +401,6 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 /* Edit Coords panel */
 .list-heading { font-size: var(--fs-1); text-transform: uppercase; letter-spacing: 0.07em;
   color: var(--muted); margin-bottom: 6px; margin-top: 8px; }
-.edit-toggle { width: 100%; text-align: center; transition: background 0.15s, border-color 0.15s; }
 /* Devserver banner */
 #ds-banner { display:flex; align-items:center; gap:8px; padding:5px 14px;
   background:#3a1a00; border-bottom:1px solid rgba(220,100,30,0.5);
@@ -419,14 +431,11 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #topo-opacity,#sat-opacity { accent-color:#b8922c; width:72px; cursor:pointer; }
 #ws-zoom { margin-left:auto; color:var(--muted); font-size: var(--fs-2); letter-spacing:0.06em; }
 #ws-zoom-val { color:#c8a84a; font-weight:bold; }
-#ws-edit-dot { font-size: var(--fs-2); color:#a8d840; letter-spacing:0.04em; white-space:nowrap; }
 #layers-dropdown label.ov-share { margin-top:2px; padding-left:22px; font-size: var(--fs-2);
   text-transform:none; letter-spacing:0; color:var(--muted); }
 #preview-toggle,#topo-share,#sat-share { accent-color:#b8922c; cursor:pointer; }
 .overlay-err { display:inline-flex; align-items:center; background:#7a1f00; color:#ffcc88;
   font-size: var(--fs-1); padding:1px 4px; border-radius:3px; cursor:help; margin-left:2px; vertical-align:middle; }
-.edit-toggle.active { background: #1a2a0a; border-color: #6a9a2c; color: #a8d840; }
-.edit-toggle.active:hover { background: #263d12; border-color: #8aba40; }
 #unsaved-list { list-style: none; display: flex; flex-direction: column; gap: 3px;
   max-height: 140px; overflow-y: auto; }
 .unsaved-item { font-size: var(--fs-2); padding: 5px 8px; background: #1a1410;
@@ -588,54 +597,6 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
 """
 
 
-def _build_panel_add_point(cat_options: str, region_options: str) -> str:
-    return f"""
-<div class="field-group">
-  <label>Coordinates <button type="button" class="btn btn-sm arm-btn" data-arm="place" aria-pressed="false">◎ Pick on map</button></label>
-  <div class="coord-row">
-    <span>lat</span><input id="add-lat" type="text" readonly placeholder="—">
-    <span>lon</span><input id="add-lon" type="text" readonly placeholder="—">
-  </div>
-</div>
-<div class="field-group">
-  <label>Name *</label>
-  <input id="add-name" type="text" placeholder="Nur-Ata">
-</div>
-<div class="field-group">
-  <label>Fantasy Name</label>
-  <input id="add-fantasy" type="text" placeholder="optional">
-</div>
-<div class="field-group">
-  <label>Category *</label>
-  <select id="add-category">
-    <option value="">— select —</option>
-    {cat_options}
-  </select>
-</div>
-<div class="field-group">
-  <label>Region</label>
-  <select id="add-region">
-    <option value="">— none —</option>
-    {region_options}
-  </select>
-</div>
-<div class="field-group">
-  <label>Visibility</label>
-  <div class="radio-row">
-    <label><input type="radio" name="add-vis" value="public" checked> public</label>
-    <label><input type="radio" name="add-vis" value="gm_secrets"> gm_secrets</label>
-  </div>
-</div>
-<div class="field-group">
-  <label>Description</label>
-  <textarea id="add-description" rows="2" placeholder="optional"></textarea>
-</div>
-<button id="add-create-btn" class="btn">Create Location</button>
-<p id="add-status" class="hint" style="margin-top:6px;"></p>
-<p class="hint" style="color:#9a8a6a;">Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
-"""
-
-
 def _build_panel_plan_route() -> str:
     return """
 <button type="button" class="btn btn-sm arm-btn" data-arm="route" aria-pressed="false">＋ Add stops from map</button>
@@ -675,9 +636,10 @@ Adds segments, snaps to roads, rebuilds workshop automatically.</p>
 """
 
 
-def _build_panel_edit_coords() -> str:
-    # Every canonical category is selectable. A page whose category is not on the list
-    # shows the disabled placeholder, which Save never sends (see _EF_DIFF_JS).
+def _build_panel_inspector(region_options: str) -> str:
+    # One docked form for both jobs: a selected pin is "Editing X", nothing selected is
+    # "New location". Every canonical Type is selectable; a page whose Type is off the
+    # list shows the disabled placeholder, which Save never sends (see _EF_DIFF_JS).
     type_opts = '      <option value="" disabled>(not on the list)</option>\n' + "\n".join(
         f'      <option value="{c}">{"POI" if c == "poi" else c.replace("-", " ").title()}</option>'
         for c in CATEGORIES
@@ -687,45 +649,72 @@ def _build_panel_edit_coords() -> str:
         for v, label in [("", "From Type"), *((n, n) for n in ICON_NAMES), ("none", "none (hidden)")]
     )
     return f"""
-<button id="edit-mode-btn" class="btn edit-toggle">Enable Edit Mode</button>
-<p class="hint" style="margin-top:6px;">Click a marker to edit its fields. Use <em>Move Pin</em> to reposition coordinates.</p>
-<p class="hint" style="color:#9a8a6a;">Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
-<div id="ef-panel" class="hidden" style="margin-top:10px;border-top:1px solid rgba(184,146,44,0.2);padding-top:8px;">
-  <div class="list-heading">Editing: <span id="ef-slug" style="color:#c8a84a;font-family:monospace;text-transform:none;letter-spacing:0"></span></div>
-  <div class="field-group">
-    <label>Real Name</label>
-    <input id="ef-name" type="text">
-  </div>
-  <div class="field-group" style="margin-top:5px;">
-    <label>Fantasy Name <span style="color:#9a8a6a;text-transform:none;letter-spacing:0;">(blank = use real name)</span></label>
-    <input id="ef-fantasy" type="text" placeholder="optional">
-  </div>
-  <div class="field-group" style="margin-top:5px;">
-    <label>Type</label>
-    <select id="ef-type">
-{type_opts}
-    </select>
-  </div>
-  <div class="field-group" style="margin-top:5px;">
-    <label>Icon override</label>
-    <select id="ef-icon">
-{icon_opts}
-    </select>
-    <p id="ef-icon-note" class="ef-icon-note"></p>
-  </div>
-  <div class="field-group" style="margin-top:5px;">
-    <label>Visibility</label>
-    <div class="radio-row">
-      <label><input type="radio" name="ef-vis" value="public" checked> public</label>
-      <label><input type="radio" name="ef-vis" value="gm_secrets"> GM only</label>
-    </div>
-  </div>
-  <div class="btn-row" style="margin-top:8px;">
-    <button id="ef-save-btn" class="btn">Save Fields</button>
-    <button id="ef-move-btn" class="btn btn-sm">Move Pin</button>
-  </div>
-  <p id="ef-status" class="hint" style="margin-top:5px;min-height:14px;"></p>
+<div class="insp-head">
+  <div class="list-heading"><span id="ef-mode">New location</span> <span id="ef-slug" class="insp-slug"></span></div>
+  <button id="ef-close-btn" type="button" class="btn btn-sm hidden" title="Deselect (Esc)">Close</button>
 </div>
+<div class="field-group">
+  <label>Coordinates</label>
+  <div class="coord-row">
+    <span>lat</span><input id="ef-lat" type="text" readonly placeholder="—">
+    <span>lon</span><input id="ef-lon" type="text" readonly placeholder="—">
+  </div>
+  <div class="btn-row">
+    <button id="ef-place-btn" type="button" class="btn btn-sm arm-btn ef-create-only" data-arm="place" aria-pressed="false">◎ Pick on map</button>
+    <button id="ef-move-btn" type="button" class="btn btn-sm ef-edit-only hidden">Move Pin</button>
+  </div>
+</div>
+<div class="field-group">
+  <label>Name <span class="ef-create-only">*</span></label>
+  <input id="ef-name" type="text" placeholder="Nur-Ata">
+</div>
+<div class="field-group">
+  <label>Fantasy Name <span class="insp-note">(blank = use real name)</span></label>
+  <input id="ef-fantasy" type="text" placeholder="optional">
+</div>
+<div class="field-group">
+  <label>Type <span class="ef-create-only">*</span></label>
+  <select id="ef-type">
+{type_opts}
+  </select>
+</div>
+<div class="field-group ef-edit-only hidden">
+  <label>Icon override</label>
+  <select id="ef-icon">
+{icon_opts}
+  </select>
+  <p id="ef-icon-note" class="ef-icon-note"></p>
+</div>
+<div class="field-group">
+  <label>Visibility</label>
+  <div class="radio-row">
+    <label><input type="radio" name="ef-vis" value="public"> public</label>
+    <label><input type="radio" name="ef-vis" value="gm_secrets" checked> GM only</label>
+  </div>
+</div>
+<div class="field-group ef-create-only">
+  <label>Region</label>
+  <select id="ef-region">
+    <option value="">— none —</option>
+    {region_options}
+  </select>
+</div>
+<div class="field-group ef-create-only">
+  <label>Description</label>
+  <textarea id="ef-desc" rows="2" placeholder="optional"></textarea>
+</div>
+<details id="ef-adv" class="ef-adv ef-edit-only hidden">
+  <summary>Advanced</summary>
+  <p class="hint">Every other frontmatter key on the page. Edit scalars here; lists and nested values are shown read-only.</p>
+  <p id="ef-adv-status" class="hint"></p>
+  <div id="ef-adv-scalars"></div>
+  <div id="ef-adv-readonly"></div>
+</details>
+<div class="btn-row insp-actions">
+  <button id="ef-save-btn" type="button" class="btn" disabled>Create Location</button>
+</div>
+<p id="ef-status" class="hint insp-status"></p>
+<p class="hint insp-note">Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
 <div id="unsaved-section" class="hidden" style="margin-top:6px;">
   <div class="list-heading" data-collapsible>Saved This Session</div>
   <ul id="unsaved-list"></ul>
@@ -857,7 +846,7 @@ function _wsModeNext(cur,ev,tab){
   if(ev==="arm-place")return cur==="place"?"select":"place";
   if(ev==="arm-route")return cur==="route"?"select":"route";
   if(ev==="tab"){
-    if(cur==="place"&&tab!=="add-point")return "select";
+    if(cur==="place"&&tab!=="inspector")return "select";
     if(cur==="route"&&tab!=="plan-route")return "select";
   }
   return cur;
@@ -880,8 +869,209 @@ document.querySelectorAll("[data-arm]").forEach(function(b){
   b.addEventListener("click",function(){_wsSetMode("arm-"+b.dataset.arm);});});
 document.getElementById("ws-mode-cancel").addEventListener("click",function(){_wsSetMode("esc");});
 document.addEventListener("keydown",function(e){
-  if(e.key==="Escape"&&_wsMode!=="select")_wsSetMode("esc");});
+  if(e.key==="Escape"&&_wsMode!=="select"){e.preventDefault();_wsSetMode("esc");}});
 """
+
+# The inspector's form logic: one set of fields for New location and Editing X. A pin
+# selects it; Close or Esc deselects. Save sends only what the GM changed (_efDiff, the
+# #336 guard) from the core fields and from Advanced, in one PATCH.
+_INSPECTOR_JS = r"""
+function _efRead(){
+  return {name:_efName.value.trim(),
+  fantasy_name:_efFantasy.value.trim(),
+  type:_efType.value,
+  map_icon:_efIcon.value,
+  visibility:document.querySelector('input[name="ef-vis"]:checked').value};
+}
+function _efSetVis(v){
+  document.querySelectorAll('input[name="ef-vis"]').forEach(function(r){r.checked=r.value===v;});
+}
+function _efSync(){
+  if(_efSlug){_efSaveBtn.disabled=false;return;}
+  _efSaveBtn.disabled=!(_efLat.value&&_efLon.value&&_efName.value.trim()&&_efType.value);
+}
+function _efSetMode(slug){
+  var edit=!!slug;
+  _efModeEl.textContent=edit?"Editing":"New location";
+  _efSlugEl.textContent=slug||"";
+  _efCloseBtn.classList.toggle("hidden",!edit);
+  _efCreateOnly.forEach(function(n){n.classList.toggle("hidden",edit);});
+  _efEditOnly.forEach(function(n){n.classList.toggle("hidden",!edit);});
+  _efSaveBtn.textContent=edit?"Save Fields":"Create Location";
+  _efTypePlaceholder.textContent=edit?"(not on the list)":"— select —";
+  _efSync();
+}
+function _efSetStatus(msg,cls){_efStatus.textContent=msg;_efStatus.className="hint"+(cls?" "+cls:"");}
+function _efReset(){
+  _efSlug=null;_efBase=null;_efCurrentCoords=null;_efOpenCat="";
+  _efName.value="";_efFantasy.value="";_efType.value="";_efIcon.value="";
+  _efRegion.value="";_efDesc.value="";_efLat.value="";_efLon.value="";
+  _efSetVis("gm_secrets");
+  _efAdvClear();
+  if(_dragMarker){_dragMarker.remove();_dragMarker=null;}
+  _efSetStatus("");
+  _efSetMode(null);_efShowIcon();
+}
+
+// -- Advanced: the page's other frontmatter. Scalars edit; lists and nested values show.
+function _efAdvClear(){
+  _efAdvBase=null;_efAdvBad=null;
+  _efAdvScalars.textContent="";_efAdvReadonly.textContent="";_efAdvStatus.textContent="";
+}
+function _efAdvRow(key,val){
+  var row=document.createElement("div");row.className="field-group adv-row";
+  var lab=document.createElement("label");lab.textContent=key;row.appendChild(lab);
+  var inp;
+  if(typeof val==="boolean"){
+    inp=document.createElement("input");inp.type="checkbox";inp.checked=val;inp.dataset.t="bool";
+    lab.className="adv-check";lab.insertBefore(inp,lab.firstChild);
+  }else{
+    var multi=typeof val==="string"&&(val.indexOf("\n")!==-1||val.length>70);
+    inp=document.createElement(multi?"textarea":"input");
+    if(multi)inp.rows=3;else inp.type="text";
+    inp.value=val==null?"":String(val);
+    inp.dataset.t=typeof val==="number"?"num":"str";
+    row.appendChild(inp);
+  }
+  inp.dataset.key=key;
+  inp.addEventListener("input",_efSync);
+  return row;
+}
+function _efAdvValues(){
+  var out={};_efAdvBad=null;
+  _efAdvScalars.querySelectorAll("[data-key]").forEach(function(el){
+    var k=el.dataset.key,t=el.dataset.t,v;
+    if(t==="bool")v=el.checked;
+    else if(t==="num"){
+      if(el.value.trim()==="")v="";
+      else{v=Number(el.value);if(isNaN(v)){_efAdvBad=k;v=el.value;}}
+    }else v=el.value;
+    out[k]=v;});
+  return out;
+}
+function _efAdvDiff(){
+  if(!_efAdvBase)return {};
+  var d=_efDiff(_efAdvBase,_efAdvValues());
+  Object.keys(d).forEach(function(k){if(d[k]==="")d[k]=null;});
+  return d;
+}
+function _efAdvLoad(){
+  _efAdvClear();
+  if(!_efSlug||!_efAdv.open)return;
+  var slug=_efSlug;
+  _efAdvStatus.textContent="Loading…";
+  fetch("/api/locations/"+encodeURIComponent(slug)+"/frontmatter")
+  .then(function(r){return r.json();})
+  .then(function(d){
+    if(_efSlug!==slug)return;
+    if(!d.ok){_efAdvStatus.textContent="✗ "+(d.error||"error");return;}
+    _efAdvStatus.textContent="";
+    Object.keys(d.scalars).forEach(function(k){_efAdvScalars.appendChild(_efAdvRow(k,d.scalars[k]));});
+    Object.keys(d.readonly).forEach(function(k){
+      var row=document.createElement("div");row.className="adv-ro";
+      var lab=document.createElement("div");lab.className="adv-ro-key";lab.textContent=k+" (read-only)";
+      var pre=document.createElement("pre");pre.textContent=JSON.stringify(d.readonly[k],null,1);
+      row.appendChild(lab);row.appendChild(pre);_efAdvReadonly.appendChild(row);});
+    _efAdvBase=_efAdvValues();
+  })
+  .catch(function(){if(_efSlug===slug)_efAdvStatus.textContent="✗ Network error — devserver running?";});
+}
+_efAdv.addEventListener("toggle",_efAdvLoad);
+
+// -- Selecting and deselecting
+function _efDirty(){
+  if(_efSlug)return !!(_efBase&&Object.keys(_efDiff(_efBase,_efRead())).length)||Object.keys(_efAdvDiff()).length>0;
+  return !!(_efName.value.trim()||_efFantasy.value.trim()||_efType.value||_efLat.value||_efDesc.value.trim());
+}
+function _efConfirmDiscard(){return !_efDirty()||confirm("Discard unsaved changes?");}
+function _efClose(){if(!_efConfirmDiscard())return;_efReset();}
+
+function _openFieldEditor(feature){
+  if(_activeTab!=="inspector")_setTab("inspector");
+  var p=feature.properties;
+  var slug=p.slug||p._slug||"";
+  if(slug===_efSlug)return;
+  if(!_efConfirmDiscard())return;
+  _efSlug=slug;
+  _efCurrentCoords={lng:feature.geometry.coordinates[0],lat:feature.geometry.coordinates[1]};
+  _efLat.value=_efCurrentCoords.lat.toFixed(6);
+  _efLon.value=_efCurrentCoords.lng.toFixed(6);
+  _efName.value=p.title||"";
+  var fn=p.fantasyName||(p.label!==p.title?p.label:"");
+  _efFantasy.value=(fn&&fn!==p.title)?fn:"";
+  if(_efType.querySelector('option[value="'+p.category+'"]'))_efType.value=p.category;
+  else _efType.value="";
+  _efOpenCat=p.category||"";
+  var mm=p.mapMarker;
+  var mmVal=mm===false?"none":(mm||"");
+  if(_efIcon.querySelector('option[value="'+mmVal+'"]'))_efIcon.value=mmVal;
+  else _efIcon.value="";
+  _efSetVis(p.visibility==="gm_secrets"?"gm_secrets":"public");
+  _efSetStatus("");
+  _efSetMode(slug);
+  _efShowIcon();_efBase=_efRead();
+  _efAdvLoad();
+}
+"""
+
+_INSPECTOR_WIRE_JS = r"""
+// Place mode: one click sets the coordinates, then back to Select
+map.on("click",function(e){
+  if(_wsMode!=="place")return;
+  window._wsJustPlaced=true;setTimeout(function(){window._wsJustPlaced=false;},0);
+  _efLat.value=e.lngLat.lat.toFixed(6);
+  _efLon.value=e.lngLat.lng.toFixed(6);
+  _wsSetMode("placed");
+  _efSync();
+});
+[_efName,_efType,_efFantasy].forEach(function(el){
+  el.addEventListener("input",_efSync);el.addEventListener("change",_efSync);});
+
+function _efCreate(){
+  var lat=_efLat.value,lon=_efLon.value,name=_efName.value.trim(),typ=_efType.value;
+  if(!lat||!lon||!name||!typ)return;
+  var body={name:name,lat:parseFloat(lat),lon:parseFloat(lon),category:typ,
+    fantasy_name:_efFantasy.value.trim(),region:_efRegion.value,
+    visibility:document.querySelector('input[name="ef-vis"]:checked').value,
+    description:_efDesc.value.trim()};
+  _efSetStatus("Creating…");_efSaveBtn.disabled=true;
+  fetch("/api/locations/create",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+  .then(function(r){return r.json();})
+  .then(function(d){
+    if(!d.ok){_efSync();_efSetStatus("✗ "+(d.error||d.output||"unknown"),"err");return;}
+    _efReset();
+    _efSetStatus("✓ Created. Rebuilding workshop…","ok");
+    fetch("/api/rebuild/workshop",{method:"POST"}).then(function(){
+      _efSetStatus("✓ Created — reload to see the new pin.","ok");});
+  })
+  .catch(function(){_efSync();_efSetStatus("✗ Devserver not running.","err");});
+}
+
+_efSaveBtn.addEventListener("click",function(){
+  if(!_efSlug){_efCreate();return;}
+  if(!_efBase)return;
+  var slug=_efSlug,cur=_efRead(),fields=_efDiff(_efBase,cur);
+  var advCur=_efAdvValues(),adv=_efAdvDiff();
+  if(_efAdvBad){_efSetStatus("✗ "+_efAdvBad+" must be a number","err");return;}
+  Object.keys(adv).forEach(function(k){fields[k]=adv[k];});
+  if(!Object.keys(fields).length){
+    _efStatus.textContent="No changes";_efStatus.className="hint";return;}
+  _patchFrontmatter(slug,fields,function(){if(_efSlug===slug){_efBase=cur;_efAdvBase=advCur;}});
+});
+
+_efMoveBtn.addEventListener("click",function(){
+  if(!_efSlug||!_efCurrentCoords)return;
+  _startDragEdit(_efSlug,_efCurrentCoords);
+});
+_efCloseBtn.addEventListener("click",_efClose);
+document.addEventListener("keydown",function(e){
+  if(e.key!=="Escape"||e.defaultPrevented||_wsMode!=="select"||!_efSlug)return;
+  if(document.querySelector(".info-btn[aria-expanded=true]"))return;
+  _efClose();
+});
+_efReset();
+"""
+
 
 _EF_DIFF_JS = r"""
 function _efDiff(base,cur){
@@ -905,7 +1095,8 @@ function _efDiff(base,cur){
 _EF_ICON_NOTE_JS = r"""
 function _efShowIcon(){
   var ov=_efIcon.value,from=_efTypeIcons[_efType.value||_efOpenCat],txt;
-  if(!from)txt="No pin: this Type is not drawn";
+  if(!_efType.value&&!_efOpenCat)txt="Icon: pick a Type first";
+  else if(!from)txt="No pin: this Type is not drawn";
   else if(ov==="none")txt="Icon: hidden (override)";
   else if(ov)txt="Icon: "+ov+" (override)";
   else txt="Icon: "+from+" (from Type)";
@@ -1708,7 +1899,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # every time.
         'var _wsSavedTab=null;\n'
         'try{_wsSavedTab=sessionStorage.getItem("_wsTab");}catch(e){}\n'
-        'var _activeTab=_wsSavedTab||"add-point";\n'
+        'if(_wsSavedTab==="add-point"||_wsSavedTab==="edit-coords")_wsSavedTab="inspector";\n'
+        'var _activeTab=_wsSavedTab||"inspector";\n'
         + _WS_MODE_JS
 
         # -- Display layers: location types, routes, journeys --
@@ -1823,53 +2015,6 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(c)_secState[k]=1;else delete _secState[k];_lsSet(_SB_COL,JSON.stringify(_secState));}\n'
         'h.addEventListener("click",tog);'
         'h.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();tog();}});});\n'
-
-        # -- Tab 1: coordinate picker --
-        'var _addLat=document.getElementById("add-lat");'
-        'var _addLon=document.getElementById("add-lon");'
-        'var _addName=document.getElementById("add-name");'
-        'var _addFantasy=document.getElementById("add-fantasy");'
-        'var _addCat=document.getElementById("add-category");'
-        'var _addRegion=document.getElementById("add-region");'
-        'var _addDesc=document.getElementById("add-description");\n'
-
-        # Place mode: one click sets the coordinates, then back to Select
-        'map.on("click",function(e){'
-        'if(_wsMode!=="place")return;'
-        '_addLat.value=e.lngLat.lat.toFixed(6);'
-        '_addLon.value=e.lngLat.lng.toFixed(6);'
-        '_wsSetMode("placed");'
-        '});\n'
-
-        'var _addCreateBtn=document.getElementById("add-create-btn");'
-        'var _addStatus=document.getElementById("add-status");\n'
-
-        '_addCreateBtn.addEventListener("click",function(){'
-        'var lat=_addLat.value,lon=_addLon.value;'
-        'var name=_addName.value.trim();'
-        'var cat=_addCat.value;'
-        'if(!lat||!lon||!name||!cat){alert("Fill in: coordinates (click map), Name, and Category.");return;}'
-        'var body={'
-        '"name":name,"lat":parseFloat(lat),"lon":parseFloat(lon),"category":cat,'
-        '"fantasy_name":_addFantasy.value.trim(),'
-        '"region":_addRegion.value,'
-        '"visibility":(document.querySelector("input[name=\'add-vis\']:checked")||{value:"public"}).value,'
-        '"description":_addDesc.value.trim()'
-        '};'
-        '_addStatus.textContent="Creating...";'
-        '_addCreateBtn.disabled=true;'
-        'fetch("/api/locations/create",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})'
-        '.then(function(r){return r.json();})'
-        '.then(function(d){'
-        '_addCreateBtn.disabled=false;'
-        'if(d.ok){'
-        '_addStatus.textContent="Created. Rebuilding GeoJSON and workshop…";'
-        'fetch("/api/rebuild/workshop",{method:"POST"}).then(function(){_addStatus.textContent="Done — reload to see new pin.";});'
-        '}else{'
-        '_addStatus.textContent="Error: "+(d.error||d.output||"unknown");'
-        '}})'
-        '.catch(function(e){_addCreateBtn.disabled=false;_addStatus.textContent="Devserver not running.";});'
-        '});\n'
 
         # -- Tab 2: route planner --
         'var _queue=[];\n'
@@ -1999,7 +2144,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.on("mousemove","routes",function(){map.getCanvas().style.cursor="pointer";});\n'
         'map.on("mouseleave","routes",function(){map.getCanvas().style.cursor="";});\n'
         'map.on("click","routes",function(e){'
-        'if(_wsMode==="place")return;'
+        'if(_wsMode==="place"||window._wsJustPlaced)return;'
         'var f=e.features[0];'
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[f]});'
         '_showRoutePanel(f);'
@@ -2052,7 +2197,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'window._wsPinAction=function(feature){'
         'var p=feature.properties;'
         'var slug=p._slug||p.slug||"";'
-        'if(_wsMode==="place")return;'
+        'if(_wsMode==="place"||window._wsJustPlaced)return;'
         'if(_wsMode==="route"){if(slug)_addToQueue(slug);return;}'
         'if(_activeTab==="travel-time"){'
         'var coords=feature.geometry.coordinates;'
@@ -2060,8 +2205,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_ttSetPt(coords[0],coords[1],name,slug);return;}'
         'if(!slug)return;'
         'if(_activeTab==="reveal"){_rvToggleFromMap(slug);return;}'
-        'if(_activeTab==="edit-coords"&&_editMode){'
-        '_openFieldEditor(feature);}'
+        '_openFieldEditor(feature);'
         '};\n'
         '_locLayerIds.forEach(function(lyr){'
         'map.on("click",lyr,function(e){'
@@ -2316,12 +2460,9 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '});\n'
 
         # -- Edit Coords panel --
-        'var _editMode=false;\n'
         'var _pendingEdits={};\n'
         'var _dragMarker=null;\n'
-        'var _editModeBtn=document.getElementById("edit-mode-btn");'
         'var _editBadge=document.getElementById("edit-badge");'
-        'var _wsEditDot=document.getElementById("ws-edit-dot");'
         'var _unsavedSection=document.getElementById("unsaved-section");'
         'var _unsavedList=document.getElementById("unsaved-list");'
         'var _rebuildLocBtn=document.getElementById("rebuild-locations-btn");'
@@ -2345,15 +2486,6 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_apiStatus.className="hint";'
         'if(cls)_apiStatus.classList.add(cls);'
         '}\n'
-
-        '_editModeBtn.addEventListener("click",function(){'
-        '_editMode=!_editMode;'
-        '_editModeBtn.textContent=_editMode?"✓ Edit Mode ON":"Enable Edit Mode";'
-        '_editModeBtn.classList.toggle("active",_editMode);'
-        'if(_wsEditDot)_wsEditDot.classList.toggle("hidden",!_editMode);'
-        'if(!_editMode&&_dragMarker){_dragMarker.remove();_dragMarker=null;}'
-        'map.getCanvas().style.cursor=_editMode?"crosshair":"";'
-        '});\n'
 
         'function _startDragEdit(slug,lngLat){'
         'if(_dragMarker){_dragMarker.remove();_dragMarker=null;}'
@@ -2401,6 +2533,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_updateUnsavedList();'
         '_setApiStatus("✓ Saved "+slug,"ok");'
         '_updateLocationInSource(slug,lat,lon);'
+        'if(_efSlug===slug){_efLat.value=lat.toFixed(6);_efLon.value=lon.toFixed(6);_efCurrentCoords={lng:lon,lat:lat};}'
         'if(_dragMarker){_dragMarker.remove();_dragMarker=null;}'
         '}else{_setApiStatus("✗ "+( data.error||"unknown error"),"err");}'
         '})'
@@ -2451,7 +2584,6 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _efBase=null;\n'
         'var _efCurrentCoords=null;\n'
         'var _pendingFieldEdits={};\n'
-        'var _efPanel=document.getElementById("ef-panel");\n'
         'var _efSlugEl=document.getElementById("ef-slug");\n'
         'var _efName=document.getElementById("ef-name");\n'
         'var _efFantasy=document.getElementById("ef-fantasy");\n'
@@ -2463,38 +2595,24 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _efStatus=document.getElementById("ef-status");\n'
         'var _efSaveBtn=document.getElementById("ef-save-btn");\n'
         'var _efMoveBtn=document.getElementById("ef-move-btn");\n'
+        'var _efLat=document.getElementById("ef-lat");\n'
+        'var _efLon=document.getElementById("ef-lon");\n'
+        'var _efModeEl=document.getElementById("ef-mode");\n'
+        'var _efCloseBtn=document.getElementById("ef-close-btn");\n'
+        'var _efRegion=document.getElementById("ef-region");\n'
+        'var _efDesc=document.getElementById("ef-desc");\n'
+        'var _efAdv=document.getElementById("ef-adv");\n'
+        'var _efAdvStatus=document.getElementById("ef-adv-status");\n'
+        'var _efAdvScalars=document.getElementById("ef-adv-scalars");\n'
+        'var _efAdvReadonly=document.getElementById("ef-adv-readonly");\n'
+        'var _efAdvBase=null;\n'
+        'var _efAdvBad=null;\n'
+        'var _efTypePlaceholder=_efType.querySelector(\'option[value=""]\');\n'
+        'var _efCreateOnly=document.querySelectorAll(".ef-create-only");\n'
+        'var _efEditOnly=document.querySelectorAll(".ef-edit-only");\n'
 
-        + _EF_DIFF_JS +
-        'function _efRead(){'
-        'return {name:_efName.value.trim(),'
-        'fantasy_name:_efFantasy.value.trim(),'
-        'type:_efType.value,'
-        'map_icon:_efIcon.value,'
-        'visibility:document.querySelector(\'input[name="ef-vis"]:checked\').value};'
-        '}\n'
-        + _EF_ICON_NOTE_JS +
-
-        'function _openFieldEditor(feature){'
-        'var p=feature.properties;'
-        '_efSlug=p.slug||p._slug||"";'
-        '_efCurrentCoords={lng:feature.geometry.coordinates[0],lat:feature.geometry.coordinates[1]};'
-        '_efSlugEl.textContent=_efSlug;'
-        '_efName.value=p.title||"";'
-        'var fn=p.fantasyName||(p.label!==p.title?p.label:"");'
-        '_efFantasy.value=(fn&&fn!==p.title)?fn:"";'
-        'if(_efType.querySelector(\'option[value="\'+p.category+\'"]\'))_efType.value=p.category;'
-        'else _efType.value="";'
-        '_efOpenCat=p.category||"";'
-        'var mm=p.mapMarker;'
-        'var mmVal=mm===false?"none":(mm||"");'
-        'if(_efIcon.querySelector(\'option[value="\'+mmVal+\'"]\'))_efIcon.value=mmVal;'
-        'else _efIcon.value="";'
-        'var visVal=p.visibility==="gm_secrets"?"gm_secrets":"public";'
-        'document.querySelectorAll(\'input[name="ef-vis"]\').forEach(function(r){r.checked=r.value===visVal;});'
-        '_efStatus.textContent="";_efStatus.className="hint";'
-        '_efShowIcon();_efBase=_efRead();'
-        '_efPanel.classList.remove("hidden");'
-        '}\n'
+        + _EF_DIFF_JS + _EF_ICON_NOTE_JS
+        + _INSPECTOR_JS +
 
         # Promise-returning PATCH shared by the field editor and the Reveal tab.
         # Resolves with the server's JSON; rejects only on a network failure.
@@ -2537,18 +2655,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '.catch(function(){_efStatus.textContent="✗ Network error";_efStatus.className="hint err";});'
         '}\n'
 
-        '_efSaveBtn.addEventListener("click",function(){'
-        'if(!_efSlug||!_efBase)return;'
-        'var slug=_efSlug,cur=_efRead(),fields=_efDiff(_efBase,cur);'
-        'if(!Object.keys(fields).length){'
-        '_efStatus.textContent="No changes";_efStatus.className="hint";return;}'
-        '_patchFrontmatter(slug,fields,function(){if(_efSlug===slug)_efBase=cur;});'
-        '});\n'
-
-        '_efMoveBtn.addEventListener("click",function(){'
-        'if(!_efSlug||!_efCurrentCoords)return;'
-        '_startDragEdit(_efSlug,_efCurrentCoords);'
-        '});\n'
+        + _INSPECTOR_WIRE_JS
 
         # -- Reveal tab: staged earmarks, rings, Apply --
         + _REVEAL_JS +
@@ -2705,7 +2812,6 @@ def _build_html(
         f"var _regionList = {json.dumps(region_names)};\n"
     )
 
-    cat_options = "\n".join(f'<option value="{c}">{c}</option>' for c in CATEGORIES)
     region_options = "\n".join(
         f'<option value="{r["slug"]}">{r["title"]}</option>' for r in region_names
     )
@@ -2714,9 +2820,8 @@ def _build_html(
         for m, spec in travel_time.SPEEDS.items()
     )
 
-    panel_add = _build_panel_add_point(cat_options, region_options)
+    panel_inspector = _build_panel_inspector(region_options)
     panel_route = _build_panel_plan_route()
-    panel_edit = _build_panel_edit_coords()
     panel_travel = _build_panel_travel_time()
     panel_reveal = _build_panel_reveal()
     app_js = _build_app_js(style_url, icons_js, maptiler_key=maptiler_key)
@@ -2762,13 +2867,11 @@ def _build_html(
         '<input type="checkbox" id="preview-toggle"> Player\'s-eye preview</label>\n'
         '        </div>\n'
         '        <span id="ws-zoom">zoom <span id="ws-zoom-val">—</span></span>\n'
-        '        <span id="ws-edit-dot" class="hidden">● Edit</span>\n'
         '      </div>\n'
         '      <div id="tab-bar">\n'
-        '        <button class="tab-btn active" data-tab="add-point">Add Point</button>\n'
+        '        <button class="tab-btn active" data-tab="inspector">Inspector <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
         '        <button class="tab-btn" data-tab="plan-route">Plan Route</button>\n'
         '        <button class="tab-btn" data-tab="route-index">Route Index</button>\n'
-        '        <button class="tab-btn" data-tab="edit-coords">Edit Coords <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
         '        <button class="tab-btn" data-tab="travel-time">Travel Time</button>\n'
         '        <button class="tab-btn" data-tab="reveal">Reveal <span class="edit-badge hidden" id="rv-badge">0</span></button>\n'
         "      </div>\n"
@@ -2780,17 +2883,14 @@ def _build_html(
         '        <div id="ws-search-drop" hidden></div>\n'
         '      </div>\n'
         '    </div>\n'
-        '    <div id="panel-add-point" class="panel active">\n'
-        + panel_add
+        '    <div id="panel-inspector" class="panel active">\n'
+        + panel_inspector
         + "\n    </div>\n"
         '    <div id="panel-plan-route" class="panel">\n'
         + panel_route
         + "\n    </div>\n"
         '    <div id="panel-route-index" class="panel">\n'
         + route_index_html
-        + "\n    </div>\n"
-        '    <div id="panel-edit-coords" class="panel">\n'
-        + panel_edit
         + "\n    </div>\n"
         '    <div id="panel-travel-time" class="panel">\n'
         + panel_travel
