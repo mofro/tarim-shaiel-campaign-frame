@@ -153,7 +153,7 @@ def test_going_back_to_from_type_removes_both_icon_lines():
 # -- the wiring around the diff -------------------------------------------------------
 
 def test_type_select_has_a_disabled_placeholder_first():
-    panel = gmw._build_panel_edit_coords()
+    panel = gmw._build_panel_inspector('')
     select = re.search(r'<select id="ef-type">\s*(.*?)</select>', panel, re.DOTALL).group(1)
     assert select.lstrip().startswith('<option value="" disabled>(not on the list)</option>')
 
@@ -166,7 +166,7 @@ def test_app_js_saves_only_the_diff_and_keeps_a_baseline():
         "_efBase=_efRead();",
         "fields=_efDiff(_efBase,cur);",
         '_efStatus.textContent="No changes"',
-        "function(){if(_efSlug===slug)_efBase=cur;}",
+        "function(){if(_efSlug===slug){_efBase=cur;_efAdvBase=advCur;}}",
         "if(onOk)onOk();",
         'else _efType.value="";',
     ):
@@ -177,7 +177,7 @@ def test_app_js_saves_only_the_diff_and_keeps_a_baseline():
 
 
 def test_icon_override_dropdown_lists_the_registered_icons():
-    panel = gmw._build_panel_edit_coords()
+    panel = gmw._build_panel_inspector('')
     select = re.search(r'<select id="ef-icon">\s*(.*?)</select>', panel, re.DOTALL).group(1)
     values = re.findall(r'<option value="([^"]*)"', select)
     assert values[0] == ""                              # "From Type" first, and the default
@@ -206,10 +206,10 @@ def test_app_js_shows_where_the_icon_comes_from_and_sends_the_override():
 
 def test_baseline_moves_only_after_a_successful_save():
     js = gmw._build_app_js("https://example.test/style.json", "", "")
-    # Besides its declaration, _efBase is assigned in two places: when a page opens,
-    # and inside the onOk callback.
+    # Besides its declaration, _efBase is assigned in three places: when the form resets,
+    # when a page opens, and inside the onOk callback.
     assignments = re.findall(r"_efBase=[^;]+;", js)
-    assert sorted(assignments) == sorted(["_efBase=null;", "_efBase=_efRead();", "_efBase=cur;"])
+    assert sorted(assignments) == sorted(["_efBase=null;", "_efBase=null;", "_efBase=_efRead();", "_efBase=cur;"])
     # _patchFrontmatter calls onOk from its success branch only, never from the error one.
     body = js[js.index("function _patchFrontmatter("):]
     ok_branch = body[body.index("if(data.ok){"):body.index("}else{")]

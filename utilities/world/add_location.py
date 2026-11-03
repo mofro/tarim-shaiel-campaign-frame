@@ -160,7 +160,7 @@ def interactive_mode() -> argparse.Namespace:
     fantasy_name = prompt("Fantasy name")
     region = prompt("Region")
     print(f"  Visibility options: {', '.join(sorted(VALID_VISIBILITY))}")
-    visibility = prompt("Visibility", default="public")
+    visibility = prompt("Visibility", default="gm_secrets")
     description = prompt("Description", default="PLACEHOLDER — location pending. Prose pass pending.")
     dry_run = prompt("Dry run? [y/N]", default="n").lower().startswith("y")
 
@@ -190,7 +190,7 @@ def main() -> None:
     parser.add_argument("--description", default="PLACEHOLDER — location pending. Prose pass pending.",
                         help="Short description for frontmatter")
     parser.add_argument("--region", default="", help="parent_region slug (optional)")
-    parser.add_argument("--visibility", default="public",
+    parser.add_argument("--visibility", default="gm_secrets",
                         choices=list(VALID_VISIBILITY), help="public or gm_secrets")
     parser.add_argument("--dry-run", action="store_true",
                         help="Print the file content without writing")
