@@ -910,3 +910,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The Workshop sidebar has one width (384px, user-resizable, 340px floor) and collapsible sections. Route Index rows show label, distance, travel and a three-state eye icon (players / held / GM only); the route ID is a hover title. Layers stays on the map when the sidebar is hidden, and the Terrain explainer is an info popup.
 - **Rationale:** The ID column made routes indistinguishable at narrow width, but labels are not unique, so the ID stays on hover rather than being dropped. A "Seen by" text lozenge was noise; an icon carries it by shape as well as colour. Journeys in the Route Index was rejected for this PR and deferred to the Routes consolidation (#333 step 8).
 - **Lock status:** Locked (shipped, PR #348, b2036e0).
+
+## 2026-11-03 — Map: Workshop single location inspector (#352, HeroHeaven-fs8.1.5)
+- **Decision:** One inspector form serves New location and Editing X. The GM sees one classification, "Type"; "Category" survives only as the create endpoint's wire name. New locations default to `visibility: gm_secrets`. Advanced edits scalar frontmatter keys and shows lists and nested values read-only; Save sends only the keys the GM edited.
+- **Rationale:** Two forms for one record drifted apart and Edit Mode hid the default path. A block-list writer (option C) was deferred, not rejected: it ships as Part 2 so scalar editing is not held up by it.
+- **Lock status:** Working decision, not locked; locks when the PR merges.
