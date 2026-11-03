@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-09-02
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-30
+last_updated: 2026-10-31
 location:
 - 39.221829
 - 66.163513

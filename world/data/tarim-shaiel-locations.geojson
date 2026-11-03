@@ -274,7 +274,7 @@
       "id": "location_anvil-sunder-switchbacks",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "mountain-pass",
         "slug": "anvil-sunder-switchbacks",
         "label": "The Anvil-Sunder Switchbacks",
         "title": "The Anvil-Sunder Switchbacks",
@@ -303,7 +303,7 @@
       "id": "location_apu-nengkapu",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "mythic-landscape",
         "slug": "apu-nengkapu",
         "label": "Apu Nengkapu",
         "title": "Apu Nengkapu",
@@ -657,7 +657,7 @@
         "title": "Balkh",
         "fantasy_name": "Balkh",
         "description": "Once the 'Mother of Cities,' Balkh was destroyed by Genghis Khan and never fully recovered. Now a haunting reminder of past glory.",
-        "visibility": "public",
+        "visibility": "gm_secrets",
         "mapmarker": "city",
         "marker-symbol": "town",
         "marker-color": "#8B6914",
@@ -859,7 +859,7 @@
       "id": "location_bukhara",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "capital",
         "slug": "bukhara",
         "label": "Bukhara",
         "title": "Bukhara",
@@ -894,7 +894,7 @@
       "id": "location_buried-lens",
       "properties": {
         "kind": "location",
-        "category": "sacred-site",
+        "category": "power-site",
         "slug": "buried-lens",
         "label": "The Buried Lens",
         "title": "The Buried Lens",
@@ -923,7 +923,7 @@
       "id": "location_caravan-crypt",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "site",
         "slug": "caravan-crypt",
         "label": "The Caravan-Crypt",
         "title": "The Caravan-Crypt",
@@ -1285,6 +1285,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_dengizkul-lake",
+      "properties": {
+        "kind": "location",
+        "category": "reservoir",
+        "slug": "dengizkul-lake",
+        "label": "Dengizkul Lake",
+        "title": "Dengizkul Lake",
+        "fantasy_name": "Dengizkul Lake",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "reservoir",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/dengizkul-lake.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          64.202353,
+          39.08955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_desert-surrender",
       "properties": {
         "kind": "location",
@@ -1438,7 +1467,7 @@
       "id": "location_east-china-sea",
       "properties": {
         "kind": "location",
-        "category": "lake",
+        "category": "sea",
         "slug": "east-china-sea",
         "label": "East Spirit Sea",
         "title": "East China Sea",
@@ -1834,7 +1863,7 @@
         "fantasy_name": "Guzar",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "",
+        "mapmarker": "town",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
         "marker-size": "medium",
@@ -2382,7 +2411,7 @@
       "id": "location_karkash-river",
       "properties": {
         "kind": "location",
-        "category": "lake",
+        "category": "river",
         "slug": "karkash-river",
         "label": "Karkash River",
         "title": "Karkash River",
@@ -2417,7 +2446,7 @@
         "title": "Karmana",
         "fantasy_name": "Karmana",
         "description": "PLACEHOLDER — medium river town on the Samarqandh-Bukhara road, near Rabati Malik. Prose pass pending.",
-        "visibility": "public",
+        "visibility": "gm_secrets",
         "mapmarker": "route-node",
         "marker-symbol": "circle",
         "marker-color": "#A78040",
@@ -2531,6 +2560,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_kashkadorya-bridge",
+      "properties": {
+        "kind": "location",
+        "category": "bridge",
+        "slug": "kashkadorya-bridge",
+        "label": "Kashkadorya Bridge",
+        "title": "Karshi Bridge",
+        "fantasy_name": "Kashkadorya Bridge",
+        "description": "Kashkadorya Bridge is the largest bridge built over the Kashkadorya River flowing through the territory of Qarshi city, connecting the two parts of the city. It is considered a city symbol. The construction of this bridge was carried out in the second half of the Flowering Era (~550 CE) century.",
+        "visibility": "public",
+        "mapmarker": "bridge",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>Kashkadorya Bridge is the largest bridge built over the Kashkadorya River flowing through the territory of Qarshi city, connecting the two parts of the city. It is considered a city symbol. The construction of this bridge was carried out in the second half of the Flowering Era (~550 CE) century.</p>",
+        "url": "/locations/kashkadorya-bridge.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.809378,
+          38.88648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_kattakurgan-lake",
       "properties": {
         "kind": "location",
@@ -2598,8 +2656,8 @@
         "title": "Khanabad",
         "fantasy_name": "Khanabad Oasis",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
-        "mapmarker": "oasis",
+        "visibility": "public",
+        "mapmarker": "",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
         "marker-size": "medium",
@@ -2721,7 +2779,7 @@
         "title": "Kokdala",
         "fantasy_name": "Kokdala",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "town",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -3283,9 +3341,9 @@
         "fantasy_name": "Mazar Tag",
         "description": "Location of the Tadbir awakening",
         "visibility": "public",
-        "mapmarker": "",
-        "marker-symbol": "circle",
-        "marker-color": "#6B7280",
+        "mapmarker": "mythic-landscape",
+        "marker-symbol": "star-stroked",
+        "marker-color": "#C084FC",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3368,7 +3426,7 @@
       "id": "location_miran-temple-district",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "ruins",
         "slug": "miran-temple-district",
         "label": "Miran Temple District",
         "title": "Miran Temple District",
@@ -3467,9 +3525,9 @@
         "fantasy_name": "Niya Outer Fields",
         "description": "Collapsed irrigation lines and wind-buried walls on the approach to Niya; easy to miss in a sandstorm.",
         "visibility": "gm_secrets",
-        "mapmarker": "",
+        "mapmarker": "route-node",
         "marker-symbol": "circle",
-        "marker-color": "#6B7280",
+        "marker-color": "#A78040",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3496,9 +3554,9 @@
         "fantasy_name": "Niya",
         "description": "Ancient oasis ruins on the southern route. Archaeological treasures hidden in the sands await discovery.",
         "visibility": "gm_secrets",
-        "mapmarker": "",
+        "mapmarker": "route-node",
         "marker-symbol": "circle",
-        "marker-color": "#6B7280",
+        "marker-color": "#A78040",
         "marker-size": "medium",
         "factions": [
           "Desert Guardians"
@@ -3645,9 +3703,9 @@
         "fantasy_name": "Oyyaylak",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
         "visibility": "gm_secrets",
-        "mapmarker": "",
-        "marker-symbol": "circle",
-        "marker-color": "#6B7280",
+        "mapmarker": "caravanserai",
+        "marker-symbol": "lodging",
+        "marker-color": "#D4A820",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -3870,7 +3928,7 @@
       "id": "location_qiala-shuiku",
       "properties": {
         "kind": "location",
-        "category": "lake",
+        "category": "reservoir",
         "slug": "qiala-shuiku",
         "label": "Qiala Shuiku",
         "title": "Qiala Shuiku",
@@ -4070,6 +4128,35 @@
     },
     {
       "type": "Feature",
+      "id": "location_quyimozor-suv-ombori",
+      "properties": {
+        "kind": "location",
+        "category": "lake",
+        "slug": "quyimozor-suv-ombori",
+        "label": "Quyimozor Suv Ombori",
+        "title": "Quyimozor Suv Ombori",
+        "fantasy_name": "Quyimozor Suv Ombori",
+        "description": "PLACEHOLDER — location pending. Prose pass pending.",
+        "visibility": "public",
+        "mapmarker": "lake",
+        "marker-symbol": "circle",
+        "marker-color": "#6B7280",
+        "marker-size": "medium",
+        "factions": [],
+        "resources": [],
+        "popup_html": "<p>PLACEHOLDER — location pending. Prose pass pending.</p>",
+        "url": "/locations/quyimozor-suv-ombori.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          64.703047,
+          39.863893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "location_rabati-malik",
       "properties": {
         "kind": "location",
@@ -4138,9 +4225,9 @@
         "fantasy_name": "Refugee Rill",
         "description": "The Warrior Awakening",
         "visibility": "public",
-        "mapmarker": "",
-        "marker-symbol": "circle",
-        "marker-color": "#6B7280",
+        "mapmarker": "mythic-landscape",
+        "marker-symbol": "star-stroked",
+        "marker-color": "#C084FC",
         "marker-size": "medium",
         "factions": [],
         "resources": [],
@@ -4247,7 +4334,7 @@
       "id": "location_samarkand",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "capital",
         "slug": "samarkand",
         "label": "Samarqandh",
         "title": "Samarqandh",
@@ -4663,7 +4750,7 @@
       "id": "location_singing-straights",
       "properties": {
         "kind": "location",
-        "category": "city",
+        "category": "ruins",
         "slug": "singing-straights",
         "label": "Singing Straights",
         "title": "Singing Straights",
@@ -4750,7 +4837,7 @@
       "id": "location_stone-ledger-gate",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "mountain-pass",
         "slug": "stone-ledger-gate",
         "label": "The Stone Ledger Gate",
         "title": "The Stone Ledger Gate",
@@ -5133,7 +5220,7 @@
       "id": "location_to-dakol-suv-ombori",
       "properties": {
         "kind": "location",
-        "category": "lake",
+        "category": "reservoir",
         "slug": "to-dakol-suv-ombori",
         "label": "To'dakol Suv Ombori",
         "title": "To'dakol Suv Ombori",
@@ -5162,7 +5249,7 @@
       "id": "location_to-palang-suv-ombori",
       "properties": {
         "kind": "location",
-        "category": "lake",
+        "category": "reservoir",
         "slug": "to-palang-suv-ombori",
         "label": "To'palang suv Ombori",
         "title": "To'palang suv Ombori",
@@ -5516,7 +5603,7 @@
       "id": "location_wind-cut-narrows",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "chokepoint",
         "slug": "wind-cut-narrows",
         "label": "The Wind-Cut Narrows",
         "title": "The Wind-Cut Narrows",
@@ -5580,8 +5667,8 @@
         "title": "Xitoy",
         "fantasy_name": "Xitoy Oasis",
         "description": "PLACEHOLDER — location pending. Prose pass pending.",
-        "visibility": "gm_secrets",
-        "mapmarker": "oasis",
+        "visibility": "public",
+        "mapmarker": "",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
         "marker-size": "medium",
