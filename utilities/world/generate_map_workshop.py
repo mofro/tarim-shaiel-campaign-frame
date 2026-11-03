@@ -446,25 +446,26 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 #api-status { min-height: 16px; color: var(--muted); }
 #api-status.ok { color: #6a9a2c; }
 #api-status.err { color: var(--danger); }
-/* Reveal tab */
-#rv-staged, #rv-hidden, #rv-confirm-list { list-style: none; display: flex;
-  flex-direction: column; gap: 4px; }
-#rv-hidden { max-height: 320px; overflow-y: auto; }
-.rv-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-.rv-main { flex: 1; min-width: 0; }
-.rv-x, .rv-name { background: none; border: none; cursor: pointer; font-family: inherit; }
-.rv-x { color: var(--muted); font-size: var(--fs-2); padding: 0 2px; }
-.rv-x:hover { color: #e8dcc4; }
-.rv-name { color: #e8dcc4; font-size: var(--fs-2); padding: 0; text-align: left; }
-.rv-name:hover { color: #f5d060; }
-.rv-err { color: var(--danger); font-size: var(--fs-2); margin-top: 2px; }
-#rv-confirm { border: 1px solid rgba(184,146,44,0.5); background: #1a1410;
+/* Batch bar (multi-select visibility) */
+#ms-list, #ms-confirm-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+#ms-list { max-height: 240px; overflow-y: auto; }
+.ms-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.ms-main { flex: 1; min-width: 0; }
+.ms-x, .ms-name { background: none; border: none; cursor: pointer; font-family: inherit; }
+.ms-x { color: var(--muted); font-size: var(--fs-2); padding: 0 2px; }
+.ms-x:hover { color: #e8dcc4; }
+.ms-name { color: #e8dcc4; font-size: var(--fs-2); padding: 0; text-align: left; }
+.ms-name:hover { color: #f5d060; }
+.ms-vis { color: var(--muted); font-size: var(--fs-2); }
+.ms-err { color: var(--danger); font-size: var(--fs-2); margin-top: 2px; }
+#ms-confirm { border: 1px solid rgba(184,146,44,0.5); background: #1a1410;
   border-radius: 2px; padding: 8px 10px; }
-#rv-confirm-list { font-size: var(--fs-2); color: #e8dcc4; max-height: 120px; overflow-y: auto;
+#ms-confirm-list { font-size: var(--fs-2); color: #e8dcc4; max-height: 120px; overflow-y: auto;
   margin: 6px 0; padding-left: 14px; list-style: disc; }
-#rv-status { min-height: 16px; color: var(--muted); }
-#rv-status.ok { color: #6a9a2c; }
-#rv-status.err { color: var(--danger); }
+#ms-status { min-height: 16px; color: var(--muted); }
+#ms-status.ok { color: #6a9a2c; }
+#ms-status.err { color: var(--danger); }
+body.ms-multi #insp-single { display: none; }
 .drag-edit-marker { width: 22px; height: 22px; background: #f5d060;
   border: 2.5px solid #2a1e08; border-radius: 50%; cursor: grab;
   box-shadow: 0 2px 10px rgba(0,0,0,0.6); }
@@ -730,31 +731,33 @@ def _build_panel_inspector(region_options: str) -> str:
 """
 
 
-def _build_panel_reveal() -> str:
+def _build_panel_batch() -> str:
+    """The batch bar: shown inside the Inspector panel while 2+ locations are selected."""
     return """
-<p class="hint" style="color:#9a8a6a;">Click a GM-only marker, or press <strong>+</strong> below, to stage it. Nothing is written until you apply.</p>
-<div class="list-heading" style="margin-top:0;" data-collapsible>Staged</div>
-<ul id="rv-staged"><li class="queue-empty">Nothing staged.</li></ul>
-<div class="btn-row">
-  <button id="rv-apply-btn" class="btn" disabled>Apply 0 reveals</button>
-  <button id="rv-clear-btn" class="btn btn-sm btn-danger" disabled>Clear</button>
-</div>
-<div id="rv-confirm" class="hidden">
-  <div>Set these to <strong>public</strong>? Players will see them after the rebuild.</div>
-  <ul id="rv-confirm-list"></ul>
-  <div class="btn-row">
-    <button id="rv-confirm-yes" class="btn btn-sm">Confirm reveal</button>
-    <button id="rv-confirm-no" class="btn btn-sm">Cancel</button>
+<div id="ms-bar" class="hidden">
+  <div class="insp-head">
+    <div class="list-heading"><span id="ms-count">0 selected</span></div>
+    <button id="ms-clear-btn" type="button" class="btn btn-sm" title="Clear selection (Esc)">Clear</button>
   </div>
+  <p class="hint insp-note">Shift-, Ctrl- or Cmd-click pins to add or remove them. Nothing is written until you confirm.</p>
+  <ul id="ms-list"></ul>
+  <div class="btn-row">
+    <button id="ms-add-hidden-btn" type="button" class="btn btn-sm" title="Add every GM-only pin in the current map view">Add GM-only in view</button>
+  </div>
+  <div class="btn-row">
+    <button id="ms-public-btn" type="button" class="btn">Set to Public</button>
+    <button id="ms-gm-btn" type="button" class="btn">Set to GM-only</button>
+  </div>
+  <div id="ms-confirm" class="hidden">
+    <div id="ms-confirm-msg"></div>
+    <ul id="ms-confirm-list"></ul>
+    <div class="btn-row">
+      <button id="ms-confirm-yes" type="button" class="btn btn-sm">Confirm</button>
+      <button id="ms-confirm-no" type="button" class="btn btn-sm">Cancel</button>
+    </div>
+  </div>
+  <p id="ms-status" class="hint"></p>
 </div>
-<p id="rv-status" class="hint"></p>
-<div class="list-heading" data-collapsible>GM-only locations (<span id="rv-hidden-count">0</span>)</div>
-<div class="field-group">
-  <input id="rv-filter" type="text" placeholder="Filter by name, type or region…" autocomplete="off" spellcheck="false">
-</div>
-<ul id="rv-hidden"></ul>
-<p class="hint" style="color:#9a8a6a;">Gold ring = staged, green ring = already public. Earmarks are kept in this browser.<br>
-Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
 """
 
 
@@ -1065,7 +1068,7 @@ _efMoveBtn.addEventListener("click",function(){
 });
 _efCloseBtn.addEventListener("click",_efClose);
 document.addEventListener("keydown",function(e){
-  if(e.key!=="Escape"||e.defaultPrevented||_wsMode!=="select"||!_efSlug)return;
+  if(e.key!=="Escape"||e.defaultPrevented||_wsMode!=="select"||!_efSlug||_msSel.length)return;
   if(document.querySelector(".info-btn[aria-expanded=true]"))return;
   _efClose();
 });
@@ -1107,191 +1110,169 @@ _efIcon.addEventListener("change",_efShowIcon);
 """
 
 
-# Reveal tab: stage GM-only locations, then apply them together. Earmarks live in
-# localStorage (per browser) and nothing touches a file until Apply. Raw string so
-# the JS stays readable; it is spliced into _build_app_js after the field editor.
-_REVEAL_JS = r"""
-var _rvKey="_wsRevealStaged";
-var _rvReady=false;
-var _rvStaged=[];
-var _rvErr={};
-var _rvBusy=false;
-var _rvListEl=document.getElementById("rv-staged");
-var _rvHiddenEl=document.getElementById("rv-hidden");
-var _rvFilterEl=document.getElementById("rv-filter");
-var _rvCountEl=document.getElementById("rv-hidden-count");
-var _rvApplyBtn=document.getElementById("rv-apply-btn");
-var _rvClearBtn=document.getElementById("rv-clear-btn");
-var _rvConfirmEl=document.getElementById("rv-confirm");
-var _rvConfirmList=document.getElementById("rv-confirm-list");
-var _rvStatusEl=document.getElementById("rv-status");
-var _rvBadge=document.getElementById("rv-badge");
+# Multi-select and the batch bar (#353): Shift/Ctrl/Cmd-click pins to select several, then
+# set their visibility together. Nothing touches a file until the GM confirms, and the
+# rebuild runs once for the whole batch. Raw string; spliced into _build_app_js.
+_MULTISELECT_JS = r"""
+var _msSel=[];
+var _msErr={};
+var _msBusy=false;
+var _msBar=document.getElementById("ms-bar");
+var _msListEl=document.getElementById("ms-list");
+var _msCountEl=document.getElementById("ms-count");
+var _msStatusEl=document.getElementById("ms-status");
+var _msConfirmEl=document.getElementById("ms-confirm");
+var _msConfirmMsg=document.getElementById("ms-confirm-msg");
+var _msConfirmList=document.getElementById("ms-confirm-list");
+var _msPubBtn=document.getElementById("ms-public-btn");
+var _msGmBtn=document.getElementById("ms-gm-btn");
+var _msPending=null;
 
-function _rvEsc(s){
+function _msEsc(s){
   return String(s==null?"":s).replace(/[&<>"']/g,function(c){
     return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});
 }
-function _rvIsHidden(l){return !!l&&l.visibility!=="public";}
-function _rvName(l){return l.label||l.title||l.slug;}
-function _rvMeta(l){return (l.category||"")+(l.region?" · "+l.region:"");}
-function _rvSetStatus(msg,cls){_rvStatusEl.textContent=msg;_rvStatusEl.className="hint"+(cls?" "+cls:"");}
+function _msIsPublic(l){return !!l&&l.visibility==="public";}
+function _msName(l){return l.label||l.title||l.slug;}
+function _msSetStatus(msg,cls){_msStatusEl.textContent=msg;_msStatusEl.className="hint"+(cls?" "+cls:"");}
 
-function _rvLoad(){
-  var raw=null,arr=[];
-  try{raw=localStorage.getItem(_rvKey);}catch(e){}
-  try{arr=JSON.parse(raw||"[]");}catch(e){}
-  if(!Array.isArray(arr))arr=[];
-  _rvStaged=arr.filter(function(s,i,a){return a.indexOf(s)===i&&_rvIsHidden(_locBySlug[s]);});
-}
-function _rvSave(){try{localStorage.setItem(_rvKey,JSON.stringify(_rvStaged));}catch(e){}}
-
-function _rvUpdateRings(){
+function _msUpdateRings(){
   var src;
   try{src=map.getSource("reveal-source");}catch(e){return;}
   if(!src)return;
   var feats=[];
-  if(_activeTab==="reveal"){
-    _locList.forEach(function(l){
-      var st=_rvStaged.indexOf(l.slug)!==-1?"staged":(_rvIsHidden(l)?null:"public");
-      if(st)feats.push({type:"Feature",properties:{state:st},
-        geometry:{type:"Point",coordinates:[l.lon,l.lat]}});
-    });
-  }
+  _msSel.forEach(function(s){
+    var l=_locBySlug[s];
+    if(l)feats.push({type:"Feature",properties:{state:"staged"},
+      geometry:{type:"Point",coordinates:[l.lon,l.lat]}});
+  });
   src.setData({type:"FeatureCollection",features:feats});
 }
 
-function _rvRenderHidden(){
-  var q=_rvFilterEl.value.trim().toLowerCase();
-  var all=_locList.filter(_rvIsHidden);
-  var rows=all.filter(function(l){
-    return !q||(l.label||"").toLowerCase().indexOf(q)!==-1||(l.title||"").toLowerCase().indexOf(q)!==-1||
-      (l.category||"").toLowerCase().indexOf(q)!==-1||(l.region||"").toLowerCase().indexOf(q)!==-1;});
-  _rvCountEl.textContent=q?rows.length+" of "+all.length:String(all.length);
-  _rvHiddenEl.innerHTML=rows.length?rows.map(function(l){
-    var staged=_rvStaged.indexOf(l.slug)!==-1;
-    return '<li class="queue-item rv-item"><div class="rv-main">'+
-      '<button class="rv-name" data-fly="'+_rvEsc(l.slug)+'">'+_rvEsc(_rvName(l))+'</button>'+
-      '<div class="qi-dist">'+_rvEsc(_rvMeta(l))+'</div></div>'+
-      '<button class="btn btn-sm rv-add" data-slug="'+_rvEsc(l.slug)+'"'+(staged?" disabled":"")+'>'+
-      (staged?"staged":"+")+'</button></li>';}).join(""):
-    '<li class="queue-empty">'+(all.length?"No matches.":"Every location is public.")+'</li>';
-}
-
-function _rvRefresh(){
-  _rvSave();
-  var n=_rvStaged.length;
-  _rvApplyBtn.disabled=_rvBusy||n===0;
-  _rvApplyBtn.textContent=n===1?"Apply 1 reveal":"Apply "+n+" reveals";
-  _rvClearBtn.disabled=_rvBusy||n===0;
-  if(n===0)_rvConfirmEl.classList.add("hidden");
-  if(_rvBadge){_rvBadge.textContent=n;_rvBadge.classList.toggle("hidden",n===0);}
-  _rvListEl.innerHTML=n?_rvStaged.map(function(s){
+function _msRefresh(){
+  var n=_msSel.length;
+  var multi=n>=2;
+  document.body.classList.toggle("ms-multi",multi);
+  _msBar.classList.toggle("hidden",!multi);
+  _msCountEl.textContent=n+" selected";
+  _msPubBtn.disabled=_msBusy;_msGmBtn.disabled=_msBusy;
+  if(!multi)_msConfirmEl.classList.add("hidden");
+  _msListEl.innerHTML=_msSel.map(function(s){
     var l=_locBySlug[s];
-    var err=_rvErr[s]?'<div class="rv-err">✗ '+_rvEsc(_rvErr[s])+'</div>':"";
-    return '<li class="queue-item rv-item"><div class="rv-main"><span class="qi-label">'+_rvEsc(_rvName(l))+
-      '</span><div class="qi-dist">'+_rvEsc(_rvMeta(l))+'</div>'+err+'</div>'+
-      '<button class="rv-x" data-slug="'+_rvEsc(s)+'" title="Unstage">✕</button></li>';}).join(""):
-    '<li class="queue-empty">Nothing staged.</li>';
-  _rvRenderHidden();
-  _rvUpdateRings();
+    var err=_msErr[s]?'<div class="ms-err">✗ '+_msEsc(_msErr[s])+'</div>':"";
+    return '<li class="queue-item ms-item"><div class="ms-main">'+
+      '<button class="ms-name" data-fly="'+_msEsc(s)+'">'+_msEsc(_msName(l))+'</button> '+
+      '<span class="ms-vis">'+(_msIsPublic(l)?"public":"GM-only")+'</span>'+err+'</div>'+
+      '<button class="ms-x" data-slug="'+_msEsc(s)+'" title="Remove from selection">✕</button></li>';}).join("");
+  _msUpdateRings();
 }
 
-function _rvStage(slug){
-  if(_rvBusy||!_rvIsHidden(_locBySlug[slug]))return;
-  if(_rvStaged.indexOf(slug)===-1)_rvStaged.push(slug);
-  delete _rvErr[slug];
-  _rvConfirmEl.classList.add("hidden");
-  _rvRefresh();
+function _msToggle(slug){
+  if(_msBusy||!_locBySlug[slug])return;
+  if(!_msSel.length&&_efSlug&&_efSlug!==slug&&_locBySlug[_efSlug])_msSel.push(_efSlug);
+  var i=_msSel.indexOf(slug);
+  if(i===-1)_msSel.push(slug);else _msSel.splice(i,1);
+  delete _msErr[slug];
+  _msConfirmEl.classList.add("hidden");
+  _msSetStatus("","");
+  _msRefresh();
 }
-function _rvUnstage(slug){
-  if(_rvBusy)return;
-  _rvStaged=_rvStaged.filter(function(s){return s!==slug;});
-  delete _rvErr[slug];
-  _rvConfirmEl.classList.add("hidden");
-  _rvRefresh();
-}
-function _rvToggleFromMap(slug){
-  var l=_locBySlug[slug];
-  if(!l)return;
-  if(!_rvIsHidden(l)){_rvSetStatus(_rvName(l)+" is already public.","");return;}
-  if(_rvStaged.indexOf(slug)!==-1)_rvUnstage(slug);else _rvStage(slug);
+window._msClear=function(){
+  if(_msBusy)return;
+  _msSel=[];_msErr={};_msSetStatus("","");_msRefresh();
+};
+
+function _msInView(){
+  var b=map.getBounds();
+  return _locList.filter(function(l){
+    return !_msIsPublic(l)&&_msSel.indexOf(l.slug)===-1&&b.contains([l.lon,l.lat]);});
 }
 
-function _rvRebuild(target){
+function _msRebuild(target){
   return fetch("/api/rebuild/"+target,{method:"POST"})
     .then(function(r){return r.json();})
     .then(function(d){return !!d.ok;},function(){return false;});
 }
 
-function _rvApply(){
-  if(_rvBusy||!_rvStaged.length)return;
-  _rvBusy=true;
-  _rvErr={};
-  _rvConfirmEl.classList.add("hidden");
-  var queue=_rvStaged.slice(),done=0,aborted=false;
-  _rvSetStatus("Revealing 0 of "+queue.length+"…","");
-  _rvRefresh();
+function _msAsk(vis){
+  var todo=_msSel.filter(function(s){return (_msIsPublic(_locBySlug[s])?"public":"gm_secrets")!==vis;});
+  if(!todo.length){_msSetStatus("Every selected location is already "+(vis==="public"?"public":"GM-only")+".","");return;}
+  _msPending={vis:vis,slugs:todo};
+  _msConfirmMsg.textContent=vis==="public"?
+    "Set these to public? Players will see them after the rebuild.":
+    "Set these to GM-only? Players will lose them after the rebuild.";
+  _msConfirmList.innerHTML=todo.map(function(s){return "<li>"+_msEsc(_msName(_locBySlug[s]))+"</li>";}).join("");
+  _msConfirmEl.classList.remove("hidden");
+}
+
+function _msApply(){
+  if(_msBusy||!_msPending)return;
+  var vis=_msPending.vis,queue=_msPending.slugs.slice(),done=0,aborted=false;
+  var verb=vis==="public"?"Revealed ":"Hid ";
+  _msPending=null;
+  _msBusy=true;_msErr={};
+  _msConfirmEl.classList.add("hidden");
+  _msSetStatus("Writing 0 of "+queue.length+"…","");
+  _msRefresh();
   function step(i){
     if(i>=queue.length||aborted)return Promise.resolve();
     var slug=queue[i];
-    return _patchFrontmatterRaw(slug,{visibility:"public"}).then(function(d){
-      if(d&&d.ok){done++;_rvStaged=_rvStaged.filter(function(s){return s!==slug;});}
-      else{_rvErr[slug]=(d&&d.error)||"error";}
-      _rvSetStatus("Revealing "+(i+1)+" of "+queue.length+"…","");
+    return _patchFrontmatterRaw(slug,{visibility:vis}).then(function(d){
+      if(d&&d.ok){done++;}
+      else{_msErr[slug]=(d&&d.error)||"error";}
+      _msSetStatus("Writing "+(i+1)+" of "+queue.length+"…","");
     },function(){
       aborted=true;
-      _rvErr[slug]="Network error — is the devserver running?";
+      _msErr[slug]="Network error — is the devserver running?";
     }).then(function(){return step(i+1);});
   }
   step(0).then(function(){
     _refreshLocSource();
-    _rvBusy=false;
+    _msBusy=false;
     var failed=queue.length-done;
+    _msSel=_msSel.filter(function(s){return !!_msErr[s];});
     if(!done){
-      _rvSetStatus("✗ Nothing revealed — "+failed+" failed.","err");
-      _rvRefresh();
+      _msSetStatus("✗ Nothing written — "+failed+" failed.","err");
+      _msRefresh();
       return;
     }
-    _rvSetStatus("Revealed "+done+(failed?" · "+failed+" failed":"")+". Rebuilding…","");
-    _rvRefresh();
-    _rvRebuild("workshop").then(function(okW){
-      return _rvRebuild("locations").then(function(okL){return okW&&okL;});
+    _msSetStatus(verb+done+(failed?" · "+failed+" failed":"")+". Rebuilding…","");
+    _msRefresh();
+    _msRebuild("workshop").then(function(okW){
+      return _msRebuild("locations").then(function(okL){return okW&&okL;});
     }).then(function(okAll){
-      _rvSetStatus((okAll?"✓ ":"✗ ")+"Revealed "+done+(failed?" · "+failed+" failed":"")+
+      _msSetStatus((okAll?"✓ ":"✗ ")+verb+done+(failed?" · "+failed+" failed":"")+
         (okAll?". Player map and location pages rebuilt.":". Rebuild failed — see the devserver log."),
         (okAll&&!failed)?"ok":"err");
     });
   });
 }
 
-_rvListEl.addEventListener("click",function(e){
-  var b=e.target.closest(".rv-x");
-  if(b)_rvUnstage(b.dataset.slug);
-});
-_rvHiddenEl.addEventListener("click",function(e){
-  var a=e.target.closest(".rv-add");
-  if(a){if(!a.disabled)_rvStage(a.dataset.slug);return;}
-  var n=e.target.closest(".rv-name");
+_msListEl.addEventListener("click",function(e){
+  var x=e.target.closest(".ms-x");
+  if(x){_msToggle(x.dataset.slug);return;}
+  var n=e.target.closest(".ms-name");
   if(n)_wsFlyTo(_locBySlug[n.dataset.fly]);
 });
-_rvFilterEl.addEventListener("input",_rvRenderHidden);
-_rvClearBtn.addEventListener("click",function(){
-  if(_rvBusy)return;
-  _rvStaged=[];_rvErr={};_rvSetStatus("","");_rvRefresh();
+document.getElementById("ms-clear-btn").addEventListener("click",window._msClear);
+document.getElementById("ms-add-hidden-btn").addEventListener("click",function(){
+  if(_msBusy)return;
+  var add=_msInView();
+  add.forEach(function(l){_msSel.push(l.slug);});
+  _msConfirmEl.classList.add("hidden");
+  _msSetStatus(add.length?"Added "+add.length+" GM-only in view.":"No more GM-only locations in view.","");
+  _msRefresh();
 });
-_rvApplyBtn.addEventListener("click",function(){
-  if(_rvBusy||!_rvStaged.length)return;
-  _rvConfirmList.innerHTML=_rvStaged.map(function(s){
-    return "<li>"+_rvEsc(_rvName(_locBySlug[s]))+"</li>";}).join("");
-  _rvConfirmEl.classList.remove("hidden");
+_msPubBtn.addEventListener("click",function(){if(!_msBusy)_msAsk("public");});
+_msGmBtn.addEventListener("click",function(){if(!_msBusy)_msAsk("gm_secrets");});
+document.getElementById("ms-confirm-yes").addEventListener("click",_msApply);
+document.getElementById("ms-confirm-no").addEventListener("click",function(){
+  _msPending=null;_msConfirmEl.classList.add("hidden");});
+document.addEventListener("keydown",function(e){
+  if(e.key!=="Escape"||e.defaultPrevented||!_msSel.length||_msBusy)return;
+  e.preventDefault();window._msClear();
 });
-document.getElementById("rv-confirm-yes").addEventListener("click",_rvApply);
-document.getElementById("rv-confirm-no").addEventListener("click",function(){
-  _rvConfirmEl.classList.add("hidden");});
-
-_rvLoad();
-_rvReady=true;
-_rvRefresh();
+_msRefresh();
 """
 
 
@@ -1953,7 +1934,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'p.classList.toggle("active",p.id==="panel-"+tab);});'
         # Clear Tab 2 highlights when switching away
         'if(tab!=="plan-route")_clearHighlights();'
-        'if(typeof _rvReady!=="undefined"&&_rvReady)_rvUpdateRings();'
+        'if(tab!=="inspector"&&window._msClear)window._msClear();'
         '}\n'
         'document.querySelectorAll(".tab-btn").forEach(function(b){'
         'b.addEventListener("click",function(){_setTab(b.dataset.tab);});});\n'
@@ -2172,8 +2153,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'paint:{"circle-radius":16,"circle-color":"rgba(0,0,0,0)",'
         '"circle-stroke-width":3,"circle-stroke-color":"#f5d060","circle-stroke-opacity":0.9}});\n'
 
-        # Reveal tab rings: gold = staged, green = already public (only filled
-        # while the Reveal tab is open — see _rvUpdateRings)
+        # Selection rings: gold = in the multi-selection (see _msUpdateRings)
         'map.addSource("reveal-source",{type:"geojson",data:{type:"FeatureCollection",features:[]}});\n'
         'map.addLayer({id:"reveal-rings",type:"circle",source:"reveal-source",'
         'paint:{"circle-radius":13,"circle-color":"rgba(0,0,0,0)","circle-stroke-width":'
@@ -2194,7 +2174,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # journey in the Travel tab is drawn separately by tt-line
         map_style.journey_hover_js() +
         # One action for a location, whether the pin or its search result was clicked
-        'window._wsPinAction=function(feature){'
+        'window._wsPinAction=function(feature,ev){'
         'var p=feature.properties;'
         'var slug=p._slug||p.slug||"";'
         'if(_wsMode==="place"||window._wsJustPlaced)return;'
@@ -2204,12 +2184,13 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var name=p.title||p.label||slug||"";'
         '_ttSetPt(coords[0],coords[1],name,slug);return;}'
         'if(!slug)return;'
-        'if(_activeTab==="reveal"){_rvToggleFromMap(slug);return;}'
+        'if(ev&&(ev.shiftKey||ev.ctrlKey||ev.metaKey)&&_activeTab==="inspector"){_msToggle(slug);return;}'
+        'if(_msSel.length)window._msClear();'
         '_openFieldEditor(feature);'
         '};\n'
         '_locLayerIds.forEach(function(lyr){'
         'map.on("click",lyr,function(e){'
-        '_wsPinAction(e.features[0]);'
+        '_wsPinAction(e.features[0],e.originalEvent);'
         '});});\n'
 
         # Overlay toggle + opacity wiring (sessionStorage-persisted). The GM owns the
@@ -2614,7 +2595,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         + _EF_DIFF_JS + _EF_ICON_NOTE_JS
         + _INSPECTOR_JS +
 
-        # Promise-returning PATCH shared by the field editor and the Reveal tab.
+        # Promise-returning PATCH shared by the field editor and the batch bar.
         # Resolves with the server's JSON; rejects only on a network failure.
         'function _patchFrontmatterRaw(slug,fields){'
         'return fetch("/api/locations/"+slug+"/frontmatter",{'
@@ -2657,8 +2638,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         + _INSPECTOR_WIRE_JS
 
-        # -- Reveal tab: staged earmarks, rings, Apply --
-        + _REVEAL_JS +
+        # -- Multi-select and the batch bar --
+        + _MULTISELECT_JS +
 
         # -- Search / find-location widget --
         _WS_LATLON_JS +
@@ -2823,7 +2804,7 @@ def _build_html(
     panel_inspector = _build_panel_inspector(region_options)
     panel_route = _build_panel_plan_route()
     panel_travel = _build_panel_travel_time()
-    panel_reveal = _build_panel_reveal()
+    panel_batch = _build_panel_batch()
     app_js = _build_app_js(style_url, icons_js, maptiler_key=maptiler_key)
 
     return (
@@ -2873,7 +2854,6 @@ def _build_html(
         '        <button class="tab-btn" data-tab="plan-route">Plan Route</button>\n'
         '        <button class="tab-btn" data-tab="route-index">Route Index</button>\n'
         '        <button class="tab-btn" data-tab="travel-time">Travel Time</button>\n'
-        '        <button class="tab-btn" data-tab="reveal">Reveal <span class="edit-badge hidden" id="rv-badge">0</span></button>\n'
         "      </div>\n"
         "    </div>\n"
         '    <div id="ws-search-row">\n'
@@ -2884,8 +2864,10 @@ def _build_html(
         '      </div>\n'
         '    </div>\n'
         '    <div id="panel-inspector" class="panel active">\n'
+        + panel_batch
+        + '<div id="insp-single">\n'
         + panel_inspector
-        + "\n    </div>\n"
+        + "\n    </div>\n    </div>\n"
         '    <div id="panel-plan-route" class="panel">\n'
         + panel_route
         + "\n    </div>\n"
@@ -2894,9 +2876,6 @@ def _build_html(
         + "\n    </div>\n"
         '    <div id="panel-travel-time" class="panel">\n'
         + panel_travel
-        + "\n    </div>\n"
-        '    <div id="panel-reveal" class="panel">\n'
-        + panel_reveal
         + "\n    </div>\n"
         '    <div id="player-share" style="display:none">\n'
         '      <span style="color:#8ad08a;font-size:var(--fs-2);white-space:nowrap;">📡 Players:</span>\n'

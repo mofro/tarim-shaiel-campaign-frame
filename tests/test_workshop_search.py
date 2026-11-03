@@ -55,7 +55,7 @@ def test_non_coordinates_are_not_parsed(q):
 
 def test_pick_runs_the_pin_action_and_the_row_is_wired():
     src = Path(gmw.__file__).read_text(encoding="utf-8")
-    assert "_wsPinAction(e.features[0])" in src, "pin click must use the shared action"
+    assert "_wsPinAction(e.features[0],e.originalEvent)" in src, "pin click must use the shared action"
     # search code sits outside the map-load scope, so the action must be on window
     assert "window._wsPinAction=function" in src
     assert "_wsPick(_locBySlug[el.dataset.slug])" in src, "result click must select, not only fly"
