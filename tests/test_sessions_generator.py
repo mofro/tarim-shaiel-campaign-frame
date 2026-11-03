@@ -224,3 +224,18 @@ class TestEndToEnd:
 
         assert not out.exists()
         assert "nothing generated" in capsys.readouterr().out
+
+
+# ── navigation entry points (#361) ───────────────────────────────────────────
+
+def test_nav_and_drawer_link_sessions_after_world():
+    base = (Path(__file__).parent.parent / "utilities/templates/base.html").read_text(encoding="utf-8")
+    link, world = '<a href="/sessions/index.html">Sessions</a>', '<a href="/world.html">World</a>'
+    assert base.count(link) == 2  # header nav and mobile drawer
+    assert base.index(world) < base.index(link)
+    assert base.rindex(world) < base.rindex(link)
+
+
+def test_homepage_featured_card_points_at_sessions_index():
+    feat = (Path(__file__).parent.parent / "utilities/homepage/featured-docs.md").read_text(encoding="utf-8")
+    assert "href: /sessions/index.html" in feat
