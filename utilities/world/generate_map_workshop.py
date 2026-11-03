@@ -469,6 +469,14 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   border: 1px solid rgba(184,146,44,0.3); border-radius: 2px; cursor: pointer;
   font-size: var(--fs-2); line-height: 1; padding: 2px 6px; }
 #sb-toggle:hover { color: #e8dcc4; border-color: #b8922c; }
+#ws-mode-chip { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 6;
+  display: flex; align-items: center; gap: 10px; background: #120f08; color: #f5d060;
+  border: 1px solid #b8922c; border-radius: 3px; padding: 6px 10px; font-size: var(--fs-2); }
+#ws-mode-chip[hidden] { display: none; }
+#ws-mode-cancel { background: none; color: #c8a84a; border: 1px solid rgba(184,146,44,0.5);
+  border-radius: 2px; cursor: pointer; font-size: var(--fs-1); padding: 1px 6px; }
+.arm-btn[aria-pressed=true] { background: rgba(184,146,44,0.35); color: #f5d060; border-color: #b8922c; }
+body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas { cursor: crosshair; }
 #sb-resizer { flex: none; width: 6px; margin-left: -3px; cursor: col-resize; z-index: 5;
   background: transparent; touch-action: none; }
 #sb-resizer:hover, #sb-resizer.drag, #sb-resizer:focus-visible {
@@ -583,7 +591,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 def _build_panel_add_point(cat_options: str, region_options: str) -> str:
     return f"""
 <div class="field-group">
-  <label>Coordinates <span style="color:#9a8a6a">(click map)</span></label>
+  <label>Coordinates <button type="button" class="btn btn-sm arm-btn" data-arm="place" aria-pressed="false">◎ Pick on map</button></label>
   <div class="coord-row">
     <span>lat</span><input id="add-lat" type="text" readonly placeholder="—">
     <span>lon</span><input id="add-lon" type="text" readonly placeholder="—">
@@ -630,7 +638,8 @@ def _build_panel_add_point(cat_options: str, region_options: str) -> str:
 
 def _build_panel_plan_route() -> str:
     return """
-<p class="hint" style="color:#9a8a6a;">Click location markers on the map to add waypoints.</p>
+<button type="button" class="btn btn-sm arm-btn" data-arm="route" aria-pressed="false">＋ Add stops from map</button>
+<p class="hint" style="color:#9a8a6a;">Arm it, then click location markers to add waypoints. Esc stops.</p>
 <ul id="route-queue-list"><li class="queue-empty">No waypoints yet.</li></ul>
 <div class="btn-row">
   <button id="route-remove-btn" class="btn btn-sm btn-danger" disabled>Remove Last</button>
@@ -840,6 +849,38 @@ function _wsParseLatLon(q){
   if(Math.abs(b)<=90&&Math.abs(a)<=180)return {lat:b,lon:a};
   return null;
 }
+"""
+
+_WS_MODE_JS = r"""
+function _wsModeNext(cur,ev,tab){
+  if(ev==="esc"||ev==="placed")return "select";
+  if(ev==="arm-place")return cur==="place"?"select":"place";
+  if(ev==="arm-route")return cur==="route"?"select":"route";
+  if(ev==="tab"){
+    if(cur==="place"&&tab!=="add-point")return "select";
+    if(cur==="route"&&tab!=="plan-route")return "select";
+  }
+  return cur;
+}
+var _wsMode="select";
+var _WS_MODE_LABEL={place:"Place: click the map to set the point",route:"Route: click locations to add stops"};
+window._wsSetMode=function(ev,tab){
+  _wsMode=_wsModeNext(_wsMode,ev,tab||_activeTab);
+  var chip=document.getElementById("ws-mode-chip");
+  if(chip){
+    chip.hidden=_wsMode==="select";
+    document.getElementById("ws-mode-label").textContent=_WS_MODE_LABEL[_wsMode]||"";
+  }
+  document.body.classList.toggle("mode-place",_wsMode==="place");
+  document.body.classList.toggle("mode-route",_wsMode==="route");
+  document.querySelectorAll("[data-arm]").forEach(function(b){
+    b.setAttribute("aria-pressed",b.dataset.arm===_wsMode?"true":"false");});
+};
+document.querySelectorAll("[data-arm]").forEach(function(b){
+  b.addEventListener("click",function(){_wsSetMode("arm-"+b.dataset.arm);});});
+document.getElementById("ws-mode-cancel").addEventListener("click",function(){_wsSetMode("esc");});
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"&&_wsMode!=="select")_wsSetMode("esc");});
 """
 
 _EF_DIFF_JS = r"""
@@ -1668,6 +1709,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _wsSavedTab=null;\n'
         'try{_wsSavedTab=sessionStorage.getItem("_wsTab");}catch(e){}\n'
         'var _activeTab=_wsSavedTab||"add-point";\n'
+        + _WS_MODE_JS
 
         # -- Display layers: location types, routes, journeys --
         # The shared control owns every filter on those layers (_dispApply);
@@ -1712,7 +1754,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
 
         # -- Tab switching --
         'function _setTab(tab){'
-        '_activeTab=tab;'
+        '_activeTab=tab;_wsSetMode("tab",tab);'
         'document.querySelectorAll(".tab-btn").forEach(function(b){'
         'b.classList.toggle("active",b.dataset.tab===tab);});'
         'document.querySelectorAll(".panel").forEach(function(p){'
@@ -1791,11 +1833,12 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _addRegion=document.getElementById("add-region");'
         'var _addDesc=document.getElementById("add-description");\n'
 
-        # mouseup: set coords when Tab 1 is active
-        'map.on("mouseup",function(e){'
-        'if(_activeTab!=="add-point")return;'
+        # Place mode: one click sets the coordinates, then back to Select
+        'map.on("click",function(e){'
+        'if(_wsMode!=="place")return;'
         '_addLat.value=e.lngLat.lat.toFixed(6);'
         '_addLon.value=e.lngLat.lng.toFixed(6);'
+        '_wsSetMode("placed");'
         '});\n'
 
         'var _addCreateBtn=document.getElementById("add-create-btn");'
@@ -1956,6 +1999,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.on("mousemove","routes",function(){map.getCanvas().style.cursor="pointer";});\n'
         'map.on("mouseleave","routes",function(){map.getCanvas().style.cursor="";});\n'
         'map.on("click","routes",function(e){'
+        'if(_wsMode==="place")return;'
         'var f=e.features[0];'
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[f]});'
         '_showRoutePanel(f);'
@@ -2008,13 +2052,14 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'window._wsPinAction=function(feature){'
         'var p=feature.properties;'
         'var slug=p._slug||p.slug||"";'
+        'if(_wsMode==="place")return;'
+        'if(_wsMode==="route"){if(slug)_addToQueue(slug);return;}'
         'if(_activeTab==="travel-time"){'
         'var coords=feature.geometry.coordinates;'
         'var name=p.title||p.label||slug||"";'
         '_ttSetPt(coords[0],coords[1],name,slug);return;}'
         'if(!slug)return;'
         'if(_activeTab==="reveal"){_rvToggleFromMap(slug);return;}'
-        'if(_activeTab==="plan-route"){_addToQueue(slug);return;}'
         'if(_activeTab==="edit-coords"&&_editMode){'
         '_openFieldEditor(feature);}'
         '};\n'
@@ -2763,6 +2808,8 @@ def _build_html(
         'title="Drag to resize (double-click to reset)"></div>\n'
         '  <div id="sb-float"><button id="sb-show" type="button" title="Show sidebar (\\)">▶ Sidebar</button></div>\n'
         '  <div id="map"></div>\n'
+        '  <div id="ws-mode-chip" role="status" hidden><span id="ws-mode-label"></span>'
+        '<button id="ws-mode-cancel" type="button" title="Back to Select (Esc)">Esc</button></div>\n'
         '  <div id="route-panel" hidden>\n'
         '    <div id="route-panel-label"></div>\n'
         '    <div id="route-panel-time"></div>\n'
