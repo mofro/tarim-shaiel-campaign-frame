@@ -831,6 +831,17 @@ def _build_panel_travel_time() -> str:
 # not show (a Fantasy name equal to the title, an Icon override value off the list) and
 # deleted the line from the file. base is what the controls showed when the page opened;
 # cur is what they show now. Pure, so tests run it under node.
+_WS_LATLON_JS = r"""
+function _wsParseLatLon(q){
+  var m=/^\s*(-?\d+(?:\.\d+)?)\s*[,;\s]\s*(-?\d+(?:\.\d+)?)\s*$/.exec(q||"");
+  if(!m)return null;
+  var a=parseFloat(m[1]),b=parseFloat(m[2]);
+  if(Math.abs(a)<=90&&Math.abs(b)<=180)return {lat:a,lon:b};
+  if(Math.abs(b)<=90&&Math.abs(a)<=180)return {lat:b,lon:a};
+  return null;
+}
+"""
+
 _EF_DIFF_JS = r"""
 function _efDiff(base,cur){
   var out={};
@@ -1993,19 +2004,23 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Journey line popups (same text the player map shows); the working
         # journey in the Travel tab is drawn separately by tt-line
         map_style.journey_hover_js() +
-        '_locLayerIds.forEach(function(lyr){'
-        'map.on("click",lyr,function(e){'
-        'var p=e.features[0].properties;'
+        # One action for a location, whether the pin or its search result was clicked
+        'window._wsPinAction=function(feature){'
+        'var p=feature.properties;'
         'var slug=p._slug||p.slug||"";'
         'if(_activeTab==="travel-time"){'
-        'var coords=e.features[0].geometry.coordinates;'
+        'var coords=feature.geometry.coordinates;'
         'var name=p.title||p.label||slug||"";'
         '_ttSetPt(coords[0],coords[1],name,slug);return;}'
         'if(!slug)return;'
         'if(_activeTab==="reveal"){_rvToggleFromMap(slug);return;}'
         'if(_activeTab==="plan-route"){_addToQueue(slug);return;}'
         'if(_activeTab==="edit-coords"&&_editMode){'
-        '_openFieldEditor(e.features[0]);}'
+        '_openFieldEditor(feature);}'
+        '};\n'
+        '_locLayerIds.forEach(function(lyr){'
+        'map.on("click",lyr,function(e){'
+        '_wsPinAction(e.features[0]);'
         '});});\n'
 
         # Overlay toggle + opacity wiring (sessionStorage-persisted). The GM owns the
@@ -2494,6 +2509,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         + _REVEAL_JS +
 
         # -- Search / find-location widget --
+        _WS_LATLON_JS +
         'var _wsSearch=document.getElementById("ws-search");'
         'var _wsSearchDrop=document.getElementById("ws-search-drop");'
         'var _wsSearchGroups=['
@@ -2510,9 +2526,25 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.flyTo({center:[item.lon,item.lat],zoom:Math.max(map.getZoom(),8),duration:600});}'
         '_wsSearchDrop.hidden=true;_wsSearch.blur();}\n'
 
+        # Picking a result is clicking its pin: the active tab decides what that does
+        'function _wsPick(item){'
+        '_wsFlyTo(item);'
+        'if(!item)return;'
+        '_wsPinAction({properties:{slug:item.slug,title:item.title,label:item.label,'
+        'category:item.category,mapMarker:item.mapMarker,visibility:item.visibility},'
+        'geometry:{coordinates:[item.lon,item.lat]}});}\n'
+
+        'var _wsGoMarker=null;\n'
+        'function _wsGoTo(ll){'
+        'if(_wsGoMarker)_wsGoMarker.remove();'
+        '_wsGoMarker=new maplibregl.Marker({color:"#b8922c"}).setLngLat([ll.lon,ll.lat]).addTo(map);'
+        '_wsFlyTo({lat:ll.lat,lon:ll.lon});}\n'
+
         'function _wsRender(q){'
         'q=(q||"").trim().toLowerCase();'
         'var html="",total=0;'
+        'var ll=_wsParseLatLon(q);'
+        'if(ll){html+=\'<div class="wsd-group">Coordinates</div><div class="wsd-item" data-ll="\'+ll.lat+\',\'+ll.lon+\'">Go to \'+ll.lat+\', \'+ll.lon+\'</div>\';total++;}'
         '_wsSearchGroups.forEach(function(g){'
         'var items=_locList.filter(function(l){'
         'if(g.cats.indexOf(l.category)===-1)return false;'
@@ -2538,7 +2570,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '_wsSearchDrop.innerHTML=html;'
         '_wsSearchDrop.querySelectorAll(".wsd-item").forEach(function(el){'
         'el.addEventListener("click",function(){'
-        '_wsFlyTo(_locBySlug[el.dataset.slug]);});});}\n'
+        'if(el.dataset.ll){var c=el.dataset.ll.split(",");_wsGoTo({lat:+c[0],lon:+c[1]});return;}'
+        '_wsPick(_locBySlug[el.dataset.slug]);});});}\n'
 
         'if(_wsSearch){'
         '_wsSearch.addEventListener("focus",function(){_wsRender(_wsSearch.value);_wsSearchDrop.hidden=false;});'
