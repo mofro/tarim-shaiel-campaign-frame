@@ -6,7 +6,7 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-11-02
+last_updated: 2026-11-03
 ---
 
 # Creation Session Log
@@ -15,6 +15,14 @@ _Authoring and design work sessions. Newest first. Trim to last 10 sessions; old
 _Append new sessions here at session close. Do NOT append to TODO.md — that file is now archived._
 
 ---
+
+### Session 2026-11-03 (Session chronicles)
+- Session notes published to the site (#358, `HeroHeaven-gft`; #361): PR #360 (`c54827d`) generator, PR #362 (`ec252e6`) nav + homepage
+  - `sessions` generator publishes `Session_N_Player_Summary.md` (fail-closed: filename + `visibility: public` + `status: canon`) to `docs/sessions/index.html` and flat `session-N.html` pages; Sessions 0-3 content committed (`a48665b`)
+  - "Sessions" link after World in the header nav and mobile drawer; "Session Chronicles" card in the homepage Core Documents grid (`utilities/homepage/featured-docs.md`)
+  - PDFs are local only (headless Chrome), not committed; `.gitignore` untouched
+  - Open: `/newspaper/<issue>/index.html` has the same nested, vault-folder-named layout; flattening is a separate issue, not yet filed
+  - 32 failing tests on `main` are pre-existing (#359, `HeroHeaven-x9f`)
 
 ### Session 2026-11-02 (Workshop shell)
 - Map Workshop UX pass (#333, `HeroHeaven-fs8.1`): step 2 shipped as PR #348 (`b2036e0`), GH #347 / `HeroHeaven-fs8.1.1`
@@ -139,26 +147,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 - Pipeline PR #307 squash-merged (`d60163e`): the four workshop hint strings in `generate_map_workshop.py` (Add Location, Add Route and Edit Location panels, plus the "Devserver not running" banner) now say `venv/bin/python utilities/devserver.py`
 - Saved two zsh gotchas to the global CLAUDE.md and `bd remember`: never name a shell variable `path` (zsh ties it to `PATH`), and brace a variable before a colon (`${VAR}:refs/...`)
 - Deliberately left alone: `5208caa` (`.gitignore` +8 and the Session 0 awakening file) remains only on `feature/workshop-search-nav`; not pursued
-
-### Session 2026-10-20
-- LegendKeeper timeline pipeline — full sync operational (PR #305)
-  - Applied ancestry renames throughout `nianhao-the-divine-arc.md`: Orc→Tulpar, Elf→Serenvar, Goblin→Jivar, Dwarf/Dwarven→Khuban
-  - Fixed duplicate `last_updated` frontmatter key in the timeline file
-  - Corrected stale LK IDs in timeline frontmatter: project `cml606e6t0s8o0io13yhs8f1t`→`cmlmsqvco0vug0toncbom5qfh`, resource `xew0xgj2`→`qtmalwr6`
-  - Debugged and fixed three API errors in `generate_lk_json.py --push`:
-    - Cloudflare bot block (error 1010): added browser-like User-Agent header
-    - `WRONG_PROJECT` 403: old project ID in EXTERNAL_TOOLS.md; corrected via share URL
-    - `VALIDATION_ERROR` on PATCH: `type` field valid on POST but rejected on PATCH; removed from base payload
-  - Successful push: 27 events created, 31 updated, 27 deleted; all 4 Netlify deploys green
-  - Updated EXTERNAL_TOOLS.md: stale LK timeline link replaced with correct project/resource/doc IDs
-  - Next step: verify 9 SECRET events appear hidden in LK GM view, absent in player/share view → record in GH #213
-
-### Session 2026-09-02
-- Fixed "Regenerate Route" doing nothing when a connected location had been repositioned via Edit Coords
-  - Root cause: `generate_routes.py` always re-routed between a route's own stale stored coordinates; nothing ever resynced route endpoints to a moved location's current `.md` position
-  - Added `_resync_endpoints()` — looks up both of a route ID's location slugs, replaces stale endpoints with current coordinates when moved > 0.25km (haversine, not decimal rounding — avoids false-flagging every route from 4-vs-6-decimal precision noise between frontmatter and OSRM output)
-  - Found and fixed a second bug this exposed: OSRM silently snaps an endpoint with no nearby road/path data to a wrong nearby point instead of erroring; added a snap-tolerance check that falls back to a straight line between the real endpoints when this happens
-  - Added `--force` to bypass the routes cache (which previously stored failed OSRM lookups as permanent `None`); wired into the devserver's `/api/routes/{id}/regenerate` handler
-  - Regenerated 3 routes that were stale on disk: `route_spur_refugee-rill_redirect`, `route_spur_redirect_qizil`, `route_seg_apu-nengkapu_niye`
-  - Documented the Regenerate Route endpoint and its resync/fallback behavior in `lat.md/build-workflows.md` (previously undocumented) and added a note that Edit Coords does not cascade to connected routes
-  - Commits: `c42e491` (pipeline fix), `6eca685` (route data resync), `dea156f` (added missing `redirect.md` location stub)

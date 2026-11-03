@@ -915,3 +915,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** One inspector form serves New location and Editing X. The GM sees one classification, "Type"; "Category" survives only as the create endpoint's wire name. New locations default to `visibility: gm_secrets`. Advanced edits scalar frontmatter keys and shows lists and nested values read-only; Save sends only the keys the GM edited.
 - **Rationale:** Two forms for one record drifted apart and Edit Mode hid the default path. A block-list writer (option C) was deferred, not rejected: it ships as Part 2 so scalar editing is not held up by it.
 - **Lock status:** Working decision, not locked; locks when the PR merges.
+
+## 2026-11-03 — Sessions: flat session-N.html output, published from Player Summaries (#358, #361, HeroHeaven-gft)
+- **Decision:** `Session_N_Player_Summary.md` files that are `visibility: public` and `status: canon` publish to `docs/sessions/index.html` plus flat `docs/sessions/session-N.html`, linked from the nav (after World) and a homepage card. Slugs come from the session number, not the vault folder name.
+- **Rationale:** Fail-closed selection keeps drafts and GM material off all four sites. Flat files match the site's existing `/x.html` pages and decouple URLs from vault folders; the rejected alternative was one `index.html` per session folder. The newspaper keeps the nested layout for now.
+- **Lock status:** Locked (PR #360 `c54827d`, PR #362 `ec252e6`).
