@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 """
-Tarim-Shaiel Session Narrative HTML Generator
-==============================================
-Reads storyteller-produced narrative/sessions/<slug>/index.md files and
-renders each as docs/sessions/<slug>/index.html using the HeroHeaven design
-system.  Also generates a listing page at docs/sessions/index.html.
+Tarim-Shaiel Session Notes HTML Generator
+==========================================
+Renders each narrative/sessions/<folder>/Session_<N>_Player_Summary.md as
+docs/sessions/<folder>/index.html using the HeroHeaven design system, and
+generates a listing page at docs/sessions/index.html.
 
-Only processes directories whose index.md has `type: narrative-session` in
-its frontmatter — source/planning files (e.g. 00_session0/) are skipped.
+Selection is fail-closed.  A file is published only when ALL of these hold:
+  - its name is Session_<N>_Player_Summary.md
+  - frontmatter has `visibility: public`
+  - frontmatter has `status: canon`
+Anything else under narrative/sessions/ (GM material, drafts, scenario files)
+is skipped.
+
+The page title comes from the filename ("Session 1 — Player Summary"), not
+from the `title:` frontmatter.
 
 Usage (standalone):
     python utilities/sessions/generate_sessions_html.py
@@ -15,6 +22,12 @@ Usage (standalone):
 Via build.py:
     python utilities/build.py sessions
     python utilities/build.py sessions --standalone
+
+PDFs are not produced here (Netlify and CI carry no PDF toolchain).  Build the
+`--standalone` HTML and print it with headless Chrome:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \\
+        --disable-gpu --no-sandbox --no-pdf-header-footer \\
+        --print-to-pdf=<out.pdf> file://<standalone.html>
 """
 
 import re
@@ -28,40 +41,126 @@ SESSIONS_SRC = VAULT_ROOT / "narrative" / "sessions"
 
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 from shared.frontmatter import parse_frontmatter
-from shared.html_render import render_body
+from shared.html_render import render_body, AUDIO_EXTS
 from shared.renderer import render_page
 
+PLAYER_SUMMARY = re.compile(r"^Session_(\d+)_Player_Summary\.md$")
 
-def _display_title(fm: dict, slug: str) -> str:
-    """Derive a display title from frontmatter session field or slug."""
-    session = str(fm.get("session", ""))
-    if session:
-        # "2026-06-25 The Vault" → strip the leading date prefix
-        parts = session.split(" ", 1)
-        if len(parts) == 2 and re.match(r"\d{4}-\d{2}-\d{2}$", parts[0]):
-            return parts[1]
-        return session
-    return slug.replace("-", " ").title()
+# Heading and rule lines the renderer reads per blank-line-separated block: a
+# heading or `---` sitting directly against other lines is swallowed into that
+# block, so each is isolated first.
+_HEADING_LINE = re.compile(r"^(#{1,6}\s.*)$", re.MULTILINE)
+_RULE_LINE    = re.compile(r"^[ \t]*(?:-{3,}|\*{3,}|_{3,})[ \t]*$", re.MULTILINE)
+_NUMERIC_REF  = re.compile(r"&#(?:[xX]([0-9a-fA-F]{1,6})|([0-9]{1,7}));")
+_AUDIO_EMBED  = re.compile(
+    r"^!\[\[([^\]|]+?)(?:\|([^\]]*))?\]\][ \t]*$", re.MULTILINE
+)
+
+
+def _rel(p: Path) -> Path:
+    """Path relative to the vault when inside it (--out may point elsewhere)."""
+    try:
+        return p.relative_to(VAULT_ROOT)
+    except ValueError:
+        return p
+
+
+def player_summary_number(src: Path) -> int | None:
+    """Session number from a Session_<N>_Player_Summary.md filename, else None."""
+    m = PLAYER_SUMMARY.match(src.name)
+    return int(m.group(1)) if m else None
+
+
+def load_player_summary(src: Path) -> dict | None:
+    """Parse one candidate file; return None unless it may be published.
+
+    Returns {"number", "fm", "body"} for a public, canon Player Summary.
+    """
+    number = player_summary_number(src)
+    if number is None:
+        return None
+    fm, body = parse_frontmatter(src.read_text(encoding="utf-8"))
+    if str(fm.get("visibility", "")).strip().lower() != "public":
+        return None
+    if str(fm.get("status", "")).strip().lower() != "canon":
+        return None
+    return {"number": number, "fm": fm, "body": body}
+
+
+def session_title(number: int) -> str:
+    return f"Session {number} \u2014 Player Summary"
+
+
+def _split_lead_title(body: str, number: int) -> tuple[str, str]:
+    """Remove the leading "Session N" heading the page title already says.
+
+    Returns (subtitle, body).  "###### Session 0: Prologue" yields "Prologue";
+    a bare "# Session 1" yields "".  Only a heading at the very top of the body
+    is touched.
+    """
+    m = re.match(
+        rf"\s*#{{1,6}}[ \t]+\**[ \t]*Session[ \t]+{number}\b[ \t:\u2014\u2013-]*([^\n]*?)\**[ \t]*(?:\n|$)",
+        body,
+    )
+    if not m:
+        return "", body
+    return m.group(1).strip(" *"), body[m.end():]
+
+
+def _decode_numeric_refs(body: str) -> str:
+    """Decode &#x68; / &#104; character references.
+
+    Markdown allows them and the renderer escapes the '&', so left alone they
+    print literally.  The Session 1 export carries them as 'Volkat&#x68;**'s**'.
+    Text is HTML-escaped again by the renderer, so a decoded '<' stays inert.
+    """
+    def _char(m: re.Match) -> str:
+        code = int(m.group(1), 16) if m.group(1) else int(m.group(2))
+        return chr(code) if 0 < code <= 0x10FFFF else m.group(0)
+    return _NUMERIC_REF.sub(_char, body)
+
+
+def _audio_cue(m: re.Match) -> str:
+    """Turn a standalone audio embed into a plain-text cue, else leave it."""
+    target = m.group(1).strip()
+    if Path(target).suffix.lower() not in AUDIO_EXTS:
+        return m.group(0)
+    label = (m.group(2) or "").split("|")[0].strip() or Path(target).stem.replace("_", " ")
+    return f"*\u266a {label}*"
+
+
+def prepare_body(body: str, number: int) -> tuple[str, str]:
+    """Normalise a Player Summary body for render_body.
+
+    Returns (subtitle, body).  Audio files are not published, so an embedded
+    track becomes a text cue instead of a player that points at a missing file.
+    """
+    body = _decode_numeric_refs(body)
+    body = _HEADING_LINE.sub(r"\n\1\n", body)
+    body = _RULE_LINE.sub("\n---\n", body)
+    subtitle, body = _split_lead_title(body, number)
+    body = _AUDIO_EMBED.sub(_audio_cue, body)
+    return subtitle, body
 
 
 def generate_session_page(src: Path, out_dir: Path) -> dict | None:
-    """Render one session index.md → docs/sessions/<slug>/index.html.
+    """Render one Player Summary → docs/sessions/<folder>/index.html.
 
-    Returns a metadata dict for the listing page, or None if the file is not
-    a narrative-session (wrong type in frontmatter or no frontmatter).
+    Returns a metadata dict for the listing page, or None if the file may not
+    be published (wrong name, not public, not canon).
     """
-    raw = src.read_text(encoding="utf-8")
-    fm, body = parse_frontmatter(raw)
-
-    if fm.get("type") != "narrative-session":
+    loaded = load_player_summary(src)
+    if loaded is None:
         return None
 
+    number   = loaded["number"]
     slug     = src.parent.name
-    title    = _display_title(fm, slug)
-    date_str = str(fm.get("date", ""))
-    campaign = str(fm.get("campaign", "Tarim-Shaiel"))
+    title    = session_title(number)
+    campaign = str(loaded["fm"].get("campaign", "Tarim-Shaiel"))
 
-    body_html, _ = render_body(body, VAULT_ROOT, DOCS_DIR, gm_mode=False)
+    subtitle, body = prepare_body(loaded["body"], number)
+    body_html, _ = render_body(body, VAULT_ROOT, DOCS_DIR, gm_mode=False,
+                              keep_h1=True, ordered_lists=True)
 
     out = out_dir / slug / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -69,7 +168,7 @@ def generate_session_page(src: Path, out_dir: Path) -> dict | None:
     html = render_page(
         "pages/session.html",
         title=title,
-        date_str=date_str,
+        subtitle=subtitle,
         campaign=campaign,
         eyebrow="Session Chronicle",
         back_href="/sessions/index.html",
@@ -80,13 +179,16 @@ def generate_session_page(src: Path, out_dir: Path) -> dict | None:
     )
 
     out.write_text(html, encoding="utf-8")
-    print(f"  {out.relative_to(VAULT_ROOT)}")
-    return {"slug": slug, "title": title, "date": date_str, "campaign": campaign}
+    print(f"  {_rel(out)}")
+    return {
+        "number": number, "slug": slug, "title": title,
+        "subtitle": subtitle, "campaign": campaign,
+    }
 
 
 def generate_index_page(sessions: list[dict], out_dir: Path) -> None:
     """Render the sessions listing page at docs/sessions/index.html."""
-    sessions_sorted = sorted(sessions, key=lambda s: s["date"], reverse=True)
+    sessions_sorted = sorted(sessions, key=lambda s: s["number"], reverse=True)
 
     html = render_page(
         "pages/sessions-index.html",
@@ -100,13 +202,13 @@ def generate_index_page(sessions: list[dict], out_dir: Path) -> None:
     out = out_dir / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
-    print(f"  {out.relative_to(VAULT_ROOT)}")
+    print(f"  {_rel(out)}")
 
 
 def main() -> None:
     import argparse
     parser = argparse.ArgumentParser(
-        description="Generate session narrative HTML pages from storyteller output."
+        description="Generate session notes HTML pages from Player Summary files."
     )
     parser.add_argument(
         "--out", default=None,
@@ -121,13 +223,15 @@ def main() -> None:
         return
 
     sessions: list[dict] = []
-    for index_md in sorted(SESSIONS_SRC.glob("*/index.md")):
-        result = generate_session_page(index_md, out_dir)
+    for src in sorted(SESSIONS_SRC.glob("*/Session_*_Player_Summary.md")):
+        result = generate_session_page(src, out_dir)
         if result:
             sessions.append(result)
+        else:
+            print(f"  skipped {_rel(src)} (not public + canon, or not a Player Summary)")
 
     if not sessions:
-        print("sessions: no narrative-session index.md files found — nothing generated.")
+        print("sessions: no public, canon Session_N_Player_Summary.md files found — nothing generated.")
         return
 
     generate_index_page(sessions, out_dir)
@@ -141,6 +245,6 @@ if __name__ == "__main__":
 from shared.base_generator import make_generator
 generator = make_generator(
     "sessions",
-    "Render storyteller session narrative pages and listing index",
+    "Render public Session_N_Player_Summary pages and listing index",
     main,
 )

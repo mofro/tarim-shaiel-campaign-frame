@@ -4,7 +4,7 @@
 <div class="page-header">
   <div class="page-header-eyebrow">{{ eyebrow | default('Session Chronicle') }}</div>
   <h1>{{ title }}</h1>
-  <div class="page-header-meta">{{ date_str }}{% if campaign %} &middot; {{ campaign }}{% endif %}</div>
+  <div class="page-header-meta">{% if subtitle %}{{ subtitle }}{% if campaign %} &middot; {% endif %}{% endif %}{{ campaign }}</div>
 </div>
 {% endblock %}
 
@@ -13,5 +13,5 @@
 {% endblock %}
 
 {% block credits %}
-    Tarim-Shaiel &middot; Session Chronicle &middot; {{ title }} &middot; {{ date_str }}
+    Tarim-Shaiel &middot; Session Chronicle &middot; {{ title }}
 {% endblock %}
