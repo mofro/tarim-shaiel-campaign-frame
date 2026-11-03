@@ -321,7 +321,7 @@ def _tui_location() -> int:
     slugs = _load_location_slugs()
     print(f"  {dim('Tab to complete region slug.')}")
     region  = _prompt_slug("Region slug", slugs)
-    vis     = _prompt_slug("Visibility", ["public", "gm_secrets"], "public")
+    vis     = _prompt_slug("Visibility", ["public", "gm_secrets"], "gm_secrets")
     desc    = _prompt("Description", "PLACEHOLDER — location pending. Prose pass pending.")
 
     args = ["--name", name, "--lat", lat, "--lon", lon, "--category", cat,

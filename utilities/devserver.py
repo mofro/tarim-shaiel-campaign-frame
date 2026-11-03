@@ -33,6 +33,7 @@ Endpoints:
 """
 
 import http.server
+import datetime
 import json
 import os
 import re
@@ -237,6 +238,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
                 self.send_error(403, "Journeys are only accessible from localhost")
                 return
             self._respond(*_journey_list())
+        elif re.match(r"^/api/locations/[^/?]+/frontmatter(?:\?.*)?$", self.path):
+            if not self._is_local():
+                self.send_error(403, "Frontmatter is only accessible from localhost")
+                return
+            self._get_frontmatter(re.match(r"^/api/locations/([^/?]+)/", self.path).group(1))
         elif self.path.startswith("/api/maptiler-proxy"):
             self._maptiler_proxy()
         else:
@@ -437,15 +443,19 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         print(f"  Updated: {rel}  [{lat}, {lon}]")
         self._json({"ok": True, "file": rel, "lat": lat, "lon": lon})
 
+    def _get_frontmatter(self, slug: str):
+        md_path = _find_slug(slug)
+        if md_path is None:
+            return self._json({"ok": False, "error": f"slug not found: {slug}"}, 404)
+        listing = _frontmatter_listing(md_path.read_text(encoding="utf-8"))
+        self._json({"ok": True, **listing})
+
     def _patch_frontmatter(self, slug: str):
-        ALLOWED = {"name", "fantasy_name", "type", "map_icon", "mapmarker", "visibility"}
         try:
-            data = self._read_json()
+            fields = self._read_json()
         except Exception:
             return self.send_error(400, "Invalid JSON body")
-
-        fields = {k: v for k, v in data.items() if k in ALLOWED}
-        if not fields:
+        if not isinstance(fields, dict) or not fields:
             return self._json({"ok": False, "error": "no recognised fields"}, 400)
 
         md_path = _find_slug(slug)
@@ -453,6 +463,9 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             return self._json({"ok": False, "error": f"slug not found: {slug}"}, 404)
 
         text = md_path.read_text(encoding="utf-8")
+        err = _advanced_field_error(text, fields)
+        if err:
+            return self._json({"ok": False, "error": err}, 400)
         updated = _set_frontmatter_fields(text, fields)
 
         tmp = md_path.with_suffix(".tmp")
@@ -487,30 +500,11 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         try:
             data = self._read_json()
             name = str(data.get("name", "")).strip()
-            lat  = float(data["lat"])
-            lon  = float(data["lon"])
-            cat  = str(data.get("category", "")).strip()
+            cmd = _create_location_cmd(data)
         except (ValueError, KeyError, TypeError):
             return self.send_error(400, 'Body must include name, lat, lon, category')
-        if not name or not cat:
+        if not name or not str(data.get("category", "")).strip():
             return self._json({"ok": False, "error": "name and category are required"}, 400)
-
-        cmd = [
-            sys.executable, str(VAULT_ROOT / "utilities" / "map.py"), "location",
-            "--name", name, "--lat", str(lat), "--lon", str(lon), "--category", cat,
-        ]
-        fantasy = str(data.get("fantasy_name", "")).strip()
-        if fantasy:
-            cmd += ["--fantasy-name", fantasy]
-        region = str(data.get("region", "")).strip()
-        if region:
-            cmd += ["--region", region]
-        vis = str(data.get("visibility", "public")).strip()
-        if vis:
-            cmd += ["--visibility", vis]
-        desc = str(data.get("description", "")).strip()
-        if desc:
-            cmd += ["--description", desc]
 
         print(f"  Creating location: {name!r} ...")
         result = subprocess.run(cmd, capture_output=True, text=True, cwd=str(VAULT_ROOT))
@@ -668,6 +662,30 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
 # Frontmatter helpers
 # ---------------------------------------------------------------------------
 
+def _create_location_cmd(data: dict) -> list:
+    """The `map.py location` command for a create request. A new page is GM-only until
+    the GM says otherwise: publishing is the deliberate step, not the default."""
+    cmd = [
+        sys.executable, str(VAULT_ROOT / "utilities" / "map.py"), "location",
+        "--name", str(data.get("name", "")).strip(),
+        "--lat", str(float(data["lat"])), "--lon", str(float(data["lon"])),
+        "--category", str(data.get("category", "")).strip(),
+    ]
+    fantasy = str(data.get("fantasy_name", "")).strip()
+    if fantasy:
+        cmd += ["--fantasy-name", fantasy]
+    region = str(data.get("region", "")).strip()
+    if region:
+        cmd += ["--region", region]
+    vis = str(data.get("visibility", "gm_secrets")).strip()
+    if vis:
+        cmd += ["--visibility", vis]
+    desc = str(data.get("description", "")).strip()
+    if desc:
+        cmd += ["--description", desc]
+    return cmd
+
+
 def _find_slug(slug: str) -> "Path | None":
     for p in LOCATIONS_DIR.rglob("*.md"):
         if p.stem == slug:
@@ -727,17 +745,98 @@ def _yaml_scalar(value) -> str:
         not s
         or s.lower() in ("true", "false", "null", "~", "yes", "no", "on", "off")
         or any(c in s for c in ":#\n[]{}|>&*!,%@`'\"")
+        # A string that reads as a number must stay a string; a real number arrives typed.
+        or (isinstance(value, str) and re.fullmatch(r"[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?", s))
     )
     if needs_quote:
-        return '"' + s.replace('\\', '\\\\').replace('"', '\\"') + '"'
+        escaped = s.replace('\\', '\\\\').replace('"', '\\"').replace("\n", "\\n")
+        return '"' + escaped + '"'
     return s
+
+
+# Keys the form shows as fields of their own, and keys the file's structure depends on.
+_CORE_FM = {"name", "title", "fantasy_name", "type", "map_icon", "mapmarker", "visibility"}
+_PROTECTED_FM = {"location", "project", "domain", "doc_type", "content_type", "created", "last_updated"}
+
+
+def _is_scalar(v) -> bool:
+    return v is None or isinstance(v, (str, int, float, bool, datetime.date))
+
+
+def _jsonable(v):
+    if isinstance(v, datetime.date):
+        return v.isoformat()
+    if isinstance(v, list):
+        return [_jsonable(x) for x in v]
+    if isinstance(v, dict):
+        return {str(k): _jsonable(x) for k, x in v.items()}
+    return v
+
+
+def _load_frontmatter(text: str):
+    """The parsed frontmatter mapping, or None when there is none or it does not parse."""
+    import yaml
+    m = re.match(r"^---\n(.*?\n)---\n", text, re.DOTALL)
+    if not m:
+        return None
+    try:
+        d = yaml.safe_load(m.group(1))
+    except yaml.YAMLError:
+        return None
+    return d if isinstance(d, dict) else None
+
+
+def _frontmatter_listing(text: str) -> dict:
+    """Everything the inspector's Advanced section shows. `scalars` can be edited;
+    `readonly` (lists, nested values, structural keys) is shown and never written."""
+    fm = _load_frontmatter(text)
+    if fm is None:
+        return {"scalars": {}, "readonly": {}}
+    scalars, readonly = {}, {}
+    for k, v in fm.items():
+        k = str(k)
+        if k in _CORE_FM:
+            continue
+        if k in _PROTECTED_FM or not _is_scalar(v):
+            readonly[k] = _jsonable(v)
+        else:
+            scalars[k] = _jsonable(v)
+    return {"scalars": scalars, "readonly": readonly}
+
+
+def _advanced_field_error(text: str, fields: dict) -> "str | None":
+    """Why a frontmatter PATCH must be refused, or None. The line writer handles one
+    scalar per key: a list or nested value, a structural key, or a key that is a list in
+    this file would be corrupted by it, so those are never written."""
+    fm = _load_frontmatter(text)
+    if fm is None:
+        return "frontmatter missing or unparsable"
+    for k, v in fields.items():
+        if not isinstance(k, str) or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", k):
+            return f"invalid key: {k!r}"
+        if not _is_scalar(v):
+            return f"{k}: only single values can be written"
+        if k in _CORE_FM:
+            continue
+        if k in _PROTECTED_FM:
+            return f"{k}: not editable here"
+        if k in fm and not _is_scalar(fm[k]):
+            return f"{k}: list or nested value, read-only"
+    return None
+
+
+# Lines that belong to the key above them: an indented continuation (a folded or literal
+# block scalar, or a wrapped plain scalar), blank lines inside one included. Replacing or
+# deleting a key must take these with it, or half of the old value is left behind.
+_CONT = r"(?:[ \t]+[^\n]*\n|[ \t]*\n(?=(?:[ \t]*\n)*[ \t]+\S))*"
 
 
 def _set_frontmatter_fields(text: str, fields: dict) -> str:
     """Patch named scalar fields in YAML frontmatter.
 
-    Handles name, fantasy_name, type, map_icon, mapmarker, visibility.
-    Uses regex line-replacement so block scalars elsewhere are untouched.
+    Handles the core keys (name, fantasy_name, type, map_icon, mapmarker, visibility) and
+    any other scalar key the Advanced section edits.
+    Uses regex line-replacement so every other line, comments and lists included, is untouched.
     Setting map_icon also removes the older map_marker: line, which would otherwise go
     on hiding the pin after the GM chose another icon.
     """
@@ -755,18 +854,18 @@ def _set_frontmatter_fields(text: str, fields: dict) -> str:
             scalar = _yaml_scalar(value)
             new_title = f"title: {scalar}\n"
             new_name  = f"name: {scalar}\n"
-            fm, found = _replace_first(fm, r"^title:[^\n]*\n", new_title)
+            fm, found = _replace_first(fm, r"^title:[^\n]*\n" + _CONT, new_title)
             if not found:
-                fm, found = _replace_first(fm, r"^name:[^\n]*\n", new_name)
+                fm, found = _replace_first(fm, r"^name:[^\n]*\n" + _CONT, new_name)
             if not found:
                 fm += new_title
         elif value is None:
             # Remove field entirely
-            fm = re.sub(rf"^{re.escape(key)}:[^\n]*\n", "", fm, flags=re.MULTILINE)
+            fm = re.sub(rf"^{re.escape(key)}:[^\n]*\n" + _CONT, "", fm, flags=re.MULTILINE)
         else:
             scalar = _yaml_scalar(value)
             new_line = f"{key}: {scalar}\n"
-            fm, found = _replace_first(fm, rf"^{re.escape(key)}:[^\n]*\n", new_line)
+            fm, found = _replace_first(fm, rf"^{re.escape(key)}:[^\n]*\n" + _CONT, new_line)
             if not found:
                 fm += new_line
 
