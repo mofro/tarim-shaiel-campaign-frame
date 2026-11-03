@@ -25,7 +25,7 @@ The mixed band — Tulpar-shoulders wedged against human shoulders, tusks and ir
 
 Her hands closed on nothing. Her jaw set. Bearing witness.
 
-"I must end this," she thought, weight shifting forward, the muscles of her legs already committed to the dive that would carry her down through a thousand feet of screaming air and into the middle of that dying ring, sword first, mercy after.
+"I must end this," she thought, weight shifting forward, the muscles of her legs already committed to the dive that would carry her down through a thousand feet of screaming air and into the middle of that dying ring, a rain of wings, arrows, and fury **first**, mercy after.
 
 Reizan's hand found her shoulder before her feet left the stone.
 It was not an overly strong grip. He'd never needed to show strength; his hands had always carried something heavier than force, some old patience worn into the calluses, and it stopped her more completely with it's tenderness. She turned on him, wings flaring half open, the question already sharp in her throat — and found no argument waiting in his face. Only sympathy, old and tired and entirely without apology, and beneath it something worse: certainty.

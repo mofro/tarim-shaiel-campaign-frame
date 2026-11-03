@@ -11,7 +11,9 @@ last_updated: 2026-11-02
 tags: [session2, summary, player-facing]
 ---
 
-# Session 2 — Rabati Malik
+# Session 2
+
+## The Consequences of Chains
 
 Session 2 picked up exactly where Session 1 ended: Imperial riders on the road to Rabati Malik, an ambush waiting for them in the city streets, and a party with two jobs to do and no time to spare. Ariel and Reizan, the latter in animal shape, flew to intercept Captain Idris Kaan before he rode into the trap, while Rill and Cal rode hard for the city to find it. Sahir was left at the gates. The ambush never happened. Kaan agreed to wait and see, Temir's crew was argued out of its plan, and the whole affair ended as an official misunderstanding, with Volkath sending the party on its way with supplies, a cart and horses, and three of his own people. Ariel then went after Veyra, who agreed to travel with the group for a while. The session closed with a stranger gone into the dark and a coin that would not stop spinning.
 
@@ -19,7 +21,7 @@ Session 2 picked up exactly where Session 1 ended: Imperial riders on the road t
 
 1. **Intercepting the Riders**
 
-Ariel and Reizan, who had taken an animal's shape for the journey, flew out to intercept the Imperial riders before they reached the city. Their leader, Captain Idris Kaan, had come to carry out a threat and recoup the tariffs he was owed, and pressing on was his duty. Ariel told him that violence was waiting in Rabati Malik, and that it could be avoided. It took time, but she slowly convinced him, and despite everything he was obliged to do, he saw fit to believe her.
+Ariel and Reizan, who had taken an animal's shape for the journey, flew out to intercept the Imperial riders before they reached the city. Their leader, Captain Idris Kaan, had come to carry out a threat and recoup the tariffs he was owed, and pressing on was his duty. Ariel told him that violence was waiting in Rabati Malik, and that it could be avoided. The captain's initial hesitancy was a cause for concern and sparked [[Bearing Witness|a moment of doubt for Ariel]]. It took time, but she slowly convinced him, and despite everything he was obliged to do, he saw fit to believe her.
 
 2. **The Captain's Terms**
 
