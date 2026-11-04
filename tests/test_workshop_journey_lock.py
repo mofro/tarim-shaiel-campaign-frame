@@ -111,3 +111,24 @@ def test_clicking_a_journey_line_loads_it_only_when_not_mid_edit():
 def test_saved_row_name_is_clickable_and_unlocked_word_is_green():
     assert '.querySelector(".tt-saved-name").addEventListener("click"' in SOURCE
     assert ".tt-lockword.open" in SOURCE
+
+
+def test_other_work_displaces_the_loaded_journey():
+    """A clean journey unloads, a dirty one only relocks; leaving the tab relocks."""
+    assert "function _ttStepAside(){" in SOURCE
+    body = SOURCE.split("function _ttStepAside(){")[1].split("}\n")[0]
+    assert "if(_ttDirty)_ttRelock();else _ttClear();" in body
+    relock = SOURCE.split("function _ttRelock(){")[1].split("}\n")[0]
+    assert "fetch" not in relock  # local only, never PATCHed
+    assert "_ttStepAside();'\n        '_selectedRouteId=" in SOURCE
+    assert "'_ttStepAside();'\n        '_openFieldEditor(feature);'" in SOURCE
+    assert 'if(_wsMode==="place"&&typeof _ttStepAside==="function")_ttStepAside();' in SOURCE
+    assert 'if(tab!=="travel-time"&&typeof _ttRelock==="function")_ttRelock();' in SOURCE
+
+
+def test_journey_line_click_works_from_any_tab_and_pins_routes_win():
+    assert '_setTab("travel-time");}' in SOURCE
+    assert "_onPin" in SOURCE and "_onRt" in SOURCE
+    assert 'else if(_activeTab==="travel-time"&&!_onPin)_ttSetPt(' in SOURCE
+    # a locked loaded journey no longer adds stops from a pin click
+    assert '_activeTab==="travel-time"&&!(_ttJid&&_ttLocked)' in SOURCE

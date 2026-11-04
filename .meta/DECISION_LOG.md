@@ -940,3 +940,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** A journey carries a `locked` flag (absent means locked). Locked blocks marker drag, add/remove stop, leg mode/path changes, name edits and Delete; Save re-locks. A new unsaved journey is editable.
 - **Rationale:** Accidental marker drags moved stops. Per-journey vs one global toggle collapsed to one control because the Workshop holds one journey at a time.
 - **Lock status:** Working decision, not locked (PR open for review).
+
+## 2026-11-04 — Map: a journey is selected from any tab and displaced by other work (#373, HeroHeaven-60t)
+- **Decision:** Clicking a journey line from any tab switches to Journeys and loads it locked, as routes switch to the Inspector; a pin or route under the click wins, place mode is left alone. Selecting a route or pin, entering place mode, or picking a search result displaces the loaded journey: a clean one unloads, one with unsaved changes only relocks and stays loaded; leaving the Journeys tab only relocks. Auto-relock is local and never PATCHes the saved flag. On the Journeys tab a pin click while a saved journey is locked selects the location; unlocked or new journeys still add stops.
+- **Rationale:** Journeys were the one selectable thing that behaved differently from routes. Unloading a dirty journey on a stray click would lose work, so it relocks instead.
+- **Lock status:** Working decision, not locked (PR #375 open for review).

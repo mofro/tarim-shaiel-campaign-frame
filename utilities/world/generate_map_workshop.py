@@ -967,6 +967,7 @@ window._wsSetMode=function(ev,tab){
     chip.hidden=_wsMode==="select";
     document.getElementById("ws-mode-label").textContent=_WS_MODE_LABEL[_wsMode]||"";
   }
+  if(_wsMode==="place"&&typeof _ttStepAside==="function")_ttStepAside();
   document.body.classList.toggle("mode-place",_wsMode==="place");
   document.body.classList.toggle("mode-route",_wsMode==="route");
   document.querySelectorAll("[data-arm]").forEach(function(b){
@@ -1761,6 +1762,16 @@ function _ttToggleLock(){
     _ttSay(want?"Locked.":"Unlocked. Save re-locks it.");})
   .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});}
 
+// Another kind of work took over (a route, a pin, place mode, another tab). The
+// loaded journey steps aside: a clean one unloads, one with unsaved changes
+// stays loaded but locks. Local only, the saved lock flag is the user's to change.
+function _ttRelock(){
+  if(!_ttJid||_ttLocked)return;
+  _ttLocked=true;_ttApplyLock();_ttRenderState();}
+function _ttStepAside(){
+  if(!_ttJid)return;
+  if(_ttDirty)_ttRelock();else _ttClear();}
+
 function _ttRender(){
   var list=_ttEl("tt-stops-list");
   if(!list)return;
@@ -2091,6 +2102,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Clear Tab 2 highlights when switching away
         'if(tab!=="route-index")_clearHighlights();'
         'if(tab!=="inspector"&&window._msClear)window._msClear();'
+        'if(tab!=="travel-time"&&typeof _ttRelock==="function")_ttRelock();'
         '}\n'
         'document.querySelectorAll(".tab-btn").forEach(function(b){'
         'b.addEventListener("click",function(){_setTab(b.dataset.tab);});});\n'
@@ -2317,10 +2329,17 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[f]});'
         '});\n'
         'map.on("click",function(e){'
-        'if(_activeTab==="travel-time"&&!map.queryRenderedFeatures(e.point,{layers:_locLayerIds||[]}).length){'
-        'var _jh=(_ttLocked||!_ttStops.length)?map.queryRenderedFeatures(e.point,{layers:["journeys-hit"]}):[];'
-        'if(_jh.length&&_ttFind(_jh[0].properties.id))_ttLoad(_jh[0].properties.id);'
-        'else _ttSetPt(e.lngLat.lng,e.lngLat.lat,null);}'
+        'var _onPin=map.queryRenderedFeatures(e.point,{layers:_locLayerIds||[]}).length;'
+        'var _onRt=map.queryRenderedFeatures(e.point,{layers:["routes"]}).length;'
+        'var _idle=(_wsMode==="select"||_activeTab==="travel-time"&&_wsMode!=="place")&&!window._wsJustPlaced;'
+        'var _jh=(!_onPin&&_idle&&(_activeTab!=="travel-time"||(!_onRt&&(_ttLocked||!_ttStops.length))))?'
+        'map.queryRenderedFeatures(e.point,{layers:["journeys-hit"]}):[];'
+        'if(_jh.length&&_ttFind(_jh[0].properties.id)){'
+        'if(_activeTab!=="travel-time"){'
+        'if(_efSlug!==null||_efDirty()){if(!_efConfirmDiscard())return;_efReset();}'
+        '_setTab("travel-time");}'
+        '_ttLoad(_jh[0].properties.id);}'
+        'else if(_activeTab==="travel-time"&&!_onPin)_ttSetPt(e.lngLat.lng,e.lngLat.lat,null);'
         'if(!map.queryRenderedFeatures(e.point,{layers:["routes"]}).length){'
         'if(map.getSource("route-selected")){'
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[]});}'
@@ -2367,13 +2386,14 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var slug=p._slug||p.slug||"";'
         'if(_wsMode==="place"||window._wsJustPlaced)return;'
         'if(_wsMode==="route"){if(slug)_addToQueue(slug);return;}'
-        'if(_activeTab==="travel-time"){'
+        'if(_activeTab==="travel-time"&&!(_ttJid&&_ttLocked)){'
         'var coords=feature.geometry.coordinates;'
         'var name=p.title||p.label||slug||"";'
         '_ttSetPt(coords[0],coords[1],name,slug);return;}'
         'if(!slug)return;'
         'if(ev&&(ev.shiftKey||ev.ctrlKey||ev.metaKey)&&_activeTab==="inspector"){_msToggle(slug);return;}'
         'if(_msSel.length)window._msClear();'
+        '_ttStepAside();'
         '_openFieldEditor(feature);'
         '};\n'
         '_locLayerIds.forEach(function(lyr){'
@@ -2571,6 +2591,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '}\n'
         'function _showRoutePanel(feature){'
         'if(_efSlug!==null||_efDirty()){if(!_efConfirmDiscard())return false;_efReset();}'
+        '_ttStepAside();'
         '_selectedRouteId=feature.id||feature.properties._route_id||"";'
         '_refreshRoutePanel();'
         'document.getElementById("route-panel").hidden=false;'
