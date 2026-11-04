@@ -6,7 +6,7 @@ doc_type: operational
 visibility: internal
 status: active
 created: 2026-05-06
-last_updated: 2026-11-03
+last_updated: 2026-11-04
 ---
 
 # Creation Session Log
@@ -16,12 +16,19 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-11-04 (Newspaper flat output)
+- Newspaper flattened to `/newspaper/<slug>.html` (#368, `HeroHeaven-cg9`): PR #370 (`2d1d1a7`)
+  - Slug is the `slug:` field in `manifest.md` (else the folder name); invalid, duplicate or `index` slugs fail the build; issue 0002 is `session-0-convergence`
+  - 301 in `netlify.toml` from `/newspaper/0002-session-0-convergence/`; flat pages and redirect verified on all four deploy previews
+  - 16 new tests in `tests/test_newspaper_generator.py`; suite failures unchanged from `main` (zqo covers the `test_lore_generator` import error)
+  - Branch `infra/newspaper-flat-slug` kept: two later commits (a Workshop spacing commit and its revert) sit on it, so its head is not the merged head
+
 ### Session 2026-11-03 (Session chronicles)
 - Session notes published to the site (#358, `HeroHeaven-gft`; #361): PR #360 (`c54827d`) generator, PR #362 (`ec252e6`) nav + homepage
   - `sessions` generator publishes `Session_N_Player_Summary.md` (fail-closed: filename + `visibility: public` + `status: canon`) to `docs/sessions/index.html` and flat `session-N.html` pages; Sessions 0-3 content committed (`a48665b`)
   - "Sessions" link after World in the header nav and mobile drawer; "Session Chronicles" card in the homepage Core Documents grid (`utilities/homepage/featured-docs.md`)
   - PDFs are local only (headless Chrome), not committed; `.gitignore` untouched
-  - Open: `/newspaper/<issue>/index.html` has the same nested, vault-folder-named layout; flattening is a separate issue, not yet filed
+  - Newspaper flattening followed as #368 (see the 2026-11-04 entry)
   - 32 failing tests on `main` are pre-existing (#359, `HeroHeaven-x9f`)
 
 ### Session 2026-11-02 (Workshop shell)

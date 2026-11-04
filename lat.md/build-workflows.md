@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-11-03
+last_updated: 2026-11-04
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -34,6 +34,7 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 | Change the Type of many location pages from a CSV | `venv/bin/python utilities/map.py retype SHEET.csv --dry-run`, then without `--dry-run` (see "Retyping locations" below) |
 | Session notes (HTML) from `Session_N_Player_Summary.md` → `docs/sessions/` | `python utilities/build.py sessions` (runs in `all`; publishes only `visibility: public` + `status: canon`; output `index.html` + `session-N.html`) |
 | Session notes as PDF (local only, not committed) | build `sessions`, then headless Chrome `--print-to-pdf` on each page (see #358) |
+| Newspaper issues → `docs/newspaper/` | `python utilities/build.py newspaper` (one `<slug>.html` per issue plus `index.html`; slug is the `slug:` field in the issue's `manifest.md`, else the folder name; invalid or duplicate slugs fail the build) |
 | See all registered generators | `python utilities/build.py list` |
 
 ---
@@ -268,4 +269,5 @@ Add a feature directly to the file. A 2-point segment (start → end only) is fl
 - [#292](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/292) — This workflow doc + workshop registration
 - [#293](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/293) — Route-from-points builder (workshop feature)
 - [#358](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/358) / [#361](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/361) — Sessions generator, nav link and homepage card
+- [#368](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/368) — Newspaper flat output, manifest slug, redirect for the old issue URL
 - [#294](https://github.com/mofro/tarim-shaiel-campaign-frame/issues/294) — Drag-to-update coordinates + local devserver

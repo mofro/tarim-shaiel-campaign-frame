@@ -925,3 +925,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** Visibility changes on several locations happen through a batch bar over the selection; the Reveal tab is retired.
 - **Rationale:** Reveal was one operation on a shared visibility field, so a separate tab split one concept across two places. Rejected: keeping Reveal as a fourth mode, which would add a tab for an action the inspector already covers.
 - **Lock status:** Locked (shipped, PR #365).
+
+## 2026-11-04 — Site: Newspaper flat output with a manifest slug (#368, HeroHeaven-cg9)
+- **Decision:** Newspaper issues publish as `/newspaper/<slug>.html`. The slug is the `slug:` field in the issue's `manifest.md` (lowercase kebab-case), falling back to the folder name. An invalid, duplicate or `index` slug fails the build. A 301 in `netlify.toml` keeps the one pre-flatten URL (`/newspaper/0002-session-0-convergence/`) alive; issue 0002's slug is `session-0-convergence`.
+- **Rationale:** URLs should not depend on vault folder names. Rejected the folder-name slug (still coupled to the vault) and a number-only slug (the `issueNo` display string is "No. 00", not a stable key).
+- **Lock status:** Locked (shipped, PR #370).
