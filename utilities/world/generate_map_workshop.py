@@ -637,6 +637,13 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
   font-weight:bold; }
 .tt-state { font-size: var(--fs-2); color:var(--muted); margin-bottom:6px; min-height:14px; }
 .tt-state b { color:var(--warn); font-weight:normal; }
+#tt-actions { flex-wrap:nowrap; gap:6px; align-items:center; }
+#tt-actions .btn { padding:8px 10px; white-space:nowrap; }
+#tt-actions #tt-lock-btn { color:#8fd18f; background:transparent; border:none; padding:6px 4px; min-width:0; }
+#tt-actions #tt-lock-btn.armed { color:#f0877a; background:transparent; }
+.tt-lockword { color:#f0877a; text-decoration:line-through; }
+.tt-lockword.open { color:#8fd18f; text-decoration:none; }
+#tt-lock-btn svg { width:18px; height:18px; display:block; margin:0 auto; }
 .tt-stops-list { display:flex; flex-direction:column; gap:0; }
 .tt-stop-row { display:flex; align-items:center; gap:6px; padding:4px 6px;
   background:#1a1408; border-radius:3px; border:1px solid rgba(184,146,44,0.12);
@@ -669,7 +676,7 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
   background:#1a1408; border:1px solid rgba(184,146,44,0.12); border-radius:3px;
   font-size: var(--fs-2); color:#c8b87a; }
 .tt-saved-row.current { border-color:rgba(232,160,96,0.55); }
-.tt-saved-name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tt-saved-name { cursor:pointer; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tt-saved-meta { color:var(--muted); font-size: var(--fs-2); white-space:nowrap; }
 .tt-saved-meta.gm { color:#b08a58; }
 .tt-saved-row button { background:none; border:1px solid rgba(184,146,44,0.25); color:var(--muted);
@@ -892,16 +899,17 @@ def _build_panel_travel_time() -> str:
   <label for="tt-name">Journey name</label>
   <input id="tt-name" type="text" maxlength="__TT_MAX_NAME__" placeholder="e.g. Spring caravan to Merv" autocomplete="off">
 </div>
-<div class="field-group" style="margin-top:2px;">
+<div class="field-group" style="margin-top:12px;">
   <label for="tt-vis">Visible to players</label>
   <select id="tt-vis">
     <option value="gm_secrets">GM only</option>
     <option value="public">Players (once every stop is public)</option>
   </select>
 </div>
-<div class="btn-row" style="margin-top:4px;">
+<div id="tt-actions" class="btn-row" style="margin-top:14px;">
+  <button id="tt-lock-btn" class="btn btn-sm" aria-pressed="false" aria-label="Lock journey" title="Lock journey"></button>
   <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
-  <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
+  <button id="tt-saveas-btn" class="btn btn-sm" hidden>Create new</button>
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
 </div>
 </div>
@@ -959,6 +967,7 @@ window._wsSetMode=function(ev,tab){
     chip.hidden=_wsMode==="select";
     document.getElementById("ws-mode-label").textContent=_WS_MODE_LABEL[_wsMode]||"";
   }
+  if(_wsMode==="place"&&typeof _ttStepAside==="function")_ttStepAside();
   document.body.classList.toggle("mode-place",_wsMode==="place");
   document.body.classList.toggle("mode-route",_wsMode==="route");
   document.querySelectorAll("[data-arm]").forEach(function(b){
@@ -1384,6 +1393,11 @@ var _ttLegs=[];
 var _ttMarkers=[];
 var _ttDefMode=_TT.defaultMode,_ttDefPath=_TT.defaultPath;
 var _ttJid=null,_ttDirty=false,_ttSeq=0,_ttArmed=null,_ttArmTimer=null;
+// Locked journeys refuse every edit that changes stops, legs or name. Saved
+// journeys load locked; a new, unsaved one starts editable.
+var _ttLocked=false;
+var _TT_ICON_LOCKED='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>';
+var _TT_ICON_OPEN='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.2"/><path d="M5.2 7V3.6a3 3 0 0 1 5.6-1.5"/></svg>';
 var _ttColors=["#3a6a3a","#3a4a8a","#7a3a3a","#6a5a20","#4a2a7a","#206a60","#7a4a20"];
 
 function _ttEl(id){return document.getElementById(id);}
@@ -1393,6 +1407,10 @@ function _ttEsc(s){
 function _ttSay(msg){var e=_ttEl("tt-status");if(e)e.textContent=msg||"";}
 function _ttIsFly(m){var s=_TT.speeds[m];return !!(s&&s.fly);}
 function _ttMarkDirty(){_ttDirty=true;}
+function _ttGuard(){
+  if(!_ttLocked)return false;
+  _ttSay("This journey is locked. Click Unlock to edit it.");
+  return true;}
 
 // Same arithmetic as travel_time.segment_hours: fliers ignore the path factor.
 function _ttHours(leg){
@@ -1603,6 +1621,7 @@ function _ttRecalc(i){
   _ttSetLegGeom(i);}
 
 function _ttSetMode(i,mode){
+  if(_ttGuard())return;
   var leg=_ttLegs[i];
   if(!leg||!_TT.speeds[mode])return;
   var rebuild=_ttApplyMode(leg,mode);
@@ -1610,6 +1629,7 @@ function _ttSetMode(i,mode){
   if(rebuild)_ttSetLegGeom(i);else _ttRender();}
 
 function _ttSetPath(i,path){
+  if(_ttGuard())return;
   var leg=_ttLegs[i];
   if(!leg||_ttIsFly(leg.mode)||leg.path===path)return;
   leg.path=path;
@@ -1620,7 +1640,7 @@ function _ttSetPath(i,path){
 function _ttAddMarker(i){
   var s=_ttStops[i];
   var el=_ttPinEl(i+1,_ttColors[i%_ttColors.length]);
-  var mk=new maplibregl.Marker({element:el,draggable:true}).setLngLat([s.lng,s.lat]).addTo(map);
+  var mk=new maplibregl.Marker({element:el,draggable:!_ttLocked}).setLngLat([s.lng,s.lat]).addTo(map);
   mk.on("dragend",function(){
     var idx=_ttMarkers.indexOf(mk);
     if(idx<0)return;
@@ -1633,6 +1653,7 @@ function _ttAddMarker(i){
   _ttMarkers.push(mk);}
 
 function _ttSetPt(lng,lat,name,slug){
+  if(_ttGuard())return;
   if(_ttStops.length>=_JRN.maxStops){_ttSay("A journey can have at most "+_JRN.maxStops+" stops.");return;}
   var i=_ttStops.length;
   _ttStops.push({lng:lng,lat:lat,name:name||(lat.toFixed(2)+","+lng.toFixed(2)),slug:slug||null});
@@ -1644,6 +1665,7 @@ function _ttSetPt(lng,lat,name,slug){
   }else{_ttRender();}}
 
 function _ttRemoveStop(i){
+  if(_ttGuard())return;
   var n=_ttStops.length;
   if(i<0||i>=n)return;
   _ttStops.splice(i,1);
@@ -1664,7 +1686,7 @@ function _ttRemoveStop(i){
 function _ttClear(){
   _ttMarkers.forEach(function(mk){mk.remove();});
   _ttStops=[];_ttLegs=[];_ttMarkers=[];
-  _ttJid=null;_ttDirty=false;_ttDisarm();
+  _ttJid=null;_ttDirty=false;_ttLocked=false;_ttDisarm();
   _ttEl("tt-name").value="";_ttEl("tt-vis").value="gm_secrets";
   _ttSay("");_ttFilterSaved();_ttRender();_ttRenderSaved();}
 
@@ -1701,14 +1723,54 @@ function _ttRenderState(){
   var st=_ttEl("tt-state");
   if(!st)return;
   var f=_ttJid?_ttFind(_ttJid):null;
-  if(_ttJid)st.innerHTML="Editing <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttDirty?" — unsaved changes":"");
+  if(_ttJid)st.innerHTML='<span class="tt-lockword'+(_ttLocked?'':' open')+'">Editing</span>'+" <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttDirty?" — unsaved changes":"");
   else if(_ttStops.length)st.textContent="New journey — not saved yet";
   else st.textContent="New journey — add two or more stops";
   var busy=_ttLegs.some(function(l){return l.state==="fetching";});
   var save=_ttEl("tt-save-btn"),as=_ttEl("tt-saveas-btn");
   save.disabled=_ttStops.length<2||busy;
   save.textContent=_ttJid?"Save changes":"Save";
-  as.hidden=!_ttJid;as.disabled=save.disabled;}
+  as.hidden=!_ttJid;as.disabled=save.disabled;
+  _ttApplyLock();}
+
+function _ttApplyLock(){
+  var lk=_ttEl("tt-lock-btn");
+  if(lk){
+    var lbl=_ttLocked?"Unlock journey":"Lock journey";
+    lk.innerHTML=_ttLocked?_TT_ICON_LOCKED:_TT_ICON_OPEN;
+    lk.title=lbl;lk.setAttribute("aria-label",lbl);
+    lk.classList.toggle("armed",_ttLocked);
+    lk.setAttribute("aria-pressed",_ttLocked?"true":"false");}
+  _ttMarkers.forEach(function(mk){mk.setDraggable(!_ttLocked);});
+  var f=_ttEl("tt-form");
+  if(f)f.classList.toggle("tt-locked",_ttLocked);
+  ["tt-name","tt-all-path"].forEach(function(id){var e=_ttEl(id);if(e)e.disabled=_ttLocked;});
+  document.querySelectorAll(".tt-preset,.tt-stop-rm,.tt-leg-mode,.tt-leg-path").forEach(function(e){
+    e.disabled=_ttLocked;});}
+
+function _ttToggleLock(){
+  _ttLocked=!_ttLocked;
+  _ttApplyLock();_ttRenderState();
+  if(!_ttJid){_ttSay(_ttLocked?"Locked.":"Unlocked.");return;}
+  var want=_ttLocked,id=_ttJid;
+  fetch("/api/journeys/"+encodeURIComponent(id),{method:"PATCH",
+    headers:{"Content-Type":"application/json"},body:JSON.stringify({locked:want})})
+  .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+  .then(function(x){
+    if(!x.ok||!x.d.ok){_ttSay((x.d&&x.d.error)||"Could not save the lock.");return;}
+    _ttStore(x.d.journey,x.d.popup);_ttRenderSaved();
+    _ttSay(want?"Locked.":"Unlocked. Save re-locks it.");})
+  .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});}
+
+// Another kind of work took over (a route, a pin, place mode, another tab). The
+// loaded journey steps aside: a clean one unloads, one with unsaved changes
+// stays loaded but locks. Local only, the saved lock flag is the user's to change.
+function _ttRelock(){
+  if(!_ttJid||_ttLocked)return;
+  _ttLocked=true;_ttApplyLock();_ttRenderState();}
+function _ttStepAside(){
+  if(!_ttJid)return;
+  if(_ttDirty)_ttRelock();else _ttClear();}
 
 function _ttRender(){
   var list=_ttEl("tt-stops-list");
@@ -1793,6 +1855,7 @@ function _ttRenderSaved(){
   box.querySelectorAll(".tt-saved-row").forEach(function(row){
     var id=row.dataset.id;
     row.querySelector(".tt-load").addEventListener("click",function(){_ttLoad(id);});
+    row.querySelector(".tt-saved-name").addEventListener("click",function(){_ttLoad(id);});
     row.querySelector(".tt-del").addEventListener("click",function(){_ttDelete(id);});});}
 
 function _ttFit(){
@@ -1837,7 +1900,7 @@ function _ttLoad(id){
   _ttStops.forEach(function(s,i){_ttAddMarker(i);});
   var redo={};
   moved.forEach(function(i){if(i>0)redo[i-1]=1;if(i<_ttLegs.length)redo[i]=1;});
-  _ttJid=id;_ttDirty=moved.length>0;
+  _ttJid=id;_ttDirty=moved.length>0;_ttLocked=p.locked!==false;
   _ttEl("tt-name").value=p.name||"";
   _ttEl("tt-vis").value=p.visibility==="public"?"public":"gm_secrets";
   _ttFilterSaved();_ttRender();_ttRenderSaved();
@@ -1856,7 +1919,7 @@ function _ttSave(asNew){
   if(_ttLegs.some(function(l){return l.state==="fetching";})){
     _ttSay("Routing is still running. Save when the legs have finished.");return;}
   var upd=_ttJid&&!asNew;
-  var body={name:name,visibility:_ttEl("tt-vis").value,
+  var body={name:name,visibility:_ttEl("tt-vis").value,locked:true,
     stops:_ttStops.map(function(s){
       var o={lng:s.lng,lat:s.lat,name:s.name};if(s.slug)o.slug=s.slug;return o;}),
     legs:_ttLegs.map(function(l){
@@ -1868,7 +1931,7 @@ function _ttSave(asNew){
   .then(function(x){
     if(!x.ok||!x.d.ok){_ttSay((x.d&&x.d.error)||"Save failed.");return;}
     _ttStore(x.d.journey,x.d.popup);
-    _ttJid=x.d.journey.id;_ttDirty=false;_ttDisarm();
+    _ttJid=x.d.journey.id;_ttDirty=false;_ttLocked=true;_ttDisarm();
     _ttFilterSaved();_ttRender();_ttRenderSaved();
     _ttSay("Saved “"+name+"”.");})
   .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});}
@@ -1876,6 +1939,7 @@ function _ttSave(asNew){
 function _ttDelete(id){
   var f=_ttFind(id);
   if(!f)return;
+  if(id===_ttJid&&_ttGuard())return;
   if(_ttArmed!=="del:"+id){
     _ttArm("del:"+id);
     _ttSay("Click Confirm? to delete “"+f.properties.name+"” permanently.");
@@ -1896,6 +1960,7 @@ function _ttDelete(id){
 // -- Controls -----------------------------------------------------------
 document.querySelectorAll(".tt-preset").forEach(function(btn){
   btn.addEventListener("click",function(){
+    if(_ttGuard())return;
     var mode=btn.dataset.mode;
     document.querySelectorAll(".tt-preset").forEach(function(b){b.classList.toggle("active",b===btn);});
     _ttDefMode=mode;
@@ -1910,7 +1975,7 @@ document.querySelectorAll(".tt-preset").forEach(function(btn){
 _ttEl("tt-all-path").addEventListener("change",function(){
   var p=this.value;
   this.value="";
-  if(!p)return;
+  if(!p||_ttGuard())return;
   _ttDefPath=p;
   _ttLegs.forEach(function(leg,i){
     if(_ttIsFly(leg.mode)){leg.pathKeep=p;return;}
@@ -1935,6 +2000,7 @@ _ttEl("tt-vis").addEventListener("change",function(){
       "Marked GM only.");})
   .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});});
 
+_ttEl("tt-lock-btn").addEventListener("click",_ttToggleLock);
 _ttEl("tt-save-btn").addEventListener("click",function(){_ttSave(false);});
 _ttEl("tt-saveas-btn").addEventListener("click",function(){_ttSave(true);});
 _ttEl("tt-clear-btn").addEventListener("click",_ttClear);
@@ -2036,6 +2102,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # Clear Tab 2 highlights when switching away
         'if(tab!=="route-index")_clearHighlights();'
         'if(tab!=="inspector"&&window._msClear)window._msClear();'
+        'if(tab!=="travel-time"&&typeof _ttRelock==="function")_ttRelock();'
         '}\n'
         'document.querySelectorAll(".tab-btn").forEach(function(b){'
         'b.addEventListener("click",function(){_setTab(b.dataset.tab);});});\n'
@@ -2262,8 +2329,17 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[f]});'
         '});\n'
         'map.on("click",function(e){'
-        'if(_activeTab==="travel-time"&&!map.queryRenderedFeatures(e.point,{layers:_locLayerIds||[]}).length){'
-        '_ttSetPt(e.lngLat.lng,e.lngLat.lat,null);}'
+        'var _onPin=map.queryRenderedFeatures(e.point,{layers:_locLayerIds||[]}).length;'
+        'var _onRt=map.queryRenderedFeatures(e.point,{layers:["routes"]}).length;'
+        'var _idle=(_wsMode==="select"||_activeTab==="travel-time"&&_wsMode!=="place")&&!window._wsJustPlaced;'
+        'var _jh=(!_onPin&&_idle&&(_activeTab!=="travel-time"||(!_onRt&&(_ttLocked||!_ttStops.length))))?'
+        'map.queryRenderedFeatures(e.point,{layers:["journeys-hit"]}):[];'
+        'if(_jh.length&&_ttFind(_jh[0].properties.id)){'
+        'if(_activeTab!=="travel-time"){'
+        'if(_efSlug!==null||_efDirty()){if(!_efConfirmDiscard())return;_efReset();}'
+        '_setTab("travel-time");}'
+        '_ttLoad(_jh[0].properties.id);}'
+        'else if(_activeTab==="travel-time"&&!_onPin)_ttSetPt(e.lngLat.lng,e.lngLat.lat,null);'
         'if(!map.queryRenderedFeatures(e.point,{layers:["routes"]}).length){'
         'if(map.getSource("route-selected")){'
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[]});}'
@@ -2310,13 +2386,14 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var slug=p._slug||p.slug||"";'
         'if(_wsMode==="place"||window._wsJustPlaced)return;'
         'if(_wsMode==="route"){if(slug)_addToQueue(slug);return;}'
-        'if(_activeTab==="travel-time"){'
+        'if(_activeTab==="travel-time"&&!(_ttJid&&_ttLocked)){'
         'var coords=feature.geometry.coordinates;'
         'var name=p.title||p.label||slug||"";'
         '_ttSetPt(coords[0],coords[1],name,slug);return;}'
         'if(!slug)return;'
         'if(ev&&(ev.shiftKey||ev.ctrlKey||ev.metaKey)&&_activeTab==="inspector"){_msToggle(slug);return;}'
         'if(_msSel.length)window._msClear();'
+        '_ttStepAside();'
         '_openFieldEditor(feature);'
         '};\n'
         '_locLayerIds.forEach(function(lyr){'
@@ -2514,6 +2591,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '}\n'
         'function _showRoutePanel(feature){'
         'if(_efSlug!==null||_efDirty()){if(!_efConfirmDiscard())return false;_efReset();}'
+        '_ttStepAside();'
         '_selectedRouteId=feature.id||feature.properties._route_id||"";'
         '_refreshRoutePanel();'
         'document.getElementById("route-panel").hidden=false;'

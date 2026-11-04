@@ -7,6 +7,7 @@ line per leg, so leg i of `properties.legs` is `geometry.coordinates[i]`:
 
     properties.name        display name
     properties.visibility  "public" | "gm_secrets"   (new journeys are gm_secrets)
+    properties.locked      bool; absent means locked (the Workshop will not edit it)
     properties.stops       [{lng, lat, name, slug?}], one more than there are legs
     properties.legs        [{mode, path, slope_factor?}]
     properties.created / updated   ISO dates
@@ -135,7 +136,15 @@ def clean_journey(data) -> dict:
     }
     if "visibility" in data:
         out["visibility"] = check_visibility(data["visibility"])
+    if "locked" in data:
+        out["locked"] = check_locked(data["locked"])
     return out
+
+
+def check_locked(value) -> bool:
+    if not isinstance(value, bool):
+        raise JourneyError("locked must be true or false")
+    return value
 
 
 def check_visibility(value) -> str:
@@ -167,13 +176,15 @@ def new_id(name: str, taken) -> str:
     return jid
 
 
-def build_feature(jid: str, clean: dict, visibility: str, created: str, updated: str) -> dict:
+def build_feature(jid: str, clean: dict, visibility: str, created: str, updated: str,
+                  locked: bool = True) -> dict:
     return {
         "type": "Feature",
         "id": jid,
         "properties": {
             "name": clean["name"],
             "visibility": visibility,
+            "locked": locked,
             "created": created,
             "updated": updated,
             "stops": clean["stops"],
@@ -221,7 +232,8 @@ def create(path: Path, data) -> dict:
     clean = clean_journey(data)
     gj = load(path)
     jid = new_id(clean["name"], (f.get("id") for f in gj["features"]))
-    feat = build_feature(jid, clean, clean.get("visibility", GM_ONLY), _today(), _today())
+    feat = build_feature(jid, clean, clean.get("visibility", GM_ONLY), _today(), _today(),
+                         clean.get("locked", True))
     gj["features"].append(feat)
     save(path, gj)
     return feat
@@ -237,14 +249,15 @@ def replace(path: Path, jid: str, data):
         return None
     props = old["properties"]
     visibility = clean.get("visibility", props.get("visibility", GM_ONLY))
-    feat = build_feature(jid, clean, visibility, props.get("created", _today()), _today())
+    locked = clean.get("locked", props.get("locked", True))
+    feat = build_feature(jid, clean, visibility, props.get("created", _today()), _today(), locked)
     gj["features"] = [feat if f.get("id") == jid else f for f in gj["features"]]
     save(path, gj)
     return feat
 
 
 def patch(path: Path, jid: str, data):
-    """Change a journey's name and/or visibility only. None when not found."""
+    """Change a journey's name, visibility and/or locked flag only. None when not found."""
     if not isinstance(data, dict):
         raise JourneyError("body must be an object")
     fields = {}
@@ -255,6 +268,8 @@ def patch(path: Path, jid: str, data):
         fields["name"] = name[:MAX_NAME]
     if "visibility" in data:
         fields["visibility"] = check_visibility(data["visibility"])
+    if "locked" in data:
+        fields["locked"] = check_locked(data["locked"])
     if not fields:
         raise JourneyError("no recognised fields")
     gj = load(path)
