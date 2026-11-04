@@ -637,8 +637,10 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
   font-weight:bold; }
 .tt-state { font-size: var(--fs-2); color:var(--muted); margin-bottom:6px; min-height:14px; }
 .tt-state b { color:var(--warn); font-weight:normal; }
-#tt-lock-btn { color:#8fd18f; border-color:rgba(143,209,143,0.55); }
-#tt-lock-btn.armed { color:#f0877a; border-color:rgba(240,135,122,0.6); background:rgba(240,135,122,0.12); }
+#tt-actions { flex-wrap:nowrap; gap:6px; align-items:center; }
+#tt-actions .btn { padding:8px 10px; white-space:nowrap; }
+#tt-actions #tt-lock-btn { color:#8fd18f; background:transparent; border:none; padding:6px 4px; min-width:0; }
+#tt-actions #tt-lock-btn.armed { color:#f0877a; background:transparent; }
 #tt-lock-btn svg { width:18px; height:18px; display:block; margin:0 auto; }
 .tt-stops-list { display:flex; flex-direction:column; gap:0; }
 .tt-stop-row { display:flex; align-items:center; gap:6px; padding:4px 6px;
@@ -902,10 +904,10 @@ def _build_panel_travel_time() -> str:
     <option value="public">Players (once every stop is public)</option>
   </select>
 </div>
-<div class="btn-row" style="margin-top:14px;">
+<div id="tt-actions" class="btn-row" style="margin-top:14px;">
   <button id="tt-lock-btn" class="btn btn-sm" aria-pressed="false" aria-label="Lock journey" title="Lock journey"></button>
   <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
-  <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
+  <button id="tt-saveas-btn" class="btn btn-sm" hidden>Create new</button>
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
 </div>
 </div>
