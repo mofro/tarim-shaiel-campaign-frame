@@ -67,7 +67,8 @@ def test_markers_follow_the_lock():
 def test_the_lock_control_exists_and_reports_pressed_state():
     assert 'id="tt-lock-btn"' in gmw._build_panel_travel_time()
     assert "aria-pressed" in _fn("_ttApplyLock")
-    assert "— locked" in _fn("_ttRenderState")
+    assert "tt-lockword" in _fn("_ttRenderState")
+    assert "— locked" not in _fn("_ttRenderState")
 
 
 @pytest.mark.skipif(shutil.which("node") is None, reason="node not installed")

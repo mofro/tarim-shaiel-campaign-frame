@@ -641,6 +641,7 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
 #tt-actions .btn { padding:8px 10px; white-space:nowrap; }
 #tt-actions #tt-lock-btn { color:#8fd18f; background:transparent; border:none; padding:6px 4px; min-width:0; }
 #tt-actions #tt-lock-btn.armed { color:#f0877a; background:transparent; }
+.tt-lockword { color:#f0877a; text-decoration:line-through; }
 #tt-lock-btn svg { width:18px; height:18px; display:block; margin:0 auto; }
 .tt-stops-list { display:flex; flex-direction:column; gap:0; }
 .tt-stop-row { display:flex; align-items:center; gap:6px; padding:4px 6px;
@@ -1720,7 +1721,7 @@ function _ttRenderState(){
   var st=_ttEl("tt-state");
   if(!st)return;
   var f=_ttJid?_ttFind(_ttJid):null;
-  if(_ttJid)st.innerHTML="Editing <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttLocked?" — locked":"")+(_ttDirty?" — unsaved changes":"");
+  if(_ttJid)st.innerHTML=(_ttLocked?'<span class="tt-lockword">Editing</span>':"Editing")+" <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttDirty?" — unsaved changes":"");
   else if(_ttStops.length)st.textContent="New journey — not saved yet";
   else st.textContent="New journey — add two or more stops";
   var busy=_ttLegs.some(function(l){return l.state==="fetching";});
