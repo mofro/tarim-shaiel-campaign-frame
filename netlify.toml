@@ -1,3 +1,10 @@
 [build]
   command   = "if [ \"$TS_GM_MODE\" = '1' ]; then python utilities/build.py all --gm; else python utilities/build.py all --public; fi"
   publish   = "docs"
+
+# Newspaper issues moved from /newspaper/<folder>/ to /newspaper/<slug>.html (#368)
+[[redirects]]
+  from   = "/newspaper/0002-session-0-convergence/"
+  to     = "/newspaper/session-0-convergence.html"
+  status = 301
+  force  = true

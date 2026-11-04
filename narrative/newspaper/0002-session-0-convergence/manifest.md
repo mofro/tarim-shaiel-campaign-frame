@@ -1,6 +1,7 @@
 ---
 type: newspaper-manifest
 issue: "0002-session-0-convergence"
+slug: "session-0-convergence"
 masthead:
   title: "Whispers from Tarim"
   tagline: "Dispatches from the Market Roads"

@@ -29,6 +29,7 @@ Usage:
 
 import copy
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -120,6 +121,27 @@ def _build_story(fm: dict, body: str) -> dict:
 # Issue assembly
 # ---------------------------------------------------------------------------
 
+_SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+
+def _issue_slug(issue_dir: Path, manifest_fm: dict) -> str:
+    """URL slug for an issue: manifest `slug:` if set, else the folder name.
+
+    The slug becomes /newspaper/<slug>.html, so it must be a plain lowercase
+    kebab-case token. An invalid manifest slug is a build error, not a silent
+    fallback, because a changed slug breaks published URLs.
+    """
+    slug = manifest_fm.get("slug")
+    if slug is None or str(slug).strip() == "":
+        return issue_dir.name
+    slug = str(slug).strip()
+    if not _SLUG_RE.match(slug):
+        raise ValueError(
+            f"{issue_dir.name}/manifest.md: slug {slug!r} must be lowercase "
+            "letters, digits and single hyphens"
+        )
+    return slug
+
 def _assemble_issue(issue_dir: Path, np_config: dict) -> dict | None:
     stories: list[dict] = []
     manifest_fm: dict = {}
@@ -196,7 +218,7 @@ def _assemble_issue(issue_dir: Path, np_config: dict) -> dict | None:
         for n in sorted(pages_dict)
     ]
 
-    return {"masthead": masthead, "pages": pages}
+    return {"masthead": masthead, "pages": pages, "slug": _issue_slug(issue_dir, manifest_fm)}
 
 # ---------------------------------------------------------------------------
 # Generator
@@ -224,9 +246,9 @@ class _Generator:
                 print(f"  [newspaper] skip {issue_dir.name} — no stories found")
                 continue
 
-            slug    = issue_dir.name
-            out_dir = NEWS_OUT / slug
-            out_dir.mkdir(parents=True, exist_ok=True)
+            slug = issue["slug"]
+            if slug == "index" or any(e["slug"] == slug for e in listing):
+                raise ValueError(f"{issue_dir.name}: slug {slug!r} is already taken")
 
             html = render_page(
                 "pages/newspaper.html",
@@ -237,8 +259,9 @@ class _Generator:
                 extra_css=["newspaper-tokens", "page-newspaper"],
                 generator_name="utilities/newspaper/generate_newspaper_html.py",
             )
-            (out_dir / "index.html").write_text(html, encoding="utf-8")
-            print(f"  [newspaper] wrote {out_dir / 'index.html'}")
+            out = NEWS_OUT / f"{slug}.html"
+            out.write_text(html, encoding="utf-8")
+            print(f"  [newspaper] wrote {out}")
 
             # Extract lead headline for listing card
             lead_headline = ""
