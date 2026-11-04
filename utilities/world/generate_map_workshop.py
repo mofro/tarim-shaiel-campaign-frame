@@ -264,19 +264,20 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   flex-shrink: 0; }
 #app-title { font-size: var(--fs-2); letter-spacing: 0.12em; text-transform: uppercase;
   color: #b8922c; margin-bottom: 6px; }
-#tab-bar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; }
-.tab-btn { padding: 7px 4px; font-size: var(--fs-1); letter-spacing: 0.03em;
+#tab-bar { display: flex; gap: 2px; }
+.tab-btn { position: relative; flex: 1 1 auto; white-space: nowrap; padding: 8px 4px; font-size: var(--fs-1); letter-spacing: 0;
   text-transform: uppercase; background: #1a1410; border: 1px solid rgba(184,146,44,0.2);
   border-bottom: none; color: var(--muted); cursor: pointer; border-radius: 3px 3px 0 0;
   transition: background 0.15s; }
-.edit-badge { display: inline-block; background: #4a7a1c; color: #fff; font-size: var(--fs-1);
-  border-radius: 8px; padding: 0 4px; margin-left: 3px; line-height: 14px; vertical-align: middle; }
+.edit-badge { position: absolute; top: -5px; right: -3px; background: #4a7a1c; color: #fff; font-size: var(--fs-1);
+  border-radius: 8px; padding: 0 4px; line-height: 14px; }
 .tab-btn:hover { background: #221c12; color: #c8a84a; }
 .tab-btn.active { background: #0a0805; color: #e8dcc4; border-color: rgba(184,146,44,0.4);
   border-bottom-color: #0a0805; font-weight: bold; }
 .panel { display: none; flex-direction: column; flex: 1; overflow-y: auto; scrollbar-gutter: stable;
   padding: 14px; gap: 12px; }
 .panel.active { display: flex; }
+#insp-single { display: flex; flex-direction: column; gap: 12px; }
 .field-group { display: flex; flex-direction: column; gap: 4px; }
 .field-group label { font-size: var(--fs-1); text-transform: uppercase; letter-spacing: 0.07em;
   color: var(--muted); }
@@ -288,7 +289,8 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .field-group select option { background: #1a1410; }
 .field-group textarea { resize: vertical; min-height: 56px; }
 .insp-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.insp-head .list-heading { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.insp-head .list-heading { margin: 0; min-width: 0; overflow-wrap: anywhere; font-size: var(--fs-4);
+  letter-spacing: 0.02em; text-transform: none; color: #e8dcc4; }
 .insp-slug { color: var(--muted); font-size: var(--fs-2); text-transform: none; letter-spacing: 0; }
 .insp-note { color: var(--muted); font-size: var(--fs-1); text-transform: none; letter-spacing: 0; }
 .insp-actions { margin-top: 2px; }
@@ -303,6 +305,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .coord-row { display: flex; gap: 6px; align-items: center; font-size: var(--fs-2); }
 .coord-row span { color: var(--muted); font-size: var(--fs-2); }
 .coord-row input { flex: 1; min-width: 0; }
+.coord-row .btn { flex: none; white-space: nowrap; }
 .radio-row { display: flex; gap: 14px; font-size: var(--fs-2); }
 .radio-row label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
 .radio-row input[type="radio"] { accent-color: #b8922c; }
@@ -511,8 +514,7 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
 [data-collapsible].sec-collapsed::before { content: "\\25B8\\00a0"; }
 .sec-hide { display: none !important; }
 /* Search row */
-#ws-search-row { position: relative; padding: 5px 14px 6px; border-bottom: 1px solid rgba(184,146,44,0.1);
-  flex-shrink: 0; }
+#ws-search-row { position: relative; padding: 10px 0 12px; flex-shrink: 0; }
 #ws-search-wrap { position: relative; }
 #ws-search-icon { position: absolute; left: 8px; top: 50%; transform: translateY(-50%);
   color: var(--muted); font-size: var(--fs-2); pointer-events: none; line-height: 1; }
@@ -533,7 +535,7 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
 .wsd-empty { padding: 8px 12px; font-size: var(--fs-2); color: var(--muted); font-style: italic; }
 /* Travel time tab */
 .tt-presets { display:flex; gap:3px; flex-wrap:wrap; }
-.tt-preset { flex:1; min-width:0; padding:5px 3px; font-size: var(--fs-1); letter-spacing:0.04em;
+.tt-preset { flex:1 1 auto; white-space:nowrap; padding:6px 6px; font-size: var(--fs-1); letter-spacing:0.02em;
   text-transform:uppercase; background:#1a1408; border:1px solid rgba(184,146,44,0.2);
   color:var(--muted); border-radius:2px; cursor:pointer; }
 .tt-preset:hover { color:#c8a84a; border-color:rgba(184,146,44,0.45); }
@@ -659,10 +661,8 @@ def _build_panel_inspector(region_options: str) -> str:
   <div class="coord-row">
     <span>lat</span><input id="ef-lat" type="text" readonly placeholder="—">
     <span>lon</span><input id="ef-lon" type="text" readonly placeholder="—">
-  </div>
-  <div class="btn-row">
-    <button id="ef-place-btn" type="button" class="btn btn-sm arm-btn ef-create-only" data-arm="place" aria-pressed="false">◎ Pick on map</button>
-    <button id="ef-move-btn" type="button" class="btn btn-sm ef-edit-only hidden">Move Pin</button>
+    <button id="ef-place-btn" type="button" class="btn btn-sm arm-btn ef-create-only" data-arm="place" aria-pressed="false" title="Pick on map">◎ Pick</button>
+    <button id="ef-move-btn" type="button" class="btn btn-sm ef-edit-only hidden">Move</button>
   </div>
 </div>
 <div class="field-group">
@@ -793,6 +793,7 @@ def _build_panel_travel_time() -> str:
     __TT_PATH_OPTS__
   </select>
 </div>
+<div id="tt-form" hidden>
 <div class="field-group" style="margin-top:8px;">
   <label for="tt-name">Journey name</label>
   <input id="tt-name" type="text" maxlength="__TT_MAX_NAME__" placeholder="e.g. Spring caravan to Merv" autocomplete="off">
@@ -808,6 +809,7 @@ def _build_panel_travel_time() -> str:
   <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
   <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
+</div>
 </div>
 <p id="tt-status" class="hint" style="margin-top:4px;min-height:14px;"></p>
 <div class="field-group" style="margin-top:10px;">
@@ -1638,6 +1640,7 @@ function _ttRender(){
   _ttEl("tt-tot-dist").textContent=wait?"…":_ttKm(km);
   _ttEl("tt-tot-time").textContent=wait?"…":_ttFmt(h);
   _ttEl("tt-clear-btn").hidden=_ttStops.length===0;
+  _ttEl("tt-form").hidden=_ttStops.length===0;
   _ttUpdateLine();
   _ttRenderState();}
 
@@ -2849,20 +2852,20 @@ def _build_html(
         '        </div>\n'
         '        <span id="ws-zoom">zoom <span id="ws-zoom-val">—</span></span>\n'
         '      </div>\n'
+        '      <div id="ws-search-row">\n'
+        '        <div id="ws-search-wrap">\n'
+        '          <span id="ws-search-icon">⌕</span>\n'
+        '          <input id="ws-search" type="text" placeholder="Find location…" autocomplete="off" spellcheck="false">\n'
+        '          <div id="ws-search-drop" hidden></div>\n'
+        '        </div>\n'
+        '      </div>\n'
         '      <div id="tab-bar">\n'
         '        <button class="tab-btn active" data-tab="inspector">Inspector <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
-        '        <button class="tab-btn" data-tab="plan-route">Plan Route</button>\n'
-        '        <button class="tab-btn" data-tab="route-index">Route Index</button>\n'
-        '        <button class="tab-btn" data-tab="travel-time">Travel Time</button>\n'
+        '        <button class="tab-btn" data-tab="plan-route">Add Route</button>\n'
+        '        <button class="tab-btn" data-tab="route-index">Routes</button>\n'
+        '        <button class="tab-btn" data-tab="travel-time">Journeys</button>\n'
         "      </div>\n"
         "    </div>\n"
-        '    <div id="ws-search-row">\n'
-        '      <div id="ws-search-wrap">\n'
-        '        <span id="ws-search-icon">⌕</span>\n'
-        '        <input id="ws-search" type="text" placeholder="Find location…" autocomplete="off" spellcheck="false">\n'
-        '        <div id="ws-search-drop" hidden></div>\n'
-        '      </div>\n'
-        '    </div>\n'
         '    <div id="panel-inspector" class="panel active">\n'
         + panel_batch
         + '<div id="insp-single">\n'
