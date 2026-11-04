@@ -899,7 +899,7 @@ def _build_panel_travel_time() -> str:
     <option value="public">Players (once every stop is public)</option>
   </select>
 </div>
-<div class="btn-row" style="margin-top:4px;">
+<div class="btn-row" style="margin-top:14px;">
   <button id="tt-lock-btn" class="btn btn-sm" aria-pressed="false" aria-label="Lock journey" title="Lock journey"></button>
   <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
   <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
