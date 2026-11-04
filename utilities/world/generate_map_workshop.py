@@ -961,13 +961,14 @@ function _wsModeNext(cur,ev,tab){
 var _wsMode="select";
 var _WS_MODE_LABEL={place:"Place: click the map to set the point",route:"Route: click locations to add stops"};
 window._wsSetMode=function(ev,tab){
-  _wsMode=_wsModeNext(_wsMode,ev,tab||_activeTab);
+  var nxt=_wsModeNext(_wsMode,ev,tab||_activeTab);
+  if(nxt==="place"&&typeof _ttStepAside==="function"&&!_ttStepAside())return;
+  _wsMode=nxt;
   var chip=document.getElementById("ws-mode-chip");
   if(chip){
     chip.hidden=_wsMode==="select";
     document.getElementById("ws-mode-label").textContent=_WS_MODE_LABEL[_wsMode]||"";
   }
-  if(_wsMode==="place"&&typeof _ttStepAside==="function")_ttStepAside();
   document.body.classList.toggle("mode-place",_wsMode==="place");
   document.body.classList.toggle("mode-route",_wsMode==="route");
   document.querySelectorAll("[data-arm]").forEach(function(b){
@@ -1762,15 +1763,18 @@ function _ttToggleLock(){
     _ttSay(want?"Locked.":"Unlocked. Save re-locks it.");})
   .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});}
 
-// Another kind of work took over (a route, a pin, place mode, another tab). The
-// loaded journey steps aside: a clean one unloads, one with unsaved changes
-// stays loaded but locks. Local only, the saved lock flag is the user's to change.
+// Leaving the Journeys tab only locks the loaded journey. Local only, the saved
+// lock flag is the user's to change.
 function _ttRelock(){
   if(!_ttJid||_ttLocked)return;
   _ttLocked=true;_ttApplyLock();_ttRenderState();}
+// An edit or create action (a route, a pin, place mode) takes over from the
+// loaded journey. A clean one unloads; one with unsaved changes asks first.
+// Returns false when the user cancels, so the caller drops the new action.
 function _ttStepAside(){
-  if(!_ttJid)return;
-  if(_ttDirty)_ttRelock();else _ttClear();}
+  if(!_ttJid)return true;
+  if(_ttDirty&&!confirm("Discard unsaved journey changes?"))return false;
+  _ttClear();return true;}
 
 function _ttRender(){
   var list=_ttEl("tt-stops-list");
@@ -2393,7 +2397,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'if(!slug)return;'
         'if(ev&&(ev.shiftKey||ev.ctrlKey||ev.metaKey)&&_activeTab==="inspector"){_msToggle(slug);return;}'
         'if(_msSel.length)window._msClear();'
-        '_ttStepAside();'
+        'if(!_ttStepAside())return;'
         '_openFieldEditor(feature);'
         '};\n'
         '_locLayerIds.forEach(function(lyr){'
@@ -2591,7 +2595,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '}\n'
         'function _showRoutePanel(feature){'
         'if(_efSlug!==null||_efDirty()){if(!_efConfirmDiscard())return false;_efReset();}'
-        '_ttStepAside();'
+        'if(!_ttStepAside())return false;'
         '_selectedRouteId=feature.id||feature.properties._route_id||"";'
         '_refreshRoutePanel();'
         'document.getElementById("route-panel").hidden=false;'
