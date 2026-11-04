@@ -72,7 +72,7 @@ While Cal and Rill navigated the bureaucratic maze of the longhouse, Veyra and A
 
 ### Critical Decisions & Unresolved Threads
 
-The party chose to stand and fight the dire wolves rather than attempt to flee, a decision that secured the camp's safety and sent a clear message to any other predators in the area.Cal's insistence on reading the town's legal code led to a strange and unresolved encounter with the local militia, who seemed both confused and suspicious of his request. The group also decided to spend the night in the town rather than push on toward [[Qarshi]], a choice that Veyra questioned but ultimately accepted. The strange behavior of Rill's coin, which twitched in his pocket during the celebration at the tavern, remains unexplained, as does the lingering sense among the companions that something about the town is not quite right.
+The party chose to stand and fight the dire wolves rather than attempt to flee, a decision that secured the camp's safety and sent a clear message to any other predators in the area. Cal's insistence on reading the town's legal code led to a strange and unresolved encounter with the local militia, who seemed both confused and suspicious of his request. The group also decided to spend the night in the town rather than push on toward [[Qarshi]], a choice that Veyra questioned but ultimately accepted. The strange behavior of Rill's coin, which twitched in his pocket during the celebration at the tavern, remains unexplained, as does the lingering sense among the companions that something about the town is not quite right.
 
 ### Next Session Hooks
 

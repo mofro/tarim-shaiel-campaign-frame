@@ -20,7 +20,7 @@ tags:
 
 Session 2 picked up exactly where Session 1 ended: Imperial riders on the road to Rabati Malik, an ambush waiting for them in the city streets, and a party with two jobs to do and no time to spare. Ariel and Reizan, the latter in animal shape, flew to intercept Captain Idris Kaan before he rode into the trap, while Rill and Cal rode hard for the city to find it. Sahir was left at the gates. The ambush never happened. Kaan agreed to wait and see, Temir's crew was argued out of its plan, and the whole affair ended as an official misunderstanding, with Volkath sending the party on its way with supplies, a cart and horses, and three of his own people. Ariel then went after Veyra, who agreed to travel with the group for a while. The session closed with a stranger gone into the dark and a coin that would not stop spinning.
 
-## Key Events
+### Key Events
 
 1. **Intercepting the Riders**
 
@@ -62,6 +62,6 @@ About a day out of Rabati Malik, shortly before the party left the road for an o
 
 One of the curiosities stayed behind, a coin. When it was flipped or tossed it hung in the air and spun along the axis of the throw without ever seeming to slow, and it could be plucked out of that spin with no difficulty or resistance at all. The traveller left in the night with little fuss, though everyone had cautioned him against going. The coin was found, in Rill's pocket, after the stranger had departed.
 
-## Critical Decisions & Unresolved Threads
+### Critical Decisions & Unresolved Threads
 
 The session turned on a shared choice to settle the crisis at Rabati Malik without violence, and on the trust that made it possible: Kaan's begrudging belief in Ariel, and Rill's argument that the ambush would cost the caravan far more than it could win. Kaan's offer to consider carrying the merchants' grievances back to his lord was conditional, and it remains to be seen whether anything comes of it. Temir and Sanem stayed with Volkath's caravan, though how fully the argument settled them is unclear. Veyra agreed to travel with the party only provisionally, until they could judge whether there was a link worth keeping, and her wariness of being manipulated by unseen forces is still part of the arrangement. The party left Rabati Malik with supplies, a cart and horses, and three of Volkath's workers, bound for a road that was about to turn overland. And the stranger who left the coin remains a question.

@@ -679,5 +679,4 @@ The caravan moved.
 
 - **Setting:** Campfire at caravan camp. Night.
 - **Present:** All heroes together. Fire, night sky, strangers who don't feel entirely like strangers.
-- **What happened:** [Volkath], the honorable host and only common thread, roundly greets the players around the fire. His wistful eyes sparkle, and he offers to tell a story to ease the night chill and comfort the weary. One last glance around the fire, and he rises slowly, gently to his feet.The last words of the session:
-  "Listen..."
+- **What happened:** [Volkath], the honorable host and only common thread, roundly greets the players around the fire. His wistful eyes sparkle, and he offers to tell a story to ease the night chill and comfort the weary. One last glance around the fire, and he rises slowly, gently to his feet.The last word of the session:"Listen..."

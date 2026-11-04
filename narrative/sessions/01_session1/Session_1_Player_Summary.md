@@ -40,13 +40,13 @@ Sahir tried to glimpse what the merchant had written, but could not make it out.
 
 5. **A Name Given**
 
-The merchant asked if Sahir had decided where he was going, and Sahir said he had. When Sahir offered his own name and asked how the merchant would be known, the man said he had known very many names, most of which he did not favor, but that Sahir could call him **Calus**, with a K if it mattered. Sahir said it mattered if it mattered to **Calus**. The merchant said he was just happy to be called at all. With mid-afternoon light around them, Sahir took his leave, walking the right road until it curved, then pausing to sketch the encounter in his notebook before moving on.
+The merchant asked if Sahir had decided where he was going, and Sahir said he had. When Sahir offered his own name and asked how the merchant would be known, the man said he had known very many names, most of which he did not favor, but that Sahir could call him **Kalus**, with a K if it mattered. Sahir said it mattered if it mattered to **Kalus**. The merchant said he was just happy to be called at all. With mid-afternoon light around them, Sahir took his leave, walking the right road until it curved, then pausing to sketch the encounter in his notebook before moving on.
 
 6. **The Road Widens**
 
 The further Sahir walked, the less strange the road felt, until he recognized it as a tributary road leading to a caravan meeting area outside one of the larger towns. He played with the compass as he walked, noting that it stayed true to one direction no matter how he turned. The road, he reflected, was an interesting place. By the golden hour he could make out a relatively large caravan stopped ahead, and he pressed on toward it, his staff and traveling gear marking him as nothing other than a wanderer on the road.
 
-7. Volkat&#x68;**'s Tale**
+7. **Volkath's Tale**
 
 The scene shifted to the party seated around a campfire, where Volkath had volunteered to give them a tale from his perspective, a story of the world as it is. He spoke of the Tulpar people, who had been servants and slaves for thousands of years before the fall of the last great empire, and who had raged for decades after their release, losing perhaps thirty to forty percent of their people in pointless battles. Over centuries they had found a place on the road as traders, moving goods and culture along the great east-west routes. Volkath ended his long description with optimistic statements about how far his people had come, then smiled at each of them in turn and asked if there were any questions.
 
