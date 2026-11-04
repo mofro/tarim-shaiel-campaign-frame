@@ -88,3 +88,13 @@ if(!threw)throw new Error("unlocked edit did not proceed");
 """
     r = subprocess.run(["node", "-e", prog], capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
+
+
+def test_lock_control_is_an_icon_button_with_a_label_that_follows_state():
+    html = gmw._build_panel_travel_time()
+    btn = re.search(r'<button[^>]*id="tt-lock-btn"[^>]*>', html).group(0)
+    assert "aria-label=" in btn and "title=" in btn
+    body = _fn("_ttApplyLock")
+    assert "_TT_ICON_LOCKED" in body and "_TT_ICON_OPEN" in body
+    assert '"Unlock journey"' in body and '"Lock journey"' in body
+    assert body.count("setAttribute(\"aria-label\"") == 1

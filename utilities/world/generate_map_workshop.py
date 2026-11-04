@@ -900,7 +900,7 @@ def _build_panel_travel_time() -> str:
   </select>
 </div>
 <div class="btn-row" style="margin-top:4px;">
-  <button id="tt-lock-btn" class="btn btn-sm" aria-pressed="false">Lock</button>
+  <button id="tt-lock-btn" class="btn btn-sm" aria-pressed="false" aria-label="Lock journey" title="Lock journey"></button>
   <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
   <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
@@ -1388,6 +1388,8 @@ var _ttJid=null,_ttDirty=false,_ttSeq=0,_ttArmed=null,_ttArmTimer=null;
 // Locked journeys refuse every edit that changes stops, legs or name. Saved
 // journeys load locked; a new, unsaved one starts editable.
 var _ttLocked=false;
+var _TT_ICON_LOCKED='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>';
+var _TT_ICON_OPEN='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.2"/><path d="M5 7V5a3 3 0 0 1 5.6-1.5"/></svg>';
 var _ttColors=["#3a6a3a","#3a4a8a","#7a3a3a","#6a5a20","#4a2a7a","#206a60","#7a4a20"];
 
 function _ttEl(id){return document.getElementById(id);}
@@ -1725,7 +1727,11 @@ function _ttRenderState(){
 
 function _ttApplyLock(){
   var lk=_ttEl("tt-lock-btn");
-  if(lk){lk.textContent=_ttLocked?"Unlock":"Lock";lk.classList.toggle("armed",_ttLocked);
+  if(lk){
+    var lbl=_ttLocked?"Unlock journey":"Lock journey";
+    lk.innerHTML=_ttLocked?_TT_ICON_LOCKED:_TT_ICON_OPEN;
+    lk.title=lbl;lk.setAttribute("aria-label",lbl);
+    lk.classList.toggle("armed",_ttLocked);
     lk.setAttribute("aria-pressed",_ttLocked?"true":"false");}
   _ttMarkers.forEach(function(mk){mk.setDraggable(!_ttLocked);});
   var f=_ttEl("tt-form");
