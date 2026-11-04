@@ -385,16 +385,26 @@ body.rt-selected #insp-single { display:none; }
 #route-panel-label { color:var(--muted); font-size:var(--fs-2); overflow-wrap:anywhere; }
 #route-panel .rp-row { display:flex; align-items:center; gap:12px; }
 #route-panel .rp-row label { font-size: var(--fs-2); color:var(--muted); min-width:72px; }
-#route-panel .rp-row select { flex:1; background:#1a1408; color:#e8dcc4;
+#route-panel .rp-row select { flex:1; background-color:#1a1408; color:#e8dcc4;
   border:1px solid rgba(184,146,44,0.35); padding:9px 10px; min-height:40px; font-size: var(--fs-2); border-radius:3px; }
 #route-panel-time { font-size: var(--fs-2); color:#c8b98a; }
 #route-panel-seen { font-size: var(--fs-2); color:var(--muted); }
 #route-panel-seen.rp-yes { color:#9bc47a; }
 #route-panel-seen.rp-held { color:#d9a441; }
-#route-panel-close { flex:none; background:none; color:#b8922c;
-  border:1px solid rgba(184,146,44,0.5); padding:3px 7px; border-radius:4px;
-  cursor:pointer; font-size: var(--fs-2); }
-#route-panel-close:hover { border-color:#b8922c; color:#e8dcc4; }
+/* The one close control for every edit form */
+.close-x { flex:none; width:34px; height:34px; display:flex; align-items:center; justify-content:center;
+  background:none; color:#b8922c; border:1px solid rgba(184,146,44,0.5); border-radius:3px;
+  cursor:pointer; font-size: var(--fs-2); line-height:1; }
+.close-x:hover { border-color:#b8922c; color:#e8dcc4; background:#2a1e08; }
+.close-x.hidden { display:none; }
+/* Edit forms read as one family of cards, apart from the tab bar and persistent controls */
+#insp-single, #route-panel { background:#120e08; border:1px solid rgba(184,146,44,0.3);
+  border-radius:4px; padding:16px; }
+/* Native selects pin the arrow to the border; draw our own, inset */
+.panel select { -webkit-appearance:none; appearance:none; padding-right:36px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23b8922c' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 14px center; background-size:12px 8px; }
+.tt-leg-row select { padding-right:26px; background-position:right 8px center; }
 /* Map */
 #map { flex: 1; }
 .maplibregl-map { font: inherit; }
@@ -554,7 +564,7 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
 .tt-stop-rm:hover { color:var(--warn); }
 .tt-leg-row { padding:3px 6px 3px 30px; font-size: var(--fs-2); display:grid;
   grid-template-columns:auto auto 1fr; gap:4px; align-items:center; color:var(--muted); }
-.tt-leg-row select { background:#1a1408; border:1px solid rgba(184,146,44,0.25);
+.tt-leg-row select { background-color:#1a1408; border:1px solid rgba(184,146,44,0.25);
   color:#c8b87a; padding:2px 3px; border-radius:2px; font-size: var(--fs-2); min-width:0; }
 .tt-leg-row select option { background:#1a1410; }
 .tt-leg-row select option:disabled { color:var(--muted); }
@@ -651,7 +661,7 @@ def _build_panel_inspector(region_options: str) -> str:
     return f"""
 <div class="insp-head">
   <div class="list-heading"><span id="ef-mode">New location</span> <span id="ef-slug" class="insp-slug"></span></div>
-  <button id="ef-close-btn" type="button" class="btn btn-sm hidden" title="Deselect (Esc)">Close</button>
+  <button id="ef-close-btn" type="button" class="close-x hidden" title="Close (Esc)" aria-label="Close">✕</button>
 </div>
 <div class="field-group">
   <label>Coordinates</label>
@@ -2878,7 +2888,7 @@ def _build_html(
         + "\n    </div>\n"
         '<div id="route-panel" hidden>\n'
         '  <div class="rp-head"><h2 class="rp-title list-heading">Editing route</h2>'
-        '<button id="route-panel-close" type="button" title="Close (Esc)">✕</button></div>\n'
+        '<button id="route-panel-close" type="button" class="close-x" title="Close (Esc)" aria-label="Close">✕</button></div>\n'
         '  <div id="route-panel-label"></div>\n'
         '  <div id="route-panel-time"></div>\n'
         '  <div id="route-panel-seen"></div>\n'
