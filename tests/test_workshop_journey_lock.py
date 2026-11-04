@@ -99,3 +99,15 @@ def test_lock_control_is_an_icon_button_with_a_label_that_follows_state():
     assert "_TT_ICON_LOCKED" in body and "_TT_ICON_OPEN" in body
     assert '"Unlock journey"' in body and '"Lock journey"' in body
     assert body.count("setAttribute(\"aria-label\"") == 1
+
+
+def test_clicking_a_journey_line_loads_it_only_when_not_mid_edit():
+    src = SOURCE
+    assert 'layers:["journeys-hit"]' in src
+    assert "(_ttLocked||!_ttStops.length)" in src
+    assert "_ttLoad(_jh[0].properties.id)" in src
+
+
+def test_saved_row_name_is_clickable_and_unlocked_word_is_green():
+    assert '.querySelector(".tt-saved-name").addEventListener("click"' in SOURCE
+    assert ".tt-lockword.open" in SOURCE

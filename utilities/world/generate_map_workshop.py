@@ -642,6 +642,7 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
 #tt-actions #tt-lock-btn { color:#8fd18f; background:transparent; border:none; padding:6px 4px; min-width:0; }
 #tt-actions #tt-lock-btn.armed { color:#f0877a; background:transparent; }
 .tt-lockword { color:#f0877a; text-decoration:line-through; }
+.tt-lockword.open { color:#8fd18f; text-decoration:none; }
 #tt-lock-btn svg { width:18px; height:18px; display:block; margin:0 auto; }
 .tt-stops-list { display:flex; flex-direction:column; gap:0; }
 .tt-stop-row { display:flex; align-items:center; gap:6px; padding:4px 6px;
@@ -675,7 +676,7 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
   background:#1a1408; border:1px solid rgba(184,146,44,0.12); border-radius:3px;
   font-size: var(--fs-2); color:#c8b87a; }
 .tt-saved-row.current { border-color:rgba(232,160,96,0.55); }
-.tt-saved-name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tt-saved-name { cursor:pointer; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .tt-saved-meta { color:var(--muted); font-size: var(--fs-2); white-space:nowrap; }
 .tt-saved-meta.gm { color:#b08a58; }
 .tt-saved-row button { background:none; border:1px solid rgba(184,146,44,0.25); color:var(--muted);
@@ -1721,7 +1722,7 @@ function _ttRenderState(){
   var st=_ttEl("tt-state");
   if(!st)return;
   var f=_ttJid?_ttFind(_ttJid):null;
-  if(_ttJid)st.innerHTML=(_ttLocked?'<span class="tt-lockword">Editing</span>':"Editing")+" <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttDirty?" — unsaved changes":"");
+  if(_ttJid)st.innerHTML='<span class="tt-lockword'+(_ttLocked?'':' open')+'">Editing</span>'+" <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttDirty?" — unsaved changes":"");
   else if(_ttStops.length)st.textContent="New journey — not saved yet";
   else st.textContent="New journey — add two or more stops";
   var busy=_ttLegs.some(function(l){return l.state==="fetching";});
@@ -1843,6 +1844,7 @@ function _ttRenderSaved(){
   box.querySelectorAll(".tt-saved-row").forEach(function(row){
     var id=row.dataset.id;
     row.querySelector(".tt-load").addEventListener("click",function(){_ttLoad(id);});
+    row.querySelector(".tt-saved-name").addEventListener("click",function(){_ttLoad(id);});
     row.querySelector(".tt-del").addEventListener("click",function(){_ttDelete(id);});});}
 
 function _ttFit(){
@@ -2316,7 +2318,9 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '});\n'
         'map.on("click",function(e){'
         'if(_activeTab==="travel-time"&&!map.queryRenderedFeatures(e.point,{layers:_locLayerIds||[]}).length){'
-        '_ttSetPt(e.lngLat.lng,e.lngLat.lat,null);}'
+        'var _jh=(_ttLocked||!_ttStops.length)?map.queryRenderedFeatures(e.point,{layers:["journeys-hit"]}):[];'
+        'if(_jh.length&&_ttFind(_jh[0].properties.id))_ttLoad(_jh[0].properties.id);'
+        'else _ttSetPt(e.lngLat.lng,e.lngLat.lat,null);}'
         'if(!map.queryRenderedFeatures(e.point,{layers:["routes"]}).length){'
         'if(map.getSource("route-selected")){'
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[]});}'
