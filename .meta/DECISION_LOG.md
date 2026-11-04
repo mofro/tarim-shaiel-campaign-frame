@@ -920,3 +920,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** `Session_N_Player_Summary.md` files that are `visibility: public` and `status: canon` publish to `docs/sessions/index.html` plus flat `docs/sessions/session-N.html`, linked from the nav (after World) and a homepage card. Slugs come from the session number, not the vault folder name.
 - **Rationale:** Fail-closed selection keeps drafts and GM material off all four sites. Flat files match the site's existing `/x.html` pages and decouple URLs from vault folders; the rejected alternative was one `index.html` per session folder. The newspaper keeps the nested layout for now.
 - **Lock status:** Locked (PR #360 `c54827d`, PR #362 `ec252e6`).
+
+## 2026-11-03 — Map: Workshop visibility batch bar replaces the Reveal tab (#353, HeroHeaven-fs8.1.6)
+- **Decision:** Visibility changes on several locations happen through a batch bar over the selection; the Reveal tab is retired.
+- **Rationale:** Reveal was one operation on a shared visibility field, so a separate tab split one concept across two places. Rejected: keeping Reveal as a fourth mode, which would add a tab for an action the inspector already covers.
+- **Lock status:** Locked (shipped, PR #365).
