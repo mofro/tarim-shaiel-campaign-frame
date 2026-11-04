@@ -453,6 +453,10 @@ def render_body(
                     list_items.append(f'  <li>{inline_md(item_text)}</li>\n')
                 elif ls and not list_items:
                     prefix_lines.append(ls)
+                elif ls:
+                    # Wrapped continuation of the previous item.
+                    list_items[-1] = list_items[-1].replace(
+                        '</li>\n', f' {inline_md(ls)}</li>\n')
             if prefix_lines:
                 html_parts.append(f'<p>{inline_md(" ".join(prefix_lines))}</p>\n')
             if list_items:

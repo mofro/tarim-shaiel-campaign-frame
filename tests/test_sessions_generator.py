@@ -241,3 +241,21 @@ def test_nav_and_drawer_link_sessions_after_world():
 def test_homepage_featured_card_points_at_sessions_index():
     feat = (Path(__file__).parent.parent / "utilities/homepage/featured-docs.md").read_text(encoding="utf-8")
     assert "href: /sessions/index.html" in feat
+
+
+class TestListContinuation:
+    """#376: an indented line after a bullet belongs to that bullet."""
+
+    def _render(self, md):
+        return render_body(md, gen.VAULT_ROOT, gen.DOCS_DIR, gm_mode=False)[0]
+
+    def test_continuation_line_is_kept(self):
+        html = self._render('- **What happened:** He rises.The last words:\n  "Listen..."\n')
+        assert "Listen..." in html
+        assert html.count("<li>") == 1
+
+    def test_continuation_joins_the_previous_item_only(self):
+        html = self._render("- one\n  more of one\n- two\n")
+        assert html.count("<li>") == 2
+        assert "<li>one more of one</li>" in html
+        assert "<li>two</li>" in html
