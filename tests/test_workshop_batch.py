@@ -47,7 +47,7 @@ def test_multiselect_js_is_safe_to_inline():
 
 def test_batch_bar_sits_inside_the_inspector_panel_and_hides_the_single_form():
     src = inspect.getsource(gmw._build_html)
-    inspector = src[src.index('id="panel-inspector"'):src.index('id="panel-plan-route"')]
+    inspector = src[src.index('id="panel-inspector"'):src.index('id="panel-route-index"')]
     assert "panel_batch" in inspector and 'id="insp-single"' in inspector
     assert "body.ms-multi #insp-single { display: none; }" in gmw._CSS
 
