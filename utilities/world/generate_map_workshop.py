@@ -236,6 +236,56 @@ def _route_index_html(route_index: list) -> str:
 # HTML / JS builders
 # ---------------------------------------------------------------------------
 
+# The sidebar sections, in order. One list renders both the tab strip and the icon rail,
+# so the two navigations cannot drift (#355). Icons are 20px stroke SVGs on currentColor.
+_WS_SECTIONS = [
+    ("inspector", "Inspector",
+     '<circle cx="10" cy="10" r="4.5"/><path d="M10 1.5v4M10 14.5v4M1.5 10h4M14.5 10h4"/>'),
+    ("route-index", "Routes",
+     '<circle cx="4.5" cy="15.5" r="2"/><circle cx="15.5" cy="4.5" r="2"/>'
+     '<path d="M6.5 15.5c6 0 1.5-11 7-11"/>'),
+    ("travel-time", "Journeys",
+     '<path d="M3 16c3-8 6 0 9-6s3-5 5-6" stroke-dasharray="2.5 2.5"/><circle cx="17" cy="4" r="1.6"/>'),
+]
+
+
+def _tab_buttons_html() -> str:
+    out = []
+    for i, (sid, label, _svg) in enumerate(_WS_SECTIONS):
+        badge = (' <span class="edit-badge hidden" id="edit-badge">0</span>'
+                 if sid == "inspector" else "")
+        out.append(f'        <button class="tab-btn{" active" if i == 0 else ""}" '
+                   f'data-tab="{sid}">{label}{badge}</button>\n')
+    out.append('        <button type="button" class="nav-switch" id="nav-to-rail" '
+               'title="Switch to the icon rail" aria-label="Switch to the icon rail">\u25a5</button>\n')
+    return "".join(out)
+
+
+def _nav_rail_html() -> str:
+    items = []
+    for i, (sid, label, svg) in enumerate(_WS_SECTIONS):
+        badge = ('<span class="edit-badge hidden" id="edit-badge-rail">0</span>'
+                 if sid == "inspector" else "")
+        cur = ' aria-current="page"' if i == 0 else ""
+        items.append(
+            f'<button type="button" class="nav-item{" active" if i == 0 else ""}" data-tab="{sid}" '
+            f'title="{label}" aria-label="{label}"{cur}>'
+            f'<svg class="nav-ico" viewBox="0 0 20 20" width="20" height="20" fill="none" '
+            f'stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">{svg}</svg>'
+            f'<span class="nav-label">{label}</span>{badge}</button>')
+    foot = (
+        '<div class="nav-foot">'
+        '<button type="button" class="nav-item" id="nav-pin" aria-pressed="false" '
+        'title="Pin the rail open" aria-label="Pin the rail open">'
+        '<span class="nav-ico nav-glyph" aria-hidden="true">\u25b8</span><span class="nav-label">Pin open</span></button>'
+        '<button type="button" class="nav-item" id="nav-to-tabs" '
+        'title="Switch to tabs" aria-label="Switch to tabs">'
+        '<span class="nav-ico nav-glyph" aria-hidden="true">\u25a4</span><span class="nav-label">Use tabs</span></button>'
+        '</div>')
+    return ('    <nav id="nav-rail" aria-label="Workshop sections"><div id="nav-rail-inner">'
+            + "".join(items) + foot + '</div></nav>\n')
+
+
 _CSS = """\
 :root {
   /* Type scale: 5 rem steps, each >= 1.15x the last. 12px is the floor for
@@ -484,6 +534,43 @@ body.ms-multi #insp-single { display: none; }
 #app-title-link { font-size: var(--fs-2); text-transform: none; letter-spacing: 0.03em;
   color: var(--muted); text-decoration: none; float: right; margin-top: 2px; }
 #app-title-link:hover { color: #b8922c; }
+/* Nav rail: icon bar that expands to labels over the panels (#355) */
+#sb-main { display: flex; flex: 1; min-height: 0; position: relative; }
+#sb-panels { display: flex; flex-direction: column; flex: 1; min-width: 0; min-height: 0; }
+#nav-rail { flex: none; width: 48px; position: relative; z-index: 4; }
+#nav-rail-inner { position: absolute; top: 0; bottom: 0; left: 0; width: 48px; overflow: hidden;
+  display: flex; flex-direction: column; background: #0e0b06;
+  border-right: 1px solid rgba(184,146,44,0.25); transition: width 0.15s; }
+#nav-rail:hover #nav-rail-inner, #nav-rail:focus-within #nav-rail-inner,
+#nav-rail.open #nav-rail-inner { width: 176px; box-shadow: 6px 0 14px rgba(0,0,0,0.45); }
+#app.nav-pinned #nav-rail { width: 176px; }
+/* a pinned rail only reserves width when the sidebar is wide enough to spare it */
+#app.nav-pinned.nav-narrow #nav-rail { width: 48px; }
+#app.nav-pinned.nav-narrow #nav-rail-inner { box-shadow: 6px 0 14px rgba(0,0,0,0.45); }
+#app.nav-pinned #nav-rail-inner, #app.nav-pinned #nav-rail:hover #nav-rail-inner { width: 176px; box-shadow: none; }
+.nav-item { position: relative; display: flex; align-items: center; gap: 14px; flex: none;
+  width: 100%; height: 46px; padding: 0 11px; background: none; border: 0;
+  border-left: 3px solid transparent; color: var(--muted); cursor: pointer; white-space: nowrap;
+  font: inherit; font-size: var(--fs-1); letter-spacing: 0.07em; text-transform: uppercase; text-align: left; }
+.nav-item:hover { background: #1a1410; color: #c8a84a; }
+.nav-item.active { background: #1a1410; color: var(--ink); border-left-color: #b8922c; }
+.nav-item:focus-visible, .nav-switch:focus-visible { outline: 2px solid #b8922c; outline-offset: -2px; }
+.nav-ico { flex: none; width: 20px; height: 20px; }
+.nav-glyph { display: flex; align-items: center; justify-content: center; font-size: var(--fs-3); line-height: 1; }
+.nav-label { opacity: 0; transition: opacity 0.1s; }
+#nav-rail:hover .nav-label, #nav-rail:focus-within .nav-label, #nav-rail.open .nav-label,
+#app.nav-pinned .nav-label { opacity: 1; }
+.nav-item .edit-badge { top: 6px; left: 26px; right: auto; }
+.nav-foot { margin-top: auto; border-top: 1px solid rgba(184,146,44,0.2); padding: 6px 0; }
+#nav-pin[aria-pressed=true] { color: #e8dcc4; }
+#nav-pin[aria-pressed=true] .nav-glyph { transform: rotate(180deg); }
+.nav-switch { flex: none; padding: 8px 10px; background: #1a1410; color: var(--muted);
+  border: 1px solid rgba(184,146,44,0.2); border-bottom: none; border-radius: 3px 3px 0 0; cursor: pointer;
+  font-size: var(--fs-2); }
+.nav-switch:hover { color: #c8a84a; background: #221c12; }
+#app.nav-tabs #nav-rail { display: none; }
+#app:not(.nav-tabs) #tab-bar { display: none; }
+#app:not(.nav-tabs) #sidebar-header { padding-bottom: 12px; }
 /* Shell: hide, resize, collapse */
 #sb-toggle { float: right; margin: 0 10px 0 0; background: none; color: var(--muted);
   border: 1px solid rgba(184,146,44,0.3); border-radius: 2px; cursor: pointer;
@@ -1940,8 +2027,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         # -- Tab switching --
         'function _setTab(tab){'
         '_activeTab=tab;_wsSetMode("tab",tab);'
-        'document.querySelectorAll(".tab-btn").forEach(function(b){'
-        'b.classList.toggle("active",b.dataset.tab===tab);});'
+        'document.querySelectorAll(".tab-btn,.nav-item[data-tab]").forEach(function(b){'
+        'var on=b.dataset.tab===tab;b.classList.toggle("active",on);'
+        'if(b.classList.contains("nav-item")){if(on)b.setAttribute("aria-current","page");'
+        'else b.removeAttribute("aria-current");}});'
         'document.querySelectorAll(".panel").forEach(function(p){'
         'p.classList.toggle("active",p.id==="panel-"+tab);});'
         # Clear Tab 2 highlights when switching away
@@ -1971,6 +2060,36 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'setTimeout(function(){map.resize();},0);}\n'
         'var _w0=parseFloat(_lsGet(_SB_W));if(_w0>0)_sbWidth(_w0);\n'
         'if(_lsGet(_SB_H)==="1"){_appEl.classList.add("sb-hidden");_sbDock(true);}\n'
+        # -- Nav rail (#355): _wsNav rail|tabs and _wsNavPin, both persisted --
+        'var _NAV="_wsNav",_NAVPIN="_wsNavPin";\n'
+        'var _railEl=document.getElementById("nav-rail"),_navTouch=false;\n'
+        'function _navMode(m){_appEl.classList.toggle("nav-tabs",m==="tabs");_lsSet(_NAV,m);'
+        'setTimeout(function(){map.resize();},0);}\n'
+        'function _navPin(p){_appEl.classList.toggle("nav-pinned",p);_lsSet(_NAVPIN,p?"1":"0");'
+        'var b=document.getElementById("nav-pin");b.setAttribute("aria-pressed",p?"true":"false");'
+        'var t=p?"Unpin the rail":"Pin the rail open";b.title=t;b.setAttribute("aria-label",t);'
+        'b.querySelector(".nav-label").textContent=p?"Unpin":"Pin open";}\n'
+        'if(_lsGet(_NAV)==="tabs")_appEl.classList.add("nav-tabs");\n'
+        'if(window.ResizeObserver)new ResizeObserver(function(){'
+        '_appEl.classList.toggle("nav-narrow",document.getElementById("sidebar").offsetWidth<440);'
+        '}).observe(document.getElementById("sidebar"));\n'
+        'if(_lsGet(_NAVPIN)==="1")_navPin(true);\n'
+        'document.getElementById("nav-to-tabs").addEventListener("click",function(){_navMode("tabs");});\n'
+        'document.getElementById("nav-to-rail").addEventListener("click",function(){_navMode("rail");});\n'
+        'document.getElementById("nav-pin").addEventListener("click",function(){'
+        '_navPin(!_appEl.classList.contains("nav-pinned"));});\n'
+        'document.addEventListener("pointerdown",function(e){'
+        '_navTouch=e.pointerType==="touch";'
+        'if(!_railEl.contains(e.target))_railEl.classList.remove("open");});\n'
+        'document.querySelectorAll(".nav-item[data-tab]").forEach(function(b){'
+        'b.addEventListener("click",function(e){'
+        'if(_navTouch&&!_railEl.classList.contains("open")&&!_appEl.classList.contains("nav-pinned")){'
+        '_railEl.classList.add("open");e.preventDefault();return;}'
+        '_railEl.classList.remove("open");_setTab(b.dataset.tab);});});\n'
+        '_railEl.addEventListener("keydown",function(e){'
+        'var d=e.key==="ArrowDown"?1:e.key==="ArrowUp"?-1:0;if(!d)return;e.preventDefault();'
+        'var bs=[].slice.call(_railEl.querySelectorAll("button"));var i=bs.indexOf(document.activeElement);'
+        'bs[(i+d+bs.length)%bs.length].focus();});\n'
         'document.addEventListener("click",function(e){var b=e.target.closest(".info-btn");if(!b)return;'
         'var t=document.getElementById(b.getAttribute("aria-controls"));var o=t.hidden;t.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");});\n'
         'document.addEventListener("keydown",function(e){if(e.key!=="Escape")return;'
@@ -2463,6 +2582,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _pendingEdits={};\n'
         'var _dragMarker=null;\n'
         'var _editBadge=document.getElementById("edit-badge");'
+        'var _railBadge=document.getElementById("edit-badge-rail");'
         'var _unsavedSection=document.getElementById("unsaved-section");'
         'var _unsavedList=document.getElementById("unsaved-list");'
         'var _rebuildLocBtn=document.getElementById("rebuild-locations-btn");'
@@ -2553,8 +2673,9 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'function _updateUnsavedList(){'
         'var allSlugs=[...new Set([...Object.keys(_pendingEdits),...Object.keys(_pendingFieldEdits||{})])];'
         'var count=allSlugs.length;'
-        'if(count===0){_editBadge.classList.add("hidden");_unsavedSection.classList.add("hidden");return;}'
+        'if(count===0){_editBadge.classList.add("hidden");_railBadge.classList.add("hidden");_unsavedSection.classList.add("hidden");return;}'
         '_editBadge.textContent=count;_editBadge.classList.remove("hidden");'
+        '_railBadge.textContent=count;_railBadge.classList.remove("hidden");'
         '_unsavedSection.classList.remove("hidden");'
         '_unsavedList.innerHTML=allSlugs.map(function(s){'
         'var parts=[];'
@@ -2876,11 +2997,12 @@ def _build_html(
         '        </div>\n'
         '      </div>\n'
         '      <div id="tab-bar">\n'
-        '        <button class="tab-btn active" data-tab="inspector">Inspector <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
-        '        <button class="tab-btn" data-tab="route-index">Routes</button>\n'
-        '        <button class="tab-btn" data-tab="travel-time">Journeys</button>\n'
+        + _tab_buttons_html() +
         "      </div>\n"
         "    </div>\n"
+        '    <div id="sb-main">\n'
+        + _nav_rail_html() +
+        '    <div id="sb-panels">\n'
         '    <div id="panel-inspector" class="panel active">\n'
         + panel_batch
         + '<div id="insp-single">\n'
@@ -2910,6 +3032,8 @@ def _build_html(
         '    <div id="panel-travel-time" class="panel">\n'
         + panel_travel
         + "\n    </div>\n"
+        '    </div>\n'
+        '    </div>\n'
         '    <div id="player-share" style="display:none">\n'
         '      <span style="color:#8ad08a;font-size:var(--fs-2);white-space:nowrap;">📡 Players:</span>\n'
         '      <a id="player-share-link" href="#" target="_blank" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></a>\n'
