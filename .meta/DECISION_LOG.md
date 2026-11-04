@@ -935,3 +935,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The sidebar sections render from one list (`_WS_SECTIONS`) as a 48px icon rail that expands to labels over the panels on hover/focus/tap. `_wsNav` (rail|tabs) keeps the tab strip as a fallback. Pinning the rail reserves 176px only when the sidebar is 440px or wider; narrower, it overlays.
 - **Rationale:** An overlay rail frees panel width without layout shift. Pin-reserves-width was chosen over pin-as-overlay so a pinned rail is stable, but it crushed panels at the 340px minimum, hence the width guard.
 - **Lock status:** Working decision, not locked; open until PR review confirms the pin interpretation.
+
+## 2026-11-03 — Map: journeys have a lock; saved journeys load locked (#373, HeroHeaven-60t)
+- **Decision:** A journey carries a `locked` flag (absent means locked). Locked blocks marker drag, add/remove stop, leg mode/path changes, name edits and Delete; Save re-locks. A new unsaved journey is editable.
+- **Rationale:** Accidental marker drags moved stops. Per-journey vs one global toggle collapsed to one control because the Workshop holds one journey at a time.
+- **Lock status:** Working decision, not locked (PR open for review).

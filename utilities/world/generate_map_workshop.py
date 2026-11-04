@@ -900,6 +900,7 @@ def _build_panel_travel_time() -> str:
   </select>
 </div>
 <div class="btn-row" style="margin-top:4px;">
+  <button id="tt-lock-btn" class="btn btn-sm" aria-pressed="false">Lock</button>
   <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
   <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
@@ -1384,6 +1385,9 @@ var _ttLegs=[];
 var _ttMarkers=[];
 var _ttDefMode=_TT.defaultMode,_ttDefPath=_TT.defaultPath;
 var _ttJid=null,_ttDirty=false,_ttSeq=0,_ttArmed=null,_ttArmTimer=null;
+// Locked journeys refuse every edit that changes stops, legs or name. Saved
+// journeys load locked; a new, unsaved one starts editable.
+var _ttLocked=false;
 var _ttColors=["#3a6a3a","#3a4a8a","#7a3a3a","#6a5a20","#4a2a7a","#206a60","#7a4a20"];
 
 function _ttEl(id){return document.getElementById(id);}
@@ -1393,6 +1397,10 @@ function _ttEsc(s){
 function _ttSay(msg){var e=_ttEl("tt-status");if(e)e.textContent=msg||"";}
 function _ttIsFly(m){var s=_TT.speeds[m];return !!(s&&s.fly);}
 function _ttMarkDirty(){_ttDirty=true;}
+function _ttGuard(){
+  if(!_ttLocked)return false;
+  _ttSay("This journey is locked. Click Unlock to edit it.");
+  return true;}
 
 // Same arithmetic as travel_time.segment_hours: fliers ignore the path factor.
 function _ttHours(leg){
@@ -1603,6 +1611,7 @@ function _ttRecalc(i){
   _ttSetLegGeom(i);}
 
 function _ttSetMode(i,mode){
+  if(_ttGuard())return;
   var leg=_ttLegs[i];
   if(!leg||!_TT.speeds[mode])return;
   var rebuild=_ttApplyMode(leg,mode);
@@ -1610,6 +1619,7 @@ function _ttSetMode(i,mode){
   if(rebuild)_ttSetLegGeom(i);else _ttRender();}
 
 function _ttSetPath(i,path){
+  if(_ttGuard())return;
   var leg=_ttLegs[i];
   if(!leg||_ttIsFly(leg.mode)||leg.path===path)return;
   leg.path=path;
@@ -1620,7 +1630,7 @@ function _ttSetPath(i,path){
 function _ttAddMarker(i){
   var s=_ttStops[i];
   var el=_ttPinEl(i+1,_ttColors[i%_ttColors.length]);
-  var mk=new maplibregl.Marker({element:el,draggable:true}).setLngLat([s.lng,s.lat]).addTo(map);
+  var mk=new maplibregl.Marker({element:el,draggable:!_ttLocked}).setLngLat([s.lng,s.lat]).addTo(map);
   mk.on("dragend",function(){
     var idx=_ttMarkers.indexOf(mk);
     if(idx<0)return;
@@ -1633,6 +1643,7 @@ function _ttAddMarker(i){
   _ttMarkers.push(mk);}
 
 function _ttSetPt(lng,lat,name,slug){
+  if(_ttGuard())return;
   if(_ttStops.length>=_JRN.maxStops){_ttSay("A journey can have at most "+_JRN.maxStops+" stops.");return;}
   var i=_ttStops.length;
   _ttStops.push({lng:lng,lat:lat,name:name||(lat.toFixed(2)+","+lng.toFixed(2)),slug:slug||null});
@@ -1644,6 +1655,7 @@ function _ttSetPt(lng,lat,name,slug){
   }else{_ttRender();}}
 
 function _ttRemoveStop(i){
+  if(_ttGuard())return;
   var n=_ttStops.length;
   if(i<0||i>=n)return;
   _ttStops.splice(i,1);
@@ -1664,7 +1676,7 @@ function _ttRemoveStop(i){
 function _ttClear(){
   _ttMarkers.forEach(function(mk){mk.remove();});
   _ttStops=[];_ttLegs=[];_ttMarkers=[];
-  _ttJid=null;_ttDirty=false;_ttDisarm();
+  _ttJid=null;_ttDirty=false;_ttLocked=false;_ttDisarm();
   _ttEl("tt-name").value="";_ttEl("tt-vis").value="gm_secrets";
   _ttSay("");_ttFilterSaved();_ttRender();_ttRenderSaved();}
 
@@ -1701,14 +1713,40 @@ function _ttRenderState(){
   var st=_ttEl("tt-state");
   if(!st)return;
   var f=_ttJid?_ttFind(_ttJid):null;
-  if(_ttJid)st.innerHTML="Editing <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttDirty?" — unsaved changes":"");
+  if(_ttJid)st.innerHTML="Editing <b>"+_ttEsc(f?f.properties.name:_ttJid)+"</b>"+(_ttLocked?" — locked":"")+(_ttDirty?" — unsaved changes":"");
   else if(_ttStops.length)st.textContent="New journey — not saved yet";
   else st.textContent="New journey — add two or more stops";
   var busy=_ttLegs.some(function(l){return l.state==="fetching";});
   var save=_ttEl("tt-save-btn"),as=_ttEl("tt-saveas-btn");
   save.disabled=_ttStops.length<2||busy;
   save.textContent=_ttJid?"Save changes":"Save";
-  as.hidden=!_ttJid;as.disabled=save.disabled;}
+  as.hidden=!_ttJid;as.disabled=save.disabled;
+  _ttApplyLock();}
+
+function _ttApplyLock(){
+  var lk=_ttEl("tt-lock-btn");
+  if(lk){lk.textContent=_ttLocked?"Unlock":"Lock";lk.classList.toggle("armed",_ttLocked);
+    lk.setAttribute("aria-pressed",_ttLocked?"true":"false");}
+  _ttMarkers.forEach(function(mk){mk.setDraggable(!_ttLocked);});
+  var f=_ttEl("tt-form");
+  if(f)f.classList.toggle("tt-locked",_ttLocked);
+  ["tt-name","tt-all-path"].forEach(function(id){var e=_ttEl(id);if(e)e.disabled=_ttLocked;});
+  document.querySelectorAll(".tt-preset,.tt-stop-rm,.tt-leg-mode,.tt-leg-path").forEach(function(e){
+    e.disabled=_ttLocked;});}
+
+function _ttToggleLock(){
+  _ttLocked=!_ttLocked;
+  _ttApplyLock();_ttRenderState();
+  if(!_ttJid){_ttSay(_ttLocked?"Locked.":"Unlocked.");return;}
+  var want=_ttLocked,id=_ttJid;
+  fetch("/api/journeys/"+encodeURIComponent(id),{method:"PATCH",
+    headers:{"Content-Type":"application/json"},body:JSON.stringify({locked:want})})
+  .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+  .then(function(x){
+    if(!x.ok||!x.d.ok){_ttSay((x.d&&x.d.error)||"Could not save the lock.");return;}
+    _ttStore(x.d.journey,x.d.popup);_ttRenderSaved();
+    _ttSay(want?"Locked.":"Unlocked. Save re-locks it.");})
+  .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});}
 
 function _ttRender(){
   var list=_ttEl("tt-stops-list");
@@ -1837,7 +1875,7 @@ function _ttLoad(id){
   _ttStops.forEach(function(s,i){_ttAddMarker(i);});
   var redo={};
   moved.forEach(function(i){if(i>0)redo[i-1]=1;if(i<_ttLegs.length)redo[i]=1;});
-  _ttJid=id;_ttDirty=moved.length>0;
+  _ttJid=id;_ttDirty=moved.length>0;_ttLocked=p.locked!==false;
   _ttEl("tt-name").value=p.name||"";
   _ttEl("tt-vis").value=p.visibility==="public"?"public":"gm_secrets";
   _ttFilterSaved();_ttRender();_ttRenderSaved();
@@ -1856,7 +1894,7 @@ function _ttSave(asNew){
   if(_ttLegs.some(function(l){return l.state==="fetching";})){
     _ttSay("Routing is still running. Save when the legs have finished.");return;}
   var upd=_ttJid&&!asNew;
-  var body={name:name,visibility:_ttEl("tt-vis").value,
+  var body={name:name,visibility:_ttEl("tt-vis").value,locked:true,
     stops:_ttStops.map(function(s){
       var o={lng:s.lng,lat:s.lat,name:s.name};if(s.slug)o.slug=s.slug;return o;}),
     legs:_ttLegs.map(function(l){
@@ -1868,7 +1906,7 @@ function _ttSave(asNew){
   .then(function(x){
     if(!x.ok||!x.d.ok){_ttSay((x.d&&x.d.error)||"Save failed.");return;}
     _ttStore(x.d.journey,x.d.popup);
-    _ttJid=x.d.journey.id;_ttDirty=false;_ttDisarm();
+    _ttJid=x.d.journey.id;_ttDirty=false;_ttLocked=true;_ttDisarm();
     _ttFilterSaved();_ttRender();_ttRenderSaved();
     _ttSay("Saved “"+name+"”.");})
   .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});}
@@ -1876,6 +1914,7 @@ function _ttSave(asNew){
 function _ttDelete(id){
   var f=_ttFind(id);
   if(!f)return;
+  if(id===_ttJid&&_ttGuard())return;
   if(_ttArmed!=="del:"+id){
     _ttArm("del:"+id);
     _ttSay("Click Confirm? to delete “"+f.properties.name+"” permanently.");
@@ -1896,6 +1935,7 @@ function _ttDelete(id){
 // -- Controls -----------------------------------------------------------
 document.querySelectorAll(".tt-preset").forEach(function(btn){
   btn.addEventListener("click",function(){
+    if(_ttGuard())return;
     var mode=btn.dataset.mode;
     document.querySelectorAll(".tt-preset").forEach(function(b){b.classList.toggle("active",b===btn);});
     _ttDefMode=mode;
@@ -1910,7 +1950,7 @@ document.querySelectorAll(".tt-preset").forEach(function(btn){
 _ttEl("tt-all-path").addEventListener("change",function(){
   var p=this.value;
   this.value="";
-  if(!p)return;
+  if(!p||_ttGuard())return;
   _ttDefPath=p;
   _ttLegs.forEach(function(leg,i){
     if(_ttIsFly(leg.mode)){leg.pathKeep=p;return;}
@@ -1935,6 +1975,7 @@ _ttEl("tt-vis").addEventListener("change",function(){
       "Marked GM only.");})
   .catch(function(){_ttSay("Devserver not reachable. Run venv/bin/python utilities/devserver.py");});});
 
+_ttEl("tt-lock-btn").addEventListener("click",_ttToggleLock);
 _ttEl("tt-save-btn").addEventListener("click",function(){_ttSave(false);});
 _ttEl("tt-saveas-btn").addEventListener("click",function(){_ttSave(true);});
 _ttEl("tt-clear-btn").addEventListener("click",_ttClear);

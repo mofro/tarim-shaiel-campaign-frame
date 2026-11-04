@@ -528,3 +528,32 @@ def test_travel_time_panel_is_capped_to_the_form_panel_width():
     m = re.search(r"^([^{\n]*#panel-travel-time[^{\n]*)\{\s*max-width:\s*340px;\s*\}", gmw._CSS, re.M)
     assert m, "expected #panel-travel-time in the panel width rule"
     assert "#panel-edit-coords" in m.group(1)
+
+
+# --- lock (#373) -----------------------------------------------------------------
+
+def test_a_new_journey_is_locked_by_default(store):
+    assert journeys.create(store, body())["properties"]["locked"] is True
+
+
+def test_locked_can_be_set_on_create_and_must_be_boolean(store):
+    assert journeys.create(store, body(locked=False))["properties"]["locked"] is False
+    for bad in ("yes", 1, None):
+        with pytest.raises(journeys.JourneyError):
+            journeys.create(store, body(name="x", locked=bad))
+
+
+def test_patch_toggles_locked_and_keeps_everything_else(store):
+    feat = journeys.create(store, body())
+    out = journeys.patch(store, feat["id"], {"locked": False})
+    assert out["properties"]["locked"] is False
+    assert out["properties"]["legs"] == feat["properties"]["legs"]
+    assert out["properties"]["name"] == feat["properties"]["name"]
+    with pytest.raises(journeys.JourneyError):
+        journeys.patch(store, feat["id"], {"locked": "no"})
+
+
+def test_replace_keeps_the_stored_lock_unless_the_body_says_otherwise(store):
+    feat = journeys.create(store, body(locked=False))
+    assert journeys.replace(store, feat["id"], body())["properties"]["locked"] is False
+    assert journeys.replace(store, feat["id"], body(locked=True))["properties"]["locked"] is True
