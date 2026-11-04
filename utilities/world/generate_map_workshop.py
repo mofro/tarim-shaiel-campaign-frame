@@ -289,7 +289,8 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .field-group select option { background: #1a1410; }
 .field-group textarea { resize: vertical; min-height: 56px; }
 .insp-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.insp-head .list-heading { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.insp-head .list-heading { margin: 0; min-width: 0; overflow-wrap: anywhere; font-size: var(--fs-4);
+  letter-spacing: 0.02em; text-transform: none; color: #e8dcc4; }
 .insp-slug { color: var(--muted); font-size: var(--fs-2); text-transform: none; letter-spacing: 0; }
 .insp-note { color: var(--muted); font-size: var(--fs-1); text-transform: none; letter-spacing: 0; }
 .insp-actions { margin-top: 2px; }
@@ -792,6 +793,7 @@ def _build_panel_travel_time() -> str:
     __TT_PATH_OPTS__
   </select>
 </div>
+<div id="tt-form" hidden>
 <div class="field-group" style="margin-top:8px;">
   <label for="tt-name">Journey name</label>
   <input id="tt-name" type="text" maxlength="__TT_MAX_NAME__" placeholder="e.g. Spring caravan to Merv" autocomplete="off">
@@ -807,6 +809,7 @@ def _build_panel_travel_time() -> str:
   <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
   <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
+</div>
 </div>
 <p id="tt-status" class="hint" style="margin-top:4px;min-height:14px;"></p>
 <div class="field-group" style="margin-top:10px;">
@@ -1637,6 +1640,7 @@ function _ttRender(){
   _ttEl("tt-tot-dist").textContent=wait?"…":_ttKm(km);
   _ttEl("tt-tot-time").textContent=wait?"…":_ttFmt(h);
   _ttEl("tt-clear-btn").hidden=_ttStops.length===0;
+  _ttEl("tt-form").hidden=_ttStops.length===0;
   _ttUpdateLine();
   _ttRenderState();}
 
