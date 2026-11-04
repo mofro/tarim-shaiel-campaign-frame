@@ -637,6 +637,9 @@ body.mode-place #map .maplibregl-canvas, body.mode-route #map .maplibregl-canvas
   font-weight:bold; }
 .tt-state { font-size: var(--fs-2); color:var(--muted); margin-bottom:6px; min-height:14px; }
 .tt-state b { color:var(--warn); font-weight:normal; }
+#tt-lock-btn { color:#8fd18f; border-color:rgba(143,209,143,0.55); }
+#tt-lock-btn.armed { color:#f0877a; border-color:rgba(240,135,122,0.6); background:rgba(240,135,122,0.12); }
+#tt-lock-btn svg { width:18px; height:18px; display:block; margin:0 auto; }
 .tt-stops-list { display:flex; flex-direction:column; gap:0; }
 .tt-stop-row { display:flex; align-items:center; gap:6px; padding:4px 6px;
   background:#1a1408; border-radius:3px; border:1px solid rgba(184,146,44,0.12);
@@ -892,7 +895,7 @@ def _build_panel_travel_time() -> str:
   <label for="tt-name">Journey name</label>
   <input id="tt-name" type="text" maxlength="__TT_MAX_NAME__" placeholder="e.g. Spring caravan to Merv" autocomplete="off">
 </div>
-<div class="field-group" style="margin-top:2px;">
+<div class="field-group" style="margin-top:12px;">
   <label for="tt-vis">Visible to players</label>
   <select id="tt-vis">
     <option value="gm_secrets">GM only</option>
@@ -1389,7 +1392,7 @@ var _ttJid=null,_ttDirty=false,_ttSeq=0,_ttArmed=null,_ttArmTimer=null;
 // journeys load locked; a new, unsaved one starts editable.
 var _ttLocked=false;
 var _TT_ICON_LOCKED='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.2"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>';
-var _TT_ICON_OPEN='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.2"/><path d="M5 7V5a3 3 0 0 1 5.6-1.5"/></svg>';
+var _TT_ICON_OPEN='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.2"/><path d="M5 7V5a3 3 0 0 1 5.8-1M11 5.2v.6"/></svg>';
 var _ttColors=["#3a6a3a","#3a4a8a","#7a3a3a","#6a5a20","#4a2a7a","#206a60","#7a4a20"];
 
 function _ttEl(id){return document.getElementById(id);}
