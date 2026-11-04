@@ -8,10 +8,10 @@ Files in this directory are templates only. The generator skips `_`-prefixed dir
 
 1. **Create a directory** under `narrative/newspaper/` with a slug like `0003-session-1-title/`
 2. **Copy the template files** from this directory into it
-3. **Edit `manifest.md`** — set the masthead (title, date, issue number)
+3. **Edit `manifest.md`** — set the masthead (title, date, issue number) and `slug:` (the published URL)
 4. **Edit or replace** the story files — each file is one story
 5. **Run the build**: `uv run python utilities/build.py newspaper`
-6. **Preview** at `http://localhost:8532/newspaper/<slug>/`
+6. **Preview** at `http://localhost:8532/newspaper/<slug>.html`
 
 ---
 

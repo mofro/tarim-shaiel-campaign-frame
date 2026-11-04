@@ -12,7 +12,7 @@
   {% if issues %}
   <div class="np-index-grid">
     {% for issue in issues %}
-    <a class="np-issue-card" href="/newspaper/{{ issue.slug }}/">
+    <a class="np-issue-card" href="/newspaper/{{ issue.slug }}.html">
       <div class="np-issue-card-issue">{{ issue.issue_no }}</div>
       <div class="np-issue-card-title np-font-antique">{{ issue.lead_headline }}</div>
       <div class="np-issue-card-date">{{ issue.date }}</div>

@@ -275,15 +275,15 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .tab-btn.active { background: #0a0805; color: #e8dcc4; border-color: rgba(184,146,44,0.4);
   border-bottom-color: #0a0805; font-weight: bold; }
 .panel { display: none; flex-direction: column; flex: 1; overflow-y: auto; scrollbar-gutter: stable;
-  padding: 14px; gap: 12px; }
+  padding: 16px; gap: 18px; }
 .panel.active { display: flex; }
-#insp-single { display: flex; flex-direction: column; gap: 12px; }
-.field-group { display: flex; flex-direction: column; gap: 4px; }
+#insp-single { display: flex; flex-direction: column; gap: 18px; }
+.field-group { display: flex; flex-direction: column; gap: 7px; }
 .field-group label { font-size: var(--fs-1); text-transform: uppercase; letter-spacing: 0.07em;
   color: var(--muted); }
 .field-group input[type="text"], .field-group select, .field-group textarea {
   background: #1a1410; border: 1px solid rgba(184,146,44,0.3); color: #e8dcc4;
-  padding: 6px 8px; font-size: var(--fs-2); border-radius: 2px; font-family: inherit; }
+  padding: 9px 10px; font-size: var(--fs-2); border-radius: 2px; font-family: inherit; }
 .field-group input[type="text"]:focus, .field-group select:focus, .field-group textarea:focus {
   outline: none; border-color: rgba(184,146,44,0.7); }
 .field-group select option { background: #1a1410; }
@@ -309,15 +309,15 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .radio-row { display: flex; gap: 14px; font-size: var(--fs-2); }
 .radio-row label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
 .radio-row input[type="radio"] { accent-color: #b8922c; }
-.btn { padding: 8px 14px; background: #2a1e08; border: 1px solid rgba(184,146,44,0.5);
+.btn { padding: 10px 16px; background: #2a1e08; border: 1px solid rgba(184,146,44,0.5);
   color: #e8dcc4; font-size: var(--fs-2); cursor: pointer; border-radius: 2px;
   letter-spacing: 0.05em; transition: background 0.15s; }
 .btn:hover:not(:disabled) { background: #3a2a10; border-color: #b8922c; }
 .btn:disabled { opacity: 0.4; cursor: default; }
-.btn-sm { padding: 5px 10px; font-size: var(--fs-2); }
+.btn-sm { padding: 7px 12px; font-size: var(--fs-2); }
 .btn-danger { border-color: rgba(180, 60, 60, 0.5); }
 .btn-danger:hover:not(:disabled) { background: #3a1010; border-color: var(--danger); }
-.btn-row { display: flex; gap: 6px; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .command-block { background: #0d0a06; border: 1px solid rgba(184,146,44,0.3);
   border-radius: 2px; overflow: hidden; }
 .command-block pre { padding: 10px 12px; font-size: var(--fs-2); font-family: monospace;
@@ -330,15 +330,15 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
   padding: 1px 4px; border-radius: 2px; }
 .hidden { display: none !important; }
 /* Route queue */
-#route-queue-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+#route-queue-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 .queue-item { background: #1a1410; border: 1px solid rgba(184,146,44,0.2);
-  border-radius: 2px; padding: 7px 10px; font-size: var(--fs-2); }
+  border-radius: 2px; padding: 9px 12px; font-size: var(--fs-2); }
 .queue-item .qi-num { color: #b8922c; font-weight: bold; margin-right: 6px; }
 .queue-item .qi-label { color: #e8dcc4; }
 .queue-item .qi-dist { color: var(--muted); font-size: var(--fs-2); margin-top: 2px; }
 .queue-empty { color: var(--muted); font-size: var(--fs-2); font-style: italic; }
 /* Route index */
-.panel#panel-route-index { gap: 8px; }
+.panel#panel-route-index { gap: 16px; }
 #panel-route-index h3 { font-size: var(--fs-1); text-transform: uppercase;
   letter-spacing: 0.1em; color: #b8922c; margin-top: 6px; }
 #panel-route-index table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: var(--fs-2); }
@@ -373,28 +373,23 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .ri-vis-gm { color:var(--muted); }
 .ri-vis-col { color: var(--muted); text-align: center; }
 .ri-eye { display: block; }
-/* Route panel overlay (map-click selection) */
-#route-panel { position:absolute; top:10px; right:10px; z-index:10;
-  background:#1a1208; color:#f0e6c8; padding:10px 14px; border-radius:6px;
-  border:1px solid #b8922c; min-width:180px; font-size: var(--fs-2);
-  box-shadow:0 2px 12px rgba(0,0,0,0.6); }
-#route-panel-label { font-weight:bold; margin-bottom:8px; word-break:break-word; }
-#route-panel .rp-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+/* Route form, docked in the Inspector (replaces the old map overlay) */
+#route-panel { display:flex; flex-direction:column; gap:18px; font-size: var(--fs-2); }
+#route-panel[hidden] { display:none; }
+body.rt-selected #insp-single { display:none; }
+#route-panel .rp-head { display:flex; align-items:flex-start; gap:8px; }
+#route-panel .rp-title { flex:1; min-width:0; margin:0; font-size:var(--fs-4); letter-spacing:0.02em;
+  color:#e8dcc4; overflow-wrap:anywhere; font-weight:normal; }
+#route-panel-label { color:var(--muted); font-size:var(--fs-2); overflow-wrap:anywhere; }
+#route-panel .rp-row { display:flex; align-items:center; gap:8px; }
 #route-panel .rp-row label { font-size: var(--fs-2); color:var(--muted); min-width:52px; }
 #route-panel .rp-row select { flex:1; background:#1a1408; color:#e8dcc4;
   border:1px solid rgba(184,146,44,0.35); padding:3px 4px; font-size: var(--fs-2); border-radius:3px; }
-#route-panel-time { font-size: var(--fs-2); color:#c8b98a; margin-bottom:4px; }
-#route-panel-seen { font-size: var(--fs-2); margin-bottom:8px; color:var(--muted); }
+#route-panel-time { font-size: var(--fs-2); color:#c8b98a; }
+#route-panel-seen { font-size: var(--fs-2); color:var(--muted); }
 #route-panel-seen.rp-yes { color:#9bc47a; }
 #route-panel-seen.rp-held { color:#d9a441; }
-#route-panel-regenerate { background:#4a3418; color:#e8dcc4; border:1px solid #b8922c;
-  padding:4px 10px; border-radius:4px; cursor:pointer; font-size: var(--fs-2); }
-#route-panel-regenerate:hover { background:#5a4020; }
-#route-panel-regenerate:disabled { opacity:0.5; cursor:default; }
-#route-panel-delete { background:#c0392b; color:#fff; border:none;
-  margin-left:6px; padding:4px 10px; border-radius:4px; cursor:pointer; font-size: var(--fs-2); }
-#route-panel-delete:hover { background:#e74c3c; }
-#route-panel-close { margin-left:6px; background:none; color:#b8922c;
+#route-panel-close { flex:none; background:none; color:#b8922c;
   border:1px solid rgba(184,146,44,0.5); padding:3px 7px; border-radius:4px;
   cursor:pointer; font-size: var(--fs-2); }
 #route-panel-close:hover { border-color:#b8922c; color:#e8dcc4; }
@@ -609,7 +604,7 @@ def _build_panel_plan_route() -> str:
   <button id="route-remove-btn" class="btn btn-sm btn-danger" disabled>Remove Last</button>
   <button id="route-clear-btn" class="btn btn-sm btn-danger" disabled>Clear All</button>
 </div>
-<div class="field-group" style="margin-top:8px;">
+<div class="field-group" style="margin-top:4px;">
   <label>Route Name</label>
   <input id="route-name" type="text" placeholder="Northern Silk Road">
 </div>
@@ -633,7 +628,7 @@ def _build_panel_plan_route() -> str:
   </label>
 </div>
 <button id="route-add-btn" class="btn" disabled>Add Route</button>
-<p id="route-status" class="hint" style="margin-top:6px;"></p>
+<p id="route-status" class="hint" style="margin-top:2px;"></p>
 <p class="hint" style="color:#9a8a6a;">Requires devserver: <code>venv/bin/python utilities/devserver.py</code><br>
 Adds segments, snaps to roads, rebuilds workshop automatically.</p>
 """
@@ -716,7 +711,7 @@ def _build_panel_inspector(region_options: str) -> str:
 </div>
 <p id="ef-status" class="hint insp-status"></p>
 <p class="hint insp-note">Requires devserver: <code>venv/bin/python utilities/devserver.py</code></p>
-<div id="unsaved-section" class="hidden" style="margin-top:6px;">
+<div id="unsaved-section" class="hidden" style="margin-top:2px;">
   <div class="list-heading" data-collapsible>Saved This Session</div>
   <ul id="unsaved-list"></ul>
 </div>
@@ -726,7 +721,7 @@ def _build_panel_inspector(region_options: str) -> str:
     <button id="rebuild-locations-btn" class="btn btn-sm">Rebuild Locations</button>
     <button id="rebuild-workshop-btn" class="btn btn-sm">Rebuild Workshop</button>
   </div>
-  <p id="api-status" class="hint" style="margin-top:6px;"></p>
+  <p id="api-status" class="hint" style="margin-top:2px;"></p>
 </div>
 """
 
@@ -783,7 +778,7 @@ def _build_panel_travel_time() -> str:
   <span class="tt-tot-v" id="tt-tot-dist">—</span>
   <span class="tt-tot-t" id="tt-tot-time">—</span>
 </div>
-<div class="field-group" style="margin-top:8px;">
+<div class="field-group" style="margin-top:4px;">
   <label>Mode for new legs / all legs</label>
   <div class="tt-presets">
     __TT_PRESETS__
@@ -794,18 +789,18 @@ def _build_panel_travel_time() -> str:
   </select>
 </div>
 <div id="tt-form" hidden>
-<div class="field-group" style="margin-top:8px;">
+<div class="field-group" style="margin-top:4px;">
   <label for="tt-name">Journey name</label>
   <input id="tt-name" type="text" maxlength="__TT_MAX_NAME__" placeholder="e.g. Spring caravan to Merv" autocomplete="off">
 </div>
-<div class="field-group" style="margin-top:6px;">
+<div class="field-group" style="margin-top:2px;">
   <label for="tt-vis">Visible to players</label>
   <select id="tt-vis">
     <option value="gm_secrets">GM only</option>
     <option value="public">Players (once every stop is public)</option>
   </select>
 </div>
-<div class="btn-row" style="margin-top:8px;">
+<div class="btn-row" style="margin-top:4px;">
   <button id="tt-save-btn" class="btn btn-sm" disabled>Save</button>
   <button id="tt-saveas-btn" class="btn btn-sm" hidden>Save as new</button>
   <button id="tt-clear-btn" class="btn btn-sm btn-danger" hidden>Clear All</button>
@@ -852,7 +847,7 @@ function _wsModeNext(cur,ev,tab){
   if(ev==="arm-route")return cur==="route"?"select":"route";
   if(ev==="tab"){
     if(cur==="place"&&tab!=="inspector")return "select";
-    if(cur==="route"&&tab!=="plan-route")return "select";
+    if(cur==="route"&&tab!=="route-index")return "select";
   }
   return cur;
 }
@@ -993,6 +988,7 @@ function _efClose(){if(!_efConfirmDiscard())return;_efReset();}
 
 function _openFieldEditor(feature){
   if(_activeTab!=="inspector")_setTab("inspector");
+  if(typeof _selectedRouteId!=="undefined"&&_selectedRouteId)_hideRoutePanel();
   var p=feature.properties;
   var slug=p.slug||p._slug||"";
   if(slug===_efSlug)return;
@@ -1070,6 +1066,7 @@ _efMoveBtn.addEventListener("click",function(){
 });
 _efCloseBtn.addEventListener("click",_efClose);
 document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"&&!e.defaultPrevented&&_wsMode==="select"&&_selectedRouteId&&!_msSel.length){_hideRoutePanel();return;}
   if(e.key!=="Escape"||e.defaultPrevented||_wsMode!=="select"||!_efSlug||_msSel.length)return;
   if(document.querySelector(".info-btn[aria-expanded=true]"))return;
   _efClose();
@@ -1936,7 +1933,7 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'document.querySelectorAll(".panel").forEach(function(p){'
         'p.classList.toggle("active",p.id==="panel-"+tab);});'
         # Clear Tab 2 highlights when switching away
-        'if(tab!=="plan-route")_clearHighlights();'
+        'if(tab!=="route-index")_clearHighlights();'
         'if(tab!=="inspector"&&window._msClear)window._msClear();'
         '}\n'
         'document.querySelectorAll(".tab-btn").forEach(function(b){'
@@ -2130,8 +2127,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.on("click","routes",function(e){'
         'if(_wsMode==="place"||window._wsJustPlaced)return;'
         'var f=e.features[0];'
+        'if(!_showRoutePanel(f))return;'
         'map.getSource("route-selected").setData({type:"FeatureCollection",features:[f]});'
-        '_showRoutePanel(f);'
         '});\n'
         'map.on("click",function(e){'
         'if(_activeTab==="travel-time"&&!map.queryRenderedFeatures(e.point,{layers:_locLayerIds||[]}).length){'
@@ -2327,7 +2324,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var minLat=Math.min.apply(null,lats),maxLat=Math.max.apply(null,lats);'
         'document.querySelectorAll(".ri-row").forEach(function(r){r.classList.remove("active");});'
         'row.classList.add("active");'
-        '_setTab("route-index");'
+        'if(!_showRoutePanel(feat))return;'
+        'map.getSource("route-selected").setData({type:"FeatureCollection",features:[feat]});'
         'map.fitBounds([[minLon,minLat],[maxLon,maxLat]],{padding:60,duration:800});'
         '});});\n'
 
@@ -2384,9 +2382,13 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         '(v==="public"?"Held: an end location is still hidden":"GM only");'
         '}\n'
         'function _showRoutePanel(feature){'
+        'if(_efSlug!==null||_efDirty()){if(!_efConfirmDiscard())return false;_efReset();}'
         '_selectedRouteId=feature.id||feature.properties._route_id||"";'
         '_refreshRoutePanel();'
         'document.getElementById("route-panel").hidden=false;'
+        'document.body.classList.add("rt-selected");'
+        'if(_activeTab!=="inspector")_setTab("inspector");'
+        'return true;'
         '}\n'
         # PATCH one property; on success mirror it into the in-page data and refresh the file on disk.
         'function _patchRoute(prop,value){'
@@ -2417,6 +2419,8 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'function _hideRoutePanel(){'
         '_selectedRouteId=null;'
         'document.getElementById("route-panel").hidden=true;'
+        'document.body.classList.remove("rt-selected");'
+        'if(map.getSource("route-selected"))map.getSource("route-selected").setData({type:"FeatureCollection",features:[]});'
         '}\n'
         'document.getElementById("route-panel-close").addEventListener("click",_hideRoutePanel);\n'
         'document.getElementById("route-panel-regenerate").addEventListener("click",function(){'
@@ -2861,7 +2865,6 @@ def _build_html(
         '      </div>\n'
         '      <div id="tab-bar">\n'
         '        <button class="tab-btn active" data-tab="inspector">Inspector <span class="edit-badge hidden" id="edit-badge">0</span></button>\n'
-        '        <button class="tab-btn" data-tab="plan-route">Add Route</button>\n'
         '        <button class="tab-btn" data-tab="route-index">Routes</button>\n'
         '        <button class="tab-btn" data-tab="travel-time">Journeys</button>\n'
         "      </div>\n"
@@ -2870,11 +2873,26 @@ def _build_html(
         + panel_batch
         + '<div id="insp-single">\n'
         + panel_inspector
-        + "\n    </div>\n    </div>\n"
-        '    <div id="panel-plan-route" class="panel">\n'
-        + panel_route
         + "\n    </div>\n"
+        '<div id="route-panel" hidden>\n'
+        '  <div class="rp-head"><h2 class="rp-title list-heading">Editing route</h2>'
+        '<button id="route-panel-close" type="button" title="Close (Esc)">✕</button></div>\n'
+        '  <div id="route-panel-label"></div>\n'
+        '  <div id="route-panel-time"></div>\n'
+        '  <div id="route-panel-seen"></div>\n'
+        '  <div class="rp-row"><label for="route-panel-vis">Visibility</label>'
+        '<select id="route-panel-vis"><option value="gm_secrets">GM only</option>'
+        '<option value="public">Public</option></select></div>\n'
+        f'  <div class="rp-row"><label for="route-panel-mode">Travel by</label>'
+        f'<select id="route-panel-mode">{mode_options}</select></div>\n'
+        '  <div class="btn-row"><button id="route-panel-regenerate" class="btn btn-sm">🔄 Regenerate</button>'
+        '<button id="route-panel-delete" class="btn btn-sm btn-danger">🗑 Delete Route</button></div>\n'
+        '</div>\n'
+        '    </div>\n'
         '    <div id="panel-route-index" class="panel">\n'
+        '<h3 data-collapsible>Add route</h3>\n'
+        + panel_route
+        + '\n<h3 data-collapsible>Routes</h3>\n'
         + route_index_html
         + "\n    </div>\n"
         '    <div id="panel-travel-time" class="panel">\n'
@@ -2892,19 +2910,6 @@ def _build_html(
         '  <div id="map"></div>\n'
         '  <div id="ws-mode-chip" role="status" hidden><span id="ws-mode-label"></span>'
         '<button id="ws-mode-cancel" type="button" title="Back to Select (Esc)">Esc</button></div>\n'
-        '  <div id="route-panel" hidden>\n'
-        '    <div id="route-panel-label"></div>\n'
-        '    <div id="route-panel-time"></div>\n'
-        '    <div id="route-panel-seen"></div>\n'
-        '    <div class="rp-row"><label for="route-panel-vis">Visibility</label>'
-        '<select id="route-panel-vis"><option value="gm_secrets">GM only</option>'
-        '<option value="public">Public</option></select></div>\n'
-        f'    <div class="rp-row"><label for="route-panel-mode">Travel by</label>'
-        f'<select id="route-panel-mode">{mode_options}</select></div>\n'
-        '    <button id="route-panel-regenerate">🔄 Regenerate</button>\n'
-        '    <button id="route-panel-delete">🗑 Delete Route</button>\n'
-        '    <button id="route-panel-close">✕</button>\n'
-        '  </div>\n'
         "</div>\n"
         '<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>\n'
         "<script>\n"
