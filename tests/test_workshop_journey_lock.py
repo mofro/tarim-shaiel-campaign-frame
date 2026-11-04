@@ -114,15 +114,16 @@ def test_saved_row_name_is_clickable_and_unlocked_word_is_green():
 
 
 def test_other_work_displaces_the_loaded_journey():
-    """A clean journey unloads, a dirty one only relocks; leaving the tab relocks."""
-    assert "function _ttStepAside(){" in SOURCE
+    """A clean journey unloads; unsaved changes ask first and Cancel drops the action."""
     body = SOURCE.split("function _ttStepAside(){")[1].split("}\n")[0]
-    assert "if(_ttDirty)_ttRelock();else _ttClear();" in body
+    assert 'if(_ttDirty&&!confirm("Discard unsaved journey changes?"))return false;' in body
+    assert "_ttClear();return true;" in body
+    assert "function _ttRelock(){" in SOURCE
     relock = SOURCE.split("function _ttRelock(){")[1].split("}\n")[0]
     assert "fetch" not in relock  # local only, never PATCHed
-    assert "_ttStepAside();'\n        '_selectedRouteId=" in SOURCE
-    assert "'_ttStepAside();'\n        '_openFieldEditor(feature);'" in SOURCE
-    assert 'if(_wsMode==="place"&&typeof _ttStepAside==="function")_ttStepAside();' in SOURCE
+    assert "'if(!_ttStepAside())return false;'\n        '_selectedRouteId=" in SOURCE
+    assert "'if(!_ttStepAside())return;'\n        '_openFieldEditor(feature);'" in SOURCE
+    assert 'if(nxt==="place"&&typeof _ttStepAside==="function"&&!_ttStepAside())return;' in SOURCE
     assert 'if(tab!=="travel-time"&&typeof _ttRelock==="function")_ttRelock();' in SOURCE
 
 
