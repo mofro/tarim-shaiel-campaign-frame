@@ -930,3 +930,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** Newspaper issues publish as `/newspaper/<slug>.html`. The slug is the `slug:` field in the issue's `manifest.md` (lowercase kebab-case), falling back to the folder name. An invalid, duplicate or `index` slug fails the build. A 301 in `netlify.toml` keeps the one pre-flatten URL (`/newspaper/0002-session-0-convergence/`) alive; issue 0002's slug is `session-0-convergence`.
 - **Rationale:** URLs should not depend on vault folder names. Rejected the folder-name slug (still coupled to the vault) and a number-only slug (the `issueNo` display string is "No. 00", not a stable key).
 - **Lock status:** Locked (shipped, PR #370).
+
+## 2026-11-03 — Map: Workshop nav rail replaces the tab strip by default (#355, HeroHeaven-fs8.1.8)
+- **Decision:** The sidebar sections render from one list (`_WS_SECTIONS`) as a 48px icon rail that expands to labels over the panels on hover/focus/tap. `_wsNav` (rail|tabs) keeps the tab strip as a fallback. Pinning the rail reserves 176px only when the sidebar is 440px or wider; narrower, it overlays.
+- **Rationale:** An overlay rail frees panel width without layout shift. Pin-reserves-width was chosen over pin-as-overlay so a pinned rail is stable, but it crushed panels at the 340px minimum, hence the width guard.
+- **Lock status:** Working decision, not locked; open until PR review confirms the pin interpretation.
