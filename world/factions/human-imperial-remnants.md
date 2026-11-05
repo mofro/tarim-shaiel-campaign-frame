@@ -8,14 +8,14 @@ region: Central Asian Hubs, Tarim Basin
 visible_control: false
 hidden_control: false
 rivals:
-  - orc-confederation-samarkand
+  - tulpar-confederation-samarkand
 controls:
   - merchant-networks
   - city-administration
 narrative_weight: medium
 status: canon
 created: 2026-04-30
-last_updated: 2026-10-24
+last_updated: 2026-11-05
 tags:
   - gm-only
 ---
@@ -67,7 +67,7 @@ The bureaucratic apparatus that outlasted the Human Empire. When the Empire was 
 | faction | relationship | notes |
 |---------|-------------|-------|
 | [[human-empire\|The Human Empire]] | legacy / successor | The bureaucratic structure that survived the Empire's military defeat |
-| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | rival / displaced | The Confederation displaced their political authority in the Central Asian Hubs |
+| [[tulpar-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | rival / displaced | The Confederation displaced their political authority in the Central Asian Hubs |
 | [[chain-breakers-order\|Chain-Breakers Order]] | opposed | The Remnants represent the administrative legacy of what the Order was founded against |
 | [[human-tarim-councils\|Human Tarim Councils]] | related — bureaucratic overlap | Administrative methods and personnel overlap; the Councils draw on Remnant expertise |
 

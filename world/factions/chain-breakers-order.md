@@ -16,7 +16,7 @@ controls:
 narrative_weight: high
 status: canon
 created: 2026-04-30
-last_updated: 2026-10-24
+last_updated: 2026-11-05
 tags:
   - gm-only
   - campaign-arc-liberation
@@ -77,8 +77,8 @@ The Order does not think of itself as a political organization, though others do
 | [[the-wizard\|The Wizard]] | opposed / hunted by | The Scholar's Purge was specifically targeting Order memory; ongoing suppression |
 | [[lich-cadre\|Lich Cadre]] | opposed / hunted by | The Cadre executes the ongoing suppression; specific Liches may be assigned to Order operations |
 | [[human-imperial-remnants\|Human Imperial Remnants]] | opposed | The Remnants represent the bureaucratic legacy of what the Order was founded to resist |
-| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | complex — cultural roots shared | The Confederation rose from the same post-liberation military structures; the Order's Tulpar-anchored memory makes the relationship significant but not uncomplicated |
-| [[orc-steppe-confederations\|Tulpar Steppe Confederations]] | allied — oral tradition overlap | The ancestor spirit veneration tradition and the Order's liberation memory share deep roots |
+| [[tulpar-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | complex — cultural roots shared | The Confederation rose from the same post-liberation military structures; the Order's Tulpar-anchored memory makes the relationship significant but not uncomplicated |
+| [[tulpar-steppe-confederations\|Tulpar Steppe Confederations]] | allied — oral tradition overlap | The ancestor spirit veneration tradition and the Order's liberation memory share deep roots |
 | [[scholars-remnant\|Scholars' Remnant]] | allied — parallel survival | Both are hunted by the Wizard; their knowledge domains are complementary; fragile solidarity |
 
 ---

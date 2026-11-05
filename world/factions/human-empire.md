@@ -8,7 +8,7 @@ region: all regions
 visible_control: true
 hidden_control: false
 rivals:
-  - orc-steppe-confederations
+  - tulpar-steppe-confederations
   - chain-breakers-order
 controls:
   - samarkand
@@ -23,7 +23,7 @@ controls:
 narrative_weight: very-high
 status: canon
 created: 2026-04-14
-last_updated: 2026-10-26
+last_updated: 2026-11-05
 tags:
   - gm-only
   - campaign-arc-backstory
@@ -94,8 +94,8 @@ The Empire understood that lasting control requires making people forget what ca
 | faction | relationship | notes |
 |---------|-------------|-------|
 | [[human-imperial-remnants\|Human Imperial Remnants]] | legacy / successor fragment | The administrative structure that outlasted the Empire; the facade without the force |
-| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | former controlled | Rose from the slave-legion structure post-liberation |
-| [[orc-steppe-confederations\|Tulpar Steppe Confederations]] | rival / enslaved | The source population for the slave-legions |
+| [[tulpar-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | former controlled | Rose from the slave-legion structure post-liberation |
+| [[tulpar-steppe-confederations\|Tulpar Steppe Confederations]] | rival / enslaved | The source population for the slave-legions |
 | [[chain-breakers-order\|Chain-Breakers Order]] | opposed | Founded in direct response to the liberation; carries memory of the Empire's mechanisms |
 | [[lich-cadre\|Lich Cadre]] | relationship unclear | The Wizard's relationship to the Empire is an open design question — see DM Notes |
 | [[the-wizard\|The Wizard]] | relationship unclear | Predates, rises within, or was created by the Empire? Gates significant design decisions |

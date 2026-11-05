@@ -8,14 +8,14 @@ region: The Steppe
 visible_control: true
 hidden_control: false
 rivals:
-  - orc-confederation-samarkand
+  - tulpar-confederation-samarkand
 controls:
   - steppe-routes
   - nomadic-territories
 narrative_weight: medium
 status: canon
 created: 2026-04-30
-last_updated: 2026-10-24
+last_updated: 2026-11-05
 tags:
   - gm-only
 ---
@@ -66,7 +66,7 @@ The nomadic confederation umbrella encompassing the Steppe's Tulpar clan groupin
 
 | faction | relationship | notes |
 |---------|-------------|-------|
-| [[orc-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | rival / complex kinship | The settled/nomadic split; shared ancestry, divergent thousand-year trajectories |
+| [[tulpar-confederation-samarkand\|Tulpar Confederation (Samarkand)]] | rival / complex kinship | The settled/nomadic split; shared ancestry, divergent thousand-year trajectories |
 | [[chain-breakers-order\|Chain-Breakers Order]] | allied — oral tradition overlap | Ancestor spirit veneration and liberation memory share deep roots |
 | [[human-empire\|The Human Empire]] | historical — enslaved source population | The Empire drew slave-legions from these peoples; liberation was the founding rupture |
 

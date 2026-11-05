@@ -7,7 +7,7 @@ content_type: reference
 visibility: gm_secrets
 status: draft
 created: 2026-03-22
-last_updated: 2026-10-24
+last_updated: 2026-11-05
 tags: [analog, design-substrate, silk-road, historical-context]
 ---
 
@@ -78,7 +78,7 @@ The Ming at 1453 are *not in decline* — this is the critical distinction from 
 ### The Mamluks → Tulpar Confederation (Samarkand) / Warrior-Caste Faction
 
 **Real world:** Mamluk Turks — slave-soldiers (mostly Kipchak Turk, some Circassian/Georgian) who seized Egypt and Syria, stopped the Mongols, protected Mecca and Medina
-**Tarim-Shaiel:** `orc-confederation-samarkand` (confirmed canon faction) — strong candidate for this model
+**Tarim-Shaiel:** `tulpar-confederation-samarkand` (confirmed canon faction) — strong candidate for this model
 
 The Mamluks were purchased as children, raised as Muslim warriors, bonded to each other through training rather than blood. Their outsider status was *constitutive* — the system required non-native origin. They stopped the Mongols cold. They adopted Mongol firearms and used them better than the Mongols had. They ended up as the rulers of the most strategically important territory in the Islamic world, including the guardians of Mecca and Medina — *protectors of sacred space*.
 

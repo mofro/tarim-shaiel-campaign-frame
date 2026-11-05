@@ -9,7 +9,7 @@ visible_control: true
 hidden_control: false
 rivals:
   - human-imperial-remnants
-  - orc-steppe-confederations
+  - tulpar-steppe-confederations
 controls:
   - samarkand
   - bukhara
@@ -18,7 +18,7 @@ controls:
 narrative_weight: high
 status: canon
 created: 2026-04-30
-last_updated: 2026-10-24
+last_updated: 2026-11-05
 tags:
   - gm-only
 ---
@@ -70,7 +70,7 @@ The dominant political force in the Central Asian Hubs. The Confederation rose f
 | faction | relationship | notes |
 |---------|-------------|-------|
 | [[human-imperial-remnants\|Human Imperial Remnants]] | rival | The administrative facade of the old order; the Confederation displaced their political authority |
-| [[orc-steppe-confederations\|Tulpar Steppe Confederations]] | rival / complex kinship | Shared ancestry; divergent paths; the settled/nomadic split is a thousand years deep |
+| [[tulpar-steppe-confederations\|Tulpar Steppe Confederations]] | rival / complex kinship | Shared ancestry; divergent paths; the settled/nomadic split is a thousand years deep |
 | [[human-empire\|The Human Empire]] | former enslaved | The Confederation rose from the Empire's slave-legion structure post-liberation |
 | [[chain-breakers-order\|Chain-Breakers Order]] | complex — cultural roots shared | The Order's Tulpar-anchored memory intersects with the Confederation's founding narrative |
 

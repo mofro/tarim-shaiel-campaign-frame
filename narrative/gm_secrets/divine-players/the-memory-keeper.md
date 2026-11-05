@@ -7,7 +7,7 @@ content_type: divine_environment
 visibility: gm_secrets
 status: draft
 created: 2026-05-02
-last_updated: 2026-10-24
+last_updated: 2026-11-05
 cosmological_layer: Celestial
 alignment: own-agenda
 tags:
@@ -168,5 +168,5 @@ The Wizard's Scholar's Purge targeted Memory-Keeper access sites specifically â€
 - Cultural names: [[narrative/gm_secrets/divine-players-naming]]
 - Cosmological architecture: [[world/diagrams/cosmological-architecture]]
 - Synthesis knowledge distribution: [[narrative/gm_secrets/STAKEHOLDER_KNOWLEDGE_DISTRIBUTION]]
-- Related factions: [[world/factions/orc-steppe-confederations|Tulpar Steppe Confederations]], [[world/factions/chain-breakers-order]]
+- Related factions: [[world/factions/tulpar-steppe-confederations|Tulpar Steppe Confederations]], [[world/factions/chain-breakers-order]]
 - Related events: [[narrative/STORY_ARC_SYNTHESIS]]
