@@ -265,6 +265,17 @@ def route_feature(feat: dict, cache: dict, dry_run: bool = False, force: bool = 
 # Main
 # ---------------------------------------------------------------------------
 
+def check_no_features_lost(before: list[dict], after: list[dict]) -> Optional[str]:
+    """Return an error message if re-snapping dropped, added or duplicated a feature id."""
+    ids_before = [f.get("id") for f in before]
+    ids_after = [f.get("id") for f in after]
+    if ids_before == ids_after:
+        return None
+    lost = sorted(set(map(str, ids_before)) - set(map(str, ids_after)))
+    return (f"re-snap changed the feature list ({len(ids_before)} in, {len(ids_after)} out; "
+            f"missing: {', '.join(lost) or 'none'}) — refusing to write")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Re-route Tarim-Shaiel route segments via OSRM foot routing."
@@ -344,6 +355,11 @@ def main() -> int:
         # Polite pause between real API calls
         if not args.dry_run and status in ("routed", "fallback"):
             time.sleep(0.5)
+
+    problem = check_no_features_lost(features, out_features)
+    if problem:
+        print(f"ERROR: {problem}", file=sys.stderr)
+        return 1
 
     if not args.dry_run:
         _save_cache(cache)
