@@ -950,3 +950,33 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** Selecting a route or pin, or entering place mode, while the loaded journey has unsaved changes asks "Discard unsaved journey changes?". OK unloads it and the action proceeds; Cancel drops the action. A clean journey unloads silently. Leaving the Journeys tab still only relocks. Clear All is unchanged (an explicit act). No Close button.
 - **Rationale:** Replaces #375's "relock and stay loaded", which left a dirty journey lingering on the map. A confirm keeps one task at a time without losing work silently, and matches the existing "Discard unsaved changes?" pattern for location edits. Rejected: a Close button (redundant), unloading on tab leave (breaks carrying a journey between tabs).
 - **Lock status:** Working decision, not locked (PR open for review).
+
+## 2026-11-05 — Map: FTG town maps are placed on the world map at build time, world map only (#383, HeroHeaven-oid)
+- **Decision:** An external Fantasy Town Generator export (GeoJSON + JSON) is stored untouched beside the Rolmtown precedent in `world/maps/cities/`. Its metre-space geometry is converted to lon/lat at build time from the town's `location:`, and appears as an overlay on the world map only. People records never ride in the geometry, and the overlay follows the player-map filter.
+- **Rationale:** One source serves both views without editing FTG's files. Rejected: a separate town-only viewer and pre-baked lat/lon in the source.
+- **Lock status:** Working decision, not locked.
+
+## 2026-11-05 — Map: settlement pipeline has a re-runnable draft phase and a per-town lock (#383, HeroHeaven-oid)
+- **Decision:** FTG source goes through seeded, ordered passes into a derived file (draft). A per-town lock then freezes it: hand edits go into the derived dataset and FTG is never read again. Hand-set "pinned" entries, keyed by FTG id, are skipped by the rule-based passes. FTG ratios need not be preserved; headcount per building is fixed.
+- **Rationale:** FTG is a one-way generated input, so id stability only matters while drafting. Rejected: treating FTG as a live source that re-imports over hand edits.
+- **Lock status:** Working decision, not locked. Id stability after an FTG re-export is UNVERIFIED.
+
+## 2026-11-05 — World: Tulpar replace Half-Orc; ancestry is assigned per household by rubric (#383, HeroHeaven-oid)
+- **Decision:** Tulpar replace FTG's Half-Orc. Ancestry is assigned per household from job family, region profile and location traits, with manual recalibration by exception. Tiers: common (Human, Tulpar, Kuhban, Rahban), locale- or construction-aligned (Gavar, Pari-Kin), much rarer (Kalan, Div-Born, Vaghri), very odd (Serenvar, Khavar, Tadbir). Jobs defer to FTG; odd-crossover children get no pass.
+- **Rationale:** Household assignment keeps families coherent. Rejected: per-person rolls and a pass to correct the roughly 1.5% odd crossovers, which adoption or chosen kin explains.
+- **Lock status:** Open until the unplaced ancestries (Jivar, Vanara, Naga-Kin, Faerie, Galapa, Ribbet) are placed.
+
+## 2026-11-05 — World: town religion is religious or non-religious, mapped to faiths by a regional table (#383, HeroHeaven-oid)
+- **Decision:** FTG's "good / neutral / evil gods" wording is dropped. None stays non-religious; the three god buckets are religious and map to faiths through a regional table, including purely fantasy religions mapped to the pre-eminent deities. Temple attendees take their temple's deity. Each household gets a seeded chance of a dissenter; overrides only for temple clergy and story-critical people.
+- **Rationale:** The FTG labels are random relative to job and race, and good/evil framing does not fit the setting. Rejected: carrying the three buckets through as canon.
+- **Lock status:** Open until the regional faith table exists (HeroHeaven-oid.1).
+
+## 2026-11-05 — Map: building relabels follow a conversion dial; Dehdadi runs at 1 (#383, HeroHeaven-oid)
+- **Decision:** Dial 0 relabels only; 1 also converts buildings whose footprint already fits; 2 restructures the town. Conversions are flavored analogs (name, staff titles, description change; footprint and headcount do not). For Dehdadi: inns of 400 m² or more become caravanserai (4 of 6), warehouses of 600 m² or more become khans / trade houses (7 of 10). Alcohol businesses stay, described as mainly trade goods. Not every school becomes a sages seat.
+- **Rationale:** Thresholds on footprint avoid converting buildings too small to fit the role. Rejected: converting every inn and warehouse.
+- **Lock status:** Working decision, not locked. The exact conversion list is reviewed in the draft output.
+
+## 2026-11-05 — World: town factions come in three layers (#383, HeroHeaven-oid)
+- **Decision:** Town presence via `factions_visible` on the location page; building seats from FTG buildings that already imply a faction; people as hand-set leaders plus seeded membership in a GM-only sidecar. The orc-named faction slugs are to be renamed to tulpar-named ones.
+- **Rationale:** Keeps the 5,575 people records out of player output and reuses FTG's own faction and law-enforcement buildings. Rejected: assigning faction membership to every person by hand.
+- **Lock status:** Open until the sages/mages relation to HeroHeaven-h6a and the steppe-slug rename are decided.
