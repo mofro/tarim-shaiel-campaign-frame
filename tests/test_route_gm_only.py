@@ -239,3 +239,25 @@ def test_resyncing_endpoints_keeps_visibility_and_mode(monkeypatch):
     out = generate_routes._resync_endpoints(feat)
     assert out["geometry"]["coordinates"][0] == [70.5, 40.5]
     assert out["properties"]["visibility"] == "public" and out["properties"]["mode"] == "foot"
+
+
+def test_resnap_guard_flags_a_dropped_sibling_with_matching_endpoints():
+    seg, spur = route("route_seg_a_b"), route("route_spur_a_b")
+    assert generate_routes.check_no_features_lost([seg, spur], [seg, spur]) is None
+    msg = generate_routes.check_no_features_lost([seg, spur], [seg])
+    assert msg and "route_spur_a_b" in msg and "2 in, 1 out" in msg
+
+
+def test_resnap_main_refuses_to_write_when_the_guard_trips(monkeypatch, tmp_path, capsys):
+    src = tmp_path / "routes.geojson"
+    src.write_text(json.dumps(fc(route("route_seg_a_b"), route("route_spur_a_b"))))
+    out = tmp_path / "out.geojson"
+    monkeypatch.setattr(generate_routes, "ROUTES_PATH", src)
+    monkeypatch.setattr(generate_routes, "CACHE_PATH", tmp_path / "cache.json")
+    monkeypatch.setattr(generate_routes, "route_feature", lambda feat, *a, **k: (feat, "fallback"))
+    monkeypatch.setattr(generate_routes.time, "sleep", lambda s: None)
+    monkeypatch.setattr(generate_routes, "check_no_features_lost", lambda b, a: "1 in, 0 out")
+    monkeypatch.setattr(sys, "argv", ["generate_routes.py", "--out", str(out)])
+    assert generate_routes.main() == 1
+    assert not out.exists()
+    assert "1 in, 0 out" in capsys.readouterr().err
