@@ -122,6 +122,76 @@ def regions_layers_js(source: str = "regions") -> str:
 
 
 # ---------------------------------------------------------------------------
+# Town maps (Fantasy Town Generator overlays)
+# ---------------------------------------------------------------------------
+
+SETTLEMENT_MIN_ZOOM = 13       # below this the town is a few pixels: the pin carries it
+SETTLEMENT_FULL_ZOOM = 15      # opacity reaches its full value here
+SETTLEMENT_LAYER_IDS = ["settlements-water", "settlements-walls", "settlements-roads",
+                        "settlements-buildings", "settlements-building-lines"]
+
+_SETTLEMENT_ROAD_TYPES = ["MAIN_ROAD", "ROAD", "SMALL_ROAD", "DIRT_ROAD", "TRAIL"]
+_SETTLEMENT_WALL_TYPES = ["STONE_WALL", "STONE_FENCE", "BORDER"]
+_SETTLEMENT_WORK_TYPES = ["ARTISAN", "SHOP", "SERVICE", "INDUSTRIAL", "WAREHOUSE",
+                          "MARKET", "TAVERN", "INN"]
+_SETTLEMENT_CIVIC_TYPES = ["RELIGIOUS", "EDUCATIONAL", "LAW_ENFORCEMENT", "FACTION"]
+
+
+def _settlement_fade(full: float) -> list:
+    return ["interpolate", ["linear"], ["zoom"],
+            SETTLEMENT_MIN_ZOOM, 0, SETTLEMENT_FULL_ZOOM, full]
+
+
+def _settlement_road_width(per_pixel_at_max: float) -> list:
+    """Line width that grows with zoom, scaled by road class (main road widest)."""
+    k = ["match", ["get", "edgeType"], "MAIN_ROAD", 1.6, "ROAD", 1.0, 0.6]
+    return ["interpolate", ["exponential", 2], ["zoom"],
+            SETTLEMENT_MIN_ZOOM, ["*", k, per_pixel_at_max / 32],
+            18, ["*", k, per_pixel_at_max]]
+
+
+def settlements_layers_js(source: str = "settlements") -> str:
+    """JS adding the town-map layers (water, roads, walls, buildings), from zoom 13.
+
+    The source holds the features settlement_overlay builds: `type` is BUILDING,
+    EDGE or WATER; `buildingType` and `edgeType` pick the colour and width. Add the
+    layers after the regions and before the routes, so routes and pins draw on top.
+    """
+    def is_(kind: str) -> list:
+        return ["==", ["get", "type"], kind]
+
+    layers = [
+        {"id": "settlements-water", "type": "fill", "source": source,
+         "minzoom": SETTLEMENT_MIN_ZOOM, "filter": is_("WATER"),
+         "paint": {"fill-color": "#6f9fb8", "fill-opacity": _settlement_fade(0.55)}},
+        {"id": "settlements-walls", "type": "line", "source": source,
+         "minzoom": SETTLEMENT_MIN_ZOOM,
+         "filter": ["all", is_("EDGE"), ["in", ["get", "edgeType"], ["literal", _SETTLEMENT_WALL_TYPES]]],
+         "paint": {"line-color": "#6b5a45", "line-width": _settlement_road_width(2.5),
+                   "line-opacity": _settlement_fade(0.8)}},
+        {"id": "settlements-roads", "type": "line", "source": source,
+         "minzoom": SETTLEMENT_MIN_ZOOM,
+         "filter": ["all", is_("EDGE"), ["in", ["get", "edgeType"], ["literal", _SETTLEMENT_ROAD_TYPES]]],
+         "layout": {"line-cap": "round", "line-join": "round"},
+         "paint": {"line-color": "#d8c7a0", "line-width": _settlement_road_width(14),
+                   "line-opacity": _settlement_fade(0.9)}},
+        {"id": "settlements-buildings", "type": "fill", "source": source,
+         "minzoom": SETTLEMENT_MIN_ZOOM, "filter": is_("BUILDING"),
+         "paint": {
+             "fill-color": ["match", ["get", "buildingType"],
+                            _SETTLEMENT_CIVIC_TYPES, "#8c4a2f",
+                            _SETTLEMENT_WORK_TYPES, "#b0803a",
+                            "#a89878"],
+             "fill-opacity": _settlement_fade(0.9)}},
+        {"id": "settlements-building-lines", "type": "line", "source": source,
+         "minzoom": SETTLEMENT_MIN_ZOOM + 2, "filter": is_("BUILDING"),
+         "paint": {"line-color": "#4a3a28", "line-width": 0.6,
+                   "line-opacity": _settlement_fade(0.7)}},
+    ]
+    return "".join(f"map.addLayer({_js(layer)});\n" for layer in layers)
+
+
+# ---------------------------------------------------------------------------
 # Basemap peak / volcano markers
 # ---------------------------------------------------------------------------
 

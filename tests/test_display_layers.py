@@ -1014,7 +1014,8 @@ def test_player_layers_carry_only_player_filtered_data(tmp_path):
     assert set(r["routes"]) == PLAYER_ROUTES
     assert set(r["journeys"]) == PLAYER_JOURNEYS and set(r["journeys-hit"]) == PLAYER_JOURNEYS
     assert set(r) == set(map_style.LOCATION_LAYER_IDS) | {
-        "routes", "journeys", "journeys-hit", "topo-overlay", "sat-overlay"} | (set(r) & {"regions-fill", "regions-line"})
+        "routes", "journeys", "journeys-hit", "topo-overlay", "sat-overlay"} | (set(r) & {"regions-fill", "regions-line"}) \
+        | set(map_style.SETTLEMENT_LAYER_IDS)
 
 
 # ---------------------------------------------------------------------------
