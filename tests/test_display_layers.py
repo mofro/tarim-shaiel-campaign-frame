@@ -603,7 +603,9 @@ async function boot(o) {
   const g = generic('maplibregl');
   const maplibregl = new Proxy({Map: FakeMap}, {get: (t, p) => (p in t ? t[p] : g[p])});
   const web = a => ({getItem: k => (k in a ? a[k] : null), setItem: (k, v) => { a[k] = String(v); }, removeItem: k => { delete a[k]; }});
-  const win = generic('window');
+  const winBase = generic('window');
+  // page code assigns window.X and then calls X bare, as in a browser: mirror the sets onto the sandbox global
+  const win = new Proxy(winBase, {set(t, p, v) { winBase[p] = v; if (typeof p === 'string' && M.sandbox) M.sandbox[p] = v; return true; }});
   win.location = {origin: 'http://t', reload() {}};
   win.addEventListener = () => {};
   const con = {log() {}, warn() {}, error: (...a) => { M.errors.push(a.map(String).join(' ')); }};
@@ -613,8 +615,9 @@ async function boot(o) {
                    navigator: {clipboard: {writeText() {}}}, getComputedStyle: () => generic('cs'),
                    Blob: function () {}, URL: {createObjectURL: () => 'blob:x', revokeObjectURL() {}},
                    Worker: function () { this.postMessage = () => {}; this.terminate = () => {}; },
-                   Image: function () {}, location: {origin: 'http://t', reload() {}},
+                   Image: function () {}, ResizeObserver: function () { this.observe = () => {}; this.disconnect = () => {}; }, location: {origin: 'http://t', reload() {}},
                    alert() {}, confirm: () => true, prompt: () => null};
+  M.sandbox = sandbox;
   sandbox.sessionStorage = web(sess);
   const mode = o.storage || 'ok';
   if (mode === 'blocked') {

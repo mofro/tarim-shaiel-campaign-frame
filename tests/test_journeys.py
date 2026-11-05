@@ -522,12 +522,16 @@ def test_workshop_loads_saved_journeys_from_the_devserver_on_boot():
     assert 'fetch("/api/journeys")' in gmw._TRAVEL_JS
 
 
-def test_travel_time_panel_is_capped_to_the_form_panel_width():
-    # The terrain hint is one long line; uncapped, it sizes the whole sidebar.
+def test_travel_time_panel_cannot_size_the_sidebar():
+    # The terrain hint is one long line; since #348 the sidebar owns its width
+    # (one width model), so no panel may size it and the overflow is clipped.
     from world import generate_map_workshop as gmw
-    m = re.search(r"^([^{\n]*#panel-travel-time[^{\n]*)\{\s*max-width:\s*340px;\s*\}", gmw._CSS, re.M)
-    assert m, "expected #panel-travel-time in the panel width rule"
-    assert "#panel-edit-coords" in m.group(1)
+    m = re.search(r"^#sidebar\s*\{([^}]*)\}", gmw._CSS, re.M)
+    assert m, "expected the #sidebar rule"
+    rule = m.group(1)
+    assert "width: var(--sb-w)" in rule
+    assert "flex: none" in rule
+    assert "overflow: hidden" in rule
 
 
 # --- lock (#373) -----------------------------------------------------------------
