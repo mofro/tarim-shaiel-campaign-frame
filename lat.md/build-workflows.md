@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-11-04
+last_updated: 2026-11-05
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -24,6 +24,7 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 | New/edited location `.md` stubs → world map + detail pages | `python utilities/build.py locations` |
 | New/edited location stubs → map workshop | `python utilities/build.py workshop` |
 | Update routes for the workshop | edit `world/data/tarim-shaiel-routes.geojson`, then `python utilities/build.py workshop` |
+| Put an FTG town map on the map | save the FTG export as `world/maps/cities/<Slug>.geojson` (stem = the location page's slug), then `python utilities/build.py workshop` (see "Town maps" below) |
 | Update static location GeoJSON snapshot | `python utilities/build.py geojson` |
 | Rebuild everything (all generators) | `python utilities/build.py all` |
 | Public-facing rebuild only (no GM content) | `python utilities/build.py all --public` |
@@ -46,7 +47,7 @@ Quick lookup: what to run when. All commands run from the **vault root**.
 | Generator | Reads from | Writes to | Key dependency |
 |---|---|---|---|
 | `locations` | `world/locations/*.md` + `world/regions/*.md` + routes GeoJSON (regions/waystations GeoJSON optional — absent files are skipped) | `docs/world.html` + `docs/locations/**` | MAPTILER_KEY (tiles load at runtime — no build failure if absent); `utilities/shared/map_style.py` for route/region layers |
-| `workshop` | `world/locations/*.md` + `world/data/tarim-shaiel-routes.geojson` (regions GeoJSON optional — removed in #299, warns and continues) | `map-workshop.html` + `player-map.html` (repo root, gitignored) | **MAPTILER_KEY required at build time** — key is baked into the HTML; `utilities/shared/map_style.py` + `utilities/locations/categories.py` (every map style and the category list come from these two) |
+| `workshop` | `world/locations/*.md` + `world/data/tarim-shaiel-routes.geojson` + `world/maps/cities/*.geojson` (regions GeoJSON optional — removed in #299, warns and continues) | `map-workshop.html` + `player-map.html` (repo root, gitignored) | **MAPTILER_KEY required at build time** — key is baked into the HTML; `utilities/shared/map_style.py` + `utilities/locations/categories.py` (every map style and the category list come from these two) |
 | `geojson` | `world/locations/*.md` | `world/data/tarim-shaiel-locations.geojson` | none |
 | `world-all` | `narrative/world/**/*.md` + `narrative/lore/**/*.md` | `docs/world/**` | none |
 
@@ -88,6 +89,16 @@ python utilities/build.py all          # rebuilds everything (workshop skipped i
 ```bash
 python utilities/build.py workshop     # re-inlines the updated routes.geojson
 ```
+
+### "Town maps" (#385)
+
+Save the FTG GeoJSON export in `world/maps/cities/`, named for the location page's slug (`Dehdadi.geojson` for `dehdadi.md`; case does not matter). The page needs `location:` coordinates. Keep the `<Town>.json` people file beside it; it is not read by the map build.
+
+```bash
+python utilities/build.py workshop
+```
+
+The town is placed at the page's coordinates and appears from zoom 13. A file with no matching page, or a page with no coordinates, prints a `WARN:` line and is skipped. A `gm_secrets` page keeps the town off the player map. Details are in `lat.md/locations.md` under Town Maps.
 
 ### "I need to share a standalone location GeoJSON"
 
