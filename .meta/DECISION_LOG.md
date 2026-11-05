@@ -980,3 +980,18 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** Town presence via `factions_visible` on the location page; building seats from FTG buildings that already imply a faction; people as hand-set leaders plus seeded membership in a GM-only sidecar. The orc-named faction slugs are to be renamed to tulpar-named ones.
 - **Rationale:** Keeps the 5,575 people records out of player output and reuses FTG's own faction and law-enforcement buildings. Rejected: assigning faction membership to every person by hand.
 - **Lock status:** Open until the sages/mages relation to HeroHeaven-h6a and the steppe-slug rename are decided.
+
+## 2026-11-05 — World: four ancestries excluded from the general population; Jivar and Vanara still to place (#383, HeroHeaven-oid)
+- **Decision:** Naga-Kin, Faerie, Galapa and Ribbet get no weight in any town profile; a town names them only by hand. Only Jivar and Vanara remain unplaced in the weight tiers, and placing each is the GM's call.
+- **Rationale:** The four were left out of the tiers on purpose, not missed. The earlier ancestry entry of this date lists all six as unplaced; that is corrected here. Default weight 0 for Jivar and Vanara was the rejected alternative, because a locked town would need a re-draft if the default proved wrong.
+- **Lock status:** Open until Jivar and Vanara are placed in a tier.
+
+## 2026-11-05 — World: sages and mages communities are local cells of the scholars remnant (#387, HeroHeaven-oid.4)
+- **Decision:** A town's community of sages or mages is a local cell under `HeroHeaven-h6a`, not a separate institutions file and not hand-set pins only.
+- **Rationale:** One scholars file stays consistent with the "scattered, hunted" lore already written. A second file for open institutions (colleges, schools of magic) was rejected to avoid two competing scholars files.
+- **Lock status:** Working decision, not locked. Waits on `HeroHeaven-i4w` (the scholars-purge document) before the stub is written.
+
+## 2026-11-05 — World: both orc- faction slugs renamed to tulpar- (#388, HeroHeaven-oid.5)
+- **Decision:** `orc-confederation-samarkand` is now `tulpar-confederation-samarkand` and `orc-steppe-confederations` is now `tulpar-steppe-confederations`. Every live reference was relinked in the same change; wikilink alias text is unchanged.
+- **Rationale:** Both titles already said Tulpar, so renaming only the Samarkand slug would have left an `orc-` file beside a `tulpar-` one. Obsidian's automatic link update covers wikilinks only, so the plain-text slugs (`rivals:` lists, backticks, table cells) were swept by hand and proved by grep.
+- **Lock status:** Locked (shipped, 8a36e2d and the operational commit that follows it).

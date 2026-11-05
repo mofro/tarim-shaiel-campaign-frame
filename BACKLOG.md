@@ -4,7 +4,7 @@ project: TTRPG_Tarim_Shaiel
 type: project_management
 status: active
 created: 2026-03-17
-last_updated: 2026-05-02
+last_updated: 2026-11-05
 ---
 
 # Backlog — Deferred & Future Work
@@ -265,7 +265,7 @@ _Pre-Act 2 design work — not blocking Session 0 but must be resolved before mi
 - [ ] **Create individual faction files** (~2-3 sessions) — use `_TEMPLATE_faction.md`
   - See `/world/factions/Index.md` → "Faction File Build Order" for prioritized list
   - **Priority 1 (very-high weight):** `elven-highland-enclaves`, `lich-cadre`, `the-wizard`, `chain-breakers-order`, `scholars-remnant`, `celestial-court`
-  - **Priority 2 (high weight):** `orc-confederation-samarkand`, `eastern-gateway-council`, `merchant-guilds`, `eastern-imperial-dominion`
+  - **Priority 2 (high weight):** `tulpar-confederation-samarkand`, `eastern-gateway-council`, `merchant-guilds`, `eastern-imperial-dominion`
   - **Priority 3 (medium weight):** remaining present-day factions
   - Reference: `/world/factions/Index.md` for canonical names + relationship data
 
