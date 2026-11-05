@@ -8,7 +8,7 @@ visibility: gm_secrets
 status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-09-01
+last_updated: 2026-11-05
 location:
 - 39.723937
 - 64.54416
@@ -21,6 +21,8 @@ tags:
 - placeholder
 - type-caravanserai
 type: caravanserai
+coord_review: intentional
+coord_reviewed: 2026-11-05
 ---
 
 ```leaflet

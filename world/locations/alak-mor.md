@@ -10,7 +10,7 @@ status: draft
 created: 2026-01-05
 description: Great Colored Depths of the Eastern Highlands
 fantasy_name: Alak-Mor
-last_updated: 2026-10-26
+last_updated: 2026-11-05
 location:
 - 46.3
 - 81.5
@@ -24,6 +24,8 @@ tags:
 - geographic-landmark
 - water-feature
 type: lake
+coord_review: intentional
+coord_reviewed: 2026-11-05
 ---
 
 ```leaflet

@@ -8,10 +8,10 @@ visibility: public
 status: draft
 created: 2026-09-02
 description: "Location of the Tadbir awakening"
-last_updated: 2026-10-30
+last_updated: 2026-11-05
 location:
-- 38.681613
-- 80.359154
+- 38.4509
+- 80.8625
 map_min_zoom: 5
 map_max_zoom: 14
 mapmarker: mythic-landscape
@@ -21,6 +21,7 @@ tags:
 - placeholder
 - type-mythic-landscape
 type: poi
+wikidata: Q6798272
 ---
 
 ```leaflet

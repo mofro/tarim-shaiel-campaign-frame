@@ -8,10 +8,10 @@ visibility: gm_secrets
 status: draft
 created: 2026-09-02
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-30
+last_updated: 2026-11-05
 location:
-- 37.752632
-- 84.138572
+- 36.9759
+- 84.2107
 map_min_zoom: 5
 map_max_zoom: 14
 mapmarker: caravanserai
@@ -21,6 +21,7 @@ tags:
 - placeholder
 - type-caravanserai
 type: oasis
+wikidata: Q10942480
 ---
 
 ```leaflet

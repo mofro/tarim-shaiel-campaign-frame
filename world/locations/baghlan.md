@@ -8,7 +8,7 @@ visibility: gm_secrets
 status: draft
 created: 2026-08-27
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-08-27
+last_updated: 2026-11-05
 location:
 - 36.117354
 - 68.68103
@@ -21,6 +21,8 @@ tags:
 - placeholder
 - type-city
 type: city
+coord_review: intentional
+coord_reviewed: 2026-11-05
 ---
 
 ```leaflet
