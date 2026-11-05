@@ -24,6 +24,7 @@ VAULT_ROOT = SCRIPT_DIR.parent.parent
 
 sys.path.insert(0, str(SCRIPT_DIR.parent))
 
+from geojson import settlement_overlay
 from locations.categories import CATEGORIES, type_icons
 from locations.location_parser import load_all_locations
 from locations.map_icons import ICON_NAMES, icon_registration_js
@@ -94,6 +95,11 @@ def _build_locations_geojson(locations: list) -> dict:
             },
         })
     return {"type": "FeatureCollection", "features": features}
+
+
+def _settlements_json(settlements_geojson: dict) -> str:
+    """Compact JSON for the town-map source: Dehdadi alone is about 640 KB."""
+    return json.dumps(settlements_geojson, separators=(",", ":"))
 
 
 def _player_locations_geojson(loc_geojson: dict) -> dict:
@@ -2310,6 +2316,10 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'map.addSource("regions",{type:"geojson",data:_regionGJ});\n'
         + map_style.regions_layers_js() +
 
+        # Town maps (FTG overlays), under the routes and pins
+        'map.addSource("settlements",{type:"geojson",data:_settleGJ});\n'
+        + map_style.settlements_layers_js() +
+
         # Routes
         'map.addSource("routes",{type:"geojson",data:_routeGJ});\n'
         + map_style.routes_layer_js(dim_hidden=True) +
@@ -2994,9 +3004,11 @@ def _build_html(
     maptiler_key: str,
     journeys_geojson: dict | None = None,
     journey_info: dict | None = None,
+    settlements_geojson: dict | None = None,
 ) -> str:
     journeys_geojson = journeys_geojson or {"type": "FeatureCollection", "features": []}
     journey_info = journey_info or {}
+    settlements_geojson = settlements_geojson or {"type": "FeatureCollection", "features": []}
     style_url = (
         f"https://api.maptiler.com/maps/{MAPTILER_STYLE_ID}/style.json?key={maptiler_key}"
     )
@@ -3011,6 +3023,7 @@ def _build_html(
         f"var _journeyGJ = {json.dumps(journeys_geojson)};\n"
         f"var _jrnInfo = {json.dumps(journey_info)};\n"
         f"var _regionGJ = {json.dumps(regions_geojson)};\n"
+        f"var _settleGJ = {_settlements_json(settlements_geojson)};\n"
         f"var _locList = {json.dumps(loc_list)};\n"
         f"var _regionList = {json.dumps(region_names)};\n"
     )
@@ -3279,9 +3292,11 @@ def _build_player_html(
     maptiler_key: str,
     journeys_geojson: dict | None = None,
     journey_info: dict | None = None,
+    settlements_geojson: dict | None = None,
 ) -> str:
     journeys_geojson = journeys_geojson or {"type": "FeatureCollection", "features": []}
     journey_info = journey_info or {}
+    settlements_geojson = settlements_geojson or {"type": "FeatureCollection", "features": []}
     style_url = (
         f"https://api.maptiler.com/maps/{MAPTILER_STYLE_ID}/style.json?key={maptiler_key}"
     )
@@ -3291,6 +3306,7 @@ def _build_player_html(
         f"var _routeGJ = {json.dumps(routes_geojson)};\n"
         f"var _journeyGJ = {json.dumps(journeys_geojson)};\n"
         f"var _jrnInfo = {json.dumps(journey_info)};\n"
+        f"var _settleGJ = {_settlements_json(settlements_geojson)};\n"
     )
 
     proxy_style_path = f"/api/maptiler-proxy?url={urllib.parse.quote(style_url, safe='')}"
@@ -3341,8 +3357,10 @@ def _build_player_html(
         + map_style.raster_overlays_js(maptiler_key)
         + icons_js
         + "_dispIcons();\n"
-        # Same stacking as the Workshop: routes, then journeys, then the pins on top.
-        "  map.addSource('routes', {type:'geojson', data: _routeGJ});\n"
+        # Same stacking as the Workshop: town maps, routes, then journeys, then the pins on top.
+        "  map.addSource('settlements', {type:'geojson', data: _settleGJ});\n"
+        + map_style.settlements_layers_js()
+        + "  map.addSource('routes', {type:'geojson', data: _routeGJ});\n"
         + map_style.routes_layer_js()
         + "\n"
         "  map.addSource('journeys', {type:'geojson', data: _journeyGJ});\n"
@@ -3516,6 +3534,13 @@ def main() -> int:
     else:
         print("  WARN: regions GeoJSON not found", file=sys.stderr)
 
+    # Town maps: the Workshop sees every town; players only those whose location page is public.
+    towns = settlement_overlay.build_overlays(locations)
+    workshop_settlements = settlement_overlay.feature_collection(towns)
+    player_settlements = settlement_overlay.feature_collection(settlement_overlay.player_towns(towns))
+    print(f"  {len(towns)} town maps loaded, "
+          f"{len(player_settlements['features'])} of {len(workshop_settlements['features'])} features public")
+
     # Workshop sees every route, flagged with whether players would; the player map
     # gets only the routes route_visibility lets through (matched against ALL locations).
     workshop_routes = annotate_routes(routes_geojson, loc_geojson)
@@ -3541,6 +3566,7 @@ def main() -> int:
         maptiler_key=MAPTILER_KEY,
         journeys_geojson=workshop_journeys,
         journey_info=workshop_jrn_info,
+        settlements_geojson=workshop_settlements,
     )
 
     OUTPUT_PATH.write_text(html, encoding="utf-8")
@@ -3555,6 +3581,7 @@ def main() -> int:
         maptiler_key=MAPTILER_KEY,
         journeys_geojson=player_jrn_gj,
         journey_info=player_jrn_info,
+        settlements_geojson=player_settlements,
     )
     PLAYER_PATH.write_text(player_html, encoding="utf-8")
     print(f"  Written: {PLAYER_PATH.name}  ({len(public_features)} public locations, "
