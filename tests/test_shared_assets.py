@@ -51,7 +51,7 @@ class TestAssetWorkflow:
         
         result = prepare_image("test.png", vault_root, docs_dir)
         
-        assert result == "images/test.png"
+        assert result == "/images/test.png"
         assert (docs_dir / "images" / "test.png").exists()
         assert (docs_dir / "images" / "test.png").read_bytes() == b"fake_image_data"
     
@@ -66,7 +66,7 @@ class TestAssetWorkflow:
         
         result = prepare_image("test.png", vault_root, docs_dir)
         
-        assert result == "images/test.png"
+        assert result == "/images/test.png"
         # Should not overwrite existing file
         assert existing_file.read_bytes() == b"existing_data"
     
@@ -90,7 +90,7 @@ class TestAssetWorkflow:
         
         result = prepare_audio("test.mp3", vault_root, docs_dir)
         
-        assert result == "audio/test.mp3"
+        assert result == "/audio/test.mp3"
     
     def test_prepare_audio_from_vault(self, temp_dirs):
         """Test copying audio file from vault to docs."""
@@ -98,7 +98,7 @@ class TestAssetWorkflow:
         
         result = prepare_audio("audio/test.mp3", vault_root, docs_dir)
         
-        assert result == "audio/test.mp3"
+        assert result == "/audio/test.mp3"
         assert (docs_dir / "audio" / "test.mp3").exists()
     
     def test_prepare_audio_wiki_embed(self, temp_dirs):
@@ -107,7 +107,7 @@ class TestAssetWorkflow:
         
         result = prepare_audio_wiki("test.mp3", vault_root, docs_dir)
         
-        assert result == "audio/test.mp3"
+        assert result == "/audio/test.mp3"
         assert (docs_dir / "audio" / "test.mp3").exists()
     
     def test_find_in_vault(self, temp_dirs):

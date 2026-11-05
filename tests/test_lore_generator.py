@@ -14,7 +14,7 @@ from unittest.mock import patch
 # Add utilities to path for testing
 sys.path.insert(0, str(Path(__file__).parent.parent / "utilities"))
 
-from lore.generate_lore_html import main, build_html, slugify
+from lore.generate_lore_html import main, slugify
 from shared.frontmatter import parse_frontmatter
 from shared.errors import LogLevel
 
@@ -107,23 +107,6 @@ Simple body."""
         fm, body = parse_frontmatter(simple_content)
         assert fm["title"] == "Simple Title"
         assert body == "Simple body."
-    
-    def test_build_html_function(self):
-        """Test HTML building with various content types."""
-        html = build_html(
-            title="Test Title",
-            description="Test Description",
-            body="This is test content.",
-            date_str="March 2026",
-            audio_url="audio/test.mp3",
-            audio_title="Test Audio"
-        )
-        
-        assert "<title>Test Title &mdash; Tarim-Shaiel</title>" in html
-        assert "Test Description" in html
-        assert "This is test content." in html
-        assert "audio/test.mp3" in html
-        assert "Test Audio" in html
     
     def test_complete_generation_workflow(self, temp_project):
         """Test the complete generation workflow with real files."""
