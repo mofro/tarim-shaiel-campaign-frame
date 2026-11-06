@@ -1020,3 +1020,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** the faith table lists the faiths present and how social and ancestral affinities shift that list; it carries no percentages or numeric shares and need not map strictly by region. This amends the faith-table scope logged earlier the same day.
 - **Rationale:** the game never shows players a census, so numeric shares add cost without use; the list and its affinities are what the GM will use at the table.
 - **Lock status:** Working decision, not locked.
+
+## 2026-11-06 — Lore: every page carries a visibility flag, checked and warned on (#394, HeroHeaven-b04)
+- **Decision:** All lore pages (world, narrative, characters, mechanics, templates) carry `visibility: public | gm_secrets | internal`. `utilities/shared/visibility_check.py` checks, shows and sets it; `build.py` warns on a gap and does not fail. A keyless page is `gm_secrets` (fail closed), and `normalize_locations.py` no longer adds `public`.
+- **Rationale:** The generators disagreed on a missing key (some public, some GM-only), so a page's visibility depended on which one read it. The GM chose a command plus checker over a Workshop control for non-location lore, and warn over fail so the 30 unfixed pages do not block the build.
+- **Lock status:** Working decision, not locked until PR 395 passes review.
