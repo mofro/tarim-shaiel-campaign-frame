@@ -1005,3 +1005,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** `SETTLEMENT_MIN_ZOOM` is 10 and `SETTLEMENT_FULL_ZOOM` stays 15, so a town fades in from zoom 10 and is fully drawn at 15. Road and wall widths keep their own anchor (`SETTLEMENT_WIDTH_ZOOM` = 13), and `settlements-building-lines` appears at `SETTLEMENT_FULL_ZOOM`.
 - **Rationale:** the GM asked to see towns earlier; 10 to 12 was tried first and widened to 10 to 15 after a look. The width curve was anchored to the fade start, so moving the start alone would have changed widths at every zoom. The outlines were tied to fade start + 2, which only held while the fade was two levels wide; tying them to the end of the fade keeps them at zoom 15 and avoids a pop-in at partial opacity.
 - **Lock status:** Locked (shipped, PR 391, 787c143). How zoom 10 to 12 reads over the base map is unseen and left to the GM.
+
+## 2026-11-06 — Map: town maps turn about the page location with a town_rotation key (#392, HeroHeaven-oid.6)
+- **Decision:** `town_rotation:` on a location page is degrees clockwise about `location:`; absent, blank, 0 and 360 draw the town as before. The Workshop edit form has a number field and slider with live preview, and Save writes only that key (blank removes it). Player copies bake a public town rotated.
+- **Rationale:** the GM needs to orient a town on the map without editing the generator inputs. Rotation runs inside `Georeference` so later markers (#386, #387) turn with the town; rejected a render-time-only rotation because it would leave marker positions unrotated.
+- **Lock status:** Locked (shipped, PR #393).

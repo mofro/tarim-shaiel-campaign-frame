@@ -16,12 +16,23 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-11-06 (Town maps: zoom fade and rotation)
+- Map: FTG town maps epic (#383, HeroHeaven-oid) — zoom fade 10 to 15 merged (#391); `town_rotation:` key plus a live-preview Town rotation field in the Workshop merged (#393, closes #392 / HeroHeaven-oid.6)
+  - Rotation is degrees clockwise about `location:`, applied inside `Georeference`; the JS twin is tested against the Python transform to 0.3 m; Save sends only the changed key
+  - CI caught Linux `E2BIG` on large `node -e` scripts in the new tests; fixed by feeding node on stdin
+- Open: #386 (markers, I'll do it), #384 (the GM's call, case owed), #387 (waits on both)
+- Landform tile "Failed to fetch" and an eval/CSP error seen in the GM's browser did not reproduce in a clean Chrome tab; nothing in the repo sets a CSP. `topo_tarimshaiel.json` tracks a MapTiler key (differs from `.env`) in a public repo; not yet decided
+
+---
+---
+
 ### Session 2026-11-04 (Newspaper flat output)
 - Newspaper flattened to `/newspaper/<slug>.html` (#368, `HeroHeaven-cg9`): PR #370 (`2d1d1a7`)
   - Slug is the `slug:` field in `manifest.md` (else the folder name); invalid, duplicate or `index` slugs fail the build; issue 0002 is `session-0-convergence`
   - 301 in `netlify.toml` from `/newspaper/0002-session-0-convergence/`; flat pages and redirect verified on all four deploy previews
   - 16 new tests in `tests/test_newspaper_generator.py`; suite failures unchanged from `main` (zqo covers the `test_lore_generator` import error)
   - Branch `infra/newspaper-flat-slug` kept: two later commits (a Workshop spacing commit and its revert) sit on it, so its head is not the merged head
+---
 
 ### Session 2026-11-03 (Session chronicles)
 - Session notes published to the site (#358, `HeroHeaven-gft`; #361): PR #360 (`c54827d`) generator, PR #362 (`ec252e6`) nav + homepage
@@ -30,6 +41,7 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - PDFs are local only (headless Chrome), not committed; `.gitignore` untouched
   - Newspaper flattening followed as #368 (see the 2026-11-04 entry)
   - 32 failing tests on `main` are pre-existing (#359, `HeroHeaven-x9f`)
+---
 
 ### Session 2026-11-02 (Workshop shell)
 - Map Workshop UX pass (#333, `HeroHeaven-fs8.1`): step 2 shipped as PR #348 (`b2036e0`), GH #347 / `HeroHeaven-fs8.1.1`
@@ -37,12 +49,14 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Review feedback folded in: Route Index is label + distance + travel + eye icon (open/held/closed), Layers and zoom stay on the map when the sidebar is hidden, Terrain explainer is an "i" popup
   - `tests/test_workshop_shell.py` added; Journeys in the Route Index deferred to the Routes consolidation (step 8)
   - Steps 3-10 remain open on #333; steps 5, 6 and 7 are the GM's calls and need a written case first
+---
 
 ### Session 2026-11-02 (Workshop type scale)
 - Map Workshop UX pass (#333, `HeroHeaven-fs8.1`): step 1 shipped as PR #346 (`b81da74`)
   - 5-token rem type scale and 4.5:1 text contrast in the Workshop sidebar; tabs now a 3-column grid (sidebar 464px to 383px)
   - `tests/test_workshop_type_scale.py` guards sizes and colours; decision logged in `.meta/DECISION_LOG.md`
   - Steps 2-10 remain open on #333 and `fs8.1`; step 2 (collapsible shell) is next, not yet claimed
+---
 
 ### Session 2026-11-02
 - Session 2 close-out and Session 3 documents brought in line with Session 3 having been played. No Beads or GitHub issue (GM: PR and commit notes suffice).
@@ -51,7 +65,6 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Deleted the untracked Session 2 `.html`/`.pdf` exports; kept the Session 3 Prep ones.
   - `.gitignore` rule `narrative/sessions/**/*.mp3` because `Session_3.mp3` is 139 MB (GitHub's limit is 100 MB). Scoped to `narrative/sessions` so the 21 tracked mp3s elsewhere are untouched. [PR #345](https://github.com/mofro/tarim-shaiel-campaign-frame/pull/345), awaiting the GM's merge.
 - Next: merge #345. Open: the untracked 192 MB `Tarim-Shaiel: Session 3.m4a` (the mp3 rule does not cover it), no record yet of what Session 3 produced, and `characters/NPCs/Elder Road Merchant.md` is another 0-byte Jade Illusionist alias page
-
 ---
 
 ### Session 2026-10-30/11-01
@@ -64,7 +77,6 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 - [HeroHeaven-yuh / #343] Map: `utilities/geojson/generate_geojson.py` still styles the standalone snapshot from the legacy `mapmarker:` field; 25 of 207 pages lack it and new pages will too. Filed with checklist, open questions (does anything read the snapshot; where colour and symbol should come from) and reference files. Not started; touches `utilities/`, so it needs a review before closing
 - Filed, not started: [HeroHeaven-v8l / #340] stale test fixes and `pytest.ini`; [HeroHeaven-mm8 / #341] build-version endpoint so pages stop reloading on every build
 - Next: nothing is in flight. Open: #340, #341, #343, the GM's calls on the six #334 audit rows, #315 real-touch tap-to-open
-
 ---
 
 ### Session 2026-10-29
@@ -76,7 +88,6 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Not decided yet: the six `decision` values. The GM annotates a copy of the CSV, then `coord_audit.py --apply <file> --dry-run`
 - Stale notes corrected: Topo baked-label handling resolved by #331/#332 (`lat.md/locations.md`), and the 2026-10-28 "Next" line below
 - Next: GM decides the six rows on #334
-
 ---
 
 ### Session 2026-10-28
@@ -93,7 +104,6 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Process: added "Size verification to the change" to project `CLAUDE.md` Working Conventions after the mutation pass drew a correction
   - Pre-existing on main, not touched: the 5 `tests/test_shared_assets.py` failures and the `tests/test_lore_generator.py` ImportError
 - Next (superseded 2026-10-29): the Topo baked-label handling was settled by #331/#332 (label-free custom style), and the Share boxes and Player's-eye preview have since had their browser pass
-
 ---
 
 ### Session 2026-10-27
@@ -109,48 +119,3 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
   - Known gap, left alone (outside the spec): the Workshop POSTs its position only on `moveend`, so `/api/map-center` is null after a devserver restart until the GM first moves the map; a player refresh then uses the stored view. A one-time publish on Workshop load would close it
   - Pre-existing on main, not touched: same 5 `tests/test_shared_assets.py` failures and the `tests/test_lore_generator.py` ImportError
 - Next: #323 / HeroHeaven-3kz was held until the GM said go, then shipped on 2026-10-28 (see Session 2026-10-28)
-
----
-
-### Session 2026-10-26
-- [HeroHeaven-5uw / #308] Map plan Phase A — shared map style, `poi` type, hover popups. Pipeline PR #313 merged (`f41679c`); #308 and 5uw closed together, branch deleted. Real-touch check split out as #315 / HeroHeaven-p5h
-  - New `utilities/shared/map_style.py`: one definition of the route line, region layers, six location tiers and hover popups, used by the Workshop, the player map and `world.html` (routes + regions only)
-  - Player popups use `popup_description(player_safe=True)` (fail-closed on session/awakening text); `gm_secrets` locations are dropped from the embedded player GeoJSON
-  - `locations.categories.CATEGORIES` is now the only category list (Workshop Add Point + Edit Coords, `map.py`). Found and fixed: Edit Coords lacked 6 of 17 categories, so Save Fields silently re-typed those locations
-  - Verified in Chrome: Add Point `poi` end to end (test file and regenerated GeoJSON removed), hover on Workshop and `/player`, route colour on all three surfaces, no console errors. Not verified: real touch tap-to-open
-- Verification pass behind Phases A–E, recorded on #308/#309/#312: browser DEM decode matches PIL, Web Worker A* matches Node (851 km / 175 h), MapTiler Cloud Terms read in full (direct fetch §6.1, no server cache §7.2, client cache §5.7). Mounted and cart speed constants are still assumptions
-- `shorchuk.md` frontmatter closed (`828768c`)
-- `kashkar.md` merged into `kashgar.md` and deleted (`5ab5fd0`); faction `controls` slugs repointed; narrative-significance prose sits in a gm-only callout (hard constraint). GM answered the naming: canonical name and fantasy name are both Kashgar; `zzkashkar.md` is excluded by its `zz` prefix and left alone
-- `jade-gate` set to `gm_secrets` (`743bdcc`, `revealed: 2026-05-13` kept); locations GeoJSON regenerated with `--gm` (`94f110f`), which also added `shorchuk`
-- Coordinate audit specced in #314 / HeroHeaven-d95: per-item GM decision (move pin, fix elevation, mark intentional, skip), no global rule; AWS Terrain Tiles + Wikidata P625 instead of MapTiler for scripts. A throwaway DEM spike had sent browser-style Referer/Origin headers to MapTiler; it was discarded, never committed
-- Beads "auto-export: git add failed": `~/.gitignore_global` ignores `.beads/issues.jsonl` while `export.git-add` was true. Set `export.git-add: false` in `.beads/config.yaml`; re-run of `bdg update` printed no warning
-- `lat.md/locations.md`, `build-workflows.md`, `world.md`: documented the shared module and single category source; corrected stale references to the regions GeoJSON removed in #299
-- Process feedback (GM): settled questions were asked again and the close-out was posed as a question. Saved to the `close-out-behavior-user-feedback-2026-10-25` bd memory and a `CLAUDE.md` working-convention bullet
-- Map plan Phases B–F, built as a stacked PR chain (each on its own branch; merge in order and retarget the next to `main`)
-  - B1: every location set to `gm_secrets` in one scripted pass (pushed, `00cf25b`); `revealed:` stays a datestamp that no code reads. B2 Reveal tab, PR #316 (#309 / HeroHeaven-u4v)
-  - C: GM-only routes, route travel time and the route PATCH endpoint, PR #317 (#310 / HeroHeaven-15e)
-  - D: per-leg travel state, persisted journeys, Travel Time tab, `/api/journeys`, PR #318 (#311 / HeroHeaven-6sm)
-  - E: terrain-following paths for journey legs (DEM A* in a Web Worker), PR #319 (#312 / HeroHeaven-2py)
-  - F: `utilities/locations/coord_audit.py` (#314 / HeroHeaven-d95). Report is a ranked Markdown + CSV list with a blank `decision` column; `--apply` writes only decided rows. First real run: 184 checked, 30 listed, 154 consistent. Endere ranked 17th behind generic-name Wikidata matches until rows were sorted by evidence tier (field contradicts terrain, then analog only). New location fields `coord_review`, `coord_reviewed`, `wikidata`; Pillow added to `requirements.txt`
-  - Landed in order, each retargeted to `main` after the one below it was squash-merged: #316 (B2), #317 `b3c79fc`, #318 `5e10824`, #319 `ab2add2`, #320 `6e3b6f5`. After each squash the next PR conflicted (the branch still held the unsquashed history); fixed by merging `main` in with each file 3-way merged against the true common base, never a rebase. #308–#312 and #314 and their Beads issues closed with their merges; stack branches deleted
-  - Open items: #315 / HeroHeaven-p5h (real-touch tap-to-open, needs a phone). Not built: a Workshop Audit layer for Phase F
-- Frontmatter duplication (#321 / HeroHeaven-4um): saving an unchanged value from the Workshop appended another copy of the key (`title:`, `type:`, `visibility:` and the `location:` list). `_set_frontmatter_fields` and `_set_location` in `utilities/devserver.py` read "text unchanged after `re.sub`" as "key absent". Now `_replace_first` matches by count, replaces the first hit and drops later duplicates, so doubled pages heal on their next save. 13 tests in `tests/test_devserver_frontmatter.py`. Six damaged pages (`achatagh`, `aqyar`, `ember-wash`, `qarabulaq`, `qarachi`, `qizil`) had exact duplicate lines removed; devserver restarted to load the fix
-  - The fix rode into `main` inside #320 (cherry-picked as `a508ccb` so the working checkout had it). #322 (same change on its own branch) was left with an empty diff against `main`; the GM merged it as is (`6d8e6a6`, no tree change) and #321 closed with it
-  - Known and left alone: a Workshop rename updates `title:` only when both `title:` and `name:` exist, so it can leave `name:` stale
-
----
-
-### Session 2026-10-25
-- Map Workshop `ImportError: PyYAML is required` on Add Location — fixed and documented
-  - Cause: `utilities/devserver.py` was launched with Homebrew `python`, which has no PyYAML; the rebuild endpoints spawn `build.py` with the server's own interpreter
-  - Added a fail-fast PyYAML guard to the devserver (shipped in pipeline PR #306, `c1b1ae5`); CLAUDE.md and `lat.md/build-workflows.md` now say to run it from `venv/bin/python` (`7a33598`)
-- Locations: kept `stashed-carts.md` and deleted the duplicate `stashed-carts-s3.md`; added `dire-wolf-pass.md` and `foothill-crossroads.md` route nodes; regenerated `tarim-shaiel-locations.geojson` (183 features) — `9ae212e`
-- Reconciled the outstanding working tree into an ordered commit chain on main (plumbing commits, so the feature branch and working tree were never touched; nothing overwritten)
-  - World Orc → Tulpar `3e1fac4`; narrative / characters / frame template `6518a40`; Session 2 record + Session 3 prep + Session 3 encounter sheet `ac80a3b`; DIVINE_PLAYERS `344ae98`; `lat.md/world.md` `fd24cac`
-  - The Orc → Tulpar rename is a **partial pass**: word-level text only. Wikilink slugs and filenames (e.g. `orc-steppe-confederations`) are unchanged so no links break
-- Pipeline PR #306 squash-merged to main (`c1b1ae5`): map workshop search, travel time, player share map, devserver PyYAML guard; `*.qta` added to `.gitignore`
-- Beads: closed HeroHeaven-hya (Session 3 encounter sheet). The automatic `bd repo sync` left it in progress in beads-global (high-water-mark gotcha), so it was closed there directly and pushed to DoltHub; `bdg sync-down` found nothing to reconcile across the 14 registered projects
-- PR #305 (2026-10-20 session close and EXTERNAL_TOOLS stale-ID fixes; its LK `isHidden` change was already on main) conflicted on this log with the chore commit `3112426`. Merged `origin/main` into its branch (`cfc9397`), kept both entries in order and trimmed to 10 (the `2026-05-10 (2)` entry went to the local archive), then squash-merged to main (`16d37e5`)
-- Pipeline PR #307 squash-merged (`d60163e`): the four workshop hint strings in `generate_map_workshop.py` (Add Location, Add Route and Edit Location panels, plus the "Devserver not running" banner) now say `venv/bin/python utilities/devserver.py`
-- Saved two zsh gotchas to the global CLAUDE.md and `bd remember`: never name a shell variable `path` (zsh ties it to `PATH`), and brace a variable before a colon (`${VAR}:refs/...`)
-- Deliberately left alone: `5208caa` (`.gitignore` +8 and the Session 0 awakening file) remains only on `feature/workshop-search-nav`; not pursued
