@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: newspaper-story
 issue: "ISSUE-SLUG"
 weight: lead

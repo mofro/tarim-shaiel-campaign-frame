@@ -11,7 +11,7 @@ threatened_by: []       # canonical entity names
 related_factions: []    # canonical faction names
 related_events: []      # canonical event names
 narrative_weight:       # very-high | high | medium | low
-visibility:             # public | gm_secrets
+visibility: gm_secrets   # public | gm_secrets | internal
 status:                 # canon | draft | review | deprecated
 created:
 last_updated:

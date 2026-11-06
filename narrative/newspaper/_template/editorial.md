@@ -5,6 +5,7 @@ weight: editorial
 order: 4
 page: 2
 title: "Editorial or Essay Title"
+visibility: gm_secrets
 byline: "Author Name, Title or Credential"
 ---
 

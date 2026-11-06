@@ -1,5 +1,6 @@
 ---
 title: Template Experiments Archive
+visibility: gm_secrets
 type: archive
 created: 2025-01-28
 tags: [archive, experiments, templates]

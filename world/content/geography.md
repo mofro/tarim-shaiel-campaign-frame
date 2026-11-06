@@ -1,5 +1,6 @@
 ---
 title: Geography - Locations & Coordinates
+visibility: gm_secrets
 project: TTRPG_Tarim_Shaiel
 type: world_building
 status: in_progress

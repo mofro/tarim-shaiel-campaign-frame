@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: newspaper-manifest
 issue: "0001-session-0-warrior"
 masthead:

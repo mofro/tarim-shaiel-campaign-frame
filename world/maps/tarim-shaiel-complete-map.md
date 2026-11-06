@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 id: tarim-shaiel-complete-map
 created: 2025-12-14
 ---

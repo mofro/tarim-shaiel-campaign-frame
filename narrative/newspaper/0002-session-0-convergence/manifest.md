@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: newspaper-manifest
 issue: "0002-session-0-convergence"
 slug: "session-0-convergence"

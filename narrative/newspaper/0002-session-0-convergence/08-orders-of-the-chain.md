@@ -6,6 +6,7 @@ order: 6
 page: 1
 full_width: true
 title: "Orders of the Chain: A Tulpar History"
+visibility: gm_secrets
 byline: "Volkath, Merchant Caravan Leader, Sixth Cycle Tradesman of the West"
 ---
 

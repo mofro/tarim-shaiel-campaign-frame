@@ -5,7 +5,7 @@ parent_region:
 domain:
 doc_type:
 content_type:
-visibility:
+visibility: gm_secrets   # public | gm_secrets | internal
 status: deprecated
 created:
   "{ date }":

@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: test-query
 purpose: Verify Dataview plugin works with Location Notes
 created: 2025-12-13

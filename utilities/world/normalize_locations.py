@@ -7,7 +7,7 @@ consistent frontmatter fields required by the locations HTML generator.
 
 Changes applied per file:
   - Adds `parent_region` (inferred from location coordinates or defaulted to null)
-  - Adds `visibility: public` if missing
+  - Adds `visibility: gm_secrets` if missing (fail closed, #394)
   - Adds `status: draft` if missing
   - Renames `factions:` → `factions_visible:` (if `factions_visible:` not already present)
 
@@ -126,8 +126,9 @@ def _normalize_fm(fm_text: str, source_path: Path, dry_run: bool) -> tuple[str, 
             if re.match(r'^title\s*:', line):
                 insert_pos = i + 1
                 break
-        inserted_after.setdefault(insert_pos, []).append('visibility: public')
-        changes.append("  added visibility: public")
+        # Fail closed (#394): a page the GM has not flagged stays GM-only.
+        inserted_after.setdefault(insert_pos, []).append('visibility: gm_secrets')
+        changes.append("  added visibility: gm_secrets")
 
     # --- Rule 3: status ---
     if 'status' not in fm:

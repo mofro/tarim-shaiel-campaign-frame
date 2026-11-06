@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 tier: 2
 ---
 # Improved Gambeson Armor

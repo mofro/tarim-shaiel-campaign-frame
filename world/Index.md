@@ -1,5 +1,6 @@
 ---
 title: World Directory Index
+visibility: gm_secrets
 project: TTRPG_Tarim_Shaiel
 type: directory_index
 purpose: Dynamic navigation for world-building and setting resources

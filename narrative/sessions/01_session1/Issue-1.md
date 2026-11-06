@@ -5,6 +5,7 @@ weight: reference
 order: 4
 page: 1
 title: "Names on the Road"
+visibility: gm_secrets
 cssClasses: 
   - newspaper
   - wide-page

@@ -2,6 +2,7 @@
 cssclasses:
   - newspaper
 title: The Fork in the Road
+visibility: gm_secrets
 date: Haziran, 1199th Year of the Held Breath
 session: 1
 ---

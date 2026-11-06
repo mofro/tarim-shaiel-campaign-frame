@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: leaflet-map
 purpose: Test satellite tiles to verify tileServer parameter works
 created: 2025-12-13

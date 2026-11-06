@@ -5,7 +5,7 @@ parent_region: tarim-basin
 domain: world
 doc_type: draft
 content_type: location
-visibility: gm_only
+visibility: gm_secrets   # public | gm_secrets | internal
 status: draft
 created:
   "{ date }":

@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 tier: 3
 ---
 # Monett's Cloak

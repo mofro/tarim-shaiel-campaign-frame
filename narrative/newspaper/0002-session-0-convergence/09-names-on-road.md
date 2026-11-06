@@ -5,6 +5,7 @@ weight: reference
 order: 4
 page: 2
 title: "Names on the Road"
+visibility: gm_secrets
 entries:
   - name: "Kira"
     role: "Former soldier, ~40; de facto leader of the ravine camp; now traveling west with Volkath's caravan."

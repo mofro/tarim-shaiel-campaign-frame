@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 tier: 4
 ---
 # Legendary Full Plate Armor

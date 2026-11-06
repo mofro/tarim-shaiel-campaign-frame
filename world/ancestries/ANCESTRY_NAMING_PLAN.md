@@ -2,7 +2,7 @@
 title: Ancestry Naming Plan — Tarim-Shaiel
 project: TTRPG_Tarim_Shaiel
 type: world_building / implementation_plan
-visibility: gm_only
+visibility: gm_secrets
 status: approved_pending_implementation
 created: 2026-04-03
 last_updated: 2026-04-14

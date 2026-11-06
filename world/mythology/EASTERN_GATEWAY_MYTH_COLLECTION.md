@@ -1,5 +1,6 @@
 ---
 title: Eastern Gateway Myth Collection
+visibility: gm_secrets
 project: TTRPG_Tarim_Shaiel
 type: source_material
 region: Eastern Gateway (Dunhuang, Mogao Caves, Silk Road Buddhist sites)

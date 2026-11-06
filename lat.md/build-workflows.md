@@ -150,6 +150,24 @@ venv/bin/python utilities/map.py rebuild
 
 To change one page's icon without changing its Type, use `map_icon:` in the page's frontmatter or the Icon override dropdown in the Workshop; `map_icon: none` hides the pin.
 
+### "Checking or changing a lore page's visibility" (#394)
+
+Every lore page carries `visibility: public | gm_secrets | internal`. A missing or unrecognised value is reported, never guessed; `build.py` prints a one-line warning and carries on.
+
+```bash
+venv/bin/python utilities/shared/visibility_check.py check
+```
+
+```bash
+venv/bin/python utilities/shared/visibility_check.py show world/locations/dehdadi.md
+```
+
+```bash
+venv/bin/python utilities/shared/visibility_check.py set world/locations/dehdadi.md gm_secrets
+```
+
+`set` changes only the `visibility:` line (inserting it after `title:` if absent). `check --strict` exits 1 when anything is unflagged. The Workshop edits the flag for locations only; other lore uses this command.
+
 ### "Something looks wrong — full clean rebuild"
 
 ```bash

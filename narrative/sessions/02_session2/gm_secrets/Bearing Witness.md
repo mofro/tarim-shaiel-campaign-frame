@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 date: 2026-08-15
 session_number: "02"
 opening_scene: "Ariel on the precipice, wings furled, watching a dying mixed Tulpar/human ring. Triggered when she weighs taking on a defensively stanced Kaan with Reizan co-located."

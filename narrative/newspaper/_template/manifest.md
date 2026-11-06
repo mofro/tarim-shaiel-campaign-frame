@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: newspaper-manifest
 issue: "ISSUE-SLUG"
 slug: "issue-slug"                       # published URL: /newspaper/<slug>.html (lowercase, hyphens); omit to use the folder name

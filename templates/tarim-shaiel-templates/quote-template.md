@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 date:
 session_number:
 opening_scene:
