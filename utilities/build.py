@@ -218,6 +218,17 @@ def _copy_js() -> None:
         shutil.copy2(f, dst / f.name)
 
 
+def _warn_visibility() -> None:
+    """Report lore pages with a missing or invalid `visibility:` (#394). Warns only;
+    `visibility_check.py check --strict` is the failing form."""
+    from shared import visibility_check
+    problems = visibility_check.check(VAULT_ROOT)
+    if problems:
+        print(f"  WARN: {len(problems)} lore file(s) lack a valid visibility: flag "
+              f"- run 'python utilities/shared/visibility_check.py check' to list them",
+              file=sys.stderr)
+
+
 def _cmd_run(names: list[str], registry: dict, args: argparse.Namespace) -> int:
     _copy_assets()
     _copy_css()
@@ -226,6 +237,7 @@ def _cmd_run(names: list[str], registry: dict, args: argparse.Namespace) -> int:
         os.environ['TS_GM_MODE'] = '1'
     if args.standalone:
         os.environ['TS_STANDALONE'] = '1'
+    _warn_visibility()
     failed = []
     for name in names:
         if name not in registry:
