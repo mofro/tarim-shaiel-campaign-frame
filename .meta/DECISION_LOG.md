@@ -1015,3 +1015,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** the 7 files in `world/regions/` are the region set and the two region documents conform; Elven Highlands is a sub-region, not a region file. The Persian-rooted register of `ANCESTRY_NAMING_PLAN.md` governs personal names and all existing names stay, with a proviso where the placeholder style guide disagrees. The faith table is region-level, built from the existing mythology files, and does not make the heroes religious figures. `parent_region` is filled as towns are processed.
 - **Rationale:** `parent_region:` and the region parser already use the file slugs, so conforming prose is cheap and renaming is not. The placeholder style guide contradicts names already in canon.
 - **Lock status:** Working decision, not locked; the documents and tables are not yet written.
+
+## 2026-11-06 — World: the faith table is a list with affinity effects, not a census (#384, HeroHeaven-oid.1)
+- **Decision:** the faith table lists the faiths present and how social and ancestral affinities shift that list; it carries no percentages or numeric shares and need not map strictly by region. This amends the faith-table scope logged earlier the same day.
+- **Rationale:** the game never shows players a census, so numeric shares add cost without use; the list and its affinities are what the GM will use at the table.
+- **Lock status:** Working decision, not locked.
