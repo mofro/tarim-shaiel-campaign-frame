@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-05-04
-last_updated: 2026-11-05
+last_updated: 2026-11-06
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read individual location files unless you need specific detail._
@@ -77,7 +77,7 @@ A Fantasy Town Generator (FTG) export in `world/maps/cities/<Slug>.geojson` is d
 - **Placement:** a town belongs to the location page whose slug equals the file stem, ignoring case (`Dehdadi.geojson` to `dehdadi.md`), and is moved to that page's `location:`. FTG coordinates are metres from the town centre (+x east, +y north, no CRS). The conversion is flat-earth with the WGS84 series (110,971.3 m per degree of latitude and 89,403.8 m per degree of longitude at 36.66 N), rounded to 6 places (about 0.1 m). A town with no page, or a page with no coordinates, is skipped with a warning on stderr and the build goes on.
 - **Trim:** BUILDING, EDGE and WATER features stay. INVISIBLE edges (routing helpers) and BACKGROUND polygons (lawn, grass and road texture) are dropped; the render reads clearly without them. Kept properties: `type`, `id`, `name`, `buildingType`, `edgeType`. The people file (`<Town>.json`) never reaches a page. Dehdadi is 2,755 features and 642,360 bytes (451 KB of it buildings); the test ceiling is 700,000 bytes per town.
 - **Visibility:** per town, from its location page. A `gm_secrets` town draws on the Workshop only; the player page gets the layers with no features for it. `player_towns` applies the rule `_player_locations_geojson` applies to pins, so a page with no `visibility:` counts as public. Dehdadi is `gm_secrets`, so players see no town and no pin.
-- **Layers:** `settlements-water`, `-walls`, `-roads`, `-buildings`, `-building-lines`. They appear at zoom 13 and are fully drawn at 15. There is no Layers-menu checkbox; the town shows wherever its page is placed and visible.
+- **Layers:** `settlements-water`, `-walls`, `-roads`, `-buildings`, `-building-lines`. The first four fade in from zoom 10 and are fully drawn at 15; the outlines appear at 15. There is no Layers-menu checkbox; the town shows wherever its page is placed and visible.
 - **Tests:** `tests/test_settlement_overlay.py` (28) covers the transform, trim, filter, skips, size, source hashes, and an end-to-end `main()` build.
 - **Gap:** feature ids are not guaranteed to survive an FTG re-export. Matching people to buildings belongs to the profiles item (HeroHeaven-oid.3, #386).
 - **Gap:** every town is inlined in the page. A handful of towns is fine; past that, load each overlay on demand.

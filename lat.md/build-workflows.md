@@ -7,7 +7,7 @@ content_type: reference
 visibility: internal
 status: canon
 created: 2026-08-31
-last_updated: 2026-11-05
+last_updated: 2026-11-06
 tags: [build, pipeline, generators, workflow]
 ---
 
@@ -98,7 +98,7 @@ Save the FTG GeoJSON export in `world/maps/cities/`, named for the location page
 python utilities/build.py workshop
 ```
 
-The town is placed at the page's coordinates and appears from zoom 13. A file with no matching page, or a page with no coordinates, prints a `WARN:` line and is skipped. A `gm_secrets` page keeps the town off the player map. Details are in `lat.md/locations.md` under Town Maps.
+The town is placed at the page's coordinates and appears from zoom 10. A file with no matching page, or a page with no coordinates, prints a `WARN:` line and is skipped. A `gm_secrets` page keeps the town off the player map. Details are in `lat.md/locations.md` under Town Maps.
 
 ### "I need to share a standalone location GeoJSON"
 
