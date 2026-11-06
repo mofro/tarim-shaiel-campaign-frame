@@ -1010,3 +1010,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** `town_rotation:` on a location page is degrees clockwise about `location:`; absent, blank, 0 and 360 draw the town as before. The Workshop edit form has a number field and slider with live preview, and Save writes only that key (blank removes it). Player copies bake a public town rotated.
 - **Rationale:** the GM needs to orient a town on the map without editing the generator inputs. Rotation runs inside `Georeference` so later markers (#386, #387) turn with the town; rejected a render-time-only rotation because it would leave marker positions unrotated.
 - **Lock status:** Locked (shipped, PR #393).
+
+## 2026-11-06 — World: region set, personal-name register and faith-table scope for the FTG town passes (#384, HeroHeaven-oid.1)
+- **Decision:** the 7 files in `world/regions/` are the region set and the two region documents conform; Elven Highlands is a sub-region, not a region file. The Persian-rooted register of `ANCESTRY_NAMING_PLAN.md` governs personal names and all existing names stay, with a proviso where the placeholder style guide disagrees. The faith table is region-level, built from the existing mythology files, and does not make the heroes religious figures. `parent_region` is filled as towns are processed.
+- **Rationale:** `parent_region:` and the region parser already use the file slugs, so conforming prose is cheap and renaming is not. The placeholder style guide contradicts names already in canon.
+- **Lock status:** Working decision, not locked; the documents and tables are not yet written.
