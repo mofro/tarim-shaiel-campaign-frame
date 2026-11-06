@@ -7,6 +7,7 @@ page: 1
 status: placeholder
 kind: weather
 title: "Sky & Omens"
+visibility: gm_secrets
 items:
   - label: "Sky"
     value: "Low smoke haze, wind out of the west"

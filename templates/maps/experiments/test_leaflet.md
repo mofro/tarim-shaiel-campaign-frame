@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: test-map
 purpose: Test marker styling via marker field in Location Notes
 created: 2025-12-13

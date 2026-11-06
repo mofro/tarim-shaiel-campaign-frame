@@ -6,6 +6,7 @@ order: 3
 page: 1
 kind: "weather"     # renders as the card kicker: "Weather", "Omens", "Notices", etc.
 title: "Sky & Omens"
+visibility: gm_secrets
 items:
   - label: "Label One"
     value: "The value that appears after the label."

@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 name: Khotan
 location:
   - 37.12

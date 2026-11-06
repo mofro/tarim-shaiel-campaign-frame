@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 # Domain: Grace
 
 ## Metadata

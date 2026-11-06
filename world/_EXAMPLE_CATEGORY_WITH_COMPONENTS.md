@@ -1,5 +1,6 @@
 ---
 title: Example Category with All Components
+visibility: gm_secrets
 description: Demonstrates images, feature boxes, and jump navigation
 published: true
 jump_nav: true

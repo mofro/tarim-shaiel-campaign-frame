@@ -5,6 +5,7 @@ weight: reference
 order: 3
 page: 2
 title: "Names on the Road"
+visibility: gm_secrets
 entries:
   - name: "Kira"
     role: "Former soldier, ~40; de facto leader of the camp; traveling west with the caravan."

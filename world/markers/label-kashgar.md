@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 name: Kashgar
 location:
   - 39.4666

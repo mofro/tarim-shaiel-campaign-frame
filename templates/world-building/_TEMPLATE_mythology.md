@@ -10,7 +10,7 @@ cosmological_layer:         # Celestial | Warren | Pre-cosmic | Surface | None
 related_concepts: []        # canonical concept names — what this myth encodes or explains
 related_events: []          # canonical event names — if this myth corresponds to actual history
 narrative_weight:           # very-high | high | medium | low
-visibility:                 # public | gm_secrets
+visibility: gm_secrets   # public | gm_secrets | internal
 status:                     # canon | draft | review | deprecated
 created:
 last_updated:

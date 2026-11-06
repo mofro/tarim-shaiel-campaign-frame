@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 name: Dunhuang
 location:
   - 40.15

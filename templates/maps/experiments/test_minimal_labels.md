@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: leaflet-map
 purpose: Test minimal-label topographic tile server for fantasy map base
 created: 2025-12-13

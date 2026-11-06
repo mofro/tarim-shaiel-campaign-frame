@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 name: Kucha
 location:
   - 41.73

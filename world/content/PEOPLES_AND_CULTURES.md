@@ -1,5 +1,6 @@
 ---
 title: Peoples and Cultures - Species Overview
+visibility: gm_secrets
 project: TTRPG_Tarim_Shaiel
 type: world_building
 status: planned

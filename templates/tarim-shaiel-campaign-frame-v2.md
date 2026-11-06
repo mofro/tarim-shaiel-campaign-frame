@@ -1,5 +1,6 @@
 ---
 title: Tarim Shaiel — Campaign Frame
+visibility: gm_secrets
 type: campaign_frame
 system: Daggerheart
 version: 2

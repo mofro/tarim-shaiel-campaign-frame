@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 name: Aksu
 location:
   - 41.17

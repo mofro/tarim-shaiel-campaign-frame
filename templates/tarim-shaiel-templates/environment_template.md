@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 name: ""
 type: environment
 is_private: false

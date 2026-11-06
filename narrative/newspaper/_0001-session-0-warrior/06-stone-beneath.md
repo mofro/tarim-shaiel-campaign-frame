@@ -5,6 +5,7 @@ weight: editorial
 order: 2
 page: 2
 title: "Stone Beneath Your Feet"
+visibility: gm_secrets
 byline: "a field notice, transcribed verbatim"
 ---
 

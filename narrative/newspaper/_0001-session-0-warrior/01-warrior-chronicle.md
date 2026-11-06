@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 cssClasses: [columns-2]
 type: newspaper-story
 issue: "0001-session-0-warrior"

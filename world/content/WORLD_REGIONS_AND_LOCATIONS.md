@@ -1,5 +1,6 @@
 ---
 title: World Regions & Locations Framework
+visibility: gm_secrets
 project: TTRPG_Tarim_Shaiel
 type: world_reference
 status: canon

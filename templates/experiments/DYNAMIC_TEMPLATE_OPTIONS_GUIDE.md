@@ -1,5 +1,6 @@
 ---
 title: Dynamic Template Options Guide
+visibility: gm_secrets
 type: documentation
 created: 2025-01-28
 tags: [templater, dataview, templates, how-to]

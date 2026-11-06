@@ -13,7 +13,7 @@ cause: []               # canonical entity names (factions, concepts, events)
 effect: []              # canonical entity names
 key_actors: []          # canonical faction/character names
 narrative_weight:       # very-high | high | medium | low
-visibility:             # public | gm_secrets
+visibility: gm_secrets   # public | gm_secrets | internal
 status:                 # canon | draft | review | deprecated
 created:
 last_updated:

@@ -8,7 +8,7 @@ project: TTRPG_Tarim_Shaiel
 domain: [world|narrative|mechanics|characters|templates|references|utilities|archive]
 doc_type: [canon|draft|substrate|template|entity_index|design_decision|gm_secrets|operational]
 content_type: [event|faction|location|region|landmark|poi|concept|archetype|npc|lore|mythology|ancestry|environment|timeline|session|campaign_frame|index|reference]
-visibility: [public|gm_secrets|internal]
+visibility: gm_secrets   # public | gm_secrets | internal
 status: [draft|review|canon|deprecated]
 created: YYYY-MM-DD
 last_updated: YYYY-MM-DD

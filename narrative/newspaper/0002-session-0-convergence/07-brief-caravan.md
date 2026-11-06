@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: newspaper-story
 issue: "0002-session-0-convergence"
 weight: brief

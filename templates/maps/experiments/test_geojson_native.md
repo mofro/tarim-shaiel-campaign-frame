@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 type: test-map
 purpose: Test GeoJSON overlay system with Thunderforest Pioneer base
 created: 2025-12-14

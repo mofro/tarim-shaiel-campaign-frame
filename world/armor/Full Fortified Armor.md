@@ -1,4 +1,5 @@
 ---
+visibility: gm_secrets
 tier: 4
 ---
 # Full Fortified Armor
