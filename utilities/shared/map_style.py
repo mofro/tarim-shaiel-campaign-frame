@@ -125,8 +125,9 @@ def regions_layers_js(source: str = "regions") -> str:
 # Town maps (Fantasy Town Generator overlays)
 # ---------------------------------------------------------------------------
 
-SETTLEMENT_MIN_ZOOM = 13       # below this the town is a few pixels: the pin carries it
-SETTLEMENT_FULL_ZOOM = 15      # opacity reaches its full value here
+SETTLEMENT_MIN_ZOOM = 10       # below this the pin alone carries the town
+SETTLEMENT_FULL_ZOOM = 12      # opacity reaches its full value here
+SETTLEMENT_WIDTH_ZOOM = 13     # line widths start here; below it they stay at the hairline
 SETTLEMENT_LAYER_IDS = ["settlements-water", "settlements-walls", "settlements-roads",
                         "settlements-buildings", "settlements-building-lines"]
 
@@ -146,12 +147,12 @@ def _settlement_road_width(per_pixel_at_max: float) -> list:
     """Line width that grows with zoom, scaled by road class (main road widest)."""
     k = ["match", ["get", "edgeType"], "MAIN_ROAD", 1.6, "ROAD", 1.0, 0.6]
     return ["interpolate", ["exponential", 2], ["zoom"],
-            SETTLEMENT_MIN_ZOOM, ["*", k, per_pixel_at_max / 32],
+            SETTLEMENT_WIDTH_ZOOM, ["*", k, per_pixel_at_max / 32],
             18, ["*", k, per_pixel_at_max]]
 
 
 def settlements_layers_js(source: str = "settlements") -> str:
-    """JS adding the town-map layers (water, roads, walls, buildings), from zoom 13.
+    """JS adding the town-map layers (water, roads, walls, buildings), from zoom 10.
 
     The source holds the features settlement_overlay builds: `type` is BUILDING,
     EDGE or WATER; `buildingType` and `edgeType` pick the colour and width. Add the
