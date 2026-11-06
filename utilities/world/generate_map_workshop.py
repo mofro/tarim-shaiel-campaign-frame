@@ -365,6 +365,7 @@ html, body { height: 100%; overflow: hidden; font-family: 'Georgia', serif;
 .radio-row { display: flex; gap: 22px; padding: 2px 0; font-size: var(--fs-2); }
 .radio-row label { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 4px 0; }
 .radio-row input[type="radio"] { accent-color: #b8922c; }
+.field-group input[type="range"] { accent-color: #b8922c; width: 100%; margin: 0; }
 .btn { padding: 10px 16px; min-height: 40px; background: #2a1e08; border: 1px solid rgba(184,146,44,0.5);
   color: #e8dcc4; font-size: var(--fs-2); cursor: pointer; border-radius: 2px;
   letter-spacing: 0.05em; transition: background 0.15s; }
@@ -772,6 +773,15 @@ def _build_panel_inspector(region_options: str) -> str:
     <button id="ef-move-btn" type="button" class="btn btn-sm ef-edit-only hidden">Move</button>
   </div>
 </div>
+<div id="ef-rot-group" class="field-group hidden">
+  <label for="ef-rot">Town rotation <span class="insp-note">(degrees clockwise; blank = north-up)</span></label>
+  <div class="coord-row">
+    <input id="ef-rot" type="text" inputmode="decimal" autocomplete="off" placeholder="0">
+    <span>°</span>
+  </div>
+  <input id="ef-rot-range" type="range" min="-180" max="180" step="1" value="0" aria-label="Town rotation, degrees clockwise">
+  <p id="ef-rot-note" class="hint"></p>
+</div>
 <div class="field-group">
   <label>Name <span class="ef-create-only">*</span></label>
   <input id="ef-name" type="text" placeholder="Nur-Ata">
@@ -992,11 +1002,13 @@ document.addEventListener("keydown",function(e){
 # #336 guard) from the core fields and from Advanced, in one PATCH.
 _INSPECTOR_JS = r"""
 function _efRead(){
-  return {name:_efName.value.trim(),
+  var o={name:_efName.value.trim(),
   fantasy_name:_efFantasy.value.trim(),
   type:_efType.value,
   map_icon:_efIcon.value,
   visibility:document.querySelector('input[name="ef-vis"]:checked').value};
+  if(_efSlug&&_townBySlug[_efSlug])o.town_rotation=_efRot.value.trim();
+  return o;
 }
 function _efSetVis(v){
   document.querySelectorAll('input[name="ef-vis"]').forEach(function(r){r.checked=r.value===v;});
@@ -1026,6 +1038,7 @@ function _efReset(){
   if(_dragMarker){_dragMarker.remove();_dragMarker=null;}
   _efSetStatus("");
   _efSetMode(null);_efShowIcon();
+  _townShowField(null);
 }
 
 // -- Advanced: the page's other frontmatter. Scalars edit; lists and nested values show.
@@ -1124,6 +1137,7 @@ function _openFieldEditor(feature){
   else _efIcon.value="";
   _efSetVis(p.visibility==="gm_secrets"?"gm_secrets":"public");
   _efSetStatus("");
+  _townShowField(slug);
   _efSetMode(slug);
   _efShowIcon();_efBase=_efRead();
   _efAdvLoad();
@@ -1169,10 +1183,15 @@ _efSaveBtn.addEventListener("click",function(){
   var slug=_efSlug,cur=_efRead(),fields=_efDiff(_efBase,cur);
   var advCur=_efAdvValues(),adv=_efAdvDiff();
   if(_efAdvBad){_efSetStatus("✗ "+_efAdvBad+" must be a number","err");return;}
+  if("town_rotation" in cur&&isNaN(_townAngle(cur.town_rotation))){
+    _efSetStatus("✗ Town rotation must be a number of degrees","err");return;}
   Object.keys(adv).forEach(function(k){fields[k]=adv[k];});
   if(!Object.keys(fields).length){
     _efStatus.textContent="No changes";_efStatus.className="hint";return;}
-  _patchFrontmatter(slug,fields,function(){if(_efSlug===slug){_efBase=cur;_efAdvBase=advCur;}});
+  _patchFrontmatter(slug,fields,function(){
+    if(_efSlug===slug){_efBase=cur;_efAdvBase=advCur;}
+    _townSaved(slug,fields);
+  });
 });
 
 _efMoveBtn.addEventListener("click",function(){
@@ -1199,10 +1218,113 @@ function _efDiff(base,cur){
     var v=cur[k];
     if(k==="fantasy_name"&&v==="")v=null;
     if(k==="map_icon"&&v==="")v=null;
+    if(k==="town_rotation")v=v===""?null:_townAngle(v);
     out[k]=v;
   });
   return out;
 }
+"""
+
+
+# Town rotation (#392), the part with no page in it. The page is built with every town
+# turned by its saved `town_rotation:`; to show a typed angle at once it turns the built
+# coordinates by the difference, about the town centre, in the same local metres the
+# Python side (settlement_overlay.Georeference) uses. It always starts from the built
+# data, never from the last preview, so 30 -> 60 -> 30 lands exactly where 30 did.
+# `idx` is settlement_overlay.town_index(); `angles` maps slug -> degrees clockwise.
+_TOWN_TURN_JS = r"""
+function _townAngle(s){
+  s=String(s).trim();
+  if(s==="")return 0;
+  if(!/^[-+]?(\d+\.?\d*|\.\d+)$/.test(s))return NaN;
+  var n=Number(s);
+  return Math.abs(n)>36000?NaN:Math.round(n*1e4)/1e4;
+}
+function _townTurnCoords(c,t,cos,sin){
+  if(typeof c[0]==="number"){
+    var x=(c[0]-t.lon)*t.mLon,y=(c[1]-t.lat)*t.mLat;
+    return [t.lon+(x*cos+y*sin)/t.mLon,t.lat+(-x*sin+y*cos)/t.mLat];
+  }
+  return c.map(function(r){return _townTurnCoords(r,t,cos,sin);});
+}
+function _townGJ(base,idx,angles){
+  var feats=null;
+  idx.forEach(function(t){
+    var a=angles[t.slug];
+    if(a==null)return;
+    var d=(((a-t.rotation)%360)+360)%360;
+    if(!d)return;
+    var r=d*Math.PI/180,cos=Math.cos(r),sin=Math.sin(r);
+    if(!feats)feats=base.features.slice();
+    for(var i=t.start;i<t.start+t.count;i++){
+      var f=base.features[i],g=f.geometry;
+      feats[i]={type:f.type,properties:f.properties,
+        geometry:{type:g.type,coordinates:_townTurnCoords(g.coordinates,t,cos,sin)}};
+    }
+  });
+  return feats?{type:"FeatureCollection",features:feats}:base;
+}
+"""
+
+
+# The Town rotation field (#392): shown for a page that has a town, it turns that town on
+# the map as the GM types or drags, 60 ms at most between redraws. Nothing is written
+# until Save; closing the form or opening another pin puts the saved angle back.
+_TOWN_FIELD_JS = r"""
+var _townBySlug={};
+var _townRot={};
+var _townDrawn=false;
+var _townAt=0;
+var _townTimer=null;
+_townIdx.forEach(function(t){_townBySlug[t.slug]=t;_townRot[t.slug]=t.rotation;});
+
+function _townRedraw(){
+  var angles=Object.assign({},_townRot);
+  if(_efSlug&&_townBySlug[_efSlug]){
+    var a=_townAngle(_efRot.value);
+    if(!isNaN(a))angles[_efSlug]=a;
+  }
+  var dirty=_townIdx.some(function(t){return angles[t.slug]!==t.rotation;});
+  if(!dirty&&!_townDrawn)return;
+  _townDrawn=dirty;
+  try{
+    var src=map.getSource("settlements");
+    if(src)src.setData(_townGJ(_settleGJ,_townIdx,angles));
+  }catch(e){}
+}
+function _townPreview(){
+  var wait=60-(Date.now()-_townAt);
+  if(wait<=0){_townAt=Date.now();_townRedraw();return;}
+  if(_townTimer)return;
+  _townTimer=setTimeout(function(){_townTimer=null;_townAt=Date.now();_townRedraw();},wait);
+}
+function _townSyncRange(){
+  var a=_townAngle(_efRot.value);
+  _efRotRange.value=isNaN(a)?0:((((a+180)%360)+360)%360)-180;
+}
+function _townNote(){
+  var a=_townAngle(_efRot.value);
+  _efRotNote.className="hint"+(isNaN(a)?" err":"");
+  _efRotNote.textContent=isNaN(a)?"Enter degrees, like 30 or -12.5":
+    (_efSlug&&a!==_townRot[_efSlug]?"Preview only until you Save.":"");
+}
+function _townShowField(slug){
+  var t=_townBySlug[slug];
+  _efRotGroup.classList.toggle("hidden",!t);
+  _efRot.value=t&&_townRot[slug]?String(_townRot[slug]):"";
+  _townSyncRange();_townNote();
+  _townRedraw();
+}
+function _townSaved(slug,fields){
+  if(!("town_rotation" in fields)||!_townBySlug[slug])return;
+  _townRot[slug]=fields.town_rotation==null?0:fields.town_rotation;
+  _townNote();_townRedraw();
+}
+_efRot.addEventListener("input",function(){_townSyncRange();_townNote();_townPreview();});
+_efRotRange.addEventListener("input",function(){
+  _efRot.value=_efRotRange.value==="0"?"":_efRotRange.value;
+  _townNote();_townPreview();
+});
 """
 
 
@@ -2820,11 +2942,15 @@ def _build_app_js(style_url: str, icons_js: str, maptiler_key: str = "") -> str:
         'var _efAdvReadonly=document.getElementById("ef-adv-readonly");\n'
         'var _efAdvBase=null;\n'
         'var _efAdvBad=null;\n'
+        'var _efRotGroup=document.getElementById("ef-rot-group");\n'
+        'var _efRot=document.getElementById("ef-rot");\n'
+        'var _efRotRange=document.getElementById("ef-rot-range");\n'
+        'var _efRotNote=document.getElementById("ef-rot-note");\n'
         'var _efTypePlaceholder=_efType.querySelector(\'option[value=""]\');\n'
         'var _efCreateOnly=document.querySelectorAll(".ef-create-only");\n'
         'var _efEditOnly=document.querySelectorAll(".ef-edit-only");\n'
 
-        + _EF_DIFF_JS + _EF_ICON_NOTE_JS
+        + _EF_DIFF_JS + _TOWN_TURN_JS + _TOWN_FIELD_JS + _EF_ICON_NOTE_JS
         + _INSPECTOR_JS +
 
         # Promise-returning PATCH shared by the field editor and the batch bar.
@@ -3005,10 +3131,12 @@ def _build_html(
     journeys_geojson: dict | None = None,
     journey_info: dict | None = None,
     settlements_geojson: dict | None = None,
+    town_index: list | None = None,
 ) -> str:
     journeys_geojson = journeys_geojson or {"type": "FeatureCollection", "features": []}
     journey_info = journey_info or {}
     settlements_geojson = settlements_geojson or {"type": "FeatureCollection", "features": []}
+    town_index = town_index or []
     style_url = (
         f"https://api.maptiler.com/maps/{MAPTILER_STYLE_ID}/style.json?key={maptiler_key}"
     )
@@ -3024,6 +3152,7 @@ def _build_html(
         f"var _jrnInfo = {json.dumps(journey_info)};\n"
         f"var _regionGJ = {json.dumps(regions_geojson)};\n"
         f"var _settleGJ = {_settlements_json(settlements_geojson)};\n"
+        f"var _townIdx = {json.dumps(town_index, separators=(',', ':'))};\n"
         f"var _locList = {json.dumps(loc_list)};\n"
         f"var _regionList = {json.dumps(region_names)};\n"
     )
@@ -3567,6 +3696,7 @@ def main() -> int:
         journeys_geojson=workshop_journeys,
         journey_info=workshop_jrn_info,
         settlements_geojson=workshop_settlements,
+        town_index=settlement_overlay.town_index(towns),
     )
 
     OUTPUT_PATH.write_text(html, encoding="utf-8")

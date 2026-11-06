@@ -5,6 +5,7 @@ Reads world/locations/*.md files and returns structured LocationData dicts.
 Strips Obsidian leaflet blocks, extracts frontmatter, classifies location type.
 """
 
+import math
 import re
 import sys
 from pathlib import Path
@@ -54,6 +55,7 @@ class LocationData(TypedDict):
     map_pan: bool            # per-location mini-map drag-to-pan toggle; default True
     map_label: bool          # whether this location's marker gets a text label; default True
     map_marker: object       # from `map_icon:` (or legacy `map_marker:`): None = icon from Type, False = no pin, str = icon override name
+    town_rotation: float     # degrees clockwise a town map (world/maps/cities) is turned about `location:`; 0 = north-up
 
 
 # ---------------------------------------------------------------------------
@@ -141,6 +143,20 @@ def _icon_override(fm: dict, slug: str) -> object:
         print(f"  WARN: {slug} has {key}: {raw!r}, which is not a registered icon "
               f"- using its Type's icon", file=sys.stderr)
     return None
+
+
+def _town_rotation(fm: dict, slug: str) -> float:
+    """Degrees clockwise the page's town map is turned about `location:`; 0 when the key
+    is absent or blank. A value that is not a finite number is ignored with a warning, so
+    the town draws north-up instead of the build stopping."""
+    raw = fm.get("town_rotation")
+    if raw is None or raw == "":
+        return 0.0
+    if isinstance(raw, bool) or not isinstance(raw, (int, float)) or not math.isfinite(raw):
+        print(f"  WARN: {slug} has town_rotation: {raw!r}, which is not a number "
+              f"- its town map is drawn unrotated", file=sys.stderr)
+        return 0.0
+    return float(raw)
 
 
 # ---------------------------------------------------------------------------
@@ -263,6 +279,7 @@ def parse_location(path: Path) -> Optional[LocationData]:
     map_label = bool(fm.get('map_label', True))
 
     map_marker = _icon_override(fm, slug)
+    town_rotation = _town_rotation(fm, slug)
 
     return LocationData(
         slug=slug,
@@ -287,6 +304,7 @@ def parse_location(path: Path) -> Optional[LocationData]:
         map_pan=map_pan,
         map_label=map_label,
         map_marker=map_marker,
+        town_rotation=town_rotation,
         body=strip_leaflet_block(body),
         source_path=path,
     )
