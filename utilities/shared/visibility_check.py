@@ -26,8 +26,9 @@ VALID = ("public", "gm_secrets", "internal")
 # Directories whose Markdown is lore and must carry the flag.
 SCAN_DIRS = ("world", "narrative", "characters", "mechanics", "templates")
 
-# Never scanned: operational navigation files, generator-excluded stubs, archives.
-SKIP_DIRS = {"archive", ".obsidian", ".meta", "node_modules"}
+# Never scanned: operational navigation files, generator-excluded stubs, archives,
+# and generated reports (coord-audit output is gitignored).
+SKIP_DIRS = {"archive", ".obsidian", ".meta", "node_modules", "coord-audit"}
 
 _FM_RE = re.compile(r"^---\n(.*?\n)---\n", re.DOTALL)
 

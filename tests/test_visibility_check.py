@@ -100,6 +100,7 @@ def test_check_skips_category_files_zz_stubs_archives_and_other_dirs(tmp_path):
     _put(tmp_path, "world/locations/_category.md", bare)
     _put(tmp_path, "world/locations/zzkashkar.md", bare)
     _put(tmp_path, "world/archive/old.md", bare)
+    _put(tmp_path, "world/data/coord-audit/audit-1.md", bare)
     _put(tmp_path, "docs/page.md", bare)
     _put(tmp_path, "transcripts/t.md", bare)
     assert vc.check(tmp_path) == []
