@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-10-25
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-26
+last_updated: 2026-11-04
 location:
 - 39.890274
 - 65.307015
@@ -21,6 +21,7 @@ tags:
 - placeholder
 - type-route-node
 type: route-node
+map_icon: poi
 ---
 
 ```leaflet

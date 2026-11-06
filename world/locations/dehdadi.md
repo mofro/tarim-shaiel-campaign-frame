@@ -4,16 +4,17 @@ project: TTRPG_Tarim_Shaiel
 domain: world
 doc_type: canon
 content_type: location
-visibility: gm_secrets
+visibility: public
 status: draft
 created: 2026-08-17
-last_updated: 2026-10-26
+last_updated: 2026-11-06
 fantasy_name: Dehdadi
 name: Dehdadi
 real_world_name: Dehdadi
 location:
-- 36.6622
-- 66.9953
+- 36.658364
+- 66.995952
 mapmarker: town
 tags: []
+town_rotation: -31
 ---

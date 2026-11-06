@@ -5,11 +5,11 @@ parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-07-21
 description: A drainage ravine off the Samarqandh-Bukhara road, near Kattakurgan — refugee camp site, Session 0 Warrior awakening.
-last_updated: 2026-10-26
+last_updated: 2026-11-04
 location:
 - 39.951579
 - 65.612346

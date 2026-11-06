@@ -8,7 +8,7 @@ visibility: public
 status: draft
 created: 2026-10-25
 description: "Session 3: The location where the party chose to stash their carts prior to the overland shortcut. Forty, Kettle, and Second Seal covered and protected the carts and non-critical supplies in a rill here."
-last_updated: 2026-10-26
+last_updated: 2026-11-04
 location:
 - 39.980951
 - 65.234994
@@ -20,7 +20,7 @@ real_world_name: Stashed Carts
 tags:
 - placeholder
 - type-route-node
-type: route-node
+type: poi
 ---
 
 ```leaflet
