@@ -1025,3 +1025,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** All lore pages (world, narrative, characters, mechanics, templates) carry `visibility: public | gm_secrets | internal`. `utilities/shared/visibility_check.py` checks, shows and sets it; `build.py` warns on a gap and does not fail. A keyless page is `gm_secrets` (fail closed), and `normalize_locations.py` no longer adds `public`.
 - **Rationale:** The generators disagreed on a missing key (some public, some GM-only), so a page's visibility depended on which one read it. The GM chose a command plus checker over a Workshop control for non-location lore, and warn over fail so the 30 unfixed pages do not block the build.
 - **Lock status:** Working decision, not locked until PR 395 passes review.
+
+## 2026-11-06 — World: region set is the seven region files, Elven Highlands nests in Eastern Gateway (#384, HeroHeaven-oid.1)
+- **Decision:** The seven files in `world/regions/` are the canonical region set. Transoxiana is a sub-region of Central Asian Hubs and Elven Highlands is a sub-region of Eastern Gateway; settlements take the parent's `parent_region:` and inherit its name pool and faith list. Dehdadi is `central-asian-hubs`.
+- **Rationale:** Transoxiana's bounds sit inside the hubs' and the Elven Highlands material already reads as Gateway enclaves. Merging Transoxiana (B) would lose its river-frontier material; a separate Elven region (C) contradicts the earlier Gateway direction.
+- **Lock status:** Locked (GM choice A, 2026-11-06). Name rules and faith list still to be written.
