@@ -246,15 +246,15 @@ def _town_layers():
             (json.loads(line[len("map.addLayer("):-2]) for line in js.splitlines())}
 
 
-def test_town_fades_in_between_zoom_10_and_12():
+def test_town_fades_in_between_zoom_10_and_15():
     layers = _town_layers()
     for layer in layers.values():
         paint = layer["paint"]
         opacity = paint.get("fill-opacity", paint.get("line-opacity"))
         assert opacity[:3] == ["interpolate", ["linear"], ["zoom"]]
-        assert opacity[3:6] == [10, 0, 12]
+        assert opacity[3:6] == [10, 0, 15]
     assert {layers[i]["minzoom"] for i in map_style.SETTLEMENT_LAYER_IDS[:-1]} == {10}
-    assert layers["settlements-building-lines"]["minzoom"] == 12
+    assert layers["settlements-building-lines"]["minzoom"] == 15
 
 
 def test_town_line_widths_are_anchored_at_zoom_13_not_at_the_fade_start():

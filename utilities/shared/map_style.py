@@ -126,7 +126,7 @@ def regions_layers_js(source: str = "regions") -> str:
 # ---------------------------------------------------------------------------
 
 SETTLEMENT_MIN_ZOOM = 10       # below this the pin alone carries the town
-SETTLEMENT_FULL_ZOOM = 12      # opacity reaches its full value here
+SETTLEMENT_FULL_ZOOM = 15      # opacity reaches its full value here
 SETTLEMENT_WIDTH_ZOOM = 13     # line widths start here; below it they stay at the hairline
 SETTLEMENT_LAYER_IDS = ["settlements-water", "settlements-walls", "settlements-roads",
                         "settlements-buildings", "settlements-building-lines"]
@@ -185,7 +185,7 @@ def settlements_layers_js(source: str = "settlements") -> str:
                             "#a89878"],
              "fill-opacity": _settlement_fade(0.9)}},
         {"id": "settlements-building-lines", "type": "line", "source": source,
-         "minzoom": SETTLEMENT_MIN_ZOOM + 2, "filter": is_("BUILDING"),
+         "minzoom": SETTLEMENT_FULL_ZOOM, "filter": is_("BUILDING"),
          "paint": {"line-color": "#4a3a28", "line-width": 0.6,
                    "line-opacity": _settlement_fade(0.7)}},
     ]
