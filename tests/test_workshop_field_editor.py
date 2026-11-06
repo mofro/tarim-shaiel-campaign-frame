@@ -166,7 +166,7 @@ def test_app_js_saves_only_the_diff_and_keeps_a_baseline():
         "_efBase=_efRead();",
         "fields=_efDiff(_efBase,cur);",
         '_efStatus.textContent="No changes"',
-        "function(){if(_efSlug===slug){_efBase=cur;_efAdvBase=advCur;}}",
+        "_patchFrontmatter(slug,fields,function(){\n    if(_efSlug===slug){_efBase=cur;_efAdvBase=advCur;}\n    _townSaved(slug,fields);\n  });",
         "if(onOk)onOk();",
         'else _efType.value="";',
     ):

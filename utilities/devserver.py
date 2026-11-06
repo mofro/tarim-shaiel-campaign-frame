@@ -35,6 +35,7 @@ Endpoints:
 import http.server
 import datetime
 import json
+import math
 import os
 import re
 import socket
@@ -755,7 +756,8 @@ def _yaml_scalar(value) -> str:
 
 
 # Keys the form shows as fields of their own, and keys the file's structure depends on.
-_CORE_FM = {"name", "title", "fantasy_name", "type", "map_icon", "mapmarker", "visibility"}
+_CORE_FM = {"name", "title", "fantasy_name", "type", "map_icon", "mapmarker", "visibility",
+            "town_rotation"}
 _PROTECTED_FM = {"location", "project", "domain", "doc_type", "content_type", "created", "last_updated"}
 
 
@@ -804,6 +806,25 @@ def _frontmatter_listing(text: str) -> dict:
     return {"scalars": scalars, "readonly": readonly}
 
 
+# town_rotation is written as a bare YAML number. PyYAML reads `1e-07` (no dot) as a string,
+# so a value that Python would print in exponent form is refused rather than written.
+_TOWN_ROTATION_MAX = 36000
+_TOWN_ROTATION_MIN_STEP = 0.0001
+
+
+def _town_rotation_error(value) -> "str | None":
+    """Why a `town_rotation` value must be refused, or None. null removes the key."""
+    if value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+        return "town_rotation: must be a number of degrees"
+    if abs(value) > _TOWN_ROTATION_MAX:
+        return f"town_rotation: must be within {_TOWN_ROTATION_MAX} degrees"
+    if value and abs(value) < _TOWN_ROTATION_MIN_STEP:
+        return f"town_rotation: finer than {_TOWN_ROTATION_MIN_STEP} degrees"
+    return None
+
+
 def _advanced_field_error(text: str, fields: dict) -> "str | None":
     """Why a frontmatter PATCH must be refused, or None. The line writer handles one
     scalar per key: a list or nested value, a structural key, or a key that is a list in
@@ -816,7 +837,11 @@ def _advanced_field_error(text: str, fields: dict) -> "str | None":
             return f"invalid key: {k!r}"
         if not _is_scalar(v):
             return f"{k}: only single values can be written"
-        if k in _CORE_FM:
+        if k == "town_rotation":
+            err = _town_rotation_error(v)
+            if err:
+                return err
+        elif k in _CORE_FM:
             continue
         if k in _PROTECTED_FM:
             return f"{k}: not editable here"
