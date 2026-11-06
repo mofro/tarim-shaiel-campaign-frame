@@ -7,7 +7,7 @@ content_type: region
 visibility: public
 status: draft
 created: 2026-05-04
-last_updated: 2026-05-04
+last_updated: 2026-11-06
 tags:
   - region
   - eastern-gateway
@@ -37,3 +37,7 @@ Two overlapping realities inhabit this corridor. The imperial infrastructure —
 - Eastern Gateway Council versus Eastern Imperial Dominion over customs authority
 - Pilgrimage traffic and the Cave Temples as a destination independent of political control
 - The jade trade and who controls it when the checkpoint fades
+
+## Sub-region: Elven Highlands
+
+The Elven Highlands and scattered Elven enclaves are a sub-region of the Eastern Gateway (locked 2026-11-06, #384), not a region of their own. Elven authority here is mystical rather than territorial; the Eastern Gateway Council is the intermediary through which it is exercised. Settlements and enclaves in the Highlands carry `parent_region: eastern-gateway` and use the Eastern Gateway name pool, with the Elven register applied for sacred sites. The full control model is in `world/content/REGIONAL_FACTIONS_AND_POWER_DYNAMICS.md`.

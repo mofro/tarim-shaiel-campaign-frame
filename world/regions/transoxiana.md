@@ -7,13 +7,14 @@ content_type: region
 visibility: public
 status: draft
 created: 2026-05-04
-last_updated: 2026-05-04
+last_updated: 2026-11-06
 tags:
   - region
   - transoxiana
   - amu-darya
   - syr-darya
 geojson_id: null
+parent_region: central-asian-hubs
 bounds:
   sw: [37.5, 58.0]
   ne: [42.5, 68.0]
@@ -23,6 +24,8 @@ faction_weight: low
 ---
 
 # Transoxiana
+
+> **Sub-region of [[central-asian-hubs]]** (locked 2026-11-06, #384). Its bounds lie wholly inside the hubs' bounds. Settlements here carry `parent_region: central-asian-hubs` and inherit that region's name pool and faith list; this page holds only what is distinct to the river frontier.
 
 The lands between the rivers — Amu Darya and Syr Darya — that form the western extension of the Silk Road network. This is the frontier zone beyond the Central Asian Hubs, where the road dissolves into the steppe and the familiar grammar of oasis-city politics gives way to something more fluid.
 

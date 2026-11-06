@@ -1,6 +1,6 @@
 # Regional Factions & Power Dynamics
 
-*Political control structures, factional relationships, and power dynamics across Tarim-Shaiel's six major regions. This document establishes the foundation for regional naming and cultural character.*
+*Political control structures, factional relationships, and power dynamics across Tarim-Shaiel's regions (the seven-file set in `world/content/WORLD_REGIONS_AND_LOCATIONS.md`; Elven Highlands is a sub-region of the Eastern Gateway, locked 2026-11-06, #384). This document establishes the foundation for regional naming and cultural character.*
 
 ---
 
@@ -12,7 +12,9 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 
 ---
 
-## The Six Regions & Their Controllers
+## The Regions & Their Controllers
+
+*Numbered sections below predate the 2026-11-06 reconciliation. Transoxiana nests in section 1; section 6 is a sub-region of section 2. Eastern Terminus has no controller section yet.*
 
 ### 1. SAMARKAND / CENTRAL ASIAN HUBS
 **Real-world analog:** Post-Timurid fragmentation (1405+); competing princely inheritance conflicts
@@ -201,6 +203,8 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 ---
 
 ### 6. ELVEN HIGHLANDS & SCATTERED ENCLAVES
+**Sub-region of the Eastern Gateway (section 2); see the region set note above.**
+
 **Real-world analog:** Mysterious, non-territorial power (paralleled to Elves' magical/mystical dominance in Eastern Gateway)
 
 **Controllers:** Elves (scattered, mysterious, intentionally non-contiguous)
@@ -293,7 +297,7 @@ With factional control locked:
 3. **Tarim Basin:** Human-face names with Dwarven infrastructure (practical + engineering)
 4. **Mountain Passes:** Dwarven names (compound words, meaning-based, proud)
 5. **Steppe:** Tulpar tribal names (nomadic, confederation-based)
-6. **Elven Highlands:** Elvish sacred names (melodic, tonal, mysterious)
+6. **Elven Highlands (sub-region of Eastern Gateway):** Elvish sacred names (melodic, tonal, mysterious)
 
 ---
 

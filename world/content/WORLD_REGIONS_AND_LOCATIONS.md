@@ -5,16 +5,34 @@ project: TTRPG_Tarim_Shaiel
 type: world_reference
 status: canon
 created: 2025-12-14
-last_updated: 2026-10-24
+last_updated: 2026-11-06
 ---
 
 # Tarim-Shaiel: World Regions & Locations
 
 ## Overview
 
-The Tarim-Shaiel world (Silk Road-inspired) is organized into **6 major regions**, each with distinct geographic, political, and cultural characteristics shaped by the Empire's collapse and post-liberation stabilization.
+The Tarim-Shaiel world (Silk Road-inspired) is organized into **7 regions** (locked 2026-11-06, #384), one with a nested sub-region, each with distinct geographic, political, and cultural characteristics shaped by the Empire's collapse and post-liberation stabilization.
 
 Each region contains a curated set of locations. Locations are bucketed by **cultural influence** (which language/era their names reflect) and **era named** (when the current name was adopted).
+
+---
+
+## Region Set (locked 2026-11-06, #384)
+
+The seven files in `world/regions/` are the canonical set. Membership is the explicit `parent_region:` frontmatter field, never computed from coordinates.
+
+| Region file | Note |
+|---|---|
+| `eastern-terminus` | Chang'an |
+| `central-asian-hubs` | Includes the nested sub-region below |
+| `transoxiana` | Sub-region of `central-asian-hubs`; its bounds lie inside the hubs' bounds. Settlements take `parent_region: central-asian-hubs` and inherit the hubs' name pool and faith list. |
+| `eastern-gateway` | Includes the Elven Highlands sub-region (below) |
+| `tarim-basin` | Tarim Basin Oases |
+| `mountain-passes` | Dwarven gateways |
+| `steppe-confederations` | Tulpar territories |
+
+Elven Highlands is a sub-region of `eastern-gateway`, not a region. Personal-name rules and the per-region faith list build on this set.
 
 ---
 

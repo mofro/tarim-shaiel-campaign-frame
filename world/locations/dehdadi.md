@@ -15,6 +15,7 @@ location:
 - 36.658364
 - 66.995952
 mapmarker: town
+parent_region: central-asian-hubs
 tags: []
 town_rotation: -31
 ---
