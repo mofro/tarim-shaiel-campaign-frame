@@ -235,7 +235,9 @@ def test_town_index_ranges_match_the_feature_collection(tmp_path):
 
 def _node(script):
     script = gmw._EF_DIFF_JS + gmw._TOWN_TURN_JS + script
-    out = subprocess.run([NODE, "-e", script], capture_output=True, text=True, check=True)
+    # On stdin, not `-e`: the script carries the whole town (~700 KB), and Linux refuses a
+    # single argument over 128 KiB (E2BIG), which macOS allows.
+    out = subprocess.run([NODE, "-"], input=script, capture_output=True, text=True, check=True)
     return json.loads(out.stdout)
 
 
