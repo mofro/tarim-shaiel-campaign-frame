@@ -240,6 +240,31 @@ def test_layer_ids_constant_matches_the_layers_emitted():
     assert emitted == map_style.SETTLEMENT_LAYER_IDS
 
 
+def _town_layers():
+    js = map_style.settlements_layers_js()
+    return {layer["id"]: layer for layer in
+            (json.loads(line[len("map.addLayer("):-2]) for line in js.splitlines())}
+
+
+def test_town_fades_in_between_zoom_10_and_15():
+    layers = _town_layers()
+    for layer in layers.values():
+        paint = layer["paint"]
+        opacity = paint.get("fill-opacity", paint.get("line-opacity"))
+        assert opacity[:3] == ["interpolate", ["linear"], ["zoom"]]
+        assert opacity[3:6] == [10, 0, 15]
+    assert {layers[i]["minzoom"] for i in map_style.SETTLEMENT_LAYER_IDS[:-1]} == {10}
+    assert layers["settlements-building-lines"]["minzoom"] == 15
+
+
+def test_town_line_widths_are_anchored_at_zoom_13_not_at_the_fade_start():
+    layers = _town_layers()
+    for layer_id in ("settlements-walls", "settlements-roads"):
+        width = layers[layer_id]["paint"]["line-width"]
+        assert width[:3] == ["interpolate", ["exponential", 2], ["zoom"]]
+        assert width[3::2] == [13, 18]
+
+
 def test_layers_sit_under_routes_and_pins():
     html = gmw._build_html(EMPTY, EMPTY, EMPTY, [], [], "", "k")
     order = [html.index(s) for s in ('addSource("settlements"', 'addSource("routes"',
