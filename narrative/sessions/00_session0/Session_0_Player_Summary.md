@@ -13,6 +13,7 @@ tags:
   - player-facing
   - session0
   - prologue
+category: Player Summary
 ---
 
 ###### Session 0: Prologue

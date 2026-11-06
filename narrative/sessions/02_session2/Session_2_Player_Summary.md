@@ -12,6 +12,7 @@ tags:
   - session2
   - summary
   - player-facing
+category: Player Summary
 ---
 
 # Session 2
