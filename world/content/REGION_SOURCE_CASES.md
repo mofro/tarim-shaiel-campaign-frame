@@ -31,7 +31,7 @@ tags: [regions, naming, faith, parent_region, "#384"]
 | B. Rename in-world, keep the substance (a scholarly network that carries the translation tradition, in tension with the Fire) | The page agrees with the cosmology; the tension with the Fire keeps its hook | A rename pass over two or three sentences; revert is a revert |
 | C. Reword the sentences without naming a network | Smallest edit | Loses the faction hook the sentence carries |
 
-**Suggested: B.** The faction is a useful hook and needs only an in-world name. The name is yours.
+**Suggested: B.** The faction is a useful hook and needs only an in-world name. The name is yours.[EDITORIAL] The user agrees
 
 ## Case 2. The Lamp's prophet role
 
@@ -43,7 +43,7 @@ tags: [regions, naming, faith, parent_region, "#384"]
 | B. Nominate an existing figure (a Court face, or a legendary non-hero) | Gives lodges a human origin story | Adds a claim about who stands where; the Hard Constraints (heroes are not religious figures; Decision 4) limit the choice |
 | C. Leave it empty now, decide when a scene needs it | No cost today | None |
 
-**Suggested: C.** The list does not need it; a scene that does will show which figure fits.
+**Suggested: C.** The list does not need it; a scene that does will show which figure fits.[EDITORIAL] The user agrees
 
 ## Case 3. Strata as sound palettes, or as in-world history
 
@@ -55,19 +55,19 @@ tags: [regions, naming, faith, parent_region, "#384"]
 | B. In-world successor states, each with a name | Gives each region a past | A new body of lore; touches Decision-level material; not mechanical |
 | C. Drop the strata | Simplest | Names lose the older/younger layering |
 
-**Suggested: A**, for now.
+**Suggested: A**, for now.[EDITORIAL] The user agrees, as long as B. Is noted for later design passes
 
 ## Case 4. The exploration note itself, and the unflagged lore pages
 
 `KEY_POLITICAL_REGION_EXPLORATION.md` is one of 30 lore pages with no valid `visibility` (27 with no frontmatter, 3 with broken YAML). It reads as a pasted chat reply about a Google Earth layer. Setting a restrictive visibility is a safe commit; moving it toward `public` is yours.
 
-| Option | Pros | Cost to reverse |
-|---|---|---|
-| A. Add frontmatter, `gm_secrets`, `doc_type: substrate` | It becomes a referenced source (the name rules now cite it) | One commit |
-| B. Move it to `archive/` | Marks it as historical | A move |
-| C. Leave it | None | It stays on the warning list |
+| Option                                                  | Pros                                                        | Cost to reverse              |
+| ------------------------------------------------------- | ----------------------------------------------------------- | ---------------------------- |
+| A. Add frontmatter, `gm_secrets`, `doc_type: substrate` | It becomes a referenced source (the name rules now cite it) | One commit                   |
+| B. Move it to `archive/`                                | Marks it as historical                                      | A move                       |
+| C. Leave it                                             | None                                                        | It stays on the warning list |
 
-**Suggested: A**, since the name rules now cite it.
+**Suggested: A**, since the name rules now cite it.[EDITORIAL] The user agrees. "substrate" is new, yes? Perhaps that is just bloat? I understand the intent... Is it actually "Lore"? Or another type?
 
 ## Case 5. `parent_region` for the 159 locations that lack it
 
@@ -83,7 +83,7 @@ Tested against the seven regions' `bounds` (`world/regions/*.md`), using each lo
 | Inside Steppe **and** Tarim Basin | 6 | A real tie |
 | Inside none | 10 | Beijing, Chengdu, Kabul, Charikar, Islamabad, Puli-Khumri, Ruy-e-Do-Aab, He-An, Mati Temple, East China Sea. Real-world anchors outside every box; Mati Temple is 0.5 degrees under Eastern Gateway's southern edge |
 
-No location has an `elevation` value, so elevation cannot break the Passes/Basin tie. None of the 159 falls in the Eastern Terminus or Eastern Gateway boxes.
+No location has an `elevation` value, so elevation cannot break the Passes/Basin tie. None of the 159 falls in the Eastern Terminus or Eastern Gateway boxes.[EDITORIAL] Is it worth an elevation check against real named analogs for the locations FIRST, and then redo this pass? Or not...?
 
 | Option | Pros | Cost to reverse |
 |---|---|---|
@@ -92,7 +92,7 @@ No location has an `elevation` value, so elevation cannot break the Passes/Basin
 | C. You assign the contested 53 | Your word on each | Slow, and it is the sheet-to-fill pattern you declined on #336 |
 | D. Leave them unassigned; the settlement pass assigns by ancestry mix | No edit now | Child C needs the field, so the work moves rather than disappears |
 
-**Suggested: A**, with you seeing only the places the rule cannot classify. The 10 outside need a separate call: extend the boxes (Kabul-side, Mati Temple) or leave them outside the seven regions.
+**Suggested: A**, with you seeing only the places the rule cannot classify. The 10 outside need a separate call: extend the boxes (Kabul-side, Mati Temple) or leave them outside the seven regions.[EDITORIAL] The user agrees
 
 ## Case 6. Your 11:04 edit to the faith list
 
@@ -103,4 +103,15 @@ The Still Mirror heading now reads "(Shizuka no Kagami; Yulduzir)". *Yulduzir* i
 | A. Keep your edit; relax the rule to "not used in player-facing text" | Your change stands | One sentence |
 | B. Revert the heading to Serenvar and keep the rule | Rule stays clean | One word |
 
-**Suggested: A**, since the edit is yours and the file is GM-only. I have kept the edit and left the rule as it was.
+**Suggested: A**, since the edit is yours and the file is GM-only. I have kept the edit and left the rule as it was.[EDITORIAL] The user agrees
+
+## Outcomes (2026-11-07)
+
+| Case | Outcome |
+|---|---|
+| 1 | B agreed. The in-world name for the "Islamic Scholarly Network" is the GM's; awaiting it. |
+| 2 | C agreed. The Lamp's prophet role stays empty. |
+| 3 | A agreed. **B (in-world successor states) is noted for later design passes**, not dropped. |
+| 4 | A agreed. Open question from the GM: is `doc_type: substrate` the right type? It is in the Schema C list (`canon\|draft\|substrate\|template\|...`), so it is not new, but it was not yet used for lore sources. Alternatives within the schema: `draft` or `canon`. Awaiting the GM's call. |
+| 5 | A agreed. The GM asked for an elevation check against real named analogs first, then a redo of the pass. Elevation pass done (parent_region elevations set); the six mid-band places are assigned (Refugee Rill and Egizyer: Basin; Shorkol, Qarajol, Singing Straights, Saparbay: Mountain Passes). Held: 30 Hubs/Transoxiana ties, 10 outside every box, Stone Ledger Gate (3510 m) and Anvil Sunder Switchbacks (4317 m) assigned to tarim-basin. |
+| 6 | A agreed. The rule now reads "not used in player-facing text". |
