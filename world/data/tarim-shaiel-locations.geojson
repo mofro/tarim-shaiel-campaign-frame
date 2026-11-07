@@ -1236,7 +1236,7 @@
         "title": "Dehdadi",
         "fantasy_name": "Dehdadi",
         "description": "",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "town",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -1249,8 +1249,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          66.9953,
-          36.6622
+          66.995952,
+          36.658364
         ]
       }
     },
@@ -1589,7 +1589,7 @@
         "title": "Ember Wash",
         "fantasy_name": "Ember Wash",
         "description": "A drainage ravine off the Samarqandh-Bukhara road, near Kattakurgan — refugee camp site, Session 0 Warrior awakening.",
-        "visibility": "public",
+        "visibility": "gm_secrets",
         "mapmarker": "",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
@@ -2446,7 +2446,7 @@
         "title": "Karmana",
         "fantasy_name": "Karmana",
         "description": "PLACEHOLDER — medium river town on the Samarqandh-Bukhara road, near Rabati Malik. Prose pass pending.",
-        "visibility": "gm_secrets",
+        "visibility": "public",
         "mapmarker": "route-node",
         "marker-symbol": "circle",
         "marker-color": "#A78040",
@@ -3353,8 +3353,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          80.359154,
-          38.681613
+          80.8625,
+          38.4509
         ]
       }
     },
@@ -3715,8 +3715,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          84.138572,
-          37.752632
+          84.2107,
+          36.9759
         ]
       }
     },
@@ -4808,7 +4808,7 @@
       "id": "location_stashed-carts",
       "properties": {
         "kind": "location",
-        "category": "route-node",
+        "category": "poi",
         "slug": "stashed-carts",
         "label": "Stashed Carts",
         "title": "Stashed Carts",
@@ -5168,7 +5168,7 @@
         "title": "The Glass Dunes",
         "fantasy_name": "The Glass Dunes",
         "description": "Open Kyzylkum dune country between Nur-Ata and the royal road — Session 0 Seeker awakening collapse site.",
-        "visibility": "public",
+        "visibility": "gm_secrets",
         "mapmarker": "poi",
         "marker-symbol": "circle",
         "marker-color": "#6B7280",
