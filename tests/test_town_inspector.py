@@ -169,3 +169,28 @@ def test_s4_serving_writes_nothing_and_docs_gets_no_town_data(drafted, served):
 def test_s4_the_page_never_names_gm_data_in_itself():
     page = ti.PAGE_PATH.read_text(encoding="utf-8")
     assert "Chain-Breakers" not in page and "secret-cell" not in page
+
+
+# -- S5: what the panels show (#399 review) -------------------------------------------------
+
+def test_s5_person_carries_personality_inputs_and_family(drafted):
+    p = ti.payload("Testburg", drafted)
+    for person in p["people"].values():
+        assert set(person) >= {"core", "stats", "height", "study", "trait", "parents", "siblings", "children"}
+        assert person["id"] not in person["siblings"]
+        for kin in person["parents"] + person["siblings"] + person["children"]:
+            assert kin in p["people"]
+
+
+def test_s5_family_links_are_symmetric(drafted):
+    p = ti.payload("Testburg", drafted)
+    for pid, person in p["people"].items():
+        for c in person["children"]:
+            assert pid in p["people"][c]["parents"]
+        for s in person["siblings"]:
+            assert pid in p["people"][s]["siblings"]
+
+
+def test_s5_buildings_carry_hours_key(drafted):
+    p = ti.payload("Testburg", drafted)
+    assert all("hours" in b for b in p["buildings"].values())

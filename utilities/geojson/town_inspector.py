@@ -77,7 +77,22 @@ def payload(town: str, root: Path = sp.VAULT_ROOT) -> dict:
         s = src_b.get(bid)
         buildings[bid] = {**b, "seats": seats.get(bid, []), "works": works.get(bid, []),
                           "lives": lives.get(bid, []),
+                          "hours": b.get("openingTimes"),
                           "ftg": {"name": s["name"], "type": s.get("specificBuildingType")} if s else None}
+    # FTG stores family links as family ids only: the parents of a family are the people
+    # whose parentInFamilies holds it, its children those whose childInFamilies holds it.
+    fam_parents: dict[int, list[int]] = {}
+    fam_kids: dict[int, list[int]] = {}
+    for p in d["people"]:
+        for f in p.get("parentInFamilies", []):
+            fam_parents.setdefault(f, []).append(p["id"])
+        for f in p.get("childInFamilies", []):
+            fam_kids.setdefault(f, []).append(p["id"])
+
+    def kin(p, own_key, table, skip_self=False):
+        ids = [i for f in p.get(own_key, []) for i in table.get(f, []) if not (skip_self and i == p["id"])]
+        return list(dict.fromkeys(ids))
+
     people = {}
     for p in d["people"]:
         s = src_p.get(p["id"])
@@ -85,8 +100,13 @@ def payload(town: str, root: Path = sp.VAULT_ROOT) -> dict:
             "id": p["id"], "name": f"{p['firstName']} {p['lastName']}", "age": p.get("age"),
             "gender": p.get("gender"), "race": p.get("race"), "religion": p.get("religion"),
             "job": p.get("jobTitle"), "work": p.get("placeOfWork"), "home": p.get("placeOfResidence"),
+            "study": p.get("placeOfStudy"), "trait": p.get("relaxingTrait"),
+            "core": p.get("coreValues"), "stats": p.get("stats"),
+            "height": (p.get("appearance") or {}).get("heightCm"), "notes": p.get("notes") or None,
             "factions": member_of.get(p["id"], []),
-            "children": p.get("parentInFamilies", []), "parents": p.get("childInFamilies", []),
+            "parents": kin(p, "childInFamilies", fam_parents),
+            "siblings": kin(p, "childInFamilies", fam_kids, skip_self=True),
+            "children": kin(p, "parentInFamilies", fam_kids),
             "ftg": {"name": f"{s['firstName']} {s['lastName']}", "race": s.get("race"),
                     "religion": s.get("religion")} if s else None}
     return {"town": town, "locked_source": not src_b, "geojson": d["geojson"],

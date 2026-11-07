@@ -29,7 +29,15 @@ aside h2 { margin: 0 0 .25rem; font-size: var(--t1); }
 ul { margin: .25rem 0 1rem; padding-left: 1.1rem; }
 li button { all: unset; cursor: pointer; color: var(--gold); text-decoration: underline; }
 li button:focus-visible { outline: 2px solid var(--gold); }
-.empty { color: var(--dim); }
+.empty { color: var(--dim); font-size: var(--t-1); }
+.sub { color: var(--dim); margin: 0 0 .75rem; }
+aside h3 { font-size: var(--t0); margin: 1rem 0 .25rem; color: var(--gold); }
+details { margin-top: 1rem; color: var(--dim); font-size: var(--t-1); }
+summary { cursor: pointer; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .25rem .75rem; }
+.stats b { color: var(--ink); }
+.back { all: unset; cursor: pointer; color: var(--dim); font-size: var(--t-1); margin-bottom: .5rem; display: inline-block; }
+.kv button, .stats ~ p button { all: unset; cursor: pointer; color: var(--gold); text-decoration: underline; }
 label { font-size: var(--t-1); color: var(--dim); }
 input[type=search] { background: var(--bg); color: var(--ink); border: 1px solid var(--line); padding: .25rem .5rem; font: inherit; }
 @media (max-width: 800px) { body { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr) 40vh; } header { grid-column: 1; } aside { border-left: 0; border-top: 1px solid var(--line); } }
@@ -42,7 +50,7 @@ input[type=search] { background: var(--bg); color: var(--ink); border: 1px solid
   <label>Find <input id="find" type="search" placeholder="building or person" aria-label="Find a building or person"></label>
 </header>
 <div id="wrap"><canvas id="map" aria-label="Town map; click a building"></canvas></div>
-<aside id="side"><p class="empty">Click a building, or search by name or id.</p></aside>
+<aside id="side"><p class="empty">Click a building, or search by name.</p></aside>
 <script>
 const TOWN = location.pathname.split("/").filter(Boolean).pop();
 let D, view = {x: 0, y: 0, k: 1}, sel = null, polys = [];
@@ -108,31 +116,75 @@ addEventListener("resize", () => { fit(); draw(); });
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 const side = document.getElementById("side");
-function personBtn(id) { const p = D.people[id]; return `<li><button data-person="${id}">${esc(p.name)}</button> <span class="empty">${esc(p.job)}, ${esc(p.race)}, #${id}</span></li>`; }
-function list(ids) { return ids.length ? `<ul>${ids.map(personBtn).join("")}</ul>` : `<p class="empty">none</p>`; }
-function pick(id) {
-  sel = id; draw(); const b = D.buildings[id]; if (!b) return;
-  side.innerHTML = `<h2>${esc(b.name)}</h2><dl class="kv">
-    <dt>Building id</dt><dd>${id}</dd><dt>Type</dt><dd>${esc(b.buildingType)} / ${esc(b.specificBuildingType)}</dd>
-    ${b.ftg ? `<dt>FTG shows</dt><dd>${esc(b.ftg.name)} (${esc(b.ftg.type)})</dd>` : ""}
-    <dt>Seat of</dt><dd>${b.seats.length ? b.seats.map(s => `<span class="chip">${esc(s)}</span>`).join(", ") : "none"}</dd>
-    ${b.notes ? `<dt>Notes</dt><dd>${esc(b.notes)}</dd>` : ""}</dl>
-    <h3>Works here (${b.works.length})</h3>${list(b.works)}<h3>Lives here (${b.lives.length})</h3>${list(b.lives)}`;
-}
-function person(id) {
+const hist = []; let cur = null;
+const PERSONALITY = {
+  extroversion: ["very reserved, keeps to themself", "somewhat reserved", "fairly sociable", "very outgoing"],
+  conscientiousness: ["careless and disorganised", "somewhat careless", "fairly conscientious", "very conscientious, attentive to detail"],
+  openness: ["set in their ways", "somewhat conventional", "fairly open-minded", "very open-minded"],
+  agreeableness: ["distrusting and combative", "somewhat distrusting", "fairly agreeable", "very agreeable and trusting"],
+  neuroticism: ["very calm", "fairly calm", "somewhat anxious", "very anxious, quick to anger"],
+};
+const STATS = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+const hour = h => String(h).padStart(2, "0") + ":00";
+const link = (kind, id, label) => `<button data-${kind}="${id}">${esc(label)}</button>`;
+function personRow(id) {
   const p = D.people[id];
-  side.innerHTML = `<h2>${esc(p.name)}</h2><dl class="kv">
-    <dt>Person id</dt><dd>${id}</dd><dt>Ancestry</dt><dd>${esc(p.race)}</dd><dt>Faith</dt><dd>${esc(p.religion)}</dd>
-    <dt>Age, sex</dt><dd>${esc(p.age)}, ${esc(p.gender)}</dd><dt>Job</dt><dd>${esc(p.job)}</dd>
-    ${p.ftg ? `<dt>FTG shows</dt><dd>${esc(p.ftg.name)}, ${esc(p.ftg.race)}, ${esc(p.ftg.religion)}</dd>` : ""}
-    <dt>Factions</dt><dd>${p.factions.length ? p.factions.map(f => `<span class="chip">${esc(f)}</span>`).join(", ") : "none"}</dd>
-    <dt>Works at</dt><dd>${p.work != null ? `<button data-b="${p.work}">${esc(D.buildings[p.work]?.name)} #${p.work}</button>` : "none"}</dd>
-    <dt>Lives at</dt><dd>${p.home != null ? `<button data-b="${p.home}">${esc(D.buildings[p.home]?.name)} #${p.home}</button>` : "none"}</dd></dl>`;
-  if (p.work != null) { sel = p.work; draw(); }
+  return `<li>${link("person", id, p.name)} <span class="empty">${esc(p.job || "no job")}, ${esc(p.race)}, ${esc(p.age)}</span></li>`;
+}
+function list(ids) { return ids.length ? `<ul>${ids.map(personRow).join("")}</ul>` : `<p class="empty">none</p>`; }
+function names(ids) { return ids.length ? ids.map(i => link("person", i, D.people[i].name)).join(", ") : `<span class="empty">none</span>`; }
+function place(id) { return id == null ? `<span class="empty">none</span>` : link("b", id, D.buildings[id]?.name ?? "unknown"); }
+function twirl(rows) {
+  return `<details><summary>Source details</summary><dl class="kv">${rows.filter(Boolean).join("")}</dl></details>`;
+}
+const row = (k, v) => v == null || v === "" ? "" : `<dt>${k}</dt><dd>${v}</dd>`;
+function show(kind, id, push = true) {
+  if (push && cur) hist.push(cur); cur = {kind, id};
+  const back = hist.length ? `<button class="back" data-back="1">&larr; Back</button>` : "";
+  side.innerHTML = back + (kind === "b" ? buildingHtml(id) : personHtml(id));
+  side.scrollTop = 0;
+}
+function pick(id) { sel = id; draw(); if (D.buildings[id]) show("b", id); }
+function person(id) { const p = D.people[id]; show("p", id); if (p.work != null) { sel = p.work; draw(); } }
+function buildingHtml(id) {
+  const b = D.buildings[id], h = b.hours;
+  return `<h2>${esc(b.name)}</h2>
+    <p class="sub">${esc(b.description || b.specificBuildingType)}</p>
+    <dl class="kv">${row("Kind", esc(b.specificBuildingType))}
+    ${h ? row("Open", `${hour(h.openHour)} to ${hour(h.closeHour)}${h.closedDays?.length ? ", closed " + h.closedDays.join(", ") : ""}`) : ""}
+    ${b.seats.length ? row("Seat of", b.seats.map(s => `<span class="chip">${esc(s)}</span>`).join(", ")) : ""}
+    ${b.notes ? row("Notes", esc(b.notes)) : ""}</dl>
+    <h3>Works here (${b.works.length})</h3>${list(b.works)}
+    <h3>Lives here (${b.lives.length})</h3>${list(b.lives)}
+    <p class="empty">Interior rooms are not part of the FTG export, so who works where inside a building is not available here.</p>
+    ${twirl([row("Building id", id), b.ftg ? row("FTG shows", `${esc(b.ftg.name)} (${esc(b.ftg.type)})`) : ""])}`;
+}
+function personality(core) {
+  return core ? Object.keys(PERSONALITY).filter(k => core[k] != null).map(k => PERSONALITY[k][Math.min(3, Math.max(0, core[k]))]).join("; ") : "";
+}
+function personHtml(id) {
+  const p = D.people[id], job = (p.job || "no occupation").toLowerCase();
+  const stats = p.stats ? `<div class="stats">${STATS.map(k => `<span><b>${p.stats[k]}</b> ${k.slice(0, 3)}</span>`).join("")}</div>` : "";
+  const fac = p.factions.length ? p.factions.map(f => `<span class="chip">${esc(f)}</span>`).join(", ") : "";
+  const kin = [["Parents", p.parents], ["Siblings", p.siblings], ["Children", p.children]].filter(([, v]) => v.length)
+    .map(([k, v]) => row(k, names(v))).join("");
+  return `<h2>${esc(p.name)}</h2>
+    <p class="sub">${esc(p.age)} year old ${esc(p.gender)} ${esc(p.race)} ${esc(job)}. Worships ${esc(p.religion || "nothing recorded")}.</p>
+    <dl class="kv">${row("Works at", place(p.work))}${row("Lives at", place(p.home))}${p.study != null ? row("Studies at", place(p.study)) : ""}
+    ${p.trait ? row("Pastime", esc(p.trait)) : ""}${fac ? row("Factions", fac) : ""}</dl>
+    <h3>Personality</h3><p>${esc(personality(p.core))}</p>
+    <p class="empty">Derived from FTG's core values (0 to 3). FTG's own wording is not in the export.</p>
+    <h3>Abilities</h3>${stats}${p.height ? `<p class="empty">Height ${p.height} cm</p>` : ""}
+    ${kin ? `<h3>Family</h3><dl class="kv">${kin}</dl>` : ""}
+    ${p.notes ? `<h3>Notes</h3><p>${esc(p.notes)}</p>` : ""}
+    ${twirl([row("Person id", id), p.core ? row("Core values", esc(JSON.stringify(p.core))) : "",
+      p.ftg ? row("FTG shows", `${esc(p.ftg.name)}, ${esc(p.ftg.race)}, ${esc(p.ftg.religion)}`) : ""])}`;
 }
 side.addEventListener("click", e => {
   const t = e.target.closest("button"); if (!t) return;
-  if (t.dataset.person) person(+t.dataset.person); else if (t.dataset.b) pick(+t.dataset.b);
+  if (t.dataset.back) { const prev = hist.pop(); if (prev) { cur = null; show(prev.kind, prev.id, false); cur = prev; if (prev.kind === "b") { sel = prev.id; draw(); } } }
+  else if (t.dataset.person) person(+t.dataset.person);
+  else if (t.dataset.b) { sel = +t.dataset.b; draw(); show("b", sel); }
 });
 document.getElementById("find").addEventListener("input", e => {
   const q = e.target.value.trim().toLowerCase(); if (!q || !D) return;
