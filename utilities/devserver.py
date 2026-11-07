@@ -51,6 +51,7 @@ sys.path.insert(0, str(SCRIPT_DIR))
 from shared.travel_time import SPEEDS
 from shared import journeys as journeys_mod
 from shared import map_style
+from geojson import town_inspector
 VAULT_ROOT = SCRIPT_DIR.parent
 DOCS_DIR = VAULT_ROOT / "docs"
 WORKSHOP_PATH = VAULT_ROOT / "map-workshop.html"
@@ -244,6 +245,8 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
                 self.send_error(403, "Frontmatter is only accessible from localhost")
                 return
             self._get_frontmatter(re.match(r"^/api/locations/([^/?]+)/", self.path).group(1))
+        elif re.match(r"^/(?:api/)?town/[^/?]+(?:\?.*)?$", self.path):
+            self._town_inspector(self.path.split("?")[0])
         elif self.path.startswith("/api/maptiler-proxy"):
             self._maptiler_proxy()
         else:
@@ -633,6 +636,29 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
         self._respond(status, body)
 
     # ---- Helpers ----
+
+    def _town_inspector(self, route: str):
+        """GM-only town inspector (#399). Localhost only, no CORS header, and nothing is
+        written under docs/, so no player build or other web origin can reach it."""
+        if not self._is_local():
+            self.send_error(403, "Town inspector is only accessible from localhost")
+            return
+        api = route.startswith("/api/")
+        try:
+            if api:
+                body = json.dumps(town_inspector.payload(route.rsplit("/", 1)[1])).encode()
+            else:
+                town_inspector.load(route.rsplit("/", 1)[1])  # 404 before serving the shell
+                body = town_inspector.PAGE_PATH.read_bytes()
+        except town_inspector.NoSuchTown:
+            self.send_error(404, "No drafted town by that name")
+            return
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json" if api else "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
 
     def _respond(self, status: int, body: dict):
         self._json(body, status)
