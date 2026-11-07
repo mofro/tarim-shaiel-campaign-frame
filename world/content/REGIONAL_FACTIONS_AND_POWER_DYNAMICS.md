@@ -14,7 +14,7 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 
 ## The Regions & Their Controllers
 
-*Numbered sections below predate the 2026-11-06 reconciliation. Transoxiana nests in section 1; section 6 is a sub-region of section 2. Eastern Terminus has no controller section yet.*
+*Numbered sections below predate the 2026-11-06 reconciliation. Transoxiana nests in section 1; section 6 is a sub-region of section 2. Section 7 (Eastern Terminus) was added 2026-11-07.*
 
 ### 1. SAMARKAND / CENTRAL ASIAN HUBS
 **Real-world analog:** Post-Timurid fragmentation (1405+); competing princely inheritance conflicts
@@ -244,6 +244,41 @@ The world ~150-200 years after the heroes' expulsion is characterized by **multi
 
 **Narrative Weight:** VERY HIGH — Mystery, danger, mystical threat, potential world-affecting events; player discovery of true Elven role
 
+### 7. EASTERN TERMINUS (Chang'an, the imperial heartland)
+**Real-world analog:** Chang'an after the Tang: the old capital that kept its walls and its bureaucracy after the court and the trade moved elsewhere. *(Analog is an inference from the region page, which says the bureaucracy "outlasted the empire it was designed to serve".)*
+
+**Controllers:** The Eastern Imperial Dominion (Humans), with merchant guilds operating alongside it without imperial protection
+
+**Nature of Control:** Formal and administrative. The Dominion governs through offices, paperwork and taxation; its reach beyond the Gansu Corridor is largely theoretical (`eastern-terminus.md`). *Note:* the faction page calls the Dominion "an absolute imperial power", while the region page says its reach is theoretical. Read together: absolute inside the heartland, nominal outside it. One of the two pages may want a line to say so.
+
+**Political Structure:**
+- Formal: the Dominion's court and offices at Chang'an; the Crow Court bureaucracy runs households, streets and the tax roll
+- Informal: merchant guilds that learned to trade without imperial protection; they pay the Dominion and do not depend on it
+- Humans: administrative competence and the memory of centrality; the cultural confidence has curdled into nostalgia
+- Military: garrison and officials only; no field power is established anywhere in the files
+- Elves: GM-only. The Dominion faction page records Elven whisper-presence at court, long enough that no one remembers a time without it. Nothing in this section is visible to players.
+
+**Dominion Agenda:**
+- Reassert control over the Gansu trade routes (region page)
+- Keep customs authority against the Eastern Gateway Council, which is the buffer on its western edge (`eastern-gateway.md`)
+- Hold the sustained tension with the Jade Coast Realms short of open war; the Elves have been managing that tension, because an eastern war would send Warren shockwaves
+
+**Trade Policy:** Taxing and licensing. Merchants arriving from the Tarim Basin meet customs, permits and tolls at the end of the road. The Dominion is no longer the buyer it was: imperial procurement and military spending fell with the empire (`WORLD_REGIONS_AND_LOCATIONS.md`).
+
+**Cultural Character:** Faded imperial grandeur. The city works, perhaps more efficiently than at the height of empire, and no one believes in it. The Folk Way and the Caves hold most of the faith (`REGIONAL_FAITH_LIST.md`); Guanyu is pre-eminent, the heartland's civic language being oaths, brotherhood and merchant protection.
+
+**Key Tensions:**
+- Dominion seeking to reassert control over the Gansu routes
+- Merchant guilds that have outgrown imperial protection
+- Eastern Gateway Council versus the Dominion over customs authority
+- The deep memory of what Chang'an was, and who built it
+
+**Narrative Weight:** MEDIUM. The region is at the campaign's edge and not yet in the active play zone. It matters as a structural presence (the far end of the road, the Dominion's claim on the Gansu routes) more than as a place of play. Develop it when the eastern zone enters play.
+
+*Open for the GM:* the Dominion page is a stub (Structure, Visible face, Hidden influence, Leverage, Cultural Character and Narrative Hooks are all TODO). This section draws only on the files above and adds no new faction facts.
+
+---
+
 ---
 
 ## Factional Relationships Matrix
@@ -298,6 +333,7 @@ With factional control locked:
 4. **Mountain Passes:** Dwarven names (compound words, meaning-based, proud)
 5. **Steppe:** Tulpar tribal names (nomadic, confederation-based)
 6. **Elven Highlands (sub-region of Eastern Gateway):** Elvish sacred names (melodic, tonal, mysterious)
+7. **Eastern Terminus:** Chinese-derived house names with imperial titles (see `PERSONAL_NAME_RULES.md`)
 
 ---
 
