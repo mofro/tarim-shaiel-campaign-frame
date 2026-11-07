@@ -7,7 +7,7 @@ content_type: reference
 visibility: gm_secrets
 status: draft
 created: 2026-11-06
-last_updated: 2026-11-06
+last_updated: 2026-11-07
 tags: [faith, religion, regions, pantheon, "#384"]
 ---
 
@@ -25,7 +25,8 @@ A settlement's faith should tell the GM three things: what its shrines look like
 - **Heroes are not religious figures.** No faith here worships, remembers or awaits the heroes, and no entry maps a hero onto a deity. (User decision, #384, 2026-11-06.)
 - **Decision 4 stays deferred.** This list does not say what any faith believes about the Wizard, the Held Breath, the Warrens, or who the Court answers to. Where the source files carry cosmological GM notes, they stay in the source files.
 - **Retired and renamed names.** The Chance-Weaver no longer exists as a separate deity: Khvarenah (Persian face) and Caishen (Eastern face) are masks of the Jade Illusionist. The Remembrancer-Who-Forgets is **the Last Voice** (Soŋ Ses). Death is plural: the **Ölüm Sürüsü** on the steppe, the **Wūyā Tǐng** (Crow Court) in the east, the Shadowing in the Persian register, and the Yamadutas in Indian tradition.
-- **Sacred self-names are not used.** The ancestries' secret names stay in `narrative/gm_secrets/ANCESTRY_SECRET_NAMES.md`.
+- **No Islam-analog faith.** The specific tenets of Islam do not map into this world (GM decision, 2026-11-07). The prophet and deity analogs map onto the existing Court, Lower Pantheon and regional belief; Persianate flavour and the secular cultural aspects (hospitality, scholarship, lodge and courtyard, patronymic naming) remain.
+- **Sacred self-names are not used in player-facing text.** They may appear in this GM-only file (GM decision, 2026-11-07). The ancestries' secret names are kept in `narrative/gm_secrets/ANCESTRY_SECRET_NAMES.md`.
 
 ## How to read an entry
 
@@ -47,9 +48,10 @@ A settlement's faith should tell the GM three things: what its shrines look like
 - **Service:** road-ledger priests who know who travelled safely and who did not.
 - **Friction:** none. It is the shared floor under every other faith.
 
-### F2. The Lamp (Sufi-inflected devotion)
+### F2. The Lamp (Persianate devotional tradition)
+*Mapped onto the existing Court, not a creed of its own.* Its devotion addresses the Court through its Persian faces (Rashnu-e-Rah, Khvarenah as the Jade Illusionist's Persian mask, Anahita, the Shadowing for the dead). It implies no scripture, fixed prayer-hours, fast, dietary law or pilgrimage. Which existing figure fills the real-world tradition's prophet role is not set (see open points).
 - **Pull:** Persian-register merchants, scholars, Tulpar who keep the syncretic layer.
-- **Practice:** lodge and courtyard rather than temple; recitation and shared meals; wandering shrines on the steppe edge.
+- **Practice:** lodge and courtyard rather than temple; recitation of verse and the Court's names, and shared meals; wandering shrines on the steppe edge.
 - **Service:** hospitality, arbitration between traders, lettered clerks.
 - **Friction:** fire-keepers (competing for the same merchants), strict temple clergy.
 
@@ -104,12 +106,12 @@ A settlement's faith should tell the GM three things: what its shrines look like
 
 ### F11. The Forge-Record (Žarokaz; Kuhban)
 *Fantasy-only; ancestry-bound.*
-- **Pull:** Kuhban first, craft guilds and banking houses that want a certified lineage.
+- **Pull:** Kuhban first, craft guilds and banking houses that want a certified lineage. Both Kuhban polities hold it: the Mountain Confederations (pass-works) and the Dwarven Tarim Authority (qanats and lowland infrastructure), each reading the forge differently.
 - **Practice:** a journeyman's first independent work is held in firelight and read by a priest. "The forge has seen it." Three generations of fire is the highest compliment.
 - **Service:** master assessors for craft, genealogy and weapon histories. Expensive; a status marker.
 - **Friction:** lucky-find wealth and unearned inheritance.
 
-### F12. The Still Mirror (Shizuka no Kagami; Serenvar)
+### F12. The Still Mirror (Shizuka no Kagami; Yulduzir)
 *Fantasy-only; ancestry-bound.*
 - **Pull:** Serenvar, scholars past a certain age.
 - **Practice:** mirror-pools, the Kagami no Mae rite (speaking all one knows into a reflective surface as acknowledgment, not transmission). The deity reflects without mourning.
@@ -171,23 +173,24 @@ Each region lists its faiths in descending share, a pre-eminent deity, and a not
 | Faith | Share | Note |
 |---|---|---|
 | F8 Merchant Saints | 30% | The region's signature faith. |
-| F2 Lamp | 25% | |
+| F2 Lamp | 23% | |
 | F5 Caves | 20% | Older Buddhist foundations alongside oasis towns. |
-| F3 Fire | 10% | |
+| F3 Fire | 10% | Water reverence overlaps the qanat-keepers' devotion. |
 | F4 Open Sky | 5% | Steppe edge. |
+| F11 Forge-Record | 4% | Dwarven Tarim Authority engineers and qanat-keepers; Kuhban settlements run far higher. |
 | F9 Ledger | 3% | |
-| Lapsed / other | 7% | |
+| Lapsed / other | 5% | |
 
 ### Mountain Passes
 **Pre-eminent:** Anahit (the Mountain-Bride) in her pass; Vata / Vayu where wind is read as message.
 
 | Faith | Share | Note |
 |---|---|---|
-| F10 Mountain Bride and Wind | 30% | |
+| F10 Mountain Bride and Wind | 25% | |
+| F11 Forge-Record | 25% | The region's primary ancestry is Kuhban; Confederation pass-works. Drop toward 10% in a human village. |
 | F5 Caves (Tibetan-flavoured) | 20% | |
 | F3 Fire | 15% | Kuhban fire mysticism. |
-| F11 Forge-Record | 15% | Counts in Kuhban settlements; lower elsewhere. |
-| F2 Lamp | 10% | |
+| F2 Lamp | 5% | |
 | F9 Ledger | 5% | Indian-sphere trade posts. |
 | Lapsed / other | 5% | |
 
@@ -230,6 +233,7 @@ Each region lists its faiths in descending share, a pre-eminent deity, and a not
 
 These are the calls this draft leaves untouched. Each is described with the case for it and what it costs to change.
 
+- **The Lamp's prophet role.** The real-world tradition the Lamp draws its flavour from has a prophet figure and a scripture; neither maps one-to-one. The tenets are dropped, per your decision. What is open is whether any existing figure stands where the prophet would, or the role is simply left empty. See `REGION_SOURCE_CASES.md`.
 - **Real-religion labels versus in-world names.** The analog labels follow the mapping framework. Naming them in-world (for example, a Lamp order with its own title) would make the table feel more like the world and less like our notes; it costs a naming pass and a decision about how close to keep to the real names.
 - **Share precision.** The shares are seeds so the settlement passes have something to draw from. If you want a region to feel more one-faith or more plural, raising or lowering a line is a one-line edit.
 - **F7 Civic Rite as a faith.** Treated here as an overlay, since it does not compete for adherents the way the others do. The alternative is to drop it from the share table and name it only in Eastern Terminus settlement notes.
