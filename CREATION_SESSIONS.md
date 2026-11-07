@@ -16,6 +16,12 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-11-07 (Regions, name rules, faith list: #384)
+- [HeroHeaven-oid.1 / #384] World: seven-region set finished and closed. Personal-name rules and the faith list (both `gm_secrets`) revised; Eastern Terminus controller section added; Anjoman-e Varaq replaces the "Islamic Scholarly Network"; `parent_region:` now on every location except East China Sea; `WORLD_REGIONS_AND_LOCATIONS.md` carries per-region counts.
+  - Found: the "missing pins" in the Workshop were the Player's-eye preview toggle being on (not persisted); not traced why it loaded on.
+  - Open: `dun-kharan` `type: Mobile Entity` is the GM's call; PR 396 (geojson catch-up) awaits review; 29 lore pages still lack a visibility flag (#394 follow-up).
+- Next: #386 (HeroHeaven-oid.3, settlement profiles / town markers), then #387 (HeroHeaven-oid.4).
+
 ### Session 2026-11-06 (Town maps: zoom fade and rotation)
 - Map: FTG town maps epic (#383, HeroHeaven-oid) — zoom fade 10 to 15 merged (#391); `town_rotation:` key plus a live-preview Town rotation field in the Workshop merged (#393, closes #392 / HeroHeaven-oid.6)
   - Rotation is degrees clockwise about `location:`, applied inside `Georeference`; the JS twin is tested against the Python transform to 0.3 m; Save sends only the changed key
