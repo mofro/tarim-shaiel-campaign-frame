@@ -2,6 +2,7 @@
 title: Mubarek
 project: TTRPG_Tarim_Shaiel
 domain: world
+parent_region: central-asian-hubs
 doc_type: canon
 content_type: location
 visibility: gm_secrets

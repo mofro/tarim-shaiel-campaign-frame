@@ -14,7 +14,7 @@ location:
   - 37.9601
   - 58.3261
 type: city
-parent_region:
+parent_region: central-asian-hubs
 tags:
   - gcp-anchor
   - stub
