@@ -1,6 +1,7 @@
 ---
 title: Qiala Shuiku
 project: TTRPG_Tarim_Shaiel
+parent_region: tarim-basin
 domain: world
 doc_type: canon
 content_type: location

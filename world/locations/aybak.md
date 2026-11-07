@@ -1,6 +1,7 @@
 ---
 title: Aybak
 project: TTRPG_Tarim_Shaiel
+parent_region: central-asian-hubs
 domain: world
 doc_type: canon
 content_type: location

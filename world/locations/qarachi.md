@@ -1,6 +1,7 @@
 ---
 title: Qarachi
 project: TTRPG_Tarim_Shaiel
+parent_region: mountain-passes
 domain: world
 doc_type: canon
 content_type: location

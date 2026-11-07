@@ -14,7 +14,7 @@ location:
 - 43.233835
 - 76.947054
 type: city
-parent_region: null
+parent_region: steppe-confederations
 tags:
 - gcp-anchor
 - stub
