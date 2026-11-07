@@ -1,3 +1,16 @@
+---
+title: Key Political Regions Along the Silk Road (c. 1200 CE) - Real-World Source Note
+project: TTRPG_Tarim_Shaiel
+domain: world
+doc_type: substrate
+content_type: reference
+visibility: gm_secrets
+status: draft
+created: 2026-03-15
+last_updated: 2026-11-07
+tags: [regions, naming, source, "#384"]
+---
+
 I have mapped the key political regions and empires along the Silk Road as they existed around 1200 AD.
 
 Since precise historical borders from 1200 AD are not available as a standard dataset, I have mapped the **capitals and major power centers** of the empires that dominated the Silk Road during this era.
