@@ -8,3 +8,7 @@
 ### Traveling Entities
 - **Dun-Kharan**: Mobile governance/caravan embodying collective journey
 - **Kashkar**: Desert crossroads and first major story convergence point
+
+## See also
+
+- [[PERSONAL_NAME_RULES]]: personal-name rules by region (draft, #384)
