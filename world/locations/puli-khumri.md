@@ -2,6 +2,7 @@
 title: Puli Khumri
 project: TTRPG_Tarim_Shaiel
 domain: world
+parent_region: mountain-passes
 doc_type: canon
 content_type: location
 visibility: public

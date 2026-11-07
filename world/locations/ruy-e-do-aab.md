@@ -2,6 +2,7 @@
 title: Ruy-e do Aab
 project: TTRPG_Tarim_Shaiel
 domain: world
+parent_region: mountain-passes
 doc_type: canon
 content_type: location
 visibility: gm_secrets

@@ -14,7 +14,7 @@ location:
   - 39.9042
   - 116.4074
 type: city
-parent_region:
+parent_region: eastern-terminus
 tags:
   - gcp-anchor
   - stub

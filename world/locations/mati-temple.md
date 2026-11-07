@@ -2,6 +2,7 @@
 title: Mati Temple
 project: TTRPG_Tarim_Shaiel
 domain: world
+parent_region: eastern-gateway
 doc_type: canon
 content_type: location
 visibility: gm_secrets
