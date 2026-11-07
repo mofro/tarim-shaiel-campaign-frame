@@ -109,7 +109,7 @@ The Still Mirror heading now reads "(Shizuka no Kagami; Yulduzir)". *Yulduzir* i
 
 | Case | Outcome |
 |---|---|
-| 1 | B agreed. The in-world name for the "Islamic Scholarly Network" is the GM's; awaiting it. |
+| 1 | B done. The "Islamic Scholarly Network" is now the Anjoman-e Varaq (the Society of the Leaf), applied in `central-asian-hubs.md`. |
 | 2 | C agreed. The Lamp's prophet role stays empty. |
 | 3 | A agreed. **B (in-world successor states) is noted for later design passes**, not dropped. |
 | 4 | A agreed. Open question from the GM: is `doc_type: substrate` the right type? It is in the Schema C list (`canon\|draft\|substrate\|template\|...`), so it is not new, but it was not yet used for lore sources. Alternatives within the schema: `draft` or `canon`. Awaiting the GM's call. |

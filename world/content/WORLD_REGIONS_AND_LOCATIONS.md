@@ -5,7 +5,7 @@ project: TTRPG_Tarim_Shaiel
 type: world_reference
 status: canon
 created: 2025-12-14
-last_updated: 2026-11-06
+last_updated: 2026-11-07
 ---
 
 # Tarim-Shaiel: World Regions & Locations
@@ -22,17 +22,17 @@ Each region contains a curated set of locations. Locations are bucketed by **cul
 
 The seven files in `world/regions/` are the canonical set. Membership is the explicit `parent_region:` frontmatter field, never computed from coordinates.
 
-| Region file | Note |
-|---|---|
-| `eastern-terminus` | Chang'an |
-| `central-asian-hubs` | Includes the nested sub-region below |
-| `transoxiana` | Sub-region of `central-asian-hubs`; its bounds lie inside the hubs' bounds. Settlements take `parent_region: central-asian-hubs` and inherit the hubs' name pool and faith list. |
-| `eastern-gateway` | Includes the Elven Highlands sub-region (below) |
-| `tarim-basin` | Tarim Basin Oases |
-| `mountain-passes` | Dwarven gateways |
-| `steppe-confederations` | Tulpar territories |
+| Region file | Locations | Note |
+|---|---|---|
+| `eastern-terminus` | 3 | Chang'an, Beijing, Chengdu |
+| `central-asian-hubs` | 49 | Includes the nested sub-region below |
+| `transoxiana` | 0 (own) | Sub-region of `central-asian-hubs`; its bounds lie inside the hubs' bounds. Settlements take `parent_region: central-asian-hubs` and inherit the hubs' name pool and faith list. |
+| `eastern-gateway` | 5 | Includes the Elven Highlands sub-region (below) |
+| `tarim-basin` | 126 | Tarim Basin Oases |
+| `mountain-passes` | 19 | Dwarven gateways (Hindu Kush and Karakoram places, and the high passes) |
+| `steppe-confederations` | 4 | Tulpar territories |
 
-Elven Highlands is a sub-region of `eastern-gateway`, not a region. Personal-name rules and the per-region faith list build on this set.
+Counts are locations carrying that `parent_region:` (2026-11-07); East China Sea is deliberately unassigned (open water, no region). The per-region tables below list the anchor locations the framework began with, not every member. Elven Highlands is a sub-region of `eastern-gateway`, not a region. Personal-name rules and the per-region faith list build on this set.
 
 ---
 
@@ -47,7 +47,7 @@ Elven Highlands is a sub-region of `eastern-gateway`, not a region. Personal-nam
 **Cultural Dominance:** Human (Imperial legacy)
 **Naming Convention:** Empire-era names retained; rarely changing
 
-**Locations (1):**
+**Anchor locations (1 of 3; Beijing and Chengdu joined 2026-11-07):**
 
 | Name | Type | Cultural Influence | Era Named | Notes |
 |------|------|-------------------|-----------|-------|
@@ -67,7 +67,7 @@ Chang'an was the beating heart of the Empire. Its size, walls, and administrativ
 **Cultural Dominance:** Human (Empire names retained) + Tulpar (emerging influence)
 **Naming Convention:** Empire-era names retained officially, but with post-stabilization Tulpar/merchant cultural undercurrents
 
-**Locations (5):**
+**Anchor locations (5 of 49):**
 
 | Name | Type | Cultural Influence | Era Named | Historical Names | Notes |
 |------|------|-------------------|-----------|------------------|-------|
@@ -91,7 +91,7 @@ These were the Empire's showcase cities—heavily garrisoned, administratively d
 **Cultural Dominance:** Elven (ancient, sacred) + Human (imperial fortifications)
 **Naming Convention:** Elven sacred names (ancient) + Human imperial names (recent, fading)
 
-**Locations (2):**
+**Anchor locations (2 of 5; the Elven Highlands sub-region sits here):**
 
 | Name | Type | Cultural Influence | Era Named | Sacred Significance | Notes |
 |------|------|-------------------|-----------|---------------------|-------|
@@ -112,7 +112,7 @@ Dunhuang is sacred—far older than the Empire, rooted in Elven spiritual tradit
 **Cultural Dominance:** Mixed (Elven sacred sites + Tulpar traders + Human merchants + Goblin diaspora + Dwarven influence in edges)
 **Naming Convention:** Varied; some Elven sacred names (ancient), some Tulpar names (chaos/stabilization era), some cosmopolitan hybrid names
 
-**Locations (11):**
+**Anchor locations (11 of 126):**
 
 | Name | Type | Cultural Influence | Era Named | Notes |
 |------|------|-------------------|-----------|-------|
@@ -142,7 +142,7 @@ The Tarim Basin oases are the *true* heart of the Silk Road. Trade flows here na
 **Cultural Dominance:** Dwarvish (ALWAYS maintained own names; Empire never succeeded in renaming)
 **Naming Convention:** Dwarvish names (Slavic-influenced compounds meaning the actual geographic feature or strategic function)
 
-**Locations (3):**
+**Anchor locations (3 of 19):**
 
 | Name | Type | Cultural Influence | Era Named | Historical Context | Notes |
 |------|------|-------------------|-----------|-------------------|-------|
@@ -156,7 +156,7 @@ Dwarves control these passes and they always have. Even during the Empire's heig
 ---
 
 ### 6. STEPPE CONFEDERATIONS
-**Tulpar Nomadic Territories** (Archetype; No Current Locations)
+**Tulpar Nomadic Territories** (Archetype; 4 locations so far)
 
 **Geography:** Northern plains; nomadic routes; open grasslands
 **Historical Role:** Enslaved labor force; conscripted armies; "controlled" through fear and binding spells
@@ -164,7 +164,7 @@ Dwarves control these passes and they always have. Even during the Empire's heig
 **Cultural Dominance:** Tulpar (chaos-era names replaced with stabilization-era names; old names considered derisive/shameful)
 **Naming Convention:** Tulpar names (Tolkien guttural style); newer names reflect trade/stability orientation, not chaos/raid orientation
 
-**Locations:** [To be added as campaign develops]
+**Locations:** 4 assigned so far; more to be added as the campaign develops
 
 **Region Narrative:**
 The Steppe was never truly "controlled" by the Empire despite its attempts. Tulpar were enslaved, conscripted, and bound by magic, but they were never actually loyal. The liberation of enslaved Tulpar (~1250s) triggered the Chaos Period (~70 years of raiding, territorial conflict, bloodshed). Gradually, through brutal conflict and diplomatic pressure from southern powers, Tulpar confederations stabilized. They discovered that trade was more profitable than raiding. Over generations, they transitioned from raiders to merchants. Old names from the chaos era (names of raiding bands, warrior tribes) are now embarrassing relics. New names reflect the stabilized, trade-focused confederations. This integration is recent—still within living memory for long-lived races. Trust is fragile but growing.
