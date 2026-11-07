@@ -1,0 +1,18 @@
+# Dehdadi settlement profile (#386). FTG source: ../Dehdadi.json and ../Dehdadi.geojson.
+town: Dehdadi
+region: central-asian-hubs
+seed: 1
+locked: false
+conversion_dial: 1
+
+# FTG building ids -> faith code. Temple staff and attendees (placeOfWork) take it.
+temples:
+  5: F5
+  6: F3
+  156: F2
+
+# Entries here are skipped by the rule-based passes. A mapping sets those fields on the
+# entry; an empty mapping freezes it at its FTG values. Keyed by FTG id.
+pins:
+  people: {}
+  buildings: {}

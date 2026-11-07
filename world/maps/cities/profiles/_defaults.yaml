@@ -1,0 +1,83 @@
+# Settlement profile defaults (#386). Layered under a region file, then the town file.
+# Weights are relative, not percentages. A weight of 0 means "only where a profile names it".
+
+seed: 1
+locked: false
+conversion_dial: 0
+
+# Vault ancestry names. Jivar and Vanara default to 0; Naga-Kin, Faerie, Galapa and
+# Ribbet are never drawn at all (the loader refuses a weight for them).
+ancestry:
+  Human: 60
+  Tulpar: 15
+  Kuhban: 10
+  Rahban: 8
+  Gavar: 2
+  Pari-Kin: 2
+  Kalan: 1
+  Div-Born: 1
+  Vaghri: 1
+  Serenvar: 0.3
+  Khavar: 0.2
+  Tadbir: 0.2
+  Jivar: 0
+  Vanara: 0
+
+# Multipliers on the faith table for households of one ancestry.
+faith_pulls:
+  Kuhban: {F11: 4, F3: 1.5}
+  Tulpar: {F4: 6}
+  Serenvar: {F12: 8}
+  Rahban: {F14: 2}
+
+# Display names for faith codes (REGIONAL_FAITH_LIST.md).
+faiths:
+  F1: The Road-Keeper
+  F2: The Lamp
+  F3: The Fire
+  F4: The Open Sky
+  F5: The Caves
+  F6: The Folk Way
+  F7: The Civic Rite
+  F8: The Merchant Saints
+  F9: The Ledger
+  F10: The Mountain Bride and the Wind
+  F11: The Forge-Record
+  F12: The Still Mirror
+  F13: The Last Voice
+  F14: The Hearth Layer
+  F15: The Road Without Altars
+no_religion: Non-religious
+lapsed: Lapsed
+
+# Share of a household that keeps the household's faith; the rest redraw.
+household_faith_keep: 0.8
+
+# Area (m2) at or above which a building converts, by dial. Dial 0 converts nothing.
+conversion:
+  1: {INN: 400, WAREHOUSE: 600}
+  2: {INN: 250, WAREHOUSE: 450}
+converts_to:
+  INN: caravanserai
+  WAREHOUSE: khan
+alcohol_note: "Settlement profile: alcohol kept; stocks trade goods."
+alcohol_types: [tavern, quiet bar, raucous dive, upper class tavern, members only club, medium inn, small inn, large inn]
+
+# Ancestry bends the region's names (PERSONAL_NAME_RULES.md). `single` drops the surname.
+ancestry_names:
+  Kuhban:
+    family: [Stone-Reader, Third-Gate, Iron-Counter, Deep-Ledger, Anvil-Sworn, Vein-Warden, Cairn-Wright, Low-Lamp, Slag-Hand, Hearth-Stone, Seam-Reader, Tally-Hammer]
+  Tulpar:
+    given: [Karghul, Shagh, Gurzak, Okhan, Bolgha, Tughrul, Khasar, Zhurgan, Ghulesh, Karaz, Urgakh, Dzhoghan]
+    family: [Gokturk-Ash, Black-Felt, Red-Tooth, Wolf-Road, Ash-Horn, Split-Banner]
+  Serenvar:
+    given: [Ilvarinelle, Saoreannel, Thalirien, Mirelaviel, Yseranthe, Caelumiril, Lorethian, Vaelindor, Aerithanel, Silvenoriel]
+  Vaghri:
+    single: true
+  Jivar:
+    family: [Quick-Ear, Coin-Eye, Split-Lobe, Short-Weight, Tin-Tooth]
+  Rahban:
+    family: [Hearthroad, Warm-Door, Kettle-Side, Low-Gate, Long-Table]
+
+informal_byname_share: 0.25
+informal_bynames: [the Tall, the Quiet, the Left-Handed, Half-Price, the Late, Three-Fingers, the Younger, the Elder]

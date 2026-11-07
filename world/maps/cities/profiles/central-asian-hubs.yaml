@@ -1,0 +1,19 @@
+# Central Asian Hubs region profile (#386): names from PERSONAL_NAME_RULES.md, faith shares
+# from REGIONAL_FAITH_LIST.md. Remaining 10% is Lapsed/other.
+
+names:
+  male: [Anushirvan, Rustam, Davlat, Murad, Farrokh, Bahram, Kaveh, Shahin, Jamshid, Parviz, Mahan, Dilshod, Sohrab, Khosrow, Behzad, Nodir, Timur, Ulugh, Yarkan, Orkhan, Bakhtiyar, Farhod, Iskander, Navid, Zal, Ardashir, Kamran, Sanjar, Temur, Mansur]
+  female: [Gulbahor, Shirin, Bahar, Dilshad, Nargis, Roxana, Parisa, Mehrnoz, Zarina, Shahrzad, Laleh, Munira, Farangis, Azada, Nilufar, Gulnara, Soraya, Yasmin, Dilfuza, Manijeh, Zebo, Sitora, Taraneh, Ruksana, Feruza, Shabnam, Sevinch, Mahlo]
+  patronymic_suffixes: [zoda, zadeh, ugli, ian]
+  places: [Bukharayi, Khwarazmi, Samarqandi, Merwi, Balkhi, Tirmizi, Nasafi, Khujandi, Ferghani, Kashgari, Kuchari, Khotani, Herati, Shashi, Dehdadi]
+  trades: [Lamp-Seller, Salt-Broker, Gate-Warden, Caravan-Reckoner, Silk-Weigher, Well-Keeper, Ledger-Reader]
+  family_forms: {patronymic: 5, place: 3, trade: 2}
+
+faith:
+  F2: 40
+  F3: 20
+  F14: 15
+  F11: 5
+  F5: 5
+  F9: 5
+  lapsed: 10
