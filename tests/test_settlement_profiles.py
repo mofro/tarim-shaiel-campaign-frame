@@ -361,6 +361,7 @@ REAL = ROOT / "world" / "maps" / "cities" / "Dehdadi.json"
 def test_s13_and_s1_real_dehdadi_is_deterministic_and_the_source_untouched(tmp_path):
     cdir = tmp_path / "world" / "maps" / "cities"
     shutil.copytree(ROOT / "world" / "maps" / "cities" / "profiles", cdir / "profiles")
+    shutil.copytree(ROOT / "world" / "factions", tmp_path / "world" / "factions")
     for ext in ("json", "geojson"):
         shutil.copy(ROOT / "world" / "maps" / "cities" / f"Dehdadi.{ext}", cdir)
     digest = sp.source_digest("Dehdadi", tmp_path)
@@ -378,3 +379,62 @@ def test_s13_and_s1_real_dehdadi_is_deterministic_and_the_source_untouched(tmp_p
 def _derived_bytes_for(root):
     d = sp.derived_dir(root)
     return {p.name: p.read_bytes() for p in sorted(d.iterdir())}
+
+
+# -- S14 to S18: factions layer (#387) ----------------------------------------------------
+
+def _with_factions(vault, block):
+    fdir = vault / "world" / "factions"
+    fdir.mkdir(parents=True, exist_ok=True)
+    for slug in ("watch-order", "secret-cell"):
+        (fdir / f"{slug}.md").write_text("---\ntitle: x\n---\n")
+    path = sp.profiles_dir(vault) / "Testburg.yaml"
+    path.write_text(path.read_text() + block)
+
+
+FACTION_BLOCK = (
+    "factions:\n  seats:\n    10: watch-order\n  leaders:\n    secret-cell: [106]\n"
+    "  members:\n    - {faction: secret-cell, jobs: [Weaver, Server], chance: 1}\n")
+
+
+def test_s14_seat_staff_rule_members_and_leaders(vault):
+    _with_factions(vault, FACTION_BLOCK)
+    sp.draft("Testburg", vault)
+    f = _out(vault)["factions"]
+    assert f["watch-order"] == {"seats": [10], "members": [{"id": 100, "role": "member"}]}
+    assert f["secret-cell"]["members"] == [
+        {"id": 101, "role": "member"}, {"id": 105, "role": "member"}, {"id": 106, "role": "leader"}]
+
+
+def test_s15_membership_is_deterministic_and_seeded(vault):
+    _with_factions(vault, FACTION_BLOCK.replace("chance: 1", "chance: 0.5"))
+    sp.draft("Testburg", vault)
+    first = _out(vault)["factions"]
+    sp.draft("Testburg", vault)
+    assert _out(vault)["factions"] == first
+
+
+def test_s16_the_geometry_and_people_records_never_name_a_faction(vault):
+    _with_factions(vault, FACTION_BLOCK)
+    sp.draft("Testburg", vault)
+    assert "secret-cell" not in (sp.derived_dir(vault) / "Testburg.geojson").read_text()
+    assert all("faction" not in p for p in _out(vault)["people"])
+
+
+def test_s17_unknown_faction_building_or_person_is_refused(vault):
+    _with_factions(vault, "factions:\n  seats:\n    10: no-such-faction\n")
+    with pytest.raises(sp.ProfileError):
+        sp.draft("Testburg", vault)
+    path = sp.profiles_dir(vault) / "Testburg.yaml"
+    path.write_text(path.read_text().replace("no-such-faction", "watch-order").replace("10:", "999:"))
+    with pytest.raises(sp.ProfileError):
+        sp.draft("Testburg", vault)
+
+
+def test_s18_the_report_lists_seats_leaders_and_samples(vault):
+    _with_factions(vault, FACTION_BLOCK)
+    report = sp.draft("Testburg", vault)
+    text = (sp.derived_dir(vault) / "Testburg.report.txt").read_text()
+    assert report["factions"]["secret-cell"]["members"] == 3
+    assert "Faction secret-cell: 3 members" in text and "leader: 106" in text
+    assert "seats: 10 " in text

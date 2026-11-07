@@ -44,6 +44,7 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 | name | type | region | visible_control | hidden_control | rivals | controls | narrative_weight | status |
 |------|------|--------|-----------------|----------------|--------|----------|-----------------|--------|
 | [[chain-breakers-order\|The Chain-Breakers Order]] | ideological order | all regions (dispersed) | no — subversive presence | — | human-imperial-remnants, the-wizard | liberation-memory, chain-breaking rites | high | canon |
+| [[oxus-watch-order\|The Oxus Watch Order]] | military order | Central Asian Hubs | yes — town watch | — | — | town-garrisons | low | draft |
 | [[scholars-remnant\|The Scholar's Remnant]] | scattered survivors | all regions (hidden) | no — hunted / underground | — | the-wizard, lich-cadre | fragments of suppressed cosmological knowledge | high | canon |
 
 ---

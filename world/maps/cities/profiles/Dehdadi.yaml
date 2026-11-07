@@ -11,6 +11,19 @@ temples:
   6: F3
   156: F2
 
+# Faction seats (#387). Staff of a seat belong to its faction; membership goes to the
+# GM-only sidecar only. Slugs are world/factions/<slug>.md. Building ids are FTG ids.
+factions:
+  seats:
+    4: merchant-guilds
+    8: chain-breakers-order
+    383: oxus-watch-order
+    384: oxus-watch-order
+    385: oxus-watch-order
+    1146: oxus-watch-order
+  leaders:
+    merchant-guilds: [2055]
+
 # Entries here are skipped by the rule-based passes. A mapping sets those fields on the
 # entry; an empty mapping freezes it at its FTG values. Keyed by FTG id.
 pins:

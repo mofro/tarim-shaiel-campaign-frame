@@ -7,7 +7,11 @@ content_type: location
 visibility: public
 status: draft
 created: 2026-08-17
-last_updated: 2026-11-06
+last_updated: 2026-11-07
+factions_visible:
+- Tulpar Confederation (Samarkand)
+- The Oxus Watch Order
+- Merchant Guilds
 fantasy_name: Dehdadi
 name: Dehdadi
 real_world_name: Dehdadi

@@ -294,6 +294,54 @@ def religion_pass(profile, seed, people, hh, ancestry_of_hh, pinned) -> dict:
     return out
 
 
+def validate_factions(profile, people, buildings, root: Path) -> None:
+    """The `factions:` block (#387) may only name faction files, buildings and people that exist."""
+    cfg = profile.get("factions") or {}
+    bids, pids = {b["id"] for b in buildings}, {p["id"] for p in people}
+    slugs = set(cfg.get("seats", {}).values())
+    slugs |= {r.get("faction") for r in cfg.get("members") or []} | set(cfg.get("leaders") or {})
+    for slug in sorted(slugs, key=str):
+        if not slug or not (root / "world" / "factions" / f"{slug}.md").exists():
+            raise ProfileError(f"factions: no faction file world/factions/{slug}.md")
+    for bid in cfg.get("seats", {}):
+        if int(bid) not in bids:
+            raise ProfileError(f"factions.seats: no building {bid}")
+    for slug, ids in (cfg.get("leaders") or {}).items():
+        for pid in ids or []:
+            if pid not in pids:
+                raise ProfileError(f"factions.leaders.{slug}: no person {pid}")
+    for rule in cfg.get("members") or []:
+        if not 0 <= rule.get("chance", 1) <= 1:
+            raise ProfileError(f"factions.members: chance must be 0 to 1 ({rule.get('faction')})")
+
+
+def faction_pass(profile, seed, people) -> dict:
+    """Membership for the GM-only sidecar. Staff of a seat belong to its faction; a rule adds
+    people by job title with a seeded chance; named leaders are marked. A person can belong to
+    several factions. Never touches a person record."""
+    cfg = profile.get("factions") or {}
+    seats = {int(b): slug for b, slug in (cfg.get("seats") or {}).items()}
+    leaders = {(slug, pid) for slug, ids in (cfg.get("leaders") or {}).items() for pid in ids or []}
+    roles = {}
+    for p in people:
+        pid = p["id"]
+        if seats.get(p.get("placeOfWork")):
+            roles.setdefault(seats[p["placeOfWork"]], {})[pid] = "member"
+        for rule in cfg.get("members") or []:
+            slug = rule["faction"]
+            if p.get("jobTitle") in rule.get("jobs", []) and \
+                    rng_for(seed, "faction", slug, pid).random() < rule.get("chance", 1):
+                roles.setdefault(slug, {}).setdefault(pid, "member")
+    for slug, pid in leaders:
+        roles.setdefault(slug, {})[pid] = "leader"
+    by_slug = {}
+    for bid, slug in sorted(seats.items()):
+        by_slug.setdefault(slug, []).append(bid)
+    return {slug: {"seats": by_slug.get(slug, []),
+                   "members": [{"id": pid, "role": r} for pid, r in sorted(roles.get(slug, {}).items())]}
+            for slug in sorted(set(by_slug) | set(roles))}
+
+
 def conversion_pass(profile, buildings, areas, pinned) -> dict:
     """building id -> specificBuildingType for buildings the dial converts."""
     dial = profile["conversion_dial"]
@@ -348,6 +396,8 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
         holders.setdefault(p["lastName"], Counter())[anc_of_hh[hh[p["id"]]]] += 1
     primary = {s: sorted(c.items(), key=lambda kv: (-kv[1], kv[0]))[0][0] for s, c in holders.items()}
 
+    validate_factions(profile, people, buildings, root)
+    factions = faction_pass(profile, seed, people)
     religion = religion_pass(profile, seed, people, hh, anc_of_hh, ppins)
     converted = conversion_pass(profile, buildings, areas, bpins)
 
@@ -406,11 +456,13 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
 
     problems = check_derived(people, out_people, buildings, out_buildings, ppins)
     report = make_report(profile, seed, out_people, out_buildings, areas, converted, namer, ppins, bpins, problems)
+    report["factions"] = faction_report(factions, out_people, out_buildings, hh)
 
     ddir = derived_dir(root)
     ddir.mkdir(parents=True, exist_ok=True)
     _write_json(ddir / f"{town}.geojson", out_gj)
-    _write_json(ddir / f"{town}.gm.json", {"town": town, "seed": seed, "buildings": out_buildings, "people": out_people})
+    _write_json(ddir / f"{town}.gm.json", {"town": town, "seed": seed, "buildings": out_buildings, "people": out_people,
+                                                 "factions": factions})
     (ddir / f"{town}.report.txt").write_text(render_report(report), encoding="utf-8")
     return report
 
@@ -470,6 +522,30 @@ def make_report(profile, seed, people, buildings, areas, converted, namer, ppins
     }
 
 
+def faction_report(factions, people, buildings, hh) -> dict:
+    """What the GM compares against FTG: seats, leaders, counts, a few named members."""
+    by_pid = {p["id"]: p for p in people}
+    by_bid = {b["id"]: b for b in buildings}
+
+    def line(pid):
+        p = by_pid[pid]
+        work = by_bid.get(p.get("placeOfWork"), {}).get("name", "no workplace")
+        home = by_bid.get(p.get("placeOfResidence"), {}).get("name", "no residence")
+        return (f"{pid} {p['firstName']} {p['lastName']}, {p.get('jobTitle') or 'no job'}, "
+                f"works at {work}, lives at {home} (household {hh[pid]})")
+
+    out = {}
+    for slug, f in factions.items():
+        ids = [m["id"] for m in f["members"]]
+        out[slug] = {
+            "seats": [f"{b} {by_bid[b]['name']}" for b in f["seats"]],
+            "leaders": [line(m["id"]) for m in f["members"] if m["role"] == "leader"],
+            "members": len(ids),
+            "sample": [line(i) for i in ids[:3]],
+        }
+    return out
+
+
 def render_report(r: dict) -> str:
     lines = [f"Settlement draft: {r['town']} (seed {r['seed']})",
              f"{r['people']} people, {r['buildings']} buildings, {r['surnames_mapped']} surname mappings", "",
@@ -480,6 +556,10 @@ def render_report(r: dict) -> str:
     lines += [f"  {c['id']} {c['name']} ({c['area_m2']} m2) -> {c['to']}" for c in r["conversions"]]
     lines += ["", f"Pinned people: {r['pinned_people'] or 'none'}",
               f"Pinned buildings: {r['pinned_buildings'] or 'none'}"]
+    for slug, f in r.get("factions", {}).items():
+        lines += ["", f"Faction {slug}: {f['members']} members",
+                  f"  seats: {', '.join(f['seats']) or 'none'}"]
+        lines += [f"  leader: {x}" for x in f["leaders"]] + [f"  e.g. {x}" for x in f["sample"]]
     if r["problems"]:
         lines += ["", f"Problems ({len(r['problems'])})"] + [f"  {p}" for p in r["problems"][:50]]
     return "\n".join(lines) + "\n"
