@@ -7,7 +7,7 @@ content_type: region
 visibility: public
 status: draft
 created: 2026-05-04
-last_updated: 2026-10-24
+last_updated: 2026-11-07
 tags:
   - region
   - central-asian-hubs
@@ -24,7 +24,7 @@ faction_weight: high
 
 # Central Asian Hubs
 
-The great cities of Transoxiana and Sogdiana — Samarqandh, Bukhara, Tashkent, Merv — that once defined civilisation west of the Tarim. These were the cities where scholars translated Greek texts into Arabic, where paper reached the Islamic world, where the Silk Road met the steppe and the caravans stopped to trade, pray, and argue philosophy.
+The great cities of Transoxiana and Sogdiana — Samarqandh, Bukhara, Tashkent, Merv — that once defined civilisation west of the Tarim. These were the cities where scholars translated Greek texts into Arabic, where paper first reached the western cities, where the Silk Road met the steppe and the caravans stopped to trade, pray, and argue philosophy.
 
 The empire that built them is gone. The cities endure. More than that — they thrive. Freed from tribute obligations and garrisoned governors, the merchant guilds and scholarly networks have discovered that prosperity does not require a distant emperor to authorize it.
 
@@ -36,5 +36,5 @@ Cosmopolitan in a way that makes the Tarim Basin look provincial. Tulpar influen
 
 - Tulpar Confederation versus Human Imperial Remnants for political legitimacy
 - Sogdian Merchants Guild navigating the new power landscape
-- The Islamic Scholarly Network and its complex relationship with older Zoroastrian traditions
+- The Anjoman-e Varaq (the Society of the Leaf), the scholars' network that carries the translation tradition, and its complex relationship with older Zoroastrian traditions
 - Merv's position as a partially-ruined city with significant archaeological layers
