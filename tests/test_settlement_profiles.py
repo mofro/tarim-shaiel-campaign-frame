@@ -376,6 +376,28 @@ def test_s13_and_s1_real_dehdadi_is_deterministic_and_the_source_untouched(tmp_p
     assert len(report["conversions"]) == 10
 
 
+REAL_QARSHI = ROOT / "world" / "maps" / "cities" / "Qarshi.json"
+
+
+@pytest.mark.skipif(not REAL_QARSHI.exists(), reason="Qarshi FTG export not present")
+def test_s13_real_qarshi_is_deterministic_and_the_source_untouched(tmp_path):
+    cdir = tmp_path / "world" / "maps" / "cities"
+    shutil.copytree(ROOT / "world" / "maps" / "cities" / "profiles", cdir / "profiles")
+    shutil.copytree(ROOT / "world" / "factions", tmp_path / "world" / "factions")
+    for ext in ("json", "geojson"):
+        shutil.copy(ROOT / "world" / "maps" / "cities" / f"Qarshi.{ext}", cdir)
+    digest = sp.source_digest("Qarshi", tmp_path)
+    report = sp.draft("Qarshi", tmp_path)
+    first = _derived_bytes_for(tmp_path)
+    sp.draft("Qarshi", tmp_path)
+    assert _derived_bytes_for(tmp_path) == first
+    assert sp.source_digest("Qarshi", tmp_path) == digest
+    assert report["people"] == 6274 and report["buildings"] == 1830
+    assert report["problems"] == []
+    assert "Half-Orc" not in report["ancestry"]
+    assert len(report["conversions"]) == 42
+
+
 def _derived_bytes_for(root):
     d = sp.derived_dir(root)
     return {p.name: p.read_bytes() for p in sorted(d.iterdir())}
