@@ -16,6 +16,7 @@ temples:
 factions:
   seats:
     4: merchant-guilds
+    8: chain-breakers-order
     383: oxus-watch-order
     384: oxus-watch-order
     385: oxus-watch-order
