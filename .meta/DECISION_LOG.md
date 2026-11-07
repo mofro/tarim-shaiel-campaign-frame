@@ -1030,3 +1030,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The seven files in `world/regions/` are the canonical region set. Transoxiana is a sub-region of Central Asian Hubs and Elven Highlands is a sub-region of Eastern Gateway; settlements take the parent's `parent_region:` and inherit its name pool and faith list. Dehdadi is `central-asian-hubs`.
 - **Rationale:** Transoxiana's bounds sit inside the hubs' and the Elven Highlands material already reads as Gateway enclaves. Merging Transoxiana (B) would lose its river-frontier material; a separate Elven region (C) contradicts the earlier Gateway direction.
 - **Lock status:** Locked (GM choice A, 2026-11-06). Name rules and faith list still to be written.
+
+## 2026-11-07 — World: region documents, name rules, faith list and parent_region assignment complete (#384, HeroHeaven-oid.1)
+- **Decision:** The seven region files are the set; `parent_region:` is assigned on every location except East China Sea (open water, deliberately none). Personal-name rules and the faith list stay `gm_secrets`. No Islam-analog faith; the scholars' network is the Anjoman-e Varaq (Society of the Leaf). Eastern Terminus has a controller section in the regional-factions document.
+- **Rationale:** Membership by explicit field, not coordinates, because the region boxes overlap and are rough; contested Passes/Basin cases were placed from what each page says. Rejected: nearest-centre assignment, which would misfile mountain places.
+- **Lock status:** Working decision, not locked beyond the 2026-11-06 region-set lock; the Eastern Terminus Chinese-derived name register and the Mountain Passes faith shares are judgments open to revision.
