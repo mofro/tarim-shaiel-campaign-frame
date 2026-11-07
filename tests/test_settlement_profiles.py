@@ -361,6 +361,7 @@ REAL = ROOT / "world" / "maps" / "cities" / "Dehdadi.json"
 def test_s13_and_s1_real_dehdadi_is_deterministic_and_the_source_untouched(tmp_path):
     cdir = tmp_path / "world" / "maps" / "cities"
     shutil.copytree(ROOT / "world" / "maps" / "cities" / "profiles", cdir / "profiles")
+    shutil.copytree(ROOT / "world" / "factions", tmp_path / "world" / "factions")
     for ext in ("json", "geojson"):
         shutil.copy(ROOT / "world" / "maps" / "cities" / f"Dehdadi.{ext}", cdir)
     digest = sp.source_digest("Dehdadi", tmp_path)
