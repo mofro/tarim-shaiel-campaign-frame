@@ -16,8 +16,8 @@ fantasy_name: Dehdadi
 name: Dehdadi
 real_world_name: Dehdadi
 location:
-- 36.658364
-- 66.995952
+- 36.657274
+- 66.996055
 mapmarker: town
 parent_region: central-asian-hubs
 tags: []
