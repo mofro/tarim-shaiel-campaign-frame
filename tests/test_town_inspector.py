@@ -340,3 +340,18 @@ def test_inns_and_caravanserai_are_rated_for_the_night_and_nothing_else_is():
     assert ts.lodging(b, 2) == rated
     assert len({ts.lodging(b, d)[1]["pct"] for d in range(1, 8)}) > 1
     assert ts.snapshot([], b, 2, 3)["lodging"] == rated
+
+
+def test_every_building_type_gets_a_labelled_room_list():
+    import town_rooms as tr
+    assert tr.rooms(None) is None
+    for t, kind in [("tavern", "drinking house"), ("upper class home", "rich home"),
+                    ("barracks", "barracks"), ("temple", "temple"), ("tanner", "workshop")]:
+        r = tr.rooms(t)
+        assert r["kind"] == kind and len(r["rooms"]) >= 4
+    assert set(tr.KIND_OF.values()) <= set(tr.KINDS)
+
+
+def test_payload_carries_suggested_rooms_per_building(drafted):
+    d = ti.payload("Testburg", drafted)
+    assert all("suggestedRooms" in b for b in d["buildings"].values())
