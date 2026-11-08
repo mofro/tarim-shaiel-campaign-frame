@@ -3384,7 +3384,7 @@ function _overlayError(e){
 
 
 # Top-left, clear of the nav control (top-right), the scale bar (bottom-right) and
-# the Follow GM button (bottom-centre). 44px targets throughout.
+# the Follow GM button (bottom-left). 44px targets throughout.
 _PLAYER_LAYERS_CSS = """\
 #layers-btn { position:fixed; z-index:100; top:calc(10px + env(safe-area-inset-top));
   left:calc(10px + env(safe-area-inset-left)); width:44px; height:44px; padding:0;
@@ -3559,7 +3559,7 @@ def _build_player_html(
         "#follow-btn {\n"
         "  position: fixed;\n"
         "  bottom: calc(24px + env(safe-area-inset-bottom));\n"
-        "  left: 50%; transform: translateX(-50%);\n"
+        "  left: calc(10px + env(safe-area-inset-left));\n"
         "  z-index: 100;\n"
         "  background: rgba(26,18,8,0.85);\n"
         "  color: #8ad08a;\n"
