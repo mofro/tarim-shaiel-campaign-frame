@@ -8,9 +8,11 @@
    "buildingType": "EDUCATIONAL",
    "specificBuildingType": "school",
    "openingTimes": {
-    "closedDays": [],
-    "openHour": 9,
-    "closeHour": 17
+    "closedDays": [
+     5
+    ],
+    "openHour": 7,
+    "closeHour": 14
    },
    "notes": null
   },
@@ -20,9 +22,11 @@
    "buildingType": "EDUCATIONAL",
    "specificBuildingType": "school",
    "openingTimes": {
-    "closedDays": [],
-    "openHour": 9,
-    "closeHour": 17
+    "closedDays": [
+     5
+    ],
+    "openHour": 7,
+    "closeHour": 14
    },
    "notes": null
   },
@@ -34,8 +38,8 @@
    "description": "Mosque worshipping Uren",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 5,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -46,8 +50,8 @@
    "specificBuildingType": "gang hangout",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -65,8 +69,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -77,8 +81,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -103,8 +107,8 @@
    "specificBuildingType": "casino",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -128,9 +132,11 @@
    "buildingType": "EDUCATIONAL",
    "specificBuildingType": "school",
    "openingTimes": {
-    "closedDays": [],
-    "openHour": 9,
-    "closeHour": 17
+    "closedDays": [
+     5
+    ],
+    "openHour": 7,
+    "closeHour": 14
    },
    "notes": null
   },
@@ -142,8 +148,8 @@
    "description": "Mosque worshipping Nuona",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 5,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -295,11 +301,10 @@
    "description": "Average quality blacksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -346,11 +351,10 @@
    "description": "Average quality basket-maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -368,11 +372,10 @@
    "specificBuildingType": "greengrocer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -384,11 +387,10 @@
    "description": "Good quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -400,11 +402,10 @@
    "description": "Good quality alchemist, selling magical potions",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -416,11 +417,10 @@
    "description": "Average quality stone-cutter/shaper",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -431,11 +431,10 @@
    "specificBuildingType": "woodmonger",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -447,11 +446,10 @@
    "description": "Good quality leather worker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -463,11 +461,10 @@
    "description": "Average quality stock/stables",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -479,11 +476,10 @@
    "description": "Average quality wickerworker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -494,11 +490,10 @@
    "specificBuildingType": "fiber shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -510,11 +505,10 @@
    "description": "Good quality stone-cutter/shaper",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -525,11 +519,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -541,11 +534,10 @@
    "description": "Average quality carder of fibres",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -556,11 +548,10 @@
    "specificBuildingType": "wool stapler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -571,11 +562,10 @@
    "specificBuildingType": "farmers market",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -587,11 +577,10 @@
    "description": "Average quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -603,11 +592,10 @@
    "description": "Good quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -618,11 +606,10 @@
    "specificBuildingType": "greengrocer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -641,11 +628,10 @@
    "description": "Great quality sharpener",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -657,11 +643,10 @@
    "description": "Average quality jeweler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -673,11 +658,10 @@
    "description": "Average quality leather worker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -689,11 +673,10 @@
    "description": "Poor quality cloth maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -704,11 +687,10 @@
    "specificBuildingType": "farmers market",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -720,11 +702,10 @@
    "description": "Good quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -743,11 +724,10 @@
    "description": "Master quality glassblower",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -759,11 +739,10 @@
    "description": "Good quality perfumer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -782,11 +761,10 @@
    "description": "Good quality bookbinders",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -797,11 +775,10 @@
    "specificBuildingType": "locksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -812,11 +789,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -835,11 +811,10 @@
    "description": "Great quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -857,11 +832,10 @@
    "specificBuildingType": "game trader",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -873,11 +847,10 @@
    "description": "Great quality cloth maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -889,11 +862,10 @@
    "description": "Good quality silversmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -904,11 +876,10 @@
    "specificBuildingType": "greengrocer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -919,11 +890,10 @@
    "specificBuildingType": "log shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -935,11 +905,10 @@
    "description": "Good quality purse maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -950,11 +919,10 @@
    "specificBuildingType": "fiber shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -966,11 +934,10 @@
    "description": "Master quality wickerworker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -982,11 +949,10 @@
    "description": "Great quality ropemaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -997,11 +963,10 @@
    "specificBuildingType": "game trader",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1012,11 +977,10 @@
    "specificBuildingType": "armory",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1028,11 +992,10 @@
    "description": "Good quality lanternmaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1043,11 +1006,10 @@
    "specificBuildingType": "stone shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1058,11 +1020,10 @@
    "specificBuildingType": "log shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1073,11 +1034,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1089,11 +1049,10 @@
    "description": "Good quality jeweler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1104,11 +1063,10 @@
    "specificBuildingType": "greengrocer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1120,11 +1078,10 @@
    "description": "Good quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1136,11 +1093,10 @@
    "description": "Average quality barber",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1151,11 +1107,10 @@
    "specificBuildingType": "locksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1167,11 +1122,10 @@
    "description": "Great quality soap-maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1183,11 +1137,10 @@
    "description": "Poor quality engraver",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1198,11 +1151,10 @@
    "specificBuildingType": "farmers market",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1214,11 +1166,10 @@
    "description": "Master quality blacksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1230,11 +1181,10 @@
    "description": "Good quality butcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1253,11 +1203,10 @@
    "description": "Great quality potter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1268,11 +1217,10 @@
    "specificBuildingType": "builder",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1284,11 +1232,10 @@
    "description": "Great quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1300,11 +1247,10 @@
    "description": "Good quality blacksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1316,11 +1262,10 @@
    "description": "Good quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1339,11 +1284,10 @@
    "description": "Good quality tattoo artist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1369,11 +1313,10 @@
    "description": "Great quality lanternmaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1385,11 +1328,10 @@
    "description": "Great quality stone-cutter/shaper",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1400,11 +1342,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1416,11 +1357,10 @@
    "description": "Awful quality cobbler - who repairs shoes.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1431,11 +1371,10 @@
    "specificBuildingType": "game trader",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1446,11 +1385,10 @@
    "specificBuildingType": "wool stapler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1462,11 +1400,10 @@
    "description": "Average quality barber",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1478,11 +1415,10 @@
    "description": "Average quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1494,11 +1430,10 @@
    "description": "Average quality furrier",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1510,11 +1445,10 @@
    "description": "Good quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1526,11 +1460,10 @@
    "description": "Good quality parchment maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1542,11 +1475,10 @@
    "description": "Good quality furrier",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1558,11 +1490,10 @@
    "description": "Good quality potter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1573,11 +1504,10 @@
    "specificBuildingType": "fish merchant",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1589,11 +1519,10 @@
    "description": "Average quality barber",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1605,11 +1534,10 @@
    "description": "Master quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1621,11 +1549,10 @@
    "description": "Average quality cloth maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1637,11 +1564,10 @@
    "description": "Good quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1652,11 +1578,10 @@
    "specificBuildingType": "mercer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1668,11 +1593,10 @@
    "description": "Good quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1684,11 +1608,10 @@
    "description": "Average quality carder of fibres",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1700,11 +1623,10 @@
    "description": "Average quality rugmaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1715,11 +1637,10 @@
    "specificBuildingType": "game trader",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1731,11 +1652,10 @@
    "description": "Average quality scribe",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1746,11 +1666,10 @@
    "specificBuildingType": "fish merchant",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1762,11 +1681,10 @@
    "description": "Average quality ropemaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1777,11 +1695,10 @@
    "specificBuildingType": "fiber shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1793,11 +1710,10 @@
    "description": "Average quality carpenter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1809,11 +1725,10 @@
    "description": "Good quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1825,11 +1740,10 @@
    "description": "Good quality scribe",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1841,11 +1755,10 @@
    "description": "Master quality barber",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1856,11 +1769,10 @@
    "specificBuildingType": "wax shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1872,11 +1784,10 @@
    "description": "Good quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1887,11 +1798,10 @@
    "specificBuildingType": "house painter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1903,11 +1813,10 @@
    "description": "Good quality barber",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1925,11 +1834,10 @@
    "specificBuildingType": "mason",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1940,11 +1848,10 @@
    "specificBuildingType": "grain shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1963,11 +1870,10 @@
    "description": "Average quality butcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1978,11 +1884,10 @@
    "specificBuildingType": "greengrocer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -1994,11 +1899,10 @@
    "description": "Average quality cloth maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2010,11 +1914,10 @@
    "description": "Good quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2025,11 +1928,10 @@
    "specificBuildingType": "fish merchant",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2041,11 +1943,10 @@
    "description": "Great quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2057,11 +1958,10 @@
    "description": "Great quality cheese maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2072,11 +1972,10 @@
    "specificBuildingType": "farmers market",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2088,11 +1987,10 @@
    "description": "Great quality carpenter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2111,11 +2009,10 @@
    "description": "Good quality barber",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2127,11 +2024,10 @@
    "description": "Master quality baker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2143,11 +2039,10 @@
    "description": "Great quality cloth maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2159,11 +2054,10 @@
    "description": "Good quality butcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2175,11 +2069,10 @@
    "description": "Great quality cobbler - who repairs shoes.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2190,11 +2083,10 @@
    "specificBuildingType": "grain shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2205,11 +2097,10 @@
    "specificBuildingType": "greengrocer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2220,11 +2111,10 @@
    "specificBuildingType": "farmers market",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2236,11 +2126,10 @@
    "description": "Good quality basket-maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2252,11 +2141,10 @@
    "description": "Good quality sharpener",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2268,11 +2156,10 @@
    "description": "Master quality stock/stables",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2284,11 +2171,10 @@
    "description": "Good quality winery",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2300,11 +2186,10 @@
    "description": "Great quality scribe",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2315,11 +2200,10 @@
    "specificBuildingType": "fiber shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2331,11 +2215,10 @@
    "description": "Average quality cloth maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2347,11 +2230,10 @@
    "description": "Good quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2363,11 +2245,10 @@
    "description": "Great quality outfitter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2379,11 +2260,10 @@
    "description": "Good quality papermaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2402,11 +2282,10 @@
    "description": "Average quality sharpener",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2424,11 +2303,10 @@
    "specificBuildingType": "grain shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2439,11 +2317,10 @@
    "specificBuildingType": "fiber shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2468,11 +2345,10 @@
    "specificBuildingType": "grain shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2491,11 +2367,10 @@
    "description": "Great quality stock/stables",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2513,11 +2388,10 @@
    "specificBuildingType": "roofer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2536,11 +2410,10 @@
    "description": "Master quality cheese maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2552,11 +2425,10 @@
    "description": "Good quality brewery",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2582,11 +2454,10 @@
    "description": "Good quality baker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2597,11 +2468,10 @@
    "specificBuildingType": "fish merchant",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2619,11 +2489,10 @@
    "specificBuildingType": "stone shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2641,8 +2510,8 @@
    "specificBuildingType": "tavern",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -2653,11 +2522,10 @@
    "specificBuildingType": "ironmonger",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2669,11 +2537,10 @@
    "description": "Great quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2684,8 +2551,8 @@
    "specificBuildingType": "upper class tavern",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -2697,11 +2564,10 @@
    "description": "Average quality carder of fibres",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2713,11 +2579,10 @@
    "description": "Good quality scribe",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2728,8 +2593,8 @@
    "specificBuildingType": "raucous dive",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 16,
+    "closeHour": 23
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -2748,11 +2613,10 @@
    "description": "Master quality furrier",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2764,11 +2628,10 @@
    "description": "Good quality potter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2779,8 +2642,8 @@
    "specificBuildingType": "upper class tavern",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -2791,11 +2654,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2806,8 +2668,8 @@
    "specificBuildingType": "tavern",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -2819,11 +2681,10 @@
    "description": "Great quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2835,11 +2696,10 @@
    "description": "Master quality cloth maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2851,11 +2711,10 @@
    "description": "Good quality scribe",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2867,11 +2726,10 @@
    "description": "Average quality lanternmaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2889,11 +2747,10 @@
    "specificBuildingType": "greengrocer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2904,8 +2761,8 @@
    "specificBuildingType": "raucous dive",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 16,
+    "closeHour": 23
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -2916,11 +2773,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2932,11 +2788,10 @@
    "description": "Great quality outfitter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2948,11 +2803,10 @@
    "description": "Average quality carder of fibres",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2971,11 +2825,10 @@
    "description": "Poor quality basket-maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -2987,11 +2840,10 @@
    "description": "Average quality carpenter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3010,11 +2862,10 @@
    "description": "Average quality artificer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3026,11 +2877,10 @@
    "description": "Average quality cabinet maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3048,8 +2898,8 @@
    "specificBuildingType": "quiet bar",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -3060,8 +2910,8 @@
    "specificBuildingType": "raucous dive",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 16,
+    "closeHour": 23
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -3073,11 +2923,10 @@
    "description": "Good quality glove maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3089,11 +2938,10 @@
    "description": "Average quality leather worker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3105,11 +2953,10 @@
    "description": "Good quality shoemaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3120,11 +2967,10 @@
    "specificBuildingType": "game trader",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3136,11 +2982,10 @@
    "description": "Good quality carpenter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3152,11 +2997,10 @@
    "description": "Good quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3168,11 +3012,10 @@
    "description": "Good quality illustrators",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3184,11 +3027,10 @@
    "description": "Master quality glassblower",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3206,8 +3048,8 @@
    "specificBuildingType": "tavern",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -3226,11 +3068,10 @@
    "description": "Average quality tattoo artist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3263,11 +3104,10 @@
    "description": "Master quality nail-smith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3279,11 +3119,10 @@
    "description": "Good quality furrier",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3295,11 +3134,10 @@
    "description": "Great quality glassblower",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3429,11 +3267,10 @@
    "specificBuildingType": "locksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3500,11 +3337,10 @@
    "specificBuildingType": "roofer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3544,11 +3380,10 @@
    "description": "Good singer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3650,11 +3485,10 @@
    "specificBuildingType": "grain shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3665,11 +3499,10 @@
    "specificBuildingType": "fiber shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3680,11 +3513,10 @@
    "specificBuildingType": "farmers market",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3695,11 +3527,10 @@
    "specificBuildingType": "grain shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3710,11 +3541,10 @@
    "specificBuildingType": "farmers market",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3726,11 +3556,10 @@
    "description": "Good quality blacksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3742,11 +3571,10 @@
    "description": "Average quality carder of fibres",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3758,11 +3586,10 @@
    "description": "Good quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3774,11 +3601,10 @@
    "description": "Great quality glove maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3797,11 +3623,10 @@
    "description": "Good quality saddle maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3813,11 +3638,10 @@
    "description": "Master quality cobbler - who repairs shoes.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3828,11 +3652,10 @@
    "specificBuildingType": "game trader",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3851,11 +3674,10 @@
    "description": "Good quality brewery",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3867,11 +3689,10 @@
    "description": "Good quality tattoo artist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3883,11 +3704,10 @@
    "description": "Master quality carder of fibres",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3898,11 +3718,10 @@
    "specificBuildingType": "fish merchant",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3913,11 +3732,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3929,11 +3747,10 @@
    "description": "Great quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3945,11 +3762,10 @@
    "description": "Good quality tailor",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3968,11 +3784,10 @@
    "description": "Great quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3984,11 +3799,10 @@
    "description": "Master quality scribe",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -3999,11 +3813,10 @@
    "specificBuildingType": "fiber shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4022,11 +3835,10 @@
    "description": "Good quality butcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4038,11 +3850,10 @@
    "description": "Master quality cartographer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4060,11 +3871,10 @@
    "specificBuildingType": "fish merchant",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4090,11 +3900,10 @@
    "description": "Good quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4106,11 +3915,10 @@
    "description": "Good quality cheese maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4122,11 +3930,10 @@
    "description": "Average quality painter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4138,11 +3945,10 @@
    "description": "Master quality cobbler - who repairs shoes.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4154,11 +3960,10 @@
    "description": "Good quality basket-maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4170,11 +3975,10 @@
    "description": "Master quality carpenter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4186,11 +3990,10 @@
    "description": "Good quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4208,11 +4011,10 @@
    "specificBuildingType": "wool stapler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4224,11 +4026,10 @@
    "description": "Great quality tailor",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4239,11 +4040,10 @@
    "specificBuildingType": "ironmonger",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4255,11 +4055,10 @@
    "description": "Average quality artificer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4271,11 +4070,10 @@
    "description": "Average quality blacksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4433,11 +4231,10 @@
    "specificBuildingType": "roofer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4469,11 +4266,10 @@
    "specificBuildingType": "chandler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4744,11 +4540,10 @@
    "description": "A bank, with master quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4760,11 +4555,10 @@
    "description": "Great quality silversmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4782,11 +4576,10 @@
    "specificBuildingType": "ore trader",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4797,8 +4590,8 @@
    "specificBuildingType": "bathhouse",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 7,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -4810,11 +4603,10 @@
    "description": "Good quality rugmaker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4826,11 +4618,10 @@
    "description": "Good quality carpenter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4842,11 +4633,10 @@
    "description": "Good quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4864,8 +4654,8 @@
    "specificBuildingType": "bathhouse",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 7,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -4890,11 +4680,10 @@
    "specificBuildingType": "fish merchant",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4912,8 +4701,8 @@
    "specificBuildingType": "bathhouse",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 7,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -4925,11 +4714,10 @@
    "description": "Good quality blacksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4948,11 +4736,10 @@
    "description": "Master quality herbalist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4964,11 +4751,10 @@
    "description": "Good quality alchemist, selling magical potions",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -4987,11 +4773,10 @@
    "description": "Good quality spinner of yarn",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5016,8 +4801,8 @@
    "specificBuildingType": "bathhouse",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 7,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -5036,11 +4821,10 @@
    "description": "Great quality soap-maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5065,8 +4849,8 @@
    "specificBuildingType": "bathhouse",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 7,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -5084,11 +4868,10 @@
    "specificBuildingType": "grain shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5099,11 +4882,10 @@
    "specificBuildingType": "fiber shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5115,11 +4897,10 @@
    "description": "Good quality furrier",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5158,11 +4939,10 @@
    "specificBuildingType": "ore trader",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5174,11 +4954,10 @@
    "description": "Great quality ink maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5189,8 +4968,8 @@
    "specificBuildingType": "bathhouse",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 7,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -5202,11 +4981,10 @@
    "description": "Good quality barber",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5218,11 +4996,10 @@
    "description": "Good quality butcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5234,11 +5011,10 @@
    "description": "Great quality leather worker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5250,11 +5026,10 @@
    "description": "Good quality furrier",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5265,8 +5040,8 @@
    "specificBuildingType": "bathhouse",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 7,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -5299,11 +5074,10 @@
    "description": "Great quality apothecary, selling natural herbs and remedies",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5321,11 +5095,10 @@
    "specificBuildingType": "grain shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5336,11 +5109,10 @@
    "specificBuildingType": "farmers market",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5358,8 +5130,8 @@
    "specificBuildingType": "bathhouse",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 7,
+    "closeHour": 21
    },
    "notes": null
   },
@@ -5482,11 +5254,10 @@
    "specificBuildingType": "house painter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5791,11 +5562,10 @@
    "specificBuildingType": "locksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5918,11 +5688,10 @@
    "specificBuildingType": "chandler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -5962,11 +5731,10 @@
    "description": "Good fiddler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -6108,11 +5876,6 @@
    "name": "The Grain and Throne",
    "buildingType": "INN",
    "specificBuildingType": "caravanserai",
-   "openingTimes": {
-    "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
-   },
    "notes": "Converted by settlement profile from medium inn. Settlement profile: alcohol kept; stocks trade goods."
   },
   {
@@ -6892,11 +6655,10 @@
    "specificBuildingType": "mason",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -7108,11 +6870,10 @@
    "description": "A messenger, with good quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -7319,11 +7080,6 @@
    "name": "The Rose Petal and Druid",
    "buildingType": "INN",
    "specificBuildingType": "small inn",
-   "openingTimes": {
-    "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
-   },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
   {
@@ -7621,11 +7377,10 @@
    "description": "Great harper",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -7686,11 +7441,10 @@
    "description": "A doctor, with master quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -7916,11 +7670,6 @@
    "name": "The Axe and Ice",
    "buildingType": "INN",
    "specificBuildingType": "small inn",
-   "openingTimes": {
-    "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
-   },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
   {
@@ -8022,11 +7771,10 @@
    "description": "A doctor, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -8224,11 +7972,6 @@
    "name": "The Nymph and the Eagle",
    "buildingType": "INN",
    "specificBuildingType": "small inn",
-   "openingTimes": {
-    "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
-   },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
   {
@@ -8351,11 +8094,10 @@
    "description": "A notary, with good quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -8416,11 +8158,10 @@
    "description": "A notary, with great quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -8439,11 +8180,10 @@
    "description": "A notary, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -8728,11 +8468,10 @@
    "description": "A money lender, with great quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -8996,11 +8735,10 @@
    "description": "A money lender, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9033,11 +8771,10 @@
    "description": "A seer, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9049,11 +8786,10 @@
    "description": "An undertaker, with master quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9316,11 +9052,10 @@
    "specificBuildingType": "community hall",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9339,8 +9074,8 @@
      6,
      7
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 6,
+    "closeHour": 15
    },
    "notes": null
   },
@@ -9352,11 +9087,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9368,11 +9102,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9384,11 +9117,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9400,11 +9132,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9424,11 +9155,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9448,11 +9178,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9464,11 +9193,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9480,11 +9208,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9496,11 +9223,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9512,11 +9238,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9528,11 +9253,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9544,11 +9268,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9576,11 +9299,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9592,11 +9314,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9632,11 +9353,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9656,11 +9376,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9733,11 +9452,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9805,11 +9523,10 @@
    "description": "Average quality illustrators",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9870,11 +9587,10 @@
    "description": "Average singer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9886,11 +9602,10 @@
    "description": "Average quality scribe",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9944,11 +9659,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -9988,11 +9702,10 @@
    "description": "Average quality purse maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10004,11 +9717,10 @@
    "description": "Average quality outfitter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10020,11 +9732,10 @@
    "description": "A doctor, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10043,11 +9754,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10089,11 +9799,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10140,11 +9849,10 @@
    "description": "A messenger, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10170,11 +9878,10 @@
    "description": "A messenger, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10248,8 +9955,8 @@
    "specificBuildingType": "secret society",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -10331,11 +10038,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10375,11 +10081,10 @@
    "description": "Average quality buckle maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10406,11 +10111,10 @@
    "description": "Average bard",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10426,11 +10130,6 @@
    "name": "The Cobbler's Lover",
    "buildingType": "INN",
    "specificBuildingType": "caravanserai",
-   "openingTimes": {
-    "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
-   },
    "notes": "Converted by settlement profile from large inn. Settlement profile: alcohol kept; stocks trade goods."
   },
   {
@@ -10469,11 +10168,10 @@
    "description": "Average quality illustrators",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10512,8 +10210,8 @@
    "specificBuildingType": "raucous dive",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 16,
+    "closeHour": 23
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -10552,11 +10250,10 @@
    "specificBuildingType": "jewellery shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10567,11 +10264,10 @@
    "specificBuildingType": "used clothes dealer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10597,8 +10293,8 @@
    "specificBuildingType": "secret society",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -10638,11 +10334,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10689,8 +10384,8 @@
    "specificBuildingType": "gambling den",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -10765,11 +10460,10 @@
    "description": "Average quality pewterer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10844,11 +10538,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10873,11 +10566,10 @@
    "specificBuildingType": "plasterer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10896,11 +10588,10 @@
    "description": "Average quality scribe",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10911,11 +10602,10 @@
    "specificBuildingType": "art dealer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10927,11 +10617,10 @@
    "description": "Average quality alchemist, selling magical potions",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -10986,11 +10675,10 @@
    "specificBuildingType": "locksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11002,11 +10690,10 @@
    "description": "A notary, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11025,11 +10712,10 @@
    "description": "Average quality illustrators",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11048,11 +10734,10 @@
    "description": "Average quality apothecary, selling natural herbs and remedies",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11064,11 +10749,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11080,11 +10764,10 @@
    "description": "Average quality purse maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11111,11 +10794,10 @@
    "description": "Average quality whisky distillery",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11135,11 +10817,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11167,11 +10848,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11222,11 +10902,10 @@
    "description": "Average quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11289,11 +10968,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11305,11 +10983,10 @@
    "description": "Average quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11508,11 +11185,10 @@
    "specificBuildingType": "cheesemonger",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11594,11 +11270,10 @@
    "description": "A money lender, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11616,11 +11291,10 @@
    "specificBuildingType": "builder",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11680,11 +11354,10 @@
    "specificBuildingType": "builder",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11696,11 +11369,10 @@
    "description": "Average quality cheese maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11754,11 +11426,10 @@
    "description": "Average quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11825,11 +11496,10 @@
    "specificBuildingType": "clothes shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11861,11 +11531,10 @@
    "specificBuildingType": "house painter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11897,11 +11566,10 @@
    "specificBuildingType": "thatcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11913,11 +11581,10 @@
    "description": "Average quality tattoo artist",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11928,11 +11595,10 @@
    "specificBuildingType": "medicine shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11950,11 +11616,10 @@
    "specificBuildingType": "used clothes dealer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -11994,11 +11659,10 @@
    "description": "Average quality butcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12205,11 +11869,10 @@
    "specificBuildingType": "used clothes dealer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12311,11 +11974,10 @@
    "specificBuildingType": "house painter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12354,11 +12016,10 @@
    "specificBuildingType": "plasterer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12425,8 +12086,8 @@
    "specificBuildingType": "gambling den",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -12480,11 +12141,10 @@
    "description": "Average quality alchemist, selling magical potions",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12572,11 +12232,10 @@
    "specificBuildingType": "used clothes dealer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12595,11 +12254,10 @@
    "description": "Average quality laundry cleaner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12645,11 +12303,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12717,11 +12374,10 @@
    "description": "Average quality painter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -12767,11 +12423,10 @@
    "specificBuildingType": "plasterer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13000,11 +12655,10 @@
    "description": "Average quality butcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13050,11 +12704,10 @@
    "specificBuildingType": "medicine shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13100,11 +12753,10 @@
    "specificBuildingType": "general store",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13479,11 +13131,10 @@
    "description": "Average quality butcher",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13508,11 +13159,10 @@
    "specificBuildingType": "bookshop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13810,11 +13460,10 @@
    "specificBuildingType": "roofer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13860,11 +13509,10 @@
    "specificBuildingType": "pastry shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13932,11 +13580,10 @@
    "description": "Average quality painter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13954,11 +13601,10 @@
    "specificBuildingType": "medicine shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -13997,11 +13643,10 @@
    "specificBuildingType": "locksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14250,11 +13895,10 @@
    "specificBuildingType": "medicine shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14329,11 +13973,10 @@
    "description": "Average quality saddle maker",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14393,11 +14036,10 @@
    "specificBuildingType": "architect",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14499,11 +14141,10 @@
    "specificBuildingType": "cheesemonger",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14599,11 +14240,10 @@
    "description": "Average quality apothecary, selling natural herbs and remedies",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14691,11 +14331,10 @@
    "specificBuildingType": "roofer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14714,11 +14353,10 @@
    "description": "Average quality alchemist, selling magical potions",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14772,11 +14410,10 @@
    "description": "A notary, with average quality services.",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14787,11 +14424,10 @@
    "specificBuildingType": "plasterer",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14810,11 +14446,10 @@
    "description": "Average quality painter",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14881,11 +14516,10 @@
    "specificBuildingType": "builder",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -14959,11 +14593,10 @@
    "specificBuildingType": "pastry shop",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15016,11 +14649,10 @@
    "specificBuildingType": "locksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15164,11 +14796,10 @@
    "specificBuildingType": "builder",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15179,8 +14810,8 @@
    "specificBuildingType": "gambling den",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15332,11 +14963,10 @@
    "description": "Average quality carder of fibres",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15444,11 +15074,10 @@
    "description": "Good quality blacksmith",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15506,11 +15135,10 @@
    "description": "Poor quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15544,8 +15172,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15571,8 +15199,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15605,11 +15233,10 @@
    "description": "Poor quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15625,11 +15252,6 @@
    "name": "The Monastery and Warhorse",
    "buildingType": "INN",
    "specificBuildingType": "caravanserai",
-   "openingTimes": {
-    "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
-   },
    "notes": "Converted by settlement profile from medium inn. Settlement profile: alcohol kept; stocks trade goods."
   },
   {
@@ -15639,8 +15261,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15693,8 +15315,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15756,11 +15378,10 @@
    "description": "Poor quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15771,8 +15392,8 @@
    "specificBuildingType": "gambling den",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15805,8 +15426,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15847,8 +15468,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15857,11 +15478,6 @@
    "name": "The Stylish Boar",
    "buildingType": "INN",
    "specificBuildingType": "caravanserai",
-   "openingTimes": {
-    "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
-   },
    "notes": "Converted by settlement profile from large inn. Settlement profile: alcohol kept; stocks trade goods."
   },
   {
@@ -15878,8 +15494,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15904,8 +15520,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -15938,11 +15554,10 @@
    "description": "Poor quality tanner",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -15962,11 +15577,10 @@
    "description": "Poor quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -16029,8 +15643,8 @@
    "specificBuildingType": "gambling den",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -16056,8 +15670,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -16076,8 +15690,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -16088,8 +15702,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -16137,8 +15751,8 @@
    "specificBuildingType": "tavern",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -16186,11 +15800,10 @@
    "description": "Poor quality mill for grinding grain",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -16208,8 +15821,8 @@
    "specificBuildingType": "quiet bar",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -16227,8 +15840,8 @@
    "specificBuildingType": "tavern",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 15,
+    "closeHour": 21
    },
    "notes": "Settlement profile: alcohol kept; stocks trade goods."
   },
@@ -16260,8 +15873,8 @@
    "specificBuildingType": "brothel",
    "openingTimes": {
     "closedDays": [],
-    "openHour": 11,
-    "closeHour": 1
+    "openHour": 20,
+    "closeHour": 3
    },
    "notes": null
   },
@@ -16273,11 +15886,10 @@
    "description": "Poor fiddler",
    "openingTimes": {
     "closedDays": [
-     6,
-     7
+     5
     ],
-    "openHour": 9,
-    "closeHour": 17
+    "openHour": 7,
+    "closeHour": 18
    },
    "notes": null
   },
@@ -55031,7 +54643,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Porter",
    "placeOfWork": 583,
    "placeOfResidence": 23,
    "notes": "",
@@ -55265,7 +54877,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Porter",
    "placeOfWork": 583,
    "placeOfResidence": 23,
    "notes": "",
@@ -184085,7 +183697,7 @@
     "wisdom": 13,
     "charisma": 14
    },
-   "jobTitle": "Tavern Owner",
+   "jobTitle": "Caravanserai Warden",
    "placeOfWork": 8811,
    "placeOfResidence": 8810,
    "notes": "",
@@ -184177,7 +183789,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Stable-hand",
    "placeOfWork": 8811,
    "placeOfResidence": 8812,
    "notes": "",
@@ -184221,7 +183833,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Porter",
    "placeOfWork": 8811,
    "placeOfResidence": 8812,
    "notes": "",
@@ -184543,7 +184155,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Porter",
    "placeOfWork": 8811,
    "placeOfResidence": 8815,
    "notes": "",
@@ -202798,7 +202410,7 @@
     "wisdom": 13,
     "charisma": 14
    },
-   "jobTitle": "Tavern Owner",
+   "jobTitle": "Caravanserai Warden",
    "placeOfWork": 12425,
    "placeOfResidence": 10144,
    "notes": "",
@@ -216246,7 +215858,7 @@
     "wisdom": 13,
     "charisma": 14
    },
-   "jobTitle": "Tavern Owner",
+   "jobTitle": "Caravanserai Warden",
    "placeOfWork": 12452,
    "placeOfResidence": 10197,
    "notes": "",
@@ -259600,7 +259212,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Porter",
    "placeOfWork": 12452,
    "placeOfResidence": 10799,
    "notes": "",
@@ -259783,7 +259395,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Porter",
    "placeOfWork": 12452,
    "placeOfResidence": 10799,
    "notes": "",
@@ -259833,7 +259445,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Stable-hand",
    "placeOfWork": 12452,
    "placeOfResidence": 10801,
    "notes": "",
@@ -285232,7 +284844,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Stable-hand",
    "placeOfWork": 12425,
    "placeOfResidence": 11099,
    "notes": "",
@@ -285279,7 +284891,7 @@
     "wisdom": 11,
     "charisma": 12
    },
-   "jobTitle": "Bartender",
+   "jobTitle": "Porter",
    "placeOfWork": 12425,
    "placeOfResidence": 11099,
    "notes": "",

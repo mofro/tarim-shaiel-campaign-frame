@@ -458,6 +458,8 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
                 note = f"{note} {profile['alcohol_note']}".strip()
             if note != (b.get("notes") or "").strip():
                 c["notes"] = note
+            if profile.get("medieval_hours"):
+                apply_hours(c, profile["hours"])
         new_names[bid] = c["name"]
         out_buildings.append(c)
 
@@ -470,8 +472,9 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
             if props["id"] in converted:
                 props["kind"] = converted[props["id"]]
 
+    retitled = retitle_people(profile, converted, out_people, ppins) if profile.get("medieval_hours") else set()
     problems = check_derived(people, out_people, buildings, out_buildings, ppins,
-                             ages_rescaled=bool(profile.get("rescale_ages")))
+                             ages_rescaled=bool(profile.get("rescale_ages")), retitled=retitled)
     report = make_report(profile, seed, out_people, out_buildings, areas, converted, namer, ppins, bpins, problems)
     report["factions"] = faction_report(factions, out_people, out_buildings, hh)
 
@@ -492,6 +495,32 @@ def _write_json(path: Path, obj) -> None:
 
 FROZEN_PERSON_FIELDS = ("id", "age", "gender", "jobTitle", "placeOfWork", "placeOfResidence",
                         "childInFamilies", "parentInFamilies")
+
+
+def apply_hours(b: dict, table: dict) -> None:
+    """Swap an FTG openingTimes for the template of the building's current type (see hours)."""
+    if not b.get("openingTimes"):
+        return
+    t = table["types"].get(b.get("specificBuildingType")) or table["categories"].get(b["buildingType"])
+    if not t:
+        return
+    if t.get("round_clock"):
+        del b["openingTimes"]
+    else:
+        b["openingTimes"] = {"closedDays": list(t["closed"]), "openHour": t["open"], "closeHour": t["close"]}
+
+
+def retitle_people(profile, converted, out_people, pinned) -> set:
+    """Give staff of converted buildings the job title that fits (profile `retitle`). Returns ids."""
+    changed = set()
+    for q in out_people:
+        rules = profile["retitle"].get(converted.get(q.get("placeOfWork")))
+        new = (rules or {}).get(q.get("jobTitle"))
+        if new is None or q["id"] in pinned:
+            continue
+        q["jobTitle"] = new[q["id"] % len(new)] if isinstance(new, list) else new
+        changed.add(q["id"])
+    return changed
 
 
 def rescale_ages(src_people, out_people, pinned) -> None:
@@ -544,14 +573,14 @@ def rescale_ages(src_people, out_people, pinned) -> None:
             break
 
 
-def check_derived(src_people, out_people, src_buildings, out_buildings, pinned, ages_rescaled=False) -> list:
+def check_derived(src_people, out_people, src_buildings, out_buildings, pinned, ages_rescaled=False, retitled=()) -> list:
     """What a draft must not change, and the family-name rule. Returns problem strings."""
     problems = []
     if len(src_people) != len(out_people) or len(src_buildings) != len(out_buildings):
         problems.append("headcount changed")
     for a, b in zip(src_people, out_people):
         for f in FROZEN_PERSON_FIELDS:
-            if f == "age" and ages_rescaled:
+            if (f == "age" and ages_rescaled) or (f == "jobTitle" and a["id"] in retitled):
                 continue
             if a.get(f) != b.get(f):
                 problems.append(f"person {a['id']}: {f} changed")

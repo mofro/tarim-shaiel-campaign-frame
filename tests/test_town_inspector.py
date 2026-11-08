@@ -276,3 +276,25 @@ def test_s5_family_links_are_symmetric(drafted):
 def test_s5_buildings_carry_hours_key(drafted):
     p = ti.payload("Testburg", drafted)
     assert all("hours" in b for b in p["buildings"].values())
+
+
+# -- hours (#406) -----------------------------------------------------------------------
+
+def test_khans_and_caravanserai_are_not_free_time_venues():
+    b = {1: {"specificBuildingType": "khan"}, 2: {"specificBuildingType": "caravanserai"},
+         3: {"specificBuildingType": "tavern", "openingTimes": {"closedDays": [], "openHour": 15, "closeHour": 21}},
+         9: {"specificBuildingType": "house"}}
+    people = [{"id": i, "placeOfResidence": 9} for i in range(60)]
+    snap = ts.snapshot(people, b, 2, 19)
+    assert not snap["count"].get(1) and not snap["count"].get(2) and snap["count"].get(3)
+
+
+def test_round_clock_inn_staff_rotate_over_the_watches_and_a_school_rests_on_its_closed_day():
+    inn = {"specificBuildingType": "small inn"}
+    staff = [{"id": i, "jobTitle": "Cook", "placeOfWork": 1} for i in range(30)]
+    assert {ts.shift_of(p, inn) for p in staff} == set(ts.GUARD_SHIFTS)
+    school = {"specificBuildingType": "school", "openingTimes": {"closedDays": [5], "openHour": 7, "closeHour": 14}}
+    kid = {"id": 1, "placeOfResidence": 9, "placeOfStudy": 4}
+    b = {4: school, 9: {"specificBuildingType": "house"}}
+    assert ts.where(kid, b, [], 4, 10) == (4, "studying")
+    assert ts.where(kid, b, [], 5, 10)[1] != "studying"

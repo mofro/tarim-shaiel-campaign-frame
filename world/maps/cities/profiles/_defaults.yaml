@@ -81,3 +81,42 @@ ancestry_names:
 
 informal_byname_share: 0.25
 informal_bynames: [the Tall, the Quiet, the Left-Handed, Half-Price, the Late, Three-Fingers, the Younger, the Elder]
+
+# Hours templates (#406). FTG gives every bar, shop and workshop the same modern week
+# (9 to 17 Monday to Friday, bars 11 to 01). A town with `medieval_hours: true` replaces the
+# openingTimes of every building that HAS them, by its current specific type, then its category.
+# open/close are hours (a close before the open wraps past midnight); `closed` lists days
+# (Monday is 1, Friday 5); `round_clock` drops the hours, so the house never shuts.
+# Buildings with no FTG hours (barracks, warehouses, khans) are left as they are.
+hours:
+  types:
+    tavern: {open: 15, close: 21, closed: []}
+    quiet bar: {open: 15, close: 21, closed: []}
+    upper class tavern: {open: 15, close: 21, closed: []}
+    raucous dive: {open: 16, close: 23, closed: []}
+    brothel: {open: 20, close: 3, closed: []}
+    casino: {open: 20, close: 3, closed: []}
+    gambling den: {open: 20, close: 3, closed: []}
+    secret society: {open: 20, close: 3, closed: []}
+    gang hangout: {open: 20, close: 3, closed: []}
+    bathhouse: {open: 7, close: 21, closed: []}
+    small inn: {round_clock: true}
+    medium inn: {round_clock: true}
+    large inn: {round_clock: true}
+    caravanserai: {round_clock: true}
+    market square: {open: 6, close: 15, closed: [1, 2, 3, 5, 6, 7]}
+    school: {open: 7, close: 14, closed: [5]}
+    temple: {open: 5, close: 21, closed: []}
+  categories:
+    SHOP: {open: 7, close: 18, closed: [5]}
+    ARTISAN: {open: 7, close: 18, closed: [5]}
+    INDUSTRIAL: {open: 7, close: 18, closed: [5]}
+    SERVICE: {open: 7, close: 18, closed: [5]}
+    FACTION: {open: 7, close: 18, closed: [5]}
+    LAW_ENFORCEMENT: {open: 7, close: 18, closed: [5]}
+
+# Job titles that stop fitting once a building converts (#406). A list is split by person id.
+retitle:
+  caravanserai:
+    Tavern Owner: Caravanserai Warden
+    Bartender: [Stable-hand, Porter]

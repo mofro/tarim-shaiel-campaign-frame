@@ -500,3 +500,46 @@ def test_s19_off_by_default_ages_are_untouched_and_on_the_draft_still_passes(vau
     path.write_text(path.read_text().replace("seed: 7\n", "seed: 7\nrescale_ages: true\n"))
     sp.draft("Testburg", vault)
     assert _out(vault)["people"]
+
+
+# -- S20: medieval hours and job titles for converted buildings (#406) ----------------------
+
+def _defaults():
+    import yaml
+    return yaml.safe_load((ROOT / "world" / "maps" / "cities" / "profiles" / "_defaults.yaml").read_text())
+
+
+def _hb(kind, special, hours=(9, 17), closed=(6, 7)):
+    return {"id": 1, "buildingType": kind, "specificBuildingType": special,
+            "openingTimes": {"closedDays": list(closed), "openHour": hours[0], "closeHour": hours[1]}}
+
+
+def test_s20_a_tavern_shuts_at_nine_and_a_shop_rests_on_friday():
+    table = _defaults()["hours"]
+    tavern, shop = _hb("TAVERN", "tavern", (11, 1), ()), _hb("SHOP", "grain shop")
+    sp.apply_hours(tavern, table)
+    sp.apply_hours(shop, table)
+    assert (tavern["openingTimes"]["openHour"], tavern["openingTimes"]["closeHour"]) == (15, 21)
+    assert shop["openingTimes"]["closedDays"] == [5] and shop["openingTimes"]["closeHour"] == 18
+
+
+def test_s20_an_inn_turned_caravanserai_never_shuts_and_a_house_with_no_hours_is_left_alone():
+    table = _defaults()["hours"]
+    inn = _hb("INN", "caravanserai", (11, 1), ())
+    sp.apply_hours(inn, table)
+    assert "openingTimes" not in inn
+    khan = {"id": 2, "buildingType": "WAREHOUSE", "specificBuildingType": "khan"}
+    sp.apply_hours(khan, table)
+    assert "openingTimes" not in khan
+
+
+def test_s20_caravanserai_staff_lose_the_bar_job_titles_and_pinned_people_keep_theirs():
+    profile = _defaults()
+    people = [{"id": 1, "placeOfWork": 5, "jobTitle": "Tavern Owner"},
+              {"id": 2, "placeOfWork": 5, "jobTitle": "Bartender"},
+              {"id": 3, "placeOfWork": 5, "jobTitle": "Cook"},
+              {"id": 4, "placeOfWork": 5, "jobTitle": "Bartender"},
+              {"id": 5, "placeOfWork": 6, "jobTitle": "Bartender"}]
+    changed = sp.retitle_people(profile, {5: "caravanserai"}, people, {4})
+    assert changed == {1, 2}
+    assert [p["jobTitle"] for p in people] == ["Caravanserai Warden", "Stable-hand", "Cook", "Bartender", "Bartender"]

@@ -13,7 +13,11 @@ import zlib
 
 NIGHT_JOBS = {"Bartender", "Server", "Prostitute"}
 NIGHT_TYPES = {"tavern", "inn", "brothel", "bar"}
-SOCIAL_TYPES = {"tavern", "inn", "bar", "khan", "caravanserai"}
+# Where locals spend free evenings. A khan is a freight yard and a caravanserai houses travellers, so both are left out (#406).
+SOCIAL_TYPES = {"tavern", "inn", "bar", "quiet bar", "upper class tavern", "raucous dive",
+                "small inn", "medium inn", "large inn"}
+# Houses that never shut have no openingTimes; their staff rotate over the three watches (#406).
+ROUND_CLOCK_TYPES = {"small inn", "medium inn", "large inn", "inn", "caravanserai"}
 SLEEP_FROM, SLEEP_TO = 22, 6
 DEFAULT_SHIFT = (8, 17)
 NIGHT_SHIFT = (17, 2)
@@ -44,7 +48,7 @@ def shift_of(person: dict, work: dict | None) -> tuple[int, int]:
     if t:
         return t["openHour"], t["closeHour"]
     job = person.get("jobTitle")
-    if job == "Guard":
+    if job == "Guard" or (work or {}).get("specificBuildingType") in ROUND_CLOCK_TYPES:
         return GUARD_SHIFTS[_h(person["id"], "shift") % 3]
     if job in NIGHT_JOBS or (work or {}).get("specificBuildingType") in NIGHT_TYPES:
         return NIGHT_SHIFT
@@ -54,8 +58,12 @@ def shift_of(person: dict, work: dict | None) -> tuple[int, int]:
 def where(person: dict, buildings: dict, social: list[int], day: int, hour: int) -> tuple[int | None, str]:
     """(building id or None for out in the streets, reason)."""
     home, work, study = person.get("placeOfResidence"), person.get("placeOfWork"), person.get("placeOfStudy")
-    if study is not None and day <= 5 and in_span(hour, *SCHOOL):
-        return study, "studying"
+    if study is not None and day <= 5:
+        sb = buildings.get(study)
+        t = (sb or {}).get("openingTimes")
+        # the school keeps its own week when it has one (a Friday rest day, #406)
+        if (is_open(sb, day, hour) if t else in_span(hour, *SCHOOL)):
+            return study, "studying"
     if work is not None:
         wb = buildings.get(work)
         start, end = shift_of(person, wb)

@@ -3,6 +3,7 @@ town: Qarshi
 region: central-asian-hubs
 seed: 1
 locked: true
+medieval_hours: true
 conversion_dial: 1
 rescale_ages: true
 
