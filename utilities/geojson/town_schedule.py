@@ -23,6 +23,10 @@ DEFAULT_SHIFT = (8, 17)
 NIGHT_SHIFT = (17, 2)
 GUARD_SHIFTS = [(6, 14), (14, 22), (22, 6)]
 SCHOOL = (8, 15)
+ADULT = 16
+# Most a house holds of an evening's drinkers; the rest stay in (#406). Types not listed are uncapped.
+EVENING_CAP = {"tavern": 70, "upper class tavern": 60, "quiet bar": 45, "raucous dive": 90,
+               "bar": 60, "small inn": 45, "medium inn": 70, "large inn": 110, "inn": 60}
 
 
 def _h(*parts) -> int:
@@ -55,7 +59,7 @@ def shift_of(person: dict, work: dict | None) -> tuple[int, int]:
     return DEFAULT_SHIFT
 
 
-def where(person: dict, buildings: dict, social: list[int], day: int, hour: int) -> tuple[int | None, str]:
+def where(person: dict, buildings: dict, social: list[int], day: int, hour: int, friends: dict | None = None) -> tuple[int | None, str]:
     """(building id or None for out in the streets, reason)."""
     home, work, study = person.get("placeOfResidence"), person.get("placeOfWork"), person.get("placeOfStudy")
     if study is not None and day <= 5:
@@ -74,20 +78,47 @@ def where(person: dict, buildings: dict, social: list[int], day: int, hour: int)
             return work, "working"
     if in_span(hour, SLEEP_FROM, SLEEP_TO):
         return home, "asleep"
-    if 18 <= hour < SLEEP_FROM and social and _h(person["id"], day, hour // 2) % 3 == 0:
-        open_social = [b for b in social if is_open(buildings[b], day, hour)]
-        if open_social:
-            return open_social[_h(person["id"], day, "where") % len(open_social)], "free time"
+    if 18 <= hour < SLEEP_FROM and (person.get("age") or 99) >= ADULT:
+        # an evening out is a sixth of the town at a house of drink; as many call on a friend or
+        # walk the streets, and the rest stay in (#406)
+        roll = _h(person["id"], day, hour // 2) % 6
+        if roll == 0 and social:
+            open_social = [b for b in social if is_open(buildings[b], day, hour)]
+            if open_social:
+                return open_social[_h(person["id"], day, "where") % len(open_social)], "free time"
+        homes = [h for h in (friends or {}).get(person["id"], []) if h != home]
+        if roll == 1 and homes:
+            return homes[_h(person["id"], day, "friend") % len(homes)], "visiting friends"
+        if roll == 2:
+            return None, "out walking"
     return home, "at home"
 
 
 def snapshot(people: list[dict], buildings: dict, day: int, hour: int) -> dict:
     """{"where": {pid: [building id or None, reason]}, "count": {building id: n}}."""
     social = sorted(b for b, v in buildings.items() if v.get("specificBuildingType") in SOCIAL_TYPES)
+    # friends are the people one works with; their homes are where one calls
+    homes: dict = {}
+    for p in people:
+        if p.get("placeOfWork") is not None and p.get("placeOfResidence") is not None:
+            homes.setdefault(p["placeOfWork"], []).append(p["placeOfResidence"])
+    friends = {p["id"]: sorted(set(homes.get(p["placeOfWork"], []))) for p in people if p.get("placeOfWork") is not None}
+    home_of = {p["id"]: p.get("placeOfResidence") for p in people}
     placed, count = {}, {}
     for p in people:
-        b, why = where(p, buildings, social, day, hour)
+        b, why = where(p, buildings, social, day, hour, friends)
         placed[p["id"]] = [b, why]
+    # a house at its cap turns the last to arrive away, by a fixed order so the day is repeatable
+    by_venue: dict = {}
+    for pid, (b, why) in placed.items():
+        if why == "free time":
+            by_venue.setdefault(b, []).append(pid)
+    for b, ids in by_venue.items():
+        cap = EVENING_CAP.get(buildings[b].get("specificBuildingType"))
+        if cap is not None and len(ids) > cap:
+            for pid in sorted(ids, key=lambda i: _h(i, day, hour, "cap"))[cap:]:
+                placed[pid] = [home_of[pid], "at home"]
+    for b, _ in placed.values():
         if b is not None:
             count[b] = count.get(b, 0) + 1
     return {"day": day, "hour": hour, "where": placed, "count": count}

@@ -298,3 +298,34 @@ def test_round_clock_inn_staff_rotate_over_the_watches_and_a_school_rests_on_its
     b = {4: school, 9: {"specificBuildingType": "house"}}
     assert ts.where(kid, b, [], 4, 10) == (4, "studying")
     assert ts.where(kid, b, [], 5, 10)[1] != "studying"
+
+
+# -- evenings out (#406) ----------------------------------------------------------------
+
+def _evening_town(n=600):
+    b = {1: {"specificBuildingType": "house"}, 2: {"specificBuildingType": "house"},
+         3: {"specificBuildingType": "tavern", "openingTimes": {"closedDays": [], "openHour": 15, "closeHour": 21}}}
+    people = [{"id": i, "age": 30, "placeOfResidence": 1 + i % 2, "placeOfWork": 7} for i in range(n)]
+    return b, people
+
+
+def test_evening_splits_between_drink_friends_streets_and_home():
+    b, people = _evening_town()
+    why = [w[1] for w in ts.snapshot(people, b, 2, 19)["where"].values()]
+    for reason in ("free time", "visiting friends", "out walking", "at home"):
+        assert why.count(reason) > 30, reason
+
+
+def test_children_stay_in_of_an_evening():
+    b, people = _evening_town()
+    for p in people:
+        p["age"] = 9
+    why = {w[1] for w in ts.snapshot(people, b, 2, 19)["where"].values()}
+    assert why == {"at home"}
+
+
+def test_a_tavern_turns_away_drinkers_past_its_evening_cap():
+    b, people = _evening_town(6000)
+    snap = ts.snapshot(people, b, 2, 19)
+    assert snap["count"][3] <= ts.EVENING_CAP["tavern"]
+    assert sum(1 for w in snap["where"].values() if w[1] == "free time") == snap["count"][3]
