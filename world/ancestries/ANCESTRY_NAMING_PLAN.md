@@ -55,13 +55,13 @@ last_updated: 2026-04-14
 | Humans (Tang/Chang'an) | *Xianren* | Chinese: "Celestial immortals." A genuine honorific with real awe in it. |
 | Naga-Kin | *Akashavar* | Sanskrit *ākāśa* (sky/ether) + *-var*: "Sky-dwellers." Places Elves within Naga cosmological framework. |
 
-**Orc Regional Nicknames**
+**Orc (Tulpar) Regional Nicknames**
 
-| Who | Name | Register / Meaning |
-|---|---|---|
+| Who                | Name     | Register / Meaning                                                                                                                                                   |
+| ------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Dwarves (*Kuhban*) | *Baatyr* | Turkic/Mongolian: "hero/warrior of the people." What the Kuhban call the Tulpar — pragmatic respect that acknowledges the martial history without flinching from it. |
 
-#### ORCS
+#### ORCS (Tulpar)
 
 | Layer | Name | Notes |
 |---|---|---|
