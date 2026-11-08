@@ -7,23 +7,23 @@ doc_type: canon
 content_type: poi
 visibility: gm_secrets
 cultural_composition:
-- Diverse Heroic Exiles
-- Transitional Community
-- Collective Survival Unit
+  - Diverse Heroic Exiles
+  - Transitional Community
+  - Collective Survival Unit
 current_narrative_segment:
   key_characters: TBD
   location: Approaching Kashkar Desert
   primary_challenge: Survival and Group Cohesion
 etymology:
   meaning:
-  - Wandering Council
-  - Mobile Governance
+    - Wandering Council
+    - Mobile Governance
   root: Cosmopolitan Blended
 geo:
   path_segments:
-  - start: TBD
-  - current: Approaching Kashkar
-  - planned_destination: Uncertain
+    - start: TBD
+    - current: Approaching Kashkar
+    - planned_destination: Uncertain
   tracking_method: Narrative Progression
   type: Transient Path
 governance:
@@ -33,21 +33,21 @@ last_updated: 2026-10-26
 maintained_by: Lore Keeper
 name: Dun-Kharan
 narrative_role:
-- Primary Character Aggregation Point
-- Collective Journey Mechanism
-- Transitional Narrative Vector
+  - Primary Character Aggregation Point
+  - Collective Journey Mechanism
+  - Transitional Narrative Vector
 operational_mode:
-- Constant Movement
-- Collective Decision-Making
-- Adaptive Survival Strategy
+  - Constant Movement
+  - Collective Decision-Making
+  - Adaptive Survival Strategy
 status: Active
 subtype: Narrative Caravan
 tags:
-- mobile_community
-- heroic_transit
-- collective_narrative
-type: Mobile Entity
-version: 1.0
+  - mobile_community
+  - heroic_transit
+  - collective_narrative
+type: mythic-landscape
+version: 1
 map_min_zoom: 6
 map_max_zoom: 7
 ---

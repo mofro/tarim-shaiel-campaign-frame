@@ -9,7 +9,7 @@ visibility: public
 status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
-last_updated: 2026-10-26
+last_updated: 2026-11-07
 location:
 - 38.864766
 - 65.816615
@@ -21,6 +21,7 @@ tags:
 - placeholder
 - type-city
 type: city
+town_rotation: -37
 ---
 
 ```leaflet
