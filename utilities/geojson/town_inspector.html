@@ -40,6 +40,10 @@ summary { cursor: pointer; }
 .kv button, .stats ~ p button { all: unset; cursor: pointer; color: var(--gold); text-decoration: underline; }
 label { font-size: var(--t-1); color: var(--dim); }
 input[type=search] { background: var(--bg); color: var(--ink); border: 1px solid var(--line); padding: .25rem .5rem; font: inherit; }
+#clock { position: absolute; left: .5rem; right: .5rem; bottom: .5rem; background: var(--panel); border: 1px solid var(--line); padding: .4rem .6rem; display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+#clock #hour { flex: 1 1 10rem; min-width: 8rem; }
+#clock select, #clock button { background: var(--bg); color: var(--ink); border: 1px solid var(--line); font: inherit; padding: .15rem .4rem; }
+#clock output { min-width: 3rem; color: var(--gold); }
 @media (max-width: 800px) { body { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr) 40vh; } header { grid-column: 1; } aside { border-left: 0; border-top: 1px solid var(--line); } }
 </style>
 </head>
@@ -49,7 +53,12 @@ input[type=search] { background: var(--bg); color: var(--ink); border: 1px solid
   <span class="banner">GM only. Served from localhost; never part of a player build.</span>
   <label>Find <input id="find" type="search" placeholder="building or person" aria-label="Find a building or person"></label>
 </header>
-<div id="wrap"><canvas id="map" aria-label="Town map; click a building"></canvas></div>
+<div id="wrap"><canvas id="map" aria-label="Town map; click a building"></canvas>
+  <div id="clock"><label>Time <input id="time-on" type="checkbox" aria-label="Show who is where at a time of day"></label>
+    <select id="day" aria-label="Day of week"><option value="1">Mon</option><option value="2">Tue</option><option value="3">Wed</option><option value="4">Thu</option><option value="5">Fri</option><option value="6">Sat</option><option value="7">Sun</option></select>
+    <input id="hour" type="range" min="0" max="23" value="12" aria-label="Hour of day"><output id="hourout">12:00</output>
+    <button id="play" type="button">Play</button>
+    <span class="empty">Derived guess from building hours, jobs and homes, not FTG's own schedule. Brighter is busier.</span></div></div>
 <aside id="side"><p class="empty">Click a building, or search by name.</p></aside>
 <script>
 const TOWN = location.pathname.split("/").filter(Boolean).pop();
@@ -85,10 +94,52 @@ function draw() {
   for (const p of polys) if (p.type === "EDGE") { path(p.ring, false); ctx.strokeStyle = ROAD[p.f.properties.edgeType] || "#6b5a3a"; ctx.stroke(); }
   for (const p of polys) if (p.type === "BUILDING") {
     const b = D.buildings[p.id]; path(p.ring, true);
-    ctx.fillStyle = b && b.seats.length ? "#3f8fa5" : COLOR.BUILDING; ctx.fill();
+    ctx.fillStyle = snap ? heat(p.id) : b && b.seats.length ? "#3f8fa5" : COLOR.BUILDING; ctx.fill();
     if (p.id === sel) { ctx.lineWidth = 3; ctx.strokeStyle = "#ff7a3d"; ctx.stroke(); ctx.lineWidth = 1.5; }
   }
 }
+// Time of day: who is where, derived server-side (town_schedule.py). Null when the clock is off.
+let snap = null, maxCount = 1, active = {}, tseq = 0, playTimer = null;
+const dayEl = document.getElementById("day"), hourEl = document.getElementById("hour"), onEl = document.getElementById("time-on");
+const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+function heat(id) {
+  // colour by people out and about there; residents asleep or at home do not light a closed building
+  const n = active[id] || 0, b = D.buildings[id];
+  if (!n) return b && b.hours && !isOpenNow(b) ? "#3a2f1d" : "#5b4d31";
+  const t = Math.sqrt(n / maxCount);
+  return `rgb(${Math.round(125 + 130 * t)},${Math.round(106 + 60 * t)},${Math.round(68 - 20 * t)})`;
+}
+function isOpenNow(b) {
+  const h = b.hours, d = snap.day, hr = snap.hour;
+  if (h.closedDays && h.closedDays.includes(d)) return false;
+  return h.openHour < h.closeHour ? hr >= h.openHour && hr < h.closeHour : hr >= h.openHour || hr < h.closeHour;
+}
+function refreshClock() {
+  document.getElementById("hourout").textContent = hour(hourEl.value);
+  if (!onEl.checked) { snap = null; draw(); if (cur) show(cur.kind, cur.id, false); return; }
+  const seq = ++tseq;
+  fetch(`/api/town/${encodeURIComponent(TOWN)}/at?day=${dayEl.value}&hour=${hourEl.value}`).then(r => r.json()).then(s => {
+    if (seq !== tseq) return;
+    snap = s; active = {};
+    for (const v of Object.values(s.where)) if (v[0] != null && v[1] !== "asleep" && v[1] !== "at home") active[v[0]] = (active[v[0]] || 0) + 1;
+    maxCount = Math.max(1, ...Object.values(active));
+    draw(); if (cur) { const keep = side.scrollTop; show(cur.kind, cur.id, false); side.scrollTop = keep; }
+  });
+}
+onEl.addEventListener("change", () => { if (!onEl.checked) stopPlay(); refreshClock(); });
+dayEl.addEventListener("change", () => { onEl.checked = true; refreshClock(); });
+hourEl.addEventListener("input", () => { onEl.checked = true; refreshClock(); });
+function stopPlay() { clearInterval(playTimer); playTimer = null; document.getElementById("play").textContent = "Play"; }
+document.getElementById("play").addEventListener("click", () => {
+  if (playTimer) return stopPlay();
+  onEl.checked = true; document.getElementById("play").textContent = "Pause";
+  playTimer = setInterval(() => {
+    let h = +hourEl.value + 1;
+    if (h > 23) { h = 0; dayEl.value = (+dayEl.value % 7) + 1; }
+    hourEl.value = h; refreshClock();
+  }, 700);
+});
+function nowAt(id) { return snap && snap.where[id] ? snap.where[id] : null; }
 function inside(ring, x, y) {
   let c = false;
   for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
@@ -146,6 +197,14 @@ function show(kind, id, push = true) {
 }
 function pick(id) { sel = id; draw(); if (D.buildings[id]) show("b", id); }
 function person(id) { const p = D.people[id]; show("p", id); if (p.work != null) { sel = p.work; draw(); } }
+function hereNow(id) {
+  if (!snap) return "";
+  const ids = Object.keys(snap.where).filter(p => snap.where[p][0] === id).map(Number);
+  const stamp = `${DAYS[snap.day - 1]} ${hour(snap.hour)}`;
+  const shown = ids.slice(0, 40).map(p => `<li>${link("person", p, D.people[p].name)} <span class="empty">${esc(snap.where[p][1])}</span></li>`).join("");
+  const open = D.buildings[id].hours ? (isOpenNow(D.buildings[id]) ? ", open" : ", closed") : "";
+  return `<h3>Here at ${stamp} (${ids.length}${open}; ${active[id] || 0} active, ${ids.length - (active[id] || 0)} asleep or at home)</h3>${ids.length ? `<ul>${shown}</ul>` : `<p class="empty">nobody</p>`}${ids.length > 40 ? `<p class="empty">and ${ids.length - 40} more</p>` : ""}`;
+}
 function buildingHtml(id) {
   const b = D.buildings[id], h = b.hours;
   return `<h2>${esc(b.name)}</h2>
@@ -154,6 +213,7 @@ function buildingHtml(id) {
     ${h ? row("Open", `${hour(h.openHour)} to ${hour(h.closeHour)}${h.closedDays?.length ? ", closed " + h.closedDays.join(", ") : ""}`) : ""}
     ${b.seats.length ? row("Seat of", b.seats.map(s => `<span class="chip">${esc(s)}</span>`).join(", ")) : ""}
     ${b.notes ? row("Notes", esc(b.notes)) : ""}</dl>
+    ${hereNow(id)}
     <h3>Works here (${b.works.length})</h3>${list(b.works)}
     <h3>Lives here (${b.lives.length})</h3>${list(b.lives)}
     <p class="empty">Interior rooms are not part of the FTG export, so who works where inside a building is not available here.</p>
@@ -170,7 +230,8 @@ function personHtml(id) {
     .map(([k, v]) => row(k, names(v))).join("");
   return `<h2>${esc(p.name)}</h2>
     <p class="sub">${esc(p.age)} year old ${esc(p.gender)} ${esc(p.race)} ${esc(job)}. Worships ${esc(p.religion || "nothing recorded")}.</p>
-    <dl class="kv">${row("Works at", place(p.work))}${row("Lives at", place(p.home))}${p.study != null ? row("Studies at", place(p.study)) : ""}
+    <dl class="kv">${nowAt(id) ? row("At " + DAYS[snap.day - 1] + " " + hour(snap.hour), `${nowAt(id)[0] == null ? "out in the streets" : place(nowAt(id)[0])} (${esc(nowAt(id)[1])})`) : ""}
+    ${row("Works at", place(p.work))}${row("Lives at", place(p.home))}${p.study != null ? row("Studies at", place(p.study)) : ""}
     ${p.trait ? row("Pastime", esc(p.trait)) : ""}${fac ? row("Factions", fac) : ""}</dl>
     <h3>Personality</h3><p>${esc(personality(p.core))}</p>
     <p class="empty">Derived from FTG's core values (0 to 3). FTG's own wording is not in the export.</p>

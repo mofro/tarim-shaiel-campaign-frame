@@ -16,6 +16,10 @@ try:
     from geojson import settlement_profiles as sp
 except ImportError:  # run with utilities/geojson itself on the path, as the tests do
     import settlement_profiles as sp
+try:
+    from geojson import town_schedule as ts
+except ImportError:
+    import town_schedule as ts
 
 PAGE_PATH = Path(__file__).with_name("town_inspector.html")
 TOWN_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_-]{0,40}$")
@@ -48,6 +52,14 @@ def load(town: str, root: Path = sp.VAULT_ROOT) -> dict:
                   "people": {p["id"]: p for p in src["people"]}}
     return {"town": town, "geojson": _read(gj_path), "buildings": gm["buildings"],
             "people": gm["people"], "factions": gm.get("factions", {}), "source": source}
+
+
+def at(town: str, day: int, hour: int, root: Path = sp.VAULT_ROOT) -> dict:
+    """Derived placement of everyone at a day (1 to 7) and hour (0 to 23); see town_schedule."""
+    if not (1 <= day <= 7 and 0 <= hour <= 23):
+        raise ValueError("day must be 1 to 7 and hour 0 to 23")
+    d = load(town, root)
+    return ts.snapshot(d["people"], {b["id"]: b for b in d["buildings"]}, day, hour)
 
 
 def payload(town: str, root: Path = sp.VAULT_ROOT) -> dict:

@@ -1035,3 +1035,13 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The seven region files are the set; `parent_region:` is assigned on every location except East China Sea (open water, deliberately none). Personal-name rules and the faith list stay `gm_secrets`. No Islam-analog faith; the scholars' network is the Anjoman-e Varaq (Society of the Leaf). Eastern Terminus has a controller section in the regional-factions document.
 - **Rationale:** Membership by explicit field, not coordinates, because the region boxes overlap and are rough; contested Passes/Basin cases were placed from what each page says. Rejected: nearest-centre assignment, which would misfile mountain places.
 - **Lock status:** Working decision, not locked beyond the 2026-11-06 region-set lock; the Eastern Terminus Chinese-derived name register and the Mountain Passes faith shares are judgments open to revision.
+
+## 2026-11-07 — Map: Qarshi settlement profile locked (#402, HeroHeaven-4xu)
+- **Decision:** Qarshi's derived files in `world/maps/cities/derived/` are the town; the profile is `locked: true` and a locked town refuses `draft`. Temples 3 and 14 map to F2 and F3, barracks 11 seat the Oxus Watch Order.
+- **Rationale:** Locking freezes a reviewed town against FTG re-exports. The faith and seat mappings are working choices, with the open ones written as cases in #406 rather than forced.
+- **Lock status:** Locked (PR 403, 82100c5); reversible with `locked: false`. Mosque, barracks, age and room rulings open until the GM answers #406.
+
+## 2026-11-07 — Map: town inspector occupancy is derived, not FTG's (#404, HeroHeaven-5ow)
+- **Decision:** The inspector's time-of-day view places people from building `openingTimes`, job defaults, homes and school, deterministically, and says in the UI that it is a guess.
+- **Rationale:** The FTG export carries no schedule, only opening times on 416 of 1830 Qarshi buildings. Presenting a derived placement as FTG's own would be false; the alternative of leaving the view out loses the GM's main request.
+- **Lock status:** Working decision, not locked; PR 405 awaits review.

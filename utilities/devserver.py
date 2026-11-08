@@ -245,7 +245,7 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
                 self.send_error(403, "Frontmatter is only accessible from localhost")
                 return
             self._get_frontmatter(re.match(r"^/api/locations/([^/?]+)/", self.path).group(1))
-        elif re.match(r"^/(?:api/)?town/[^/?]+(?:\?.*)?$", self.path):
+        elif re.match(r"^/(?:api/)?town/[^/?]+(?:/at)?(?:\?.*)?$", self.path):
             self._town_inspector(self.path.split("?")[0])
         elif self.path.startswith("/api/maptiler-proxy"):
             self._maptiler_proxy()
@@ -645,7 +645,15 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
             return
         api = route.startswith("/api/")
         try:
-            if api:
+            if api and route.endswith("/at"):
+                qs = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+                try:
+                    day, hour = int(qs["day"][0]), int(qs["hour"][0])
+                    body = json.dumps(town_inspector.at(route.split("/")[-2], day, hour)).encode()
+                except (KeyError, IndexError, ValueError):
+                    self.send_error(400, "day (1 to 7) and hour (0 to 23) are required")
+                    return
+            elif api:
                 body = json.dumps(town_inspector.payload(route.rsplit("/", 1)[1])).encode()
             else:
                 town_inspector.load(route.rsplit("/", 1)[1])  # 404 before serving the shell

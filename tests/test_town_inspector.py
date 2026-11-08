@@ -90,6 +90,8 @@ def served(drafted, monkeypatch):
     real_load, real_payload = ti.load, ti.payload
     monkeypatch.setattr(ti, "load", lambda t, root=drafted: real_load(t, root))
     monkeypatch.setattr(ti, "payload", lambda t, root=drafted: real_payload(t, root))
+    real_at = ti.at
+    monkeypatch.setattr(ti, "at", lambda t, d, h, root=drafted: real_at(t, d, h, root))
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), devserver._Handler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
@@ -113,6 +115,8 @@ class _Remote(devserver._Handler):
 def served_remote(drafted, monkeypatch):
     real_load = ti.load
     monkeypatch.setattr(ti, "load", lambda t, root=drafted: real_load(t, root))
+    real_at = ti.at
+    monkeypatch.setattr(ti, "at", lambda t, d, h, root=drafted: real_at(t, d, h, root))
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), _Remote)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
@@ -169,6 +173,74 @@ def test_s4_serving_writes_nothing_and_docs_gets_no_town_data(drafted, served):
 def test_s4_the_page_never_names_gm_data_in_itself():
     page = ti.PAGE_PATH.read_text(encoding="utf-8")
     assert "Chain-Breakers" not in page and "secret-cell" not in page
+
+
+# -- S6: time of day (derived placement) ----------------------------------------------------
+
+import town_schedule as ts  # noqa: E402
+
+BLDGS = {
+    1: {"id": 1, "specificBuildingType": "middle class home"},
+    2: {"id": 2, "specificBuildingType": "tanner",
+        "openingTimes": {"openHour": 9, "closeHour": 17, "closedDays": [6, 7]}},
+    3: {"id": 3, "specificBuildingType": "tavern", "openingTimes": {"openHour": 11, "closeHour": 1, "closedDays": []}},
+    4: {"id": 4, "specificBuildingType": "school"},
+}
+
+
+def _p(**kw):
+    return {"id": 1, "placeOfResidence": 1, **kw}
+
+
+def test_s6_spans_wrap_past_midnight():
+    assert ts.in_span(23, 22, 6) and ts.in_span(3, 22, 6) and not ts.in_span(12, 22, 6)
+    assert ts.in_span(10, 9, 17) and not ts.in_span(17, 9, 17)
+
+
+def test_s6_worker_follows_building_hours_and_rests_on_closed_days():
+    p = _p(placeOfWork=2)
+    assert ts.where(p, BLDGS, [], 2, 10) == (2, "working")
+    assert ts.where(p, BLDGS, [], 2, 3) == (1, "asleep")
+    assert ts.where(p, BLDGS, [], 6, 10)[0] == 1  # Saturday: closed
+
+
+def test_s6_night_shift_belongs_to_the_day_it_started():
+    p = _p(placeOfWork=3)
+    assert ts.where(p, BLDGS, [], 5, 23) == (3, "working")
+    assert ts.where(p, BLDGS, [], 6, 0) == (3, "working")
+
+
+def test_s6_students_attend_on_weekdays_only():
+    p = _p(placeOfStudy=4)
+    assert ts.where(p, BLDGS, [], 3, 10) == (4, "studying")
+    assert ts.where(p, BLDGS, [], 6, 10)[0] == 1
+
+
+def test_s6_snapshot_is_deterministic_and_counts_match():
+    people = [_p(id=i, placeOfWork=2 if i % 2 else None) for i in range(1, 21)]
+    a = ts.snapshot(people, BLDGS, 3, 10)
+    assert a == ts.snapshot(people, BLDGS, 3, 10)
+    assert sum(a["count"].values()) == sum(1 for v in a["where"].values() if v[0] is not None)
+    assert a["count"][2] == 10
+
+
+def test_s6_at_covers_everyone_and_rejects_bad_times(drafted):
+    s = ti.at("Testburg", 3, 10, drafted)
+    assert len(s["where"]) == 8
+    for bad in [(0, 5), (8, 5), (1, -1), (1, 24)]:
+        with pytest.raises(ValueError):
+            ti.at("Testburg", *bad, drafted)
+
+
+def test_s6_route_returns_snapshot_and_refuses_bad_or_remote(served, served_remote):
+    status, headers, body = _get(served + "/api/town/Testburg/at?day=3&hour=10")
+    assert status == 200 and headers["Cache-Control"] == "no-store"
+    assert headers.get("Access-Control-Allow-Origin") is None
+    assert json.loads(body)["hour"] == 10
+    assert _get(served + "/api/town/Testburg/at?day=9&hour=10")[0] == 400
+    assert _get(served + "/api/town/Testburg/at")[0] == 400
+    assert _get(served + "/api/town/Nowhere/at?day=1&hour=1")[0] == 404
+    assert _get(served_remote + "/api/town/Testburg/at?day=3&hour=10")[0] == 403
 
 
 # -- S5: what the panels show (#399 review) -------------------------------------------------
