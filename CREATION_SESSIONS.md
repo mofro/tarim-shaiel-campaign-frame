@@ -16,6 +16,13 @@ _Append new sessions here at session close. Do NOT append to TODO.md — that fi
 
 ---
 
+### Session 2026-11-07 (Qarshi lock, inspector time of day and roster: #402, #404, #407)
+- [HeroHeaven-4xu / #402] Map: Qarshi locked and merged (PR 403, 82100c5).
+- [HeroHeaven-5ow / #404] Town inspector time-of-day scrubber, derived placement, PR 405 (awaiting review).
+- [HeroHeaven-lvs / #407] Town inspector roster with filters, PR 408, stacked on 405 (awaiting review).
+- [HeroHeaven-bup / #406] Five Qarshi rulings written as cases (faction seats, mosque faiths, barracks, ages, rooms); open for the GM.
+  - Open: Rolmtown has no FTG `.geojson` export and its image is used by two locations (nur-ata, rabati-malik), so which town it is needs the GM; Dehdadi draft is uncommitted and awaits review.
+
 ### Session 2026-11-07 (Regions, name rules, faith list: #384)
 - [HeroHeaven-oid.1 / #384] World: seven-region set finished and closed. Personal-name rules and the faith list (both `gm_secrets`) revised; Eastern Terminus controller section added; Anjoman-e Varaq replaces the "Islamic Scholarly Network"; `parent_region:` now on every location except East China Sea; `WORLD_REGIONS_AND_LOCATIONS.md` carries per-region counts.
   - Found: the "missing pins" in the Workshop were the Player's-eye preview toggle being on (not persisted); not traced why it loaded on.
