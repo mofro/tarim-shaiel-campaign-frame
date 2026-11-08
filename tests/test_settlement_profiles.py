@@ -386,6 +386,8 @@ def test_s13_real_qarshi_is_deterministic_and_the_source_untouched(tmp_path):
     shutil.copytree(ROOT / "world" / "factions", tmp_path / "world" / "factions")
     for ext in ("json", "geojson"):
         shutil.copy(ROOT / "world" / "maps" / "cities" / f"Qarshi.{ext}", cdir)
+    prof = cdir / "profiles" / "Qarshi.yaml"
+    prof.write_text(prof.read_text().replace("locked: true", "locked: false"))
     digest = sp.source_digest("Qarshi", tmp_path)
     report = sp.draft("Qarshi", tmp_path)
     first = _derived_bytes_for(tmp_path)

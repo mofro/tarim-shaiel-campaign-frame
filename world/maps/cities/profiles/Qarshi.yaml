@@ -2,7 +2,7 @@
 town: Qarshi
 region: central-asian-hubs
 seed: 1
-locked: false
+locked: true
 conversion_dial: 1
 
 # FTG building ids -> faith code. Temple staff and attendees (placeOfWork) take it.

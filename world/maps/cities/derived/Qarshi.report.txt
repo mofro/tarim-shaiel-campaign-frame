@@ -1,0 +1,79 @@
+Settlement draft: Qarshi (seed 1)
+6274 people, 1830 buildings, 2195 surname mappings
+
+Ancestry
+  Div-Born: 84
+  Gavar: 179
+  Human: 3675
+  Kalan: 40
+  Khavar: 11
+  Kuhban: 628
+  Pari-Kin: 289
+  Rahban: 386
+  Serenvar: 7
+  Tadbir: 29
+  Tulpar: 901
+  Vaghri: 45
+
+Religion
+  Lapsed: 491
+  Non-religious: 630
+  The Caves: 249
+  The Fire: 1050
+  The Forge-Record: 390
+  The Hearth Layer: 822
+  The Lamp: 2433
+  The Ledger: 209
+
+Conversions (42)
+  583 The Grain and Throne (862 m2) -> caravanserai
+  7016 Lake Supplies (1600 m2) -> khan
+  7018 Daughter Store (926 m2) -> khan
+  7026 Mason Depot (1245 m2) -> khan
+  7027 Acolyte Supplies (1224 m2) -> khan
+  7030 Assassin Store (1245 m2) -> khan
+  7031 Goat Supplies (1373 m2) -> khan
+  7032 Magistrate Supplies (1600 m2) -> khan
+  7034 Horseman Store (1470 m2) -> khan
+  7036 Halfling Store (962 m2) -> khan
+  7037 Wind Store (891 m2) -> khan
+  7038 Oak Storage (1205 m2) -> khan
+  7039 Unicorn Store (1224 m2) -> khan
+  7040 Starling Depot (1244 m2) -> khan
+  8767 Arrow Supplies (604 m2) -> khan
+  8807 Falcon Supplies (800 m2) -> khan
+  8811 The Cobbler's Lover (636 m2) -> caravanserai
+  8829 Life Depot (717 m2) -> khan
+  8884 Crow Storage (662 m2) -> khan
+  9808 Bone Depot (618 m2) -> khan
+  9813 Fire Store (800 m2) -> khan
+  9814 Bone Supplies (663 m2) -> khan
+  9816 Eagle Store (800 m2) -> khan
+  9821 Mother Store (800 m2) -> khan
+  9823 Paladin Supplies (800 m2) -> khan
+  9828 Hound Depot (800 m2) -> khan
+  9831 Demon Depot (800 m2) -> khan
+  9836 Elk Depot (647 m2) -> khan
+  9838 Gnome Supplies (800 m2) -> khan
+  9843 Pantry Supplies (800 m2) -> khan
+  9847 Rooster Store (800 m2) -> khan
+  12414 Bandit Storage (631 m2) -> khan
+  12418 Unicorn Storage (907 m2) -> khan
+  12425 The Monastery and Warhorse (873 m2) -> caravanserai
+  12445 Chalice Storage (892 m2) -> khan
+  12447 Panther Store (1049 m2) -> khan
+  12452 The Stylish Boar (531 m2) -> caravanserai
+  12466 Snake Depot (1053 m2) -> khan
+  12470 Lizard Depot (1032 m2) -> khan
+  12475 Scabbard Storage (705 m2) -> khan
+  12481 Scabbard Supplies (802 m2) -> khan
+  12488 Mind Supplies (1038 m2) -> khan
+
+Pinned people: none
+Pinned buildings: none
+
+Faction oxus-watch-order: 122 members
+  seats: 256 Barracks, 257 Barracks, 940 Barracks, 8734 Barracks, 8743 Barracks, 8751 Barracks, 8783 Barracks, 8817 Barracks, 8854 Barracks, 11145 Barracks, 11151 Barracks
+  e.g. 51 Karaz Black-Felt, Settlement guardsman, works at Barracks, lives at The Red-Tooth Residence (household 51)
+  e.g. 278 Zal Parvizzadeh, Settlement guardsman, works at Barracks, lives at The Pristine Flats (household 41)
+  e.g. 285 Gurzak Red-Tooth, Settlement guardsman, works at Barracks, lives at The Red-Tooth Residence (household 51)
