@@ -42,7 +42,7 @@ label { font-size: var(--t-1); color: var(--dim); }
 input[type=search] { background: var(--bg); color: var(--ink); border: 1px solid var(--line); padding: .25rem .5rem; font: inherit; }
 #clock { position: absolute; left: .5rem; right: .5rem; bottom: .5rem; background: var(--panel); border: 1px solid var(--line); padding: .4rem .6rem; display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
 #clock #hour { flex: 1 1 10rem; min-width: 8rem; }
-#roster-btn, aside select { background: var(--bg); color: var(--ink); border: 1px solid var(--line); font: inherit; padding: .15rem .4rem; cursor: pointer; }
+#roster-btn, aside select, header select { max-width: 14rem; background: var(--bg); color: var(--ink); border: 1px solid var(--line); font: inherit; padding: .15rem .4rem; cursor: pointer; }
 aside select, aside input[type=search] { width: 100%; margin: 0 0 .5rem; }
 aside label { display: block; }
 #clock select, #clock button { background: var(--bg); color: var(--ink); border: 1px solid var(--line); font: inherit; padding: .15rem .4rem; }
@@ -55,6 +55,7 @@ aside label { display: block; }
   <h1 id="title">Town Inspector</h1>
   <span class="banner">GM only. Served from localhost; never part of a player build.</span>
   <label>Find <input id="find" type="search" placeholder="building or person" aria-label="Find a building or person"></label>
+  <label>Type <select id="btype" aria-label="Show every building of one type"><option value="">any building</option></select></label>
   <button id="roster-btn" type="button">Roster</button>
 </header>
 <div id="wrap"><canvas id="map" aria-label="Town map; click a building"></canvas>
@@ -72,7 +73,7 @@ const COLOR = {BACKGROUND: "#2b2113", WATER: "#2c4a63", BUILDING: "#7d6a44"};
 const ROAD = {MAIN_ROAD: "#b59a62"};
 
 fetch("/api/town/" + encodeURIComponent(TOWN)).then(r => r.ok ? r.json() : Promise.reject(r.status))
-  .then(d => { D = d; document.getElementById("title").textContent = d.town + " inspector"; build(); fit(); draw(); })
+  .then(d => { D = d; document.getElementById("title").textContent = d.town + " inspector"; build(); fillTypes(); fit(); draw(); })
   .catch(e => { document.getElementById("side").textContent = "Could not load " + TOWN + " (" + e + "). Run the draft first."; });
 
 function build() {
@@ -197,8 +198,8 @@ const row = (k, v) => v == null || v === "" ? "" : `<dt>${k}</dt><dd>${v}</dd>`;
 function show(kind, id, push = true) {
   if (push && cur) hist.push(cur); cur = {kind, id};
   const back = hist.length ? `<button class="back" data-back="1">&larr; Back</button>` : "";
-  side.innerHTML = back + (kind === "b" ? buildingHtml(id) : kind === "r" ? rosterHtml() : personHtml(id));
-  if (kind === "r") updateRoster(); else if (hl.size) { hl = new Set(); draw(); }
+  side.innerHTML = back + (kind === "b" ? buildingHtml(id) : kind === "r" ? rosterHtml() : kind === "t" ? typeHtml(id) : personHtml(id));
+  if (kind === "r") updateRoster(); else if (kind === "t") { sel = null; hl = new Set(typeIds(id)); draw(); } else if (hl.size) { hl = new Set(); draw(); }
   side.scrollTop = 0;
 }
 // Roster: filter everyone by race, faith, job, faction or where they work. Matches' workplaces are outlined on the map.
@@ -238,6 +239,26 @@ function updateRoster() {
   box.innerHTML = `<h3>${m.length} ${m.length === 1 ? "person" : "people"}</h3><ul>${m.slice(0, ROSTER_MAX).map(p => personRow(p.id)).join("")}</ul>${
     m.length > ROSTER_MAX ? `<p class="empty">and ${m.length - ROSTER_MAX} more; narrow the filters.</p>` : ""}`;
 }
+// Building type picker: outline every building of one specificBuildingType and list them.
+const btypeEl = document.getElementById("btype");
+const typeIds = t => Object.values(D.buildings).filter(b => b.specificBuildingType === t).map(b => b.id);
+function fillTypes() {
+  const n = new Map();
+  for (const b of Object.values(D.buildings)) if (b.specificBuildingType) n.set(b.specificBuildingType, (n.get(b.specificBuildingType) || 0) + 1);
+  btypeEl.innerHTML = `<option value="">any building (${n.size} types)</option>` + [...n].sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([t, c]) => `<option value="${esc(t)}">${esc(t)} (${c})</option>`).join("");
+}
+function typeHtml(t) {
+  const ids = typeIds(t).sort((a, b) => D.buildings[a].name.localeCompare(D.buildings[b].name));
+  const li = id => { const b = D.buildings[id]; return `<li>${link("b", id, b.name)} <span class="empty">${b.works.length} work, ${b.lives.length} live${b.seats.length ? ", seat" : ""}</span></li>`; };
+  return `<h2>${esc(t)}</h2><p class="sub">${ids.length} ${ids.length === 1 ? "building" : "buildings"}, outlined on the map.</p>
+    <ul>${ids.slice(0, ROSTER_MAX).map(li).join("")}</ul>${ids.length > ROSTER_MAX ? `<p class="empty">and ${ids.length - ROSTER_MAX} more.</p>` : ""}`;
+}
+btypeEl.addEventListener("change", () => {
+  if (!D) return;
+  if (btypeEl.value) show("t", btypeEl.value);
+  else { hl = new Set(); draw(); side.innerHTML = `<p class="empty">Click a building, search by name, or open the Roster to filter everyone.</p>`; cur = null; }
+});
 function openRoster() { sel = null; show("r", 0); }
 document.getElementById("roster-btn").addEventListener("click", () => D && openRoster());
 side.addEventListener("input", e => { const k = e.target.dataset.rf; if (k != null) { rf[k] = e.target.value; updateRoster(); } });
