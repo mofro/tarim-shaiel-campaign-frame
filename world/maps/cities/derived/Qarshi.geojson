@@ -513,7 +513,7 @@
    "properties": {
     "id": 13,
     "type": "BUILDING",
-    "name": "The Farrokhian School",
+    "name": "The Bayat School",
     "buildingType": "EDUCATIONAL",
     "material": "WOOD"
    }
@@ -1876,7 +1876,7 @@
    "properties": {
     "id": 48,
     "type": "BUILDING",
-    "name": "The Shahinzoda Leather Works",
+    "name": "The Durman Leather Works",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -1913,7 +1913,7 @@
    "properties": {
     "id": 49,
     "type": "BUILDING",
-    "name": "The Nasafi Stock",
+    "name": "The Alchizoda Stock",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -2743,7 +2743,7 @@
    "properties": {
     "id": 71,
     "type": "BUILDING",
-    "name": "The Tirmizi Bookbinder",
+    "name": "The Tirdadzadeh Bookbinder",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -2780,7 +2780,7 @@
    "properties": {
     "id": 72,
     "type": "BUILDING",
-    "name": "The Merwi Locksmith",
+    "name": "The Varzakkzadeh Locksmith",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -2973,7 +2973,7 @@
    "properties": {
     "id": 77,
     "type": "BUILDING",
-    "name": "The Ardashirugli Game Trader",
+    "name": "The Vahramugli Game Trader",
     "buildingType": "SHOP",
     "material": "WOOD"
    }
@@ -3799,7 +3799,7 @@
    "properties": {
     "id": 100,
     "type": "BUILDING",
-    "name": "The Nasafi Farmers Market",
+    "name": "The Hushyarian Farmers Market",
     "buildingType": "SHOP",
     "material": "WOOD"
    }
@@ -3836,7 +3836,7 @@
    "properties": {
     "id": 101,
     "type": "BUILDING",
-    "name": "The Bakhtiyarzadeh Blacksmith",
+    "name": "The Ilig Blacksmith",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -4760,7 +4760,7 @@
    "properties": {
     "id": 126,
     "type": "BUILDING",
-    "name": "The Dehdadi Potter",
+    "name": "The Yazdanian Potter",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -6124,7 +6124,7 @@
    "properties": {
     "id": 163,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -6231,7 +6231,7 @@
    "properties": {
     "id": 166,
     "type": "BUILDING",
-    "name": "The Wolf-Road Weaver",
+    "name": "The Split-Banner Weaver",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -6453,7 +6453,7 @@
    "properties": {
     "id": 172,
     "type": "BUILDING",
-    "name": "The Farhodzadeh Basket-maker",
+    "name": "The Yagan Basket-maker",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -6633,7 +6633,7 @@
    "properties": {
     "id": 176,
     "type": "BUILDING",
-    "name": "The Black-Felt Bookbinder",
+    "name": "The Red-Tooth Bookbinder",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -6855,7 +6855,7 @@
    "properties": {
     "id": 182,
     "type": "BUILDING",
-    "name": "The Parvizian Residence",
+    "name": "The Qunghirat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -6929,7 +6929,7 @@
    "properties": {
     "id": 184,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Karimzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -7159,7 +7159,7 @@
    "properties": {
     "id": 190,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Temurzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -7430,7 +7430,7 @@
    "properties": {
     "id": 197,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Bijanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -8572,7 +8572,7 @@
    "properties": {
     "id": 228,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Long-Table Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -8687,7 +8687,7 @@
    "properties": {
     "id": 231,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -8798,7 +8798,7 @@
    "properties": {
     "id": 234,
     "type": "BUILDING",
-    "name": "The Yarkanzoda Residence",
+    "name": "The Kimak Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9217,7 +9217,7 @@
    "properties": {
     "id": 245,
     "type": "BUILDING",
-    "name": "The Sanjarzadeh Residence",
+    "name": "The Yazir Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9299,7 +9299,7 @@
    "properties": {
     "id": 248,
     "type": "BUILDING",
-    "name": "The Jamshidian Residence",
+    "name": "The Sulduz Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9373,7 +9373,7 @@
    "properties": {
     "id": 250,
     "type": "BUILDING",
-    "name": "The Zalugli Residence",
+    "name": "The Mihranzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9410,7 +9410,7 @@
    "properties": {
     "id": 251,
     "type": "BUILDING",
-    "name": "The Timurzoda Residence",
+    "name": "The Tatar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9447,7 +9447,7 @@
    "properties": {
     "id": 252,
     "type": "BUILDING",
-    "name": "The Parvizian Residence",
+    "name": "The Qunghirat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9484,7 +9484,7 @@
    "properties": {
     "id": 253,
     "type": "BUILDING",
-    "name": "The Anushirvanzadeh Nail-smith",
+    "name": "The Dughlat Nail-smith",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -9718,7 +9718,7 @@
    "properties": {
     "id": 259,
     "type": "BUILDING",
-    "name": "The Black-Felt Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9792,7 +9792,7 @@
    "properties": {
     "id": 261,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Sabirian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9829,7 +9829,7 @@
    "properties": {
     "id": 262,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Bakhtiyarugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9866,7 +9866,7 @@
    "properties": {
     "id": 263,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Shishpirzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9903,7 +9903,7 @@
    "properties": {
     "id": 264,
     "type": "BUILDING",
-    "name": "The Orkhanzadeh Residence",
+    "name": "The Boburzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9940,7 +9940,7 @@
    "properties": {
     "id": 265,
     "type": "BUILDING",
-    "name": "The Shahinzoda Residence",
+    "name": "The Zhamakzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -9981,7 +9981,7 @@
    "properties": {
     "id": 266,
     "type": "BUILDING",
-    "name": "The Parvizzoda Residence",
+    "name": "The Merkit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10018,7 +10018,7 @@
    "properties": {
     "id": 267,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Zokirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10092,7 +10092,7 @@
    "properties": {
     "id": 269,
     "type": "BUILDING",
-    "name": "The Khosrowzadeh Residence",
+    "name": "The Almaszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10166,7 +10166,7 @@
    "properties": {
     "id": 271,
     "type": "BUILDING",
-    "name": "The Iskanderzoda Residence",
+    "name": "The Bakhshi Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10203,7 +10203,7 @@
    "properties": {
     "id": 272,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Kavusugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10240,7 +10240,7 @@
    "properties": {
     "id": 273,
     "type": "BUILDING",
-    "name": "The Mansurugli Locksmith",
+    "name": "The Khalaj Locksmith",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -10273,7 +10273,7 @@
    "properties": {
     "id": 274,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10310,7 +10310,7 @@
    "properties": {
     "id": 275,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10384,7 +10384,7 @@
    "properties": {
     "id": 278,
     "type": "BUILDING",
-    "name": "The Slag-Hand Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10421,7 +10421,7 @@
    "properties": {
     "id": 279,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Vein-Warden Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10458,7 +10458,7 @@
    "properties": {
     "id": 280,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Yazdanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10532,7 +10532,7 @@
    "properties": {
     "id": 282,
     "type": "BUILDING",
-    "name": "The Iskanderzoda Residence",
+    "name": "The Farrokhian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10569,7 +10569,7 @@
    "properties": {
     "id": 284,
     "type": "BUILDING",
-    "name": "The Parvizzadeh Roofer",
+    "name": "The Qunghirat Roofer",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -10606,7 +10606,7 @@
    "properties": {
     "id": 285,
     "type": "BUILDING",
-    "name": "The Bahramzoda Residence",
+    "name": "The Kavuszoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10717,7 +10717,7 @@
    "properties": {
     "id": 288,
     "type": "BUILDING",
-    "name": "The Khosrowian Residence",
+    "name": "The Teginian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10791,7 +10791,7 @@
    "properties": {
     "id": 290,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Shokirian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10902,7 +10902,7 @@
    "properties": {
     "id": 294,
     "type": "BUILDING",
-    "name": "The Balkhi Residence",
+    "name": "The Arslanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -10976,7 +10976,7 @@
    "properties": {
     "id": 296,
     "type": "BUILDING",
-    "name": "The Iskanderzoda Residence",
+    "name": "The Khosrowzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -11202,7 +11202,7 @@
    "properties": {
     "id": 303,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Umidzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -12352,7 +12352,7 @@
    "properties": {
     "id": 333,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Shavkatzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -12426,7 +12426,7 @@
    "properties": {
     "id": 335,
     "type": "BUILDING",
-    "name": "The Muradian Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -12463,7 +12463,7 @@
    "properties": {
     "id": 336,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Garshaspzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -12767,7 +12767,7 @@
    "properties": {
     "id": 344,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Tarkanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -12997,7 +12997,7 @@
    "properties": {
     "id": 351,
     "type": "BUILDING",
-    "name": "The Davlatugli Residence",
+    "name": "The Iskanderugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13079,7 +13079,7 @@
    "properties": {
     "id": 353,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Kavuszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13153,7 +13153,7 @@
    "properties": {
     "id": 355,
     "type": "BUILDING",
-    "name": "The Timurugli Residence",
+    "name": "The Qalmaq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13227,7 +13227,7 @@
    "properties": {
     "id": 357,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Chinuaugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13264,7 +13264,7 @@
    "properties": {
     "id": 358,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Chinuaugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13301,7 +13301,7 @@
    "properties": {
     "id": 359,
     "type": "BUILDING",
-    "name": "The Nodirzadeh Residence",
+    "name": "The Jahanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13338,7 +13338,7 @@
    "properties": {
     "id": 360,
     "type": "BUILDING",
-    "name": "The Muradzadeh Residence",
+    "name": "The Ardashirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13375,7 +13375,7 @@
    "properties": {
     "id": 361,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Katagan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13412,7 +13412,7 @@
    "properties": {
     "id": 362,
     "type": "BUILDING",
-    "name": "The Yarkanugli Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13449,7 +13449,7 @@
    "properties": {
     "id": 363,
     "type": "BUILDING",
-    "name": "The Orkhanian Residence",
+    "name": "The Vafozoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13486,7 +13486,7 @@
    "properties": {
     "id": 364,
     "type": "BUILDING",
-    "name": "The Anushirvanugli Residence",
+    "name": "The Dughlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13523,7 +13523,7 @@
    "properties": {
     "id": 365,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Kurbanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13560,7 +13560,7 @@
    "properties": {
     "id": 366,
     "type": "BUILDING",
-    "name": "The Bakhtiyarzadeh Residence",
+    "name": "The Ilig Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13597,7 +13597,7 @@
    "properties": {
     "id": 367,
     "type": "BUILDING",
-    "name": "The Anushirvanugli Residence",
+    "name": "The Dughlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13634,7 +13634,7 @@
    "properties": {
     "id": 368,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Tahmuraszoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13675,7 +13675,7 @@
    "properties": {
     "id": 369,
     "type": "BUILDING",
-    "name": "The Yarkanugli Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13823,7 +13823,7 @@
    "properties": {
     "id": 374,
     "type": "BUILDING",
-    "name": "The Navidzoda Residence",
+    "name": "The Berish Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -13975,7 +13975,7 @@
    "properties": {
     "id": 378,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14012,7 +14012,7 @@
    "properties": {
     "id": 379,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Sardorzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14049,7 +14049,7 @@
    "properties": {
     "id": 380,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Temurzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14086,7 +14086,7 @@
    "properties": {
     "id": 381,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14123,7 +14123,7 @@
    "properties": {
     "id": 382,
     "type": "BUILDING",
-    "name": "The Khosrowzadeh Residence",
+    "name": "The Almaszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14160,7 +14160,7 @@
    "properties": {
     "id": 383,
     "type": "BUILDING",
-    "name": "The Yarkanzadeh Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14197,7 +14197,7 @@
    "properties": {
     "id": 384,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Bizhanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14234,7 +14234,7 @@
    "properties": {
     "id": 385,
     "type": "BUILDING",
-    "name": "The Tally-Hammer Residence",
+    "name": "The Stone-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14271,7 +14271,7 @@
    "properties": {
     "id": 386,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Olimzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14427,7 +14427,7 @@
    "properties": {
     "id": 390,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Akmalugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14472,7 +14472,7 @@
    "properties": {
     "id": 392,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Ilhomzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14517,7 +14517,7 @@
    "properties": {
     "id": 393,
     "type": "BUILDING",
-    "name": "The Iskanderzadeh Residence",
+    "name": "The Hushangugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14554,7 +14554,7 @@
    "properties": {
     "id": 394,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Hearth-Stone Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14595,7 +14595,7 @@
    "properties": {
     "id": 395,
     "type": "BUILDING",
-    "name": "The Slag-Hand Residence",
+    "name": "The Stone-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14632,7 +14632,7 @@
    "properties": {
     "id": 396,
     "type": "BUILDING",
-    "name": "The Mahanzadeh Residence",
+    "name": "The Kereit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14669,7 +14669,7 @@
    "properties": {
     "id": 397,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Elterzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14706,7 +14706,7 @@
    "properties": {
     "id": 398,
     "type": "BUILDING",
-    "name": "The Shahinugli Residence",
+    "name": "The Shishpirugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14743,7 +14743,7 @@
    "properties": {
     "id": 399,
     "type": "BUILDING",
-    "name": "The Muradian Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14780,7 +14780,7 @@
    "properties": {
     "id": 401,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Mansurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14817,7 +14817,7 @@
    "properties": {
     "id": 402,
     "type": "BUILDING",
-    "name": "The Balkhi Residence",
+    "name": "The Mengliugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14928,7 +14928,7 @@
    "properties": {
     "id": 405,
     "type": "BUILDING",
-    "name": "The Khujandi Residence",
+    "name": "The Kurbanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -14965,7 +14965,7 @@
    "properties": {
     "id": 406,
     "type": "BUILDING",
-    "name": "The Anvil-Sworn Residence",
+    "name": "The Vein-Warden Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -15113,7 +15113,7 @@
    "properties": {
     "id": 410,
     "type": "BUILDING",
-    "name": "The Dilshodian Residence",
+    "name": "The Chigil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -15150,7 +15150,7 @@
    "properties": {
     "id": 411,
     "type": "BUILDING",
-    "name": "The Dilshodian Residence",
+    "name": "The Chigil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -15187,7 +15187,7 @@
    "properties": {
     "id": 412,
     "type": "BUILDING",
-    "name": "The Shahinugli Residence",
+    "name": "The Gurakugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -15298,7 +15298,7 @@
    "properties": {
     "id": 415,
     "type": "BUILDING",
-    "name": "The Kavehzoda Residence",
+    "name": "The Faramarzzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -15335,7 +15335,7 @@
    "properties": {
     "id": 416,
     "type": "BUILDING",
-    "name": "The Parvizian Residence",
+    "name": "The Qunghirat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -15450,7 +15450,7 @@
    "properties": {
     "id": 419,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Umidzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -15528,7 +15528,7 @@
    "properties": {
     "id": 422,
     "type": "BUILDING",
-    "name": "The Khosrowian Bathhouse",
+    "name": "The Alchiian Bathhouse",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -15676,7 +15676,7 @@
    "properties": {
     "id": 426,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Gurakian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -15861,7 +15861,7 @@
    "properties": {
     "id": 431,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Narsaugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16050,7 +16050,7 @@
    "properties": {
     "id": 437,
     "type": "BUILDING",
-    "name": "The Balkhi Alchemist",
+    "name": "The Kuchlugzoda Alchemist",
     "buildingType": "ARTISAN",
     "material": "WOOD"
    }
@@ -16087,7 +16087,7 @@
    "properties": {
     "id": 440,
     "type": "BUILDING",
-    "name": "The Muradian Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16161,7 +16161,7 @@
    "properties": {
     "id": 442,
     "type": "BUILDING",
-    "name": "The Bakhtiyarian Residence",
+    "name": "The Seljuk Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16198,7 +16198,7 @@
    "properties": {
     "id": 443,
     "type": "BUILDING",
-    "name": "The Khosrowzadeh Residence",
+    "name": "The Almaszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16272,7 +16272,7 @@
    "properties": {
     "id": 445,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16383,7 +16383,7 @@
    "properties": {
     "id": 449,
     "type": "BUILDING",
-    "name": "The Jamshidzadeh Residence",
+    "name": "The Qiyat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16457,7 +16457,7 @@
    "properties": {
     "id": 451,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Dariushzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16605,7 +16605,7 @@
    "properties": {
     "id": 455,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16642,7 +16642,7 @@
    "properties": {
     "id": 456,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16679,7 +16679,7 @@
    "properties": {
     "id": 457,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Bekzodzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -16716,7 +16716,7 @@
    "properties": {
     "id": 458,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Bekzodzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17090,7 +17090,7 @@
    "properties": {
     "id": 469,
     "type": "BUILDING",
-    "name": "The Parvizian Residence",
+    "name": "The Qunghirat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17127,7 +17127,7 @@
    "properties": {
     "id": 470,
     "type": "BUILDING",
-    "name": "The Ulughzadeh Residence",
+    "name": "The Turgesh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17201,7 +17201,7 @@
    "properties": {
     "id": 472,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Sohrabugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17320,7 +17320,7 @@
    "properties": {
     "id": 475,
     "type": "BUILDING",
-    "name": "The Slag-Hand Residence",
+    "name": "The Hearth-Stone Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17394,7 +17394,7 @@
    "properties": {
     "id": 477,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Kavuszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17431,7 +17431,7 @@
    "properties": {
     "id": 478,
     "type": "BUILDING",
-    "name": "The Iskanderzoda Residence",
+    "name": "The Anushirvanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17505,7 +17505,7 @@
    "properties": {
     "id": 480,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17542,7 +17542,7 @@
    "properties": {
     "id": 481,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Mansurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17583,7 +17583,7 @@
    "properties": {
     "id": 482,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Mansurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17661,7 +17661,7 @@
    "properties": {
     "id": 484,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17772,7 +17772,7 @@
    "properties": {
     "id": 488,
     "type": "BUILDING",
-    "name": "The Khosrowzoda Residence",
+    "name": "The Qurama Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17846,7 +17846,7 @@
    "properties": {
     "id": 490,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Divashtichugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17883,7 +17883,7 @@
    "properties": {
     "id": 491,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Barsugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17920,7 +17920,7 @@
    "properties": {
     "id": 492,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Turian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -17957,7 +17957,7 @@
    "properties": {
     "id": 493,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Katagan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18039,7 +18039,7 @@
    "properties": {
     "id": 495,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Shervinzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18080,7 +18080,7 @@
    "properties": {
     "id": 496,
     "type": "BUILDING",
-    "name": "The Tirmizi Residence",
+    "name": "The Shervinzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18199,7 +18199,7 @@
    "properties": {
     "id": 499,
     "type": "BUILDING",
-    "name": "The Sohrabzoda Residence",
+    "name": "The Tukhsi Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18273,7 +18273,7 @@
    "properties": {
     "id": 501,
     "type": "BUILDING",
-    "name": "The Navidzoda Residence",
+    "name": "The Berish Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18310,7 +18310,7 @@
    "properties": {
     "id": 502,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Elterian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18425,7 +18425,7 @@
    "properties": {
     "id": 505,
     "type": "BUILDING",
-    "name": "The Parvizzoda Residence",
+    "name": "The Merkit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18462,7 +18462,7 @@
    "properties": {
     "id": 506,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18536,7 +18536,7 @@
    "properties": {
     "id": 508,
     "type": "BUILDING",
-    "name": "The Dilshodugli Residence",
+    "name": "The Chigil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18573,7 +18573,7 @@
    "properties": {
     "id": 509,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Abrorzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18614,7 +18614,7 @@
    "properties": {
     "id": 510,
     "type": "BUILDING",
-    "name": "The Tirmizi Residence",
+    "name": "The Arjaspzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18651,7 +18651,7 @@
    "properties": {
     "id": 511,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Arashugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18688,7 +18688,7 @@
    "properties": {
     "id": 512,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Narimanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18762,7 +18762,7 @@
    "properties": {
     "id": 514,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Bizhanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18836,7 +18836,7 @@
    "properties": {
     "id": 516,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Bekzodzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18873,7 +18873,7 @@
    "properties": {
     "id": 517,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -18910,7 +18910,7 @@
    "properties": {
     "id": 518,
     "type": "BUILDING",
-    "name": "The Tirmizi Residence",
+    "name": "The Salmian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19099,7 +19099,7 @@
    "properties": {
     "id": 523,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Bagavandzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19185,7 +19185,7 @@
    "properties": {
     "id": 525,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Varzakkzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19259,7 +19259,7 @@
    "properties": {
     "id": 527,
     "type": "BUILDING",
-    "name": "The Kavehzoda Residence",
+    "name": "The Manghit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19296,7 +19296,7 @@
    "properties": {
     "id": 528,
     "type": "BUILDING",
-    "name": "The Shahinian Residence",
+    "name": "The Divashtichian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19333,7 +19333,7 @@
    "properties": {
     "id": 529,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Orkhanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19481,7 +19481,7 @@
    "properties": {
     "id": 535,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Berkezadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19518,7 +19518,7 @@
    "properties": {
     "id": 536,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Spandiyarugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19555,7 +19555,7 @@
    "properties": {
     "id": 537,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Ardashirugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19592,7 +19592,7 @@
    "properties": {
     "id": 538,
     "type": "BUILDING",
-    "name": "The Behzadzadeh Residence",
+    "name": "The Kenegas Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19703,7 +19703,7 @@
    "properties": {
     "id": 541,
     "type": "BUILDING",
-    "name": "The Bahramugli Residence",
+    "name": "The Afshar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19851,7 +19851,7 @@
    "properties": {
     "id": 546,
     "type": "BUILDING",
-    "name": "The Anvil-Sworn Residence",
+    "name": "The Low-Lamp Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -19999,7 +19999,7 @@
    "properties": {
     "id": 550,
     "type": "BUILDING",
-    "name": "The Bahramugli Residence",
+    "name": "The Tahmurasugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20036,7 +20036,7 @@
    "properties": {
     "id": 551,
     "type": "BUILDING",
-    "name": "The Kavehzadeh Residence",
+    "name": "The Ardavanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20073,7 +20073,7 @@
    "properties": {
     "id": 552,
     "type": "BUILDING",
-    "name": "The Khosrowugli Residence",
+    "name": "The Almasugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20184,7 +20184,7 @@
    "properties": {
     "id": 555,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Narimanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20221,7 +20221,7 @@
    "properties": {
     "id": 556,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Bagavandian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20299,7 +20299,7 @@
    "properties": {
     "id": 558,
     "type": "BUILDING",
-    "name": "The Timurzoda Residence",
+    "name": "The Tatar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20336,7 +20336,7 @@
    "properties": {
     "id": 559,
     "type": "BUILDING",
-    "name": "The Mahanzoda Residence",
+    "name": "The Pashangzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20373,7 +20373,7 @@
    "properties": {
     "id": 560,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Jasurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20410,7 +20410,7 @@
    "properties": {
     "id": 561,
     "type": "BUILDING",
-    "name": "The Navidzoda Residence",
+    "name": "The Arlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20484,7 +20484,7 @@
    "properties": {
     "id": 563,
     "type": "BUILDING",
-    "name": "The Ardashirian Residence",
+    "name": "The Mardanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20521,7 +20521,7 @@
    "properties": {
     "id": 564,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Jasurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20558,7 +20558,7 @@
    "properties": {
     "id": 565,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Sabirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20595,7 +20595,7 @@
    "properties": {
     "id": 566,
     "type": "BUILDING",
-    "name": "The Timurugli Residence",
+    "name": "The Qalmaq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20632,7 +20632,7 @@
    "properties": {
     "id": 567,
     "type": "BUILDING",
-    "name": "The Shahinzadeh Residence",
+    "name": "The Zhamakzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20669,7 +20669,7 @@
    "properties": {
     "id": 568,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Shervinian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20706,7 +20706,7 @@
    "properties": {
     "id": 570,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Hearthroad Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20743,7 +20743,7 @@
    "properties": {
     "id": 571,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Umidzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20780,7 +20780,7 @@
    "properties": {
     "id": 572,
     "type": "BUILDING",
-    "name": "The Kamranian Residence",
+    "name": "The Tamgachzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20817,7 +20817,7 @@
    "properties": {
     "id": 573,
     "type": "BUILDING",
-    "name": "The Yarkanian Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20854,7 +20854,7 @@
    "properties": {
     "id": 574,
     "type": "BUILDING",
-    "name": "The Iskanderugli Residence",
+    "name": "The Tirdadzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -20965,7 +20965,7 @@
    "properties": {
     "id": 577,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Narsaugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21006,7 +21006,7 @@
    "properties": {
     "id": 578,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21080,7 +21080,7 @@
    "properties": {
     "id": 580,
     "type": "BUILDING",
-    "name": "The Iskanderzoda Residence",
+    "name": "The Chora Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21270,7 +21270,7 @@
    "properties": {
     "id": 585,
     "type": "BUILDING",
-    "name": "The Shahinzadeh Residence",
+    "name": "The Durman Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21307,7 +21307,7 @@
    "properties": {
     "id": 587,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Divashtichzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21344,7 +21344,7 @@
    "properties": {
     "id": 588,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Kayvanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21418,7 +21418,7 @@
    "properties": {
     "id": 591,
     "type": "BUILDING",
-    "name": "The Khosrowzadeh Residence",
+    "name": "The Almaszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21455,7 +21455,7 @@
    "properties": {
     "id": 592,
     "type": "BUILDING",
-    "name": "The Kamranzoda Residence",
+    "name": "The Khazar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21570,7 +21570,7 @@
    "properties": {
     "id": 595,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21644,7 +21644,7 @@
    "properties": {
     "id": 597,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21681,7 +21681,7 @@
    "properties": {
     "id": 598,
     "type": "BUILDING",
-    "name": "The Sanjarian Residence",
+    "name": "The Yaghma Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21726,7 +21726,7 @@
    "properties": {
     "id": 599,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Divashtichzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21800,7 +21800,7 @@
    "properties": {
     "id": 602,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Bakhtiyarian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21837,7 +21837,7 @@
    "properties": {
     "id": 603,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Sohrabzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21874,7 +21874,7 @@
    "properties": {
     "id": 604,
     "type": "BUILDING",
-    "name": "The Farrokhian Residence",
+    "name": "The Bayat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21911,7 +21911,7 @@
    "properties": {
     "id": 605,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Jasurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21948,7 +21948,7 @@
    "properties": {
     "id": 606,
     "type": "BUILDING",
-    "name": "The Zalugli Residence",
+    "name": "The Mihranzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -21985,7 +21985,7 @@
    "properties": {
     "id": 607,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Jasurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22022,7 +22022,7 @@
    "properties": {
     "id": 608,
     "type": "BUILDING",
-    "name": "The Farrokhian Residence",
+    "name": "The Bayat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22096,7 +22096,7 @@
    "properties": {
     "id": 610,
     "type": "BUILDING",
-    "name": "The Third-Gate Residence",
+    "name": "The Iron-Counter Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22141,7 +22141,7 @@
    "properties": {
     "id": 611,
     "type": "BUILDING",
-    "name": "The Parvizzoda Residence",
+    "name": "The Qunghirat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22182,7 +22182,7 @@
    "properties": {
     "id": 612,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Kavuszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22256,7 +22256,7 @@
    "properties": {
     "id": 614,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Mansurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22293,7 +22293,7 @@
    "properties": {
     "id": 615,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22338,7 +22338,7 @@
    "properties": {
     "id": 616,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Lochinzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22412,7 +22412,7 @@
    "properties": {
     "id": 618,
     "type": "BUILDING",
-    "name": "The Kamranian Residence",
+    "name": "The Tamgachzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22490,7 +22490,7 @@
    "properties": {
     "id": 620,
     "type": "BUILDING",
-    "name": "The Muradzadeh Residence",
+    "name": "The Ardashirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22527,7 +22527,7 @@
    "properties": {
     "id": 621,
     "type": "BUILDING",
-    "name": "The Navidzadeh Residence",
+    "name": "The Piruzugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22572,7 +22572,7 @@
    "properties": {
     "id": 622,
     "type": "BUILDING",
-    "name": "The Rustamian Residence",
+    "name": "The Behzadian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22609,7 +22609,7 @@
    "properties": {
     "id": 623,
     "type": "BUILDING",
-    "name": "The Sanjarugli Residence",
+    "name": "The Chigil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22646,7 +22646,7 @@
    "properties": {
     "id": 624,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Gushnaspugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22683,7 +22683,7 @@
    "properties": {
     "id": 625,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Katagan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22720,7 +22720,7 @@
    "properties": {
     "id": 626,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Bizhanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22757,7 +22757,7 @@
    "properties": {
     "id": 627,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Sorushugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22794,7 +22794,7 @@
    "properties": {
     "id": 628,
     "type": "BUILDING",
-    "name": "The Yarkanian Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22831,7 +22831,7 @@
    "properties": {
     "id": 629,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Almaszoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22868,7 +22868,7 @@
    "properties": {
     "id": 630,
     "type": "BUILDING",
-    "name": "The Yarkanugli Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -22983,7 +22983,7 @@
    "properties": {
     "id": 633,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Faridugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23020,7 +23020,7 @@
    "properties": {
     "id": 634,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Faridugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23098,7 +23098,7 @@
    "properties": {
     "id": 637,
     "type": "BUILDING",
-    "name": "The Orkhanian Residence",
+    "name": "The Basmil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23209,7 +23209,7 @@
    "properties": {
     "id": 640,
     "type": "BUILDING",
-    "name": "The Ulughzoda Residence",
+    "name": "The Khazar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23246,7 +23246,7 @@
    "properties": {
     "id": 641,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Navidzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23283,7 +23283,7 @@
    "properties": {
     "id": 642,
     "type": "BUILDING",
-    "name": "The Khosrowzadeh Residence",
+    "name": "The Almaszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23320,7 +23320,7 @@
    "properties": {
     "id": 643,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Ilkhanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23357,7 +23357,7 @@
    "properties": {
     "id": 644,
     "type": "BUILDING",
-    "name": "The Navidugli Residence",
+    "name": "The Berish Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23394,7 +23394,7 @@
    "properties": {
     "id": 645,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Oghuzzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23431,7 +23431,7 @@
    "properties": {
     "id": 646,
     "type": "BUILDING",
-    "name": "The Mansurzadeh Residence",
+    "name": "The Tatar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23468,7 +23468,7 @@
    "properties": {
     "id": 647,
     "type": "BUILDING",
-    "name": "The Iskanderzoda Residence",
+    "name": "The Bakhshi Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23505,7 +23505,7 @@
    "properties": {
     "id": 648,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23542,7 +23542,7 @@
    "properties": {
     "id": 649,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23579,7 +23579,7 @@
    "properties": {
     "id": 650,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23616,7 +23616,7 @@
    "properties": {
     "id": 651,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23731,7 +23731,7 @@
    "properties": {
     "id": 654,
     "type": "BUILDING",
-    "name": "The Deep-Ledger Residence",
+    "name": "The Iron-Counter Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23768,7 +23768,7 @@
    "properties": {
     "id": 655,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Vein-Warden Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23842,7 +23842,7 @@
    "properties": {
     "id": 657,
     "type": "BUILDING",
-    "name": "The Jamshidzadeh Residence",
+    "name": "The Alpzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23879,7 +23879,7 @@
    "properties": {
     "id": 658,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Muradugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23953,7 +23953,7 @@
    "properties": {
     "id": 660,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -23990,7 +23990,7 @@
    "properties": {
     "id": 661,
     "type": "BUILDING",
-    "name": "The Ulughian Residence",
+    "name": "The Doniyorian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24027,7 +24027,7 @@
    "properties": {
     "id": 662,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Iskanderzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24064,7 +24064,7 @@
    "properties": {
     "id": 663,
     "type": "BUILDING",
-    "name": "The Navidzadeh Residence",
+    "name": "The Bizhanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24101,7 +24101,7 @@
    "properties": {
     "id": 664,
     "type": "BUILDING",
-    "name": "The Stone-Reader Residence",
+    "name": "The Anvil-Sworn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24138,7 +24138,7 @@
    "properties": {
     "id": 665,
     "type": "BUILDING",
-    "name": "The Shahinian Residence",
+    "name": "The Divashtichian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24175,7 +24175,7 @@
    "properties": {
     "id": 666,
     "type": "BUILDING",
-    "name": "The Ardashirzadeh Residence",
+    "name": "The Shishpirzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24212,7 +24212,7 @@
    "properties": {
     "id": 667,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Nowruzugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24249,7 +24249,7 @@
    "properties": {
     "id": 668,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Nowruzugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24323,7 +24323,7 @@
    "properties": {
     "id": 670,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Almasian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24360,7 +24360,7 @@
    "properties": {
     "id": 671,
     "type": "BUILDING",
-    "name": "The Zalzadeh Residence",
+    "name": "The Chekan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24397,7 +24397,7 @@
    "properties": {
     "id": 673,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Almasian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24434,7 +24434,7 @@
    "properties": {
     "id": 674,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Almasian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24471,7 +24471,7 @@
    "properties": {
     "id": 675,
     "type": "BUILDING",
-    "name": "The Zalzadeh Residence",
+    "name": "The Chekan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24582,7 +24582,7 @@
    "properties": {
     "id": 678,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24619,7 +24619,7 @@
    "properties": {
     "id": 679,
     "type": "BUILDING",
-    "name": "The Slag-Hand Residence",
+    "name": "The Stone-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24730,7 +24730,7 @@
    "properties": {
     "id": 683,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Nowruzzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24767,7 +24767,7 @@
    "properties": {
     "id": 684,
     "type": "BUILDING",
-    "name": "The Muradian Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24804,7 +24804,7 @@
    "properties": {
     "id": 685,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24878,7 +24878,7 @@
    "properties": {
     "id": 687,
     "type": "BUILDING",
-    "name": "The Stone-Reader Residence",
+    "name": "The Third-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24915,7 +24915,7 @@
    "properties": {
     "id": 688,
     "type": "BUILDING",
-    "name": "The Slag-Hand Residence",
+    "name": "The Low-Lamp Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -24952,7 +24952,7 @@
    "properties": {
     "id": 689,
     "type": "BUILDING",
-    "name": "The Farhodzadeh Residence",
+    "name": "The Tuman Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25063,7 +25063,7 @@
    "properties": {
     "id": 692,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Shokirugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25100,7 +25100,7 @@
    "properties": {
     "id": 694,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Tirdadian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25137,7 +25137,7 @@
    "properties": {
     "id": 695,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Irajugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25174,7 +25174,7 @@
    "properties": {
     "id": 696,
     "type": "BUILDING",
-    "name": "The Kavehzadeh Residence",
+    "name": "The Ardavanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25248,7 +25248,7 @@
    "properties": {
     "id": 698,
     "type": "BUILDING",
-    "name": "The Bahramzadeh Residence",
+    "name": "The Goshtaspzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25289,7 +25289,7 @@
    "properties": {
     "id": 700,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Bekzodzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25326,7 +25326,7 @@
    "properties": {
     "id": 702,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Bakhtiyarugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25400,7 +25400,7 @@
    "properties": {
     "id": 704,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Hushyarian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25437,7 +25437,7 @@
    "properties": {
     "id": 705,
     "type": "BUILDING",
-    "name": "The Third-Gate Residence",
+    "name": "The Stone-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25474,7 +25474,7 @@
    "properties": {
     "id": 706,
     "type": "BUILDING",
-    "name": "The Slag-Hand Residence",
+    "name": "The Hearth-Stone Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25511,7 +25511,7 @@
    "properties": {
     "id": 708,
     "type": "BUILDING",
-    "name": "The Kavehzadeh Residence",
+    "name": "The Chakinzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25548,7 +25548,7 @@
    "properties": {
     "id": 709,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Hearthroad Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25585,7 +25585,7 @@
    "properties": {
     "id": 710,
     "type": "BUILDING",
-    "name": "The Kamranzadeh Residence",
+    "name": "The Ardavanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25696,7 +25696,7 @@
    "properties": {
     "id": 713,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Bahramzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -25963,7 +25963,7 @@
    "properties": {
     "id": 722,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Ravshanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26000,7 +26000,7 @@
    "properties": {
     "id": 723,
     "type": "BUILDING",
-    "name": "The Mahanugli Residence",
+    "name": "The Rouzbehugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26074,7 +26074,7 @@
    "properties": {
     "id": 726,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26148,7 +26148,7 @@
    "properties": {
     "id": 728,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26259,7 +26259,7 @@
    "properties": {
     "id": 731,
     "type": "BUILDING",
-    "name": "The Black-Felt Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26296,7 +26296,7 @@
    "properties": {
     "id": 732,
     "type": "BUILDING",
-    "name": "The Kavehzadeh Residence",
+    "name": "The Hushangzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26370,7 +26370,7 @@
    "properties": {
     "id": 734,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Dariushzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26481,7 +26481,7 @@
    "properties": {
     "id": 737,
     "type": "BUILDING",
-    "name": "The Yarkanugli Residence",
+    "name": "The Kimak Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26629,7 +26629,7 @@
    "properties": {
     "id": 741,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Bakhtiyarian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26703,7 +26703,7 @@
    "properties": {
     "id": 743,
     "type": "BUILDING",
-    "name": "The Timurzoda Residence",
+    "name": "The Qalmaq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26740,7 +26740,7 @@
    "properties": {
     "id": 744,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Nodirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26777,7 +26777,7 @@
    "properties": {
     "id": 745,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Alchizoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26814,7 +26814,7 @@
    "properties": {
     "id": 746,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Jasurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26851,7 +26851,7 @@
    "properties": {
     "id": 747,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Sabirian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26888,7 +26888,7 @@
    "properties": {
     "id": 748,
     "type": "BUILDING",
-    "name": "The Zalugli Residence",
+    "name": "The Mihranzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26925,7 +26925,7 @@
    "properties": {
     "id": 749,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Arslanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -26970,7 +26970,7 @@
    "properties": {
     "id": 750,
     "type": "BUILDING",
-    "name": "The Farrokhian Residence",
+    "name": "The Bayat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27007,7 +27007,7 @@
    "properties": {
     "id": 751,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Kavusugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27126,7 +27126,7 @@
    "properties": {
     "id": 754,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Kavuszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27253,7 +27253,7 @@
    "properties": {
     "id": 757,
     "type": "BUILDING",
-    "name": "The Hearth-Stone Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27290,7 +27290,7 @@
    "properties": {
     "id": 758,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Mansurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27327,7 +27327,7 @@
    "properties": {
     "id": 759,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Abrorzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27450,7 +27450,7 @@
    "properties": {
     "id": 762,
     "type": "BUILDING",
-    "name": "The Sanjarzoda Residence",
+    "name": "The Rustamzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27487,7 +27487,7 @@
    "properties": {
     "id": 763,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Farrokhugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27524,7 +27524,7 @@
    "properties": {
     "id": 764,
     "type": "BUILDING",
-    "name": "The Yarkanugli Residence",
+    "name": "The Umidugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27639,7 +27639,7 @@
    "properties": {
     "id": 767,
     "type": "BUILDING",
-    "name": "The Orkhanzadeh Residence",
+    "name": "The Boburzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27680,7 +27680,7 @@
    "properties": {
     "id": 768,
     "type": "BUILDING",
-    "name": "The Orkhanzadeh Residence",
+    "name": "The Boburzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27754,7 +27754,7 @@
    "properties": {
     "id": 770,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Kavehian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27828,7 +27828,7 @@
    "properties": {
     "id": 772,
     "type": "BUILDING",
-    "name": "The Black-Felt Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27865,7 +27865,7 @@
    "properties": {
     "id": 773,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Bulaq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27902,7 +27902,7 @@
    "properties": {
     "id": 774,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Bulaq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27939,7 +27939,7 @@
    "properties": {
     "id": 775,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Sunqurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -27976,7 +27976,7 @@
    "properties": {
     "id": 776,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Sunqurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28025,7 +28025,7 @@
    "properties": {
     "id": 777,
     "type": "BUILDING",
-    "name": "The Anushirvanzadeh Residence",
+    "name": "The Bahramzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28099,7 +28099,7 @@
    "properties": {
     "id": 779,
     "type": "BUILDING",
-    "name": "The Yarkanian Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28173,7 +28173,7 @@
    "properties": {
     "id": 781,
     "type": "BUILDING",
-    "name": "The Yarkanian Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28210,7 +28210,7 @@
    "properties": {
     "id": 782,
     "type": "BUILDING",
-    "name": "The Zalzoda Residence",
+    "name": "The Mansurugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28247,7 +28247,7 @@
    "properties": {
     "id": 783,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Tahmuraszoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28284,7 +28284,7 @@
    "properties": {
     "id": 784,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Turian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28407,7 +28407,7 @@
    "properties": {
     "id": 788,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Nowruzzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28489,7 +28489,7 @@
    "properties": {
     "id": 790,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Kayvanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28526,7 +28526,7 @@
    "properties": {
     "id": 791,
     "type": "BUILDING",
-    "name": "The Sanjarzadeh Residence",
+    "name": "The Bakhshi Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28563,7 +28563,7 @@
    "properties": {
     "id": 792,
     "type": "BUILDING",
-    "name": "The Slag-Hand Residence",
+    "name": "The Stone-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28600,7 +28600,7 @@
    "properties": {
     "id": 793,
     "type": "BUILDING",
-    "name": "The Zalugli Residence",
+    "name": "The Barszoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28637,7 +28637,7 @@
    "properties": {
     "id": 794,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Faridugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28711,7 +28711,7 @@
    "properties": {
     "id": 796,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Narsazoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28785,7 +28785,7 @@
    "properties": {
     "id": 798,
     "type": "BUILDING",
-    "name": "The Dilshodugli Residence",
+    "name": "The Chigil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -28859,7 +28859,7 @@
    "properties": {
     "id": 800,
     "type": "BUILDING",
-    "name": "The Tally-Hammer Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29007,7 +29007,7 @@
    "properties": {
     "id": 804,
     "type": "BUILDING",
-    "name": "The Iskanderugli Residence",
+    "name": "The Chora Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29044,7 +29044,7 @@
    "properties": {
     "id": 805,
     "type": "BUILDING",
-    "name": "The Dilshodugli Residence",
+    "name": "The Salmugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29081,7 +29081,7 @@
    "properties": {
     "id": 806,
     "type": "BUILDING",
-    "name": "The Timurzoda Residence",
+    "name": "The Tatar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29192,7 +29192,7 @@
    "properties": {
     "id": 809,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Low-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29229,7 +29229,7 @@
    "properties": {
     "id": 810,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Narimanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29266,7 +29266,7 @@
    "properties": {
     "id": 811,
     "type": "BUILDING",
-    "name": "The Muradzoda Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29303,7 +29303,7 @@
    "properties": {
     "id": 812,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Bizhanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29344,7 +29344,7 @@
    "properties": {
     "id": 813,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Samanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29381,7 +29381,7 @@
    "properties": {
     "id": 814,
     "type": "BUILDING",
-    "name": "The Mansurugli Residence",
+    "name": "The Aybekzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29492,7 +29492,7 @@
    "properties": {
     "id": 818,
     "type": "BUILDING",
-    "name": "The Timurian Residence",
+    "name": "The Ravshanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29529,7 +29529,7 @@
    "properties": {
     "id": 819,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29566,7 +29566,7 @@
    "properties": {
     "id": 820,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29751,7 +29751,7 @@
    "properties": {
     "id": 825,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Kutlugugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29825,7 +29825,7 @@
    "properties": {
     "id": 827,
     "type": "BUILDING",
-    "name": "The Zalugli Residence",
+    "name": "The Bughrazadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29866,7 +29866,7 @@
    "properties": {
     "id": 828,
     "type": "BUILDING",
-    "name": "The Anvil-Sworn Residence",
+    "name": "The Vein-Warden Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29903,7 +29903,7 @@
    "properties": {
     "id": 829,
     "type": "BUILDING",
-    "name": "The Dilshodian Residence",
+    "name": "The Zaririan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -29985,7 +29985,7 @@
    "properties": {
     "id": 831,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Varzakkzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30022,7 +30022,7 @@
    "properties": {
     "id": 832,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Tally-Hammer Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30059,7 +30059,7 @@
    "properties": {
     "id": 833,
     "type": "BUILDING",
-    "name": "The Temurzoda Residence",
+    "name": "The Yarkanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30100,7 +30100,7 @@
    "properties": {
     "id": 834,
     "type": "BUILDING",
-    "name": "The Warm-Door Residence",
+    "name": "The Kettle-Side Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30248,7 +30248,7 @@
    "properties": {
     "id": 839,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Ravshanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30285,7 +30285,7 @@
    "properties": {
     "id": 841,
     "type": "BUILDING",
-    "name": "The Jamshidzoda Residence",
+    "name": "The Toghrilzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30322,7 +30322,7 @@
    "properties": {
     "id": 842,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30359,7 +30359,7 @@
    "properties": {
     "id": 846,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30396,7 +30396,7 @@
    "properties": {
     "id": 847,
     "type": "BUILDING",
-    "name": "The Ardashirugli Residence",
+    "name": "The Nogai Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30433,7 +30433,7 @@
    "properties": {
     "id": 849,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Almasian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30470,7 +30470,7 @@
    "properties": {
     "id": 850,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Almasian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30507,7 +30507,7 @@
    "properties": {
     "id": 851,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Mihranzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30581,7 +30581,7 @@
    "properties": {
     "id": 853,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Temurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30618,7 +30618,7 @@
    "properties": {
     "id": 854,
     "type": "BUILDING",
-    "name": "The Bakhtiyarzoda Residence",
+    "name": "The Seljuk Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30766,7 +30766,7 @@
    "properties": {
     "id": 858,
     "type": "BUILDING",
-    "name": "The Khotani Residence",
+    "name": "The Umidzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30803,7 +30803,7 @@
    "properties": {
     "id": 859,
     "type": "BUILDING",
-    "name": "The Nodirugli Residence",
+    "name": "The Jaun Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30840,7 +30840,7 @@
    "properties": {
     "id": 861,
     "type": "BUILDING",
-    "name": "The Hearth-Stone Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30877,7 +30877,7 @@
    "properties": {
     "id": 862,
     "type": "BUILDING",
-    "name": "The Deep-Ledger Residence",
+    "name": "The Vein-Warden Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30914,7 +30914,7 @@
    "properties": {
     "id": 863,
     "type": "BUILDING",
-    "name": "The Deep-Ledger Residence",
+    "name": "The Vein-Warden Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -30951,7 +30951,7 @@
    "properties": {
     "id": 864,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Dariushugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31062,7 +31062,7 @@
    "properties": {
     "id": 867,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Kuhyarian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31099,7 +31099,7 @@
    "properties": {
     "id": 868,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Garshaspzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31136,7 +31136,7 @@
    "properties": {
     "id": 869,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Varzakkugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31210,7 +31210,7 @@
    "properties": {
     "id": 871,
     "type": "BUILDING",
-    "name": "The Anvil-Sworn Residence",
+    "name": "The Low-Lamp Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31284,7 +31284,7 @@
    "properties": {
     "id": 873,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Divashtichzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31321,7 +31321,7 @@
    "properties": {
     "id": 874,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Anvarzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31358,7 +31358,7 @@
    "properties": {
     "id": 875,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Anvarzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31395,7 +31395,7 @@
    "properties": {
     "id": 876,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Anvarzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31432,7 +31432,7 @@
    "properties": {
     "id": 877,
     "type": "BUILDING",
-    "name": "The Farhodzadeh Residence",
+    "name": "The Tuman Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31469,7 +31469,7 @@
    "properties": {
     "id": 878,
     "type": "BUILDING",
-    "name": "The Nodirzadeh Residence",
+    "name": "The Raminzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31625,7 +31625,7 @@
    "properties": {
     "id": 882,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31662,7 +31662,7 @@
    "properties": {
     "id": 883,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Rustamzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31785,7 +31785,7 @@
    "properties": {
     "id": 886,
     "type": "BUILDING",
-    "name": "The Orkhanzoda Residence",
+    "name": "The Karakhan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31822,7 +31822,7 @@
    "properties": {
     "id": 887,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31859,7 +31859,7 @@
    "properties": {
     "id": 888,
     "type": "BUILDING",
-    "name": "The Bahramzadeh Residence",
+    "name": "The Goshtaspzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -31933,7 +31933,7 @@
    "properties": {
     "id": 890,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Bekzodzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32007,7 +32007,7 @@
    "properties": {
     "id": 893,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Jasurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32081,7 +32081,7 @@
    "properties": {
     "id": 895,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Bizhanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32118,7 +32118,7 @@
    "properties": {
     "id": 896,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Jasurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32155,7 +32155,7 @@
    "properties": {
     "id": 897,
     "type": "BUILDING",
-    "name": "The Kamranzadeh Residence",
+    "name": "The Ardavanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32266,7 +32266,7 @@
    "properties": {
     "id": 901,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Bizhanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32303,7 +32303,7 @@
    "properties": {
     "id": 902,
     "type": "BUILDING",
-    "name": "The Farhodzoda Residence",
+    "name": "The Farrokhugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32340,7 +32340,7 @@
    "properties": {
     "id": 903,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Shokirian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32414,7 +32414,7 @@
    "properties": {
     "id": 905,
     "type": "BUILDING",
-    "name": "The Jamshidian Residence",
+    "name": "The Sulduz Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32451,7 +32451,7 @@
    "properties": {
     "id": 907,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Sunqurzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32488,7 +32488,7 @@
    "properties": {
     "id": 908,
     "type": "BUILDING",
-    "name": "The Ulughzadeh Residence",
+    "name": "The Turgesh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32525,7 +32525,7 @@
    "properties": {
     "id": 910,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Babakian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32599,7 +32599,7 @@
    "properties": {
     "id": 912,
     "type": "BUILDING",
-    "name": "The Balkhi Residence",
+    "name": "The Bilgezadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32636,7 +32636,7 @@
    "properties": {
     "id": 913,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Khosrowugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32673,7 +32673,7 @@
    "properties": {
     "id": 914,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Khosrowugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32747,7 +32747,7 @@
    "properties": {
     "id": 916,
     "type": "BUILDING",
-    "name": "The Long-Table Residence",
+    "name": "The Kettle-Side Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32821,7 +32821,7 @@
    "properties": {
     "id": 918,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -32858,7 +32858,7 @@
    "properties": {
     "id": 919,
     "type": "BUILDING",
-    "name": "Sohrabzadeh Notary",
+    "name": "Nowruzzadeh Notary",
     "buildingType": "SERVICE",
     "material": "WOOD"
    }
@@ -32969,7 +32969,7 @@
    "properties": {
     "id": 922,
     "type": "BUILDING",
-    "name": "The Iron-Counter Residence",
+    "name": "The Third-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33006,7 +33006,7 @@
    "properties": {
     "id": 923,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33043,7 +33043,7 @@
    "properties": {
     "id": 924,
     "type": "BUILDING",
-    "name": "The Navidzoda Residence",
+    "name": "The Arlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33117,7 +33117,7 @@
    "properties": {
     "id": 926,
     "type": "BUILDING",
-    "name": "The Ardashirzadeh Residence",
+    "name": "The Nogai Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33265,7 +33265,7 @@
    "properties": {
     "id": 932,
     "type": "BUILDING",
-    "name": "The Mahanzadeh Residence",
+    "name": "The Kereit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33339,7 +33339,7 @@
    "properties": {
     "id": 934,
     "type": "BUILDING",
-    "name": "The Navidzoda Residence",
+    "name": "The Mehrdadugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33376,7 +33376,7 @@
    "properties": {
     "id": 935,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Otabekian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33413,7 +33413,7 @@
    "properties": {
     "id": 937,
     "type": "BUILDING",
-    "name": "The Anushirvanian Residence",
+    "name": "The Kavehian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33450,7 +33450,7 @@
    "properties": {
     "id": 939,
     "type": "BUILDING",
-    "name": "The Sanjarzoda Residence",
+    "name": "The Bakhshi Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33524,7 +33524,7 @@
    "properties": {
     "id": 941,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Salmugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33565,7 +33565,7 @@
    "properties": {
     "id": 942,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Ravshanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33610,7 +33610,7 @@
    "properties": {
     "id": 943,
     "type": "BUILDING",
-    "name": "The Jamshidian Residence",
+    "name": "The Aybekian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33647,7 +33647,7 @@
    "properties": {
     "id": 944,
     "type": "BUILDING",
-    "name": "The Jamshidugli Residence",
+    "name": "The Qiyat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33721,7 +33721,7 @@
    "properties": {
     "id": 946,
     "type": "BUILDING",
-    "name": "The Dilshodugli Residence",
+    "name": "The Khalaj Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33758,7 +33758,7 @@
    "properties": {
     "id": 947,
     "type": "BUILDING",
-    "name": "The Yarkanugli Residence",
+    "name": "The Umidugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33832,7 +33832,7 @@
    "properties": {
     "id": 949,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33869,7 +33869,7 @@
    "properties": {
     "id": 950,
     "type": "BUILDING",
-    "name": "The Kavehzoda Residence",
+    "name": "The Manghit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33914,7 +33914,7 @@
    "properties": {
     "id": 951,
     "type": "BUILDING",
-    "name": "The Orkhanzoda Residence",
+    "name": "The Bakhtiyarugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -33992,7 +33992,7 @@
    "properties": {
     "id": 953,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Hormozugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34029,7 +34029,7 @@
    "properties": {
     "id": 954,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Qochzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34066,7 +34066,7 @@
    "properties": {
     "id": 955,
     "type": "BUILDING",
-    "name": "The Farhodzadeh Residence",
+    "name": "The Yagan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34103,7 +34103,7 @@
    "properties": {
     "id": 956,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Perozzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34140,7 +34140,7 @@
    "properties": {
     "id": 957,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Parvizugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34177,7 +34177,7 @@
    "properties": {
     "id": 958,
     "type": "BUILDING",
-    "name": "The Yarkanian Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34251,7 +34251,7 @@
    "properties": {
     "id": 960,
     "type": "BUILDING",
-    "name": "The Yarkanugli Residence",
+    "name": "The Pecheneg Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34325,7 +34325,7 @@
    "properties": {
     "id": 962,
     "type": "BUILDING",
-    "name": "The Mansurzadeh Residence",
+    "name": "The Garshaspugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34522,7 +34522,7 @@
    "properties": {
     "id": 968,
     "type": "BUILDING",
-    "name": "The Dilshodugli Residence",
+    "name": "The Chigil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34559,7 +34559,7 @@
    "properties": {
     "id": 969,
     "type": "BUILDING",
-    "name": "The Orkhanian Residence",
+    "name": "The Basmil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34596,7 +34596,7 @@
    "properties": {
     "id": 970,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Zokirugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34711,7 +34711,7 @@
    "properties": {
     "id": 973,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Kurbanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34826,7 +34826,7 @@
    "properties": {
     "id": 976,
     "type": "BUILDING",
-    "name": "The Muradian Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34863,7 +34863,7 @@
    "properties": {
     "id": 977,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Chorazoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34904,7 +34904,7 @@
    "properties": {
     "id": 978,
     "type": "BUILDING",
-    "name": "The Mansurzadeh Residence",
+    "name": "The Tatar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34941,7 +34941,7 @@
    "properties": {
     "id": 979,
     "type": "BUILDING",
-    "name": "The Iskanderzadeh Residence",
+    "name": "The Chora Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -34978,7 +34978,7 @@
    "properties": {
     "id": 980,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35015,7 +35015,7 @@
    "properties": {
     "id": 981,
     "type": "BUILDING",
-    "name": "The Behzadugli Residence",
+    "name": "The Yildirimugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35052,7 +35052,7 @@
    "properties": {
     "id": 982,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35237,7 +35237,7 @@
    "properties": {
     "id": 987,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35274,7 +35274,7 @@
    "properties": {
     "id": 988,
     "type": "BUILDING",
-    "name": "The Behzadzadeh Residence",
+    "name": "The Kenegas Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35348,7 +35348,7 @@
    "properties": {
     "id": 990,
     "type": "BUILDING",
-    "name": "The Bahramugli Residence",
+    "name": "The Arghun Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35385,7 +35385,7 @@
    "properties": {
     "id": 991,
     "type": "BUILDING",
-    "name": "The Orkhanugli Residence",
+    "name": "The Jasurugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35422,7 +35422,7 @@
    "properties": {
     "id": 992,
     "type": "BUILDING",
-    "name": "The Iron-Counter Residence",
+    "name": "The Deep-Ledger Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35496,7 +35496,7 @@
    "properties": {
     "id": 994,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Salmzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35570,7 +35570,7 @@
    "properties": {
     "id": 996,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Mihranzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35644,7 +35644,7 @@
    "properties": {
     "id": 998,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Behzadzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35681,7 +35681,7 @@
    "properties": {
     "id": 999,
     "type": "BUILDING",
-    "name": "The Anvil-Sworn Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35755,7 +35755,7 @@
    "properties": {
     "id": 1001,
     "type": "BUILDING",
-    "name": "The Shahinian Residence",
+    "name": "The Divashtichian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35792,7 +35792,7 @@
    "properties": {
     "id": 1002,
     "type": "BUILDING",
-    "name": "The Ardashirzadeh Residence",
+    "name": "The Shishpirzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35829,7 +35829,7 @@
    "properties": {
     "id": 1003,
     "type": "BUILDING",
-    "name": "The Ulughzadeh Residence",
+    "name": "The Turgesh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35940,7 +35940,7 @@
    "properties": {
     "id": 1006,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Irajugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -35977,7 +35977,7 @@
    "properties": {
     "id": 1008,
     "type": "BUILDING",
-    "name": "The Tally-Hammer Residence",
+    "name": "The Iron-Counter Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36162,7 +36162,7 @@
    "properties": {
     "id": 1015,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36421,7 +36421,7 @@
    "properties": {
     "id": 1022,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Fereydunzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36458,7 +36458,7 @@
    "properties": {
     "id": 1024,
     "type": "BUILDING",
-    "name": "The Mansurian Residence",
+    "name": "The Jaun Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36532,7 +36532,7 @@
    "properties": {
     "id": 1027,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36680,7 +36680,7 @@
    "properties": {
     "id": 1032,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Divashtichzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36717,7 +36717,7 @@
    "properties": {
     "id": 1033,
     "type": "BUILDING",
-    "name": "The Black-Felt Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36754,7 +36754,7 @@
    "properties": {
     "id": 1034,
     "type": "BUILDING",
-    "name": "The Bahramian Residence",
+    "name": "The Arghun Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36828,7 +36828,7 @@
    "properties": {
     "id": 1036,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Rustamzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36865,7 +36865,7 @@
    "properties": {
     "id": 1037,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Low-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36939,7 +36939,7 @@
    "properties": {
     "id": 1039,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Tarkanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -36976,7 +36976,7 @@
    "properties": {
     "id": 1040,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Fereydunzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37087,7 +37087,7 @@
    "properties": {
     "id": 1043,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Shapurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37124,7 +37124,7 @@
    "properties": {
     "id": 1044,
     "type": "BUILDING",
-    "name": "The Bahramzadeh Residence",
+    "name": "The Goshtaspzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37161,7 +37161,7 @@
    "properties": {
     "id": 1045,
     "type": "BUILDING",
-    "name": "The Sanjarugli Residence",
+    "name": "The Turgesh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37235,7 +37235,7 @@
    "properties": {
     "id": 1047,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Warm-Door Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37309,7 +37309,7 @@
    "properties": {
     "id": 1049,
     "type": "BUILDING",
-    "name": "The Zalzoda Residence",
+    "name": "The Laqay Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37346,7 +37346,7 @@
    "properties": {
     "id": 1050,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Kavehian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37383,7 +37383,7 @@
    "properties": {
     "id": 1051,
     "type": "BUILDING",
-    "name": "The Zalzoda Residence",
+    "name": "The Mehrdadian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37420,7 +37420,7 @@
    "properties": {
     "id": 1052,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Arslanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37457,7 +37457,7 @@
    "properties": {
     "id": 1053,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Teginian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37502,7 +37502,7 @@
    "properties": {
     "id": 1054,
     "type": "BUILDING",
-    "name": "The Balkhi Residence",
+    "name": "The Menglizoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37539,7 +37539,7 @@
    "properties": {
     "id": 1055,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Hushyarian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37576,7 +37576,7 @@
    "properties": {
     "id": 1057,
     "type": "BUILDING",
-    "name": "The Temurzoda Residence",
+    "name": "The Zalugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -37650,7 +37650,7 @@
    "properties": {
     "id": 1060,
     "type": "BUILDING",
-    "name": "The Third-Gate Residence",
+    "name": "The Stone-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -38951,7 +38951,7 @@
    "properties": {
     "id": 7046,
     "type": "BUILDING",
-    "name": "The Rustamzadeh Residence",
+    "name": "The Qarluq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -38988,7 +38988,7 @@
    "properties": {
     "id": 7049,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Zalzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39111,7 +39111,7 @@
    "properties": {
     "id": 8733,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Sunqurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39222,7 +39222,7 @@
    "properties": {
     "id": 8736,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39267,7 +39267,7 @@
    "properties": {
     "id": 8737,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Kuchlugzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39304,7 +39304,7 @@
    "properties": {
     "id": 8738,
     "type": "BUILDING",
-    "name": "The Nodirugli Residence",
+    "name": "The Jaun Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39341,7 +39341,7 @@
    "properties": {
     "id": 8739,
     "type": "BUILDING",
-    "name": "The Bakhtiyarzoda Residence",
+    "name": "The Ilig Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39378,7 +39378,7 @@
    "properties": {
     "id": 8740,
     "type": "BUILDING",
-    "name": "The Sanjarzadeh Residence",
+    "name": "The Tuman Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39460,7 +39460,7 @@
    "properties": {
     "id": 8742,
     "type": "BUILDING",
-    "name": "The Khosrowzoda Residence",
+    "name": "The Almaszoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39534,7 +39534,7 @@
    "properties": {
     "id": 8744,
     "type": "BUILDING",
-    "name": "The Farhodzadeh Residence",
+    "name": "The Fereydunugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39579,7 +39579,7 @@
    "properties": {
     "id": 8745,
     "type": "BUILDING",
-    "name": "The Zalzoda Residence",
+    "name": "The Behzadian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39616,7 +39616,7 @@
    "properties": {
     "id": 8746,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39690,7 +39690,7 @@
    "properties": {
     "id": 8748,
     "type": "BUILDING",
-    "name": "The Ardashirzoda Residence",
+    "name": "The Yarkanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39875,7 +39875,7 @@
    "properties": {
     "id": 8753,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Otabekian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39957,7 +39957,7 @@
    "properties": {
     "id": 8755,
     "type": "BUILDING",
-    "name": "The Sohrabzadeh Residence",
+    "name": "The Yaghma Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -39994,7 +39994,7 @@
    "properties": {
     "id": 8756,
     "type": "BUILDING",
-    "name": "The Orkhanzoda Residence",
+    "name": "The Nodirugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40068,7 +40068,7 @@
    "properties": {
     "id": 8758,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Zalugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40113,7 +40113,7 @@
    "properties": {
     "id": 8759,
     "type": "BUILDING",
-    "name": "The Balkhi Residence",
+    "name": "The Sarbazzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40187,7 +40187,7 @@
    "properties": {
     "id": 8761,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Shapurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40516,7 +40516,7 @@
    "properties": {
     "id": 8769,
     "type": "BUILDING",
-    "name": "The Jamshidugli Residence",
+    "name": "The Sulduz Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40561,7 +40561,7 @@
    "properties": {
     "id": 8770,
     "type": "BUILDING",
-    "name": "The Sanjarzoda Residence",
+    "name": "The Barlas Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40717,7 +40717,7 @@
    "properties": {
     "id": 8774,
     "type": "BUILDING",
-    "name": "The Dilshodugli Residence",
+    "name": "The Chigil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40762,7 +40762,7 @@
    "properties": {
     "id": 8775,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Kayvanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40799,7 +40799,7 @@
    "properties": {
     "id": 8776,
     "type": "BUILDING",
-    "name": "The Khujandi Residence",
+    "name": "The Yildirimzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40873,7 +40873,7 @@
    "properties": {
     "id": 8778,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Davlatzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -40910,7 +40910,7 @@
    "properties": {
     "id": 8779,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41021,7 +41021,7 @@
    "properties": {
     "id": 8782,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Hamidugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41177,7 +41177,7 @@
    "properties": {
     "id": 8786,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Alpzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41214,7 +41214,7 @@
    "properties": {
     "id": 8787,
     "type": "BUILDING",
-    "name": "The Vein-Warden Residence",
+    "name": "The Cairn-Wright Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41288,7 +41288,7 @@
    "properties": {
     "id": 8789,
     "type": "BUILDING",
-    "name": "The Khujandi Residence",
+    "name": "The Sabirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41407,7 +41407,7 @@
    "properties": {
     "id": 8792,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Hearth-Stone Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41444,7 +41444,7 @@
    "properties": {
     "id": 8793,
     "type": "BUILDING",
-    "name": "The Third-Gate Residence",
+    "name": "The Iron-Counter Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41481,7 +41481,7 @@
    "properties": {
     "id": 8794,
     "type": "BUILDING",
-    "name": "The Mahanzadeh Residence",
+    "name": "The Uighur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41645,7 +41645,7 @@
    "properties": {
     "id": 8798,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Arashugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41682,7 +41682,7 @@
    "properties": {
     "id": 8799,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Varzakkzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41719,7 +41719,7 @@
    "properties": {
     "id": 8800,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Kutlugzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41838,7 +41838,7 @@
    "properties": {
     "id": 8803,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Parvizzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41875,7 +41875,7 @@
    "properties": {
     "id": 8804,
     "type": "BUILDING",
-    "name": "The Farrokhzoda Residence",
+    "name": "The Siavashzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -41912,7 +41912,7 @@
    "properties": {
     "id": 8805,
     "type": "BUILDING",
-    "name": "The Khotani Residence",
+    "name": "The Nodirian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -42024,7 +42024,7 @@
    "properties": {
     "id": 8808,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Esfandiarugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -42197,7 +42197,7 @@
    "properties": {
     "id": 8812,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Otabekzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -42234,7 +42234,7 @@
    "properties": {
     "id": 8813,
     "type": "BUILDING",
-    "name": "The Navidian Residence",
+    "name": "The Arlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -42316,7 +42316,7 @@
    "properties": {
     "id": 8815,
     "type": "BUILDING",
-    "name": "The Orkhanzadeh Residence",
+    "name": "The Sardorzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -42435,7 +42435,7 @@
    "properties": {
     "id": 8818,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Husanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -42821,7 +42821,7 @@
    "properties": {
     "id": 8828,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Boburian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -42978,7 +42978,7 @@
    "properties": {
     "id": 8832,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Mehrdadian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43015,7 +43015,7 @@
    "properties": {
     "id": 8833,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Irajugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43052,7 +43052,7 @@
    "properties": {
     "id": 8834,
     "type": "BUILDING",
-    "name": "The Kamranugli Residence",
+    "name": "The Nogai Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43134,7 +43134,7 @@
    "properties": {
     "id": 8836,
     "type": "BUILDING",
-    "name": "The Mansurian Residence",
+    "name": "The Jaun Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43171,7 +43171,7 @@
    "properties": {
     "id": 8837,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43245,7 +43245,7 @@
    "properties": {
     "id": 8839,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Hushyarzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43356,7 +43356,7 @@
    "properties": {
     "id": 8842,
     "type": "BUILDING",
-    "name": "The Mahanian Residence",
+    "name": "The Pashangian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43401,7 +43401,7 @@
    "properties": {
     "id": 8843,
     "type": "BUILDING",
-    "name": "The Anushirvanugli Residence",
+    "name": "The Dughlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43446,7 +43446,7 @@
    "properties": {
     "id": 8844,
     "type": "BUILDING",
-    "name": "The Navidugli Residence",
+    "name": "The Arlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43483,7 +43483,7 @@
    "properties": {
     "id": 8845,
     "type": "BUILDING",
-    "name": "The Hearth-Stone Residence",
+    "name": "The Tally-Hammer Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43520,7 +43520,7 @@
    "properties": {
     "id": 8846,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Kulian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43565,7 +43565,7 @@
    "properties": {
     "id": 8847,
     "type": "BUILDING",
-    "name": "The Warm-Door Residence",
+    "name": "The Hearthroad Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43676,7 +43676,7 @@
    "properties": {
     "id": 8850,
     "type": "BUILDING",
-    "name": "The Parvizzadeh Residence",
+    "name": "The Merkit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43803,7 +43803,7 @@
    "properties": {
     "id": 8853,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Manuchehrzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43930,7 +43930,7 @@
    "properties": {
     "id": 8856,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Temurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -43975,7 +43975,7 @@
    "properties": {
     "id": 8857,
     "type": "BUILDING",
-    "name": "The Jamshidian Residence",
+    "name": "The Kutlugian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -44012,7 +44012,7 @@
    "properties": {
     "id": 8858,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -44049,7 +44049,7 @@
    "properties": {
     "id": 8859,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Botirian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -44160,7 +44160,7 @@
    "properties": {
     "id": 8863,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Ergashzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -44488,7 +44488,7 @@
    "properties": {
     "id": 8871,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Muradian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -44562,7 +44562,7 @@
    "properties": {
     "id": 8873,
     "type": "BUILDING",
-    "name": "The Farhodugli Residence",
+    "name": "The Tuman Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -44644,7 +44644,7 @@
    "properties": {
     "id": 8875,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -44763,7 +44763,7 @@
    "properties": {
     "id": 8878,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Orkhanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -44837,7 +44837,7 @@
    "properties": {
     "id": 8880,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Elterugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -45047,7 +45047,7 @@
    "properties": {
     "id": 8885,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Akmalian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -45482,7 +45482,7 @@
    "properties": {
     "id": 9817,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -45676,7 +45676,7 @@
    "properties": {
     "id": 9822,
     "type": "BUILDING",
-    "name": "The Kamranzadeh Residence",
+    "name": "The Mehranzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -45759,7 +45759,7 @@
    "properties": {
     "id": 9824,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -45796,7 +45796,7 @@
    "properties": {
     "id": 9825,
     "type": "BUILDING",
-    "name": "The Khotani Residence",
+    "name": "The Divashtichian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46073,7 +46073,7 @@
    "properties": {
     "id": 9832,
     "type": "BUILDING",
-    "name": "The Timurzoda Residence",
+    "name": "The Qalmaq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46155,7 +46155,7 @@
    "properties": {
     "id": 9834,
     "type": "BUILDING",
-    "name": "The Davlatzoda Residence",
+    "name": "The Timurzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46192,7 +46192,7 @@
    "properties": {
     "id": 9835,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Muradugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46267,7 +46267,7 @@
    "properties": {
     "id": 9837,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Bekzodugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46342,7 +46342,7 @@
    "properties": {
     "id": 9839,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Mehranugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46379,7 +46379,7 @@
    "properties": {
     "id": 9840,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46461,7 +46461,7 @@
    "properties": {
     "id": 9842,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46618,7 +46618,7 @@
    "properties": {
     "id": 9846,
     "type": "BUILDING",
-    "name": "The Jamshidian Residence",
+    "name": "The Qiyat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46701,7 +46701,7 @@
    "properties": {
     "id": 9848,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Parvizzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46775,7 +46775,7 @@
    "properties": {
     "id": 10141,
     "type": "BUILDING",
-    "name": "The Navidian Residence",
+    "name": "The Arlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46812,7 +46812,7 @@
    "properties": {
     "id": 10142,
     "type": "BUILDING",
-    "name": "The Sanjarzadeh Residence",
+    "name": "The Arashugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46849,7 +46849,7 @@
    "properties": {
     "id": 10143,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Sorushzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -46931,7 +46931,7 @@
    "properties": {
     "id": 10145,
     "type": "BUILDING",
-    "name": "The Kavehzoda Cheesemonger",
+    "name": "The Manghit Cheesemonger",
     "buildingType": "SHOP",
     "material": "WOOD"
    }
@@ -46968,7 +46968,7 @@
    "properties": {
     "id": 10146,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Doniyorzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47042,7 +47042,7 @@
    "properties": {
     "id": 10148,
     "type": "BUILDING",
-    "name": "The Black-Felt Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47153,7 +47153,7 @@
    "properties": {
     "id": 10151,
     "type": "BUILDING",
-    "name": "The Jamshidian Residence",
+    "name": "The Alpian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47190,7 +47190,7 @@
    "properties": {
     "id": 10152,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Sohrabian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47227,7 +47227,7 @@
    "properties": {
     "id": 10153,
     "type": "BUILDING",
-    "name": "The Orkhanzoda Residence",
+    "name": "The Basmil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47375,7 +47375,7 @@
    "properties": {
     "id": 10157,
     "type": "BUILDING",
-    "name": "The Tally-Hammer Residence",
+    "name": "The Hearth-Stone Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47634,7 +47634,7 @@
    "properties": {
     "id": 10164,
     "type": "BUILDING",
-    "name": "The Mahanian Residence",
+    "name": "The Kereit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47671,7 +47671,7 @@
    "properties": {
     "id": 10165,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47782,7 +47782,7 @@
    "properties": {
     "id": 10168,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Tamgachzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47819,7 +47819,7 @@
    "properties": {
     "id": 10169,
     "type": "BUILDING",
-    "name": "The Ardashirzoda Residence",
+    "name": "The Jamshidzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47893,7 +47893,7 @@
    "properties": {
     "id": 10171,
     "type": "BUILDING",
-    "name": "The Mansurzadeh Residence",
+    "name": "The Turgesh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -47983,7 +47983,7 @@
    "properties": {
     "id": 10173,
     "type": "BUILDING",
-    "name": "The Ulughugli Residence",
+    "name": "The Ilhomugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48065,7 +48065,7 @@
    "properties": {
     "id": 10175,
     "type": "BUILDING",
-    "name": "The Bakhtiyarzadeh Residence",
+    "name": "The Mehranugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48102,7 +48102,7 @@
    "properties": {
     "id": 10176,
     "type": "BUILDING",
-    "name": "The Ardashirzoda Residence",
+    "name": "The Mingh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48176,7 +48176,7 @@
    "properties": {
     "id": 10178,
     "type": "BUILDING",
-    "name": "The Zalian Residence",
+    "name": "The Laqay Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48439,7 +48439,7 @@
    "properties": {
     "id": 10185,
     "type": "BUILDING",
-    "name": "The Navidugli Residence",
+    "name": "The Arlat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48554,7 +48554,7 @@
    "properties": {
     "id": 10188,
     "type": "BUILDING",
-    "name": "The Kavehzoda Residence",
+    "name": "The Tarkhan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48591,7 +48591,7 @@
    "properties": {
     "id": 10189,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Qochzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48780,7 +48780,7 @@
    "properties": {
     "id": 10194,
     "type": "BUILDING",
-    "name": "The Zalian Residence",
+    "name": "The Almaszadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48854,7 +48854,7 @@
    "properties": {
     "id": 10196,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Yarkanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -48895,7 +48895,7 @@
    "properties": {
     "id": 10197,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Faramarzugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49043,7 +49043,7 @@
    "properties": {
     "id": 10201,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Sohrabian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49117,7 +49117,7 @@
    "properties": {
     "id": 10203,
     "type": "BUILDING",
-    "name": "The Anushirvanian Residence",
+    "name": "The Shahinian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49154,7 +49154,7 @@
    "properties": {
     "id": 10204,
     "type": "BUILDING",
-    "name": "The Hearthroad Residence",
+    "name": "The Warm-Door Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49265,7 +49265,7 @@
    "properties": {
     "id": 10207,
     "type": "BUILDING",
-    "name": "The Seam-Reader Residence",
+    "name": "The Tally-Hammer Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49339,7 +49339,7 @@
    "properties": {
     "id": 10209,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49413,7 +49413,7 @@
    "properties": {
     "id": 10211,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49454,7 +49454,7 @@
    "properties": {
     "id": 10212,
     "type": "BUILDING",
-    "name": "The Warm-Door Residence",
+    "name": "The Kettle-Side Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49532,7 +49532,7 @@
    "properties": {
     "id": 10214,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Alpugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49573,7 +49573,7 @@
    "properties": {
     "id": 10215,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Shavkatzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49684,7 +49684,7 @@
    "properties": {
     "id": 10218,
     "type": "BUILDING",
-    "name": "The Ulughzadeh Residence",
+    "name": "The Turgesh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49766,7 +49766,7 @@
    "properties": {
     "id": 10220,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49803,7 +49803,7 @@
    "properties": {
     "id": 10221,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49844,7 +49844,7 @@
    "properties": {
     "id": 10222,
     "type": "BUILDING",
-    "name": "The Balkhi Residence",
+    "name": "The Arslanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49881,7 +49881,7 @@
    "properties": {
     "id": 10223,
     "type": "BUILDING",
-    "name": "The Anushirvanzoda Residence",
+    "name": "The Muradzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49926,7 +49926,7 @@
    "properties": {
     "id": 10224,
     "type": "BUILDING",
-    "name": "The Davlatzadeh Residence",
+    "name": "The Orkhanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -49963,7 +49963,7 @@
    "properties": {
     "id": 10225,
     "type": "BUILDING",
-    "name": "The Muradzadeh Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50197,7 +50197,7 @@
    "properties": {
     "id": 10231,
     "type": "BUILDING",
-    "name": "The Zalzoda Residence",
+    "name": "The Laqay Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50279,7 +50279,7 @@
    "properties": {
     "id": 10407,
     "type": "BUILDING",
-    "name": "The Mahanugli Residence",
+    "name": "The Mihranugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50316,7 +50316,7 @@
    "properties": {
     "id": 10408,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50398,7 +50398,7 @@
    "properties": {
     "id": 10410,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Pakharugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50435,7 +50435,7 @@
    "properties": {
     "id": 10411,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50472,7 +50472,7 @@
    "properties": {
     "id": 10412,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Kenegas Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50513,7 +50513,7 @@
    "properties": {
     "id": 10413,
     "type": "BUILDING",
-    "name": "The Nodirian Residence",
+    "name": "The Jaun Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50550,7 +50550,7 @@
    "properties": {
     "id": 10414,
     "type": "BUILDING",
-    "name": "The Dilshodzoda Residence",
+    "name": "The Khalaj Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50587,7 +50587,7 @@
    "properties": {
     "id": 10415,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Hearth-Stone Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50702,7 +50702,7 @@
    "properties": {
     "id": 10418,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Anvarzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50739,7 +50739,7 @@
    "properties": {
     "id": 10419,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Karimzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50776,7 +50776,7 @@
    "properties": {
     "id": 10420,
     "type": "BUILDING",
-    "name": "The Ardashirugli Residence",
+    "name": "The Mingh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50813,7 +50813,7 @@
    "properties": {
     "id": 10421,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Fereydunugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50899,7 +50899,7 @@
    "properties": {
     "id": 10423,
     "type": "BUILDING",
-    "name": "The Temurugli Residence",
+    "name": "The Merkit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -50985,7 +50985,7 @@
    "properties": {
     "id": 10425,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Farrokhian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51059,7 +51059,7 @@
    "properties": {
     "id": 10427,
     "type": "BUILDING",
-    "name": "The Kamranzoda Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51096,7 +51096,7 @@
    "properties": {
     "id": 10428,
     "type": "BUILDING",
-    "name": "The Kavehzoda Residence",
+    "name": "The Manghit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51137,7 +51137,7 @@
    "properties": {
     "id": 10429,
     "type": "BUILDING",
-    "name": "The Muradian Residence",
+    "name": "The Temurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51337,7 +51337,7 @@
    "properties": {
     "id": 10433,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Ulughian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51378,7 +51378,7 @@
    "properties": {
     "id": 10434,
     "type": "BUILDING",
-    "name": "The Sanjarian Residence",
+    "name": "The Yaghma Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51415,7 +51415,7 @@
    "properties": {
     "id": 10435,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Aybekian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51489,7 +51489,7 @@
    "properties": {
     "id": 10437,
     "type": "BUILDING",
-    "name": "The Black-Felt Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51608,7 +51608,7 @@
    "properties": {
     "id": 10440,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Garshaspzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51649,7 +51649,7 @@
    "properties": {
     "id": 10441,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Low-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51743,7 +51743,7 @@
    "properties": {
     "id": 10443,
     "type": "BUILDING",
-    "name": "The Iron-Counter Residence",
+    "name": "The Deep-Ledger Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51784,7 +51784,7 @@
    "properties": {
     "id": 10444,
     "type": "BUILDING",
-    "name": "The Tirmizi Residence",
+    "name": "The Kuhyarian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51825,7 +51825,7 @@
    "properties": {
     "id": 10445,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Manuchehrzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -51911,7 +51911,7 @@
    "properties": {
     "id": 10447,
     "type": "BUILDING",
-    "name": "The Bakhtiyarzadeh Residence",
+    "name": "The Seljuk Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52071,7 +52071,7 @@
    "properties": {
     "id": 10451,
     "type": "BUILDING",
-    "name": "The Kamranzoda Residence",
+    "name": "The Khazar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52202,7 +52202,7 @@
    "properties": {
     "id": 10454,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Iskanderzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52276,7 +52276,7 @@
    "properties": {
     "id": 10456,
     "type": "BUILDING",
-    "name": "The Jamshidian Residence",
+    "name": "The Qiyat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52313,7 +52313,7 @@
    "properties": {
     "id": 10457,
     "type": "BUILDING",
-    "name": "The Seam-Reader Residence",
+    "name": "The Low-Lamp Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52395,7 +52395,7 @@
    "properties": {
     "id": 10459,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Ulughzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52473,7 +52473,7 @@
    "properties": {
     "id": 10461,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Pakharugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52547,7 +52547,7 @@
    "properties": {
     "id": 10463,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52588,7 +52588,7 @@
    "properties": {
     "id": 10464,
     "type": "BUILDING",
-    "name": "The Seam-Reader Residence",
+    "name": "The Vein-Warden Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52629,7 +52629,7 @@
    "properties": {
     "id": 10465,
     "type": "BUILDING",
-    "name": "The Tally-Hammer Residence",
+    "name": "The Low-Lamp Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52670,7 +52670,7 @@
    "properties": {
     "id": 10466,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Zarirugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52785,7 +52785,7 @@
    "properties": {
     "id": 10469,
     "type": "BUILDING",
-    "name": "The Dilshodzadeh Residence",
+    "name": "The Khalaj Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52863,7 +52863,7 @@
    "properties": {
     "id": 10471,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52900,7 +52900,7 @@
    "properties": {
     "id": 10472,
     "type": "BUILDING",
-    "name": "The Tally-Hammer Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -52978,7 +52978,7 @@
    "properties": {
     "id": 10474,
     "type": "BUILDING",
-    "name": "The Mahanzoda Residence",
+    "name": "The Kuhyarzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53015,7 +53015,7 @@
    "properties": {
     "id": 10475,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Alchiian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53130,7 +53130,7 @@
    "properties": {
     "id": 10478,
     "type": "BUILDING",
-    "name": "The Davlatzadeh Residence",
+    "name": "The Kipchak Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53167,7 +53167,7 @@
    "properties": {
     "id": 10479,
     "type": "BUILDING",
-    "name": "The Mahanugli Residence",
+    "name": "The Uighur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53278,7 +53278,7 @@
    "properties": {
     "id": 10482,
     "type": "BUILDING",
-    "name": "The Anushirvanian Residence",
+    "name": "The Barlas Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53352,7 +53352,7 @@
    "properties": {
     "id": 10484,
     "type": "BUILDING",
-    "name": "The Tirmizi Residence",
+    "name": "The Vahramzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53430,7 +53430,7 @@
    "properties": {
     "id": 10486,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Manuchehrzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53471,7 +53471,7 @@
    "properties": {
     "id": 10487,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Sardorzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53582,7 +53582,7 @@
    "properties": {
     "id": 10490,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Pakharzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53660,7 +53660,7 @@
    "properties": {
     "id": 10492,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53697,7 +53697,7 @@
    "properties": {
     "id": 10493,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Mardanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53841,7 +53841,7 @@
    "properties": {
     "id": 10497,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53878,7 +53878,7 @@
    "properties": {
     "id": 10498,
     "type": "BUILDING",
-    "name": "The Warm-Door Residence",
+    "name": "The Hearthroad Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53915,7 +53915,7 @@
    "properties": {
     "id": 10499,
     "type": "BUILDING",
-    "name": "The Farhodzadeh Residence",
+    "name": "The Yagan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -53952,7 +53952,7 @@
    "properties": {
     "id": 10500,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Hushyarzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54063,7 +54063,7 @@
    "properties": {
     "id": 10503,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Mehrdadzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54174,7 +54174,7 @@
    "properties": {
     "id": 10506,
     "type": "BUILDING",
-    "name": "The Anushirvanian Residence",
+    "name": "The Barlas Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54248,7 +54248,7 @@
    "properties": {
     "id": 10508,
     "type": "BUILDING",
-    "name": "The Davlatian Residence",
+    "name": "The Naiman Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54285,7 +54285,7 @@
    "properties": {
     "id": 10509,
     "type": "BUILDING",
-    "name": "The Warm-Door Residence",
+    "name": "The Kettle-Side Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54322,7 +54322,7 @@
    "properties": {
     "id": 10510,
     "type": "BUILDING",
-    "name": "The Hearth-Stone Residence",
+    "name": "The Stone-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54396,7 +54396,7 @@
    "properties": {
     "id": 10512,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Fereydunugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54433,7 +54433,7 @@
    "properties": {
     "id": 10513,
     "type": "BUILDING",
-    "name": "The Ulughzadeh Residence",
+    "name": "The Khazar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54470,7 +54470,7 @@
    "properties": {
     "id": 10514,
     "type": "BUILDING",
-    "name": "The Khosrowugli Residence",
+    "name": "The Bulaq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54544,7 +54544,7 @@
    "properties": {
     "id": 10516,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54696,7 +54696,7 @@
    "properties": {
     "id": 10520,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Almasian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54737,7 +54737,7 @@
    "properties": {
     "id": 10521,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Kulugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54815,7 +54815,7 @@
    "properties": {
     "id": 10523,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Shapurian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54852,7 +54852,7 @@
    "properties": {
     "id": 10524,
     "type": "BUILDING",
-    "name": "The Anushirvanzadeh Residence",
+    "name": "The Barlas Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54889,7 +54889,7 @@
    "properties": {
     "id": 10525,
     "type": "BUILDING",
-    "name": "The Yarkanzoda Residence",
+    "name": "The Bekzodzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -54926,7 +54926,7 @@
    "properties": {
     "id": 10526,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Husanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -55000,7 +55000,7 @@
    "properties": {
     "id": 10528,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Low-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -55074,7 +55074,7 @@
    "properties": {
     "id": 10530,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -55111,7 +55111,7 @@
    "properties": {
     "id": 10531,
     "type": "BUILDING",
-    "name": "The Khujandi Residence",
+    "name": "The Hamidian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -55152,7 +55152,7 @@
    "properties": {
     "id": 10532,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Alchizadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -55189,7 +55189,7 @@
    "properties": {
     "id": 10533,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Davlatzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -55238,7 +55238,7 @@
    "properties": {
     "id": 10534,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -55996,7 +55996,7 @@
    "properties": {
     "id": 10666,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Botirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56115,7 +56115,7 @@
    "properties": {
     "id": 10669,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Iskanderzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56197,7 +56197,7 @@
    "properties": {
     "id": 10671,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Berkeian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56234,7 +56234,7 @@
    "properties": {
     "id": 10672,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56316,7 +56316,7 @@
    "properties": {
     "id": 10674,
     "type": "BUILDING",
-    "name": "The Hearthroad Residence",
+    "name": "The Kettle-Side Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56427,7 +56427,7 @@
    "properties": {
     "id": 10677,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Fereydunzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56673,7 +56673,7 @@
    "properties": {
     "id": 10683,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Jamshidzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56718,7 +56718,7 @@
    "properties": {
     "id": 10684,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Bagavandzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56890,7 +56890,7 @@
    "properties": {
     "id": 10688,
     "type": "BUILDING",
-    "name": "The Rustamzoda Residence",
+    "name": "The Qarluq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56935,7 +56935,7 @@
    "properties": {
     "id": 10689,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Nowruzugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -56980,7 +56980,7 @@
    "properties": {
     "id": 10690,
     "type": "BUILDING",
-    "name": "The Mansurugli Residence",
+    "name": "The Vahramzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57025,7 +57025,7 @@
    "properties": {
     "id": 10691,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Dariushugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57136,7 +57136,7 @@
    "properties": {
     "id": 10694,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Elterzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57173,7 +57173,7 @@
    "properties": {
     "id": 10695,
     "type": "BUILDING",
-    "name": "The Kamranzadeh Residence",
+    "name": "The Garshaspzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57284,7 +57284,7 @@
    "properties": {
     "id": 10698,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Karimugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57329,7 +57329,7 @@
    "properties": {
     "id": 10699,
     "type": "BUILDING",
-    "name": "The Farhodugli Residence",
+    "name": "The Kuhyarzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57366,7 +57366,7 @@
    "properties": {
     "id": 10700,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Timurzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57448,7 +57448,7 @@
    "properties": {
     "id": 10702,
     "type": "BUILDING",
-    "name": "The Caravan-Reckoner Residence",
+    "name": "The Bakhshizadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57530,7 +57530,7 @@
    "properties": {
     "id": 10704,
     "type": "BUILDING",
-    "name": "The Long-Table Residence",
+    "name": "The Warm-Door Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57575,7 +57575,7 @@
    "properties": {
     "id": 10705,
     "type": "BUILDING",
-    "name": "The Rustamian Residence",
+    "name": "The Jamshidian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57612,7 +57612,7 @@
    "properties": {
     "id": 10720,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Jamshidzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57690,7 +57690,7 @@
    "properties": {
     "id": 10722,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57723,7 +57723,7 @@
    "properties": {
     "id": 10723,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Nodirian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57764,7 +57764,7 @@
    "properties": {
     "id": 10724,
     "type": "BUILDING",
-    "name": "The Muradzoda Residence",
+    "name": "The Salur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57801,7 +57801,7 @@
    "properties": {
     "id": 10725,
     "type": "BUILDING",
-    "name": "The Farrokhugli Residence",
+    "name": "The Babakugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57883,7 +57883,7 @@
    "properties": {
     "id": 10727,
     "type": "BUILDING",
-    "name": "The Farrokhugli Residence",
+    "name": "The Bayat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57920,7 +57920,7 @@
    "properties": {
     "id": 10728,
     "type": "BUILDING",
-    "name": "The Nodirzadeh Residence",
+    "name": "The Jahanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -57957,7 +57957,7 @@
    "properties": {
     "id": 10729,
     "type": "BUILDING",
-    "name": "The Anvil-Sworn Residence",
+    "name": "The Vein-Warden Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58031,7 +58031,7 @@
    "properties": {
     "id": 10731,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Iskanderzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58076,7 +58076,7 @@
    "properties": {
     "id": 10732,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Sarbazzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58150,7 +58150,7 @@
    "properties": {
     "id": 10769,
     "type": "BUILDING",
-    "name": "The Behzadzadeh Residence",
+    "name": "The Kenegas Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58298,7 +58298,7 @@
    "properties": {
     "id": 10773,
     "type": "BUILDING",
-    "name": "The Davlatian Residence",
+    "name": "The Naiman Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58335,7 +58335,7 @@
    "properties": {
     "id": 10774,
     "type": "BUILDING",
-    "name": "The Rustamzoda Residence",
+    "name": "The Nodirzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58372,7 +58372,7 @@
    "properties": {
     "id": 10775,
     "type": "BUILDING",
-    "name": "The Parvizzadeh Residence",
+    "name": "The Merkit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58483,7 +58483,7 @@
    "properties": {
     "id": 10778,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58524,7 +58524,7 @@
    "properties": {
     "id": 10779,
     "type": "BUILDING",
-    "name": "The Shahinugli Residence",
+    "name": "The Fanichugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58561,7 +58561,7 @@
    "properties": {
     "id": 10780,
     "type": "BUILDING",
-    "name": "The Navidian Residence",
+    "name": "The Lochinian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58598,7 +58598,7 @@
    "properties": {
     "id": 10781,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Iskanderzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58746,7 +58746,7 @@
    "properties": {
     "id": 10785,
     "type": "BUILDING",
-    "name": "The Warm-Door Residence",
+    "name": "The Hearthroad Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58783,7 +58783,7 @@
    "properties": {
     "id": 10786,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Zalzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58820,7 +58820,7 @@
    "properties": {
     "id": 10787,
     "type": "BUILDING",
-    "name": "The Bahramugli Residence",
+    "name": "The Shapurugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58861,7 +58861,7 @@
    "properties": {
     "id": 10788,
     "type": "BUILDING",
-    "name": "The Wolf-Road Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -58898,7 +58898,7 @@
    "properties": {
     "id": 10789,
     "type": "BUILDING",
-    "name": "The Sohrabian Residence",
+    "name": "The Perozian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59120,7 +59120,7 @@
    "properties": {
     "id": 10795,
     "type": "BUILDING",
-    "name": "The Bakhtiyarzadeh Residence",
+    "name": "The Seljuk Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59272,7 +59272,7 @@
    "properties": {
     "id": 10799,
     "type": "BUILDING",
-    "name": "The Muradugli Residence",
+    "name": "The Bijanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59309,7 +59309,7 @@
    "properties": {
     "id": 10800,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Farhodugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59383,7 +59383,7 @@
    "properties": {
     "id": 10802,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Yazdanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59428,7 +59428,7 @@
    "properties": {
     "id": 10803,
     "type": "BUILDING",
-    "name": "The Yarkanian Residence",
+    "name": "The Kimak Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59506,7 +59506,7 @@
    "properties": {
     "id": 10805,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Navidugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59580,7 +59580,7 @@
    "properties": {
     "id": 10807,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59617,7 +59617,7 @@
    "properties": {
     "id": 10808,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Anushirvanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59654,7 +59654,7 @@
    "properties": {
     "id": 10809,
     "type": "BUILDING",
-    "name": "The Low-Lamp Residence",
+    "name": "The Slag-Hand Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59691,7 +59691,7 @@
    "properties": {
     "id": 10810,
     "type": "BUILDING",
-    "name": "The Jamshidzoda Residence",
+    "name": "The Qiyat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59769,7 +59769,7 @@
    "properties": {
     "id": 10812,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Ash-Horn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59806,7 +59806,7 @@
    "properties": {
     "id": 10813,
     "type": "BUILDING",
-    "name": "The Black-Felt Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59880,7 +59880,7 @@
    "properties": {
     "id": 10815,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Karimzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59917,7 +59917,7 @@
    "properties": {
     "id": 10816,
     "type": "BUILDING",
-    "name": "The Kavehzadeh Residence",
+    "name": "The Ardavanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -59954,7 +59954,7 @@
    "properties": {
     "id": 10817,
     "type": "BUILDING",
-    "name": "The Bahramugli Residence",
+    "name": "The Tahmurasugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60065,7 +60065,7 @@
    "properties": {
     "id": 10820,
     "type": "BUILDING",
-    "name": "The Mahanzoda Residence",
+    "name": "The Uighur Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60102,7 +60102,7 @@
    "properties": {
     "id": 10821,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Narimanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60139,7 +60139,7 @@
    "properties": {
     "id": 10822,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60221,7 +60221,7 @@
    "properties": {
     "id": 10824,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60406,7 +60406,7 @@
    "properties": {
     "id": 10829,
     "type": "BUILDING",
-    "name": "The Ulughian Residence",
+    "name": "The Khazar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60480,7 +60480,7 @@
    "properties": {
     "id": 10831,
     "type": "BUILDING",
-    "name": "The Deep-Ledger Residence",
+    "name": "The Iron-Counter Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60521,7 +60521,7 @@
    "properties": {
     "id": 10832,
     "type": "BUILDING",
-    "name": "The Shashi Residence",
+    "name": "The Hushangugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60595,7 +60595,7 @@
    "properties": {
     "id": 10834,
     "type": "BUILDING",
-    "name": "The Herati Residence",
+    "name": "The Zokirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60669,7 +60669,7 @@
    "properties": {
     "id": 10836,
     "type": "BUILDING",
-    "name": "The Anushirvanzadeh Residence",
+    "name": "The Bahramzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60743,7 +60743,7 @@
    "properties": {
     "id": 10838,
     "type": "BUILDING",
-    "name": "The Mansurzadeh Residence",
+    "name": "The Pakharzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60817,7 +60817,7 @@
    "properties": {
     "id": 10840,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Low-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60891,7 +60891,7 @@
    "properties": {
     "id": 10842,
     "type": "BUILDING",
-    "name": "The Tally-Hammer Residence",
+    "name": "The Hearth-Stone Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -60965,7 +60965,7 @@
    "properties": {
     "id": 10844,
     "type": "BUILDING",
-    "name": "The Cairn-Wright Residence",
+    "name": "The Low-Lamp Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61039,7 +61039,7 @@
    "properties": {
     "id": 10846,
     "type": "BUILDING",
-    "name": "The Dilshodzadeh Residence",
+    "name": "The Chigil Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61076,7 +61076,7 @@
    "properties": {
     "id": 10847,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61113,7 +61113,7 @@
    "properties": {
     "id": 10848,
     "type": "BUILDING",
-    "name": "The Ledger-Reader Residence",
+    "name": "The Aybekugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61187,7 +61187,7 @@
    "properties": {
     "id": 10850,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Esfandiarugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61265,7 +61265,7 @@
    "properties": {
     "id": 10852,
     "type": "BUILDING",
-    "name": "The Yarkanugli Residence",
+    "name": "The Husanugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61302,7 +61302,7 @@
    "properties": {
     "id": 10853,
     "type": "BUILDING",
-    "name": "The Stone-Reader Residence",
+    "name": "The Third-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61339,7 +61339,7 @@
    "properties": {
     "id": 10854,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61413,7 +61413,7 @@
    "properties": {
     "id": 10856,
     "type": "BUILDING",
-    "name": "The Farhodzoda Residence",
+    "name": "The Tuman Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61450,7 +61450,7 @@
    "properties": {
     "id": 10857,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Ulughian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61487,7 +61487,7 @@
    "properties": {
     "id": 10858,
     "type": "BUILDING",
-    "name": "The Zalzadeh Residence",
+    "name": "The Sorushzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61598,7 +61598,7 @@
    "properties": {
     "id": 10861,
     "type": "BUILDING",
-    "name": "The Khwarazmi Residence",
+    "name": "The Timurzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61635,7 +61635,7 @@
    "properties": {
     "id": 10862,
     "type": "BUILDING",
-    "name": "The Dehdadi Residence",
+    "name": "The Davlatian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61672,7 +61672,7 @@
    "properties": {
     "id": 10863,
     "type": "BUILDING",
-    "name": "The Ardashirugli Residence",
+    "name": "The Nogai Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61709,7 +61709,7 @@
    "properties": {
     "id": 10864,
     "type": "BUILDING",
-    "name": "The Khujandi Residence",
+    "name": "The Hamidian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61783,7 +61783,7 @@
    "properties": {
     "id": 10866,
     "type": "BUILDING",
-    "name": "The Zalian Residence",
+    "name": "The Chekan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61820,7 +61820,7 @@
    "properties": {
     "id": 10867,
     "type": "BUILDING",
-    "name": "The Ardashirzadeh Residence",
+    "name": "The Shishpirzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -61894,7 +61894,7 @@
    "properties": {
     "id": 10869,
     "type": "BUILDING",
-    "name": "The Ferghani Residence",
+    "name": "The Ilhomzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62050,7 +62050,7 @@
    "properties": {
     "id": 10873,
     "type": "BUILDING",
-    "name": "The Farhodzadeh Residence",
+    "name": "The Yagan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62087,7 +62087,7 @@
    "properties": {
     "id": 10874,
     "type": "BUILDING",
-    "name": "The Kamranian Residence",
+    "name": "The Choraugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62124,7 +62124,7 @@
    "properties": {
     "id": 10875,
     "type": "BUILDING",
-    "name": "The Hearth-Stone Residence",
+    "name": "The Tally-Hammer Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62161,7 +62161,7 @@
    "properties": {
     "id": 10876,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Goshtaspian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62272,7 +62272,7 @@
    "properties": {
     "id": 10879,
     "type": "BUILDING",
-    "name": "The Iron-Counter Residence",
+    "name": "The Anvil-Sworn Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62358,7 +62358,7 @@
    "properties": {
     "id": 10881,
     "type": "BUILDING",
-    "name": "The Farrokhzadeh Residence",
+    "name": "The Bayat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62395,7 +62395,7 @@
    "properties": {
     "id": 10882,
     "type": "BUILDING",
-    "name": "The Ulughian Residence",
+    "name": "The Akmalian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62432,7 +62432,7 @@
    "properties": {
     "id": 10883,
     "type": "BUILDING",
-    "name": "The Stone-Reader Residence",
+    "name": "The Iron-Counter Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62510,7 +62510,7 @@
    "properties": {
     "id": 10885,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62547,7 +62547,7 @@
    "properties": {
     "id": 10886,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Narimanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62732,7 +62732,7 @@
    "properties": {
     "id": 10891,
     "type": "BUILDING",
-    "name": "The Split-Banner Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62843,7 +62843,7 @@
    "properties": {
     "id": 11064,
     "type": "BUILDING",
-    "name": "The Balkhi Residence",
+    "name": "The Sarbazian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -62880,7 +62880,7 @@
    "properties": {
     "id": 11065,
     "type": "BUILDING",
-    "name": "The Vein-Warden Residence",
+    "name": "The Deep-Ledger Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63213,7 +63213,7 @@
    "properties": {
     "id": 11074,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Boghrazadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63250,7 +63250,7 @@
    "properties": {
     "id": 11075,
     "type": "BUILDING",
-    "name": "The Temurian Residence",
+    "name": "The Hamidugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63324,7 +63324,7 @@
    "properties": {
     "id": 11077,
     "type": "BUILDING",
-    "name": "The Tirmizi Residence",
+    "name": "The Kobadzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63398,7 +63398,7 @@
    "properties": {
     "id": 11079,
     "type": "BUILDING",
-    "name": "The Timurzadeh Residence",
+    "name": "The Shokirzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63509,7 +63509,7 @@
    "properties": {
     "id": 11082,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Sohrabzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63546,7 +63546,7 @@
    "properties": {
     "id": 11083,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Shavkatugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63583,7 +63583,7 @@
    "properties": {
     "id": 11084,
     "type": "BUILDING",
-    "name": "The Bakhtiyarugli Residence",
+    "name": "The Seljuk Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63620,7 +63620,7 @@
    "properties": {
     "id": 11085,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Parvizugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63657,7 +63657,7 @@
    "properties": {
     "id": 11086,
     "type": "BUILDING",
-    "name": "The Black-Felt Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63698,7 +63698,7 @@
    "properties": {
     "id": 11087,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Divashtichzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63735,7 +63735,7 @@
    "properties": {
     "id": 11088,
     "type": "BUILDING",
-    "name": "The Khosrowugli Residence",
+    "name": "The Bulaq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63772,7 +63772,7 @@
    "properties": {
     "id": 11089,
     "type": "BUILDING",
-    "name": "The Farhodzoda Residence",
+    "name": "The Yagan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63809,7 +63809,7 @@
    "properties": {
     "id": 11090,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Black-Felt Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -63883,7 +63883,7 @@
    "properties": {
     "id": 11092,
     "type": "BUILDING",
-    "name": "The Parvizzadeh Residence",
+    "name": "The Merkit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64031,7 +64031,7 @@
    "properties": {
     "id": 11096,
     "type": "BUILDING",
-    "name": "The Jamshidzoda Residence",
+    "name": "The Toghrilzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64179,7 +64179,7 @@
    "properties": {
     "id": 11100,
     "type": "BUILDING",
-    "name": "The Behzadzadeh Residence",
+    "name": "The Katagan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64253,7 +64253,7 @@
    "properties": {
     "id": 11102,
     "type": "BUILDING",
-    "name": "The Gokturk-Ash Residence",
+    "name": "The Red-Tooth Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64290,7 +64290,7 @@
    "properties": {
     "id": 11103,
     "type": "BUILDING",
-    "name": "The Yarkanzadeh Residence",
+    "name": "The Kimak Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64364,7 +64364,7 @@
    "properties": {
     "id": 11105,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Jamshidzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64549,7 +64549,7 @@
    "properties": {
     "id": 11110,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64586,7 +64586,7 @@
    "properties": {
     "id": 11111,
     "type": "BUILDING",
-    "name": "The Hearthroad Residence",
+    "name": "The Warm-Door Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64623,7 +64623,7 @@
    "properties": {
     "id": 11112,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Divashtichzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64697,7 +64697,7 @@
    "properties": {
     "id": 11114,
     "type": "BUILDING",
-    "name": "The Salt-Broker Residence",
+    "name": "The Divashtichzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64734,7 +64734,7 @@
    "properties": {
     "id": 11115,
     "type": "BUILDING",
-    "name": "The Slag-Hand Residence",
+    "name": "The Seam-Reader Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64771,7 +64771,7 @@
    "properties": {
     "id": 11116,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Mehranzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -64993,7 +64993,7 @@
    "properties": {
     "id": 11122,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Bahramzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65030,7 +65030,7 @@
    "properties": {
     "id": 11123,
     "type": "BUILDING",
-    "name": "The Navidugli Residence",
+    "name": "The Berish Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65067,7 +65067,7 @@
    "properties": {
     "id": 11124,
     "type": "BUILDING",
-    "name": "The Anvil-Sworn Residence",
+    "name": "The Hearth-Stone Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65141,7 +65141,7 @@
    "properties": {
     "id": 11126,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Divashtichugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65178,7 +65178,7 @@
    "properties": {
     "id": 11127,
     "type": "BUILDING",
-    "name": "The Iskanderugli Residence",
+    "name": "The Chora Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65215,7 +65215,7 @@
    "properties": {
     "id": 11128,
     "type": "BUILDING",
-    "name": "The Well-Keeper Residence",
+    "name": "The Kulzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65289,7 +65289,7 @@
    "properties": {
     "id": 11130,
     "type": "BUILDING",
-    "name": "The Sanjarzoda Residence",
+    "name": "The Anushirvanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65400,7 +65400,7 @@
    "properties": {
     "id": 11133,
     "type": "BUILDING",
-    "name": "The Lamp-Seller Residence",
+    "name": "The Anushirvanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65548,7 +65548,7 @@
    "properties": {
     "id": 11137,
     "type": "BUILDING",
-    "name": "The Tirmizi Residence",
+    "name": "The Kobadzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -65585,7 +65585,7 @@
    "properties": {
     "id": 11138,
     "type": "BUILDING",
-    "name": "The Dilshodugli Residence",
+    "name": "The Kobadugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -66425,7 +66425,7 @@
    "properties": {
     "id": 12410,
     "type": "BUILDING",
-    "name": "The Ash-Horn Residence",
+    "name": "The Wolf-Road Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -66611,7 +66611,7 @@
    "properties": {
     "id": 12415,
     "type": "BUILDING",
-    "name": "The Iskanderzadeh Residence",
+    "name": "The Garshaspzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -66809,7 +66809,7 @@
    "properties": {
     "id": 12420,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Bekzodzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -66846,7 +66846,7 @@
    "properties": {
     "id": 12421,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Bahramzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -66883,7 +66883,7 @@
    "properties": {
     "id": 12422,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Tarkanzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67143,7 +67143,7 @@
    "properties": {
     "id": 12429,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Ravshanian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67184,7 +67184,7 @@
    "properties": {
     "id": 12430,
     "type": "BUILDING",
-    "name": "The Gate-Warden Residence",
+    "name": "The Rouzbehzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67221,7 +67221,7 @@
    "properties": {
     "id": 12431,
     "type": "BUILDING",
-    "name": "The Orkhanzadeh Residence",
+    "name": "The Karakhan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67336,7 +67336,7 @@
    "properties": {
     "id": 12434,
     "type": "BUILDING",
-    "name": "The Bahramian Residence",
+    "name": "The Afshar Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67373,7 +67373,7 @@
    "properties": {
     "id": 12435,
     "type": "BUILDING",
-    "name": "The Kavehugli Residence",
+    "name": "The Faramarzugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67484,7 +67484,7 @@
    "properties": {
     "id": 12438,
     "type": "BUILDING",
-    "name": "The Bakhtiyarugli Residence",
+    "name": "The Arjaspzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67521,7 +67521,7 @@
    "properties": {
     "id": 12439,
     "type": "BUILDING",
-    "name": "The Kuchari Residence",
+    "name": "The Sardorzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67558,7 +67558,7 @@
    "properties": {
     "id": 12440,
     "type": "BUILDING",
-    "name": "The Tirmizi Residence",
+    "name": "The Pashangugli Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67669,7 +67669,7 @@
    "properties": {
     "id": 12443,
     "type": "BUILDING",
-    "name": "The Sohrabian Residence",
+    "name": "The Tukhsi Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -67945,7 +67945,7 @@
    "properties": {
     "id": 12449,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Split-Banner Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -68172,7 +68172,7 @@
    "properties": {
     "id": 12455,
     "type": "BUILDING",
-    "name": "The Bakhtiyarzoda Residence",
+    "name": "The Bahramzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -68369,7 +68369,7 @@
    "properties": {
     "id": 12460,
     "type": "BUILDING",
-    "name": "The Khujandi Residence",
+    "name": "The Zafarzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -68521,7 +68521,7 @@
    "properties": {
     "id": 12464,
     "type": "BUILDING",
-    "name": "The Bukharayi Residence",
+    "name": "The Rustamian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -68558,7 +68558,7 @@
    "properties": {
     "id": 12465,
     "type": "BUILDING",
-    "name": "The Jamshidian Residence",
+    "name": "The Sulduz Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -68711,7 +68711,7 @@
    "properties": {
     "id": 12469,
     "type": "BUILDING",
-    "name": "The Rustamian Residence",
+    "name": "The Qarluq Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -68884,7 +68884,7 @@
    "properties": {
     "id": 12473,
     "type": "BUILDING",
-    "name": "The Nodirugli Residence",
+    "name": "The Jaun Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69119,7 +69119,7 @@
    "properties": {
     "id": 12479,
     "type": "BUILDING",
-    "name": "The Kavehzadeh Residence",
+    "name": "The Tarkhan Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69156,7 +69156,7 @@
    "properties": {
     "id": 12480,
     "type": "BUILDING",
-    "name": "The Tally-Hammer Residence",
+    "name": "The Iron-Counter Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69301,7 +69301,7 @@
    "properties": {
     "id": 12484,
     "type": "BUILDING",
-    "name": "The Kavehugli Residence",
+    "name": "The Manghit Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69342,7 +69342,7 @@
    "properties": {
     "id": 12485,
     "type": "BUILDING",
-    "name": "The Balkhi Residence",
+    "name": "The Boranzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69520,7 +69520,7 @@
    "properties": {
     "id": 12490,
     "type": "BUILDING",
-    "name": "The Farrokhzoda Residence",
+    "name": "The Yazir Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69590,7 +69590,7 @@
    "properties": {
     "id": 12492,
     "type": "BUILDING",
-    "name": "The Kashgari Residence",
+    "name": "The Zokirian Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69664,7 +69664,7 @@
    "properties": {
     "id": 12494,
     "type": "BUILDING",
-    "name": "The Merwi Residence",
+    "name": "The Mehranzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69697,7 +69697,7 @@
    "properties": {
     "id": 12495,
     "type": "BUILDING",
-    "name": "The Nasafi Residence",
+    "name": "The Elterzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69730,7 +69730,7 @@
    "properties": {
     "id": 12496,
     "type": "BUILDING",
-    "name": "The Kettle-Side Residence",
+    "name": "The Low-Gate Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69833,7 +69833,7 @@
    "properties": {
     "id": 12499,
     "type": "BUILDING",
-    "name": "The Silk-Weigher Residence",
+    "name": "The Vahramzadeh Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69866,7 +69866,7 @@
    "properties": {
     "id": 12500,
     "type": "BUILDING",
-    "name": "The Samarqandi Residence",
+    "name": "The Kayvanzoda Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69903,7 +69903,7 @@
    "properties": {
     "id": 12501,
     "type": "BUILDING",
-    "name": "The Red-Tooth Residence",
+    "name": "The Gokturk-Ash Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }
@@ -69944,7 +69944,7 @@
    "properties": {
     "id": 12502,
     "type": "BUILDING",
-    "name": "The Mansurian Residence",
+    "name": "The Oirat Residence",
     "buildingType": "RESIDENCE",
     "material": "WOOD"
    }

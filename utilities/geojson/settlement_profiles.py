@@ -237,6 +237,9 @@ def ancestry_pass(profile, seed, hh) -> dict:
     return {h: weighted(rng_for(seed, "ancestry", h), weights) for h in sorted(set(hh.values()))}
 
 
+UNIQUE_TRIES = 60
+
+
 class Namer:
     """Names for one town. Surnames are one file-wide map keyed on (FTG surname, ancestry)."""
 
@@ -245,12 +248,21 @@ class Namer:
         self.region = profile["names"]
         self.by_ancestry = profile["ancestry_names"]
         self.surnames = {}
+        self.family_use = {}
 
-    def given(self, person_id, gender, ancestry):
-        pool = (self.by_ancestry.get(ancestry) or {}).get("given")
-        if not pool:
-            pool = self.region[gender] if gender in ("male", "female") else self.region["male"] + self.region["female"]
-        return rng_for(self.seed, "given", person_id).choice(pool)
+    def pool(self, gender, ancestry):
+        own = (self.by_ancestry.get(ancestry) or {}).get("given")
+        if own:
+            return own
+        return self.region[gender] if gender in ("male", "female") else self.region["male"] + self.region["female"]
+
+    def given(self, person_id, gender, ancestry, attempt=0):
+        """Attempt 0 is the person's own draw. Later attempts are retries for a repeated full
+        name: the first half stay in the ancestry's pool, the rest widen to the region's pool."""
+        key = ("given", person_id) if not attempt else ("given", person_id, attempt)
+        pool = self.pool(gender, ancestry) if attempt < UNIQUE_TRIES // 2 else (
+            self.region[gender] if gender in ("male", "female") else self.region["male"] + self.region["female"])
+        return rng_for(self.seed, *key).choice(pool)
 
     def surname(self, original, ancestry):
         if not original:
@@ -260,17 +272,29 @@ class Namer:
             self.surnames[key] = self._draw_surname(original, ancestry)
         return self.surnames[key]
 
+    def personal(self, person_id, ancestry):
+        """A patronymic for someone FTG gave no family name and whose household has none."""
+        if (self.by_ancestry.get(ancestry) or {}).get("single"):
+            return ""
+        rng = rng_for(self.seed, "personal", person_id)
+        return rng.choice(self.region["male"]) + rng.choice(self.region["patronymic_suffixes"])
+
     def _draw_surname(self, original, ancestry):
         rng = rng_for(self.seed, "surname", original, ancestry)
         mod = self.by_ancestry.get(ancestry) or {}
         if mod.get("single"):
             return ""
         if mod.get("family"):
-            return rng.choice(mod["family"])
+            # spread the ancestry's family names evenly: take one of the least used so far
+            used = self.family_use.setdefault(ancestry, Counter())
+            low = min(used[n] for n in mod["family"])
+            name = rng.choice([n for n in mod["family"] if used[n] == low])
+            used[name] += 1
+            return name
         form = weighted(rng, self.region["family_forms"])
         if form == "patronymic":
             return rng.choice(self.region["male"]) + rng.choice(self.region["patronymic_suffixes"])
-        return rng.choice(self.region["places" if form == "place" else "trades"])
+        return rng.choice(self.region["lineages"])
 
     def informal(self, person_id):
         rng = rng_for(self.seed, "informal", person_id)
@@ -415,6 +439,15 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
     religion = religion_pass(profile, seed, people, hh, anc_of_hh, ppins)
     converted = conversion_pass(profile, buildings, areas, bpins)
 
+    # one surname per household, for the children and unattached adults FTG left blank
+    counts = {}
+    for p in people:
+        if p["lastName"]:
+            counts.setdefault(hh[p["id"]], Counter())[p["lastName"]] += 1
+    house_surname = {h: sorted(c.items(), key=lambda kv: (-kv[1], kv[0]))[0][0] for h, c in counts.items()}
+    # full names already fixed by pins, so a drawn name never repeats one
+    taken = {(ppins[p["id"]].get("firstName", p["firstName"]), ppins[p["id"]].get("lastName", p["lastName"]))
+             for p in people if p["id"] in ppins}
     out_people, ancestry_of = [], {}
     for p in people:
         q = dict(p)
@@ -424,8 +457,15 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
         else:
             anc = anc_of_hh[hh[pid]]
             q["race"] = anc
-            q["firstName"] = namer.given(pid, p.get("gender"), anc)
-            q["lastName"] = namer.surname(p["lastName"], anc)
+            original = p["lastName"] or house_surname.get(hh[pid], "")
+            last = namer.surname(original, anc) if original else namer.personal(pid, anc)
+            first = namer.given(pid, p.get("gender"), anc)
+            for attempt in range(1, UNIQUE_TRIES):
+                if (first, last) not in taken:
+                    break
+                first = namer.given(pid, p.get("gender"), anc, attempt)
+            taken.add((first, last))
+            q["firstName"], q["lastName"] = first, last
             q["religion"] = religion[pid]
             informal = namer.informal(pid)
             if informal:
@@ -590,7 +630,7 @@ def check_derived(src_people, out_people, src_buildings, out_buildings, pinned, 
     # one FTG surname + one ancestry -> one new surname, so no family splits
     seen = {}
     for a, b in zip(src_people, out_people):
-        if a["id"] in pinned:
+        if a["id"] in pinned or not a["lastName"]:
             continue
         key = (a["lastName"], b["race"])
         if seen.setdefault(key, b["lastName"]) != b["lastName"]:

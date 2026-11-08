@@ -74,21 +74,21 @@ Pinned buildings: none
 
 Faction chain-breakers-order: 18 members
   seats: 4 The Pork and Crow
-  e.g. 273 Nodir , Cook, works at The Pork and Crow, lives at The Stunning Flats (household 39)
-  e.g. 274 Mehrnoz Parvizzoda, Cook, works at The Pork and Crow, lives at The Stunning Flats (household 39)
-  e.g. 284 Ruksana Shashi, Server, works at The Pork and Crow, lives at The Samarqandi Residence (household 41)
+  e.g. 273 Farid Qunghirat, Cook, works at The Pork and Crow, lives at The Stunning Flats (household 39)
+  e.g. 274 Zilola Qunghirat, Cook, works at The Pork and Crow, lives at The Stunning Flats (household 39)
+  e.g. 284 Ramesh Dilshodugli, Server, works at The Pork and Crow, lives at The Kavuszadeh Residence (household 41)
 
 Faction mercenary-companies: 24 members
   seats: 11145 Barracks, 11148 Mercenary Company Headquarters, 11151 Barracks, 11153 Mercenary Company Headquarters
-  e.g. 36885 Urgakh Wolf-Road, Settlement guardsman, works at Barracks, lives at The Wolf-Road Residence (household 36885)
-  e.g. 36896 Manijeh , Settlement guardsman, works at Barracks, lives at Residence (household 36896)
-  e.g. 36897 Orkhan Yarkanzoda, Settlement guardsman, works at Barracks, lives at Residence (household 36896)
+  e.g. 36885 Farid Wolf-Road, Settlement guardsman, works at Barracks, lives at The Wolf-Road Residence (household 36885)
+  e.g. 36896 Lola Sanjarzadeh, Settlement guardsman, works at Barracks, lives at Residence (household 36896)
+  e.g. 36897 Arslan Husanzoda, Settlement guardsman, works at Barracks, lives at Residence (household 36896)
 
 Faction merchant-guilds: 0 members
   seats: 1062 Chieftain Market
 
 Faction oxus-watch-order: 98 members
   seats: 256 Barracks, 257 Barracks, 940 Barracks, 8734 Barracks, 8743 Barracks, 8751 Barracks, 8783 Barracks, 8817 Barracks, 8854 Barracks
-  e.g. 51 Karaz Black-Felt, Settlement guardsman, works at Barracks, lives at The Red-Tooth Residence (household 51)
-  e.g. 278 Zal Parvizzadeh, Settlement guardsman, works at Barracks, lives at The Pristine Flats (household 41)
-  e.g. 285 Gurzak Red-Tooth, Settlement guardsman, works at Barracks, lives at The Red-Tooth Residence (household 51)
+  e.g. 51 Naghai Gokturk-Ash, Settlement guardsman, works at Barracks, lives at The Red-Tooth Residence (household 51)
+  e.g. 278 Gurak Merkit, Settlement guardsman, works at Barracks, lives at The Pristine Flats (household 41)
+  e.g. 285 Ghulesh Red-Tooth, Settlement guardsman, works at Barracks, lives at The Red-Tooth Residence (household 51)

@@ -1055,3 +1055,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** A town with `medieval_hours: true` swaps FTG's modern openingTimes for per-type templates in `_defaults.yaml` (taverns 15:00 to 21:00, illicit houses 20:00 to 03:00, shops and workshops 07:00 to 18:00, Friday a rest day, inns and caravanserai round the clock). Staff of converted caravanserai take `retitle` job titles. Khans and caravanserai are not free-time venues.
 - **Rationale:** FTG's week is modern (9 to 17 Monday to Friday, bars 11 to 01); a converted inn kept its bar hours and bartenders. A tavern open past 21:00 is a stretch for a medieval town; the GM asked for an earlier curfew and a Friday rest day. Alternative rejected: flagging job titles for a GM ruling, since the GM asked for the suggestions to be applied.
 - **Lock status:** Locked (Qarshi re-locked, PR 408 branch infra/town-roster).
+
+## 2026-11-07 — Map: settlement names drawn from larger period pools, one full name per person (#406)
+- **Decision:** Region name pools are Persian, Sogdian and Turkic given names (150 male, 122 female) with patronymic or descent-group surnames; no place or trade words as surnames. Children and unattached adults FTG left nameless take their household's surname, else a patronymic. A drawn full name is redrawn until no one else in the town holds it.
+- **Rationale:** Qarshi had 76 first names and 166 surnames for 6274 people, 66% sharing a full name, and place and trade surnames read as real streets. Rejected: bigger pools alone, which still collides at this population.
+- **Lock status:** Locked (Qarshi redrafted and re-locked, infra/town-roster).

@@ -543,3 +543,16 @@ def test_s20_caravanserai_staff_lose_the_bar_job_titles_and_pinned_people_keep_t
     changed = sp.retitle_people(profile, {5: "caravanserai"}, people, {4})
     assert changed == {1, 2}
     assert [p["jobTitle"] for p in people] == ["Caravanserai Warden", "Stable-hand", "Cook", "Bartender", "Bartender"]
+
+
+# -- names: no repeated full name, no blank family name from FTG (#409) --------------------
+
+def test_names_no_two_people_share_a_full_name_and_blanks_are_filled(vault):
+    sp.draft("Testburg", vault)
+    people = _out(vault)["people"]
+    full = [(p["firstName"], p["lastName"]) for p in people]
+    assert len(set(full)) == len(full)
+    src, _ = make_town()
+    for a, b in zip(src["people"], people):
+        if not a["lastName"] and b["race"] != "Vaghri":
+            assert b["lastName"], a["id"]
