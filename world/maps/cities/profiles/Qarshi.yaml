@@ -4,6 +4,7 @@ region: central-asian-hubs
 seed: 1
 locked: true
 conversion_dial: 1
+rescale_ages: true
 
 # FTG building ids -> faith code. Temple staff and attendees (placeOfWork) take it.
 # Working choice: the two mosques take the two largest shares of the region table.

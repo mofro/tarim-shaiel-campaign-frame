@@ -12,7 +12,8 @@ Tarim-Shaiel, in two phases:
 Passes, in order: ancestry (per household), names (file-wide surname map, cascaded into
 residence names and GeoJSON `name`), family (checked, never rewritten), religion, jobs and
 buildings (the conversion dial). Entries pinned by FTG id are skipped by every pass.
-Headcount, ids, ages, genders, jobs and residences never change.
+Headcount, ids, genders, jobs and residences never change; ages too, unless the profile
+sets `rescale_ages` (see FTG_LIFESPAN).
 
 People data goes only to the GM-only sidecar (`<Town>.gm.json`), never into the geometry.
 
@@ -46,6 +47,19 @@ ANCESTRIES = frozenset({
 })
 # Never drawn, whatever a profile says.
 NEVER_DRAWN = frozenset({"Naga-Kin", "Faerie", "Galapa", "Ribbet"})
+
+# Ages (#406 case 4). FTG draws each age on the scale of the person's ORIGINAL FTG race; the
+# ancestry pass then changes the race, so an Elf's 400 can land on a Human. With
+# `rescale_ages: true` a person keeps their place in the life (age / FTG lifespan, capped at 1)
+# and takes the age that place has in the new ancestry's lifespan (PEOPLES_OF_TARIM_SHAIEL.md).
+FTG_LIFESPAN = {"Human": 100, "Half-Orc": 75, "Tiefling": 100, "Dragonborn": 80, "Half-Elf": 180,
+                "Dwarf": 350, "Halfling": 250, "Gnome": 400, "Elf": 750}
+LIFESPAN = {"Human": 100, "Serenvar": 350, "Kuhban": 250, "Tulpar": 125, "Khavar": 300, "Vaghri": 150,
+            "Jivar": 100, "Rahban": 150, "Kalan": 75, "Vanara": 150, "Gavar": 100, "Div-Born": 500}
+# No figure (or no limit) in the ancestry docs: ages kept as FTG drew them. Tadbir are not
+# bounded by years; Pari-Kin have no stated lifespan.
+UNSCALED = frozenset({"Tadbir", "Pari-Kin"})
+PARENT_GAP = 0.15  # a parent is at least this share of a lifespan older than a child
 
 PERSON_PIN_FIELDS = frozenset({"race", "firstName", "lastName", "religion"})
 BUILDING_PIN_FIELDS = frozenset({"name", "specificBuildingType"})
@@ -418,6 +432,8 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
                 q["informalByname"] = informal
         ancestry_of[pid] = q["race"]
         out_people.append(q)
+    if profile.get("rescale_ages"):
+        rescale_ages(people, out_people, ppins)
 
     # residents decide a residence's ancestry
     res_anc = {}
@@ -454,7 +470,8 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
             if props["id"] in converted:
                 props["kind"] = converted[props["id"]]
 
-    problems = check_derived(people, out_people, buildings, out_buildings, ppins)
+    problems = check_derived(people, out_people, buildings, out_buildings, ppins,
+                             ages_rescaled=bool(profile.get("rescale_ages")))
     report = make_report(profile, seed, out_people, out_buildings, areas, converted, namer, ppins, bpins, problems)
     report["factions"] = faction_report(factions, out_people, out_buildings, hh)
 
@@ -477,13 +494,65 @@ FROZEN_PERSON_FIELDS = ("id", "age", "gender", "jobTitle", "placeOfWork", "place
                         "childInFamilies", "parentInFamilies")
 
 
-def check_derived(src_people, out_people, src_buildings, out_buildings, pinned) -> list:
+def rescale_ages(src_people, out_people, pinned) -> None:
+    """Rewrite `age` in out_people in place; see FTG_LIFESPAN. Pinned people keep their age."""
+    src = {p["id"]: p for p in src_people}
+    for q in out_people:
+        if q["id"] in pinned or q["race"] in UNSCALED or q["race"] not in LIFESPAN:
+            continue
+        scale = FTG_LIFESPAN.get(src[q["id"]].get("race"))
+        if scale:
+            q["age"] = round(min(1.0, src[q["id"]]["age"] / scale) * LIFESPAN[q["race"]])
+    # a child must stay younger than every parent by PARENT_GAP of the parent's lifespan
+    by_id = {q["id"]: q for q in out_people}
+    parents = {}
+    for q in out_people:
+        for f in q.get("parentInFamilies") or []:
+            parents.setdefault(f, []).append(q["id"])
+    def gap_of(par):
+        return round(PARENT_GAP * LIFESPAN.get(par["race"], 100))
+
+    # pass 1, bottom-up: the youngest a parent can be is one gap above their child's youngest
+    floor = {q["id"]: 0 for q in out_people}
+    for _ in range(len(out_people)):
+        moved = False
+        for q in out_people:
+            for f in q.get("childInFamilies") or []:
+                for pid in parents.get(f, []):
+                    need = floor[q["id"]] + gap_of(by_id[pid])
+                    if need > floor[pid]:
+                        floor[pid] = need
+                        moved = True
+        if not moved:
+            break
+    for q in out_people:
+        if q["id"] not in pinned and q["age"] < floor[q["id"]]:
+            q["age"] = floor[q["id"]]
+    # pass 2, top-down: a child comes down to one gap below each parent, never under 0
+    for _ in range(len(out_people)):
+        moved = False
+        for q in out_people:
+            if q["id"] in pinned:
+                continue
+            for f in q.get("childInFamilies") or []:
+                for pid in parents.get(f, []):
+                    par = by_id[pid]
+                    if q["age"] > par["age"] - gap_of(par):
+                        q["age"] = max(0, par["age"] - gap_of(par))
+                        moved = True
+        if not moved:
+            break
+
+
+def check_derived(src_people, out_people, src_buildings, out_buildings, pinned, ages_rescaled=False) -> list:
     """What a draft must not change, and the family-name rule. Returns problem strings."""
     problems = []
     if len(src_people) != len(out_people) or len(src_buildings) != len(out_buildings):
         problems.append("headcount changed")
     for a, b in zip(src_people, out_people):
         for f in FROZEN_PERSON_FIELDS:
+            if f == "age" and ages_rescaled:
+                continue
             if a.get(f) != b.get(f):
                 problems.append(f"person {a['id']}: {f} changed")
     for a, b in zip(src_buildings, out_buildings):
