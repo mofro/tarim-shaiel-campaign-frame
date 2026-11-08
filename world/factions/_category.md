@@ -5,7 +5,7 @@ entity_type: factions
 visibility: gm_secrets
 status: active
 created: 2026-03-10
-last_updated: 2026-11-05
+last_updated: 2026-11-08
 published: true
 jump_nav: true
 ---
@@ -79,7 +79,7 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 
 | name | type | region | era | dissolved_by | legacy | status |
 |------|------|--------|-----|-------------|--------|--------|
-| [[human-empire\|The Human Empire]] | empire | all regions | Era 0 (~200 CE) | heroes-liberation, military-defeat | human-imperial-remnants | canon |
+| [[human-empire\|The Human Empire]] | empire | all regions | Era 0 (~200 HB) | heroes-liberation, military-defeat | human-imperial-remnants | canon |
 
 > **⚠️ The Human Empire needs a dedicated file.** What we know: aggressive expansionist state, tributary economy, military dependent on Tulpar slave-legions via binding magic, bureaucratic administration, controlled all major Silk Road hubs. Fantasy name TBD. Crucially — *who ran it?* A ruling dynasty? A priestly caste? A military aristocracy? The binding magic implies someone with cosmological knowledge. Does the Wizard predate the Empire or rise within it? These questions gate the individual file. See `_TEMPLATE_faction.md` for structure; this is a high-priority build.
 
@@ -93,7 +93,7 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 
 | name | type | era | implied_by | narrative_weight | status |
 |------|------|-----|-----------|-----------------|--------|
-| [[elder-civilization\|The Elder Civilization(s)]] | unknown — builders or predecessors | Pre-Era 0 (before ~200 CE) | Someone built the Warrens infrastructure; the Great Wall predates the Empire; Binding Magic came from somewhere | very-high | speculative |
+| [[elder-civilization\|The Elder Civilization(s)]] | unknown — builders or predecessors | Pre-Era 0 (before ~200 HB) | Someone built the Warrens infrastructure; the Great Wall predates the Empire; Binding Magic came from somewhere | very-high | speculative |
 | [[pre-empire-peoples\|Pre-Imperial Peoples]] | cultural predecessor | Pre-Era 0 | The Human Empire had to grow from something; what were the predecessor polities before it consolidated? | medium | speculative |
 | [[elder-gods\|The Elder Gods]] | divine — resolved; see Divine & Cosmic Powers section | Pre-Era 0 or cosmological | Superseded by canonical divine player entries (2026-03-19); the "Elder Gods" category resolves into the Chaos Weaver (pre-cosmic), the Held Breath (pre-cosmic), and the seven named divine players | very-high | draft |
 
@@ -187,4 +187,4 @@ Master registry of all named factions in Tarim-Shaiel. Each row represents a lin
 
 ### On the Chain-Breakers Order
 
-Founded in the aftermath of the liberation by those who experienced the heroes' deeds but could not follow to the Celestial Peak. Multi-species but Tulpar-anchored. Theologically committed to the view that the liberation was incomplete — that the heroes will return to finish what was started — which makes them either prophets or seditionists depending on who is in the room. The Wizard's Scholar's Purge (~1175 CE) targeted them specifically, which tells you everything about how dangerous their institutional memory is. They hold fragments of the truth about the Gaes, the unfinished charge, and the Wizard's original intervention — not because they are scholars, but because they *were there*, and their oral tradition has kept the memory alive across 40 generations.
+Founded in the aftermath of the liberation by those who experienced the heroes' deeds but could not follow to the Celestial Peak. Multi-species but Tulpar-anchored. Theologically committed to the view that the liberation was incomplete — that the heroes will return to finish what was started — which makes them either prophets or seditionists depending on who is in the room. The Wizard's Scholar's Purge (~1175 HB) targeted them specifically, which tells you everything about how dangerous their institutional memory is. They hold fragments of the truth about the Gaes, the unfinished charge, and the Wizard's original intervention — not because they are scholars, but because they *were there*, and their oral tradition has kept the memory alive across 40 generations.

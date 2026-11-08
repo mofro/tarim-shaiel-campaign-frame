@@ -7,7 +7,7 @@ content_type: reference
 visibility: public
 status: draft
 created: 2026-03-20
-last_updated: 2026-05-02
+last_updated: 2026-11-08
 ---
 
 # Player Glossary — Tarim-Shaiel
@@ -35,7 +35,7 @@ The act performed by the heroes — now legendary across every culture on the co
 
 ## The Scholar's Purge
 *(Player-accessible name — full scope is GM-layer knowledge)*
-A period, beginning roughly a thousand years ago, during which scholars with specific areas of knowledge began disappearing at unusual rates. Dwarven archives record the anomaly empirically. The Scholar's Remnant are the survivors and their descendants.
+A period, about a generation ago, during which scholars with specific areas of knowledge began disappearing at unusual rates. Dwarven archives record the anomaly empirically. The Scholar's Remnant are the survivors and their descendants.
 
 ---
 

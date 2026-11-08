@@ -16,7 +16,7 @@ controls:
 narrative_weight: high
 status: canon
 created: 2026-04-30
-last_updated: 2026-11-05
+last_updated: 2026-11-08
 tags:
   - gm-only
   - campaign-arc-liberation
@@ -28,7 +28,7 @@ tags:
 
 ## Overview
 
-An ideological order founded in the aftermath of the heroes' liberation — not in the moment of it, but in the years that followed, once people understood what had happened. They carry the memory of the liberation as a sacred charge: the chains were broken, by someone, once. Which means they can be broken again. Politically radical; operationally dispersed; culturally present across all regions but rooted most deeply wherever former slave-legions settled and their descendants built new lives. The Wizard's Scholar's Purge (~1175 CE) targeted them specifically, which tells you everything about how dangerous their institutional memory is to his plans.
+An ideological order founded in the aftermath of the heroes' liberation — not in the moment of it, but in the years that followed, once people understood what had happened. They carry the memory of the liberation as a sacred charge: the chains were broken, by someone, once. Which means they can be broken again. Politically radical; operationally dispersed; culturally present across all regions but rooted most deeply wherever former slave-legions settled and their descendants built new lives. The Wizard's Scholar's Purge (~1175 HB) targeted them specifically, which tells you everything about how dangerous their institutional memory is to his plans.
 
 ---
 
@@ -87,7 +87,7 @@ The Order does not think of itself as a political organization, though others do
 
 **The folk mythology problem is load-bearing.** The Order's partially-right, partially-wrong understanding of the heroes is not a minor flavor note — it is a structural feature of the campaign's middle act. Design the specific errors before the heroes encounter Order members. The errors should be emotionally resonant, not merely factual: they should say something true about how the liberation felt to those who experienced it, while missing the cosmological reality.
 
-**The Purge created a knowledge gap.** Something specific was destroyed in ~1175 CE. Something specific survived. The gap and the survival should both be designed — the Purge was forty years ago from the heroes' perspective, recent enough that some survivors still live. An elderly Order member who remembers the Purge directly is a campaign-resource NPC.
+**The Purge created a knowledge gap.** Something specific was destroyed in ~1175 HB. Something specific survived. The gap and the survival should both be designed — the Purge was about a generation ago (~25 years) from the heroes' perspective, recent enough that some survivors still live. An elderly Order member who remembers the Purge directly is a campaign-resource NPC.
 
 **The Order's theology of return is the campaign's folk eschatology.** They believe the heroes will return. They are right. But the form of return they imagine may be so different from what actually happens that the encounter requires negotiation rather than recognition. This is a feature, not a problem — it forces the heroes to define themselves against the myth, not just inhabit it.
 
