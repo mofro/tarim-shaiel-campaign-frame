@@ -203,14 +203,14 @@ function show(kind, id, push = true) {
   side.scrollTop = 0;
 }
 // Roster: filter everyone by race, faith, job, faction or where they work. Matches' workplaces are outlined on the map.
-const rf = {q: "", race: "", religion: "", job: "", faction: "", kind: ""};
+const rf = {q: "", race: "", religion: "", job: "", faction: "", kind: "", role: ""};
 const ROSTER_MAX = 150;
 function facets() {
-  const out = {race: new Map(), religion: new Map(), job: new Map(), faction: new Map(), kind: new Map()};
+  const out = {race: new Map(), religion: new Map(), job: new Map(), faction: new Map(), kind: new Map(), role: new Map()};
   const add = (m, k) => { if (k) m.set(k, (m.get(k) || 0) + 1); };
   for (const p of Object.values(D.people)) {
     add(out.race, p.race); add(out.religion, p.religion); add(out.job, p.job);
-    p.factions.forEach(f => add(out.faction, f));
+    p.factions.forEach(f => add(out.faction, f)); add(out.role, p.dh.role);
     add(out.kind, p.work != null ? D.buildings[p.work]?.specificBuildingType : null);
   }
   return out;
@@ -219,7 +219,7 @@ function rosterMatches() {
   const q = rf.q.toLowerCase();
   return Object.values(D.people).filter(p =>
     (!q || p.name.toLowerCase().includes(q)) && (!rf.race || p.race === rf.race) && (!rf.religion || p.religion === rf.religion)
-    && (!rf.job || p.job === rf.job) && (!rf.faction || p.factions.includes(rf.faction))
+    && (!rf.job || p.job === rf.job) && (!rf.role || p.dh.role === rf.role) && (!rf.faction || p.factions.includes(rf.faction))
     && (!rf.kind || (p.work != null && D.buildings[p.work]?.specificBuildingType === rf.kind)))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
@@ -229,7 +229,7 @@ function rosterHtml() {
       .map(([v, n]) => `<option value="${esc(v)}"${rf[key] === v ? " selected" : ""}>${esc(v)} (${n})</option>`).join("")}</select></label>`;
   return `<h2>Roster</h2><p class="sub">Filter the town's people. Matching workplaces are outlined on the map.</p>
     <label>Name<input type="search" data-rf="q" value="${esc(rf.q)}" placeholder="part of a name"></label>
-    ${sel1("race", "Ancestry")}${sel1("religion", "Faith")}${sel1("job", "Occupation")}${sel1("faction", "Faction")}${sel1("kind", "Works in a")}
+    ${sel1("race", "Ancestry")}${sel1("religion", "Faith")}${sel1("job", "Occupation")}${sel1("faction", "Faction")}${sel1("role", "Daggerheart role")}${sel1("kind", "Works in a")}
     <button class="back" data-rclear="1">Clear filters</button><div id="rres"></div>`;
 }
 function updateRoster() {
@@ -301,6 +301,13 @@ function buildingHtml(id) {
 function personality(core) {
   return core ? Object.keys(PERSONALITY).filter(k => core[k] != null).map(k => PERSONALITY[k][Math.min(3, Math.max(0, core[k]))]).join("; ") : "";
 }
+function dhHtml(d) {
+  const th = d.thresholds ? `${d.thresholds[0]} / ${d.thresholds[1]}` : "none (a Minion)";
+  return `<h3>Daggerheart (a starting point)</h3><dl class="kv">${row("Role", `${esc(d.role)}, tier ${d.tier}`)}
+    ${row("Difficulty", `<b>${d.difficulty}</b>`)}${row("HP / Stress", `${d.hp} / ${d.stress}`)}${row("Thresholds", th)}
+    ${row("Attack", `${d.attack >= 0 ? "+" : ""}${d.attack}, ${esc(d.weapon)} ${esc(d.damage)}`)}</dl>
+    <p class="empty">Generated from the job, ancestry, age and abilities; not saved to the vault. Adjust at the table.</p>`;
+}
 function personHtml(id) {
   const p = D.people[id], job = (p.job || "no occupation").toLowerCase();
   const stats = p.stats ? `<div class="stats">${STATS.map(k => `<span><b>${p.stats[k]}</b> ${k.slice(0, 3)}</span>`).join("")}</div>` : "";
@@ -315,6 +322,7 @@ function personHtml(id) {
     <h3>Personality</h3><p>${esc(personality(p.core))}</p>
     <p class="empty">Derived from FTG's core values (0 to 3). FTG's own wording is not in the export.</p>
     <h3>Abilities</h3>${stats}${p.height ? `<p class="empty">Height ${p.height} cm</p>` : ""}
+    ${dhHtml(p.dh)}
     ${kin ? `<h3>Family</h3><dl class="kv">${kin}</dl>` : ""}
     ${p.notes ? `<h3>Notes</h3><p>${esc(p.notes)}</p>` : ""}
     ${twirl([row("Person id", id), p.core ? row("Core values", esc(JSON.stringify(p.core))) : "",

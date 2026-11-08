@@ -1060,3 +1060,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** Region name pools are Persian, Sogdian and Turkic given names (150 male, 122 female) with patronymic or descent-group surnames; no place or trade words as surnames. Children and unattached adults FTG left nameless take their household's surname, else a patronymic. A drawn full name is redrawn until no one else in the town holds it.
 - **Rationale:** Qarshi had 76 first names and 166 surnames for 6274 people, 66% sharing a full name, and place and trade surnames read as real streets. Rejected: bigger pools alone, which still collides at this population.
 - **Lock status:** Locked (Qarshi redrafted and re-locked, infra/town-roster).
+
+## 2026-11-07 — Map: Daggerheart Difficulty and fight stats derived for town people (#409, HeroHeaven-dqo)
+- **Decision:** The town inspector shows a generated, GM-only Daggerheart block per person: job title picks an adversary role (Minion, Social, Standard, Bruiser, Leader), Div-Born and Tadbir start at Tier 2, and the best relevant ability and life stage nudge Difficulty and attack. Nothing is written to the vault or derived files.
+- **Rationale:** FTG's 5e abilities are nearly flat (all guards are 13), so the job and ancestry carry the result and abilities only nudge. Rejected: writing stats to frontmatter (would be editable canon and churn on every redraft).
+- **Lock status:** Working decision, not locked; tables in `utilities/geojson/town_daggerheart.py` are the GM's to change.
