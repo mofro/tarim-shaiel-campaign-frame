@@ -329,3 +329,14 @@ def test_a_tavern_turns_away_drinkers_past_its_evening_cap():
     snap = ts.snapshot(people, b, 2, 19)
     assert snap["count"][3] <= ts.EVENING_CAP["tavern"]
     assert sum(1 for w in snap["where"].values() if w[1] == "free time") == snap["count"][3]
+
+
+def test_inns_and_caravanserai_are_rated_for_the_night_and_nothing_else_is():
+    b = {1: {"specificBuildingType": "caravanserai"}, 2: {"specificBuildingType": "small inn"},
+         3: {"specificBuildingType": "house"}, 4: {"specificBuildingType": "tavern"}}
+    rated = ts.lodging(b, 2)
+    assert set(rated) == {1, 2}
+    assert all(5 <= v["pct"] <= 100 and v["rating"] for v in rated.values())
+    assert ts.lodging(b, 2) == rated
+    assert len({ts.lodging(b, d)[1]["pct"] for d in range(1, 8)}) > 1
+    assert ts.snapshot([], b, 2, 3)["lodging"] == rated

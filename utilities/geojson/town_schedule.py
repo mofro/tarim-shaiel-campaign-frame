@@ -19,6 +19,11 @@ SOCIAL_TYPES = {"tavern", "inn", "bar", "quiet bar", "upper class tavern", "rauc
 # Houses that never shut have no openingTimes; their staff rotate over the three watches (#406).
 ROUND_CLOCK_TYPES = {"small inn", "medium inn", "large inn", "inn", "caravanserai"}
 SLEEP_FROM, SLEEP_TO = 22, 6
+# Beds taken on an average night, per cent. Travellers are not people in the data; a house is
+# rated for the night and the party shops around (#406).
+LODGING_BASE = {"caravanserai": 70, "large inn": 75, "medium inn": 65, "small inn": 55, "inn": 60}
+LODGING_BANDS = [(95, "full, turning travellers away"), (80, "nearly full"),
+                 (50, "rooms to be had"), (0, "plenty of rooms")]
 DEFAULT_SHIFT = (8, 17)
 NIGHT_SHIFT = (17, 2)
 GUARD_SHIFTS = [(6, 14), (14, 22), (22, 6)]
@@ -94,6 +99,19 @@ def where(person: dict, buildings: dict, social: list[int], day: int, hour: int,
     return home, "at home"
 
 
+def lodging(buildings: dict, day: int) -> dict:
+    """{building id: {"pct": beds taken that night, "rating": words}} for each inn and caravanserai.
+    Same answer for the same night; the daily swing is a hash, not a model of who arrives."""
+    out = {}
+    for b, v in sorted(buildings.items()):
+        base = LODGING_BASE.get(v.get("specificBuildingType"))
+        if base is None:
+            continue
+        pct = max(5, min(100, base + _h(b, day, "beds") % 51 - 25))
+        out[b] = {"pct": pct, "rating": next(w for lo, w in LODGING_BANDS if pct >= lo)}
+    return out
+
+
 def snapshot(people: list[dict], buildings: dict, day: int, hour: int) -> dict:
     """{"where": {pid: [building id or None, reason]}, "count": {building id: n}}."""
     social = sorted(b for b, v in buildings.items() if v.get("specificBuildingType") in SOCIAL_TYPES)
@@ -121,4 +139,4 @@ def snapshot(people: list[dict], buildings: dict, day: int, hour: int) -> dict:
     for b, _ in placed.values():
         if b is not None:
             count[b] = count.get(b, 0) + 1
-    return {"day": day, "hour": hour, "where": placed, "count": count}
+    return {"day": day, "hour": hour, "where": placed, "count": count, "lodging": lodging(buildings, day)}

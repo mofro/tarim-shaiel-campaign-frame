@@ -252,6 +252,10 @@ function hereNow(id) {
   const open = D.buildings[id].hours ? (isOpenNow(D.buildings[id]) ? ", open" : ", closed") : "";
   return `<h3>Here at ${stamp} (${ids.length}${open}; ${active[id] || 0} active, ${ids.length - (active[id] || 0)} asleep or at home)</h3>${ids.length ? `<ul>${shown}</ul>` : `<p class="empty">nobody</p>`}${ids.length > 40 ? `<p class="empty">and ${ids.length - 40} more</p>` : ""}`;
 }
+function lodgingNow(id) {
+  const l = snap && snap.lodging && snap.lodging[id]; if (!l) return "";
+  return `<dl class="kv">${row("Beds, " + DAYS[snap.day - 1] + " night", `${esc(l.rating)} (${l.pct}% taken)`)}</dl>`;
+}
 function buildingHtml(id) {
   const b = D.buildings[id], h = b.hours;
   return `<h2>${esc(b.name)}</h2>
@@ -260,6 +264,7 @@ function buildingHtml(id) {
     ${h ? row("Open", `${hour(h.openHour)} to ${hour(h.closeHour)}${h.closedDays?.length ? ", closed " + h.closedDays.join(", ") : ""}`) : ""}
     ${b.seats.length ? row("Seat of", b.seats.map(s => `<span class="chip">${esc(s)}</span>`).join(", ")) : ""}
     ${b.notes ? row("Notes", esc(b.notes)) : ""}</dl>
+    ${lodgingNow(id)}
     ${hereNow(id)}
     <h3>Works here (${b.works.length})</h3>${list(b.works)}
     <h3>Lives here (${b.lives.length})</h3>${list(b.lives)}
