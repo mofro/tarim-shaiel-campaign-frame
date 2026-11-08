@@ -1,13 +1,14 @@
 # Central Asian Hubs region profile (#386): names from PERSONAL_NAME_RULES.md, faith shares
 # from REGIONAL_FAITH_LIST.md. Remaining 10% is Lapsed/other.
+# Names (#409): Persian, Sogdian and Turkic given names of the period; surnames are patronymics
+# or descent-group names. No place or trade words as surnames: they read as real streets and shops.
 
 names:
-  male: [Anushirvan, Rustam, Davlat, Murad, Farrokh, Bahram, Kaveh, Shahin, Jamshid, Parviz, Mahan, Dilshod, Sohrab, Khosrow, Behzad, Nodir, Timur, Ulugh, Yarkan, Orkhan, Bakhtiyar, Farhod, Iskander, Navid, Zal, Ardashir, Kamran, Sanjar, Temur, Mansur]
-  female: [Gulbahor, Shirin, Bahar, Dilshad, Nargis, Roxana, Parisa, Mehrnoz, Zarina, Shahrzad, Laleh, Munira, Farangis, Azada, Nilufar, Gulnara, Soraya, Yasmin, Dilfuza, Manijeh, Zebo, Sitora, Taraneh, Ruksana, Feruza, Shabnam, Sevinch, Mahlo]
+  male: [Anushirvan, Rustam, Davlat, Murad, Farrokh, Bahram, Kaveh, Shahin, Jamshid, Parviz, Mahan, Dilshod, Sohrab, Khosrow, Behzad, Nodir, Timur, Ulugh, Yarkan, Orkhan, Bakhtiyar, Farhod, Iskander, Navid, Zal, Ardashir, Kamran, Sanjar, Temur, Mansur, Mehrdad, Bijan, Siavash, Esfandiar, Fereydun, Manuchehr, Kayvan, Dariush, Arash, Babak, Piruz, Hormoz, Shapur, Tahmuras, Goshtasp, Kavus, Garshasp, Bizhan, Hushang, Nariman, Faramarz, Sorush, Ardavan, Mehran, Chakin, Varzakk, Tarkhun, Divashtich, Gurak, Fanich, Shishpir, Pakhar, Zhamak, Bagavand, Arslan, Kutlug, Bilge, Tonyuk, Alp, Bars, Toghril, Aybek, Boran, Kuchlug, Mengli, Oghuz, Tarkan, Bughra, Ilkhan, Sarbaz, Kuhyar, Rouzbeh, Shervin, Tirdad, Mihran, Gushnasp, Pashang, Artavan, Vahram, Zarir, Spandiyar, Arjasp, Tur, Iraj, Salm, Kobad, Peroz, Narsa, Mardan, Yazdan, Hushyar, Nowruz, Bakhshi, Qoch, Tegin, Chora, Alchi, Yabgu, Elter, Kul, Boghra, Almas, Sunqur, Toktamish, Tamgach, Yildirim, Berke, Chinua, Kurban, Sabir, Zafar, Jahan, Hamid, Farid, Saman, Ramin, Tahir, Vafo, Shokir, Olim, Abror, Jasur, Sardor, Ravshan, Otabek, Bobur, Ergash, Karim, Doniyor, Ilhom, Shavkat, Anvar, Akmal, Botir, Husan, Lochin, Bekzod, Umid, Sherzod, Zokir]
+  female: [Gulbahor, Shirin, Bahar, Dilshad, Nargis, Roxana, Parisa, Mehrnoz, Zarina, Shahrzad, Laleh, Munira, Farangis, Azada, Nilufar, Gulnara, Soraya, Yasmin, Dilfuza, Manijeh, Zebo, Sitora, Taraneh, Ruksana, Feruza, Shabnam, Sevinch, Mahlo, Mahin, Golnar, Roshanak, Pari, Anahita, Shiva, Katayoun, Mandana, Azadeh, Farzaneh, Mitra, Sepideh, Setareh, Yalda, Banu, Gordafarid, Rudabeh, Tahmineh, Homa, Arezoo, Mina, Mahsa, Neda, Sahar, Zari, Dena, Gelareh, Parvin, Simin, Shahnaz, Aygul, Aydin, Ayla, Altun, Altynai, Kunduz, Gulchehra, Ulduz, Yulduz, Oltin, Oyim, Oydin, Mohinur, Nigora, Zulfiya, Dildora, Gulnoza, Barno, Hilola, Lola, Malika, Madina, Nozima, Sabohat, Chitta, Bagarin, Nanai, Zarmina, Vardan, Artakhshir, Dorna, Hengameh, Kiana, Mahtab, Mehri, Nasrin, Pegah, Ramesh, Shaghayegh, Soudabeh, Tannaz, Vida, Yekta, Zhaleh, Bibigul, Chinar, Gulzar, Jamila, Kamola, Lobar, Maftuna, Nasiba, Odina, Rayhon, Sarvinoz, Shahlo, Umida, Yodgora, Zilola, Dilnoza, Gavhar, Mukhlisa, Nilyufar, Oqila]
   patronymic_suffixes: [zoda, zadeh, ugli, ian]
-  places: [Bukharayi, Khwarazmi, Samarqandi, Merwi, Balkhi, Tirmizi, Nasafi, Khujandi, Ferghani, Kashgari, Kuchari, Khotani, Herati, Shashi, Dehdadi]
-  trades: [Lamp-Seller, Salt-Broker, Gate-Warden, Caravan-Reckoner, Silk-Weigher, Well-Keeper, Ledger-Reader]
-  family_forms: {patronymic: 5, place: 3, trade: 2}
+  lineages: [Barlas, Dughlat, Jalayir, Qarluq, Kipchak, Naiman, Kangli, Salur, Bayat, Yazir, Afshar, Arghun, Tarkhan, Manghit, Uyshun, Durman, Qiyat, Sulduz, Qunghirat, Merkit, Kereit, Uighur, Khalaj, Chigil, Yaghma, Tukhsi, Bulaq, Qurama, Katagan, Kenegas, Jaun, Oirat, Tatar, Qalmaq, Turgesh, Khazar, Pecheneg, Kimak, Basmil, Karakhan, Ilig, Seljuk, Yagan, Tuman, Bakhshi, Chora, Arlat, Berish, Chekan, Laqay, Mingh, Nogai]
+  family_forms: {patronymic: 7, lineage: 3}
 
 faith:
   F2: 40

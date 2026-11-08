@@ -12,7 +12,8 @@ Tarim-Shaiel, in two phases:
 Passes, in order: ancestry (per household), names (file-wide surname map, cascaded into
 residence names and GeoJSON `name`), family (checked, never rewritten), religion, jobs and
 buildings (the conversion dial). Entries pinned by FTG id are skipped by every pass.
-Headcount, ids, ages, genders, jobs and residences never change.
+Headcount, ids, genders, jobs and residences never change; ages too, unless the profile
+sets `rescale_ages` (see FTG_LIFESPAN).
 
 People data goes only to the GM-only sidecar (`<Town>.gm.json`), never into the geometry.
 
@@ -46,6 +47,19 @@ ANCESTRIES = frozenset({
 })
 # Never drawn, whatever a profile says.
 NEVER_DRAWN = frozenset({"Naga-Kin", "Faerie", "Galapa", "Ribbet"})
+
+# Ages (#406 case 4). FTG draws each age on the scale of the person's ORIGINAL FTG race; the
+# ancestry pass then changes the race, so an Elf's 400 can land on a Human. With
+# `rescale_ages: true` a person keeps their place in the life (age / FTG lifespan, capped at 1)
+# and takes the age that place has in the new ancestry's lifespan (PEOPLES_OF_TARIM_SHAIEL.md).
+FTG_LIFESPAN = {"Human": 100, "Half-Orc": 75, "Tiefling": 100, "Dragonborn": 80, "Half-Elf": 180,
+                "Dwarf": 350, "Halfling": 250, "Gnome": 400, "Elf": 750}
+LIFESPAN = {"Human": 100, "Serenvar": 350, "Kuhban": 250, "Tulpar": 125, "Khavar": 300, "Vaghri": 150,
+            "Jivar": 100, "Rahban": 150, "Kalan": 75, "Vanara": 150, "Gavar": 100, "Div-Born": 500}
+# No figure (or no limit) in the ancestry docs: ages kept as FTG drew them. Tadbir are not
+# bounded by years; Pari-Kin have no stated lifespan.
+UNSCALED = frozenset({"Tadbir", "Pari-Kin"})
+PARENT_GAP = 0.15  # a parent is at least this share of a lifespan older than a child
 
 PERSON_PIN_FIELDS = frozenset({"race", "firstName", "lastName", "religion"})
 BUILDING_PIN_FIELDS = frozenset({"name", "specificBuildingType"})
@@ -223,6 +237,9 @@ def ancestry_pass(profile, seed, hh) -> dict:
     return {h: weighted(rng_for(seed, "ancestry", h), weights) for h in sorted(set(hh.values()))}
 
 
+UNIQUE_TRIES = 60
+
+
 class Namer:
     """Names for one town. Surnames are one file-wide map keyed on (FTG surname, ancestry)."""
 
@@ -231,12 +248,21 @@ class Namer:
         self.region = profile["names"]
         self.by_ancestry = profile["ancestry_names"]
         self.surnames = {}
+        self.family_use = {}
 
-    def given(self, person_id, gender, ancestry):
-        pool = (self.by_ancestry.get(ancestry) or {}).get("given")
-        if not pool:
-            pool = self.region[gender] if gender in ("male", "female") else self.region["male"] + self.region["female"]
-        return rng_for(self.seed, "given", person_id).choice(pool)
+    def pool(self, gender, ancestry):
+        own = (self.by_ancestry.get(ancestry) or {}).get("given")
+        if own:
+            return own
+        return self.region[gender] if gender in ("male", "female") else self.region["male"] + self.region["female"]
+
+    def given(self, person_id, gender, ancestry, attempt=0):
+        """Attempt 0 is the person's own draw. Later attempts are retries for a repeated full
+        name: the first half stay in the ancestry's pool, the rest widen to the region's pool."""
+        key = ("given", person_id) if not attempt else ("given", person_id, attempt)
+        pool = self.pool(gender, ancestry) if attempt < UNIQUE_TRIES // 2 else (
+            self.region[gender] if gender in ("male", "female") else self.region["male"] + self.region["female"])
+        return rng_for(self.seed, *key).choice(pool)
 
     def surname(self, original, ancestry):
         if not original:
@@ -246,17 +272,29 @@ class Namer:
             self.surnames[key] = self._draw_surname(original, ancestry)
         return self.surnames[key]
 
+    def personal(self, person_id, ancestry):
+        """A patronymic for someone FTG gave no family name and whose household has none."""
+        if (self.by_ancestry.get(ancestry) or {}).get("single"):
+            return ""
+        rng = rng_for(self.seed, "personal", person_id)
+        return rng.choice(self.region["male"]) + rng.choice(self.region["patronymic_suffixes"])
+
     def _draw_surname(self, original, ancestry):
         rng = rng_for(self.seed, "surname", original, ancestry)
         mod = self.by_ancestry.get(ancestry) or {}
         if mod.get("single"):
             return ""
         if mod.get("family"):
-            return rng.choice(mod["family"])
+            # spread the ancestry's family names evenly: take one of the least used so far
+            used = self.family_use.setdefault(ancestry, Counter())
+            low = min(used[n] for n in mod["family"])
+            name = rng.choice([n for n in mod["family"] if used[n] == low])
+            used[name] += 1
+            return name
         form = weighted(rng, self.region["family_forms"])
         if form == "patronymic":
             return rng.choice(self.region["male"]) + rng.choice(self.region["patronymic_suffixes"])
-        return rng.choice(self.region["places" if form == "place" else "trades"])
+        return rng.choice(self.region["lineages"])
 
     def informal(self, person_id):
         rng = rng_for(self.seed, "informal", person_id)
@@ -401,6 +439,15 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
     religion = religion_pass(profile, seed, people, hh, anc_of_hh, ppins)
     converted = conversion_pass(profile, buildings, areas, bpins)
 
+    # one surname per household, for the children and unattached adults FTG left blank
+    counts = {}
+    for p in people:
+        if p["lastName"]:
+            counts.setdefault(hh[p["id"]], Counter())[p["lastName"]] += 1
+    house_surname = {h: sorted(c.items(), key=lambda kv: (-kv[1], kv[0]))[0][0] for h, c in counts.items()}
+    # full names already fixed by pins, so a drawn name never repeats one
+    taken = {(ppins[p["id"]].get("firstName", p["firstName"]), ppins[p["id"]].get("lastName", p["lastName"]))
+             for p in people if p["id"] in ppins}
     out_people, ancestry_of = [], {}
     for p in people:
         q = dict(p)
@@ -410,14 +457,23 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
         else:
             anc = anc_of_hh[hh[pid]]
             q["race"] = anc
-            q["firstName"] = namer.given(pid, p.get("gender"), anc)
-            q["lastName"] = namer.surname(p["lastName"], anc)
+            original = p["lastName"] or house_surname.get(hh[pid], "")
+            last = namer.surname(original, anc) if original else namer.personal(pid, anc)
+            first = namer.given(pid, p.get("gender"), anc)
+            for attempt in range(1, UNIQUE_TRIES):
+                if (first, last) not in taken:
+                    break
+                first = namer.given(pid, p.get("gender"), anc, attempt)
+            taken.add((first, last))
+            q["firstName"], q["lastName"] = first, last
             q["religion"] = religion[pid]
             informal = namer.informal(pid)
             if informal:
                 q["informalByname"] = informal
         ancestry_of[pid] = q["race"]
         out_people.append(q)
+    if profile.get("rescale_ages"):
+        rescale_ages(people, out_people, ppins)
 
     # residents decide a residence's ancestry
     res_anc = {}
@@ -442,6 +498,8 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
                 note = f"{note} {profile['alcohol_note']}".strip()
             if note != (b.get("notes") or "").strip():
                 c["notes"] = note
+            if profile.get("medieval_hours"):
+                apply_hours(c, profile["hours"])
         new_names[bid] = c["name"]
         out_buildings.append(c)
 
@@ -454,7 +512,9 @@ def draft(town: str, root: Path = VAULT_ROOT, seed=None) -> dict:
             if props["id"] in converted:
                 props["kind"] = converted[props["id"]]
 
-    problems = check_derived(people, out_people, buildings, out_buildings, ppins)
+    retitled = retitle_people(profile, converted, out_people, ppins) if profile.get("medieval_hours") else set()
+    problems = check_derived(people, out_people, buildings, out_buildings, ppins,
+                             ages_rescaled=bool(profile.get("rescale_ages")), retitled=retitled)
     report = make_report(profile, seed, out_people, out_buildings, areas, converted, namer, ppins, bpins, problems)
     report["factions"] = faction_report(factions, out_people, out_buildings, hh)
 
@@ -477,13 +537,91 @@ FROZEN_PERSON_FIELDS = ("id", "age", "gender", "jobTitle", "placeOfWork", "place
                         "childInFamilies", "parentInFamilies")
 
 
-def check_derived(src_people, out_people, src_buildings, out_buildings, pinned) -> list:
+def apply_hours(b: dict, table: dict) -> None:
+    """Swap an FTG openingTimes for the template of the building's current type (see hours)."""
+    if not b.get("openingTimes"):
+        return
+    t = table["types"].get(b.get("specificBuildingType")) or table["categories"].get(b["buildingType"])
+    if not t:
+        return
+    if t.get("round_clock"):
+        del b["openingTimes"]
+    else:
+        b["openingTimes"] = {"closedDays": list(t["closed"]), "openHour": t["open"], "closeHour": t["close"]}
+
+
+def retitle_people(profile, converted, out_people, pinned) -> set:
+    """Give staff of converted buildings the job title that fits (profile `retitle`). Returns ids."""
+    changed = set()
+    for q in out_people:
+        rules = profile["retitle"].get(converted.get(q.get("placeOfWork")))
+        new = (rules or {}).get(q.get("jobTitle"))
+        if new is None or q["id"] in pinned:
+            continue
+        q["jobTitle"] = new[q["id"] % len(new)] if isinstance(new, list) else new
+        changed.add(q["id"])
+    return changed
+
+
+def rescale_ages(src_people, out_people, pinned) -> None:
+    """Rewrite `age` in out_people in place; see FTG_LIFESPAN. Pinned people keep their age."""
+    src = {p["id"]: p for p in src_people}
+    for q in out_people:
+        if q["id"] in pinned or q["race"] in UNSCALED or q["race"] not in LIFESPAN:
+            continue
+        scale = FTG_LIFESPAN.get(src[q["id"]].get("race"))
+        if scale:
+            q["age"] = round(min(1.0, src[q["id"]]["age"] / scale) * LIFESPAN[q["race"]])
+    # a child must stay younger than every parent by PARENT_GAP of the parent's lifespan
+    by_id = {q["id"]: q for q in out_people}
+    parents = {}
+    for q in out_people:
+        for f in q.get("parentInFamilies") or []:
+            parents.setdefault(f, []).append(q["id"])
+    def gap_of(par):
+        return round(PARENT_GAP * LIFESPAN.get(par["race"], 100))
+
+    # pass 1, bottom-up: the youngest a parent can be is one gap above their child's youngest
+    floor = {q["id"]: 0 for q in out_people}
+    for _ in range(len(out_people)):
+        moved = False
+        for q in out_people:
+            for f in q.get("childInFamilies") or []:
+                for pid in parents.get(f, []):
+                    need = floor[q["id"]] + gap_of(by_id[pid])
+                    if need > floor[pid]:
+                        floor[pid] = need
+                        moved = True
+        if not moved:
+            break
+    for q in out_people:
+        if q["id"] not in pinned and q["age"] < floor[q["id"]]:
+            q["age"] = floor[q["id"]]
+    # pass 2, top-down: a child comes down to one gap below each parent, never under 0
+    for _ in range(len(out_people)):
+        moved = False
+        for q in out_people:
+            if q["id"] in pinned:
+                continue
+            for f in q.get("childInFamilies") or []:
+                for pid in parents.get(f, []):
+                    par = by_id[pid]
+                    if q["age"] > par["age"] - gap_of(par):
+                        q["age"] = max(0, par["age"] - gap_of(par))
+                        moved = True
+        if not moved:
+            break
+
+
+def check_derived(src_people, out_people, src_buildings, out_buildings, pinned, ages_rescaled=False, retitled=()) -> list:
     """What a draft must not change, and the family-name rule. Returns problem strings."""
     problems = []
     if len(src_people) != len(out_people) or len(src_buildings) != len(out_buildings):
         problems.append("headcount changed")
     for a, b in zip(src_people, out_people):
         for f in FROZEN_PERSON_FIELDS:
+            if (f == "age" and ages_rescaled) or (f == "jobTitle" and a["id"] in retitled):
+                continue
             if a.get(f) != b.get(f):
                 problems.append(f"person {a['id']}: {f} changed")
     for a, b in zip(src_buildings, out_buildings):
@@ -492,7 +630,7 @@ def check_derived(src_people, out_people, src_buildings, out_buildings, pinned) 
     # one FTG surname + one ancestry -> one new surname, so no family splits
     seen = {}
     for a, b in zip(src_people, out_people):
-        if a["id"] in pinned:
+        if a["id"] in pinned or not a["lastName"]:
             continue
         key = (a["lastName"], b["race"])
         if seen.setdefault(key, b["lastName"]) != b["lastName"]:

@@ -243,6 +243,16 @@ def test_s6_route_returns_snapshot_and_refuses_bad_or_remote(served, served_remo
     assert _get(served_remote + "/api/town/Testburg/at?day=3&hour=10")[0] == 403
 
 
+# -- S7: the roster (filters over the payload the page already has) ---------------------------
+
+def test_s7_page_has_roster_and_every_filter_field_exists_on_people(drafted):
+    page = ti.PAGE_PATH.read_text(encoding="utf-8")
+    assert 'id="roster-btn"' in page and "rosterMatches" in page
+    person = next(iter(ti.payload("Testburg", drafted)["people"].values()))
+    # the roster filters read these keys; the page breaks silently if one is renamed
+    assert set(person) >= {"name", "race", "religion", "job", "factions", "work"}
+
+
 # -- S5: what the panels show (#399 review) -------------------------------------------------
 
 def test_s5_person_carries_personality_inputs_and_family(drafted):
@@ -266,3 +276,82 @@ def test_s5_family_links_are_symmetric(drafted):
 def test_s5_buildings_carry_hours_key(drafted):
     p = ti.payload("Testburg", drafted)
     assert all("hours" in b for b in p["buildings"].values())
+
+
+# -- hours (#406) -----------------------------------------------------------------------
+
+def test_khans_and_caravanserai_are_not_free_time_venues():
+    b = {1: {"specificBuildingType": "khan"}, 2: {"specificBuildingType": "caravanserai"},
+         3: {"specificBuildingType": "tavern", "openingTimes": {"closedDays": [], "openHour": 15, "closeHour": 21}},
+         9: {"specificBuildingType": "house"}}
+    people = [{"id": i, "placeOfResidence": 9} for i in range(60)]
+    snap = ts.snapshot(people, b, 2, 19)
+    assert not snap["count"].get(1) and not snap["count"].get(2) and snap["count"].get(3)
+
+
+def test_round_clock_inn_staff_rotate_over_the_watches_and_a_school_rests_on_its_closed_day():
+    inn = {"specificBuildingType": "small inn"}
+    staff = [{"id": i, "jobTitle": "Cook", "placeOfWork": 1} for i in range(30)]
+    assert {ts.shift_of(p, inn) for p in staff} == set(ts.GUARD_SHIFTS)
+    school = {"specificBuildingType": "school", "openingTimes": {"closedDays": [5], "openHour": 7, "closeHour": 14}}
+    kid = {"id": 1, "placeOfResidence": 9, "placeOfStudy": 4}
+    b = {4: school, 9: {"specificBuildingType": "house"}}
+    assert ts.where(kid, b, [], 4, 10) == (4, "studying")
+    assert ts.where(kid, b, [], 5, 10)[1] != "studying"
+
+
+# -- evenings out (#406) ----------------------------------------------------------------
+
+def _evening_town(n=600):
+    b = {1: {"specificBuildingType": "house"}, 2: {"specificBuildingType": "house"},
+         3: {"specificBuildingType": "tavern", "openingTimes": {"closedDays": [], "openHour": 15, "closeHour": 21}}}
+    people = [{"id": i, "age": 30, "placeOfResidence": 1 + i % 2, "placeOfWork": 7} for i in range(n)]
+    return b, people
+
+
+def test_evening_splits_between_drink_friends_streets_and_home():
+    b, people = _evening_town()
+    why = [w[1] for w in ts.snapshot(people, b, 2, 19)["where"].values()]
+    for reason in ("free time", "visiting friends", "out walking", "at home"):
+        assert why.count(reason) > 30, reason
+
+
+def test_children_stay_in_of_an_evening():
+    b, people = _evening_town()
+    for p in people:
+        p["age"] = 9
+    why = {w[1] for w in ts.snapshot(people, b, 2, 19)["where"].values()}
+    assert why == {"at home"}
+
+
+def test_a_tavern_turns_away_drinkers_past_its_evening_cap():
+    b, people = _evening_town(6000)
+    snap = ts.snapshot(people, b, 2, 19)
+    assert snap["count"][3] <= ts.EVENING_CAP["tavern"]
+    assert sum(1 for w in snap["where"].values() if w[1] == "free time") == snap["count"][3]
+
+
+def test_inns_and_caravanserai_are_rated_for_the_night_and_nothing_else_is():
+    b = {1: {"specificBuildingType": "caravanserai"}, 2: {"specificBuildingType": "small inn"},
+         3: {"specificBuildingType": "house"}, 4: {"specificBuildingType": "tavern"}}
+    rated = ts.lodging(b, 2)
+    assert set(rated) == {1, 2}
+    assert all(5 <= v["pct"] <= 100 and v["rating"] for v in rated.values())
+    assert ts.lodging(b, 2) == rated
+    assert len({ts.lodging(b, d)[1]["pct"] for d in range(1, 8)}) > 1
+    assert ts.snapshot([], b, 2, 3)["lodging"] == rated
+
+
+def test_every_building_type_gets_a_labelled_room_list():
+    import town_rooms as tr
+    assert tr.rooms(None) is None
+    for t, kind in [("tavern", "drinking house"), ("upper class home", "rich home"),
+                    ("barracks", "barracks"), ("temple", "temple"), ("tanner", "workshop")]:
+        r = tr.rooms(t)
+        assert r["kind"] == kind and len(r["rooms"]) >= 4
+    assert set(tr.KIND_OF.values()) <= set(tr.KINDS)
+
+
+def test_payload_carries_suggested_rooms_per_building(drafted):
+    d = ti.payload("Testburg", drafted)
+    assert all("suggestedRooms" in b for b in d["buildings"].values())

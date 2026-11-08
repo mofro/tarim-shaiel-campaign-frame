@@ -3,7 +3,9 @@ town: Qarshi
 region: central-asian-hubs
 seed: 1
 locked: true
+medieval_hours: true
 conversion_dial: 1
+rescale_ages: true
 
 # FTG building ids -> faith code. Temple staff and attendees (placeOfWork) take it.
 # Working choice: the two mosques take the two largest shares of the region table.
@@ -13,8 +15,11 @@ temples:
 
 # Faction seats (#402). Staff of a seat belong to its faction; membership goes to the
 # GM-only sidecar only. Slugs are world/factions/<slug>.md. Building ids are FTG ids.
-# Barracks are Oxus Watch Order seats, as in Dehdadi. Other seats (the Pork and Crow gang
-# hangout, the Community Hall, the two Mercenary Company headquarters) wait on the GM.
+# Working distribution (#406), the GM's to change: nine town barracks spread over the
+# districts are Oxus Watch Order seats; the two barracks beside the Keep go with the two
+# Mercenary Company headquarters; the Chieftain Market is a merchant-guilds seat; the Pork
+# and Crow gang hangout follows Dehdadi's Chain-Breakers precedent. The Community Hall has
+# no fitting faction yet and stays unseated.
 factions:
   seats:
     256: oxus-watch-order
@@ -26,8 +31,12 @@ factions:
     8783: oxus-watch-order
     8817: oxus-watch-order
     8854: oxus-watch-order
-    11145: oxus-watch-order
-    11151: oxus-watch-order
+    11145: mercenary-companies
+    11148: mercenary-companies
+    11151: mercenary-companies
+    11153: mercenary-companies
+    1062: merchant-guilds
+    4: chain-breakers-order
 
 # Entries here are skipped by the rule-based passes. A mapping sets those fields on the
 # entry; an empty mapping freezes it at its FTG values. Keyed by FTG id.

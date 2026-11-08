@@ -462,3 +462,97 @@ def test_s18_the_report_lists_seats_leaders_and_samples(vault):
     assert report["factions"]["secret-cell"]["members"] == 3
     assert "Faction secret-cell: 3 members" in text and "leader: 106" in text
     assert "seats: 10 " in text
+
+
+# -- S19: age rescale (#406) --------------------------------------------------------------
+
+def _aged(i, race, age, child=(), parent=()):
+    return {"id": i, "race": race, "age": age, "childInFamilies": list(child), "parentInFamilies": list(parent)}
+
+
+def test_s19_age_keeps_its_place_in_the_life_on_the_new_lifespan():
+    src = [_aged(1, "Elf", 375), _aged(2, "Dwarf", 175), _aged(3, "Human", 500)]
+    out = [_aged(1, "Human", 375), _aged(2, "Serenvar", 175), _aged(3, "Human", 500)]
+    sp.rescale_ages(src, out, set())
+    assert [p["age"] for p in out] == [50, 175, 100]  # Elf half of 100; Dwarf half of 350; capped at a full life
+
+
+def test_s19_tadbir_pari_kin_and_pinned_people_keep_their_age():
+    src = [_aged(1, "Elf", 600), _aged(2, "Elf", 600), _aged(3, "Elf", 600)]
+    out = [_aged(1, "Tadbir", 600), _aged(2, "Pari-Kin", 600), _aged(3, "Human", 600)]
+    sp.rescale_ages(src, out, {3})
+    assert [p["age"] for p in out] == [600, 600, 600]
+
+
+def test_s19_a_child_stays_younger_than_a_parent_even_at_the_bottom_of_the_scale():
+    src = [_aged(1, "Human", 0, parent=[7]), _aged(2, "Human", 0, child=[7], parent=[8]),
+           _aged(3, "Human", 0, child=[8])]
+    out = [dict(p) for p in src]
+    sp.rescale_ages(src, out, set())
+    ages = {p["id"]: p["age"] for p in out}
+    assert ages[1] > ages[2] > ages[3]
+
+
+def test_s19_off_by_default_ages_are_untouched_and_on_the_draft_still_passes(vault):
+    path = sp.profiles_dir(vault) / "Testburg.yaml"
+    sp.draft("Testburg", vault)
+    assert [p["age"] for p in _out(vault)["people"]] == [p["age"] for p in make_town()[0]["people"]]
+    path.write_text(path.read_text().replace("seed: 7\n", "seed: 7\nrescale_ages: true\n"))
+    sp.draft("Testburg", vault)
+    assert _out(vault)["people"]
+
+
+# -- S20: medieval hours and job titles for converted buildings (#406) ----------------------
+
+def _defaults():
+    import yaml
+    return yaml.safe_load((ROOT / "world" / "maps" / "cities" / "profiles" / "_defaults.yaml").read_text())
+
+
+def _hb(kind, special, hours=(9, 17), closed=(6, 7)):
+    return {"id": 1, "buildingType": kind, "specificBuildingType": special,
+            "openingTimes": {"closedDays": list(closed), "openHour": hours[0], "closeHour": hours[1]}}
+
+
+def test_s20_a_tavern_shuts_at_nine_and_a_shop_rests_on_friday():
+    table = _defaults()["hours"]
+    tavern, shop = _hb("TAVERN", "tavern", (11, 1), ()), _hb("SHOP", "grain shop")
+    sp.apply_hours(tavern, table)
+    sp.apply_hours(shop, table)
+    assert (tavern["openingTimes"]["openHour"], tavern["openingTimes"]["closeHour"]) == (15, 21)
+    assert shop["openingTimes"]["closedDays"] == [5] and shop["openingTimes"]["closeHour"] == 18
+
+
+def test_s20_an_inn_turned_caravanserai_never_shuts_and_a_house_with_no_hours_is_left_alone():
+    table = _defaults()["hours"]
+    inn = _hb("INN", "caravanserai", (11, 1), ())
+    sp.apply_hours(inn, table)
+    assert "openingTimes" not in inn
+    khan = {"id": 2, "buildingType": "WAREHOUSE", "specificBuildingType": "khan"}
+    sp.apply_hours(khan, table)
+    assert "openingTimes" not in khan
+
+
+def test_s20_caravanserai_staff_lose_the_bar_job_titles_and_pinned_people_keep_theirs():
+    profile = _defaults()
+    people = [{"id": 1, "placeOfWork": 5, "jobTitle": "Tavern Owner"},
+              {"id": 2, "placeOfWork": 5, "jobTitle": "Bartender"},
+              {"id": 3, "placeOfWork": 5, "jobTitle": "Cook"},
+              {"id": 4, "placeOfWork": 5, "jobTitle": "Bartender"},
+              {"id": 5, "placeOfWork": 6, "jobTitle": "Bartender"}]
+    changed = sp.retitle_people(profile, {5: "caravanserai"}, people, {4})
+    assert changed == {1, 2}
+    assert [p["jobTitle"] for p in people] == ["Caravanserai Warden", "Stable-hand", "Cook", "Bartender", "Bartender"]
+
+
+# -- names: no repeated full name, no blank family name from FTG (#409) --------------------
+
+def test_names_no_two_people_share_a_full_name_and_blanks_are_filled(vault):
+    sp.draft("Testburg", vault)
+    people = _out(vault)["people"]
+    full = [(p["firstName"], p["lastName"]) for p in people]
+    assert len(set(full)) == len(full)
+    src, _ = make_town()
+    for a, b in zip(src["people"], people):
+        if not a["lastName"] and b["race"] != "Vaghri":
+            assert b["lastName"], a["id"]

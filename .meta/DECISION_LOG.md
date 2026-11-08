@@ -1045,3 +1045,18 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The inspector's time-of-day view places people from building `openingTimes`, job defaults, homes and school, deterministically, and says in the UI that it is a guess.
 - **Rationale:** The FTG export carries no schedule, only opening times on 416 of 1830 Qarshi buildings. Presenting a derived placement as FTG's own would be false; the alternative of leaving the view out loses the GM's main request.
 - **Lock status:** Working decision, not locked; PR 405 awaits review.
+
+## 2026-11-07 — Map: Qarshi ages rescaled to ancestry lifespans (#406, HeroHeaven-bup)
+- **Decision:** Qarshi sets `rescale_ages: true`. Each person keeps their place in the life (FTG age over the lifespan of their original FTG race) and takes that place on the lifespan of their new ancestry (PEOPLES_OF_TARIM_SHAIEL.md; Gavar 100 and Div-Born about 500 from the GM). Tadbir and Pari-Kin are left as drawn (Tadbir are not bounded by years; Pari-Kin have no stated figure). Parents stay at least 15% of a lifespan older than their children. Ages remain preserved by default for other towns.
+- **Rationale:** the ancestry pass changed race but kept ages, so an Elf's 400 could sit on a Human. The rejected alternative was leaving ages frozen; "ages never change" was a pipeline docstring rule, not a campaign rule.
+- **Lock status:** Locked (Qarshi re-locked after the redraft, branch infra/town-roster). The FTG race scale table is an approximation; Pari-Kin figure open until the GM supplies one.
+
+## 2026-11-07 — Map: Qarshi gets medieval hours and caravanserai job titles (#406, HeroHeaven-bup)
+- **Decision:** A town with `medieval_hours: true` swaps FTG's modern openingTimes for per-type templates in `_defaults.yaml` (taverns 15:00 to 21:00, illicit houses 20:00 to 03:00, shops and workshops 07:00 to 18:00, Friday a rest day, inns and caravanserai round the clock). Staff of converted caravanserai take `retitle` job titles. Khans and caravanserai are not free-time venues.
+- **Rationale:** FTG's week is modern (9 to 17 Monday to Friday, bars 11 to 01); a converted inn kept its bar hours and bartenders. A tavern open past 21:00 is a stretch for a medieval town; the GM asked for an earlier curfew and a Friday rest day. Alternative rejected: flagging job titles for a GM ruling, since the GM asked for the suggestions to be applied.
+- **Lock status:** Locked (Qarshi re-locked, PR 408 branch infra/town-roster).
+
+## 2026-11-07 — Map: settlement names drawn from larger period pools, one full name per person (#406)
+- **Decision:** Region name pools are Persian, Sogdian and Turkic given names (150 male, 122 female) with patronymic or descent-group surnames; no place or trade words as surnames. Children and unattached adults FTG left nameless take their household's surname, else a patronymic. A drawn full name is redrawn until no one else in the town holds it.
+- **Rationale:** Qarshi had 76 first names and 166 surnames for 6274 people, 66% sharing a full name, and place and trade surnames read as real streets. Rejected: bigger pools alone, which still collides at this population.
+- **Lock status:** Locked (Qarshi redrafted and re-locked, infra/town-roster).

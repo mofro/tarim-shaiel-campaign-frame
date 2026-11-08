@@ -21,7 +21,12 @@ try:
 except ImportError:
     import town_schedule as ts
 
-PAGE_PATH = Path(__file__).with_name("town_inspector.html")
+try:
+    from geojson import town_rooms as tr
+except ImportError:
+    import town_rooms as tr
+
+PAGE_PATH =Path(__file__).with_name("town_inspector.html")
 TOWN_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_-]{0,40}$")
 
 
@@ -90,6 +95,7 @@ def payload(town: str, root: Path = sp.VAULT_ROOT) -> dict:
         buildings[bid] = {**b, "seats": seats.get(bid, []), "works": works.get(bid, []),
                           "lives": lives.get(bid, []),
                           "hours": b.get("openingTimes"),
+                          "suggestedRooms": tr.rooms(b.get("specificBuildingType")),
                           "ftg": {"name": s["name"], "type": s.get("specificBuildingType")} if s else None}
     # FTG stores family links as family ids only: the parents of a family are the people
     # whose parentInFamilies holds it, its children those whose childInFamilies holds it.
