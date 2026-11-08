@@ -304370,6 +304370,197 @@
   }
  ],
  "factions": {
+  "chain-breakers-order": {
+   "seats": [
+    4
+   ],
+   "members": [
+    {
+     "id": 273,
+     "role": "member"
+    },
+    {
+     "id": 274,
+     "role": "member"
+    },
+    {
+     "id": 284,
+     "role": "member"
+    },
+    {
+     "id": 1184,
+     "role": "member"
+    },
+    {
+     "id": 1185,
+     "role": "member"
+    },
+    {
+     "id": 1186,
+     "role": "member"
+    },
+    {
+     "id": 1187,
+     "role": "member"
+    },
+    {
+     "id": 1188,
+     "role": "member"
+    },
+    {
+     "id": 1189,
+     "role": "member"
+    },
+    {
+     "id": 1190,
+     "role": "member"
+    },
+    {
+     "id": 1191,
+     "role": "member"
+    },
+    {
+     "id": 1192,
+     "role": "member"
+    },
+    {
+     "id": 1193,
+     "role": "member"
+    },
+    {
+     "id": 1194,
+     "role": "member"
+    },
+    {
+     "id": 1253,
+     "role": "member"
+    },
+    {
+     "id": 1254,
+     "role": "member"
+    },
+    {
+     "id": 1255,
+     "role": "member"
+    },
+    {
+     "id": 1256,
+     "role": "member"
+    }
+   ]
+  },
+  "mercenary-companies": {
+   "seats": [
+    11145,
+    11148,
+    11151,
+    11153
+   ],
+   "members": [
+    {
+     "id": 36885,
+     "role": "member"
+    },
+    {
+     "id": 36896,
+     "role": "member"
+    },
+    {
+     "id": 36897,
+     "role": "member"
+    },
+    {
+     "id": 36898,
+     "role": "member"
+    },
+    {
+     "id": 36899,
+     "role": "member"
+    },
+    {
+     "id": 37306,
+     "role": "member"
+    },
+    {
+     "id": 37307,
+     "role": "member"
+    },
+    {
+     "id": 37309,
+     "role": "member"
+    },
+    {
+     "id": 37310,
+     "role": "member"
+    },
+    {
+     "id": 37311,
+     "role": "member"
+    },
+    {
+     "id": 37312,
+     "role": "member"
+    },
+    {
+     "id": 37314,
+     "role": "member"
+    },
+    {
+     "id": 37317,
+     "role": "member"
+    },
+    {
+     "id": 37318,
+     "role": "member"
+    },
+    {
+     "id": 37320,
+     "role": "member"
+    },
+    {
+     "id": 37321,
+     "role": "member"
+    },
+    {
+     "id": 37354,
+     "role": "member"
+    },
+    {
+     "id": 37355,
+     "role": "member"
+    },
+    {
+     "id": 37356,
+     "role": "member"
+    },
+    {
+     "id": 37357,
+     "role": "member"
+    },
+    {
+     "id": 37358,
+     "role": "member"
+    },
+    {
+     "id": 37359,
+     "role": "member"
+    },
+    {
+     "id": 37360,
+     "role": "member"
+    },
+    {
+     "id": 37361,
+     "role": "member"
+    }
+   ]
+  },
+  "merchant-guilds": {
+   "seats": [
+    1062
+   ],
+   "members": []
+  },
   "oxus-watch-order": {
    "seats": [
     256,
@@ -304380,9 +304571,7 @@
     8751,
     8783,
     8817,
-    8854,
-    11145,
-    11151
+    8854
    ],
    "members": [
     {
@@ -304775,102 +304964,6 @@
     },
     {
      "id": 32642,
-     "role": "member"
-    },
-    {
-     "id": 36885,
-     "role": "member"
-    },
-    {
-     "id": 36896,
-     "role": "member"
-    },
-    {
-     "id": 36897,
-     "role": "member"
-    },
-    {
-     "id": 36898,
-     "role": "member"
-    },
-    {
-     "id": 36899,
-     "role": "member"
-    },
-    {
-     "id": 37306,
-     "role": "member"
-    },
-    {
-     "id": 37307,
-     "role": "member"
-    },
-    {
-     "id": 37309,
-     "role": "member"
-    },
-    {
-     "id": 37310,
-     "role": "member"
-    },
-    {
-     "id": 37311,
-     "role": "member"
-    },
-    {
-     "id": 37312,
-     "role": "member"
-    },
-    {
-     "id": 37314,
-     "role": "member"
-    },
-    {
-     "id": 37317,
-     "role": "member"
-    },
-    {
-     "id": 37318,
-     "role": "member"
-    },
-    {
-     "id": 37320,
-     "role": "member"
-    },
-    {
-     "id": 37321,
-     "role": "member"
-    },
-    {
-     "id": 37354,
-     "role": "member"
-    },
-    {
-     "id": 37355,
-     "role": "member"
-    },
-    {
-     "id": 37356,
-     "role": "member"
-    },
-    {
-     "id": 37357,
-     "role": "member"
-    },
-    {
-     "id": 37358,
-     "role": "member"
-    },
-    {
-     "id": 37359,
-     "role": "member"
-    },
-    {
-     "id": 37360,
-     "role": "member"
-    },
-    {
-     "id": 37361,
      "role": "member"
     }
    ]
