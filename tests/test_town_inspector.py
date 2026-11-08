@@ -243,6 +243,16 @@ def test_s6_route_returns_snapshot_and_refuses_bad_or_remote(served, served_remo
     assert _get(served_remote + "/api/town/Testburg/at?day=3&hour=10")[0] == 403
 
 
+# -- S7: the roster (filters over the payload the page already has) ---------------------------
+
+def test_s7_page_has_roster_and_every_filter_field_exists_on_people(drafted):
+    page = ti.PAGE_PATH.read_text(encoding="utf-8")
+    assert 'id="roster-btn"' in page and "rosterMatches" in page
+    person = next(iter(ti.payload("Testburg", drafted)["people"].values()))
+    # the roster filters read these keys; the page breaks silently if one is renamed
+    assert set(person) >= {"name", "race", "religion", "job", "factions", "work"}
+
+
 # -- S5: what the panels show (#399 review) -------------------------------------------------
 
 def test_s5_person_carries_personality_inputs_and_family(drafted):

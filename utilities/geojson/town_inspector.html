@@ -42,6 +42,9 @@ label { font-size: var(--t-1); color: var(--dim); }
 input[type=search] { background: var(--bg); color: var(--ink); border: 1px solid var(--line); padding: .25rem .5rem; font: inherit; }
 #clock { position: absolute; left: .5rem; right: .5rem; bottom: .5rem; background: var(--panel); border: 1px solid var(--line); padding: .4rem .6rem; display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
 #clock #hour { flex: 1 1 10rem; min-width: 8rem; }
+#roster-btn, aside select { background: var(--bg); color: var(--ink); border: 1px solid var(--line); font: inherit; padding: .15rem .4rem; cursor: pointer; }
+aside select, aside input[type=search] { width: 100%; margin: 0 0 .5rem; }
+aside label { display: block; }
 #clock select, #clock button { background: var(--bg); color: var(--ink); border: 1px solid var(--line); font: inherit; padding: .15rem .4rem; }
 #clock output { min-width: 3rem; color: var(--gold); }
 @media (max-width: 800px) { body { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr) 40vh; } header { grid-column: 1; } aside { border-left: 0; border-top: 1px solid var(--line); } }
@@ -52,6 +55,7 @@ input[type=search] { background: var(--bg); color: var(--ink); border: 1px solid
   <h1 id="title">Town Inspector</h1>
   <span class="banner">GM only. Served from localhost; never part of a player build.</span>
   <label>Find <input id="find" type="search" placeholder="building or person" aria-label="Find a building or person"></label>
+  <button id="roster-btn" type="button">Roster</button>
 </header>
 <div id="wrap"><canvas id="map" aria-label="Town map; click a building"></canvas>
   <div id="clock"><label>Time <input id="time-on" type="checkbox" aria-label="Show who is where at a time of day"></label>
@@ -59,10 +63,10 @@ input[type=search] { background: var(--bg); color: var(--ink); border: 1px solid
     <input id="hour" type="range" min="0" max="23" value="12" aria-label="Hour of day"><output id="hourout">12:00</output>
     <button id="play" type="button">Play</button>
     <span class="empty">Derived guess from building hours, jobs and homes, not FTG's own schedule. Brighter is busier.</span></div></div>
-<aside id="side"><p class="empty">Click a building, or search by name.</p></aside>
+<aside id="side"><p class="empty">Click a building, search by name, or open the Roster to filter everyone.</p></aside>
 <script>
 const TOWN = location.pathname.split("/").filter(Boolean).pop();
-let D, view = {x: 0, y: 0, k: 1}, sel = null, polys = [];
+let D, view = {x: 0, y: 0, k: 1}, sel = null, polys = [], hl = new Set();
 const cv = document.getElementById("map"), ctx = cv.getContext("2d");
 const COLOR = {BACKGROUND: "#2b2113", WATER: "#2c4a63", BUILDING: "#7d6a44"};
 const ROAD = {MAIN_ROAD: "#b59a62"};
@@ -95,6 +99,7 @@ function draw() {
   for (const p of polys) if (p.type === "BUILDING") {
     const b = D.buildings[p.id]; path(p.ring, true);
     ctx.fillStyle = snap ? heat(p.id) : b && b.seats.length ? "#3f8fa5" : COLOR.BUILDING; ctx.fill();
+    if (hl.has(p.id)) { ctx.lineWidth = 2.5; ctx.strokeStyle = "#e0b44c"; ctx.stroke(); ctx.lineWidth = 1.5; }
     if (p.id === sel) { ctx.lineWidth = 3; ctx.strokeStyle = "#ff7a3d"; ctx.stroke(); ctx.lineWidth = 1.5; }
   }
 }
@@ -189,9 +194,51 @@ const row = (k, v) => v == null || v === "" ? "" : `<dt>${k}</dt><dd>${v}</dd>`;
 function show(kind, id, push = true) {
   if (push && cur) hist.push(cur); cur = {kind, id};
   const back = hist.length ? `<button class="back" data-back="1">&larr; Back</button>` : "";
-  side.innerHTML = back + (kind === "b" ? buildingHtml(id) : personHtml(id));
+  side.innerHTML = back + (kind === "b" ? buildingHtml(id) : kind === "r" ? rosterHtml() : personHtml(id));
+  if (kind === "r") updateRoster(); else if (hl.size) { hl = new Set(); draw(); }
   side.scrollTop = 0;
 }
+// Roster: filter everyone by race, faith, job, faction or where they work. Matches' workplaces are outlined on the map.
+const rf = {q: "", race: "", religion: "", job: "", faction: "", kind: ""};
+const ROSTER_MAX = 150;
+function facets() {
+  const out = {race: new Map(), religion: new Map(), job: new Map(), faction: new Map(), kind: new Map()};
+  const add = (m, k) => { if (k) m.set(k, (m.get(k) || 0) + 1); };
+  for (const p of Object.values(D.people)) {
+    add(out.race, p.race); add(out.religion, p.religion); add(out.job, p.job);
+    p.factions.forEach(f => add(out.faction, f));
+    add(out.kind, p.work != null ? D.buildings[p.work]?.specificBuildingType : null);
+  }
+  return out;
+}
+function rosterMatches() {
+  const q = rf.q.toLowerCase();
+  return Object.values(D.people).filter(p =>
+    (!q || p.name.toLowerCase().includes(q)) && (!rf.race || p.race === rf.race) && (!rf.religion || p.religion === rf.religion)
+    && (!rf.job || p.job === rf.job) && (!rf.faction || p.factions.includes(rf.faction))
+    && (!rf.kind || (p.work != null && D.buildings[p.work]?.specificBuildingType === rf.kind)))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+function rosterHtml() {
+  const f = facets(), sel1 = (key, label) => `<label>${label}<select data-rf="${key}"><option value="">any</option>${
+    [...f[key]].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([v, n]) => `<option value="${esc(v)}"${rf[key] === v ? " selected" : ""}>${esc(v)} (${n})</option>`).join("")}</select></label>`;
+  return `<h2>Roster</h2><p class="sub">Filter the town's people. Matching workplaces are outlined on the map.</p>
+    <label>Name<input type="search" data-rf="q" value="${esc(rf.q)}" placeholder="part of a name"></label>
+    ${sel1("race", "Ancestry")}${sel1("religion", "Faith")}${sel1("job", "Occupation")}${sel1("faction", "Faction")}${sel1("kind", "Works in a")}
+    <button class="back" data-rclear="1">Clear filters</button><div id="rres"></div>`;
+}
+function updateRoster() {
+  const box = document.getElementById("rres"); if (!box) return;
+  const m = rosterMatches(), active = Object.values(rf).some(Boolean);
+  hl = new Set(active ? m.filter(p => p.work != null).map(p => p.work) : []); draw();
+  box.innerHTML = `<h3>${m.length} ${m.length === 1 ? "person" : "people"}</h3><ul>${m.slice(0, ROSTER_MAX).map(p => personRow(p.id)).join("")}</ul>${
+    m.length > ROSTER_MAX ? `<p class="empty">and ${m.length - ROSTER_MAX} more; narrow the filters.</p>` : ""}`;
+}
+function openRoster() { sel = null; show("r", 0); }
+document.getElementById("roster-btn").addEventListener("click", () => D && openRoster());
+side.addEventListener("input", e => { const k = e.target.dataset.rf; if (k != null) { rf[k] = e.target.value; updateRoster(); } });
+side.addEventListener("change", e => { const k = e.target.dataset.rf; if (k != null) { rf[k] = e.target.value; updateRoster(); } });
 function pick(id) { sel = id; draw(); if (D.buildings[id]) show("b", id); }
 function person(id) { const p = D.people[id]; show("p", id); if (p.work != null) { sel = p.work; draw(); } }
 function hereNow(id) {
@@ -241,6 +288,7 @@ function personHtml(id) {
 side.addEventListener("click", e => {
   const t = e.target.closest("button"); if (!t) return;
   if (t.dataset.back) { const prev = hist.pop(); if (prev) { cur = null; show(prev.kind, prev.id, false); cur = prev; if (prev.kind === "b") { sel = prev.id; draw(); } } }
+  else if (t.dataset.rclear) { Object.keys(rf).forEach(k => rf[k] = ""); const keep = cur; cur = null; show("r", 0, false); cur = keep; }
   else if (t.dataset.person) person(+t.dataset.person);
   else if (t.dataset.b) { sel = +t.dataset.b; draw(); show("b", sel); }
 });
