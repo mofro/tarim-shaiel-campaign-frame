@@ -355,3 +355,54 @@ def test_every_building_type_gets_a_labelled_room_list():
 def test_payload_carries_suggested_rooms_per_building(drafted):
     d = ti.payload("Testburg", drafted)
     assert all("suggestedRooms" in b for b in d["buildings"].values())
+
+
+# -- Daggerheart Difficulty and fight stats (#409) ----------------------------------------
+
+def _person(job="Guard", race="Human", age=30, **ab):
+    keys = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"]
+    return {"job": job, "race": race, "age": age, "stats": {k: ab.get(k, 10) for k in keys}}
+
+
+def test_every_job_in_the_real_qarshi_resolves_to_a_role():
+    import town_daggerheart as dh
+    gm = ROOT / "world" / "maps" / "cities" / "derived" / "Qarshi.gm.json"
+    if not gm.exists():
+        pytest.skip("Qarshi is not drafted here")
+    titles = {p.get("jobTitle") for p in json.loads(gm.read_text())["people"] if p.get("jobTitle")}
+    assert [t for t in sorted(titles) if dh.job_row(t)[0] is dh.DEFAULT_JOB] == []
+
+
+def test_difficulty_follows_role_tier_ability_and_life_stage():
+    import town_daggerheart as dh
+    guard = dh.stats(_person("Guard", strength=13))
+    assert (guard["role"], guard["tier"], guard["difficulty"]) == ("Standard", 1, 12)
+    assert dh.stats(_person("Guard", strength=16))["role"] == "Bruiser"
+    assert dh.stats(_person("Guard", strength=3, dexterity=3))["difficulty"] == 11
+    assert dh.stats(_person("Guard", age=8))["difficulty"] == 10  # a child
+    assert dh.stats(_person("Guard", age=90))["stage"] == "elder"
+    app = dh.stats(_person("Tanner's apprentice"))
+    assert app["difficulty"] == dh.stats(_person("Tanner"))["difficulty"] - 1
+    assert dh.stats(_person("Merchant", wisdom=15))["difficulty"] == 11
+    assert dh.stats(_person("Merchant", race="Div-Born", age=200))["tier"] == 2
+
+
+def test_minions_have_one_hp_and_no_thresholds_others_have_both():
+    import town_daggerheart as dh
+    m = dh.stats(_person("Labourer"))
+    assert m["hp"] == 1 and m["thresholds"] is None
+    s = dh.stats(_person("Guard"))
+    assert s["hp"] >= 3 and s["thresholds"][0] < s["thresholds"][1]
+    t2 = dh.stats(_person("Guard", race="Div-Born", age=200))
+    assert t2["difficulty"] > s["difficulty"] and t2["hp"] > s["hp"]
+
+
+def test_unknown_title_and_missing_stats_still_give_a_value_and_it_is_deterministic():
+    import town_daggerheart as dh
+    p = {"job": "Zeppelin pilot", "race": "Human", "age": None, "stats": None}
+    assert dh.stats(p) == dh.stats(dict(p)) and dh.stats(p)["role"] == "Minion"
+
+
+def test_payload_carries_daggerheart_for_every_person(drafted):
+    d = ti.payload("Testburg", drafted)
+    assert all({"role", "difficulty", "hp", "attack"} <= set(p["dh"]) for p in d["people"].values())

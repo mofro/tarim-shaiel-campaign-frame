@@ -25,6 +25,10 @@ try:
     from geojson import town_rooms as tr
 except ImportError:
     import town_rooms as tr
+try:
+    from geojson import town_daggerheart as dh
+except ImportError:
+    import town_daggerheart as dh
 
 PAGE_PATH =Path(__file__).with_name("town_inspector.html")
 TOWN_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_-]{0,40}$")
@@ -115,6 +119,8 @@ def payload(town: str, root: Path = sp.VAULT_ROOT) -> dict:
     for p in d["people"]:
         s = src_p.get(p["id"])
         people[p["id"]] = {
+            "dh": dh.stats({"job": p.get("jobTitle"), "race": p.get("race"), "age": p.get("age"),
+                            "stats": p.get("stats")}),
             "id": p["id"], "name": f"{p['firstName']} {p['lastName']}", "age": p.get("age"),
             "gender": p.get("gender"), "race": p.get("race"), "religion": p.get("religion"),
             "job": p.get("jobTitle"), "work": p.get("placeOfWork"), "home": p.get("placeOfResidence"),

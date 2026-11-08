@@ -545,7 +545,7 @@ def test_s20_caravanserai_staff_lose_the_bar_job_titles_and_pinned_people_keep_t
     assert [p["jobTitle"] for p in people] == ["Caravanserai Warden", "Stable-hand", "Cook", "Bartender", "Bartender"]
 
 
-# -- names: no repeated full name, no blank family name from FTG (#409) --------------------
+# -- names: no repeated full name, no blank family name from FTG (#406) --------------------
 
 def test_names_no_two_people_share_a_full_name_and_blanks_are_filled(vault):
     sp.draft("Testburg", vault)
