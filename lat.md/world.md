@@ -5,7 +5,7 @@ type: navigation
 visibility: internal
 status: canon
 created: 2026-04-11
-last_updated: 2026-11-05
+last_updated: 2026-11-08
 ---
 
 > _Navigation layer — stop here if the summary answers your question. Do not read index files with Dataview queries or `transcripts/` — neither contains canonical content. Do not read files listed under "Do not read" below._
@@ -14,7 +14,7 @@ last_updated: 2026-11-05
 
 ## Setting
 - Post-imperial Silk Road, ~1450s CE equivalent
-- Empire has collapsed; liberation of enslaved peoples (~1250s) triggered chaos period (~70 years), now stabilized
+- Empire has collapsed; liberation of enslaved peoples (~200–250 HB, about 1,000 years before the present ~1200 HB) triggered a chaos period (~70 years), long since stabilized
 - Heroes travel **westward** on a merchant caravan; something calls them east
 - Warren disturbance from liberation 1,000 years prior is the underlying cosmological context
 
