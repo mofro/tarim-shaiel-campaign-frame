@@ -268,7 +268,7 @@ All stat lines are pipeline output, recomputed 2026-11-08.
 - A 9-year-old gang member.
 - 8-year-old stable-hands.
 
-**Pipeline bug.** The stat helper `town_daggerheart.stats()` reads `person["job"]`, but `Qarshi.gm.json` stores `jobTitle`. Called directly on the raw record, every NPC comes out as a Minion with Fists. The inspector maps the field itself, so the table above is right. **[UNVERIFIED]** whether any other caller hits this.
+**Calling the stat helper by hand.** `town_daggerheart.stats()` expects a `job` key, but `Qarshi.gm.json` stores `jobTitle`. The town inspector maps the field (`town_inspector.py:122`), so its numbers are right. A raw gm.json record passed straight in makes every NPC a Minion with Fists. The table above uses the mapped call.
 
 ---
 
