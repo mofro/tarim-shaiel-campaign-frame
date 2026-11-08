@@ -1045,3 +1045,8 @@ Normalization script (`utilities/world/normalize_locations.py`) applied to all 3
 - **Decision:** The inspector's time-of-day view places people from building `openingTimes`, job defaults, homes and school, deterministically, and says in the UI that it is a guess.
 - **Rationale:** The FTG export carries no schedule, only opening times on 416 of 1830 Qarshi buildings. Presenting a derived placement as FTG's own would be false; the alternative of leaving the view out loses the GM's main request.
 - **Lock status:** Working decision, not locked; PR 405 awaits review.
+
+## 2026-11-07 — Map: Qarshi ages rescaled to ancestry lifespans (#406, HeroHeaven-bup)
+- **Decision:** Qarshi sets `rescale_ages: true`. Each person keeps their place in the life (FTG age over the lifespan of their original FTG race) and takes that place on the lifespan of their new ancestry (PEOPLES_OF_TARIM_SHAIEL.md; Gavar 100 and Div-Born about 500 from the GM). Tadbir and Pari-Kin are left as drawn (Tadbir are not bounded by years; Pari-Kin have no stated figure). Parents stay at least 15% of a lifespan older than their children. Ages remain preserved by default for other towns.
+- **Rationale:** the ancestry pass changed race but kept ages, so an Elf's 400 could sit on a Human. The rejected alternative was leaving ages frozen; "ages never change" was a pipeline docstring rule, not a campaign rule.
+- **Lock status:** Locked (Qarshi re-locked after the redraft, branch infra/town-roster). The FTG race scale table is an approximation; Pari-Kin figure open until the GM supplies one.
