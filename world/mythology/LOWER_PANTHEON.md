@@ -7,7 +7,7 @@ content_type: mythology
 visibility: gm_secrets
 status: active_development
 created: 2026-10-01
-last_updated: 2026-10-01
+last_updated: 2026-11-11
 sources:
   - world/diagrams/cosmological-architecture.md
   - world/mythology/MYTHOLOGICAL_MAPPING_FRAMEWORK.md
@@ -67,8 +67,14 @@ A winged figure, swift, neutral in expression. He doesn't escort souls — he *r
 **Steppe/Turkic face — Erlik's Messenger**
 Erlik Khan rules the underworld in Steppe tradition, but he has a mortal-world messenger who collects the dead. The Messenger has no name — naming a death deity invites attention. He's described as a rider on a black horse who appears at the moment of death, not before. He doesn't choose who dies (that's fate); he only receives them. Folk practice: at a deathbed, someone sits facing the door to "hold it open" for the Messenger so he can enter and leave cleanly. To die with the door blocked is to trap the Messenger inside the house, which is catastrophic.
 
-**Eastern/Tang face — Meng Po** (the Forgetting Lady, river-boundary)
-In the eastern cultural sphere, the Death-Companion is the figure at the boundary of the afterlife who offers the Cup of Forgetting before reincarnation. She's old, gentle, completely indifferent. She offers; you drink; you forget. But in folk tradition there's a whispered variant: those who refuse the cup — who hold onto their memories across the boundary — become something other than ordinary dead. The eastern scholar-tradition has extensive (suppressed) literature on what those things are.
+**Eastern/Tang face — Meng Po** (孟婆, Old Lady Meng / the Forgetting Lady)
+In the eastern cultural sphere, the Death-Companion is the figure at the boundary who ensures the cycle continues: not by judging, not by escorting, but by *ending.* Meng Po stands at the foot of the Naihe Bridge — the Bridge of No Alternative — in the tenth court of Diyu, the furthest point a soul travels before reincarnation. She is old. She has always been old. She offers every soul a bowl of the Five-Flavored Broth of Oblivion (*míhúntāng*, 迷魂汤), and they drink, and they forget — their previous life, their time in the courts of judgment, everything. Then the cycle recommences.
+
+She doesn't compel. She offers. The bowl is extended; the soul takes it. In a thousand years of practice, almost all of them have. The broth tastes, it is said, of everything they loved most and are about to lose. That is why they drink.
+
+What she is *not*: a jailer, a judge, an escort, a punisher. She predates the court hierarchy around her and tolerates rather than serves it. The ten courts are organized around judgment; Meng Po is organized around continuation. These are not the same thing.
+
+The folk tradition's whispered variant: some souls refuse the cup. They cross the Bridge of No Alternative carrying everything — every memory, every wound, every name. What they become on the other side is not ordinary dead. The eastern scholar-tradition has extensive (suppressed) literature on the taxonomy of refusers. The common thread: they remember, and in remembering, they *persist* in a way the natural order did not intend. Some are grievous. Some are simply present in places they have no right to be. All of them are legible to Meng Po as an error in her accounting, and she does not like errors.
 
 **Indian/Subcontinent face — Yama's Messenger, Chitragupta**
 Yama (Death) has an accountant-figure named Chitragupta who records all deeds in a ledger. The interesting asymmetry: Chitragupta is accessible. Yama is not. Petitions reach Yama through Chitragupta. Clever mortals have occasionally successfully argued their cases with Chitragupta directly — not asking for life, but asking for *accurate accounting.* "I did not do what the charge says. Check the record." This version of death has a bureaucratic appeals process that is theoretically accessible to anyone sufficiently clever and persistent.
@@ -76,7 +82,7 @@ Yama (Death) has an accountant-figure named Chitragupta who records all deeds in
 **GM Notes:**
 The Death-Companion's Warren-interface origin makes him genuinely cosmologically significant. The Lich Cadre's necromantic inversion of the Warrens is — from the Death-Companion's perspective — an assault on his filing system. He's not an ally of the heroes exactly, but a being with *interests that align* with the Warrens functioning correctly. An NPC who serves the Death-Companion (in any cultural guise) would be motivated to oppose the Lich Cadre for deeply practical reasons.
 
-The Steppe "don't-name-it" tradition is good texture for a door-blocking scene. The eastern "Meng Po refusers" opens the door to unusual undead who *remember* — potentially useful for specific narrative beats.
+The Steppe "don't-name-it" tradition is good texture for a door-blocking scene. The eastern "Meng Po refusers" thread is now developed in full as a Regional Exclusive entry — see **MENG PO — The Forgetting Lady** below. The refuser taxonomy connects directly to the Lich Cadre's undead, the Warrens disruption arc, and potentially to the heroes themselves (who have crossed a boundary carrying everything).
 
 ---
 
@@ -229,6 +235,41 @@ The Chance-Weaver is the deity gamblers invoke, caravan leaders pray to before a
 **The Simiah connection:** Vayu's role as father of Hanuman in the Vedic tradition gives the Simiah (Vanara-analog) people a specific religious relationship to the wind — they are children of the Wind-Lord in a genealogical sense. Simiah universities in the Hindu Kush region maintain wind-observation towers that are simultaneously weather-monitoring infrastructure and Vayu temples. The monks who operate them are both meteorologists and priests.
 
 **NPC application:** In the mountain passes southeast of Balkh, traveling toward Kabul, wind behavior is read as Vayu communication. A favorable wind at the right moment is not just lucky — it's meaningful. An NPC from the mountain-pass culture will interpret wind signs with the same seriousness that a Western character might interpret omens. And they're not wrong to: if the Simiah universities are nearby and have been conducting observational work, there may be *genuine* correlation between Vayu's behavior and cosmological events in the Warrens.
+
+---
+
+### MENG PO — The Forgetting Lady (Eastern/Tang exclusive)
+**Domain:** Forgetting, the threshold before reincarnation, the mercy of the cycle, the taxonomy of those who refuse
+**Structural type:** Threshold Deity — older than the Celestial Court's organizational hierarchy; she predates the ten courts of Diyu and would continue her work if the courts dissolved tomorrow; tolerated and structurally necessary, never subordinated
+
+**Character:** Meng Po (孟婆) does not resemble what you might expect. She is depicted as an old woman — always old, never young, though some folk traditions claim she was once a human scholar named Meng Jiang who could not reincarnate because grief over her husband's death held her too tightly to the world. When she finally released him, she released herself too — but she had been waiting so long at the threshold that she simply... stayed. The court hierarchy formalized around her. She predates the formalization.
+
+She stands at the foot of the Naihe Bridge — the Bridge of No Alternative, 奈何桥 — where the tenth court of the dead delivers each soul before it crosses into the next life. The broth she carries (*míhúntāng*, 迷魂汤; also called the Five-Flavored Tea of Forgetfulness) is made from herbs gathered from still water. It smells like nothing. It tastes, the stories say, like everything you loved and are about to lose.
+
+She extends it. The soul takes it. Almost all of them always have.
+
+**What she is not:** A judge. A punisher. An escort. These roles belong to the ten courts, to Yama (Yanluo Wang), to Chitragupta in the Indian-adjacent tradition. Meng Po's function is entirely about *after* judgment — she is what happens to a soul once it has been weighed, assigned, and sent forward. She ensures that the weight it carried in its past life does not corrupt the new one. In this sense her work is merciful, however indifferent she appears. She is not indifferent to the cycle. She is indifferent to individual suffering within it.
+
+**The folk tradition's Lady Meng Jiang variant:** In some regions, Meng Po is explicitly identified with the legendary Lady Meng Jiang, whose husband was conscripted to build the Great Wall and died there. She wept so bitterly at the wall that it collapsed to reveal his bones. Unable to reincarnate because her grief was too total, she eventually made the soup — originally, folk tradition holds, for herself. Then for others. The identification matters narratively: it means Meng Po is not a natural force but a *person who became a function*. She knows what it costs to remember. She offers the forgetting anyway. This is either wisdom or tragedy depending on who is telling the story.
+
+**The refuser taxonomy:** Souls who refuse the cup cross the Bridge of No Alternative carrying everything — their previous lives, their griefs, their names, the full ledger of who they were. What they become is not classified by the court hierarchy because the court hierarchy cannot process them: they are not ordinary dead, not properly living, and they persist in ways the natural order did not design. The eastern scholar-tradition has an extensive (suppressed) literature on the taxonomy of refusers, written by mortal scholars who encountered them and survived long enough to write it down.
+
+Broad categories from that literature:
+- **The Anchored** — refusers who remain near a specific place or person from their previous life; not aggressive, but their presence distorts the natural order around them in ways that accumulate over time
+- **The Scholars** — refusers who crossed carrying knowledge they considered too important to lose; some are benign, acting as repositories for information that the living cannot otherwise access; some are actively destabilizing, unable to accept that the world moved on without them
+- **The Avengers** — refusers who crossed carrying a specific unresolved wrong; the most dangerous category; they are not irrational, but they are *singular*, and they cannot be reasoned out of their purpose
+- **The Dreaming** — refusers who crossed carrying so much that they cannot organize it; they persist as atmospheric presences, not quite coherent; shamans and death-priests sometimes describe them as "the ones Meng Po is still waiting for"
+
+Meng Po is aware of every refuser. She keeps her own accounting — a list she carries beneath the bridge where it stays dry. She does not pursue refusers. She waits. Eventually, the literature agrees, they all come back. They always find that the bridge is still there, and she is still at the foot of it, and the bowl is still full.
+
+**What she asks:** She asks for one thing from the living: *don't send her unnecessary work.* Necromantic practice that reanimates souls who have already drunk the broth and been assigned to new lives is a desecration of her process — it unpicks the work she did, re-opens files she closed, and corrupts the natural order she maintains. The Lich Cadre's necromancy is, from Meng Po's perspective, a systematic vandalism of her accounting. She has not done anything about it yet. The literature is not clear on what it would look like if she did.
+
+**NPC application:** In the eastern cultural sphere, Meng Po has no temples — you don't build a temple to the threshold, you encounter it. But there are practitioners: death-priests who serve as intermediaries between the living and the recently dead during the liminal period before a soul crosses, and whose secondary function is to identify refusers and document them. An NPC who is a death-priest in a city with an active Lich Cadre presence would be experiencing an unprecedented professional crisis: souls that should have crossed aren't crossing, refusers are proliferating in uncharacteristic ways, and Meng Po's accounting is developing gaps that the priest can sense but not explain. They would be desperate for someone to tell them *why*.
+
+**The heroes' situation:** This is where it gets delicate. The heroes crossed a threshold — from whatever Hero Heaven was, back into the world. They are carrying everything. They drank nothing. By any definition in the Meng Po tradition, they are refusers — not in the sense of having refused at the bridge, but in the structural sense: they are souls who have persisted across a boundary carrying the full weight of their previous existence. A death-priest who understood this would not know what category to file them under. The Anchored? The Scholars? None of the existing taxonomy was written with the heroes in mind. Meng Po's accounting has a category for them, presumably. The question is what it says.
+
+**GM Notes:** Meng Po is not a confrontable entity — she is a function of the cosmos, not a character in the story. But she can be *encountered* obliquely: through her death-priests, through the refusers themselves (the Lich Cadre's undead may include people who were refusers before the Cadre found them), through the suppressed scholarly literature (a copy of the refuser taxonomy is exactly the kind of thing a Scholar-refuser might have been trying to preserve), and through the heroes' own dawning recognition of what they are. If a death-priest looks at one of the heroes and grows very still, the players will feel it. They don't need to understand why. Yet.
+
 
 ---
 
