@@ -11,8 +11,8 @@ created: 2026-08-27
 description: "PLACEHOLDER — location pending. Prose pass pending."
 last_updated: 2026-10-26
 location:
-- 36.707285
-- 67.110925
+- 36.708994
+- 67.110958
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: capital

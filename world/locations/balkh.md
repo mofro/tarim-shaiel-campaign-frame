@@ -20,8 +20,8 @@ historical_basis: Bactria - Destroyed by Genghis Khan (1220s); never rebuilt to 
   glory
 last_updated: 2026-10-30
 location:
-- 36.76
-- 66.9
+- 36.758127
+- 66.897909
 map_min_zoom: 6
 map_max_zoom: 7
 mapmarker: city
