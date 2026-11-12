@@ -5,7 +5,7 @@ domain: world
 parent_region: central-asian-hubs
 doc_type: canon
 content_type: location
-visibility: public
+visibility: gm_secrets
 status: draft
 created: 2026-09-01
 description: "PLACEHOLDER — location pending. Prose pass pending."
