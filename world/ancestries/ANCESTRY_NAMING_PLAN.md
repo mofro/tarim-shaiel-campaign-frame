@@ -27,13 +27,13 @@ last_updated: 2026-04-14
 
 ### Single-Name Ancestries
 
-| Daggerheart | Tarim-Shaiel Name | Linguistic Root | Meaning |
-|---|---|---|---|
-| Dwarf | *Kuhban* | Persian (*kuh* + *-ban*) | "Mountain-keepers / Mountain-guardians" |
-| Goblin | *Jivar* | Persian/Arabic blend (*jinn* + *jivār*) | "In-between clever ones / neighborhood spirits" |
-| Halfling | *Rahban* | Persian (*rah* + *-ban*) | "Road-keepers / Way-wardens" |
-| Katari | *Vaghri* | Sanskrit/Prakrit (*vyāghra*) | "Tiger-folk" |
-| Giant | *Kalan* | Turkic/Mongolian | "Great-kin" |
+| Daggerheart | Tarim-Shaiel Name | Linguistic Root                         | Meaning                                         |
+| ----------- | ----------------- | --------------------------------------- | ----------------------------------------------- |
+| Dwarf       | *Kuhban*          | Persian (*kuh* + *-ban*)                | "Mountain-keepers / Mountain-guardians"         |
+| Goblin      | *Jivar*           | Persian/Arabic blend (*jinn* + *jivār*) | "In-between clever ones / neighborhood spirits" |
+| Halfling    | *Rahban*          | Persian (*rah* + *-ban*)                | "Road-keepers / Way-wardens"                    |
+| Katari      | *Vaghri*          | Sanskrit/Prakrit (*vyāghra*)            | "Tiger-folk"                                    |
+| Giant       | *Kalan*           | Turkic/Mongolian                        | "Great-kin"                                     |
 
 ### Layered-Name Ancestries
 
