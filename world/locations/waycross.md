@@ -10,7 +10,7 @@ status: draft
 created: 2026-07-21
 description: Where the Samarqandh–Bukhara royal road gathers its travelers — a caravanserai, a river town, watch-heights, and open dune country, all within a day or so of each other.
 fantasy_name: Waycross
-last_updated: 2026-10-31
+last_updated: 2026-11-27
 location:
   - 40.15
   - 65.12
@@ -28,7 +28,7 @@ tags:
   - type-poi
 type: poi
 ---
-![[waycross-map]]
+[[waycross-map]]
 
 # Waycross
 
