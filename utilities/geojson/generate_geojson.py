@@ -129,7 +129,7 @@ def main() -> int:
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument(
         "--public", action="store_true",
-        help="Public mode: include only visibility=public features"
+        help="Public mode: include only visibility=public features; does not write the tracked snapshot at the default --out"
     )
     mode.add_argument(
         "--gm", action="store_true",
@@ -224,6 +224,16 @@ def main() -> int:
         })
 
     geojson: dict = {"type": "FeatureCollection", "features": features}
+
+    # The tracked file is the GM-mode snapshot. A public run holds only the
+    # public subset, so writing it here would silently drop GM-only locations
+    # from the working copy. Public runs skip it; --gm (or the default) writes it.
+    if public_only and out_path.resolve() == OUTPUT_PATH.resolve():
+        print(
+            f"  Skipped  : public mode does not write {_rel(out_path)} "
+            f"(GM snapshot). Run with --gm to update it."
+        )
+        return 0
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(
